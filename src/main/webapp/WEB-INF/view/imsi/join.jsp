@@ -5,14 +5,20 @@
 <html>
 <head>
 <meta charset="UTF-8">
+<script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+<link rel='stylesheet' type='text/css' href='./css/artbay_minseob.css'>
+<script src = '/js/artbay_minseob.js'></script>
+<script src="//t1.daumcdn.net/mapjsapi/bundle/postcode/prod/postcode.v2.js"></script>
 <title>회원가입</title>
 </head>
 <body>
-<h1>회원가입</h1>
+<h1 id='h'>회원가입</h1>
 <div id='join'>
-<form name='frm_join' method='post'>
-	<h5>본인인증</h5>
-	<input type='button' name='btnCertification' value='핸드폰 본인 인증'>
+<h5>본인 인증 또는 증빙서류를 첨부하고 기본 정보를 입력해주세요.</h5>
+<div id='join2'>
+<form name='frm_join' id='frm_join' method='post'>
+	<h5>ㅁ 본인인증</h5>
+	<input type='button' name='btnCertification' id='btnCertification' value='핸드폰 본인 인증'>
 	<br>
 	<h5>기본정보</h5>
 	<input type='text' name='id' placeholder='ID 영문/숫자 조합 5~12자리' required="required">
@@ -30,10 +36,11 @@
 	<br/>
 	<input type='text' name='address2' required="required">
 	<br/>
-	<input type='submit' name='btnJoin' value='가입 하기'>
+	<input type='submit' name='btnJoin' id='btnJoin' value='가입 하기'>
 	
 	<h6>* 추후 My Page에서 수정 가능합니다.</h6>
 </form>
+</div>
 </div>
 </body>
 </html>
