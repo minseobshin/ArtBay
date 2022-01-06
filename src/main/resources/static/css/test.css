@@ -11,7 +11,7 @@
 }
 #auction #items #title{
 	background-color:#eea;
-	
+	 
 }
 #auction #items .number, .name, .author, .artName, .requestDate, .requestPrice{
 	width:100px;
