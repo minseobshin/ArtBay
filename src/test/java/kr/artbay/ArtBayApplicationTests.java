@@ -1,10 +1,10 @@
-package kr.seob;
+package kr.artbay;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
 
 @SpringBootTest
-class ArtBaySeobApplicationTests {
+class ArtBayApplicationTests {
 
 	@Test
 	void contextLoads() {

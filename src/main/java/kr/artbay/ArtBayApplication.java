@@ -1,13 +1,13 @@
-package kr.seob;
+package kr.artbay;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 @SpringBootApplication
-public class ArtBaySeobApplication {
+public class ArtBayApplication {
 
 	public static void main(String[] args) {
-		SpringApplication.run(ArtBaySeobApplication.class, args);
+		SpringApplication.run(ArtBayApplication.class, args);
 	}
 
 }
