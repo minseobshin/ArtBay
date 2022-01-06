@@ -13,6 +13,7 @@
 	border: 1px solid #f60;
 	border-radius: 4px;
 	padding-left: 20px;
+	padding-right: 20px;
 }
 
 #join2{
@@ -20,10 +21,50 @@
 }
 
 #btnCertification{
-	width: 320px;
-	height: 40px;
+	width: 595px;
+	height: 47px;
 	background-color: #f60;
 	border: 0;
 	font-weight: bolder;
 	color: white;
+}
+
+#btnZip{
+	width: 100px;
+	height: 44px;
+	background-color: #f60;
+	border: 0;
+	font-weight: bolder;
+	color: white;
+}
+
+#mid, #irum, #birth, #gender, #phone, #email, #pwd, #pwdChk,
+#zip, #address, #address2{
+	width: 585px;
+	height: 40px;
+	margin: 5px 2px;
+}
+
+#join3{
+	text-align: center;
+	margin-top: 50px;
+}
+
+#btnJoin{
+	width: 200px;
+	height: 47px;
+	background-color: #f60;
+	border: 0;
+	font-weight: bolder;
+	color: white;
+}
+
+#btnCertification:hover, #btnZip:hover, #btnJoin:hover{
+	background-color: white;
+	color: #f60;
+}
+
+#btnCertification:active, #btnZip:active, #btnJoin:active{
+	background-color: gray;
+	color: #f60;
 }
