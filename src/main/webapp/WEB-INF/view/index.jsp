@@ -23,10 +23,11 @@
 		<li><a href="/Result">경매결과</a></li>
 		<li><a href="/FAQ">FAQ</a></li>
 		<br/>
-		<li><a href="/">테스트용으로 쓰세요.</a></li>
-		<li><a href="/">테스트용으로 쓰세요.</a></li>
-		<li><a href="/">테스트용으로 쓰세요.</a></li>
-		<li><a href="/">테스트용으로 쓰세요.</a></li>
+		<li><a href="/application">경매 신청서</a></li>
+		<li><a href="/consultationInsert">1:1문의 신청</a></li>
+		<li><a href="/consultationList">1:1문의 리스트</a></li>
+		<li><a href="/consultationView">1:1문의 상세보기</a></li>
+		<br/>
 		<li><a href="/">테스트용으로 쓰세요.</a></li>
 		<li><a href="/">테스트용으로 쓰세요.</a></li>
 		<li><a href="/">테스트용으로 쓰세요.</a></li>
