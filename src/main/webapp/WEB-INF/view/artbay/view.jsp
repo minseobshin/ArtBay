@@ -40,18 +40,18 @@
 				<p class="paintSize">사이즈</p>
 			</div>
 			<div class="view_price">
-			<p>
-				<strong>추정가</strong>
-					KRW 6,000,000~8,000,000
-			</p>
-			<p>
-				<strong>시작가</strong>
-					KRW 4,000,000
-			</p>
-			<p>
-				<strong>현재가</strong>
-					KRW 9,000,000
-			</p>
+				<p>
+					<strong>추정가</strong>
+						KRW 6,000,000~8,000,000
+				</p>
+				<p>
+					<strong>시작가</strong>
+						KRW 4,000,000
+				</p>
+				<p>
+					<strong>현재가</strong>
+						KRW 9,000,000
+				</p>
 			</div>
 			<div class="closing_hour">
 				마감 시간
@@ -74,7 +74,7 @@
 				</ul>
 			</div>
 			<br/>
-			<input type="button" class="btnBid" value="응찰하기" onclick="modalOn($('.bid_caution'))"/>
+			<input type="button" class="btnBidStart" value="응찰하기" onclick="modalOn($('.bid_price'))"/>
 		</div>
 	<!-- 낙찰 수수료 모달 -->
 		<div class="rightmodal_m1" style="border:1px solid grey;">
@@ -260,7 +260,7 @@
 				<p>위 응찰 유의사항을 확인하였으며. 동의하므로 응찰을 신청합니다.</p>
 				<div class="bidApplyBtn">
 					<input type="button" class="btnBidCancel" value="취소" />
-					<input type="button" class="btnBidApply" value="동의 및 응찰" />
+					<input type="button" class="btnBidApply" value="동의 및 응찰"/>
 				</div>
 			</div>
 		</div>
@@ -284,28 +284,28 @@
 					</ul>
 				</div>
 				<div class="current_bid_price">
-					<div>
-						<strong>시작가</strong>
-						<div>
-							<strong>KRW 4,000,000</strong>
-						</div>
-					</div>
-					<div>
-						<strong>현재가</strong>
-						<div>
-							<strong>KRW 11,000,000 (응찰횟수 20회)</strong>
-						</div>
-					</div>
 					<div class="my_choice">
-						<strong>응찰가</strong>
-						<select class="price_combo">
-							<option value="10000">10,000</option>
-							<option value="20000">20,000</option>
-						</select>
-						<strong></strong>
-							최고 응찰가를 선택하세요.
+						<div>
+							<strong>시작가</strong>
+							<div>
+								<strong>KRW 4,000,000</strong>
+							</div>
+						</div>
+						<div>
+							<strong>현재가</strong>
+							<div>
+								<strong>KRW 11,000,000 (응찰횟수 20회)</strong>
+							</div>
+						</div>
+							<strong>응찰가</strong>
+							<select class="price_combo">
+								<option value="10000">10,000</option>
+								<option value="20000">20,000</option>
+							</select>
+							<strong></strong>
+								최고 응찰가를 선택하세요.
 					</div>
-					<input type="button" class="btnBid" value="응찰하기" />
+					<input type="button" class="btnBidApplyFinal" value="응찰하기"  onclick="modalOn($('.bid_caution'))"/>
 				</div>
 			</div>
 		</div>

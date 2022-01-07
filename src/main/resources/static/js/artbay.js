@@ -9,10 +9,6 @@
 		$(this).parent().parent().hide();
 	})
 	
-	$(".btnBid").click(function(){
-		$(".bid_price").show();
-	})
-	
 	$(".btnBidCancel").click(function(){
 		$(".btnBidCancel").parent().parent().parent().hide();
 	})
