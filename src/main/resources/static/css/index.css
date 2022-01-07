@@ -1,0 +1,399 @@
+﻿@charset "UTF-8";
+
+body {
+	line-height: 1;
+	font-family: "Open Sans", sans-serif;
+	font-size: 1em;
+	background: #fff;
+}
+.clearfix::after {
+	content: "";
+	clear: both;
+	display: block;
+}
+/******************************************************************************/
+/****************************** 메뉴 네비게이션 ***********************************/
+header > * {
+	display: inline-block;
+	line-height: 70px;
+}
+/******* 메뉴 로고 *******/
+.logo {
+	padding-left: 10%;
+}
+.logo > li {
+	float: left;
+}
+.logo > li > a {
+	text-decoration: none;
+	color: #000;
+	font-size: 1.7em;
+	font-weight: bold;
+}
+
+/******* 메뉴 1단 *******/
+.navi > li {
+	float: left;
+	position: relative;
+}
+.navi > li > a {	
+	padding: 0 50px;
+	text-decoration: none;
+	color: #000;
+	font-size: 1.1em;
+	font-weight: bold;
+}
+
+/******* 메뉴 2단 *******/
+.navi {
+	padding: 0 15% 0 10%;
+}
+.navi ul {
+	position: absolute;
+	width: 100%;
+	text-align: center;
+	background: #fff; 	
+	opacity: 0;			/* 처음에는 2단 메뉴 안보이기 */
+	z-index: 999;
+}
+.navi li:hover ul {		/* 1단 메뉴에 마우스 올라갔을때 2단 메뉴 보이기 */
+	opacity: 1;
+}
+.navi ul li {			/* 처음에는 2단 메뉴항목들 안보이기 */
+	padding: 0;
+	height: 0;
+	line-height: 0;
+	opacity: 0;
+	transition: all 0.3s;
+	-webkit-transition: all 0.3s;
+}
+.navi li:hover ul li {	/* 1단 메뉴에 마우스 올라갔을때 2단 메뉴항목들 트랜지션 */
+	padding: 5px 0;
+	height: 40px;
+	line-height: 40px;
+	opacity: 1;
+}
+.navi li:hover ul li:first-child {
+	border-top: 2px solid #000;
+}
+.navi ul li > a {
+	text-decoration: none;
+	color: #909090;
+	font-size: 0.9em;
+	font-weight: 600;
+}
+.navi ul li > a:hover {
+	text-decoration: underline;
+	color: #000;
+}
+
+/******* 메뉴 로그인/회원가입 *******/
+.login li {
+	float: left;
+}
+.login li > a {
+	padding: 0px 10px;
+	text-decoration: none;
+	color: #909090;
+	font-size: 0.9em;
+}
+/******************************************************************************/
+/**************************** 메인화면 이미지 슬라이드 *******************************/
+.keyvisual {
+	position: relative;
+	width: 100%; 
+	overflow: hidden;
+}
+.keyvisual .control_btn button {
+	/*background-color: transparent;*/
+	border: none;
+	/*outline: 0;*/	
+	position: absolute;
+	top: 50%;	
+	z-index: 200;	/* 메인 비주얼 위에 보이기 */
+	margin-top: -30px;
+	width: 60px;
+	height: 60px;
+	text-align: center;
+	background: rgba(0,0,0,.5);
+	cursor: pointer;
+}
+.keyvisual .control_btn .prev {	
+	left: 0;	
+}
+.keyvisual .control_btn .next {
+	right: 0;
+}
+.keyvisual ul {
+	width: 300%;
+						/*overflow: hidden;	*/
+}
+.keyvisual li {
+	float: left;
+	width: 33.333%;
+						overflow: hidden;  /* 위? 아래? */
+}
+.keyvisual a {
+	cursor: default;
+}
+.key_control {
+	text-align: center;
+}
+.key_control ul {
+	height: 24px;
+}
+.key_control li {
+	display: inline-block;
+	margin: 8px 1px;
+	width: 8px;
+	height: 8px;
+	text-align: center;
+	text-indent: -9999px;	/* 숫자 안보이게 */
+	background-color: #999;
+	border-radius: 50%;
+}
+.key_control li:hover {
+	cursor: pointer;
+}
+.key_control li.active {
+	background-color: #000;
+}
+.key_control a { 	/*
+	display: block;
+	width: 100%;
+	height: 15px; 	*/
+}
+/******************************************************************************/
+/***************************** How To 및 경매일정 ********************************/
+/****** How to *******/
+.howto_schedule_zone {
+	width: 1200px;				/* 1280 px로 나중에 수정~~~~~~~~~~~~~~~~~~~~*/
+	margin: 100px auto;
+	overflow: hidden;
+}
+.howto_zone {
+	width: 66.53%;
+	float: left; 
+	padding-top: 30px;
+	border-top: 1px solid #707070;
+}
+.howto_zone > div {
+	width: 31.8%;
+	height: 200px;
+	float: left;
+	border: 1px solid #cbcbcb;
+	background-color: #f2f2f2;	
+}
+.howto_zone > div:nth-child(2) {
+	margin: 0 15px;
+}
+.howto_zone > div > div {
+	width: 80%;
+	margin: 0 auto;
+}
+.howto_zone > div .title {
+	font-weight: bold;
+	margin-top: 20px;
+}
+.howto_zone > div .info {
+	font-size: 0.7em;
+	margin-top: 8px;
+	margin-bottom: 30px;
+}
+.howto_zone > div .btn {
+	border: 1px solid #000;
+	text-align: center;
+	font-weight: bold;
+	font-size: 0.9em;
+	padding: 10px 0;
+	margin-bottom: 10px;
+}
+.howto_zone > div .btn:hover {
+	background-color: #000;
+	color: #fff;
+	cursor: pointer;
+}
+/****** 경매일정 ******/
+.schedule_zone {
+	width: 29%;
+	height: 200px;
+	float: right;
+	padding-top: 30px;
+	margin-left: 35px;
+	border-top: 1px solid #707070;
+}
+.schedule_zone .title {
+	font-size: 1.2em;
+	font-weight: bold;
+}
+.schedule_zone .row {
+	margin: 18px 0;
+}
+.schedule_zone .row div:first-child {
+	font-size: 0.75em;
+	color: #747474;
+}
+.schedule_zone .row div:last-child {
+	font-size: 0.8em;
+	font-weight: 500; 
+	padding-top: 10px;
+}
+/******************************************************************************/
+/******************************** 배너 슬라이드 ***********************************/
+.popup_zone {
+	margin-top: 35px;
+	width: 254px;
+	height: 145px;
+}
+.popup_zone_control {
+	width: 100%;
+	height: 23px;
+}
+.popup_zone_control > #control {
+	float: right;
+	width: 122px;
+	height: 11px;
+	margin-top: 1px;
+}
+.popup_zone_control > #control li {
+	float: left;
+	margin-right: 3px;
+	width: 11px;
+	height: 11px;
+}
+.popup_zone_control > #control li a {
+	display: block;
+	width: 11px;
+	height: 11px;
+	background: #d7d7d7;
+	-webkit-transition: background 0.3s;
+	transition: background 0.3s;
+}
+.popup_zone_control > #control li a:hover,
+.popup_zone_control > #control li a.on {
+	background: #1972d4;
+}
+.popup_zone_control > #control li.play {
+	padding-right: 2px;
+	margin: 0;
+	opacity: 0.5;	/* 처음에는 재생버튼 반투명 */
+	-webkit-transition: opacity 0.3s;
+	transition: opacity 0.3s;	
+}
+.popup_zone_control > #control li.pause {
+	margin: 0;
+	opacity: 0.5;	/* 처음에는 정지버튼 반투명 */
+	-webkit-transition: opacity 0.3s;
+	transition: opacity 0.3s;
+}
+.popup_zone_control > #control li.play img,
+.popup_zone_control > #control li.pause img {
+	vertical-align: top;
+}
+.popup_zone_control > #control li.play a:hover,
+.popup_zone_control > #control li.pause a:hover {
+	background: none;
+}
+.popup_zone_control > #control li.play.on,
+.popup_zone_control > #control li.pause.on {
+	opacity: 1;		/* 재생/정지 버튼 활성화되면 투명 제거 */
+}
+.banner {
+	position: relative;
+	overflow: hidden;
+	width: 256px;
+	height: 122px;
+	outline: 1px solid #ccc;
+}
+.banner .moving {
+	position: absolute;
+	left: 0;
+	top: 0;
+	width: 1792px;
+	height: 122px;
+}
+.banner .moving > div {
+	float: left;
+	width: 256px;
+	height: 122px;
+}
+/******************************************************************************/
+/******* footer *******/
+footer {
+	margin-top: 60px;
+	background-color: #000;
+}
+footer div ul li {
+	float: left;
+	margin-right: 10px;
+}
+footer div ul li a {
+	text-decoration: none;
+}
+footer .info ul {
+	width: 300px;
+	margin: 0 auto;
+	padding: 30px 0 10px 0;
+}
+footer .info ul li a {
+	font-weight: bold;
+	color: #fff;
+}
+footer .info ul li a:hover, footer .rule ul li a:hover {
+	color: #e5720e;
+}
+footer .rule ul {
+	width: 330px;
+	margin: 0 auto;
+	padding-bottom: 10px;
+}
+footer .rule ul li a {
+	font-weight: bold;
+	color: #7e7e7e;
+	font-size: 0.8em;
+}
+footer .doc ul {
+	width: 525px;
+	margin: 0 auto;
+	padding-bottom: 5px;
+}
+footer .doc ul li {
+	font-weight: bold;
+	color: #4e4e4e;
+	font-size: 0.7em;
+}
+footer .contact ul {
+	width: 545px;
+	margin: 0 auto;
+	padding-bottom: 10px;
+}
+footer .contact ul li {
+	font-weight: bold;
+	color: #4e4e4e;
+	font-size: 0.7em;
+}
+footer .copy {
+	color: #4e4e4e;
+	font-size: 0.7em;
+	font-weight: bold;
+	text-align: center;
+	padding-bottom: 20px;
+}
+/******* 맨위 / 맨아래 이동 *******/
+.scrollBtn {
+	position: fixed;   
+  	right: 10px;      
+  	cursor: pointer;   
+  	z-index: 10;
+  	opacity: 0.5;  	
+  	background-color: #000;
+  	color: #fff;
+  	padding: 5px;  	
+}
+#topBtn {
+	bottom: 108px;
+}
+#bottomBtn {
+	bottom: 75px;
+}
+/******************************************************************************/

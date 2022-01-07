@@ -24,6 +24,12 @@ public class TestController {
 		
 		return mv;
 	}
+	@RequestMapping(value = "/home")
+	public ModelAndView home() {
+		ModelAndView mv = new ModelAndView();
+		mv.setViewName("index_sby");
+		return mv;		
+	}
 	
 	@RequestMapping(value="/memberJoin")
 	public ModelAndView join() {
