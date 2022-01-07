@@ -78,5 +78,11 @@ public class TestController {
 		
 		return mv;
 	}
-	
+	@RequestMapping(value="/view")
+	public ModelAndView view() {
+		ModelAndView mv = new ModelAndView();
+		mv.setViewName("imsi/lsy/view");
+		
+		return mv;
+	}
 }
