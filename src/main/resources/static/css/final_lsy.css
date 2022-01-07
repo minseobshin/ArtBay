@@ -43,7 +43,7 @@
 	text-align:center;
 	vertical-align:middle;
 }
-#auction #items .number, .artist, .requestPrice, .successPrice {
+#auction #items .num, .artist, .requestPrice, .successPrice {
 	display:inline-block;
 	width:100px;
 	text-align:center;
