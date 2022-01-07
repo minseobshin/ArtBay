@@ -34,6 +34,6 @@
 	<!-- 로그인/회원가입 -->
 	<ul class="login clearfix">
 		<li><a href="#">LOGIN</a></li>
-		<li><a href="#">JOIN</a></li>
+		<li><a href="memberJoin">JOIN</a></li>
 	</ul>
 </header>

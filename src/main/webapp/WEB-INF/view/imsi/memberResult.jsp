@@ -19,7 +19,7 @@
 		회원 탈퇴가 완료되었습니다.
 		중 하나 표시 예정.
 	</div>
-	<div class='join3'><input type='button' value='확인' id='btnOk'></div>
+	<div class='join3'><input type='button' value='확인' id='btnOk' onclick='self.close()'></div>
 </div>
 </body>
 </html>
