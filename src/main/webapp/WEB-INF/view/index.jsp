@@ -21,7 +21,7 @@
 		<li><a href="/Consign">위탁내역</a></li>
 		<li><a href="/Result">경매결과</a></li>
 		<li><a href="/FAQ">FAQ</a></li>
-		<li><a href="/view">view</a></li>
+		
 		<br/>
 		<li><a href="/">테스트용으로 쓰세요.</a></li>
 		<li><a href="/">테스트용으로 쓰세요.</a></li>

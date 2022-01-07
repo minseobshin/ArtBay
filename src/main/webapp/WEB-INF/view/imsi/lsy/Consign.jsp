@@ -13,7 +13,7 @@
 <div id='auction'>
 	<h1>위탁내역</h1>
 	<input type='button' id='consignBtn' value='위탁신청'>
-
+	<input type='button' id='delConsignBtn' value='선택된 위탁 취소'>
 	<div id='items'>
 		<div id='title'>
 			<span class='num'>번호</span>
@@ -21,6 +21,8 @@
 			<span class='artist'>작가명</span>
 			<span class='artName'>작품명</span>
 			<span class='consignDate'>신청일자</span>
+			<span class='delConsign'>위탁 취소</span>
+			
 		</div>
 		
 		<div id='rows'>
@@ -31,7 +33,7 @@
 				<span class='artist'    >홍길동</span>
 				<span class='artName'>백자</span>
 				<span class='consignDate'   >2022-01-03</span>
-				
+				<span class='delConsign'><input type='checkbox' name='delConsign'></span>
 			</div>
 				
 			<div id='item' onclick = >
@@ -40,6 +42,7 @@
 				<span class='artist'    >홍길동</span>
 				<span class='artName'>백자</span>
 				<span class='consignDate'   >2022-01-03</span>
+				<span class='delConsign'><input type='checkbox' name='delConsign'></span>
 				
 			</div>
 			<div id='item' onclick = >
@@ -48,6 +51,7 @@
 				<span class='artist'    >홍길동</span>
 				<span class='artName'>백자</span>
 				<span class='consignDate'   >2022-01-03</span>
+				<span class='delConsign'><input type='checkbox' name='delConsign'></span>
 				
 			</div>
 			<div id='item' onclick = >
@@ -56,6 +60,7 @@
 				<span class='artist'    >홍길동</span>
 				<span class='artName'>백자</span>
 				<span class='consignDate'   >2022-01-03</span>
+				<span class='delConsign'><input type='checkbox' name='delConsign'></span>
 				
 			</div>
 			<div id='item' onclick = >
@@ -64,6 +69,7 @@
 				<span class='artist'    >홍길동</span>
 				<span class='artName'>백자</span>
 				<span class='consignDate'   >2022-01-03</span>
+				<span class='delConsign'><input type='checkbox' name='delConsign'></span>
 				
 			</div>
 			<div id='item' onclick = >
@@ -72,6 +78,7 @@
 				<span class='artist'    >홍길동</span>
 				<span class='artName'>백자</span>
 				<span class='consignDate'   >2022-01-03</span>
+				<span class='delConsign'><input type='checkbox' name='delConsign'></span>
 				
 			</div>
 			<div id='item' onclick = >
@@ -80,6 +87,7 @@
 				<span class='artist'    >홍길동</span>
 				<span class='artName'>백자</span>
 				<span class='consignDate'   >2022-01-03</span>
+				<span class='delConsign'><input type='checkbox' name='delConsign'></span>
 				
 			</div>
 			<div id='item' onclick = >
@@ -88,6 +96,7 @@
 				<span class='artist'    >홍길동</span>
 				<span class='artName'>백자</span>
 				<span class='consignDate'   >2022-01-03</span>
+				<span class='delConsign'><input type='checkbox' name='delConsign'></span>
 				
 			</div>
 			<div id='item' onclick = >
@@ -96,6 +105,7 @@
 				<span class='artist'    >홍길동</span>
 				<span class='artName'>백자</span>
 				<span class='consignDate'   >2022-01-03</span>
+				<span class='delConsign'><input type='checkbox' name='delConsign'></span>
 				
 			</div>
 		</div>
