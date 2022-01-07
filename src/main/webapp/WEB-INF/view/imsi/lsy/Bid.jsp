@@ -26,7 +26,7 @@
 		
 		<div id='rows'>
 			
-				<div id='item' onclick ='bid.view($(vo.num))' >
+				<div id='item' onclick ='bid.view(1)' >
 					<span class='num'>11111</span>
 					<span class='name'>공갈도자기</span>
 					<span class='artist'>홍길동</span>
@@ -35,7 +35,7 @@
 					<span class='requestPrice'>1000만원</span>	
 									
 				</div>
-				<div id='item' onclick = >
+				<div id='item' onclick = 'bid.view(1)'>
 					<span class='num'>124234</span>
 					<span class='name'>공갈도자기</span>
 					<span class='artist'>홍길동</span>
@@ -43,7 +43,7 @@
 					<span class='requestDate'>2022-01-30</span>
 					<span class='requestPrice'>1000만원</span>					
 				</div>
-				<div id='item' onclick = >
+				<div id='item' onclick = 'bid.view(1)'>
 					<span class='num'>124234</span>
 					<span class='name'>공갈도자기</span>
 					<span class='artist'>홍길동</span>
@@ -51,7 +51,7 @@
 					<span class='requestDate'>2022-01-30</span>
 					<span class='requestPrice'>1000만원</span>					
 				</div>
-				<div id='item' onclick = >
+				<div id='item' onclick = 'bid.view(1)'>
 					<span class='num'>124234</span>
 					<span class='name'>공갈도자기</span>
 					<span class='artist'>홍길동</span>
@@ -59,7 +59,7 @@
 					<span class='requestDate'>2022-01-30</span>
 					<span class='requestPrice'>1000만원</span>					
 				</div>
-				<div id='item' onclick = >
+				<div id='item' onclick = 'bid.view(1)'>
 					<span class='num'>124234</span>
 					<span class='name'>공갈도자기</span>
 					<span class='artist'>홍길동</span>
@@ -67,7 +67,7 @@
 					<span class='requestDate'>2022-01-30</span>
 					<span class='requestPrice'>1000만원</span>					
 				</div>
-				<div id='item' onclick = >
+				<div id='item' onclick = 'bid.view(1)'>
 					<span class='num'>124234</span>
 					<span class='name'>공갈도자기</span>
 					<span class='artist'>홍길동</span>
@@ -75,7 +75,7 @@
 					<span class='requestDate'>2022-01-30</span>
 					<span class='requestPrice'>1000만원</span>					
 				</div>
-				<div id='item' onclick = >
+				<div id='item' onclick = 'bid.view(1)'>
 					<span class='num'>124234</span>
 					<span class='name'>공갈도자기</span>
 					<span class='artist'>홍길동</span>
@@ -87,22 +87,22 @@
 		</div>
 	<div id='btnZone'>
 			
-				<input type='button' value='&lt&lt' id='btnFirst' onclick='bid.page(1)'/>
-				<input type='button' value='&lt' id='btnPrev'  onclick=''/>
+				<input type='button' value='&lt&lt' id='btnFirst' onclick='bid.move(1)'/>
+				<input type='button' value='&lt' id='btnPrev'  onclick='bid.move(1)'/>
 			
 			
-			<c:forEach var='i' begin='1' end='5'>
-				<input type='button' value='${i }' class=""  onclick=''/>
+			<c:forEach var='i' begin='1' end='3'>
+				<input type='button' value='${i }' class=""  onclick='bid.move(1)'/>
 			</c:forEach>
 
 			
-				<input type='button' value='&gt' id='btnNext'  onclick=''/>
-				<input type='button' value='&gt&gt' id='btnLast'  onclick=''/>
+				<input type='button' value='&gt' id='btnNext'  onclick='bid.move(1)'/>
+				<input type='button' value='&gt&gt' id='btnLast'  onclick='bid.move(1)'/>
 			 			
 	</div>
 		<form name='frm_page' id='frm_page' method='post'>
-			<input type='text' name='nowPage' value='${nowPage }'>
-			<input type='text' name='num'>
+			<input type='text' name='nowPage' value=''>
+			<input type='text' name='num' value=''>
 		</form>
 		
 

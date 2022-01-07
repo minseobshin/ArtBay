@@ -11,12 +11,12 @@
 <title>응찰내역 view</title>
 </head>
 <body>
-<h4>응찰내역</h4>
+<h4>상세보기</h4>
 <form name='frm_view' id='frm_view' method='post'>
 <h4>${msg }</h4>
 	
 	<label>번호</label>
-	<input type='text' name='number' value='${number }' >
+	<input type='text' name='num' value='${num }' >
 	<br/>
 	<label>작품</label>
 	<input type='text' size='30' name='' value='${name }' >

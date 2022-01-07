@@ -110,11 +110,11 @@
 
 		<div id='btnZone'>
 			
-				<input type='button' value='&lt&lt' id='btnFirst'/>
+				<input type='button' value='&lt&lt' id='btnFirst' onclick='bid.page(1)'/>
 				<input type='button' value='&lt' id='btnPrev'  onclick=''/>
 			
 			
-			<c:forEach var='i' begin='1' end='10'>
+			<c:forEach var='i' begin='1' end='3'>
 				<input type='button' value='${i }' class=""  onclick=''/>
 			</c:forEach>
 
