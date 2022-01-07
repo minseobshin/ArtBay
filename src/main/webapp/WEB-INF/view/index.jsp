@@ -13,7 +13,7 @@
 	<div id='index'>
 	<h1>ArtBay Index 임시 테스트 페이지</h1>
 	<ul>
-		<li><a href="/join">회원가입 화면</a></li>
+		<li><a href="/memberJoin">회원가입 화면</a></li>
 		<li><a href="/memberModify">회원정보 수정 화면</a></li>
 		<br/>
 		<li><a href="/Bid">응찰내역</a></li>

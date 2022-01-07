@@ -23,10 +23,10 @@ public class TestController {
 		return mv;
 	}
 	
-	@RequestMapping(value="/join")
+	@RequestMapping(value="/memberJoin")
 	public ModelAndView join() {
 		ModelAndView mv = new ModelAndView();
-		mv.setViewName("imsi/join");
+		mv.setViewName("imsi/memberJoin");
 		
 		return mv;
 	}
