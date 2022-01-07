@@ -1,5 +1,7 @@
 package kr.artbay.mybatis;
 
+import javax.servlet.http.HttpServletRequest;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
@@ -108,6 +110,20 @@ public class TestController {
 	public ModelAndView consultationView() {
 		ModelAndView mv = new ModelAndView();
 		mv.setViewName("KD/consultationView");
+		return mv;
+	}
+	
+	@RequestMapping(value="/list")
+	public ModelAndView artbayMain(HttpServletRequest req) {
+		ModelAndView mv = new ModelAndView();
+		mv.setViewName("artbay/list");
+		return mv;
+	}
+	
+	@RequestMapping(value="/view")
+	public ModelAndView artbayView(HttpServletRequest req) {
+		ModelAndView mv = new ModelAndView();
+		mv.setViewName("artbay/view");
 		return mv;
 	}
 }

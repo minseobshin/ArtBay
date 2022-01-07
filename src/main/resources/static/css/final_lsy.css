@@ -227,9 +227,19 @@ body{
 #auction_faq #list a:hover{
 	cursor:pointer;
 }
-#auction_faq #list .answer{
-	background-color:#ddd;
-	display:none;
+#auction_faq .faq .question {
+    margin: 0px;
+    padding: 0px 0px 5px 0px;
+    display: inline-block;
+    cursor: pointer;
+    font-weight: bold;
+}
+ 
+auction_faq .faq .answer_container {
+	height: 0px;
+    overflow: hidden;
+    padding: 0px;
+
 }
 
 /*auction_view*/

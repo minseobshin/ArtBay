@@ -1,6 +1,7 @@
 /**
  * 
  */
+
  $(function(){
 	let frm = document.frm_auction;
 	let url = 'index.jsp?sub=./imsi/';
@@ -32,4 +33,6 @@
 		//은정씨 페이지
 	}
 	
-})
+	
+	
+});
