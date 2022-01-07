@@ -39,6 +39,14 @@ public class TestController {
 		return mv;
 	}
 	
+	@RequestMapping(value="/memberResult")
+	public ModelAndView memberResult() {
+		ModelAndView mv = new ModelAndView();
+		mv.setViewName("imsi/memberResult");
+		
+		return mv;
+	}
+	
 	@RequestMapping(value="/Bid")
 	public ModelAndView Bid() {
 		ModelAndView mv = new ModelAndView();

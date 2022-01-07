@@ -69,7 +69,7 @@
 			<input type='text' name='mid' id='mid' placeholder='ID' required="required">
 			<input type='password' name='pwd' id='pwd' placeholder="비밀번호" required="required">
 			<br/><br>
-			<label><input type='checkbox' name='outChk'>회원 탈퇴에 동의합니다.</label>
+			<label><input type='checkbox' name='outChk'> 회원 탈퇴에 동의합니다.</label>
 			<br>
 			<div class='join3'>
 				<input type='submit' name='btnOutChk' id='btnOutChk' value='회원탈퇴'>

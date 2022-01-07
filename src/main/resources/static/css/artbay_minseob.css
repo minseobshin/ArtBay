@@ -15,6 +15,19 @@
 	border: 1px solid #f60;
 	border-radius: 4px;
 	padding: 0 20px 20px 20px;
+	box-sizing: border-box;
+}
+
+#memberResult{
+	width: 700px;
+	height: 400px;
+	margin: 0 auto;
+	margin-top: 20px;
+	border: 1px solid #f60;
+	border-radius: 4px;
+	padding: 0 20px 20px 20px;
+	box-sizing: border-box;
+	overflow: hidden;
 }
 
 #join2{
@@ -30,7 +43,7 @@
 	color: white;
 }
 
-#btnZip, #btnOut, #btnOutChk, #btnOutCancel{
+#btnZip, #btnOut, #btnOutChk, #btnOutCancel, #btnOk{
 	width: 100px;
 	height: 44px;
 	background-color: #f60;
@@ -41,7 +54,7 @@
 
 #mid, #irum, #birth, #gender, #phone, #email, #pwd, #newPwd, #newPwdChk, #pwdChk,
 #zip, #address, #address2{
-	width: 625px;
+	width: 604px;
 	height: 40px;
 	margin: 5px 2px;
 }
@@ -50,6 +63,8 @@
 	text-align: center;
 	margin-top: 50px;
 }
+
+.join4{height: 160px;}
 
 #btnJoin, #btnModify{
 	width: 200px;
@@ -61,14 +76,14 @@
 }
 
 #btnCertification:hover, #btnZip:hover, #btnJoin:hover, #btnOut:hover, #btnModify:hover,
-#btnOutChk:hover, #btnOutCancel:hover{
+#btnOutChk:hover, #btnOutCancel:hover, #btnOk:hover{
 	background-color: white;
 	color: #f60;
 	border: 1px solid #f60;
 }
 
 #btnCertification:active, #btnZip:active, #btnJoin:active, #btnOut:active, #btnModify:active,
-#btnOutChk:active, #btnOutCancel:active{
+#btnOutChk:active, #btnOutCancel:active, #btnOk:active{
 	background-color: #f60;
 	color: white;
 }
@@ -90,7 +105,7 @@
 
 #out_chk form{
 	background-color: white;
-	width: 1320px;
+	width: 1280px;
 	margin: 0 auto;
 	margin-top: 300px;
 	padding: 20px;
@@ -110,7 +125,7 @@
 }
 
 #out_chk form textarea{
-	width: 1240px;
+	width: 1200px;
 	height: 200px;
 	margin-left: 15px;
 }
