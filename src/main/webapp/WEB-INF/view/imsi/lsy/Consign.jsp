@@ -12,6 +12,7 @@
 <body>
 <div id='auction'>
 	<h1>위탁내역</h1>
+	<form name='frm_auction' method='post'>
 	<input type='button' id='consignBtn' value='위탁신청'>
 	<input type='button' id='delConsignBtn' value='선택된 위탁 취소'>
 	<div id='items'>
@@ -129,6 +130,8 @@
 		<input type='text' name='nowPage' value='${nowPage }'/>
 	</div>
 
+	
+	</form>
 </div>
 <script src='./js/final_lsy.js'></script>
 </body>

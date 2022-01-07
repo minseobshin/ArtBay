@@ -11,6 +11,7 @@
 </head>
 <body>
 <div id='auction'>
+<form name='frm_auction' method='post'>
 	<h1>낙찰내역</h1>
 
 	<div id='items'>
@@ -109,7 +110,7 @@
 		<div class='findZone'>
 			<input type='hidden' name='nowPage' value='${nowPage }'/>
 		</div>
-
+	</form>
 </div>
 <script src='./js/final_lsy.js'></script>
 </body>

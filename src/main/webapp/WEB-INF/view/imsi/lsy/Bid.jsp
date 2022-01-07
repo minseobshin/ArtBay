@@ -13,7 +13,7 @@
 <body>
 <div id='auction'>
 	<h1>응찰내역</h1>
-  
+	<form name='frm_auction' method='post'>
 	<div id='items'>
 		<div id='title'>
 			<span class='num'>번호</span>
@@ -100,12 +100,12 @@
 				<input type='button' value='&gt&gt' id='btnLast'  onclick='bid.move(1)'/>
 			 			
 	</div>
+		
+	</form>
 		<form name='frm_page' id='frm_page' method='post'>
 			<input type='text' name='nowPage' value=''>
 			<input type='text' name='num' value=''>
 		</form>
-		
-
 </div>
 <script src='./js/final_lsy.js'></script>
 </body>

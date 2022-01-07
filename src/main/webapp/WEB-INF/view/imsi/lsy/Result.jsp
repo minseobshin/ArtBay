@@ -12,18 +12,18 @@
 <body>
 <div id='auction'>
 <h1>Online Action 경매 결과</h1>	
-	<form name='frm_result' method='post'>
+	<form name='frm_auction' method='post'>
 		<div id='findZone'>
-			<input type='hidden' name='page' value='${nowPage }'>
+			<input type='text' name='nowPage' ><br/>
 			<input type='search'  placeholder='검색어를 입력해 주세요' name='findStr' value='${findStr }'>
-			<input type='button' value='검색'>
+			<input type='button' name='btnFind' value='검색'>
 			<select name='sort' style="width:90px;height:30px;" >
 				<option value='none'>경매 정렬</option>
 				<option value='up'>경매일▲</option>
 				<option value='down'>경매일▼</option>
 			</select>
 		</div>
-	</form>
+	
 	<div id='list'>
 		
 			<div id='item' onclick = >
@@ -34,7 +34,7 @@
 				<span class='endDate_title' >경매종료일</span>	
 				<span class='endDate_value' >2021-12-22</span>	<br/>
 				<img src = 'http://placehold.it/120x160'/>
-				<input type='button' class='detail' value='상세보기' >
+				<input type='button' class='detail' name='btnDetail' value='상세보기' >
 			</div>
 			<div id='item' onclick = >
 				<span class='weekly_value'  >2021년 12월 27일</span>
@@ -44,7 +44,7 @@
 				<span class='endDate_title' >경매종료일</span>	
 				<span class='endDate_value' >2021-12-22</span>	<br/>
 				<img src = 'http://placehold.it/120x160'/>
-				<input type='button' class='detail' value='상세보기' >
+				<input type='button' class='detail'  name='btnDetail' value='상세보기' >
 			</div>
 			<div id='item' onclick = >
 				<span class='weekly_value'  >2021년 12월 27일</span>
@@ -54,7 +54,7 @@
 				<span class='endDate_title' >경매종료일</span>	
 				<span class='endDate_value' >2021-12-22</span>	<br/>
 				<img src = 'http://placehold.it/120x160'/>
-				<input type='button' class='detail' value='상세보기' >
+				<input type='button' class='detail'  name='btnDetail' value='상세보기' >
 			</div>
 			<div id='item' onclick = >
 				<span class='weekly_value'  >2021년 12월 27일</span>
@@ -64,7 +64,7 @@
 				<span class='endDate_title' >경매종료일</span>	
 				<span class='endDate_value' >2021-12-22</span>	<br/>
 				<img src = 'http://placehold.it/120x160'/>
-				<input type='button' class='detail' value='상세보기' >
+				<input type='button' class='detail'  name='btnDetail' value='상세보기' >
 			</div>
 			<div id='item' onclick = >
 				<span class='weekly_value'  >2021년 12월 27일</span>
@@ -74,7 +74,7 @@
 				<span class='endDate_title' >경매종료일</span>	
 				<span class='endDate_value' >2021-12-22</span>	<br/>
 				<img src = 'http://placehold.it/120x160'/>
-				<input type='button' class='detail' value='상세보기' >
+				<input type='button' class='detail'  name='btnDetail' value='상세보기' >
 			</div>
 			<div id='item' onclick = >
 				<span class='weekly_value'  >2021년 12월 27일</span>
@@ -84,7 +84,7 @@
 				<span class='endDate_title' >경매종료일</span>	
 				<span class='endDate_value' >2021-12-22</span>	<br/>
 				<img src = 'http://placehold.it/120x160'/>
-				<input type='button' class='detail' value='상세보기' >
+				<input type='button' class='detail'  name='btnDetail' value='상세보기' >
 			</div>
 			<div id='item' onclick = >
 				<span class='weekly_value'  >2021년 12월 27일</span>
@@ -94,7 +94,7 @@
 				<span class='endDate_title' >경매종료일</span>	
 				<span class='endDate_value' >2021-12-22</span>	<br/>
 				<img src = 'http://placehold.it/120x160'/>
-				<input type='button' class='detail' value='상세보기' >
+				<input type='button' class='detail' name='btnDetail' value='상세보기' >
 			</div>
 			<div id='item' onclick = >
 				<span class='weekly_value'  >2021년 12월 27일</span>
@@ -104,7 +104,7 @@
 				<span class='endDate_title' >경매종료일</span>	
 				<span class='endDate_value' >2021-12-22</span>	<br/>
 				<img src = 'http://placehold.it/120x160'/>
-				<input type='button' class='detail' value='상세보기' >
+				<input type='button' class='detail'  name='btnDetail' value='상세보기' >
 			</div>
 	</div>
 
@@ -123,6 +123,7 @@
 				<input type='button' value='&gt&gt' id='btnLast'  onclick=''/>
 			 			
 	</div>
+	</form>
 </div>
 <script src='./js/final_lsy.js'></script>
 </body>
