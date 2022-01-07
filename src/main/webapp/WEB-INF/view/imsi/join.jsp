@@ -12,9 +12,9 @@
 <title>회원가입</title>
 </head>
 <body>
-<h1 id='h'>회원가입</h1>
+<h1 id='h'>ArtBay 회원가입</h1>
 <div id='join'>
-<h5>본인 인증 또는 증빙서류를 첨부하고 기본 정보를 입력해주세요.</h5>
+<h5>본인 인증 후 기본 정보 및 주소를 입력해주세요.</h5>
 <div id='join2'>
 <form name='frm_join' id='frm_join' method='post'>
 	<h5>▷ 본인인증</h5>
@@ -33,10 +33,9 @@
 	<input type='text' name='zip' id='zip' readonly placeholder="우편번호" required="required">
 	<input type='button' value='우편번호' name='btnZip' id='btnZip'>
 	<br/>
-	<input type='text' name='address' id='address' required="required">
-	<br/>
-	<input type='text' name='address2' id='address2' required="required">
-	<div id='join3'>
+	<input type='text' name='address' id='address' readonly required="required" placeholder="주소">
+	<input type='text' name='address2' id='address2' required="required" placeholder="상세주소">
+	<div class='join3'>
 		<input type='submit' name='btnJoin' id='btnJoin' value='가입 하기'>
 	</div>
 	

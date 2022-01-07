@@ -1,19 +1,18 @@
 @charset "UTF-8";
 
 #h{
-	width:1200px;
+	width:1280px;
 	margin: 0 auto;
 	margin-top: 50px;
 	margin-bottom: 30px;
 }
 
 #join{
-	width: 1200px;
+	width: 1280px;
 	margin: 0 auto;
 	border: 1px solid #f60;
 	border-radius: 4px;
-	padding-left: 20px;
-	padding-right: 20px;
+	padding: 0 20px 20px 20px;
 }
 
 #join2{
@@ -21,7 +20,7 @@
 }
 
 #btnCertification{
-	width: 595px;
+	width: 635px;
 	height: 47px;
 	background-color: #f60;
 	border: 0;
@@ -29,7 +28,7 @@
 	color: white;
 }
 
-#btnZip{
+#btnZip, #btnOut{
 	width: 100px;
 	height: 44px;
 	background-color: #f60;
@@ -38,19 +37,19 @@
 	color: white;
 }
 
-#mid, #irum, #birth, #gender, #phone, #email, #pwd, #pwdChk,
+#mid, #irum, #birth, #gender, #phone, #email, #pwd, #newPwd, #newPwdChk, #pwdChk,
 #zip, #address, #address2{
-	width: 585px;
+	width: 625px;
 	height: 40px;
 	margin: 5px 2px;
 }
 
-#join3{
+.join3{
 	text-align: center;
 	margin-top: 50px;
 }
 
-#btnJoin{
+#btnJoin, #btnModify{
 	width: 200px;
 	height: 47px;
 	background-color: #f60;
@@ -59,12 +58,13 @@
 	color: white;
 }
 
-#btnCertification:hover, #btnZip:hover, #btnJoin:hover{
+#btnCertification:hover, #btnZip:hover, #btnJoin:hover, #btnOut:hover, #btnModify:hover{
 	background-color: white;
 	color: #f60;
+	border: 1px solid #f60;
 }
 
-#btnCertification:active, #btnZip:active, #btnJoin:active{
-	background-color: gray;
-	color: #f60;
+#btnCertification:active, #btnZip:active, #btnJoin:active, #btnOut:active, #btnModify:active{
+	background-color: #f60;
+	color: white;
 }
