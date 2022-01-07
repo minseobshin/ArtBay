@@ -9,5 +9,5 @@ public class ArtBayApplication {
 	public static void main(String[] args) {
 		SpringApplication.run(ArtBayApplication.class, args);
 	}
-
+ 
 }
