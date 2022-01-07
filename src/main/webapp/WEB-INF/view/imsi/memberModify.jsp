@@ -52,8 +52,8 @@
 </form>
 
 	<!-- 탈퇴시 확인 화면(모달창) -->
-	<div id='out_check'>
-		<form name='frm_outCheck' method='post'>
+	<div id='out_chk'>
+		<form name='frm_outChk' method='post'>
 			<h5>➢ 탈퇴사유</h5>
 			<label><input type='checkbox' name='outEu'>이용 빈도 낮음</label>
 			<label><input type='checkbox' name='outEu'>회원 혜택 부족</label>
@@ -62,6 +62,12 @@
 			<label><input type='checkbox' name='outEu'>서비스 불만</label>
 			<label><input type='checkbox' name='outEu'>개인정보 유출 우려</label>
 			<textarea name='outEu2' placeholder="탈퇴 사유를 입력해 주시면 사이트 개선에 적극 반영하겠습니다."></textarea>
+			<h5>➢ 탈퇴신청</h5>
+			<h5>아이디와 비밀번호를 한번 더 입력한 후 탈퇴신청을 해 주시기 바랍니다.</h5>
+			<input type='text' name='mid' id='mid' placeholder='ID' required="required">
+			<input type='password' name='pwd' id='pwd' placeholder="비밀번호" required="required">
+			<label><input type='checkbox' name='outChk'>회원 탈퇴에 동의합니다.</label>
+			<input type='submit' name='btnOutChk' id='btnOutChk' value='회원탈퇴'>
 		</form>
 	</div>
 </div>
