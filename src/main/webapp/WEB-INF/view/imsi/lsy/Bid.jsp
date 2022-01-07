@@ -13,7 +13,7 @@
 <body>
 <div id='auction'>
 	<h1>응찰내역</h1>
-
+  
 	<div id='items'>
 		<div id='title'>
 			<span class='number'>번호</span>
