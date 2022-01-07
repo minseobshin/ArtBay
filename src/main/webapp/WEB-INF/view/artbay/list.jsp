@@ -75,7 +75,7 @@
 		</div>
 		<div class="listBox">
 			<c:forEach begin="0" end="4">
-			<div class="listInner" onclick="location.href='/artbay/view';">
+			<div class="listInner" onclick="location.href='/view';">
 			<!-- onclick = 필요 -->
 				<p class="img"><img src="../img/spongebob.png" /></p>
 				<div class="listInnerText">
