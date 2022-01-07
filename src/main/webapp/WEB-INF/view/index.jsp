@@ -13,8 +13,9 @@
 	<div id='index'>
 	<h1>ArtBay Index 임시 테스트 페이지</h1>
 	<ul>
-		<li><a href="/join">회원가입 화면</a></li>
+		<li><a href="/memberJoin">회원가입 화면</a></li>
 		<li><a href="/memberModify">회원정보 수정 화면</a></li>
+		<li><a href="/memberResult">회원 가입/수정/탈퇴 결과 화면</a></li>
 		<br/>
 		<li><a href="/Bid">응찰내역</a></li>
 		<li><a href="/SuccessfulBid">낙찰내역</a></li>
@@ -23,11 +24,11 @@
 		<li><a href="/FAQ">FAQ</a></li>
 		
 		<br/>
-		<li><a href="/">테스트용으로 쓰세요.</a></li>
-		<li><a href="/">테스트용으로 쓰세요.</a></li>
-		<li><a href="/">테스트용으로 쓰세요.</a></li>
-		<li><a href="/">테스트용으로 쓰세요.</a></li>
-		<li><a href="/">테스트용으로 쓰세요.</a></li>
+		<li><a href="/application">경매 신청서</a></li>
+		<li><a href="/consultationInsert">1:1문의 신청</a></li>
+		<li><a href="/consultationList">1:1문의 리스트</a></li>
+		<li><a href="/consultationView">1:1문의 상세보기</a></li>
+		<br/>
 		<li><a href="/">테스트용으로 쓰세요.</a></li>
 		<li><a href="/">테스트용으로 쓰세요.</a></li>
 		<li><a href="/">테스트용으로 쓰세요.</a></li>

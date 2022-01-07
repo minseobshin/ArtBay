@@ -1,19 +1,33 @@
 @charset "UTF-8";
 
+/* 회원가입, 회원가입 수정 페이지 공통부분 시작 */
+
 #h{
-	width:1200px;
+	width: 1280px;
 	margin: 0 auto;
 	margin-top: 50px;
 	margin-bottom: 30px;
 }
 
 #join{
-	width: 1200px;
+	width: 1280px;
 	margin: 0 auto;
 	border: 1px solid #f60;
 	border-radius: 4px;
-	padding-left: 20px;
-	padding-right: 20px;
+	padding: 0 20px 20px 20px;
+	box-sizing: border-box;
+}
+
+#memberResult{
+	width: 700px;
+	height: 400px;
+	margin: 0 auto;
+	margin-top: 20px;
+	border: 1px solid #f60;
+	border-radius: 4px;
+	padding: 0 20px 20px 20px;
+	box-sizing: border-box;
+	overflow: hidden;
 }
 
 #join2{
@@ -21,7 +35,7 @@
 }
 
 #btnCertification{
-	width: 595px;
+	width: 635px;
 	height: 47px;
 	background-color: #f60;
 	border: 0;
@@ -29,7 +43,7 @@
 	color: white;
 }
 
-#btnZip{
+#btnZip, #btnOut, #btnOutChk, #btnOutCancel, #btnOk{
 	width: 100px;
 	height: 44px;
 	background-color: #f60;
@@ -38,19 +52,21 @@
 	color: white;
 }
 
-#mid, #irum, #birth, #gender, #phone, #email, #pwd, #pwdChk,
+#mid, #irum, #birth, #gender, #phone, #email, #pwd, #newPwd, #newPwdChk, #pwdChk,
 #zip, #address, #address2{
-	width: 585px;
+	width: 604px;
 	height: 40px;
 	margin: 5px 2px;
 }
 
-#join3{
+.join3{
 	text-align: center;
 	margin-top: 50px;
 }
 
-#btnJoin{
+.join4{height: 160px;}
+
+#btnJoin, #btnModify{
 	width: 200px;
 	height: 47px;
 	background-color: #f60;
@@ -59,12 +75,59 @@
 	color: white;
 }
 
-#btnCertification:hover, #btnZip:hover, #btnJoin:hover{
+#btnCertification:hover, #btnZip:hover, #btnJoin:hover, #btnOut:hover, #btnModify:hover,
+#btnOutChk:hover, #btnOutCancel:hover, #btnOk:hover{
 	background-color: white;
 	color: #f60;
+	border: 1px solid #f60;
 }
 
-#btnCertification:active, #btnZip:active, #btnJoin:active{
-	background-color: gray;
-	color: #f60;
+#btnCertification:active, #btnZip:active, #btnJoin:active, #btnOut:active, #btnModify:active,
+#btnOutChk:active, #btnOutCancel:active, #btnOk:active{
+	background-color: #f60;
+	color: white;
 }
+
+/* 회원가입, 회원가입 수정 페이지 공통부분 끝 */
+
+/* 탈퇴화면 모달창 띄우기 옵션 시작 */
+
+#out_chk{
+	position: absolute;
+	z-index: 50;
+	background-color: rgba(0,0,0,0.4);
+	width: 100%;
+	height: 1135px;
+	top: 0;
+	left: 0;
+	display: none;
+}
+
+#out_chk form{
+	background-color: white;
+	width: 1280px;
+	margin: 0 auto;
+	margin-top: 300px;
+	padding: 20px;
+	padding-top: 10px;
+	box-sizing: border-box;
+}
+
+/* 탈퇴화면 모달창 띄우기 옵션 끝 */
+
+/* 탈퇴화면 모달창 꾸미기 시작 */
+
+#out_chk form label{
+	display: inline-block;
+	margin-left: 15px;
+	margin-bottom: 10px;
+	width: 250px;
+}
+
+#out_chk form textarea{
+	width: 1200px;
+	height: 200px;
+	margin-left: 15px;
+}
+
+/* 탈퇴화면 모달창 꾸미기 끝 */
