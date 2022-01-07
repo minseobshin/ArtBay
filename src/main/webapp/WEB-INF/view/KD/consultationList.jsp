@@ -7,10 +7,16 @@
 <title>Insert title here</title>
 <link rel='stylesheet' type='text/css' href="./css/consultation.css">
 <link rel='stylesheet' type='text/css' href="./css/basic.css">
+<link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Open+Sans:400,300,700,800">
+<link rel="stylesheet" href="css/reset.css">
+<link rel="stylesheet" href="css/index.css">
 <script src="https://code.jquery.com/jquery-3.6.0.js"></script>
 <script type="text/javascript" src="./js/application.js"></script>
 </head>
 <body>
+<!-- 메뉴 네비게이션 -->
+	<%@include file="../header.jsp" %>
+	
 <form name="frmBoard" method="POST" >
 	<!-- location -->
 	<div class = "applyform">
@@ -81,7 +87,7 @@
 			<!--// 조회 테이블 -->
 			<div class="table-infoTop clearfix mt50">
 				<div class="pull-left fs15">
-					<span class="fcBlue"><strong>나의 1:1 상담문의</strong></span>에 대해서 모두 <span class="fcBlue"><strong>2</strong></span>개가 검색되었습니다.
+					<span class="fcBlue"><strong>나의 1:1 상담문의</strong></span>에 대해서 모두 <span class="fcBlue"><strong>7</strong></span>개가 검색되었습니다.
 				</div>
 			</div>
 
@@ -101,6 +107,41 @@
 						<li class="hit mobileNone"><strong class="">답변완료</strong></li>
 						<li class="date"><span class="visible-xs-inline-block">등록일 : </span>2022.01.06</li>
 						<li class="date"><span class="visible-xs-inline-block">작성일 : </span>2022.01.06</li>
+					</ul>
+					<ul class="bContent text-center clearFix">
+						<li class="sortation mb5m">기타문의 <strong class=" visible-xs-inline-block ml10">답변중</strong></li>
+						<li class="text-left subject"><a href="consultationView" onclick="" class="fcBlack collapsed">기타문의</a></li>
+						<li class="hit mobileNone"><strong class="">답변중</strong></li>
+						<li class="date"><span class="visible-xs-inline-block">등록일 : </span>2022.01.06</li>
+						<li class="date"><span class="visible-xs-inline-block">작성일 : </span></li>
+					</ul>
+					<ul class="bContent text-center clearFix">
+						<li class="sortation mb5m">기타문의 <strong class=" visible-xs-inline-block ml10">답변중</strong></li>
+						<li class="text-left subject"><a href="consultationView" onclick="" class="fcBlack collapsed">기타문의</a></li>
+						<li class="hit mobileNone"><strong class="">답변중</strong></li>
+						<li class="date"><span class="visible-xs-inline-block">등록일 : </span>2022.01.06</li>
+						<li class="date"><span class="visible-xs-inline-block">작성일 : </span></li>
+					</ul>
+					<ul class="bContent text-center clearFix">
+						<li class="sortation mb5m">기타문의 <strong class=" visible-xs-inline-block ml10">답변중</strong></li>
+						<li class="text-left subject"><a href="consultationView" onclick="" class="fcBlack collapsed">기타문의</a></li>
+						<li class="hit mobileNone"><strong class="">답변중</strong></li>
+						<li class="date"><span class="visible-xs-inline-block">등록일 : </span>2022.01.06</li>
+						<li class="date"><span class="visible-xs-inline-block">작성일 : </span></li>
+					</ul>
+					<ul class="bContent text-center clearFix">
+						<li class="sortation mb5m">기타문의 <strong class=" visible-xs-inline-block ml10">답변중</strong></li>
+						<li class="text-left subject"><a href="consultationView" onclick="" class="fcBlack collapsed">기타문의</a></li>
+						<li class="hit mobileNone"><strong class="">답변중</strong></li>
+						<li class="date"><span class="visible-xs-inline-block">등록일 : </span>2022.01.06</li>
+						<li class="date"><span class="visible-xs-inline-block">작성일 : </span></li>
+					</ul>
+					<ul class="bContent text-center clearFix">
+						<li class="sortation mb5m">기타문의 <strong class=" visible-xs-inline-block ml10">답변중</strong></li>
+						<li class="text-left subject"><a href="consultationView" onclick="" class="fcBlack collapsed">기타문의</a></li>
+						<li class="hit mobileNone"><strong class="">답변중</strong></li>
+						<li class="date"><span class="visible-xs-inline-block">등록일 : </span>2022.01.06</li>
+						<li class="date"><span class="visible-xs-inline-block">작성일 : </span></li>
 					</ul>
 					<ul class="bContent text-center clearFix">
 						<li class="sortation mb5m">기타문의 <strong class=" visible-xs-inline-block ml10">답변중</strong></li>
@@ -135,5 +176,7 @@
 	</div>
 
 </form>
+<!-- 메인 푸터 -->
+	<%@include file="../footer.jsp" %>
 </body>
 </html>

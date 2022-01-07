@@ -7,10 +7,16 @@
 <title>Insert title here</title>
 <link rel='stylesheet' type='text/css' href="./css/application.css">
 <link rel='stylesheet' type='text/css' href="./css/basic.css">
+<link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Open+Sans:400,300,700,800">
+<link rel="stylesheet" href="css/reset.css">
+<link rel="stylesheet" href="css/index.css">
 <script src="https://code.jquery.com/jquery-3.6.0.js"></script>
 
 </head>
 <body>
+<!-- 메뉴 네비게이션 -->
+	<%@include file="../header.jsp" %>
+	
 <form name='frm_bay_insert' id='frm_bay_insert' method="post">
 <!-- START KA-CONTAINER -->
 <div class="ka-container ">
@@ -253,6 +259,8 @@
 	</div>
 </div>
 </form>
+<!-- 메인 푸터 -->
+	<%@include file="../footer.jsp" %>
 </body>
 <script type="text/javascript" src="./js/application.js"></script>
 </html>

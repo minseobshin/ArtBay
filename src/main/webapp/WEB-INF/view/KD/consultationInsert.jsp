@@ -7,10 +7,15 @@
 <title>Insert title here</title>
 <link rel='stylesheet' type='text/css' href="./css/consultation.css">
 <link rel='stylesheet' type='text/css' href="./css/basic.css">
+<link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Open+Sans:400,300,700,800">
+<link rel="stylesheet" href="css/reset.css">
+<link rel="stylesheet" href="css/index.css">
 <script src="https://code.jquery.com/jquery-3.6.0.js"></script>
 <script type="text/javascript" src="./js/application.js"></script>
 </head>
 <body>
+<!-- 메뉴 네비게이션 -->
+	<%@include file="../header.jsp" %>
 <div class = "applyform">
 		<h1>1:1상담문의</h1>
 </div>
@@ -146,6 +151,7 @@
 
 		
 	</div>
-
+<!-- 메인 푸터 -->
+	<%@include file="../footer.jsp" %>
 </body>
 </html>
