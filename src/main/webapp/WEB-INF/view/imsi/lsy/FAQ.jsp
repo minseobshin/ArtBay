@@ -11,19 +11,19 @@
 <body>
 <script src='./js/final_lsy.js'></script>
 <script>
- $(document).ready(function() {
-	 $('.question').click(function(){
-		if($(this).parent().isNot('.open')){
-			$(this).closest('.faq').find('.answer_container').animate({'height':'0'}, 500);
-			$(this).closest('.faq').removeClass('open');
-				
+$(document).ready(function(){
+	$('.question').ready(function(){
+		if($('.answer_container').css("display") == 'none'){
+			$(this).sibling().show();
+			$(this).addClass("open");
 		}else{
-			var newHeight = $(this).closest('.faq').find('.answer').height() +'px';
-	         $(this).closest('.faq').find('.answer_container').animate({'height':newHeight},500);
-	         $(this).closest('.faq').addClass('open');
- 			}	
-	});
-});
+			$(this).siblings().hide();
+			$(this).removeClass("open");
+		}
+	});	
+})
+
+
 </script>
 <div id='auction_faq'>
 	<form name='frm_auction' method='post'>
