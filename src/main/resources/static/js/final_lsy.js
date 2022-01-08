@@ -11,12 +11,12 @@
 			if(confirm){
 				alert("취소되었습니다.");
 			}
-			location.href='/';
+			location.href='/home';
 	})
 	
 	//위탁신청 클릭
 	$('#consignBtn').click(function(){
-			location.href='/';
+			location.href='/application';
 	})
 	
 	$('#btnFind').click(function(){

@@ -58,7 +58,7 @@ public class TestController {
 	@RequestMapping(value="/Bid")
 	public ModelAndView Bid() {
 		ModelAndView mv = new ModelAndView();
-		mv.setViewName("imsi/lsy/Bid");
+		mv.setViewName("lsy/Bid");
 		
 		return mv;
 	}
@@ -66,7 +66,7 @@ public class TestController {
 	@RequestMapping(value="/SuccessfulBid")
 	public ModelAndView SuccessfulBid() {
 		ModelAndView mv = new ModelAndView();
-		mv.setViewName("imsi/lsy/SuccessfulBid");
+		mv.setViewName("lsy/SuccessfulBid");
 		
 		return mv;
 	}
@@ -74,7 +74,7 @@ public class TestController {
 	@RequestMapping(value="/Consign")
 	public ModelAndView Consign() {
 		ModelAndView mv = new ModelAndView();
-		mv.setViewName("imsi/lsy/Consign");
+		mv.setViewName("lsy/Consign");
 		
 		return mv;
 	}
@@ -82,7 +82,7 @@ public class TestController {
 	@RequestMapping(value="/Result")
 	public ModelAndView Result() {
 		ModelAndView mv = new ModelAndView();
-		mv.setViewName("imsi/lsy/Result");
+		mv.setViewName("lsy/Result");
 		
 		return mv;
 	}
@@ -90,7 +90,7 @@ public class TestController {
 	@RequestMapping(value="/FAQ")
 	public ModelAndView FAQ() {
 		ModelAndView mv = new ModelAndView();
-		mv.setViewName("imsi/lsy/FAQ");
+		mv.setViewName("lsy/FAQ");
 		
 		return mv;
 	}

@@ -4,12 +4,17 @@
 <!DOCTYPE html>
 <html>
 <head>
-<script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
 <link rel='stylesheet' type='text/css' href='./css/final_lsy.css'>
+<script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+<link rel='stylesheet' type='text/css' href="./css/basic.css">
+<link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Open+Sans:400,300,700,800">
+<link rel="stylesheet" href="css/reset.css">
+<link rel="stylesheet" href="css/index.css">
 <meta charset="UTF-8">
 <title>낙찰내역</title>
 </head>
 <body>
+<%@include file="../header.jsp" %>
 <div id='auction'>
 	<h1>낙찰내역</h1>
 <form name='frm_auction' method='post'>
@@ -112,6 +117,7 @@
 		</div>
 	</form>
 </div>
-<script src='./js/final_lsy.js'></script>
+<%@include file="../footer.jsp" %>
 </body>
+<script src='./js/final_lsy.js'></script>
 </html>

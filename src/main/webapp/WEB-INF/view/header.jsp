@@ -11,7 +11,7 @@
 		<li><a href="#">Online Auction</a>
 			<ul>
 				<li><a href="#">진행중인 경매</a></li>
-				<li><a href="#">경매결과</a></li>
+				<li><a href="Result">경매결과</a></li>
 				<li><a href="application">경매신청</a></li>
 			</ul>
 		</li>			
@@ -24,7 +24,7 @@
 		</li>
 		<li><a href="#">Customer Service</a>
 			<ul>
-				<li><a href="#">자주묻는질문(FAQ)</a></li>
+				<li><a href="FAQ">자주묻는질문(FAQ)</a></li>
 				<li><a href="consultationList">1:1상담문의</a></li>
 				<li><a href="#">공지사항</a></li>
 			</ul>
