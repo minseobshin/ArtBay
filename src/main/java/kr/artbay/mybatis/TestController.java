@@ -55,6 +55,13 @@ public class TestController {
 		return mv;
 	}
 	
+	@RequestMapping(value="/memberLoginModal")
+	public ModelAndView memberLoginModal(HttpServletRequest req) {
+		ModelAndView mv = new ModelAndView();
+		mv.setViewName("imsi/memberLogin");
+		return mv;
+	}
+	
 	@RequestMapping(value="/Bid")
 	public ModelAndView Bid() {
 		ModelAndView mv = new ModelAndView();
