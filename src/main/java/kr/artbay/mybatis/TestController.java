@@ -145,4 +145,12 @@ public class TestController {
 		mv.setViewName("artbay/view");
 		return mv;
 	}
+	
+	
+	@RequestMapping(value="/bidIntro")
+	public ModelAndView artbayBidIntro(HttpServletRequest req) {
+		ModelAndView mv = new ModelAndView();
+		mv.setViewName("artbay/bidIntro");
+		return mv;
+	}
 }

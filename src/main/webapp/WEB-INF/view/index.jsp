@@ -36,7 +36,7 @@
 			<br/>
 			<li><a href="/home">메인페이지.</a></li>
 			<br/>
-			<li><a href="/">테스트용으로 쓰세요.</a></li>
+			<li><a href="/bidIntro">응찰 안내 (응찰 안내만 가능하게 두었습니다.)</a></li>
 			<li><a href="/">테스트용으로 쓰세요.</a></li>
 			<li><a href="/">테스트용으로 쓰세요.</a></li>
 			<li><a href="/">테스트용으로 쓰세요.</a></li>

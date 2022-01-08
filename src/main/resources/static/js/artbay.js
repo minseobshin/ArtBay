@@ -38,13 +38,14 @@
 		$(window).on("resize", function(){
 			$(".bid_price").hide();
 		})
-	}
-	
-
-			
+	}			
 })
 
-
+/*howto화면 버튼 누르면 하위 메뉴 등장*/
+function subMenuOn(e){
+	e.preventDefault();
+	$(".howtobtn .active div ul").stop().slideDown();
+}
 
 function modalOn(modal){
 	modal.show();
