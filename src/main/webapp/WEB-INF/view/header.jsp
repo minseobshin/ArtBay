@@ -1,6 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <header>	
+<script src = '/js/artbay_minseob.js'></script><!-- 로그인 페이지 모달창 제어용 -->
 	<!-- 메인 로고 -->	
 	<ul class="logo clearfix">
 		<li><a href="home">ARTBAY</a></li>
@@ -17,7 +18,7 @@
 		</li>			
 		<li><a href="#">How To</a>
 			<ul>
-				<li><a href="#">경매소개</a></li>
+				<li><a href="howto">경매소개</a></li>
 				<li><a href="#">응찰안내</a></li>
 				<li><a href="#">위탁안내</a></li>
 			</ul>
@@ -33,7 +34,14 @@
 	
 	<!-- 로그인/회원가입 -->
 	<ul class="login clearfix">
-		<li><a href="#">LOGIN</a></li>
+		<li><a href="#" id='btnLogin' data-toggle='modal' data-target='#madal' role='botton'>LOGIN</a></li>
 		<li><a href="memberJoin">JOIN</a></li>
 	</ul>
+	
+	<!-- 로그인 페이지 모달창 호출용 -->
+	<div id="modal" class="modal fade" tabindex="-1"><!--  role="dialog" -->
+		<div class="modal-dialog">
+			<div class="modal-content"></div>
+		</div>
+	</div>
 </header>

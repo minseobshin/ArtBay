@@ -55,6 +55,13 @@ public class TestController {
 		return mv;
 	}
 	
+	@RequestMapping(value="/memberLoginModal")
+	public ModelAndView memberLoginModal(HttpServletRequest req) {
+		ModelAndView mv = new ModelAndView();
+		mv.setViewName("imsi/memberLogin");
+		return mv;
+	}
+	
 	@RequestMapping(value="/Bid")
 	public ModelAndView Bid() {
 		ModelAndView mv = new ModelAndView();
@@ -123,6 +130,12 @@ public class TestController {
 		mv.setViewName("KD/consultationView");
 		return mv;
 	}
+	@RequestMapping("/howto")
+	public ModelAndView howto() {
+		ModelAndView mv = new ModelAndView();
+		mv.setViewName("KD/howto");
+		return mv;
+	}
 	
 	@RequestMapping(value="/list")
 	public ModelAndView artbayMain(HttpServletRequest req) {
@@ -135,6 +148,14 @@ public class TestController {
 	public ModelAndView artbayView(HttpServletRequest req) {
 		ModelAndView mv = new ModelAndView();
 		mv.setViewName("artbay/view");
+		return mv;
+	}
+	
+	
+	@RequestMapping(value="/bidIntro")
+	public ModelAndView artbayBidIntro(HttpServletRequest req) {
+		ModelAndView mv = new ModelAndView();
+		mv.setViewName("artbay/bidIntro");
 		return mv;
 	}
 }

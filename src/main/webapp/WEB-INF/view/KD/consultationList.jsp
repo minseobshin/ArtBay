@@ -159,7 +159,6 @@
 			</div>
 			<div class="btnWrap view text-right clearFix mb0">
 					<a href="consultationInsert" onclick="" class="btn btn-Insert">글쓰기</a>
-					<a href="application" onclick="" class="btn btn-Insert">경매 신청서</a>
 			</div>
 		</div>
 

@@ -105,9 +105,7 @@ header > * {
 	overflow: hidden;
 }
 .keyvisual .control_btn button {
-	/*background-color: transparent;*/
 	border: none;
-	/*outline: 0;*/	
 	position: absolute;
 	top: 50%;	
 	z-index: 200;	/* 메인 비주얼 위에 보이기 */
@@ -164,11 +162,86 @@ header > * {
 	height: 15px; 	*/
 }
 /******************************************************************************/
+/***************************** 주요 출품작 ********************************/
+.tab_container {
+	margin: 0 auto;
+	padding: 50px;
+	max-width: 1280px;
+	min-width: 320px;
+	position: relative;	
+}
+.tab_container section {
+	display: none;	/* 처음에는 탭 내용 숨기기 */
+	padding: 20px 0 0;
+	border-top: 1px solid #ddd;	
+}
+.tab_container input {
+	display: none;	/* 라디오 버튼 숨기기 */
+}
+.tab_container label {
+	display: inline-block;
+	margin: 0 0 -1px;
+	padding: 15px 25px;
+	text-align: center;
+	font-weight: 600;
+	color: #bbb;
+	border: 1px solid transparent;
+}
+.tab_container label:hover {
+	color: #888;
+	cursor: pointer;
+}
+.tab_container input:checked + label {	/* 체크된 탭(radio)의 라벨 */
+	color: #555;
+	border: 1px solid #ddd;
+	border-top: 2px solid orange;
+	border-bottom: 1px solid #fff;
+}
+.tab_container #tab1:checked ~ #content1,
+.tab_container #tab2:checked ~ #content2,
+.tab_container #tab3:checked ~ #content3 {	/* 체크된 탭(radio)별 탭 내용 보이기 */ 
+	display: block;
+}
+.tab_container section .item {
+	width: 250px;
+	height: 250px;
+	display: inline-block;
+	position: relative;	
+}
+.tab_container section .item .info {
+	display: none;
+}
+.tab_container section .item:hover .info {
+	display: block;
+	position: absolute;
+	left: 0;
+	top: 0;
+	width: 100%;
+	height: 100%; 
+	background: #000;
+	opacity: 0.6;
+	color: #fff;
+	font-weight: bold;
+	cursor: pointer;
+}	
+.tab_container section .item .info div {
+	padding: 10px 20px;
+	font-size: 0.8em;
+}
+.tab_container section .item .info .author {
+	margin-top: 90px;
+	font-size: 1.2em;
+}
+.tab_container section .item .info .price > span {
+	color: #e5720e;
+	padding-left: 10px;
+}  
+/******************************************************************************/
 /***************************** How To 및 경매일정 ********************************/
 /****** How to *******/
 .howto_schedule_zone {
-	width: 1200px;				/* 1280 px로 나중에 수정~~~~~~~~~~~~~~~~~~~~*/
-	margin: 100px auto;
+	width: 1280px;
+	margin: 60px auto;
 	overflow: hidden;
 }
 .howto_zone {
@@ -240,82 +313,53 @@ header > * {
 }
 /******************************************************************************/
 /******************************** 배너 슬라이드 ***********************************/
-.popup_zone {
-	margin-top: 35px;
-	width: 254px;
-	height: 145px;
+.banner_container {
+	width: 1280px;
+	margin: 20px auto;
 }
-.popup_zone_control {
-	width: 100%;
-	height: 23px;
+.banner_container .moving div {
+	padding: 40px 0px;
+	text-align: center;
+	font-weight: bold;
+	color: #fff;
 }
-.popup_zone_control > #control {
-	float: right;
-	width: 122px;
-	height: 11px;
-	margin-top: 1px;
+.banner_container .moving div > span {
+	display: inline-block;
+	font-size: 1.3em;
+	padding-right: 20px;
 }
-.popup_zone_control > #control li {
-	float: left;
-	margin-right: 3px;
-	width: 11px;
-	height: 11px;
+.banner_container .moving .banner0 {
+	background: #e97108;
 }
-.popup_zone_control > #control li a {
+.banner_container .moving .banner1 {
+	background: #071839;
+	display: none;
+}
+.banner_container .moving .banner2 {
+	background: #dfdcd8;
+	color: #0d0d0d;
+	display: none;
+}
+.banner_container #control ul {
+	padding: 3px 0;
+	text-align: center;
+}
+.banner_container #control li {
+	display: inline-block;
+	margin-right: 3px;		
+}
+.banner_container #control li a {
 	display: block;
 	width: 11px;
 	height: 11px;
 	background: #d7d7d7;
+	border-radius: 50%;
 	-webkit-transition: background 0.3s;
 	transition: background 0.3s;
 }
-.popup_zone_control > #control li a:hover,
-.popup_zone_control > #control li a.on {
+.banner_container #control li a:hover,
+.banner_container #control li a.on {
 	background: #1972d4;
-}
-.popup_zone_control > #control li.play {
-	padding-right: 2px;
-	margin: 0;
-	opacity: 0.5;	/* 처음에는 재생버튼 반투명 */
-	-webkit-transition: opacity 0.3s;
-	transition: opacity 0.3s;	
-}
-.popup_zone_control > #control li.pause {
-	margin: 0;
-	opacity: 0.5;	/* 처음에는 정지버튼 반투명 */
-	-webkit-transition: opacity 0.3s;
-	transition: opacity 0.3s;
-}
-.popup_zone_control > #control li.play img,
-.popup_zone_control > #control li.pause img {
-	vertical-align: top;
-}
-.popup_zone_control > #control li.play a:hover,
-.popup_zone_control > #control li.pause a:hover {
-	background: none;
-}
-.popup_zone_control > #control li.play.on,
-.popup_zone_control > #control li.pause.on {
-	opacity: 1;		/* 재생/정지 버튼 활성화되면 투명 제거 */
-}
-.banner {
-	position: relative;
-	overflow: hidden;
-	width: 256px;
-	height: 122px;
-	outline: 1px solid #ccc;
-}
-.banner .moving {
-	position: absolute;
-	left: 0;
-	top: 0;
-	width: 1792px;
-	height: 122px;
-}
-.banner .moving > div {
-	float: left;
-	width: 256px;
-	height: 122px;
 }
 /******************************************************************************/
 /******* footer *******/

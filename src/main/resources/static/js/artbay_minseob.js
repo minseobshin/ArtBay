@@ -34,5 +34,18 @@ $(function(){
 		window.open('memberResult', 'result', 'width=750, height=445, top=200, left=300');
 	})
 	
+	//로그인 모달창
+	$('#btnLogin').click(function(){
+		$(".modal-content").load("memberLoginModal").fadeIn();
+	})
+	$('#btnCancelLogin').click(function(){
+		$(".modal-content").load("memberLoginModal").fadeOut();
+	})
+	
+	
 	
 })
+
+
+
+

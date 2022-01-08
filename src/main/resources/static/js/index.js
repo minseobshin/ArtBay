@@ -123,72 +123,45 @@ function setMainVisual() {
 
 //메인 배너
 function setMainBanner() {
-	var current = 0; 	//0 ~ 2(이미지 3개)
-	var distance = 256;	//이미지 넓이
-	var targetx;
-	var interval = setInterval(move, 3000);	//3초에 한번씩 이미지 이동
-	var now; 	//1 : 재생, 0 : 정지
-	
+	var current = 0; 		//0 ~ 2 (div 3개)	
+	var interval = setInterval(change, 5000);	//5초에 한번씩 배너 바꾸기
+		
 	//초기값 세팅
 	$("#control" + current).addClass("on");
-	$(".play").addClass("on");
-	now = 1;
 	
-	//이미지 이동
-	function move() {
-		if(current < 2) {
-			current++;
-		} else {
+	//배너 바꾸기
+	function change() {
+		if(current == 2) {
 			current = 0;
+		} else {
+			current++;
 		}
 		$("#control a").removeClass("on");
-		$("#control"+current).addClass("on");
-		targetx = current*(-1)*distance+"px";
-		$(".moving").animate( {left: targetx}, 400 );
+		$("#control"+current).addClass("on");		
+		$(".moving div").css({display : "none"});
+		$(".moving .banner"+current).css({display : "block"});
 	}
 	
-	//재생버튼 클릭
-	$(".play").click(function() {
-		if(now == 0) {
-			now = 1;
-			interval = setInterval(move, 3000);
-			$(".play").addClass("on");
-			$(".pause").removeClass("on");
-		}		
-	});
-	
-	//정지버튼 클릭
-	$(".pause").click(function() {
-		if(now == 1) {
-			now = 0;
-			clearInterval(interval);
-			$(".pause").addClass("on");
-			$(".play").removeClass("on");
-		}		
-	});
-	
 	//이미지 순번 클릭
-	$("#control a").each(function() {
-		if($(this).parent("li").index() < 3) {
-			$(this).hover(
-				function() {	//마우스 올렸을 때
-					clearInterval(interval);
-				},
-				function() {	//마우스 떼었을 때
-					interval = setInterval(move, 3000);
-				}
-			);
-			$(this).click(function(e) {	//마우스 클릭했을 때
-				e.preventDefault(); 
-				var index = $(this).parent("li").index();
-				current = index;
-				
-				$("#control a").removeClass("on");
-				$("#control"+current).addClass("on");
-				targetx = current*(-1)*distance+"px";
-				$(".moving").animate( {left: targetx}, 400 );
-			});
-		}
+	$("#control a").each(function() {	
+		$(this).hover(
+			function() {	//마우스 올렸을 때
+				clearInterval(interval);
+			},
+			function() {	//마우스 떼었을 때
+				interval = setInterval(change, 5000);
+			}
+		);
+		$(this).click(function(e) {	//마우스 클릭했을 때
+			e.preventDefault(); 
+			var index = $(this).parent("li").index();
+			current = index;
+			
+			$("#control a").removeClass("on");
+			$("#control"+current).addClass("on");		
+			$(".moving div").css({display : "none"});
+			$(".moving .banner"+current).css({display : "block"});
+		});
 	});
 }
 
