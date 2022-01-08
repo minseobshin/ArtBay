@@ -86,13 +86,15 @@
 		$('#consign_step4').css('background-color', '#f60');
 
 	});
-		
-		
-		
-		
-		
-		
-		
-		
+	$('.howto-subbtn').hide(); //숨어있어
+	$('.howtobtn ul>li').hover(function() {
+	$(this).children('div').fadeIn(); //부드럽게 튀어나와
+	}, function() {
+	$(this).children('div').fadeOut('slow'); //부드럽게 들어가
+	});
+
+	$(".howtobtn ul>li>a").attr("style","color:#777");
+	
+			
 })
 

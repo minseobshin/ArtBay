@@ -209,15 +209,16 @@
 }
 /*FAQ*/
 #auction_faq{
-	margin:40px auto;
+	
 	width:1280px;
 	min-height:500px;
+	margin:80px auto 0;
 }
 
 #auction_faq h1{
 	text-align:center;
 	font-weight:bold;
-	margin-bottom:40px;
+	margin-bottom:90px;
 	font-size:30px;
 	margin-top:20px;
 }
@@ -265,19 +266,22 @@
 }
  
 /*consignGuide 위탁절차*/
+#consign_title h1{
+	height:160px;
+	font-size:30px;
+	text-align:center;
+	font-weight:border;
+	padding-top:40px;
+	
+}
 #consignGuide{
 	width:820px;
 	box-sizing:border-box;
 	position:relative;
-	margin:0 auto;
+	margin:20px 120px 30px 420px;
 	line-height:1.5em;
 }
-#consignGuide h1{
-	text-align:center;
-	font-size:30px;
-	font-weight:bold;
-	margin:40px auto;
-}
+
 #consignGuide h2{
 	font-size:20px;
 	margin-bottom:30px;
@@ -305,9 +309,9 @@
 	color:#333;
 	
 }
-#consignGuide .consign_steps ul li{
+#consignGuide #consign_steps ul li{
 	display:inline-block;
-	width:170px;
+	width:190px;
 	height:90px;
 	background-color:#ddd;
 	color:#000;
@@ -315,10 +319,10 @@
 	padding-top:20px;
 	margin-left:10px;
 }
-#consignGuide .consign_steps #consign_step1{
+#consignGuide #consign_steps #consign_step1{
 	background-color:#f60;
 }
-#consignGuide .consign_steps ul li:hover{
+#consignGuide #consign_steps ul li:hover{
 	cursor:pointer;
 }
 #consignGuide .consign_desc .desc01, .desc02, .desc03, .desc04{
@@ -345,13 +349,14 @@
 }
 #consignGuide .consign_desc .desc02 .desc02_sub{
 	border:2px solid #bbb;
-	height:120px;
+	height:160px;
 	text-align:center;
 }
 #consignGuide .consign_desc .desc02 .desc02_sub span{
+	padding-top:10px;
 	display:inline-block;
 	width:160px;
-	height:60px;
+	height:80px;
 	margin:30px 15px;
 	font-size:15px;
 	border:1px solid #ccc;

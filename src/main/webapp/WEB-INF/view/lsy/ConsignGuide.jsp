@@ -5,32 +5,32 @@
 <head>
 <meta charset="UTF-8">
 <title>Insert title here</title>
-<link rel='stylesheet' type='text/css' href='./css/final_lsy.css'>
 <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
 
 <link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Open+Sans:400,300,700,800">
 <link rel="stylesheet" href="css/reset.css">
 <link rel="stylesheet" href="css/index.css">
 
+<link rel='stylesheet' type='text/css' href='./css/final_lsy.css'>
+<link rel='stylesheet' type='text/css' href='./css/guide_side.css'>
 <%@include file="../header.jsp" %>
 </head>
 <body>
-<div class = "howtoform">
- <div class="howtobtn" style="margin-top: 0px;">
+<div id='consign_title'>
+<h1>위탁안내</h1>
+</div>
+
+<div id="Howto">
+        <div class="howtobtn">
             <ul>
-                <li class="">
-                    <a href="howto">경매 소개</a>
-                    <div class="howto-subbtn" style="">
-                        <ul class="a1">
-                            <li class=""><a href="#top">온라인 경매</a></li>
-                            <li class=""><a href="#bottom">온라인 경매</a></li>
-                        </ul>
-                    </div>
+                <li>
+                    <a href="/howto">경매 소개</a>
+                   
                 </li>
                 <li>
-                    <a href="/ConsignGuide">응찰 안내</a>
-                    <div class="howto-subbtn" style="display: none;">
-                        <ul class="a2" style="display: block;">
+                    <a href="/bidIntro">응찰 안내</a>
+                    <div class="howto-subbtn">
+                        <ul class="a2" >
                             <li><a href="#">회원 가입</a></li>
                             <li><a href="#">프리뷰</a></li>
                             <li><a href="#">응찰</a></li>
@@ -39,20 +39,19 @@
                         </ul>
                     </div>
                 </li>
-                <li>
-                    <a href="#">위탁 안내</a>
-                    <div class="howto-subbtn" style="display: none;">
-                        <ul class="a3" style="display: block;">
-                            <li><a href="#">Why Art Bay?</a></li>
-                            <li><a href="#">위탁 절차</a></li>
+                <li class="active">
+                    <a href="/ConsignGuide">위탁 안내</a>
+                    <div class="howto-subbtn">
+                        <ul class="a3">
+                            <li class="active"><a href="#consignGuide">Why K Auction?</a></li>
+                            <li><a id="menu_consign" href="#consign_steps">위탁 절차</a></li>
                         </ul>
                     </div>
                 </li>
             </ul>
         </div>
- </div>
-<div id='consignGuide'>
-<h1>위탁안내</h1>
+      </div>
+<div id='consignGuide'>	
 <h2>Why Artbay?</h2>
 	<div id='intro'>소장하신 예술품의 가치를 아트베이에서 확인하세요! 온라인 취미/예술품 경매 회사 아트베이가 작품 위탁을 도와드리겠습니다.</div>
 	<div class='guide'>
@@ -78,8 +77,8 @@
 	</div>
 	<hr/>
 
+           <div id="consign_steps">
 	 <h2>위탁절차</h2>
-           <div class="consign_steps">
                <ul>
                    <li class='consign_step' id="consign_step1">
                        <strong>Step.1</strong>
@@ -140,9 +139,9 @@
                    <p>출품이 가능한 경우, 아래와 같은 절차로 위탁이 진행됩니다.</p>
                    <div class="desc02_sub">                 
                        <span>01. 담당자 배정</span>               
-                       <span>02. 서면 심의 및 내부 감정</span>
+                       <span>02. 서면 심의 및 <br/> 내부 감정</span>
                        <span>03. 출품 희망가격 결정</span>
-                     	<span>04. 위탁계약서 작성 및 계약</span>
+                     	<span>04. 위탁계약서 작성<br/> 및 계약</span>
                    </div>
 
                    <ul>

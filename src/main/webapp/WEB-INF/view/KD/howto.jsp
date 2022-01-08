@@ -39,7 +39,7 @@
                     </div>
                 </li>
                 <li>
-                    <a href="/ConsignGuide">응찰 안내</a>
+                    <a href="#">응찰 안내</a>
                     <div class="howto-subbtn" style="display: none;">
                         <ul class="a2" style="display: block;">
                             <li><a href="#">회원 가입</a></li>
@@ -51,11 +51,11 @@
                     </div>
                 </li>
                 <li>
-                    <a href="#">위탁 안내</a>
+                    <a href="/ConsignGuide">위탁 안내</a>
                     <div class="howto-subbtn" style="display: none;">
                         <ul class="a3" style="display: block;">
-                            <li><a href="#">Why Art Bay?</a></li>
-                            <li><a href="#">위탁 절차</a></li>
+                            <li><a href="#intro">Why Art Bay?</a></li>
+                            <li><a href="#consignGuide">위탁 절차</a></li>
                         </ul>
                     </div>
                 </li>

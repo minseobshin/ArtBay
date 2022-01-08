@@ -1,0 +1,34 @@
+@charset "UTF-8";
+
+#Howto{
+	display:inline-block;
+	width:250px;
+	height:200px;
+	text-align:left;
+	margin-top:220px;
+	margin-left:60px;
+	position:fixed;
+	top:20px;
+}
+#Howto .howtobtn ul li a{
+	text-decoration:none;
+}
+#Howto .howtobtn>ul>li{
+	font-size:17px;
+	margin-top:10px;
+	border-top:2px solid #ddd;
+	padding:10px;
+	color:#ddd;
+	line-height:1.4em;
+}
+
+#Howto .howtobtn .howto-subbtn{
+	display:none;
+}
+#Howto .howtobtn .howto-subbtn ul li{
+	font-size:16px;
+}
+#Howto .howtobtn .howto-subbtn ul li a:hover{
+	color:#000;
+	font-size:17px;
+}
