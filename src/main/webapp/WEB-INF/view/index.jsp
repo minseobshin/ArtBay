@@ -25,6 +25,7 @@
 			<li><a href="/Consign">위탁내역</a></li>
 			<li><a href="/Result">경매결과</a></li>
 			<li><a href="/FAQ">FAQ</a></li>
+			<li><a href="/ConsignGuide">위탁안내</a></li>
 			<br/>
 			<li><a href="/application">경매 신청서</a></li>
 			<li><a href="/consultationInsert">1:1문의 신청</a></li>
@@ -36,7 +37,6 @@
 			<br/>
 			<li><a href="/home">메인페이지.</a></li>
 			<br/>
-			<li><a href="/">테스트용으로 쓰세요.</a></li>
 			<li><a href="/">테스트용으로 쓰세요.</a></li>
 			<li><a href="/">테스트용으로 쓰세요.</a></li>
 			<li><a href="/">테스트용으로 쓰세요.</a></li>

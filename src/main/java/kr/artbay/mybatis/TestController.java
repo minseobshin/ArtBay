@@ -70,7 +70,12 @@ public class TestController {
 		
 		return mv;
 	}
-	
+	@RequestMapping(value="/ConsignGuide")
+	public ModelAndView ConsignGuide (HttpServletRequest req) {
+		ModelAndView mv = new ModelAndView();
+		mv.setViewName("lsy/ConsignGuide");
+		return mv;
+	}  
 	@RequestMapping(value="/Consign")
 	public ModelAndView Consign() {
 		ModelAndView mv = new ModelAndView();
