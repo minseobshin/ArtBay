@@ -204,7 +204,9 @@
 	background-color:#111;
 	color:#fff;
 }
-
+#auction #list #item input[type='button']:hover{
+	cursor:pointer;
+}
 /*FAQ*/
 #auction_faq{
 	margin:40px auto;
@@ -262,4 +264,152 @@
 	display:block;
 }
  
+/*consignGuide 위탁절차*/
+#consignGuide{
+	width:820px;
+	box-sizing:border-box;
+	position:relative;
+	margin:0 auto;
+	line-height:1.5em;
+}
+#consignGuide h1{
+	text-align:center;
+	font-size:30px;
+	font-weight:bold;
+	margin:40px auto;
+}
+#consignGuide h2{
+	font-size:20px;
+	margin-bottom:30px;
+	font-weight:bold;
+}
+#consignGuide .guide img{
+	display:inline-block;
+	width:220px;
+	height:170px;
+	margin:13px;
+}
+#consignGuide .guide div p{
+	font-weight: bold;
+	font-size:17px;
+	margin-bottom:28px;
+}
+#consignGuide .guide div{
+	display:inline-block;
+	width:580px;	
+	position:absolute;
+	margin-top:20px;
+	padding-top:10px;
+	margin-left:10px;
+	font-size:15px;
+	color:#333;
+	
+}
+#consignGuide .consign_steps ul li{
+	display:inline-block;
+	width:170px;
+	height:90px;
+	background-color:#ddd;
+	color:#000;
+	text-align:center;
+	padding-top:20px;
+	margin-left:10px;
+}
+#consignGuide .consign_steps #consign_step1{
+	background-color:#f60;
+}
+#consignGuide .consign_steps ul li:hover{
+	cursor:pointer;
+}
+#consignGuide .consign_desc .desc01, .desc02, .desc03, .desc04{
+	min-height:500px;
+	margin-left:15px;
+}
+
+#consignGuide .consign_desc .desc01 p{
+	margin:24px auto;
+}
+#consignGuide .consign_desc .desc01 .desc01_sub{
+	border:2px solid #bbb;
+	padding:18px;
+}
+#consignGuide .consign_desc .desc01 .desc01_sub h4{
+	font-weight:bold;
+}
+#consignGuide .consign_desc .desc01 .bot_desc ul li{
+	list-style-type:disc;
+	margin:15px 0 15px 20px;
+}
+#consignGuide .consign_desc .desc02 p{
+	margin:24px auto;
+}
+#consignGuide .consign_desc .desc02 .desc02_sub{
+	border:2px solid #bbb;
+	height:120px;
+	text-align:center;
+}
+#consignGuide .consign_desc .desc02 .desc02_sub span{
+	display:inline-block;
+	width:160px;
+	height:60px;
+	margin:30px 15px;
+	font-size:15px;
+	border:1px solid #ccc;
+	vertical-align:middle;
+	text-align:center;
+}
+#consignGuide .consign_desc .desc02 ul li{
+	list-style-type:disc;
+	margin:15px 0 15px 20px;
+}
+
+#consignGuide .consign_desc .desc03 p{
+	margin:24px auto;
+}
+#consignGuide .consign_desc .desc03 .desc03_sub{
+	border:2px solid #bbb;
+	height:190px;
+	text-align:center;
+}
+#consignGuide .consign_desc .desc03 .desc03_sub ul p{
+	font-weight:bold;
+	font-size:15px;
+}
+#consignGuide .consign_desc .desc03 .desc03_sub ul li{
+	display:inline-block;
+	height:150px;
+	width:200px;
+	margin:20px 10px;
+	font-size:13px;
+	border:1px solid #ccc;
+	vertical-align:middle;
+	text-align:center;
+}
+#consignGuide .consign_desc .desc04 h4{
+	margin:24px auto;
+	font-weight:bold;
+}
+#consignGuide .consign_desc .desc04 div>div{
+	text-align:center;
+	font-weight:bolder;
+	font-size:16px;
+	margin:20px auto;
+	text-align:center;
+}
+#consignGuide .consign_desc .desc04 ul li{
+	list-style-type:disc;
+	font-size:13px;
+	margin:10px 0 10px 20px;
+}
+
+
+
+
+
+
+
+
+
+
+
 

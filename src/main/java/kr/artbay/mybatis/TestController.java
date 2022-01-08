@@ -106,6 +106,7 @@ public class TestController {
 		
 		return mv;
 	}
+
 	@RequestMapping("/application")
 	public ModelAndView application() {
 		ModelAndView mv = new ModelAndView();

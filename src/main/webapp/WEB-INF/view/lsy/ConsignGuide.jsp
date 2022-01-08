@@ -5,55 +5,196 @@
 <head>
 <meta charset="UTF-8">
 <title>Insert title here</title>
+<link rel='stylesheet' type='text/css' href='./css/final_lsy.css'>
+<script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+
+<link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Open+Sans:400,300,700,800">
+<link rel="stylesheet" href="css/reset.css">
+<link rel="stylesheet" href="css/index.css">
+
+<%@include file="../header.jsp" %>
 </head>
 <body>
+<div class = "howtoform">
+ <div class="howtobtn" style="margin-top: 0px;">
+            <ul>
+                <li class="">
+                    <a href="howto">경매 소개</a>
+                    <div class="howto-subbtn" style="">
+                        <ul class="a1">
+                            <li class=""><a href="#top">온라인 경매</a></li>
+                            <li class=""><a href="#bottom">온라인 경매</a></li>
+                        </ul>
+                    </div>
+                </li>
+                <li>
+                    <a href="/ConsignGuide">응찰 안내</a>
+                    <div class="howto-subbtn" style="display: none;">
+                        <ul class="a2" style="display: block;">
+                            <li><a href="#">회원 가입</a></li>
+                            <li><a href="#">프리뷰</a></li>
+                            <li><a href="#">응찰</a></li>
+                            <li><a href="#">낙찰 결과 확인 및 결제</a></li>
+                            <li><a href="#">배송, 설치 및 보관</a></li>
+                        </ul>
+                    </div>
+                </li>
+                <li>
+                    <a href="#">위탁 안내</a>
+                    <div class="howto-subbtn" style="display: none;">
+                        <ul class="a3" style="display: block;">
+                            <li><a href="#">Why Art Bay?</a></li>
+                            <li><a href="#">위탁 절차</a></li>
+                        </ul>
+                    </div>
+                </li>
+            </ul>
+        </div>
+ </div>
 <div id='consignGuide'>
-<h1>Why Artbay?</h1>
+<h1>응찰안내</h1>
+<h2>Why Artbay?</h2>
 	<div id='intro'>소장하신 예술품의 가치를 아트베이에서 확인하세요! 온라인 취미/예술품 경매 회사 아트베이가 작품 위탁을 도와드리겠습니다.</div>
 	<div class='guide'>
-		<img src='./img/calendar.jfif'>
-		<p>다양한 경매 플랫폼, 365일 경매 진행</p>
-		<div>경매 현장에서 라이브로 진행되는 메이저 경매, 온라인으로 진행되는 프리미엄 경매와 위클리 경매 등 365일 언제나 참여할 수 있는 다양한 경매 플랫폼이 구축되어 있습니다.</div>
+		<img src='./img/calendar.jfif'>		
+		<div>
+			<p>다양한 경매 플랫폼, 365일 경매 진행</p>
+			못할 풀밭에 위하여 이것이야말로 인생의 부패를 몸이 얼음에 얼마나 봄바람이다. 없으면, 장식하는 얼마나 실현에 찾아다녀도, 같은 피어나기 꾸며 것이다. 뛰노는 같지 피가 대고,  찾아 청춘 싶이 무엇을 아니다. 싹이 이 인간의 있을 힘차게 열매를 것이다. 위하여 피어나기 때까지 만천하의 끓는 교향악이다. 
+		</div>
 	</div>
 	<div class='guide'>
 		<img src='./img/expert.png'>
-		<p>다양한 경매 플랫폼, 365일 경매 진행</p>
-		<div>경매 현장에서 라이브로 진행되는 메이저 경매, 온라인으로 진행되는 프리미엄 경매와 위클리 경매 등 365일 언제나 참여할 수 있는 다양한 경매 플랫폼이 구축되어 있습니다.</div>
+		<div>
+			<p>다양한 경매 플랫폼, 365일 경매 진행</p>
+			못할 풀밭에 위하여 이것이야말로 인생의 부패를 몸이 얼음에 얼마나 봄바람이다. 없으면, 장식하는 얼마나 실현에 찾아다녀도, 같은 피어나기 꾸며 것이다. 천지는 이것이다. 찾아 청춘 싶이 무엇을 아니다. 싹이 이 인간의 있을 힘차게 열매를 것이다. 위하여 피어나기 때까지 만천하의 끓는 교향악이다. 
+		</div>	
 	</div>
 	<div class='guide'>
 		<img src='./img/marketing.jfif'>
-		<p>다양한 경매 플랫폼, 365일 경매 진행</p>
-		<div>경매 현장에서 라이브로 진행되는 메이저 경매, 온라인으로 진행되는 프리미엄 경매와 위클리 경매 등 365일 언제나 참여할 수 있는 다양한 경매 플랫폼이 구축되어 있습니다.</div>
+	<div>
+			<p>다양한 경매 플랫폼, 365일 경매 진행</p>
+			못할 풀밭에 위하여 이것이야말로 인생의 부패를 몸이 얼음에 얼마나 봄바람이다. 없으면, 장식하는 얼마나 실현에 찾아다녀도, 같은 피어나기 꾸며 것이다.  찾아 청춘 싶이 무엇을 아니다. 싹이 이 인간의 있을 힘차게 열매를 것이다. 위하여 피어나기 때까지 만천하의 끓는 교향악이다. 
+		</div>
 	</div>
 	<hr/>
-<h1>위탁절차</h1>
-	<div id='mouseover'>	
-		<div name='step'>
-			<span>step1</span>
-			<p>작품문의</p>
-		</div>
-		
-	</div>
-	<script>
-$(function(){
-	$('#acc').accordion();
-})
 
-</script>
+	 <h2>위탁절차</h2>
+           <div class="consign_steps">
+               <ul>
+                   <li class='consign_step' id="consign_step1">
+                       <strong>Step.1</strong>
+                       <p>작품 문의</p>
+                   </li>
+                   <li  class='consign_step' id='consign_step2'>
+                       <strong>Step.2</strong>
+                       <p>위탁 상담 및 출고</p>
+                   </li>
+                   <li  class='consign_step' id='consign_step3'>
+                       <strong>Step.3</strong>
+                       <p>출품 및 전시</p>
+                   </li>
+                   <li  class='consign_step' id='consign_step4'>
+                       <strong>Step.4</strong>
+                       <p>대금 정산</p>
+                   </li>
+               </ul>
+           </div>
+           <div class="consign_desc">
+               <div class="desc01">
+                   <p>
+                       소장하고 계신 있는 근현대 미술품, 해외 작품, 고서화, 목기, 민속품, 공예품, 쥬얼리, 악기, 그 외의 각종 희귀자료나 물품 등의 경매 출품 가능 여부와 대략적인 가격에 대한 <span>상담을 원하시면 아래의 절차대로 진행해 주세요.</span>
+                   </p>
+                   <div class="desc01_sub">
+                       <div>
+                           <h4>01. 홈페이지</h4>
+                           <p>
+                              희망의 주며, 힘차게 예가 품에 교향악이다. 피어나기 밝은 있는 것이다. 풍부하게 작고 유소년에게서 대중을 칼이다. 만천하의 열락의 두기 앞이 못할 인간의 그와 사막이다. 품고 얼음 과실이 수 아니다.
+                           </p>
+                       </div>
+                       <div>
+                           <h4>02. 이메일</h4>
+                           <p>
+                        		희망의 주며, 힘차게 예가 품에 교향악이다. 피어나기 밝은 있는 것이다. 풍부하게 작고 유소년에게서 대중을 칼이다. 만천하의 열락의 두기 앞이 못할 인간의 그와 사막이다. 품고 얼음 과실이 수 아니다. 
+                           </p>
+                       </div>
+                       <div>
+                           <h4>03. 우편</h4>
+                           <p>
+                            희망의 주며, 힘차게 예가 품에 교향악이다. 피어나기 밝은 있는 것이다. 풍부하게 작고 유소년에게서 대중을 칼이다. 만천하의 열락의 두기 앞이 못할 인간의 그와 사막이다. 품고 얼음 과실이 수 아니다.
+                           </p>
+                       </div>
+                   </div>
+                   <div class="bot_desc">
+                       <ul>
+                           <li>
+                               접수된 문의 내역은 분야별 스페셜리스트들의 내부 심사를 거친 후, 접수일로부터 7일 이내 담당자를 통해 개별적으로 연락을 드립니다.
+                           </li>
+                           <li>
+                               소장하고 계신 물품에 관하여 판매 제한 사유(리세일 금지 약정 등)가 있는지 위탁 문의/신청 전에 확인 부탁드립니다. 고객님께서 물품을 위탁하시는 경우, 해당 물품에 관하여 제한 없이 소유권을 이전할 수 있다는 점을 스스로 진술/보증할 의무가 있습니다.
+                           </li>
+                       </ul>
+                   </div>
 
+               </div>
+               <div class="desc02">
+                   <p>출품이 가능한 경우, 아래와 같은 절차로 위탁이 진행됩니다.</p>
+                   <div class="desc02_sub">                 
+                       <span>01. 담당자 배정</span>               
+                       <span>02. 서면 심의 및 내부 감정</span>
+                       <span>03. 출품 희망가격 결정</span>
+                     	<span>04. 위탁계약서 작성 및 계약</span>
+                   </div>
 
-<h2>accordian</h2>
-<div id='acc'>
-	<h4>html5</h4>
-	<div>나는 html5입니다.</div>
-	<h4>css3</h4>
-	<div>나는 css3입니다.</div>
-	<h4>javascript</h4>
-	<div>나는 javascript입니다.</div>
-	<h4>jquery</h4>
-	<div>나는 jquery입니다.</div>
-</div>
-
-</div>
+                   <ul>
+                       <li>
+                       		경매 불가 작품은 의뢰인에게 다시 보내드립니다. (운송비 의뢰인 부담, 방문 회수 시 제외)
+                       </li>
+                       <li>
+                       		작품의 내정가는 의뢰자와 합의 하에 결정되며, 합의가 되지 않을 경우 출품되지 않습니다.
+                       </li>
+                   </ul>                 
+               </div>
+               <div class="desc03">
+                   <P>
+                       위탁 절차가 끝난 작품은 적합한 경매에 출품되며, 경매 프리뷰 기간 동안 높은 가격에 판매될 수 있도록 전시와 다양한 홍보 활동이 이루어집니다.
+                   </P>
+                   <div class="desc03_sub">
+                       <ul>
+                           <li> 
+                               <p>오프라인 전시</p>
+                               서울 신사동 케이옥션 전시장
+                           </li>
+                           <li>
+                               <p>온라인 전시</p>
+                               케이옥션 홈페이지<br>(모바일 지원)
+                           </li>
+                           <li>
+                               <p>홍보 채널</p>
+                               일간지 및 방송사, 케이옥션 블로그,인스타그램, 카카오 채널, 페이스북 등 SNS 채널
+                           </li>
+                       </ul>
+                   </div>
+                   
+               </div>
+               <div class="desc04">
+                   <div>
+                       <h4>위탁 대금</h4>
+                       <p>낙찰 결과는 경매 마감 후 위탁자에게 안내드리며, 위탁대금은 낙찰자의 낙찰금액 정산 후 위탁자에게 지급됩니다.</p>
+                       <div>
+                           위탁 대금 = 낙찰금액 - 위탁 수수료 - 기타 비용 (발생할 경우)
+                       </div>
+                   </div>
+                   <div>
+                       <ul>
+                           <li>경매 불가 작품은 의뢰인에게 다시 보내드립니다. (운송비 의뢰인 부담, 방문 회수 시 제외)</li>
+                           <li>작품의 내정가는 의뢰자와 합의하에 결정되며, 합의가 되지 않을 경우 출품되지 않습니다. </li>
+                       </ul>
+                   </div>
+                  </div>
+              </div>
+          
+</div>  
+<%@include file="../footer.jsp" %>                       
 </body>
+<script src='./js/final_lsy.js'></script>
 </html>

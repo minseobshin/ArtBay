@@ -20,7 +20,7 @@
 			<ul>
 				<li><a href="howto">경매소개</a></li>
 				<li><a href="#">응찰안내</a></li>
-				<li><a href="#">위탁안내</a></li>
+				<li><a href="ConsignGuide">위탁안내</a></li>
 			</ul>
 		</li>
 		<li><a href="#">Customer Service</a>
