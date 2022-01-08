@@ -52,7 +52,7 @@
         </div>
  </div>
 <div id='consignGuide'>
-<h1>응찰안내</h1>
+<h1>위탁안내</h1>
 <h2>Why Artbay?</h2>
 	<div id='intro'>소장하신 예술품의 가치를 아트베이에서 확인하세요! 온라인 취미/예술품 경매 회사 아트베이가 작품 위탁을 도와드리겠습니다.</div>
 	<div class='guide'>
