@@ -11,8 +11,8 @@
 </head>
 <body>
 <div id='auction'>
-<form name='frm_auction' method='post'>
 	<h1>낙찰내역</h1>
+<form name='frm_auction' method='post'>
 
 	<div id='items'>
 		<div id='title'>
