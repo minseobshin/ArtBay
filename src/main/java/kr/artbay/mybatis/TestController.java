@@ -118,6 +118,12 @@ public class TestController {
 		mv.setViewName("KD/consultationView");
 		return mv;
 	}
+	@RequestMapping("/howto")
+	public ModelAndView howto() {
+		ModelAndView mv = new ModelAndView();
+		mv.setViewName("KD/howto");
+		return mv;
+	}
 	
 	@RequestMapping(value="/list")
 	public ModelAndView artbayMain(HttpServletRequest req) {

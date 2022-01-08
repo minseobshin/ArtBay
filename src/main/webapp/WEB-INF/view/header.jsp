@@ -17,7 +17,7 @@
 		</li>			
 		<li><a href="#">How To</a>
 			<ul>
-				<li><a href="#">경매소개</a></li>
+				<li><a href="howto">경매소개</a></li>
 				<li><a href="#">응찰안내</a></li>
 				<li><a href="#">위탁안내</a></li>
 			</ul>
