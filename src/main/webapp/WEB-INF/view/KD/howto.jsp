@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%> 
 <!DOCTYPE html>
 <html>
 <head>
@@ -27,41 +28,41 @@
 
 <div class="container">
     <div id="Howto">
-        <div class="howtobtn" style="margin-top: 0px;">
+        <div class="howtobtn ">
             <ul>
                 <li class="">
                     <a href="howto">경매 소개</a>
-                    <div class="howto-subbtn" style="">
+                    <div class="howto-subbtn" >
                         <ul class="a1">
-                            <li class=""><a href="#top">온라인 경매</a></li>
-                            <li class=""><a href="#bottom">온라인 경매</a></li>
+                            <li class=""><a href="#">온라인 경매</a></li>
+                            <li class=""><a href="#">온라인 경매</a></li>
                         </ul>
                     </div>
                 </li>
                 <li>
-                    <a href="#">응찰 안내</a>
-                    <div class="howto-subbtn" style="display: none;">
-                        <ul class="a2" style="display: block;">
-                            <li><a href="#">회원 가입</a></li>
-                            <li><a href="#">프리뷰</a></li>
-                            <li><a href="#">응찰</a></li>
-                            <li><a href="#">낙찰 결과 확인 및 결제</a></li>
-                            <li><a href="#">배송, 설치 및 보관</a></li>
+                    <a href="/bidIntro">응찰 안내</a>
+                    <div class="howto-subbtn">
+                        <ul class="a2">
+                            <li><a href="#b1">회원 가입</a></li>
+                            <li><a href="#b2">프리뷰</a></li>
+                            <li><a href="#b3">응찰</a></li>
+                            <li><a href="#b4">낙찰 결과 확인 및 결제</a></li>
+                            <li><a href="#b5">배송, 설치 및 보관</a></li>
                         </ul>
                     </div>
                 </li>
                 <li>
                     <a href="/ConsignGuide">위탁 안내</a>
                     <div class="howto-subbtn" style="display: none;">
-                        <ul class="a3" style="display: block;">
-                            <li><a href="#intro">Why Art Bay?</a></li>
-                            <li><a href="#consignGuide">위탁 절차</a></li>
+                        <ul class="a3" >
+                            <li><a href="/ConsignGuide">Why Art Bay?</a></li>
+                            <li><a href="/ConsignGuide">위탁 절차</a></li>
                         </ul>
                     </div>
                 </li>
             </ul>
         </div>
-        <div class="howto-desc" style="margin-top: 0px;">
+        <div class="howto-desc " style="margin-top: 0px;">
             <div class="auc-intro">
             <div id="top">
                     <h2>온라인 경매</h2>
@@ -163,7 +164,89 @@
         </div>
     </div>
 </div>
-
+<script>
+	const selectedMenu = "";
+	
+	const howtobtn = $(".howtobtn");
+	const howtobtnOffset = howtobtn.offset().top;
+	const howromargin1 = $(".auc-intro").outerHeight(true);
+	const howromargin2 = $('.howtobtn').height();
+	
+	$(window).ready(function() {
+	    if (selectedMenu !== "" && $("#menu_" + selectedMenu.toLowerCase()).length > 0) {
+	        $("#menu_" + selectedMenu.toLowerCase()).click();
+	    }
+	});
+	
+	$(window).scroll(function () {
+	    const wScroll = $(this).scrollTop();
+	    if (wScroll >= a1contents.eq(0).offset().top) {
+	        nav.removeClass("active");
+	        nav.eq(0).addClass("active");
+	    }
+	    if (wScroll >= a1contents.eq(1).offset().top * 0.9) {
+	        nav.removeClass("active");
+	        nav.eq(1).addClass("active");
+	    }
+	    if (matchMedia("screen and (min-width: 1275px)").matches) {
+	        if (wScroll > howtobtnOffset) {
+	            howtobtn.addClass("fixed");
+	            $(".howto-desc").addClass("fixed");
+	        } else {
+	            howtobtn.removeClass("fixed");
+	            $(".howto-desc").removeClass("fixed");
+	        }
+	
+	        if (wScroll > $(".bottom").offset().top * 0.8) {
+	            howtobtn.removeClass("fixed");
+	            $(".howto-desc").removeClass("fixed");
+	            howtobtn.css("margin-top", howromargin1 - howromargin2 + 200 + "px");
+	
+	        } else {
+	            howtobtn.css("margin-top", "0px");
+	        }
+	    } else {
+	        howtobtn.removeClass("fixed");
+	        $(".howto-desc").removeClass("fixed");
+	    }
+	});
+	
+	$('.a2 > li').click(function () {
+	    document.location.href = $(this).parents().parents().prev().attr('href');
+	});
+	$('.a3 > li').click(function () {
+	    document.location.href = $(this).parents().parents().prev().attr('href');
+	});
+	$(".howtobtn > ul > li > div").hide();
+	$(".howtobtn > ul > li").eq(0).find('div').show(500);
+	
+	$(window).resize(function () {
+	    if (matchMedia("screen and (max-width: 1275px)").matches) {
+	        $('.a2').css('display', 'none');
+	        $('.a3').css('display', 'none');
+	    } else {
+	        $('.a2').css('display', 'block');
+	        $('.a3').css('display', 'block');
+	    }
+	});
+	
+	const nav = $(".a1 > li");
+	const nav1 = $(".a1 > li:first-child");
+	const nav2 = $(".a1 > li:last-child");
+	const a1contents = $(".auc-intro > div");
+	
+	nav1.click(function () {
+	    const section = $(a1contents.eq(0));
+	    const offset = section.offset().top * 0.93;
+	    $("html, body").animate({ scrollTop: offset }, 600, "swing");
+	});
+	
+	nav2.click(function () {
+	    const section2 = $(a1contents.eq(1));
+	    const offset2 = section2.offset().top * 0.95;
+	    $("html, body").animate({ scrollTop: offset2 }, 500, "swing");
+	});
+</script>
 
 	        </div>
         </div>

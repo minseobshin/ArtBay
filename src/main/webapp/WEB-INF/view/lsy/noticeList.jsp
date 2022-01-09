@@ -35,52 +35,52 @@
 		<div id='rows'>
 			
 				<div id='notice_item' onclick ="location.href='/noticeView';">
-					<span class='title'>국내 오프라인 경매 구매수수료율 인상 및 약관 개정 안내</span>
+					<span class='title'>국내   경매 구매수수료율 인상 및 약관 개정 안내</span>
 					<span class='noticeDate'>2022-01-05</span>					
 				</div>
 				
 				<div id='notice_item' onclick ="location.href='/noticeView';">
-					<span class='title'>국내 오프라인 경매 구매수수료율 인상 및 약관 개정 안내</span>
+					<span class='title'>국내   경매 구매수수료율 인상 및 약관 개정 안내</span>
 					<span class='noticeDate'>2022-01-05</span>						
 				</div>
 				
 				<div id='notice_item' onclick ="location.href='/noticeView';">
-					<span class='title'>국내 오프라인 경매 구매수수료율 인상 및 약관 개정 안내</span>
+					<span class='title'>국내   경매 구매수수료율 인상 및 약관 개정 안내</span>
 					<span class='noticeDate'>2022-01-05</span>							
 				</div>
 				
 				<div id='notice_item' onclick ="location.href='/noticeView';">
-					<span class='title'>국내 오프라인 경매 구매수수료율 인상 및 약관 개정 안내</span>
+					<span class='title'>국내   경매 구매수수료율 인상 및 약관 개정 안내</span>
 					<span class='noticeDate'>2022-01-05</span>								
 				</div>
 				<div id='notice_item' onclick ="location.href='/noticeView';">
-					<span class='title'>국내 오프라인 경매 구매수수료율 인상 및 약관 개정 안내</span>
+					<span class='title'>국내   경매 구매수수료율 인상 및 약관 개정 안내</span>
 					<span class='noticeDate'>2022-01-05</span>								
 				</div>
 				
 				<div id='notice_item' onclick ="location.href='/noticeView';">
-					<span class='title'>국내 오프라인 경매 구매수수료율 인상 및 약관 개정 안내</span>
+					<span class='title'>국내   경매 구매수수료율 인상 및 약관 개정 안내</span>
 					<span class='noticeDate'>2022-01-05</span>						
 				</div>
 				
 				<div id='notice_item' onclick ="location.href='/noticeView';">
-					<span class='title'>국내 오프라인 경매 구매수수료율 인상 및 약관 개정 안내</span>
+					<span class='title'>국내   경매 구매수수료율 인상 및 약관 개정 안내</span>
 					<span class='noticeDate'>2022-01-05</span>								
 				</div>
 				<div id='notice_item' onclick ="location.href='/noticeView';">
-					<span class='title'>국내 오프라인 경매 구매수수료율 인상 및 약관 개정 안내</span>
+					<span class='title'>국내   경매 구매수수료율 인상 및 약관 개정 안내</span>
 					<span class='noticeDate'>2022-01-05</span>								
 				</div>
 				<div id='notice_item' onclick ="location.href='/noticeView';">
-					<span class='title'>국내 오프라인 경매 구매수수료율 인상 및 약관 개정 안내</span>
+					<span class='title'>국내   경매 구매수수료율 인상 및 약관 개정 안내</span>
 					<span class='noticeDate'>2022-01-05</span>								
 				</div>
 				<div id='notice_item' onclick ="location.href='/noticeView';">
-					<span class='title'>국내 오프라인 경매 구매수수료율 인상 및 약관 개정 안내</span>
+					<span class='title'>국내   경매 구매수수료율 인상 및 약관 개정 안내</span>
 					<span class='noticeDate'>2022-01-05</span>								
 				</div>
 				<div id='notice_item' onclick ="location.href='/noticeView';">
-					<span class='title'>국내 오프라인 경매 구매수수료율 인상 및 약관 개정 안내</span>
+					<span class='title'>국내   경매 구매수수료율 인상 및 약관 개정 안내</span>
 					<span class='noticeDate'>2022-01-05</span>								
 				</div>
 			</div>

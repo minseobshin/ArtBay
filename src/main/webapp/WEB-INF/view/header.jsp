@@ -13,7 +13,6 @@
 			<ul>
 				<li><a href="list">진행중인 경매</a></li>
 				<li><a href="Result">경매결과</a></li>
-				<li><a href="application">경매신청</a></li>
 			</ul>
 		</li>			
 		<li><a href="#">How To</a>
@@ -54,7 +53,6 @@
 						</ul>
 					</div>
 				</li>
-				<li><a href="#" id="btnWishList">WISH LIST</a></li>
 			</c:otherwise>
 		</c:choose>
 	</ul>
