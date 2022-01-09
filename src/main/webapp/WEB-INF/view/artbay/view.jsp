@@ -11,11 +11,8 @@
 <link rel="stylesheet" type="text/css" href="../css/artbay.css">
 <link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Open+Sans:400,300,700,800">
 <script src="js/index.js"></script>
+<body>
 <%@include file="../header.jsp" %>
-</head>
-<body>
-</head>
-<body>
 <form name="frm_view" id="frm_view" method="post">
 	<div class="view_left">
 		<div class="view_top">
