@@ -33,7 +33,7 @@
 		
 			<div id='item' onclick = >
 				<span class='weekly_value'  >2021년 12월 27일</span>
-				<span class='weekly_title'>위클리 온라인 경매</span><br/>
+				<span class='weekly_title'>  온라인 경매</span><br/>
 				<span class='startDate_title'>경매시작일</span>
 				<span class='startDate_value'>2021-12-12</span><br/>
 				<span class='endDate_title' >경매종료일</span>	
@@ -43,7 +43,7 @@
 			</div>
 			<div id='item' onclick = >
 				<span class='weekly_value'  >2021년 12월 27일</span>
-				<span class='weekly_title'>위클리 온라인 경매</span><br/>
+				<span class='weekly_title'> 온라인 경매</span><br/>
 				<span class='startDate_title'>경매시작일</span>
 				<span class='startDate_value'>2021-12-12</span><br/>
 				<span class='endDate_title' >경매종료일</span>	
@@ -53,7 +53,7 @@
 			</div>
 			<div id='item' onclick = >
 				<span class='weekly_value'  >2021년 12월 27일</span>
-				<span class='weekly_title'>위클리 온라인 경매</span><br/>
+				<span class='weekly_title'> 온라인 경매</span><br/>
 				<span class='startDate_title'>경매시작일</span>
 				<span class='startDate_value'>2021-12-12</span><br/>
 				<span class='endDate_title' >경매종료일</span>	
@@ -63,7 +63,7 @@
 			</div>
 			<div id='item' onclick = >
 				<span class='weekly_value'  >2021년 12월 27일</span>
-				<span class='weekly_title'>위클리 온라인 경매</span><br/>
+				<span class='weekly_title'>  온라인 경매</span><br/>
 				<span class='startDate_title'>경매시작일</span>
 				<span class='startDate_value'>2021-12-12</span><br/>
 				<span class='endDate_title' >경매종료일</span>	
@@ -73,7 +73,7 @@
 			</div>
 			<div id='item' onclick = >
 				<span class='weekly_value'  >2021년 12월 27일</span>
-				<span class='weekly_title'>위클리 온라인 경매</span><br/>
+				<span class='weekly_title'>  온라인 경매</span><br/>
 				<span class='startDate_title'>경매시작일</span>
 				<span class='startDate_value'>2021-12-12</span><br/>
 				<span class='endDate_title' >경매종료일</span>	
@@ -83,7 +83,7 @@
 			</div>
 			<div id='item' onclick = >
 				<span class='weekly_value'  >2021년 12월 27일</span>
-				<span class='weekly_title'>위클리 온라인 경매</span><br/>
+				<span class='weekly_title'>  온라인 경매</span><br/>
 				<span class='startDate_title'>경매시작일</span>
 				<span class='startDate_value'>2021-12-12</span><br/>
 				<span class='endDate_title' >경매종료일</span>	
@@ -93,7 +93,7 @@
 			</div>
 			<div id='item' onclick = >
 				<span class='weekly_value'  >2021년 12월 27일</span>
-				<span class='weekly_title'>위클리 온라인 경매</span><br/>
+				<span class='weekly_title'>  온라인 경매</span><br/>
 				<span class='startDate_title'>경매시작일</span>
 				<span class='startDate_value'>2021-12-12</span><br/>
 				<span class='endDate_title' >경매종료일</span>	
@@ -103,7 +103,7 @@
 			</div>
 			<div id='item' onclick = >
 				<span class='weekly_value'  >2021년 12월 27일</span>
-				<span class='weekly_title'>위클리 온라인 경매</span><br/>
+				<span class='weekly_title'>  온라인 경매</span><br/>
 				<span class='startDate_title'>경매시작일</span>
 				<span class='startDate_value'>2021-12-12</span><br/>
 				<span class='endDate_title' >경매종료일</span>	

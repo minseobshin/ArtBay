@@ -402,25 +402,38 @@ a {
     align-items: flex-start;
     margin: 60px 0;
 }
+#Howto > .side {
+	width:250px;
+	height:200px;
+	text-align:left;
+	margin-top:220px;
+	margin-left:60px;
+}
+#Howto > .howtobtn.fixed {
+    width: 222px;
+    position: fixed;
+    top: 25px;
+}
 #Howto > .howtobtn {
     width: 20%;
     margin-right: 100px;
     background-color: #fff;
 }
 .howtobtn > ul > li.active { /* active 해야함 */
-    border-top: 1px solid #0d0d0d;
+    border-top: 2px solid #0d0d0d;
 }
 .howtobtn > ul > li {
     padding-left: 0;
-    padding: 20px 0;
-    border-top: solid 1px #cccccc;
+    padding: 10px 0;
+    border-top: solid 2px #cccccc;
+    line-height: 1.4em;
 }
 ul, li, ol {
     list-style: none;
 }
 .howtobtn > ul > li > a {
     display: block;
-    font-size: 18px;
+    font-size: 17px;
     font-weight: 500;
     color: #666666;
 }
@@ -440,6 +453,10 @@ ul, li, ol {
 /*howto intro  */
 #Howto > .howto-desc {
     width: 80%;
+}
+.howto-desc.fixed {
+    width: 888px !important;
+    margin-left: 322px;
 }
 .auc-intro > div {
     margin-bottom: 100px;
