@@ -13,7 +13,6 @@
 			<ul>
 				<li><a href="list">진행중인 경매</a></li>
 				<li><a href="Result">경매결과</a></li>
-				<li><a href="application">경매신청</a></li>
 			</ul>
 		</li>			
 		<li><a href="#">How To</a>
@@ -47,14 +46,13 @@
 							<li><a href="Bid">응찰내역</a></li>
 							<li><a href="SuccessfulBid">낙찰내역</a></li>
 							<li><a href="Consign">위탁내역</a></li>
-							<li><a href="">위탁신청</a></li>
-							<li><a href="">작품문의내역</a></li>
-							<li><a href="">정보수정</a></li>
+							<li><a href="application">위탁신청</a></li>
+							<li><a href="consultationList">작품문의내역</a></li>
+							<li><a href="memberModify">정보수정</a></li>
 							<li><a href="">로그아웃</a></li>
 						</ul>
 					</div>
 				</li>
-				<li><a href="#" id="btnWishList">WISH LIST</a></li>
 			</c:otherwise>
 		</c:choose>
 	</ul>

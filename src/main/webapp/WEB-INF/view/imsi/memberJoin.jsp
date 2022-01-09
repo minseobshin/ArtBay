@@ -9,9 +9,14 @@
 <link rel='stylesheet' type='text/css' href='./css/artbay_minseob.css'>
 <script src = '/js/artbay_minseob.js'></script>
 <script src="//t1.daumcdn.net/mapjsapi/bundle/postcode/prod/postcode.v2.js"></script>
+<link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Open+Sans:400,300,700,800">
+<link rel="stylesheet" href="css/reset.css">
+<link rel="stylesheet" href="css/index.css">
 <title>회원가입</title>
 </head>
 <body>
+<!-- 메뉴 네비게이션 -->
+	<%@include file="../header.jsp" %>
 <h1 id='h'>ArtBay 회원가입</h1>
 <div id='join'>
 <h5>본인 인증 후 기본 정보 및 주소를 입력해주세요.</h5>
@@ -43,5 +48,7 @@
 </form>
 </div>
 </div>
+<!-- 메인 푸터 -->
+	<%@include file="../footer.jsp" %>
 </body>
 </html>
