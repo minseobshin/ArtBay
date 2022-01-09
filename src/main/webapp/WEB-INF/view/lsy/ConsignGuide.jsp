@@ -13,9 +13,9 @@
 
 <link rel='stylesheet' type='text/css' href='./css/final_lsy.css'>
 <link rel='stylesheet' type='text/css' href='./css/guide_side.css'>
-<%@include file="../header.jsp" %>
 </head>
 <body>
+
 <div id='consign_title'>
 <h1>위탁안내</h1>
 </div>

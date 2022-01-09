@@ -44,14 +44,13 @@
 					<a href="#" id="btnMyPage">MY PAGE</a>
 					<div id="mypage">
 						<ul>
-							<li>응찰내역</li>
-							<li>낙찰내역</li>
-							<li>위탁내역</li>
-							<li>위탁신청</li>
-							<li>도록신청</li>
-							<li>작품문의내역</li>
-							<li>정보수정</li>
-							<li>로그아웃</li>
+							<li><a href="Bid">응찰내역</a></li>
+							<li><a href="SuccessfulBid">낙찰내역</a></li>
+							<li><a href="Consign">위탁내역</a></li>
+							<li><a href="">위탁신청</a></li>
+							<li><a href="">작품문의내역</a></li>
+							<li><a href="">정보수정</a></li>
+							<li><a href="">로그아웃</a></li>
 						</ul>
 					</div>
 				</li>
