@@ -86,11 +86,12 @@
 		$('#consign_step4').css('background-color', '#f60');
 
 	});
-	$('.howto-subbtn').hide(); //숨어있어
+	//howto 사이드 메뉴
+	$('.howto-subbtn').hide(); 
 	$('.howtobtn ul>li').hover(function() {
-	$(this).children('div').fadeIn(); //부드럽게 튀어나와
+	$(this).children('div').fadeIn();
 	}, function() {
-	$(this).children('div').fadeOut('slow'); //부드럽게 들어가
+	$(this).children('div').fadeOut('slow');
 	});
 
 	$(".howtobtn ul>li>a").attr("style","color:#777");
