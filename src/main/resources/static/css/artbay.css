@@ -762,7 +762,7 @@ ul{
 	margin-top: 10px;
 }
 
-form[name=frm_view] h4, form[name=frm_list] h4{
+form[name=frm_bidIntro] h4, form[name=frm_view] h4, form[name=frm_list] h4{
 	display: block;
 	margin-top: 1.33em;
 	margin-bottom: 1.33em;
@@ -771,7 +771,7 @@ form[name=frm_view] h4, form[name=frm_list] h4{
 	font-weight: bold;
 }
 
-form[name=frm_view] h3, form[name=frm_list] h3{
+form[name=frm_bidIntro] h3, form[name=frm_view] h3, form[name=frm_list] h3{
 	display: block;
 	font-size: 1.17em;
 	margin-top: 1em;
@@ -781,7 +781,7 @@ form[name=frm_view] h3, form[name=frm_list] h3{
 	font-weight: bold;
 }
 
-form[name=frm_view] h2, form[name=frm_list] h2{
+form[name=frm_bidIntro] h2, form[name=frm_view] h2, form[name=frm_list] h2{
 	display: block;
 	font-size: 1.5em;
 	margin-top: 0.83em;
