@@ -188,7 +188,7 @@ function setHowToBtn() {
 	
 	$("#btnConsign").click(function() {
 		location.href = "ConsignGuide#consign_steps";
-	});
+	}); 
 }
 
 //맨위 / 맨아래로 이동 버튼
