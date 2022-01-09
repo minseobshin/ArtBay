@@ -5,22 +5,26 @@
 <head>
 <meta charset="UTF-8">
 <title>Insert title here</title>
-<link rel="stylesheet" type="text/css" href="../css/artbay.css">
 <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<link rel="stylesheet" href="css/reset.css">
+<link rel="stylesheet" href="css/index.css">
+<link rel="stylesheet" type="text/css" href="../css/artbay.css">
+<link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Open+Sans:400,300,700,800">
 </head>
 <body>
-
+<%@include file="../header.jsp" %>
 <form name="frm_bidIntro" method="post">
+<div class="bidIntroTitle">응찰 안내</div>
 <div class="container">
-    <div id="Howto">        
+    <div id="Howto">
         <div class="howtobtn">
             <ul>
                 <li>
-                    <a>경매 소개</a>
+                    <a href="/howto">경매 안내</a>
                     <div class="howto-subbtn">
                         <ul class="a1">
-                            <li><a href="#">라이브 경매</a></li>
-                            <li><a href="#">온라인 경매</a></li>
+                            <li><a href="/howto#top">라이브 경매</a></li>
+                            <li><a href="/howto#bottom">온라인 경매</a></li>
                         </ul>
                     </div>
                 </li>
@@ -37,16 +41,18 @@
                     </div>
                 </li>
                 <li>
-                    <a>위탁 안내</a>
+                    <a href="/ConsignGuide">위탁 안내</a>
                     <div class="howto-subbtn">
                         <ul class="a3">
-                            <li><a href="#">Why K Auction?</a></li>
-                            <li><a href="#">위탁 절차</a></li>
+                            <li><a href="/ConsignGuide#intro">Why K Auction?</a></li>
+                            <li><a href="/ConsignGuide#consignGuide">위탁 절차</a></li>
                         </ul>
                     </div>
                 </li>
             </ul>
         </div>
+        </div>
+<div class="bidIntroRight">
         <div class="howto-desc">
             <div class="bid-guide">
                 <div id="b1">
@@ -379,6 +385,7 @@
 
 </form>
 
+<%@include file="../footer.jsp" %>      
 <script src="../js/artbay.js"></script>
 </body>
 </html>

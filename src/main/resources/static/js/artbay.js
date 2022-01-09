@@ -38,7 +38,14 @@
 		$(window).on("resize", function(){
 			$(".bid_price").hide();
 		})
-	}			
+	}
+	
+	$('.howtobtn>ul>li').hover(function() {
+		$(this).children('div').css("display", "block");
+		$(this).children('div').fadeIn();
+	}, function() {
+		$(this).children('div').fadeOut('slow');
+	});			
 })
 
 /*howto화면 버튼 누르면 하위 메뉴 등장*/
