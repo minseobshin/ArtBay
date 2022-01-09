@@ -98,19 +98,19 @@
 			<div>
 				<div class="title">Aucton Guide</div>
 				<div class="info">아트베이 경매에대해 알려드립니다.</div>
-				<div class="btn">온라인 경매</div>
+				<div class="btn" id="btnOnlineAuction">온라인 경매</div>
 			</div>
 			<div>
 				<div class="title">How to Buy</div>
 				<div class="info">응찰에 필요한 정보를 모았습니다.</div>
-				<div class="btn">회원가입</div>
-				<div class="btn">응찰방법</div>
-			</div>
+				<div class="btn" id="btnMemberJoin">회원가입</div>
+				<div class="btn" id="btnBidIntro">응찰방법</div>
+			</div> 
 			<div>
 				<div class="title">How to Sell</div>
 				<div class="info">소장품의 가치. 아트베이에 문의하세요.</div>
-				<div class="btn">Why Artbay?</div>
-				<div class="btn">위탁방법</div>
+				<div class="btn" id="btnWhyArtbay">Why Artbay?</div>
+				<div class="btn" id="btnConsign">위탁방법</div>
 			</div>
 		</div>
 		<div class="schedule_zone">
