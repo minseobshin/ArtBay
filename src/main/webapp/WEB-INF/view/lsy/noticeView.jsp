@@ -18,12 +18,12 @@
 <div id='noticeView'>
 	<h1>공지사항</h1>
 	<div id='noticeView_sub'>
-		<div>1월 e BID 스페셜 온라인 경매</div>
+		<div>1월 스페셜 온라인 경매</div>
 			<p>
 			[Online Auction]
 			2022. 01. 12 (수)
 			2시 순차마감
-			www.seoulauction.com
+			www.Artbay.com
 			<br/>
 			[Opening on Online]
 			2022. 01. 07 (금) 10am - 01. 12 (수)
@@ -31,8 +31,7 @@
 			[Exhibition Preview]
 			2022. 01. 07 (금) - 01. 11 (화)
 			10am - 7pm
-			서울옥션 강남센터 B1
-			(강남구 언주로 864)
+			아트베이
 			<br/>
 			[Notice]
 			*시계 출품작 'Lot.101-121, 123-127, 131, 134-166'는 빈티지 시계의 특성상 최초브랜드의 보증서와 시계케이스는 제공하지 않습니다.
