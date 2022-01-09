@@ -209,7 +209,7 @@
 
 	width:1280px;
 	min-height:400px;
-	margin:80px auto;
+	margin:0px auto;
 	box-sizing:border-box;
 }
 
@@ -484,9 +484,6 @@
 	background-color:#f60;
 	color:#fff;
 }
-
-
-
 
 
 
