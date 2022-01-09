@@ -7,6 +7,9 @@ $(function() {
 	
 	//맨위/맨아래 이동
 	goTopBottom();
+	
+	//가이드 및 How To 버튼
+	setHowToBtn();
 });
 
 //메인 비주얼
@@ -162,6 +165,29 @@ function setMainBanner() {
 			$(".moving div").css({display : "none"});
 			$(".moving .banner"+current).css({display : "block"});
 		});
+	});
+}
+
+//가이드 및 How To 버튼
+function setHowToBtn() {
+	$("#btnOnlineAuction").click(function() {
+		location.href = "howto";
+	});
+	
+	$("#btnMemberJoin").click(function() {
+		location.href = "memberJoin";
+	});
+	
+	$("#btnBidIntro").click(function() {
+		location.href = "bidIntro#b3";
+	});
+	
+	$("#btnWhyArtbay").click(function() {
+		location.href = "ConsignGuide#consignGuide";
+	});
+	
+	$("#btnConsign").click(function() {
+		location.href = "ConsignGuide#consign_steps";
 	});
 }
 
