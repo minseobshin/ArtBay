@@ -33,8 +33,8 @@
                     <a href="howto">경매 소개</a>
                     <div class="howto-subbtn" >
                         <ul class="a1">
-                            <li class=""><a href="#top">온라인 경매</a></li>
-                            <li class=""><a href="#bottom">온라인 경매</a></li>
+                            <li class=""><a href="#">온라인 경매</a></li>
+                            <li class=""><a href="#">온라인 경매</a></li>
                         </ul>
                     </div>
                 </li>
