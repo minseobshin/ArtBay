@@ -1,6 +1,5 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <header>	
 <script src = '/js/artbay_minseob.js'></script><!-- 로그인 페이지 모달창 제어용 -->
 	<!-- 메인 로고 -->	
