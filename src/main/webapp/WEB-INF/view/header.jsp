@@ -32,10 +32,31 @@
 		</li>
 	</ul>
 	
-	<!-- 로그인/회원가입 -->
+	<!-- 로그인/회원가입/마이페이지/위시리스트 -->
 	<ul class="login clearfix">
-		<li><a href="#" id='btnLogin' data-toggle='modal' data-target='#madal' role='botton'>LOGIN</a></li>
-		<li><a href="memberJoin">JOIN</a></li>
+		<c:choose>
+			<c:when test="${ empty sessionScope.mid }">
+				<li><a href="#" id='btnLogin' data-toggle='modal' data-target='#madal' role='botton'>LOGIN</a></li>
+				<li><a href="memberJoin">JOIN</a></li>			
+			</c:when>
+			<c:otherwise>
+				<li>
+					<a href="#" id="btnMyPage">MY PAGE</a>
+					<div id="mypage">
+						<ul>
+							<li><a href="Bid">응찰내역</a></li>
+							<li><a href="SuccessfulBid">낙찰내역</a></li>
+							<li><a href="Consign">위탁내역</a></li>
+							<li><a href="">위탁신청</a></li>
+							<li><a href="">작품문의내역</a></li>
+							<li><a href="">정보수정</a></li>
+							<li><a href="">로그아웃</a></li>
+						</ul>
+					</div>
+				</li>
+				<li><a href="#" id="btnWishList">WISH LIST</a></li>
+			</c:otherwise>
+		</c:choose>
 	</ul>
 	
 	<!-- 로그인 페이지 모달창 호출용 -->
@@ -44,4 +65,5 @@
 			<div class="modal-content"></div>
 		</div>
 	</div>
+	
 </header>

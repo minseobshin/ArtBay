@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@taglib prefix="c" uri="http://java.sun.com/jstl/core_rt" %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -13,9 +14,9 @@
 
 <link rel='stylesheet' type='text/css' href='./css/final_lsy.css'>
 <link rel='stylesheet' type='text/css' href='./css/guide_side.css'>
-<%@include file="../header.jsp" %>
 </head>
 <body>
+<%@include file="../header.jsp" %>
 <div id='consign_title'>
 <h1>위탁안내</h1>
 </div>
@@ -25,17 +26,22 @@
             <ul>
                 <li>
                     <a href="/howto">경매 소개</a>
-                   
+                     <div class="howto-subbtn">
+	                    <ul>
+		                    <li><a href="howto#top">라이브 경매</a></li>
+		                    <li><a href="howto#bottom">온라인 경매</a></li>
+	               		</ul>
+	               	</div>
                 </li>
                 <li>
                     <a href="/bidIntro">응찰 안내</a>
                     <div class="howto-subbtn">
                         <ul class="a2" >
-                            <li><a href="#">회원 가입</a></li>
-                            <li><a href="#">프리뷰</a></li>
-                            <li><a href="#">응찰</a></li>
-                            <li><a href="#">낙찰 결과 확인 및 결제</a></li>
-                            <li><a href="#">배송, 설치 및 보관</a></li>
+                            <li><a href="bidIntro#b1">회원 가입</a></li>
+                            <li><a href="bidIntro#b2">프리뷰</a></li>
+                            <li><a href="bidIntro#b3">응찰</a></li>
+                            <li><a href="bidIntro#b4">낙찰 결과 확인 및 결제</a></li>
+                            <li><a href="bidIntro#b5">배송, 설치 및 보관</a></li>
                         </ul>
                     </div>
                 </li>

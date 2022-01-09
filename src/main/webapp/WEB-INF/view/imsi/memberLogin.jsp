@@ -12,7 +12,7 @@
 <body>
 <div id='memberLogin'>
 	<div id='memberLogin2'>
-		<form name='frm_memberLogin' method='post'>
+		<form name='frm_memberLogin' id="frm_memberLogin" method='post'>
 			<h1>LOGIN</h1>
 			<input type='text' name='mid' id='midLogin' placeholder="아이디" required="required">
 			<input type='password' name='pwd' id='pwdLogin' placeholder="비밀번호" required="required">
