@@ -297,6 +297,8 @@ header > * {
 	width: 80%;
 	margin: 0 auto;
 }
+
+
 .howto_zone > div .title {
 	font-weight: bold;
 	margin-top: 20px;
@@ -319,6 +321,7 @@ header > * {
 	color: #fff;
 	cursor: pointer;
 }
+
 /****** 경매일정 ******/
 .schedule_zone {
 	width: 29%;
