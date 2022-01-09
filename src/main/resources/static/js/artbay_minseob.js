@@ -42,8 +42,18 @@ $(function(){
 		$(".modal-content").load("memberLoginModal").fadeOut();
 	})
 	
+	//로그인
+	$("#btnGoLogin").click(function() {
+		$param = $("#frm_memberLogin").serialize();		
+		$.post("login", $param, function() {
+			console.log("login OK!");
+		});	
+	});
 	
-	
+	//마이 페이지
+	$("#btnMyPage").click(function() {
+		$("#mypage").toggle();		
+	});
 })
 
 

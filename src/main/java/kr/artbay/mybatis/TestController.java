@@ -1,6 +1,7 @@
 package kr.artbay.mybatis;
 
 import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -12,7 +13,7 @@ public class TestController {
 
 	@Autowired
 	TestService service;
-	
+		
 	public TestController() {
 		System.out.println("ArtBayController.........................................");
 	}
@@ -60,6 +61,18 @@ public class TestController {
 		ModelAndView mv = new ModelAndView();
 		mv.setViewName("imsi/memberLogin");
 		return mv;
+	}
+	
+	@RequestMapping(value = "/login")
+	public void memberLogin(HttpServletRequest req) {
+		String mid = req.getParameter("mid");
+		String pwd = req.getParameter("pwd");
+		HttpSession session = req.getSession();
+		
+		//아이디/비밀번호에 맞는 회원정보 조회(MemberVO)
+		//To do
+		
+		session.setAttribute("mid", mid);	//test용 아이디
 	}
 	
 	@RequestMapping(value="/Bid")

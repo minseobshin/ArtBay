@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <header>	
 <script src = '/js/artbay_minseob.js'></script><!-- 로그인 페이지 모달창 제어용 -->
 	<!-- 메인 로고 -->	
@@ -32,10 +33,32 @@
 		</li>
 	</ul>
 	
-	<!-- 로그인/회원가입 -->
+	<!-- 로그인/회원가입/마이페이지/위시리스트 -->
 	<ul class="login clearfix">
-		<li><a href="#" id='btnLogin' data-toggle='modal' data-target='#madal' role='botton'>LOGIN</a></li>
-		<li><a href="memberJoin">JOIN</a></li>
+		<c:choose>
+			<c:when test="${ empty sessionScope.mid }">
+				<li><a href="#" id='btnLogin' data-toggle='modal' data-target='#madal' role='botton'>LOGIN</a></li>
+				<li><a href="memberJoin">JOIN</a></li>			
+			</c:when>
+			<c:otherwise>
+				<li>
+					<a href="#" id="btnMyPage">MY PAGE</a>
+					<div id="mypage">
+						<ul>
+							<li>응찰내역</li>
+							<li>낙찰내역</li>
+							<li>위탁내역</li>
+							<li>위탁신청</li>
+							<li>도록신청</li>
+							<li>작품문의내역</li>
+							<li>정보수정</li>
+							<li>로그아웃</li>
+						</ul>
+					</div>
+				</li>
+				<li><a href="#" id="btnWishList">WISH LIST</a></li>
+			</c:otherwise>
+		</c:choose>
 	</ul>
 	
 	<!-- 로그인 페이지 모달창 호출용 -->
@@ -44,4 +67,5 @@
 			<div class="modal-content"></div>
 		</div>
 	</div>
+	
 </header>
