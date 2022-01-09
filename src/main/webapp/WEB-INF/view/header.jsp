@@ -27,7 +27,7 @@
 			<ul>
 				<li><a href="FAQ">자주묻는질문(FAQ)</a></li>
 				<li><a href="consultationList">1:1상담문의</a></li>
-				<li><a href="#">공지사항</a></li>
+				<li><a href="noticeList">공지사항</a></li>
 			</ul>
 		</li>
 	</ul>

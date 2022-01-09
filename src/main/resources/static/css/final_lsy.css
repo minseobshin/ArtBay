@@ -44,10 +44,7 @@
 	width:900px;
 	margin:0 auto;
 }
-#auction #items #rows #item:hover{
-	background-color:#ddd;
-	
-}
+
 #auction #items .artName{
 	width:150px;
 	overflow:hidden;
@@ -406,6 +403,96 @@
 	font-size:13px;
 	margin:10px 0 10px 20px;
 }
+
+/*noticeList , noticeView*/
+#auction #noticeSearch input[type='text']{
+	position:relative;
+	top:79px;
+	left:200px;
+}
+#auction #noticeSearch #findZone{
+	position:relative;
+	top:35px;
+	left:474px;
+}
+#auction #items .title{
+	display:inline-block;
+	width:600px;
+	text-align:center;
+}
+#auction #items .noticeDate{
+	display:inline-block;
+	width:150px;
+	text-align:center;
+}
+#auction #items #rows #notice_item{
+	border-top:2px solid #ddd;
+	width:900px;
+	margin:0 auto;
+}
+#auction #items #rows #notice_item:hover{
+	background-color:#ddd;	
+	cursor:pointer;
+}
+
+/*noticeView*/
+#noticeView{
+	width:1080px;
+	margin:10px auto;
+}
+
+#noticeView h1{
+	text-align:center;
+	font-size:30px;
+	margin-top:120px;
+	font-weight:bold;
+	margin-bottom:40px;
+}
+#noticeView #noticeView_sub{
+	border-top:2px solid #333;
+	border-bottom:2px solid #333;
+	min-height:400px;
+	line-height:1.5em;
+}
+
+#noticeView #noticeView_sub div{
+	border-bottom:2px solid #ddd;
+	height:50px;
+	padding-left:20px;
+	padding-top:15px;
+	font-weight:bolder;
+}
+#noticeView #noticeView_sub p{
+	padding:20px 40px;
+	box-sizing:border-box;
+
+}
+#noticeView #btnViewList{
+	position:relative;
+	left:940px;
+	top:20px;
+	display:inline-block;
+	width:50px;
+	height:30px;
+	background-color:#fff;
+	border:1px solid #aaa;
+	
+}
+#noticeView #btnViewList:hover{
+	cursor:pointer;
+	background-color:#f60;
+	color:#fff;
+}
+
+
+
+
+
+
+
+
+
+
 
 
 
