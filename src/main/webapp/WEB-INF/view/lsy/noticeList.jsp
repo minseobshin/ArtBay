@@ -20,7 +20,7 @@
 	<h1>공지사항</h1>
 	<form name='frm_notice' method='post'>
 	<div id='noticeSearch'>
-		<input type='text' value='공지사항 300건'>
+		<input type='text' readonly value='공지사항 300건'>
 		<div id='findZone'>
 			<input type='search' placeholder="검색어">
 			<input type='button' name='btnSearch' value='검색'> 
