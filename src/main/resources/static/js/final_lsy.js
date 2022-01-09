@@ -96,6 +96,10 @@
 
 	$(".howtobtn ul>li>a").attr("style","color:#777");
 	
+	//공지사항 목록으로 돌아가기
+	$('#btnViewList').click(function(){
+		location.href='/noticeList'
+	})
 			
 })
 

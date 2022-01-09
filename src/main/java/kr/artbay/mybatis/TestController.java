@@ -119,7 +119,21 @@ public class TestController {
 		
 		return mv;
 	}
-
+	
+	@RequestMapping(value = "/noticeList")
+	public ModelAndView noticeList() {
+		ModelAndView mv = new ModelAndView();
+		mv.setViewName("lsy/noticeList");
+		return mv;		
+	}	
+	
+	@RequestMapping(value = "/noticeView")
+	public ModelAndView noticeView() {
+		ModelAndView mv = new ModelAndView();
+		mv.setViewName("lsy/noticeView");
+		return mv;		
+	}	
+	
 	@RequestMapping("/application")
 	public ModelAndView application() {
 		ModelAndView mv = new ModelAndView();

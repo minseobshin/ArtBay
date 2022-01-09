@@ -6,10 +6,15 @@
 <head>
 <meta charset="UTF-8">
 <title>artbay-list</title>
-<link rel="stylesheet" type="text/css" href="../css/artbay.css">
 <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<link rel="stylesheet" href="css/reset.css">
+<link rel="stylesheet" href="css/index.css">
+<link rel="stylesheet" type="text/css" href="../css/artbay.css">
+<link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Open+Sans:400,300,700,800">
+<script src="js/index.js"></script>
 </head>
 <body>
+<%@include file="../header.jsp" %>
 <form name="frm_list" method="post">
 	<div class="div_list">
 		<!-- 섹션/정렬 영역 -->
@@ -112,6 +117,7 @@
 		</div>
 	</div>
 </form>
+<%@include file="../footer.jsp" %>
 <script src="../js/artbay.js"></script>
 </body>
 </html>

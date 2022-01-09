@@ -12,7 +12,7 @@
 	<ul class="navi clearfix">
 		<li><a href="#">Online Auction</a>
 			<ul>
-				<li><a href="#">진행중인 경매</a></li>
+				<li><a href="list">진행중인 경매</a></li>
 				<li><a href="Result">경매결과</a></li>
 				<li><a href="application">경매신청</a></li>
 			</ul>
@@ -20,7 +20,7 @@
 		<li><a href="#">How To</a>
 			<ul>
 				<li><a href="howto">경매소개</a></li>
-				<li><a href="#">응찰안내</a></li>
+				<li><a href="bidIntro">응찰안내</a></li>
 				<li><a href="ConsignGuide">위탁안내</a></li>
 			</ul>
 		</li>
@@ -28,7 +28,7 @@
 			<ul>
 				<li><a href="FAQ">자주묻는질문(FAQ)</a></li>
 				<li><a href="consultationList">1:1상담문의</a></li>
-				<li><a href="#">공지사항</a></li>
+				<li><a href="noticeList">공지사항</a></li>
 			</ul>
 		</li>
 	</ul>

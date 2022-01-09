@@ -15,7 +15,6 @@ form[name=frm_list]{
 	margin: 0 auto;
 	width: 1280px;
 	min-height: 900px;
-	border: 1px solid grey;
 }
 
 	/* nav 구간 */
@@ -24,7 +23,7 @@ form[name=frm_list]{
 	margin: 10px auto;
 }
 
-.nav ul li{
+.nav>ul li{
 	display: inline-block;
 	margin-left: 30px;
 	font-size: 20px;
@@ -89,13 +88,14 @@ form[name=frm_list]{
 	vertical-align: middle !important;
 }
 
-.selected_option{
-	height: 15px !important;
+.selected_findStr{
+	margin: 0 !important;
+	height: 10px;
 }
-
 
 .selected_option_title{
 	font-weight: bolder;
+	padding: 15px;
 	margin-left: 5px;
 }
 
@@ -203,6 +203,8 @@ form[name=frm_list]{
 	color: rgb(102, 102, 102);
 	text-align: left;
 	margin: 0;
+	padding: 5px;
+	box-sizing: border-box;
 	margin-left: 10px;
 	font-size: 1em;
 }
@@ -334,12 +336,9 @@ th, .deliv_th1, .deliv_th2{
 }
 
 .modal_body{
-	padding: 10px;
+	padding: 10px !important;
 }
 
-.modal2 .modal_body{
-	margin-left: -20px;
-}
 .xBtn{
 	z-index: 1;
 	position: absolute;
@@ -356,8 +355,7 @@ th, .deliv_th1, .deliv_th2{
 }
 
 .btnBidList .xBtn{
-	margin-top: -50px;
-	margin-left: 150px !important;
+	margin-left: 160px !important;
 }
 
 /* 뷰 페이지 시작*/
@@ -484,7 +482,6 @@ form[name=frm_view]{
 
 form[name=frm_view] div.view_sml_btn p{
 	display: inline-block;
-	border: 1px solid grey;
 	border-radius: 50%;
 	padding: 0.5px;
 	box-sizing: border-box;
@@ -492,6 +489,11 @@ form[name=frm_view] div.view_sml_btn p{
 
 .view_detail, .view_price{
 	border-bottom: 1px dotted grey;
+}
+
+.view_detail>p, .view_price>p{
+	padding: 5px;
+	box-sizing: border-box;
 }
 
 .deadline_time{
@@ -525,7 +527,6 @@ th.bid{
 .deliv_table{
 	width: 450px !important;
 	table-layout: fixed;
-	margin-left: -3px;
 }
 
 .closing_hour{
@@ -567,7 +568,7 @@ th.bid{
 	line-height: 40px;
 }
 
-ul li:nth-child(3){
+form[name=frm_view]>ul li:nth-child(3){
 	clear: both;
 	margin-bottom: 10px;
 }
@@ -583,6 +584,11 @@ ul li:nth-child(3){
 	font-weight: bolder;
 }
 
+.btnBidApplyFinal{
+	width: 95%;
+	margin: 20px auto !important;
+}
+
 .btnBidStart{
 	margin-top: 80px !important;
 }
@@ -595,8 +601,9 @@ ul li:nth-child(3){
 
 .bid_price_choose li{
 	float: left;
-	margin-left: 20%;
-	margin-bottom: 10px;
+	margin-left: 25%;
+	margin-top: 20px;
+	margin-bottom: 20px;
 }
 
 .bidList{
@@ -606,18 +613,22 @@ ul li:nth-child(3){
 	box-sizing: border-box;
 }
 
+.bidHistory{
+	padding: 0;
+}
+
 .bidHistory ul{
 	clear: both;
-	width: 80%;
-	margin: 20px auto;
+	width: 88%;
+	margin-top: 20px;
+	margin-left: 10px;
 	border-bottom: 0.5px solid grey;
+	padding: 10px;
+	box-sizing: border-box;
 }
 
 .bidHistory ul li{
 	display: inline-block;
-}
-.bidHistory ul li:nth-child(1), .bidHistory ul li:nth-child(3){
-	margin-left: -40px;
 }
 
 .bidHistory ul li:nth-child(4){
@@ -627,27 +638,39 @@ ul li:nth-child(3){
 	width: 400px;
 }
 
-.current_bid_price div{
+.current_bid_price>div>div>div, .current_bid_price>div>div>strong{
 	display: inline-block;
+	margin-bottom: 10px;
 }
 
-div strong{
-	display: inline-block;
-	width: 100px;
-}
-
-strong+div{
+.current_bid_price>div>div>div{
+	width: 80%;
+	text-align: right;
 	margin: 0;
-	display: inline-block;
-	width: 280px;
 }
 
-strong+div strong, .price_combo{
-	width: 55%
+.my_choice>div>strong{
+	display: inline-block;
+	width: 30%;
+	max-width: 50px;
+}
+
+.current_bid_price strong+div{
+	margin: 0;
+	margin-left: 30%;
+	display: inline-block;
+	text-align: right;
+	width: 100%;
+}
+
+.current_bid_price strong+div>strong, .price_combo{
+	width: 80%;
+	display: inline-block;
 }
 
 .my_choice{
-	margin-left: 10px;
+	width: 95%;
+	margin: 20px auto;
 }
 
 .my_choice+.btnBid{
@@ -656,6 +679,7 @@ strong+div strong, .price_combo{
 
 .bidApplyBtn{
 	text-align: center;
+	margin-top: 10px;	
 }
 
 .bid_caution{
@@ -668,19 +692,24 @@ strong+div strong, .price_combo{
 }
 
 .bid_caution_modal ul{
-	width: 420px;
+	width: 95%;
 	text-align: left;
 	border-top: 1px solid grey;
 	border-bottom: 1px solid grey;
-	margin-left: 15px;
+	margin: 0 auto;
 }
 
 .bid_caution_modal ul li{
 	line-height: 25px;
-	margin-left: -30px;
 }
+
+.bid_caution_modal ul, .bid_caution_modal ul~p{
+	margin-top: 10px;
+	margin-bottom: 10px;
+}
+
 .bid_caution_modal{
-	padding: 5px !important;
+	padding: 10px !important;
 	box-sizing: border-box;
 }
 
@@ -711,10 +740,7 @@ ul{
 
 
 /*응찰 안내 시작*/
-form [name=frm_bidIntro]{
-	width: 1280;
-}
-
+/*
 .howtobtn{
 	display: block;
 	float: left;
@@ -727,9 +753,147 @@ form [name=frm_bidIntro]{
 	display: none;
 	text-align: left;
 }
+*/
 
-.howto-desc{
-	margin-left: 30%;
+
+	/*reset으로 틀어진 elements들 속성 되돌려놓기*/
+
+.caution li{
+	margin-top: 10px;
+}
+
+form[name=frm_bidIntro] h4, form[name=frm_view] h4, form[name=frm_list] h4{
+	display: block;
+	margin-top: 1.33em;
+	margin-bottom: 1.33em;
+	margin-left: 0;
+	margin-right: 0;
+	font-weight: bold;
+}
+
+form[name=frm_bidIntro] h3, form[name=frm_view] h3, form[name=frm_list] h3{
+	display: block;
+	font-size: 1.17em;
+	margin-top: 1em;
+	margin-bottom: 1em;
+	margin-left: 0;
+	margin-right: 0;
+	font-weight: bold;
+}
+
+form[name=frm_bidIntro] h2, form[name=frm_view] h2, form[name=frm_list] h2{
+	display: block;
+	font-size: 1.5em;
+	margin-top: 0.83em;
+	margin-bottom: 0.83em;
+	margin-left: 0;
+	margin-right: 0;
+	font-weight: bold;
+}
+
+.bidIntroRight div{
+	display: block;
+}
+.bidIntroRight ul{
+	display: block;
+	list-style-type: none;
+	margin-top: 1em;
+	margin-bottom: 1 em;
+	margin-left: 0;
+	margin-right: 0;
+	padding-left: 40px;
+}
+.bidIntroRight li{
+	display: list-item;
+}
+.bidIntroRight table{
+	display: table;
+	border: 1px solid rgb(249, 249, 249);
+	border-collapse: collapse;
+	border-color: gray;
+	margin-left: 3%;
+	width: 80%;
+}
+.bidIntroRight p{
+	display: block;
+	margin-top: 1em;
+	margin-bottom: 1em;
+	margin-left: 0;
+	margin-right: 0;
+}
+
+.bidIntroRight th{
+	display: table-cell;
+	vertical-align: middle;
+	font-weight: bold;
+	text-align: center;
+	height: 50px;
+	border: 1px solid rgb(249, 249, 249);
+	padding: 5px;
+}
+
+.bidIntroRight td{
+	height: 30px;
+	display: table-cell;
+	vertical-align: middle;
+	border: 1px solid rgb(220, 220, 220);
+	padding: 5px;
+}
+
+.bidIntroRight strong{
+	font-weight: bold;
+	margin-top: 10px;
+	margin-bottom: 10px;
+	color: rgb(244, 78, 37);
+}
+	
+	/*reset으로 틀어진 elements들 속성 되돌려놓기 끝*/
+
+
+.bidIntroTitle{
+	width: 100%;
+	text-align: center;
+	background-color: rgb(249, 249, 249);
+	vertical-align: middle !important;
+	padding: 30px;
+	height: 100px;
+	font-size: 30px;
+	font-weight: bolder;
+	margin: 0;
+	box-sizing: border-box;
+}
+
+#Howto{
+	display:inline-block;
+	width:250px;
+	height:200px;
+	text-align:left;
+	margin-top:200px;
+	margin-left:60px;
+	position:fixed;
+	top:20px;
+	color:#ddd;
+}
+
+#Howto .howtobtn>ul>li{
+	font-size:17px;
+	margin-top:10px;
+	border-top:2px solid #ddd;
+	padding:10px;
+	color:#ddd;
+	line-height:1.4em;
+}
+
+.howto-subbtn{
+	display: none;
+}
+
+.bidIntroRight{
+	display: inline-block;
+	position: relative;
+	margin-top:80px;
+	margin-left: 400px;
+	max-width: 70%;
 }
 
 .step1-desc>div{
@@ -785,16 +949,9 @@ form [name=frm_bidIntro]{
 }
 
 .howtobtn a{
-	color: black;
+	color:#aaa;
 	text-decoration: none;
 }
-
-.howtobtn>ul>li>a{
-	font-weight: bolder;
-	font-size: 1em;
-	margin: 0;
-}
-
 
 .howto-subbtn>ul>li:nth-child(3){
 	margin-bottom: 0 !important;
@@ -814,6 +971,14 @@ form [name=frm_bidIntro]{
 .howto-desc ul{
 	list-style-type: square !important;
 }
+#Howto .howtobtn .howto-subbtn ul li{
+	font-size:16px;
+}
+#Howto .howtobtn .howto-subbtn ul li a:hover{
+	color:#000;
+	font-size:17px;
+}
+
 /*응찰 안내 끝*/
 
 
