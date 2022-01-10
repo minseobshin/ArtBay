@@ -11,6 +11,7 @@
 <link rel="stylesheet" href="css/index.css">
 <link rel="stylesheet" type="text/css" href="../css/artbay.css">
 <link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Open+Sans:400,300,700,800">
+<script src="js/index.js"></script>
 </head>
 <body>
 <%@include file="../header.jsp" %>
