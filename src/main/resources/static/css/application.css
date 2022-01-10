@@ -310,7 +310,7 @@ element.style {
 }
 /* 모달창 */
 
-.modal{
+.modals{
 	z-index : 2;
     background-color: rgba(0,0,0,.3);
     position: fixed;
@@ -324,7 +324,7 @@ element.style {
     /* justify-content:center; //수평 중앙정렬
   align-items:center;     //수직 중앙정렬 */
 }
-.modal > div{
+.modals > div{
 	max-width:500px;
 	height: 100%;
 	margin: 1.75rem auto;
@@ -332,28 +332,28 @@ element.style {
     align-items: center;
     justify-content: center;
 }
-.modal > div > div{
+.modals > div > div{
 	position: relative;
 	width:100%;              
 	background-color:#fff;
 	padding: 30px;
 }
-.modal > div > div > div{
+.modals > div > div > div{
 	width:100%;
 	display: flex;              
 	align-items: center;
 	flex-direction: column;
 }
-.modal > div > div > div > h2{
+.modals > div > div > div > h2{
 	font-size: 20px;
     font-weight: 600;
     margin-bottom: 10px;
 }
-.modal > div > div > div> img{
+.modals > div > div > div> img{
 	max-width: 100%;
     margin-bottom: 5px;
 }
-.modal > div > div > div> span{
+.modals > div > div > div> span{
 	display: inline-block;
     width: 100%;
     font-size: 14px;
@@ -361,14 +361,14 @@ element.style {
     color: #666666;
     text-align: center;
 }
-.modal > div > div > .modal-close{
+.modals > div > div > .modal-close{
 	position: absolute;
     top: 12px;
     right: 12px;
     max-width: 100%;
     cursor: pointer;
 }
-.modal.fade > div > div > div > a{
+.modals.fade > div > div > div > a{
 	margin-top: 20px;
     height: 40px;
     line-height: 40px;
@@ -378,21 +378,21 @@ element.style {
     background-color: #000000;
     text-decoration-line: none; 
 }	
-.modal.fade > div > div > div > .modal-btn{
+.modals.fade > div > div > div > .modal-btn{
 	margin-top: 20px;
     display: flex;
     align-items: center;
 }
-.modal.fade > div > div > div > .modal-btn > a:first-child{
+.modals.fade > div > div > div > .modal-btn > a:first-child{
 	border: 1px solid #cccccc;
     color: #000000;
     margin-right: 8px;
 }
-.modal.fade > div > div > div > .modal-btn > a:last-child{
+.modals.fade > div > div > div > .modal-btn > a:last-child{
 	background-color: #000;
     color: #fff;
 }
-.modal.fade > div > div > div > .modal-btn > a{
+.modals.fade > div > div > div > .modal-btn > a{
 	width: 150px;
     height: 40px;
     line-height: 40px;

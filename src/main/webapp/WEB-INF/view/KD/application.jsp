@@ -227,7 +227,7 @@
 
 
 <!--알림 모달창 -->
-<div class="modal fade show" id="modal-common" >
+<div class="modals fade show" id="modal-common" >
 	<div>
 		<div>
 			<div>
@@ -243,7 +243,7 @@
 
 
 <!-- 위탁신청 -->
-<div class="modal fade show" id="modal-warning" >
+<div class="modals fade show" id="modal-warning" >
 	<div>
 		<div>
 			<div>
