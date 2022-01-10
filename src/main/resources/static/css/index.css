@@ -88,13 +88,13 @@ header > * {
 }
 
 /******* 메뉴 로그인/회원가입/마이페이지/위시리스트 *******/
-.login {
+.mainLogin {
 	position: relative;
 }
-.login li {
+.mainLogin li {
 	float: left;
 }
-.login li > a {
+.mainLogin li > a {
 	padding: 0px 10px;
 	text-decoration: none;
 	color: #909090;

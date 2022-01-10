@@ -5,17 +5,21 @@
 div{
 	display: block; 
 }
-body {
-    font-family: "Nanum Gothic", sans-serif;
-}
 h2{
     font-size: 30px;
     text-align: center;
 }
+form[name="frmBoard"] strong{
+	font-weight: bold;
+}
 p {
     margin: 0;
 }
-
+table {
+    border-spacing: 0;
+    border-collapse: collapse;
+}
+ 
 .applyform {
     position: relative;
     height: 120px;
@@ -63,10 +67,7 @@ p {
 }
 
 
-table {
-    border-spacing: 0;
-    border-collapse: collapse;
-}
+
 .tableDefault > table {
     width: 100%;
     border-top: 1px solid #111 !important;
@@ -268,7 +269,7 @@ button, html input[type="button"], input[type="reset"], input[type="submit"] {
     float: left ;
 }
 
-.clearfix:after{
+form[name="frmBoard"] .clearfix:after{
 	display: table;
     content: " ";
     clear: both;
