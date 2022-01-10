@@ -12,6 +12,9 @@ h2{
 form[name="frmBoard"] strong{
 	font-weight: bold;
 }
+form{
+	min-height: 1010px; 
+}
 p {
     margin: 0;
 }

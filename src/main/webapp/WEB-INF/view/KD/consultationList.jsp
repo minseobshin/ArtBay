@@ -88,7 +88,7 @@
 			<!--// 조회 테이블 -->
 			<div class="table-infoTop clearfix mt50">
 				<div class="pull-left fs15">
-					<span class="fcBlue"><strong>나의 1:1 상담문의</strong></span>에 대해서 모두 <span class="fcBlue"><strong>7</strong></span>개가 검색되었습니다.
+					<span class="fcBlue"><strong>나의 1:1 상담문의</strong></span>에 대해서 모두 <span class="fcBlue"><strong>2</strong></span>개가 검색되었습니다.
 				</div>
 			</div>
 
@@ -108,41 +108,6 @@
 						<li class="hit mobileNone"><strong class="">답변완료</strong></li>
 						<li class="date"><span class="visible-xs-inline-block">등록일 : </span>2022.01.06</li>
 						<li class="date"><span class="visible-xs-inline-block">작성일 : </span>2022.01.06</li>
-					</ul>
-					<ul class="bContent text-center clearFix">
-						<li class="sortation mb5m">기타문의 <strong class=" visible-xs-inline-block ml10">답변중</strong></li>
-						<li class="text-left subject"><a href="consultationView" onclick="" class="fcBlack collapsed">기타문의</a></li>
-						<li class="hit mobileNone"><strong class="">답변중</strong></li>
-						<li class="date"><span class="visible-xs-inline-block">등록일 : </span>2022.01.06</li>
-						<li class="date"><span class="visible-xs-inline-block">작성일 : </span></li>
-					</ul>
-					<ul class="bContent text-center clearFix">
-						<li class="sortation mb5m">기타문의 <strong class=" visible-xs-inline-block ml10">답변중</strong></li>
-						<li class="text-left subject"><a href="consultationView" onclick="" class="fcBlack collapsed">기타문의</a></li>
-						<li class="hit mobileNone"><strong class="">답변중</strong></li>
-						<li class="date"><span class="visible-xs-inline-block">등록일 : </span>2022.01.06</li>
-						<li class="date"><span class="visible-xs-inline-block">작성일 : </span></li>
-					</ul>
-					<ul class="bContent text-center clearFix">
-						<li class="sortation mb5m">기타문의 <strong class=" visible-xs-inline-block ml10">답변중</strong></li>
-						<li class="text-left subject"><a href="consultationView" onclick="" class="fcBlack collapsed">기타문의</a></li>
-						<li class="hit mobileNone"><strong class="">답변중</strong></li>
-						<li class="date"><span class="visible-xs-inline-block">등록일 : </span>2022.01.06</li>
-						<li class="date"><span class="visible-xs-inline-block">작성일 : </span></li>
-					</ul>
-					<ul class="bContent text-center clearFix">
-						<li class="sortation mb5m">기타문의 <strong class=" visible-xs-inline-block ml10">답변중</strong></li>
-						<li class="text-left subject"><a href="consultationView" onclick="" class="fcBlack collapsed">기타문의</a></li>
-						<li class="hit mobileNone"><strong class="">답변중</strong></li>
-						<li class="date"><span class="visible-xs-inline-block">등록일 : </span>2022.01.06</li>
-						<li class="date"><span class="visible-xs-inline-block">작성일 : </span></li>
-					</ul>
-					<ul class="bContent text-center clearFix">
-						<li class="sortation mb5m">기타문의 <strong class=" visible-xs-inline-block ml10">답변중</strong></li>
-						<li class="text-left subject"><a href="consultationView" onclick="" class="fcBlack collapsed">기타문의</a></li>
-						<li class="hit mobileNone"><strong class="">답변중</strong></li>
-						<li class="date"><span class="visible-xs-inline-block">등록일 : </span>2022.01.06</li>
-						<li class="date"><span class="visible-xs-inline-block">작성일 : </span></li>
 					</ul>
 					<ul class="bContent text-center clearFix">
 						<li class="sortation mb5m">기타문의 <strong class=" visible-xs-inline-block ml10">답변중</strong></li>
