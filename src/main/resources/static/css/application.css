@@ -1,5 +1,5 @@
 @charset "UTF-8";
-*, ::after, ::before {
+form[name="frm_bay_insert"] *,form[name="frm_bay_insert"] ::after,form[name="frm_bay_insert"] ::before {
     box-sizing: border-box;
 }
 html, body{
@@ -17,6 +17,24 @@ label, input, button, select, textarea {
     font-size: 14px;
     font-weight: normal;
     line-height: 20px;
+}
+form[name="frm_bay_insert"] ul {
+    margin-block-start: 1em;
+    margin-block-end: 1em;
+    padding-inline-start: 40px;
+}
+form[name="frm_bay_insert"] body, form[name="frm_bay_insert"] input, form[name="frm_bay_insert"] textarea,
+form[name="frm_bay_insert"] select, form[name="frm_bay_insert"] button, form[name="frm_bay_insert"] table {
+    color: #000000;
+    font-size: 14px;
+    line-height: 1.6em;
+}
+a {
+    color: #000000;
+    text-decoration: none;
+}
+ul, li, ol {
+    list-style: none;
 }
 .applyform, .howtoform{
     position: relative;
@@ -74,11 +92,6 @@ label, input, button, select, textarea {
     margin-right: 5px;
 }
 
-ul {
-    margin-block-start: 1em;
-    margin-block-end: 1em;
-    padding-inline-start: 40px;
-}
 
 
 .consignguide-content > ul > li {
@@ -112,11 +125,6 @@ ul {
 .windows body, .windows p {
     font-size: 12px;
     letter-spacing: normal;
-}
-body, input, textarea, select, button, table {
-    color: #000000;
-    font-size: 14px;
-    line-height: 1.6em;
 }
 
 .written-call-apply {
@@ -393,10 +401,7 @@ element.style {
 }
 
 /*  How To */
-a {
-    color: #000000;
-    text-decoration: none;
-}
+
 #Howto {
     display: flex;
     align-items: flex-start;
@@ -428,9 +433,7 @@ a {
     border-top: solid 2px #cccccc;
     line-height: 1.4em;
 }
-ul, li, ol {
-    list-style: none;
-}
+
 .howtobtn > ul > li > a {
     display: block;
     font-size: 17px;
