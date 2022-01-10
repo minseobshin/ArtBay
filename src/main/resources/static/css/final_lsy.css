@@ -43,7 +43,11 @@
 	width:900px;
 	margin:0 auto;
 }
-
+#auction #items #rows #item:hover{
+	cursor:pointer;
+	background-color:#ddd;
+	
+}
 #auction #items .artName{
 	width:150px;
 	overflow:hidden;
@@ -207,7 +211,7 @@
 #auction_faq{
 
 	width:1280px;
-	min-height:400px;
+	min-height:800px;
 	margin:0px auto;
 	box-sizing:border-box;
 }
@@ -405,6 +409,9 @@
 }
 
 /*noticeList , noticeView*/
+#auction form{
+	min-height:500px;
+}
 #auction #noticeSearch input[type='text']{
 	position:relative;
 	top:79px;
@@ -417,7 +424,7 @@
 }
 #auction #items .title{
 	display:inline-block;
-	width:600px;
+	width:500px;
 	text-align:center;
 }
 #auction #items .noticeDate{
@@ -439,6 +446,7 @@
 #noticeView{
 	width:1080px;
 	margin:10px auto;
+	min-height:900px;
 }
 
 #noticeView h1{
