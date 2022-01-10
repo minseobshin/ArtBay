@@ -103,8 +103,8 @@
 		
 	</form>
 		<form name='frm_page' id='frm_page' method='post'>
-			<input type='text' name='nowPage' value=''>
-			<input type='text' name='num' value=''>
+			<input type='hidden' name='nowPage' value=''>
+			<input type='hidden' name='num' value=''>
 		</form>
 </div>
 <%@include file="../footer.jsp" %>

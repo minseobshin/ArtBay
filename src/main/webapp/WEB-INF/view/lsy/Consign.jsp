@@ -34,7 +34,7 @@
 		
 		<div id='rows'>
 			
-			<div id='item' onclick = >
+			<div id='item' onclick ="location.href='ListView';" >
 				<span class='num'  >23490</span>
 				<span class='name'   >도자기</span>
 				<span class='artist'    >홍길동</span>
@@ -43,7 +43,7 @@
 				<span class='delConsign'><input type='checkbox' name='delConsign'></span>
 			</div>
 				
-			<div id='item' onclick = >
+			<div id='item' onclick ="location.href='ListView';" >
 				<span class='num'  >23490</span>
 				<span class='name'   >도자기</span>
 				<span class='artist'    >홍길동</span>
@@ -52,7 +52,7 @@
 				<span class='delConsign'><input type='checkbox' name='delConsign'></span>
 				
 			</div>
-			<div id='item' onclick = >
+			<div id='item' onclick ="location.href='ListView';" >
 				<span class='num'  >23490</span>
 				<span class='name'   >도자기</span>
 				<span class='artist'    >홍길동</span>
@@ -61,7 +61,7 @@
 				<span class='delConsign'><input type='checkbox' name='delConsign'></span>
 				
 			</div>
-			<div id='item' onclick = >
+			<div id='item' onclick ="location.href='ListView';" >
 				<span class='num'  >23490</span>
 				<span class='name'   >도자기</span>
 				<span class='artist'    >홍길동</span>
@@ -70,7 +70,7 @@
 				<span class='delConsign'><input type='checkbox' name='delConsign'></span>
 				
 			</div>
-			<div id='item' onclick = >
+			<div id='item' onclick ="location.href='ListView';" >
 				<span class='num'  >23490</span>
 				<span class='name'   >도자기</span>
 				<span class='artist'    >홍길동</span>
@@ -79,7 +79,7 @@
 				<span class='delConsign'><input type='checkbox' name='delConsign'></span>
 				
 			</div>
-			<div id='item' onclick = >
+			<div id='item' onclick ="location.href='ListView';" >
 				<span class='num'  >23490</span>
 				<span class='name'   >도자기</span>
 				<span class='artist'    >홍길동</span>
@@ -88,7 +88,7 @@
 				<span class='delConsign'><input type='checkbox' name='delConsign'></span>
 				
 			</div>
-			<div id='item' onclick = >
+			<div id='item' onclick ="location.href='ListView';" >
 				<span class='num'  >23490</span>
 				<span class='name'   >도자기</span>
 				<span class='artist'    >홍길동</span>
@@ -97,7 +97,7 @@
 				<span class='delConsign'><input type='checkbox' name='delConsign'></span>
 				
 			</div>
-			<div id='item' onclick = >
+			<div id='item' onclick ="location.href='ListView';" >
 				<span class='num'  >23490</span>
 				<span class='name'   >도자기</span>
 				<span class='artist'    >홍길동</span>
@@ -106,7 +106,7 @@
 				<span class='delConsign'><input type='checkbox' name='delConsign'></span>
 				
 			</div>
-			<div id='item' onclick = >
+			<div id='item' onclick ="location.href='ListView';" >
 				<span class='num'  >23490</span>
 				<span class='name'   >도자기</span>
 				<span class='artist'    >홍길동</span>

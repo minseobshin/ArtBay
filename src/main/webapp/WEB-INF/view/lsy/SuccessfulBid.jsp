@@ -20,7 +20,7 @@
 <form name='frm_auction' method='post'>
 
 	<div id='items'>
-		<div id='title'>
+		<div id='title' onclick ="location.href='ListView';" >
 			<span class='num'>번호</span>
 			<span class='name'>작품</span>
 			<span class='artist'>작가명</span>
@@ -30,7 +30,7 @@
 		</div>
 		
 		<div id='rows'>
-			<div id='item' onclick=bid.view()>
+			<div id='item' onclick ="location.href='ListView';" >
 				<span class='num'>436546</span>
 				<span class='name'>공갈작품</span>
 				<span class='artist'>공갈작가명</span>
@@ -38,7 +38,7 @@
 				<span class='successDate'>낙찰일자</span>
 				<span class='successPrice'>낙찰가격</span>
 			</div>
-			<div id='item' onclick=bid.view()>
+			<div id='item' onclick ="location.href='ListView';" >
 				<span class='num'>436546</span>
 				<span class='name'>공갈작품</span>
 				<span class='artist'>공갈작가명</span>
@@ -46,7 +46,7 @@
 				<span class='successDate'>낙찰일자</span>
 				<span class='successPrice'>낙찰가격</span>
 			</div>
-			<div id='item' onclick=bid.view()>
+			<div id='item' onclick ="location.href='ListView';" >
 				<span class='num'>436546</span>
 				<span class='name'>공갈작품</span>
 				<span class='artist'>공갈작가명</span>
@@ -54,7 +54,7 @@
 				<span class='successDate'>낙찰일자</span>
 				<span class='successPrice'>낙찰가격</span>
 			</div>
-			<div id='item' onclick=bid.view()>
+			<div id='item' onclick ="location.href='ListView';" >
 				<span class='num'>436546</span>
 				<span class='name'>공갈작품</span>
 				<span class='artist'>공갈작가명</span>
@@ -62,7 +62,7 @@
 				<span class='successDate'>낙찰일자</span>
 				<span class='successPrice'>낙찰가격</span>
 			</div>
-			<div id='item' onclick=bid.view()>
+			<div id='item' onclick ="location.href='ListView';" >
 				<span class='num'>436546</span>
 				<span class='name'>공갈작품</span>
 				<span class='artist'>공갈작가명</span>
@@ -70,7 +70,7 @@
 				<span class='successDate'>낙찰일자</span>
 				<span class='successPrice'>낙찰가격</span>
 			</div>
-			<div id='item' onclick=bid.view()>
+			<div id='item' onclick ="location.href='ListView';" >
 				<span class='num'>436546</span>
 				<span class='name'>공갈작품</span>
 				<span class='artist'>공갈작가명</span>
@@ -78,7 +78,7 @@
 				<span class='successDate'>낙찰일자</span>
 				<span class='successPrice'>낙찰가격</span>
 			</div>
-			<div id='item' onclick=bid.view()>
+			<div id='item' onclick ="location.href='ListView';" >
 				<span class='num'>436546</span>
 				<span class='name'>공갈작품</span>
 				<span class='artist'>공갈작가명</span>
@@ -86,7 +86,7 @@
 				<span class='successDate'>낙찰일자</span>
 				<span class='successPrice'>낙찰가격</span>
 			</div>
-			<div id='item' onclick=bid.view()>
+			<div id='item' onclick ="location.href='ListView';" >
 				<span class='num'>436546</span>
 				<span class='name'>공갈작품</span>
 				<span class='artist'>공갈작가명</span>
