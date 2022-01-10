@@ -17,7 +17,7 @@
 </head>
 <%@include file="../header.jsp" %>
 <body>
-<div id='auction'>
+<div id='auction'> 
 	<h1>응찰내역</h1>
 	<form name='frm_auction' method='post'>
 	<div id='items'>
