@@ -1,7 +1,6 @@
 @charset "UTF-8";
 /* Bid.jsp, Consign.jsp */
 *{
-	border:0px solid #000;
 	box-sizing:border-box;
 	margin:0px auto;
 }
@@ -268,7 +267,7 @@
 	height:160px;
 	font-size:30px;
 	text-align:center;
-	font-weight:border;
+	font-weight:bolder;
 	padding-top:40px;
 	
 }

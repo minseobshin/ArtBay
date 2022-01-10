@@ -4,7 +4,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+<script src="https://code.jquery.com/jquery-3.6.0.js"></script>
 <link rel='stylesheet' type='text/css' href='./css/artbay_minseob.css'>
 <script src = '/js/artbay_minseob.js'></script>
 <title>회원 가입, 회원정보 수정, 회원 탈퇴 결과 페이지</title>
