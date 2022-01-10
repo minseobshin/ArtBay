@@ -1,6 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-<%@taglib prefix="c" uri="http://java.sun.com/jstl/core_rt" %>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%> 
 <header>	
 <script src = '/js/artbay_minseob.js'></script><!-- 로그인 페이지 모달창 제어용 -->
 	<!-- 메인 로고 -->	
@@ -13,22 +13,22 @@
 		<li><a href="#">Online Auction</a>
 			<ul>
 				<li><a href="bidList">진행중인 경매</a></li>
-				<li><a href="Result">경매결과</a></li>
-				<li><a href="application">경매신청</a></li>
+				<li><a href="bidResult">경매결과</a></li>
+				<li><a href="bidApplication">경매신청</a></li>
 			</ul>
 		</li>			
 		<li><a href="#">How To</a>
 			<ul>
-				<li><a href="howto">경매소개</a></li>
-				<li><a href="bidIntro">응찰안내</a></li>
-				<li><a href="ConsignGuide">위탁안내</a></li>
+				<li><a href="howtoHowto">경매소개</a></li>
+				<li><a href="howtoBidIntro">응찰안내</a></li>
+				<li><a href="howtoConsignGuide">위탁안내</a></li>
 			</ul>
 		</li>
 		<li><a href="#">Customer Service</a>
 			<ul>
-				<li><a href="FAQ">자주묻는질문(FAQ)</a></li>
-				<li><a href="consultationList">1:1상담문의</a></li>
-				<li><a href="noticeList">공지사항</a></li>
+				<li><a href="customerFAQ">자주묻는질문(FAQ)</a></li>
+				<li><a href="customerConsultationList">1:1상담문의</a></li>
+				<li><a href="customerNoticeList">공지사항</a></li>
 			</ul>
 		</li>
 	</ul>
@@ -38,19 +38,19 @@
 		<c:choose>
 			<c:when test="${ empty sessionScope.mid }">
 				<li><a href="#" id='btnLogin' data-toggle='modal' data-target='#madal' role='botton'>LOGIN</a></li>
-				<li><a href="memberJoin">JOIN</a></li>			
+				<li><a href="mypageMemberJoin">JOIN</a></li>			
 			</c:when>
 			<c:otherwise>
 				<li>
 					<a href="#" id="btnMyPage">MY PAGE</a>
 					<div id="mypage">
 						<ul>
-							<li><a href="Bid">응찰내역</a></li>
-							<li><a href="SuccessfulBid">낙찰내역</a></li>
-							<li><a href="Consign">위탁내역</a></li>
-							<li><a href="application">위탁신청</a></li>
-							<li><a href="consultationList">작품문의내역</a></li>
-							<li><a href="memberModify">정보수정</a></li>
+							<li><a href="mypageBid">응찰내역</a></li>
+							<li><a href="mypageSuccessfulBid">낙찰내역</a></li>
+							<li><a href="mypageConsign">위탁내역</a></li>
+							<li><a href="bidApplication">위탁신청</a></li>
+							<li><a href="customerConsultationList">작품문의내역</a></li>
+							<li><a href="mypageMemberModify">정보수정</a></li>
 							<li><a href="">로그아웃</a></li>
 						</ul>
 					</div>

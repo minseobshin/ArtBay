@@ -186,4 +186,17 @@ public class TestController {
 		mv.setViewName("artbay/bidIntro");
 		return mv;
 	}
+	
+	@RequestMapping(value="/ListView")
+	public ModelAndView ListView(HttpServletRequest req) {
+		ModelAndView mv = new ModelAndView();
+		mv.setViewName("lsy/ListView");
+		return mv;
+	}
+	@RequestMapping(value="/ListModify")
+	public ModelAndView ListModify(HttpServletRequest req) {
+		ModelAndView mv = new ModelAndView();
+		mv.setViewName("lsy/ListModify");
+		return mv;
+	}
 }
