@@ -15,6 +15,8 @@
 <title>회원정보 수정</title>
 </head>
 <body>
+<!-- 메뉴 네비게이션 -->
+	<%@include file="../header.jsp" %>
 <div class='h1'>ArtBay 회원정보 수정</div>
 <div id='join'>
 <form name='frm_join' method='post'>
@@ -81,5 +83,7 @@
 		</form>
 	</div>
 </div>
+<!-- 메인 푸터 -->
+	<%@include file="../footer.jsp" %>
 </body>
 </html>
