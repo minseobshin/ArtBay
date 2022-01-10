@@ -2,11 +2,34 @@
 
 /* 회원가입, 회원가입 수정 페이지 공통부분 시작 */
 
-#h{
+.h1{
 	width: 1280px;
 	margin: 0 auto;
 	margin-top: 50px;
 	margin-bottom: 30px;
+	
+	font-size: 2em;
+	font-weight: bold;
+}
+
+.h5{
+	display: block;
+	font-size: .83em;
+	margin-top: 1.67em;
+	margin-bottom: 1.67em;
+	margin-left: 0;
+	margin-right: 0;
+	font-weight: bold;
+}
+
+.h6{
+	display: block;
+	font-size: .67em;
+	margin-top: 2.33em;
+	margin-bottom: 2.33em;
+	margin-left: 0;
+	margin-right: 0;
+	font-weight: bold;
 }
 
 #join{
@@ -35,7 +58,7 @@
 }
 
 #btnCertification{
-	width: 635px;
+	width: 615px;
 	height: 47px;
 	background-color: #f60;
 	border: 0;
