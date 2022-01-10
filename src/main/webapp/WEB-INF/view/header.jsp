@@ -32,7 +32,7 @@
 	</ul>
 	
 	<!-- 로그인/회원가입/마이페이지/위시리스트 -->
-	<ul class="login clearfix">
+	<ul class="mainLogin clearfix">
 		<c:choose>
 			<c:when test="${ empty sessionScope.mid }">
 				<li><a href="#" id='btnLogin' data-toggle='modal' data-target='#madal' role='botton'>LOGIN</a></li>
