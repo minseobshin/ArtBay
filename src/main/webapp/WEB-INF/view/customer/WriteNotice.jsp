@@ -4,7 +4,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<link rel='stylesheet' type='text/css' href="./css/basic.css">
+<link rel='stylesheet' type='text/css' href="../css/basic.css">
 <script src="https://code.jquery.com/jquery-3.6.0.js"></script>
 <link rel='stylesheet' type='text/css' href='../css/final_lsy.css'>
 <title>공지작성</title>
@@ -16,8 +16,6 @@
 		<div id='noticeWrite_container'>
 			<label>제목</label>
 			<input type='text' name='subject' size='50' value='공지사항입니다.'>
-			<label>조회수</label>
-			<input type='text' name='hit' size='5' value='0'>
 			<div>
 				<textarea name='notice_doc' id='notice_doc' rows='20'></textarea>
 			</div>	
