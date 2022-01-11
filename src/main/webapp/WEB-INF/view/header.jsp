@@ -5,7 +5,7 @@
 <script src = '/js/artbay_minseob.js'></script><!-- 로그인 페이지 모달창 제어용 -->
 	<!-- 메인 로고 -->	
 	<ul class="logo clearfix">
-		<li><a href="/main">ARTBAY</a></li>
+		<li><a href="home">ARTBAY</a></li>
 	</ul>
 	
 	<!-- 메인 메뉴 -->
