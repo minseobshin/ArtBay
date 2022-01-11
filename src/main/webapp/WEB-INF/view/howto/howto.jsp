@@ -5,11 +5,8 @@
 <head>
 <meta charset="UTF-8">
 <title>Insert title here</title>
-<link rel="stylesheet" href="css/reset.css">
-<link rel="stylesheet" href="css/index.css">
 <link rel='stylesheet' type='text/css' href="./css/application.css">
 <link rel='stylesheet' type='text/css' href="./css/basic.css">
-<link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Open+Sans:400,300,700,800">
 <script src="https://code.jquery.com/jquery-3.6.0.js"></script>
 </head>
 <body>
@@ -43,7 +40,7 @@
                         온라인 경매는 아마추어의 미술품 경매와 합리적인 가격대의 작품을 선보입니다.<br>홈페이지에서 응찰이 가능하며 시공간 제약 없이 누구나 쉽게 미술품 경매에 참여할 수 있습니다.
                     </p>
                     
-                    
+                     
                     <div>
                         <div>
                             <div class="img">

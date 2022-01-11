@@ -12,9 +12,10 @@ h2{
 form[name="frmBoard"] strong{
 	font-weight: bold;
 }
-form{
-	min-height: 1010px; 
+#subContentsWrap{
+	min-height: 850px;
 }
+
 p {
     margin: 0;
 }

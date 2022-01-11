@@ -29,7 +29,7 @@
             <div class="content">
 
 <style>
-    input[type="text"] {
+	input[type="text"] {
         width: 180px;
         height: 32px;
         line-height: normal;
