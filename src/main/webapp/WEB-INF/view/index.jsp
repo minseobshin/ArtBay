@@ -13,7 +13,7 @@
 <body>
 	<div id='index'>
 <<<<<<< HEAD
-=======
+======
 		<h1>ArtBay Index 임시 테스트 페이지</h1>
 		<ul>
 			<li><a href="/memberJoin">회원가입 화면</a></li>
