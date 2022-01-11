@@ -895,7 +895,7 @@ form[name=frm_bidIntro] h2, form[name=frm_view] h2, form[name=frm_list] h2{
 	display: inline-block;
 	position: relative;
 	margin-top:80px;
-	margin-left: 400px;
+	margin-left: 200px;
 	max-width: 70%;
 }
 

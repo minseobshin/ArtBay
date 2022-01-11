@@ -460,8 +460,8 @@ element.style {
 }
 */
 /*howto intro  */
-#Howto > .howto-desc {
-    width: 80%;
+.howto-desc {
+	margin-left: 200px;
 }
 .howto-desc.fixed {
     width: 888px !important;
