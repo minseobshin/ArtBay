@@ -3,15 +3,15 @@
 #Howto{
 	display:inline-block;
 	width:250px;
-	height:200px;
 	text-align:left;
 	margin-top:220px;
-	margin-left:60px;
+	margin-left:30px;
 	position:fixed;
 	top:20px;
 }
 #Howto .howtobtn ul li a{
 	text-decoration:none;
+	width: 100%;
 }
 #Howto .howtobtn>ul>li{
 	font-size:17px;

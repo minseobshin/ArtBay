@@ -863,6 +863,8 @@ form[name=frm_bidIntro] h2, form[name=frm_view] h2, form[name=frm_list] h2{
 	box-sizing: border-box;
 }
 
+
+/*
 #Howto{
 	display:inline-block;
 	width:250px;
@@ -888,6 +890,7 @@ form[name=frm_bidIntro] h2, form[name=frm_view] h2, form[name=frm_list] h2{
 	display: none;
 }
 
+*/
 .bidIntroRight{
 	display: inline-block;
 	position: relative;
