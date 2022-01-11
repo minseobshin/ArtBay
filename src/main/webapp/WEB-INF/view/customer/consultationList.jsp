@@ -120,7 +120,7 @@
 					<a href="customerConsultationInsert" onclick="" class="btn btn-Insert">글쓰기</a>
 			</div>
 		</div>
-
+ 
 		<!-- pagination -->
 		<div class="pager">
 			<ul class="pagination">

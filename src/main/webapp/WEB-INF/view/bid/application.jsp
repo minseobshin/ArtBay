@@ -65,7 +65,7 @@
             </div>
         </div>
     </div>
-
+ 
     <div class="written-call-apply">
         <div>
             <h5>위탁인 정보</h5>

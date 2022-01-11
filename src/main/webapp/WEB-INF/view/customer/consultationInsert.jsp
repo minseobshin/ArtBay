@@ -136,7 +136,7 @@
 					</tr>
 				</tbody></table>
 			</div>
-
+ 
 			<div class="btnWrap bwflex">
 				<a href="customerConsultationList" onclick="" class="btn btn-save">등록</a>
 				<a href="customerConsultationList" onclick="" class="btn btn-cancel">취소</a>
