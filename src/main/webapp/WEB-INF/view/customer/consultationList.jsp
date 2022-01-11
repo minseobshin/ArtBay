@@ -1,18 +1,13 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%> 
 <!DOCTYPE html>
 <html>
 <head>
 <meta charset="UTF-8">
 <title>Insert title here</title>
-<link rel="stylesheet" href="css/reset.css">
-<link rel="stylesheet" href="css/index.css">
 <link rel='stylesheet' type='text/css' href="./css/consultation.css">
 <link rel='stylesheet' type='text/css' href="./css/basic.css">
-<link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Open+Sans:400,300,700,800">
 <script src="https://code.jquery.com/jquery-3.6.0.js"></script>
-<script type="text/javascript" src="./js/application.js"></script>
 </head>
 <body>
 	
@@ -102,49 +97,14 @@
 				<div class="customer-basic">
 					<ul class="bContent text-center clearFix">
 						<li class="sortation mb5m">기타문의 <strong class=" visible-xs-inline-block ml10">답변중</strong></li>
-						<li class="text-left subject"><a href="consultationView" onclick="" class="fcBlack collapsed">기타문의</a></li>
+						<li class="text-left subject"><a href="customerConsultationView" onclick="" class="fcBlack collapsed">기타문의</a></li>
 						<li class="hit mobileNone"><strong class="">답변완료</strong></li>
 						<li class="date"><span class="visible-xs-inline-block">등록일 : </span>2022.01.06</li>
 						<li class="date"><span class="visible-xs-inline-block">작성일 : </span>2022.01.06</li>
 					</ul>
 					<ul class="bContent text-center clearFix">
 						<li class="sortation mb5m">기타문의 <strong class=" visible-xs-inline-block ml10">답변중</strong></li>
-						<li class="text-left subject"><a href="consultationView" onclick="" class="fcBlack collapsed">기타문의</a></li>
-						<li class="hit mobileNone"><strong class="">답변중</strong></li>
-						<li class="date"><span class="visible-xs-inline-block">등록일 : </span>2022.01.06</li>
-						<li class="date"><span class="visible-xs-inline-block">작성일 : </span></li>
-					</ul>
-					<ul class="bContent text-center clearFix">
-						<li class="sortation mb5m">기타문의 <strong class=" visible-xs-inline-block ml10">답변중</strong></li>
-						<li class="text-left subject"><a href="consultationView" onclick="" class="fcBlack collapsed">기타문의</a></li>
-						<li class="hit mobileNone"><strong class="">답변중</strong></li>
-						<li class="date"><span class="visible-xs-inline-block">등록일 : </span>2022.01.06</li>
-						<li class="date"><span class="visible-xs-inline-block">작성일 : </span></li>
-					</ul>
-					<ul class="bContent text-center clearFix">
-						<li class="sortation mb5m">기타문의 <strong class=" visible-xs-inline-block ml10">답변중</strong></li>
-						<li class="text-left subject"><a href="consultationView" onclick="" class="fcBlack collapsed">기타문의</a></li>
-						<li class="hit mobileNone"><strong class="">답변중</strong></li>
-						<li class="date"><span class="visible-xs-inline-block">등록일 : </span>2022.01.06</li>
-						<li class="date"><span class="visible-xs-inline-block">작성일 : </span></li>
-					</ul>
-					<ul class="bContent text-center clearFix">
-						<li class="sortation mb5m">기타문의 <strong class=" visible-xs-inline-block ml10">답변중</strong></li>
-						<li class="text-left subject"><a href="consultationView" onclick="" class="fcBlack collapsed">기타문의</a></li>
-						<li class="hit mobileNone"><strong class="">답변중</strong></li>
-						<li class="date"><span class="visible-xs-inline-block">등록일 : </span>2022.01.06</li>
-						<li class="date"><span class="visible-xs-inline-block">작성일 : </span></li>
-					</ul>
-					<ul class="bContent text-center clearFix">
-						<li class="sortation mb5m">기타문의 <strong class=" visible-xs-inline-block ml10">답변중</strong></li>
-						<li class="text-left subject"><a href="consultationView" onclick="" class="fcBlack collapsed">기타문의</a></li>
-						<li class="hit mobileNone"><strong class="">답변중</strong></li>
-						<li class="date"><span class="visible-xs-inline-block">등록일 : </span>2022.01.06</li>
-						<li class="date"><span class="visible-xs-inline-block">작성일 : </span></li>
-					</ul>
-					<ul class="bContent text-center clearFix">
-						<li class="sortation mb5m">기타문의 <strong class=" visible-xs-inline-block ml10">답변중</strong></li>
-						<li class="text-left subject"><a href="consultationView" onclick="" class="fcBlack collapsed">기타문의</a></li>
+						<li class="text-left subject"><a href="customerConsultationView" onclick="" class="fcBlack collapsed">기타문의</a></li>
 						<li class="hit mobileNone"><strong class="">답변중</strong></li>
 						<li class="date"><span class="visible-xs-inline-block">등록일 : </span>2022.01.06</li>
 						<li class="date"><span class="visible-xs-inline-block">작성일 : </span></li>
@@ -157,7 +117,7 @@
 
 			</div>
 			<div class="btnWrap view text-right clearFix mb0">
-					<a href="consultationInsert" onclick="" class="btn btn-Insert">글쓰기</a>
+					<a href="customerConsultationInsert" onclick="" class="btn btn-Insert">글쓰기</a>
 			</div>
 		</div>
 

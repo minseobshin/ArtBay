@@ -1,18 +1,13 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>     
 <!DOCTYPE html>
 <html>
 <head>
 <meta charset="UTF-8">
 <title>Insert title here</title>
-<link rel="stylesheet" href="css/reset.css">
-<link rel="stylesheet" href="css/index.css">
 <link rel='stylesheet' type='text/css' href="./css/consultation.css">
 <link rel='stylesheet' type='text/css' href="./css/basic.css">
-<link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Open+Sans:400,300,700,800">
 <script src="https://code.jquery.com/jquery-3.6.0.js"></script>
-<script type="text/javascript" src="./js/application.js"></script>
 </head>
 <body>
 <form name="frmBoard" method="POST" >
@@ -143,8 +138,8 @@
 			</div>
 
 			<div class="btnWrap bwflex">
-				<a href="#none" onclick="" class="btn btn-save">등록</a>
-				<a href="consultationList" onclick="" class="btn btn-cancel">취소</a>
+				<a href="customerConsultationList" onclick="" class="btn btn-save">등록</a>
+				<a href="customerConsultationList" onclick="" class="btn btn-cancel">취소</a>
 			</div>
 
 
