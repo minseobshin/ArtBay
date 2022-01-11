@@ -63,6 +63,13 @@ public class TestController {
 		return mv;
 	}
 	
+	@RequestMapping(value="/memberManage")
+	public ModelAndView memberManage(HttpServletRequest req) {
+		ModelAndView mv = new ModelAndView();
+		mv.setViewName("imsi/memberManage");
+		return mv;
+	}
+	
 	@RequestMapping(value = "/login")
 	public void memberLogin(HttpServletRequest req) {
 		String mid = req.getParameter("mid");

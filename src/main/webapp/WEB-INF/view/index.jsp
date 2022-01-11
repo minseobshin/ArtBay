@@ -19,6 +19,7 @@
 			<li><a href="/memberJoin">회원가입 화면</a></li>
 			<li><a href="/memberModify">회원정보 수정 화면</a></li>
 			<li><a href="/memberResult">회원 가입/수정/탈퇴 결과 화면</a></li>
+			<li><a href="/memberManage">관리자 페이지(임시)</a></li>
 			<br/>
 			<li><a href="/Bid">응찰내역</a></li>
 			<li><a href="/SuccessfulBid">낙찰내역</a></li>
