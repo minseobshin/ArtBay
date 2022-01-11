@@ -149,4 +149,10 @@ public class IndexController {
 		mv.setViewName("mypage.memberJoin");
 		return mv;
 	}
+	@RequestMapping(value="/customerWriteNotice")
+	public ModelAndView WriteNotice() {
+		ModelAndView mv = new ModelAndView();
+		mv.setViewName("customer.WriteNotice");
+		return mv;
+	}
 }

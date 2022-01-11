@@ -9,8 +9,7 @@
 <script src="https://code.jquery.com/jquery-3.6.0.js"></script>
 <link rel='stylesheet' type='text/css' href="./css/basic.css">
 <link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Open+Sans:400,300,700,800">
-<link rel="stylesheet" href="css/reset.css">
-<link rel="stylesheet" href="css/index.css">
+
 
 <title>공지사항</title>
 </head>
@@ -19,7 +18,7 @@
 	<h1>공지사항</h1>
 	<form name='frm_notice' method='post'>
 	<div id='noticeSearch'>
-		<input type='text' readonly value='공지사항 300건'>
+		<output>공지사항 300건</output>
 		<div id='findZone'>
 			<input type='search' placeholder="검색어">
 			<input type='button' name='btnSearch' value='검색'> 
@@ -33,52 +32,52 @@
 		
 		<div id='rows'>
 			
-				<div id='notice_item' onclick ="location.href='/noticeView';">
+				<div id='notice_item' onclick ="location.href='/customerNoticeView';">
 					<span class='title'>국내   경매 구매수수료율 인상 및 약관 개정 안내</span>
 					<span class='noticeDate'>2022-01-05</span>					
 				</div>
 				
-				<div id='notice_item' onclick ="location.href='/noticeView';">
+				<div id='notice_item' onclick ="location.href='/customerNoticeView';">
 					<span class='title'>국내   경매 구매수수료율 인상 및 약관 개정 안내</span>
 					<span class='noticeDate'>2022-01-05</span>						
 				</div>
 				
-				<div id='notice_item' onclick ="location.href='/noticeView';">
+				<div id='notice_item' onclick ="location.href='/customerNoticeView';">
 					<span class='title'>국내   경매 구매수수료율 인상 및 약관 개정 안내</span>
 					<span class='noticeDate'>2022-01-05</span>							
 				</div>
 				
-				<div id='notice_item' onclick ="location.href='/noticeView';">
+				<div id='notice_item' onclick ="location.href='/customerNoticeView';">
 					<span class='title'>국내   경매 구매수수료율 인상 및 약관 개정 안내</span>
 					<span class='noticeDate'>2022-01-05</span>								
 				</div>
-				<div id='notice_item' onclick ="location.href='/noticeView';">
+				<div id='notice_item' onclick ="location.href='/customerNoticeView';">
 					<span class='title'>국내   경매 구매수수료율 인상 및 약관 개정 안내</span>
 					<span class='noticeDate'>2022-01-05</span>								
 				</div>
 				
-				<div id='notice_item' onclick ="location.href='/noticeView';">
+				<div id='notice_item' onclick ="location.href='/customerNoticeView';">
 					<span class='title'>국내   경매 구매수수료율 인상 및 약관 개정 안내</span>
 					<span class='noticeDate'>2022-01-05</span>						
 				</div>
 				
-				<div id='notice_item' onclick ="location.href='/noticeView';">
+				<div id='notice_item' onclick ="location.href='/customerNoticeView';">
 					<span class='title'>국내   경매 구매수수료율 인상 및 약관 개정 안내</span>
 					<span class='noticeDate'>2022-01-05</span>								
 				</div>
-				<div id='notice_item' onclick ="location.href='/noticeView';">
+				<div id='notice_item' onclick ="location.href='/customerNoticeView';">
 					<span class='title'>국내   경매 구매수수료율 인상 및 약관 개정 안내</span>
 					<span class='noticeDate'>2022-01-05</span>								
 				</div>
-				<div id='notice_item' onclick ="location.href='/noticeView';">
+				<div id='notice_item' onclick ="location.href='/customerNoticeView';">
 					<span class='title'>국내   경매 구매수수료율 인상 및 약관 개정 안내</span>
 					<span class='noticeDate'>2022-01-05</span>								
 				</div>
-				<div id='notice_item' onclick ="location.href='/noticeView';">
+				<div id='notice_item' onclick ="location.href='/customerNoticeView';">
 					<span class='title'>국내   경매 구매수수료율 인상 및 약관 개정 안내</span>
 					<span class='noticeDate'>2022-01-05</span>								
 				</div>
-				<div id='notice_item' onclick ="location.href='/noticeView';">
+				<div id='notice_item' onclick ="location.href='/customerNoticeView';">
 					<span class='title'>국내   경매 구매수수료율 인상 및 약관 개정 안내</span>
 					<span class='noticeDate'>2022-01-05</span>								
 				</div>
@@ -97,13 +96,14 @@
 			
 				<input type='button' value='&gt' id='btnNext'  onclick='bid.move(1)'/>
 				<input type='button' value='&gt&gt' id='btnLast'  onclick='bid.move(1)'/>
+				<input type='button' id='btnWriteNotice' value='공지 작성' onclick='customerWriteNotice'>
 			 			
 	</div>
 		
 	</form>
 		<form name='frm_page' id='frm_page' method='post'>
-			<input type='text' name='nowPage' value=''>
-			<input type='text' name='num' value=''>
+			<input type='hidden' name='nowPage' value=''>
+			<input type='hidden' name='num' value=''>
 		</form>
 </div>
 </body>

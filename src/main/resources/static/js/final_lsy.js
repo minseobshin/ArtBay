@@ -98,8 +98,17 @@
 	
 	//공지사항 목록으로 돌아가기
 	$('#btnViewList').click(function(){
-		location.href='/noticeList'
+		location.href='/customerNoticeList'
 	})
 			
+	$('#btnWriteNotice').click(function(){
+		location.href='/customerWriteNotice'
+	})
+	
+	$('#btnSaveNotice').click(function(){
+		alert("작성한 공지가 저장되었습니다.");
+		location.href='/customerNoticeList';
+	})
+	
 })
 

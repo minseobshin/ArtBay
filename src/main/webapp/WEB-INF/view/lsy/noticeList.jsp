@@ -20,7 +20,7 @@
 	<h1>공지사항</h1>
 	<form name='frm_notice' method='post'>
 	<div id='noticeSearch'>
-		<input type='text' readonly value='공지사항 300건'>
+		<output>공지사항 300건'</output>
 		<div id='findZone'>
 			<input type='search' placeholder="검색어">
 			<input type='button' name='btnSearch' value='검색'> 
@@ -106,6 +106,7 @@
 			<input type='hidden' name='nowPage' value=''>
 			<input type='hidden' name='num' value=''>
 		</form>
+		
 </div>
 <%@include file="../footer.jsp" %>
 </body>
