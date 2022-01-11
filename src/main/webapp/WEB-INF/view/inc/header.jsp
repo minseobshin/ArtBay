@@ -51,7 +51,7 @@
 							<li><a href="bidApplication">위탁신청</a></li>
 							<li><a href="customerConsultationList">작품문의내역</a></li>
 							<li><a href="mypageMemberModify">정보수정</a></li>
-							<li><a href="">로그아웃</a></li>
+							<li><a id="btnGoLogout">로그아웃</a></li>
 						</ul>
 					</div>
 				</li>

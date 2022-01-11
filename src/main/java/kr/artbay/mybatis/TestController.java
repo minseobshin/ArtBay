@@ -82,6 +82,12 @@ public class TestController {
 		session.setAttribute("mid", mid);	//test용 아이디
 	}
 	
+	@RequestMapping(value = "/logout")
+	public void memberLogout(HttpServletRequest req) {
+		HttpSession session = req.getSession();
+		session.removeAttribute("mid");		
+	}
+	
 	@RequestMapping(value="/Bid")
 	public ModelAndView Bid() {
 		ModelAndView mv = new ModelAndView();

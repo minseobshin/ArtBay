@@ -50,6 +50,18 @@ $(function(){
 		});	
 	});
 	
+	//로그아웃
+	$("#btnGoLogout").click(function() {
+		$.ajax({
+			type: "post",
+			url: "/logout",
+			data: {},
+			success: function() {
+				location.href = "main";
+		  	}
+		});
+	});
+	
 	//마이 페이지
 	$("#btnMyPage").click(function() {
 		$("#mypage").toggle();		
