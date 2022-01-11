@@ -83,7 +83,7 @@ public class TestController {
 	}
 	
 	@RequestMapping(value = "/logout")
-	public void memberLogout(HttpServletRequest req) {
+	public void memberLogout(HttpServletRequest req) { 
 		HttpSession session = req.getSession();
 		session.removeAttribute("mid");		
 	}

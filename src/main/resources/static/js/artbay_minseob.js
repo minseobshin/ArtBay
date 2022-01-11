@@ -51,7 +51,7 @@ $(function(){
 	});
 	
 	//로그아웃
-	$("#btnGoLogout").click(function() {
+	$("#btnGoLogout").click(function() { 
 		$.ajax({
 			type: "post",
 			url: "/logout",
