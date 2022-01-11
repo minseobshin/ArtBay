@@ -1,6 +1,5 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%> 
 <!DOCTYPE html>
 <html>
 <head>
@@ -15,7 +14,6 @@
 	<h1>경매 소개</h1>
 	</div>
 <div class="container">
-    <div id="Howto">
         <div class="howto-desc " style="margin-top: 0px;">
             <div class="auc-intro">
             <div id="top">
@@ -116,7 +114,6 @@
                 </div>
             </div>
         </div>
-    </div>
     <div class="bottom"></div>
 </div>
 
