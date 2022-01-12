@@ -13,7 +13,7 @@ $(function(){
 				$('#zip').val(data.zonecode);
 				$('#address').val(data.address);
 			}
-		}).open();
+		}).open().close();
 	})
 	
 	//탈퇴 모달창
@@ -72,7 +72,6 @@ $(function(){
 			$("#mypage").hide();
 		}
 		c+=1;
-		console.log(c);
 	});
 })
 
