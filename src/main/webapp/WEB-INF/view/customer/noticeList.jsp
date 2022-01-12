@@ -119,6 +119,7 @@
 				<input type='button' value='&gt' id='btnNext'  onclick='bid.move(1)'/>
 				<input type='button' value='&gt&gt' id='btnLast'  onclick='bid.move(1)'/>
 				<input type='button' id='btnWriteNotice' value='공지 작성' onclick='customerWriteNotice'>
+				<input type='button' id='btnDeleteNotice' value='선택공지 삭제'>
 			 			
 	</div>
 		

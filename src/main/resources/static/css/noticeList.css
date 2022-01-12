@@ -85,15 +85,31 @@
 	background-color:#fff;
 	position:absolute;
 	bottom:90px;
-	right:40px;
+	right:130px;
 }
 
 #noticeList #btnWriteNotice:hover{
 	border:2px solid #000;
 	color:#fff;
 	background-color:#f60;
+	cursor:pointer;
 }
 #noticeList #btnZone{
 	margin-left:300px;
 	margin-top:30px;
+}
+#noticeList #btnDeleteNotice{
+	display:inline-block;
+	width:100px;
+	height:30px;
+	background-color:#fff;
+	position:absolute;
+	bottom:90px;
+	right:10px;
+}
+#noticeList #btnDeleteNotice:hover{
+	border:2px solid #000;
+	color:#fff;
+	background-color:#f60;
+	cursor:pointer;
 }
