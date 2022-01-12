@@ -72,6 +72,29 @@ public class IndexController {
 		mv.setViewName("howto.ConsignGuide");
 		return mv;
 	}
+	//test
+	@RequestMapping(value="/howtoHowtotest")
+	public ModelAndView howTotest() {
+		ModelAndView mv = new ModelAndView();
+		mv.setViewName("howto2.howto2");
+		return mv;
+	}
+	
+	@RequestMapping(value="/howtoBidIntrotest")
+	public ModelAndView howtoBidIntrotest() {
+		ModelAndView mv = new ModelAndView();
+		mv.setViewName("howto2.bidIntro2");
+		return mv;
+	}
+	
+	@RequestMapping(value="/howtoConsignGuidetest")
+	public ModelAndView howtoConsignGuidetest() {
+		ModelAndView mv = new ModelAndView();
+		mv.setViewName("howto2.ConsignGuide2");
+		return mv;
+	}
+	
+	//test
 	
 	@RequestMapping(value="/customerFAQ")
 	public ModelAndView customerFAQ() {
