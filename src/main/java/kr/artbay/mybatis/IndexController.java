@@ -150,21 +150,6 @@ public class IndexController {
 		return mv;
 	}
 	
-	@RequestMapping(value="/mypageMemberResult")
-	public ModelAndView mypageMemberResult() {
-		ModelAndView mv = new ModelAndView();
-		mv.setViewName("mypage.memberResult");
-		
-		return mv;
-	}
-	
-	@RequestMapping(value="/mypageMemberLogin")
-	public ModelAndView memberLoginModal(HttpServletRequest req) {
-		ModelAndView mv = new ModelAndView();
-		mv.setViewName("mypage.memberLogin");
-		return mv;
-	}
-	
 	@RequestMapping(value="/mypageMemberManage")
 	public ModelAndView memberManage(HttpServletRequest req) {
 		ModelAndView mv = new ModelAndView();
@@ -178,4 +163,20 @@ public class IndexController {
 		mv.setViewName("customer.WriteNotice");
 		return mv;
 	}
+	
+	@RequestMapping(value="/mypageMemberLogin")
+	public ModelAndView mypageMemberLogin(HttpServletRequest req) {
+		ModelAndView mv = new ModelAndView();
+		mv.setViewName("member/memberLogin");
+		return mv;
+	}
+	
+	@RequestMapping(value="/mypageMemberResult")
+	public ModelAndView mypageMemberResult() {
+		ModelAndView mv = new ModelAndView();
+		mv.setViewName("member/memberResult");
+		
+		return mv;
+	}
+	
 }

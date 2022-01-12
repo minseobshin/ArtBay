@@ -38,7 +38,7 @@
 		<c:choose>
 			<c:when test="${ empty sessionScope.mid }">
 				<li><a href="#" id='btnLogin' data-toggle='modal' data-target='#madal' role='botton'>LOGIN</a></li>
-				<li><a href="memberJoin">JOIN</a></li>			
+				<li><a href="mypageMemberJoin">JOIN</a></li>			
 			</c:when>
 			<c:otherwise>
 				<li>
