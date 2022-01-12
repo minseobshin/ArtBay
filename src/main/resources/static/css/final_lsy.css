@@ -209,7 +209,6 @@
 }
 /*FAQ*/
 #auction_faq{
-
 	width:1280px;
 	min-height:800px;
 	margin:0px auto;
@@ -276,10 +275,10 @@
 	
 }
 #consignGuide{
-	width:820px;
+	width:1020px;
 	box-sizing:border-box;
 	position:relative;
-	margin:20px 120px 30px 420px;
+	margin:20px 120px 30px 320px;
 	line-height:1.5em;
 }
 
