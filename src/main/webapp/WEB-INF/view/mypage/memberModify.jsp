@@ -27,7 +27,7 @@
 	<input type='text' name='irum' id='irum' readonly="readonly">
 	<input type='text' name='birth' id='birth' readonly="readonly">
 	<input type='text' name='phone' id='phone' readonly="readonly">
-	<input type='text' name='email' id='email' placeholder="이메일">
+	<input type='text' name='email' class='email' placeholder="이메일">
 	<br>
 	<div class='h5'>➢ 비밀번호 변경</div>
 	<div class='h5'>비밀번호 변경을 원하신다면, 현재 비밀번호를 기입 후, '새 비밀번호'란에 변경할 비밀번호를 입력하세요.</div>

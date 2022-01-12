@@ -25,21 +25,21 @@ $(function(){
 	
 	//결과창 팝업
 	$('#btnJoin').click(function(){
-		window.open('memberResult', 'result', 'width=750, height=445, top=200, left=300');
+		window.open('mypageMemberResult', 'result', 'width=750, height=445, top=200, left=300');
 	})
 	$('#btnModify').click(function(){
-		window.open('memberResult', 'result', 'width=750, height=445, top=200, left=300');
+		window.open('mypageMemberResult', 'result', 'width=750, height=445, top=200, left=300');
 	})
 	$('#btnOutChk').click(function(){
-		window.open('memberResult', 'result', 'width=750, height=445, top=200, left=300');
+		window.open('mypageMemberResult', 'result', 'width=750, height=445, top=200, left=300');
 	})
 	
 	//로그인 모달창
 	$('#btnLogin').click(function(){
-		$(".modal-content").load("memberLoginModal").fadeIn();
+		$(".modal-content").load("mypageMemberLogin").fadeIn();
 	})
 	$('#btnCancelLogin').click(function(){
-		$(".modal-content").load("memberLoginModal").fadeOut();
+		$(".modal-content").load("mypageMemberLogin").fadeOut();
 	})
 	
 	//로그인

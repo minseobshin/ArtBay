@@ -29,7 +29,7 @@
 	<input type='text' name='birth' id='birth' placeholder='생년월일 2000-12-30' required="required">
 	<input type='text' name='gender' id='gender' placeholder='성별' required="required">
 	<input type='text' name='phone' id='phone' placeholder='휴대전화 숫자만 입력' required="required">
-	<input type='text' name='email' id='email' placeholder="이메일" required="required">
+	<input type='text' name='email' class='email' placeholder="이메일" required="required">
 	<input type='password' name='pwd' id='pwd' placeholder="비밀번호" required="required">
 	<input type='password' name='pwdChk' id='pwdChk' placeholder="비밀번호 확인" required="required">
 	<div class='h5'>➢ 주소</div>

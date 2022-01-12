@@ -149,6 +149,29 @@ public class IndexController {
 		mv.setViewName("mypage.memberJoin");
 		return mv;
 	}
+	
+	@RequestMapping(value="/mypageMemberResult")
+	public ModelAndView mypageMemberResult() {
+		ModelAndView mv = new ModelAndView();
+		mv.setViewName("mypage.memberResult");
+		
+		return mv;
+	}
+	
+	@RequestMapping(value="/mypageMemberLogin")
+	public ModelAndView memberLoginModal(HttpServletRequest req) {
+		ModelAndView mv = new ModelAndView();
+		mv.setViewName("mypage.memberLogin");
+		return mv;
+	}
+	
+	@RequestMapping(value="/mypageMemberManage")
+	public ModelAndView memberManage(HttpServletRequest req) {
+		ModelAndView mv = new ModelAndView();
+		mv.setViewName("mypage.memberManage");
+		return mv;
+	}
+	
 	@RequestMapping(value="/customerWriteNotice")
 	public ModelAndView WriteNotice() {
 		ModelAndView mv = new ModelAndView();

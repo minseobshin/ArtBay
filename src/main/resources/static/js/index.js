@@ -175,7 +175,7 @@ function setHowToBtn() {
 	});
 	
 	$("#btnMemberJoin").click(function() {
-		location.href = "memberJoin";
+		location.href = "mypageMemberJoin";
 	});
 	
 	$("#btnBidIntro").click(function() {

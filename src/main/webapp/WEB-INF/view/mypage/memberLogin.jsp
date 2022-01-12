@@ -19,7 +19,7 @@
 			<input type='submit' name='btnGoLogin' id='btnGoLogin' value='로그인'>
 			<input type='button' name='btnCancelLogin' id='btnCancelLogin' value='취소'>
 			<h5>아직 ArtBay 회원이 아니세요?</h5>
-			<a href='memberJoin'>회원가입</a>
+			<a href='mypageMemberJoin'>회원가입</a>
 		</form>
 	</div>
 </div>

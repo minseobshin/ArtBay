@@ -38,7 +38,7 @@
 			<li><a href="/list">목록</a></li>
 			<li><a href="/view">상세 보기</a></li>
 			<br/>
-			<li><a href="/home">메인페이지.</a></li>
+			<li><a href="/main">메인페이지.</a></li>
 			<br/>
 			<li><a href="/bidIntro">응찰 안내 (응찰 안내만 가능하게 두었습니다.)</a></li>
 			<li><a href="/noticdList">공지사항</a></li>

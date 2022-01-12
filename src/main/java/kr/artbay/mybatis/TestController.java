@@ -32,44 +32,6 @@ public class TestController {
 		return mv;		
 	}
 	
-	@RequestMapping(value="/memberJoin")
-	public ModelAndView join() {
-		ModelAndView mv = new ModelAndView();
-		mv.setViewName("imsi/memberJoin");
-		
-		return mv;
-	}
-	
-	@RequestMapping(value="/memberModify")
-	public ModelAndView memberModify() {
-		ModelAndView mv = new ModelAndView();
-		mv.setViewName("imsi/memberModify");
-		
-		return mv;
-	}
-	
-	@RequestMapping(value="/memberResult")
-	public ModelAndView memberResult() {
-		ModelAndView mv = new ModelAndView();
-		mv.setViewName("imsi/memberResult");
-		
-		return mv;
-	}
-	
-	@RequestMapping(value="/memberLoginModal")
-	public ModelAndView memberLoginModal(HttpServletRequest req) {
-		ModelAndView mv = new ModelAndView();
-		mv.setViewName("imsi/memberLogin");
-		return mv;
-	}
-	
-	@RequestMapping(value="/memberManage")
-	public ModelAndView memberManage(HttpServletRequest req) {
-		ModelAndView mv = new ModelAndView();
-		mv.setViewName("imsi/memberManage");
-		return mv;
-	}
-	
 	@RequestMapping(value = "/login")
 	public void memberLogin(HttpServletRequest req) {
 		String mid = req.getParameter("mid");
