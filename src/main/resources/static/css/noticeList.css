@@ -13,22 +13,16 @@
 	position:relative;
 	min-height:600px;
 	line-height:1.5em;
-}
-#noticeList #noticeSearch output{
-	position:absolute;
-	top:200px;
-	left:300px;
-}
-#noticeList #noticeSearch #findZone{
-	position:absolute;
-	top:200px;
-	right:320px;
-}
-
-#noticeList #notice{
 	width:900px;
 	margin:0 auto;
-}	
+}
+#noticeList #noticeSearch{
+	width:900px;
+	margin:10px auto;
+}
+#noticeList #noticeSearch #findZone{
+	float:right;
+}
 
 #noticeList #notice #title{
 	background-color:#ddd;
@@ -78,14 +72,12 @@
 	background-color:#ddd;	
 	cursor:pointer;
 }
-#noticeList #btnWriteNotice{
+#noticeList #btnZone #btnWriteNotice{
 	display:inline-block;
 	width:80px;
 	height:30px;
 	background-color:#fff;
-	position:absolute;
-	bottom:90px;
-	right:130px;
+	margin-top:40px;
 }
 
 #noticeList #btnWriteNotice:hover{
@@ -95,19 +87,18 @@
 	cursor:pointer;
 }
 #noticeList #btnZone{
+	margin-top:130px;
 	margin-left:300px;
-	margin-top:30px;
 }
-#noticeList #btnDeleteNotice{
+#noticeList #btnZone #btnDeleteNotice{
 	display:inline-block;
 	width:100px;
 	height:30px;
 	background-color:#fff;
-	position:absolute;
-	bottom:90px;
-	right:10px;
+	margin-top:40px;
+	margin-left:20px;
 }
-#noticeList #btnDeleteNotice:hover{
+#noticeList #btnZone #btnDeleteNotice:hover{
 	border:2px solid #000;
 	color:#fff;
 	background-color:#f60;

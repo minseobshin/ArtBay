@@ -86,7 +86,7 @@
 		$('#consign_step4').css('background-color', '#f60');
 
 	});
-	//howto 사이드 메뉴
+	/*//howto 사이드 메뉴
 	$('.howto-subbtn').hide(); 
 	$('.howtobtn ul>li').hover(function() {
 	$(this).children('div').fadeIn();
@@ -95,7 +95,7 @@
 	});
 
 	$(".howtobtn ul>li>a").attr("style","color:#777");
-	
+	*/
 	//공지사항 목록으로 돌아가기
 	$('#btnViewList').click(function(){
 		location.href='/customerNoticeList'
@@ -108,6 +108,9 @@
 	$('#btnSaveNotice').click(function(){
 		alert("작성한 공지가 저장되었습니다.");
 		location.href='/customerNoticeList';
+	})
+	$('#btnDeleteNotice').click(function(){
+		alert("선택한 공지가 삭제되었습니다.");
 	})
 	
 })
