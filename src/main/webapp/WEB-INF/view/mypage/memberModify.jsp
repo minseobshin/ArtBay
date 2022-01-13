@@ -75,7 +75,7 @@
 			<label><input type='checkbox' name='outChk'> 회원 탈퇴에 동의합니다.</label>
 			<br>
 			<div class='join3'>
-				<input type='submit' name='btnOutChk' id='btnOutChk' value='회원탈퇴'>
+				<input type='button' name='btnOutChk' id='btnOutChk' value='회원탈퇴'>
 				<input type='button' name='btnOutCancel' id='btnOutCancel' value='취소'>
 			</div>
 		</form>

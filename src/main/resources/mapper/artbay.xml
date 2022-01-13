@@ -2,18 +2,23 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" 
 "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="kr.artbay.mybatis.ArtBayMapper">
-	
+	<!-- 회원가입 -->
+	<insert id="insertMember" parameterType="kr.artbay.common.ArtBayVo">
+		insert into artbay_member(mid, injung, irum, birth, phone, email, gender, age, pwd, zip, address, address2, mdate, m_status)
+		values(#{mid}, #{injung}, #{irum}, #{birth}, #{phone}, #{email}, #{gender}, #{age}, #{pwd}, #{zip}, #{address}, #{address2}, now(), #{m_status})
+	</insert>
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 </mapper>
-
-
-
-
-
-
-
-
-
-
-
-

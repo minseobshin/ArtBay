@@ -14,22 +14,39 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.servlet.ModelAndView;
 
+import kr.artbay.mybatis.MemberService;
+
 
 @RestController
 public class ArtBayController {
+	
+	@Autowired
+	MemberService memberService;
+	
+	AES aes = new AES();
+	Page page = new Page();
+	ArtBayVo vo = null;
+	boolean b = false;
+	
 	/*gitSpring 컨트롤러 내용
 	@Autowired
 	BoardService service;
-	Page page = new Page();
 	String msg="";
-	AES aes = new AES();
 	int serial;
 	int grp = 0;
 	String pwd = "";
-	BoardVO vo = null;
-	boolean b = false;
 	PrintWriter out;
+	*/
 	
+	//회원가입
+	@RequestMapping(value="/insertMemberSave", method= {RequestMethod.POST})
+	public void insertMemberSave(ArtBayVo vo) {
+		//System.out.println("ArtBayController : " + vo.getMid());
+		
+		this.b = memberService.insertMember(vo);
+	}
+	
+	/*
 	@RequestMapping(value="/")
 	public ModelAndView index() {
 		ModelAndView mv = new ModelAndView();

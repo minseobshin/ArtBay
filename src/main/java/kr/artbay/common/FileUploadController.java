@@ -25,12 +25,12 @@ public class FileUploadController {
 	public ModelAndView upload(String job, int grp, int seq,
 								@RequestParam("attfile") List<MultipartFile> mul,
 								@ModelAttribute ArtBayAtt attVo,
-								@ModelAttribute ArtBayVO vo,
+								@ModelAttribute ArtBayVo vo,
 								@ModelAttribute Page page) {
 		ModelAndView mv = new ModelAndView();
 		String msg = "";
 		UUID uuid = null;
-		vo = new ArtBayVO();
+		vo = new ArtBayVo();
 		boolean b = true;
 		List<ArtBayAtt> attList = new ArrayList<ArtBayAtt>();
 		try {
@@ -44,10 +44,9 @@ public class FileUploadController {
 				File reName = new File(uploadPath + temp);
 				targetFile.renameTo(reName);
 				ArtBayAtt att = new ArtBayAtt();
-				att.setGrp(grp);
-				att.setSeq(seq);
+				att.setLot(grp);
 				System.out.println(seq);
-				att.setAttFile(temp);
+				att.setImgFile(temp);
 				attList.add(att);
 			}
 			vo.setAttList(attList);

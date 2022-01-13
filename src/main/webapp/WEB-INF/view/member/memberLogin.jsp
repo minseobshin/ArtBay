@@ -16,7 +16,7 @@
 			<h1>LOGIN</h1>
 			<input type='text' name='mid' id='midLogin' placeholder="아이디" required="required">
 			<input type='password' name='pwd' id='pwdLogin' placeholder="비밀번호" required="required">
-			<input type='submit' name='btnGoLogin' id='btnGoLogin' value='로그인'>
+			<input type='button' name='btnGoLogin' id='btnGoLogin' value='로그인'>
 			<input type='button' name='btnCancelLogin' id='btnCancelLogin' value='취소'>
 			<h5>아직 ArtBay 회원이 아니세요?</h5>
 			<a href='mypageMemberJoin'>회원가입</a>
