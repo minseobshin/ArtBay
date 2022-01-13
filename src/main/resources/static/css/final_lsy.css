@@ -207,64 +207,7 @@
 #auction #list #item input[type='button']:hover{
 	cursor:pointer;
 }
-/*FAQ*/
-#auction_faq{
-	width:1280px;
-	min-height:800px;
-	margin:0px auto;
-	box-sizing:border-box;
-}
 
-#auction_faq h1{
-	text-align:center;
-	font-weight:bold;
-	margin-bottom:90px;
-	font-size:30px;
-	padding-top:20px;
-}
-#auction_faq .faq{
-	border-top:2px solid #aaa;
-	width:1000px;
-	margin: 0 auto;
-	line-height:1.8em;
-	list-style:none;
-	padding:0;
-}
-#auction_faq .faq li{
-	border-bottom:2px solid #ddd;
-	line-height:1.8em;
-}
-
-#auction_faq .faq input{
-	display:none;
-}
-#auction_faq .faq label{ /*faq 제목*/ 
-	font-weight:bold;
-	margin:20px 0 0;
-	cursor:pointer;
-}
-#auction_faq .faq label::before{
-	display:block;
-	content:"▷";
-	color:#f60;
-	margin-right:8px;
-	float:left;
-}
-#auction_faq .faq input:checked + label::before{/*내용 펼쳤을때 화살표*/
-	content:"▼";
-}
-#auction_faq .faq div{
-	display:none;
-	color:#333;
-	overflow:hidden;
-	padding:10px 0 10px 30px;
-	box-sizing:border-box;
-	transition:max-height 0.4s;
-}
-#auction_faq .faq input:checked + label + div{
-	display:block;
-}
- 
 /*consignGuide 위탁절차*/
 #consign_title h1{
 	height:160px;
@@ -510,13 +453,87 @@
 	cursor:pointer;
 }
 
+/*FAQ*/
+#auction_faq{
+	width:1280px;
+	min-height:1000px;
+	margin:0px auto;
+	box-sizing:border-box;
+}
 
+#auction_faq h1{
+	text-align:center;
+	font-weight:bold;
+	margin-bottom:90px;
+	font-size:28px;
+	padding-top:32px;
+}
+#auction_faq .container_faq .faq{
+	border-top:2px solid #aaa;
+	width:1000px;
+	margin: 10px auto;
+	list-style:none;
+	padding:0;
+}
+/*faq 카테고리*/
+#auction_faq .container_faq .faq li{
+	list-style-type:none;
+	display:inline-block;
+	margin-top:10px;
+	margin-left:7px;
+	background-color:#eee;
+	width:85px;
+	height:33px;
+	text-align:center;
+	font-size:18px;
+	cursor:pointer;
+	padding-top:8px;
+	
+}
 
+#auction_faq .faq_descList .faq_desc ul{
+	margin:0 auto;
+	width:1000px;
+	line-height:1.7em;
+	font-size:16px;
+}
 
-
-
-
-
+#auction_faq .faq_descList .faq_desc ul li{
+	margin:5px;
+	border:2px solid #ddd; 
+}
+#auction_faq .faq_desc ul input{
+	display:none;
+}
+#auction_faq .faq_descList ul label:hover{
+	cursor:pointer;
+	
+}
+#auction_faq .faq_descList ul label::before{ /*체크박스*/
+	display:block;
+	content:"▷";
+	color:#000;
+	margin-right:8px;
+	float:left;
+	
+}
+#auction_faq .faq_descList ul input:checked + label::before{/*내용 펼쳤을때 화살표*/
+	content:"▼";
+}	
+#auction_faq .faq_descList ul div{
+	display:none;
+	color:#333;
+	overflow:hidden;
+	padding:10px 0 10px 30px;
+	box-sizing:border-box;
+	transition:max-height 0.4s;
+}
+#auction_faq .faq_descList ul input:checked + label + div{
+	display:block;
+}
+.clicked_menu{
+	border:2px solid #000;
+}
 
 
 

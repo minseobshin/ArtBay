@@ -120,26 +120,34 @@
 	})
 	
 	//FAQ 카테고리 선택하면 아래에 그 faq만 보이기
+
+	
 	$('.faq_desc ul').each(function(index, item){
-		$(this).hide();
+		$(item).hide();	
 	})
+	
+	$('.faq_desc ul').eq(0).show();
+	//faq 카테고리 별 리스트 변경
 	$('.active').each(function(index, item){
+		
 		$(this).click(function(){
-			var i = $(this).index();
-			$('.faq_desc')[i].show();
+			var i = $(item).index();
+			var selectedFaq = $('.faq_desc ul').eq(i);
+			$('.faq_desc ul').not(selectedFaq).hide();
+			selectedFaq.show();
 			
+				
 		})
 	})
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
+	$('.active').eq(0).addClass('clicked_menu');
+		
+	$('.active').each(function(index, item){
+		$(this).attr('menu-index',index);	
+	}).click(function(){
+		var index = $(this).attr('menu-index');
+		$('.active[menu-index=' + index +']').addClass('clicked_menu');
+		$('.active[menu-index !=' + index + ']').removeClass('clicked_menu');
+	});
 	
 	
 	
