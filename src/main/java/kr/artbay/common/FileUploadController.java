@@ -44,10 +44,9 @@ public class FileUploadController {
 				File reName = new File(uploadPath + temp);
 				targetFile.renameTo(reName);
 				ArtBayAtt att = new ArtBayAtt();
-				att.setGrp(grp);
-				att.setSeq(seq);
+				att.setLot(grp);
 				System.out.println(seq);
-				att.setAttFile(temp);
+				att.setImgFile(temp);
 				attList.add(att);
 			}
 			vo.setAttList(attList);
