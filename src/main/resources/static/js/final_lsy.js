@@ -27,7 +27,7 @@
 	$('.detail').click(function(){
 		location.href='/list';
 	})
-	
+	//customer 위탁안내 부분 
 	$('.desc01').show();
 	$('.desc02').hide();
 	$('.desc03').hide();
@@ -60,6 +60,7 @@
 		$('.desc04').show();
 		return false;
 	});
+
 	//클릭하면 배경색 변화
 	$('#consign_step1').click(function(){
 		$('#consign_step1').css('background-color', '#f60');
@@ -118,6 +119,48 @@
 		location.href='./bidApplication';
 	})
 	
-	$('#btn')
+	//FAQ 카테고리 선택하면 아래에 그 faq만 보이기
+	$('.faq_desc ul').each(function(index, item){
+		$(this).hide();
+	})
+	$('.active').each(function(index, item){
+		$(this).click(function(){
+			var i = $(this).index();
+			$('.faq_desc')[i].show();
+			
+		})
+	})
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
 })
 
