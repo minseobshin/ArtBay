@@ -72,7 +72,7 @@
 					</p>
 				</c:if>
 			</div>
-				<input type="button" id="btnRequestModify" value="응찰내용 수정"  onclick= "location.href= '/ListModify';"/>
+				<input type="button" id="btnRequestModify" value="응찰내용 수정"  onclick= "location.href= '/customerListModify';"/>
 			
 		</div>
 	</div>

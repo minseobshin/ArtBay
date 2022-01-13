@@ -18,6 +18,7 @@
 <body>
 <div id='auction'> 
 	<h1>응찰내역</h1>
+	<input type='button' id='btnRequestApplication' value='위탁신청'>
 	<form name='frm_auction' method='post'>
 	<div id='items'>
 		<div id='title'>
@@ -31,7 +32,7 @@
 		
 		<div id='rows'>
 			
-				<div id='item' onclick ="location.href='/Bid';">
+				<div id='item' onclick ="location.href='/customerListView';">
 					<span class='num'>11111</span>
 					<span class='name'>공갈도자기</span>
 					<span class='artist'>홍길동</span>
@@ -40,7 +41,7 @@
 					<span class='requestPrice'>1000만원</span>	
 									
 				</div>
-				<div id='item' onclick ="location.href='./view';">
+				<div id='item' onclick ="location.href='./customerListView';">
 					<span class='num'>124234</span>
 					<span class='name'>공갈도자기</span>
 					<span class='artist'>홍길동</span>
@@ -48,7 +49,7 @@
 					<span class='requestDate'>2022-01-30</span>
 					<span class='requestPrice'>1000만원</span>					
 				</div>
-				<div id='item' onclick = 'bid.view(1)'>
+				<div id='item' onclick ="location.href='./customerListView';">
 					<span class='num'>124234</span>
 					<span class='name'>공갈도자기</span>
 					<span class='artist'>홍길동</span>
@@ -56,7 +57,7 @@
 					<span class='requestDate'>2022-01-30</span>
 					<span class='requestPrice'>1000만원</span>					
 				</div>
-				<div id='item' onclick = 'bid.view(1)'>
+				<div id='item' onclick ="location.href='./customerListView';">
 					<span class='num'>124234</span>
 					<span class='name'>공갈도자기</span>
 					<span class='artist'>홍길동</span>
@@ -64,7 +65,7 @@
 					<span class='requestDate'>2022-01-30</span>
 					<span class='requestPrice'>1000만원</span>					
 				</div>
-				<div id='item' onclick = 'bid.view(1)'>
+				<div id='item' onclick ="location.href='./customerListView';">
 					<span class='num'>124234</span>
 					<span class='name'>공갈도자기</span>
 					<span class='artist'>홍길동</span>
@@ -72,7 +73,7 @@
 					<span class='requestDate'>2022-01-30</span>
 					<span class='requestPrice'>1000만원</span>					
 				</div>
-				<div id='item' onclick = 'bid.view(1)'>
+				<div id='item' onclick ="location.href='./customerListView';">
 					<span class='num'>124234</span>
 					<span class='name'>공갈도자기</span>
 					<span class='artist'>홍길동</span>
@@ -80,7 +81,7 @@
 					<span class='requestDate'>2022-01-30</span>
 					<span class='requestPrice'>1000만원</span>					
 				</div>
-				<div id='item' onclick = 'bid.view(1)'>
+				<div id='item' onclick ="location.href='./customerListView';">
 					<span class='num'>124234</span>
 					<span class='name'>공갈도자기</span>
 					<span class='artist'>홍길동</span>

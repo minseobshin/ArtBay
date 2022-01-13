@@ -21,9 +21,9 @@
 			<li><a href="/memberResult">회원 가입/수정/탈퇴 결과 화면</a></li>
 			<li><a href="/memberManage">관리자 페이지(임시)</a></li>
 			<br/>
-			<li><a href="/Bid">응찰내역</a></li>
-			<li><a href="/SuccessfulBid">낙찰내역</a></li>
-			<li><a href="/Consign">위탁내역</a></li>
+			<li><a href="/mypageBid">응찰내역</a></li>
+			<li><a href="/mypageSuccessfulBid">낙찰내역</a></li>
+			
 			<li><a href="/Result">경매결과</a></li>
 			<li><a href="/FAQ">FAQ</a></li>
 			<li><a href="/ConsignGuide">위탁안내</a></li>
