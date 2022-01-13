@@ -113,5 +113,11 @@
 		alert("선택한 공지가 삭제되었습니다.");
 	})
 	
+	//응찰내역에서 응찰신청
+	$('#btnRequestApplication').click(function(){
+		location.href='./bidApplication';
+	})
+	
+	$('#btn')
 })
 

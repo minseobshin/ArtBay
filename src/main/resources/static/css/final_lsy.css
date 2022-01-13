@@ -100,7 +100,7 @@
 }
 
 /*consign*/
-#auction #consignBtn{
+#auction #btnRequestApplication{
 	background-color:#f60;
 	margin-bottom:10px;
 	display:inline-block;
