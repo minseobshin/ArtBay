@@ -139,6 +139,13 @@ public class IndexController {
 		return mv;
 	}
 	
+	@RequestMapping(value = "/location")
+	public ModelAndView location() {
+		ModelAndView mv = new ModelAndView();
+		mv.setViewName("customer.location");
+		return mv;
+	}
+	
 	@RequestMapping(value="/mypageBid")
 	public ModelAndView mypageBid() {
 		ModelAndView mv = new ModelAndView();
