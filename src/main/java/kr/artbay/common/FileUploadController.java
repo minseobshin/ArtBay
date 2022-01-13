@@ -13,14 +13,13 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.servlet.ModelAndView;
 
-import kr.artbay.mybatis.BoardService;
 
 
 @Controller
 public class FileUploadController {
 	public static String uploadPath = "C:/Users/ej/eclipse-workspace/GitSpring/src/main/webapp/upload/";
 	
-	@Autowired BoardService service;
+	//@Autowired BoardService service;
 	
 	@RequestMapping(value="/fileUp")
 	public ModelAndView upload(String job, int grp, int seq,
