@@ -285,6 +285,21 @@
 				</div>
 				<div class="current_bid_price">
 					<div class="my_choice">
+						<div class="my_choice_left">
+							<strong>시작가</strong><br/><br/>
+							<strong>현재가</strong><br/><br/><br/>
+							<strong>응찰가</strong><br/><br/>
+						</div>
+						<div class="my_choice_right">
+							<strong>KRW 4,000,000</strong><br/><br/>
+							<strong>KRW 11,000,000 <br/> (응찰횟수 20회)</strong><br/><br/>
+							<select class="price_combo">
+								<option value="10000">10,000</option>
+								<option value="20000">20,000</option>
+							</select><br/><br/>
+							최고 응찰가를 선택하세요.<br/><br/>
+						</div>
+						<!-- 
 						<div>
 							<strong>시작가</strong>
 							<div>
@@ -307,9 +322,10 @@
 							<strong>　</strong>
 							최고 응찰가를 선택하세요.
 						</div>
+						 -->
 					</div>
-					<input type="button" class="btnBidApplyFinal" value="응찰하기"  onclick="modalOn($('.bid_caution'))"/>
 				</div>
+			<input type="button" class="btnBidApplyFinal" value="응찰하기"  onclick="modalOn($('.bid_caution'))"/>
 			</div>
 		</div>
 	</div>

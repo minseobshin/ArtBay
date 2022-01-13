@@ -4,6 +4,8 @@
 
 $(function(){
 	
+	var c = 1; //mypage 토글용;
+	
 	//우편번호 팝업
 	$('#btnZip').click(function(){
 		new daum.Postcode({
@@ -11,7 +13,7 @@ $(function(){
 				$('#zip').val(data.zonecode);
 				$('#address').val(data.address);
 			}
-		}).open();
+		}).open().close();
 	})
 	
 	//탈퇴 모달창
@@ -64,7 +66,12 @@ $(function(){
 	
 	//마이 페이지
 	$("#btnMyPage").click(function() {
-		$("#mypage").toggle();		
+		if(c%2 != 0){
+			$("#mypage").show();
+		}else if(c%2 == 0){
+			$("#mypage").hide();
+		}
+		c+=1;
 	});
 })
 

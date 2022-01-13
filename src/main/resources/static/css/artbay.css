@@ -114,73 +114,6 @@ form[name=frm_list]{
 	height: 550px;
 }
 
-@media(max-width: 1100px) and (min-width: 970px){
-	.listInner{
-		width: 25%;
-		margin-right: 30px;
-		overflow-y: hidden;
-	}
-	
-	.search_option_boxes{
-		width: 20% !important;
-		margin-left: 33px;
-		text-align: left !important;
-		margin-top: 10px;
-		display: block;
-		float: left !important;
-		clear: both;
-	}
-	
-	.selected_option_area{
-		margin-top: 80px !important;
-	}
-}
-
-@media(max-width: 970px) and (min-width: 485px){
-	.listInner{
-		width: 33%;
-		margin-right: 45px;
-		overflow-y: hidden;
-	}
-		
-	.search_option_boxes{
-		width: 20% !important;
-		margin-left: 33px;
-		text-align: left !important;
-		margin-top: 10px;
-		display: block;
-		float: left !important;
-		clear: both;
-	}
-	
-	.selected_option_area{
-		margin-top: 80px !important;
-	}
-}
-
-@media(max-width: 485px){
-	.listInner{
-		margin-left: 13px;
-		display: block;
-		width: 33.5%;
-		margin-right: 45px;
-		overflow-y: hidden;
-	}
-		
-	.search_option_boxes{
-		width: 20% !important;
-		margin-left: 33px;
-		text-align: left !important;
-		margin-top: 10px;
-		display: block;
-		float: left !important;
-		clear: both;
-	}
-	
-	.selected_option_area{
-		margin-top: 80px !important;
-	}
-}
 
 .listInner p.img{
 	width: 100%;
@@ -284,6 +217,8 @@ p.bidCnt{
 	height: 100px;
 	border-top: 1px solid rgb(102, 102, 102);
 }
+
+
 
 /*리스트 페이지 끝*/
 
@@ -402,73 +337,12 @@ form[name=frm_view]{
 	min-height: 550px;
 	height: 50px;
 	box-shadow: 0 0 5px 5px rgb(150, 150, 150);
-	padding: 20px;
+	
 	box-sizing: border-box;
 }
 
 .bid_price h2{
-	margin-top: 0;
-}
-
-@media(max-width: 1300px){
-	.view_right, .view_left{
-		display: block !important;
-		position: static;
-	}
-	
-	.view_right{
-		margin-left: 22%;
-		width: 20%;
-	}
-	
-	.bid_price{
-		display: none;
-		top: 65%;
-		height: 35%;
-		width: 100%;
-		position: fixed;
-		bottom: 0 !important;
-		right: 0;
-		border-radius: 15px 15px 0 0;
-	}
-	
-	.btnBidApplyFinal{
-		width: 100% !important;
-		height: 50px !important;
-	}
-	
-	.current_bid_price{
-		width: 100% !important;
-	}
-	
-	.xBtn{
-		right: -45%;
-	}
-	
-	.my_choice{
-		width: 100%;
-	}
-	
-	.my_choice>div{
-		width: 100%;
-	}
-	
-	.my_choice div+strong{
-		display: inline-block;
-		width: 30%;
-	}
-	
-	.my_choice div div strong{
-		display: inline-block;
-		width: 200%;
-	}
-	
-	select.price_combo{
-		display: inline-block;
-		width: 80%;
-	}
-	
-	
+	margin-left: 20px !important;
 }
 
 .view_left div{
@@ -500,6 +374,7 @@ form[name=frm_view] div.view_sml_btn p{
 	float: right;
 	clear: both;
 }
+
 
 /*모달 영역 시작*/
 .modal1, .modal2, .modal3, .modal4, .modal_login, .bid_caution_modal{
@@ -584,19 +459,14 @@ form[name=frm_view]>ul li:nth-child(3){
 	font-weight: bolder;
 }
 
-.btnBidApplyFinal{
-	width: 95%;
-	margin: 20px auto !important;
-}
-
 .btnBidStart{
 	margin-top: 80px !important;
 }
 
 .btnBidApplyFinal{
-	margin-left: 10px !important;
 	font-size: 20px;
 	font-weight: bolder;
+	width: 90%;
 }
 
 .bid_price_choose li{
@@ -607,21 +477,20 @@ form[name=frm_view]>ul li:nth-child(3){
 }
 
 .bidList{
-	size: 100%;
+	width: 100%;
 	clear: both;
 	text-align: left;
-	box-sizing: border-box;
 }
 
-.bidHistory{
-	padding: 0;
+.bidHistory, .current_bid_price{
+	width: 90%;
+	margin: 0 auto;
 }
 
 .bidHistory ul{
 	clear: both;
-	width: 88%;
+	width: 100%;
 	margin-top: 20px;
-	margin-left: 10px;
 	border-bottom: 0.5px solid grey;
 	padding: 10px;
 	box-sizing: border-box;
@@ -634,43 +503,29 @@ form[name=frm_view]>ul li:nth-child(3){
 .bidHistory ul li:nth-child(4){
 	float: right;
 }
-.current_bid_price{
-	width: 400px;
-}
-
-.current_bid_price>div>div>div, .current_bid_price>div>div>strong{
-	display: inline-block;
-	margin-bottom: 10px;
-}
-
-.current_bid_price>div>div>div{
-	width: 80%;
-	text-align: right;
-	margin: 0;
-}
-
-.my_choice>div>strong{
-	display: inline-block;
-	width: 30%;
-	max-width: 50px;
-}
-
-.current_bid_price strong+div{
-	margin: 0;
-	margin-left: 30%;
-	display: inline-block;
-	text-align: right;
-	width: 100%;
-}
-
-.current_bid_price strong+div>strong, .price_combo{
-	width: 80%;
-	display: inline-block;
-}
 
 .my_choice{
 	width: 95%;
 	margin: 20px auto;
+}
+
+.my_choice_left, .my_choice_right{
+	display: inline-block;
+	vertical-align: top;
+}
+
+.my_choice_left{
+	width: 20%;
+}
+
+.my_choice_right{
+	width: 80%;
+	float: right;
+	text-align: right;
+}
+
+.price_combo{
+	width: 100%;
 }
 
 .my_choice+.btnBid{
@@ -734,6 +589,79 @@ form[name=frm_view]>ul li:nth-child(3){
 
 ul{
 	list-style: none;
+}
+
+
+@media(max-width: 1300px){
+	.view_right, .view_left{
+		display: block !important;
+		position: static;
+	}
+	
+	.view_right{
+		margin-left: 22%;
+		width: 20%;
+	}
+	
+	.bid_price{
+		font-size: 0.8em;
+		display: none;
+		top: 50%;
+		height: 500px;
+		width: 100%;
+		position: fixed;
+		bottom: 0 !important;
+		right: 0;
+		border-radius: 15px 15px 0 0;
+	}
+	
+	.bidList{
+		width: 95% !important;
+		margin: 0 auto;
+		padding: 0;
+	}
+	
+	.current_bid_price{
+		width: 100% !important;
+		padding: 0;
+	}
+	
+	.xBtn{
+		right: -45%;
+		bottom: 98%;
+	}
+	
+	.my_choice>div{
+		display: inline-block;
+	}
+	
+	.my_choice .my_choice_left, .my_choice .my_choice_right{
+		vertical-align: top;
+		margin-top: -10px;
+	}
+	
+	.my_choice{
+		width: 100%;
+	}
+
+	.my_choice .my_choice_left{
+		width: 10%;
+	}
+	
+	.my_choice .my_choice_right{
+		width: 85%;
+		float: right;
+	}
+	
+	
+	.my_choice .my_choice_left strong, .my_choice .my_choice_right strong{
+		width: 100%;
+	}
+	
+	.btnBidApplyFinal{
+		width: 100% !important;
+		height: 50px !important;
+	}
 }
 
 /*모달 영역 끝*/

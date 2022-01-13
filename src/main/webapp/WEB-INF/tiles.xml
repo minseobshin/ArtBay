@@ -33,6 +33,10 @@
 		<put-attribute name="body" value="/WEB-INF/view/{1}.jsp"></put-attribute>
 	</definition>
 	
+	<definition name="howto2.*" extends="tiles-layout">
+		<put-attribute name="body" value="/WEB-INF/view/howto2/{1}.jsp"></put-attribute>
+	</definition>
+	
 	
 	  
 	<definition name="howto-layout" template="/WEB-INF/view/inc/howtoLayout.jsp">
