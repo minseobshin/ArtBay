@@ -25,12 +25,12 @@ public class FileUploadController {
 	public ModelAndView upload(String job, int grp, int seq,
 								@RequestParam("attfile") List<MultipartFile> mul,
 								@ModelAttribute ArtBayAtt attVo,
-								@ModelAttribute ArtBayVO vo,
+								@ModelAttribute ArtBayVo vo,
 								@ModelAttribute Page page) {
 		ModelAndView mv = new ModelAndView();
 		String msg = "";
 		UUID uuid = null;
-		vo = new ArtBayVO();
+		vo = new ArtBayVo();
 		boolean b = true;
 		List<ArtBayAtt> attList = new ArrayList<ArtBayAtt>();
 		try {

@@ -26,8 +26,12 @@ $(function(){
 	})
 	
 	//결과창 팝업
-	$('#btnJoin').click(function(){
-		window.open('mypageMemberResult', 'result', 'width=750, height=445, top=200, left=300');
+	//회원가입 버튼 이벤트
+	$("#btnJoin").click(function(){
+		$param = $('#frm_join').serialize();
+		$.post('insertMemberSave', $param, function(){
+			window.open('mypageMemberResult', 'result', 'width=750, height=445, top=200, left=300');
+		});
 	})
 	$('#btnModify').click(function(){
 		window.open('mypageMemberResult', 'result', 'width=750, height=445, top=200, left=300');
@@ -74,11 +78,6 @@ $(function(){
 		c+=1;
 	});
 	
-	//회원가입 버튼 이벤트
-	$("#btnJoin").click(function(){
-		$param = $('#frm_join').serialize();
-		
-	})
 	
 	
 	

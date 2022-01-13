@@ -3,7 +3,7 @@ package kr.artbay.common;
 import java.util.ArrayList;
 import java.util.List;
 
-public class ArtBayVO {
+public class ArtBayVo {
 	//혹시 빠진게 있나 확인 부탁해요~
 	int serial;
 	int lot;
