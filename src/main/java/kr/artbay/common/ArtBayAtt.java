@@ -1,6 +1,6 @@
 package kr.artbay.common;
 
-public class BoardAtt {
+public class ArtBayAtt {
 	//저희 테이블에 맞춰서 수정 해야 해요
 	int Serial;
 	int grp;
