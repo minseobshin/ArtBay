@@ -33,8 +33,9 @@
 #noticeList #notice .title{
 	display:inline-block;
 	text-align:center;
-	width:500px;
+	width:650px;
 	text-align:center;
+	overflow:hidden;
 }
 #noticeList #notice .noticeDate{
 	display:inline-block;
@@ -64,7 +65,7 @@
 	display:inline-block;
 	text-align:center;
 	width:80px;
-	margin-left:700px;
+	margin-left:820px;
 	padding-bottom:28px;
 	
 }
@@ -80,10 +81,9 @@
 	margin-top:40px;
 }
 
-#noticeList #btnWriteNotice:hover{
-	border:2px solid #000;
-	color:#fff;
+#noticeList #btnZone #btnWriteNotice:hover{
 	background-color:#f60;
+	color:#fff;
 	cursor:pointer;
 }
 #noticeList #btnZone{
@@ -99,7 +99,6 @@
 	margin-left:20px;
 }
 #noticeList #btnZone #btnDeleteNotice:hover{
-	border:2px solid #000;
 	color:#fff;
 	background-color:#f60;
 	cursor:pointer;

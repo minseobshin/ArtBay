@@ -18,6 +18,7 @@
 <body>
 <div id='auction'> 
 	<h1>응찰내역</h1>
+	<input type='button' id='consignBtn' value='위탁신청'>
 	<form name='frm_auction' method='post'>
 	<div id='items'>
 		<div id='title'>
