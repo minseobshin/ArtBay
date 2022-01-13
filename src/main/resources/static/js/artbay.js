@@ -3,6 +3,7 @@
  */
  
  $(function(){
+	//$("form[name='frm_view']").attr({'min':0.5000, 'max':1.5000});
 	/* 리스트 화면 작동 */
 	$(".search_box #btnSearch").click(function(){
 		if($("#findStr").val() !="" ){
