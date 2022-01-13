@@ -73,6 +73,22 @@ $(function(){
 		}
 		c+=1;
 	});
+	
+	//회원가입 버튼 이벤트
+	$("#btnJoin").click(function(){
+		$param = $('#frm_join').serialize();
+		
+	})
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
 })
 
 
