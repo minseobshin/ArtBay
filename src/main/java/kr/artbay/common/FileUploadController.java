@@ -24,15 +24,15 @@ public class FileUploadController {
 	@RequestMapping(value="/fileUp")
 	public ModelAndView upload(String job, int grp, int seq,
 								@RequestParam("attfile") List<MultipartFile> mul,
-								@ModelAttribute BoardAtt attVo,
-								@ModelAttribute BoardVO vo,
+								@ModelAttribute ArtBayAtt attVo,
+								@ModelAttribute ArtBayVO vo,
 								@ModelAttribute Page page) {
 		ModelAndView mv = new ModelAndView();
 		String msg = "";
 		UUID uuid = null;
-		vo = new BoardVO();
+		vo = new ArtBayVO();
 		boolean b = true;
-		List<BoardAtt> attList = new ArrayList<BoardAtt>();
+		List<ArtBayAtt> attList = new ArrayList<ArtBayAtt>();
 		try {
 			for(MultipartFile m : mul) {
 				if(m.getOriginalFilename().equals("")) continue;
@@ -43,7 +43,7 @@ public class FileUploadController {
 				String temp = uuid.toString() + "-" + m.getOriginalFilename();
 				File reName = new File(uploadPath + temp);
 				targetFile.renameTo(reName);
-				BoardAtt att = new BoardAtt();
+				ArtBayAtt att = new ArtBayAtt();
 				att.setGrp(grp);
 				att.setSeq(seq);
 				System.out.println(seq);

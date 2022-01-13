@@ -6,7 +6,7 @@
 			<li><a href="#none">회사소개</a></li>
 			<li><a href="#none">채용공고</a></li>
 			<li><a href="#none">공지사항</a></li>
-			<li><a href="#none">오시는길</a></li>
+			<li><a href="location">오시는길</a></li>
 		</ul>
 	</div>
 	<div class="rule">

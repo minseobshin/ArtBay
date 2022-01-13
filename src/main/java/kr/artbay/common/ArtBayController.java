@@ -16,7 +16,7 @@ import org.springframework.web.servlet.ModelAndView;
 
 
 @RestController
-public class BoardController {
+public class ArtBayController {
 	/*gitSpring 컨트롤러 내용
 	@Autowired
 	BoardService service;

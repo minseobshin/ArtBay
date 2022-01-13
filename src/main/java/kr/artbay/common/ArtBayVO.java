@@ -3,7 +3,7 @@ package kr.artbay.common;
 import java.util.ArrayList;
 import java.util.List;
 
-public class BoardVO {
+public class ArtBayVO {
 	//저희 프로젝트에 맞춰서 바꿔야 해요
 	int serial;
 	String mid;
@@ -16,7 +16,7 @@ public class BoardVO {
 	int seq;
 	int deep;
 	int attCnt;
-	List<BoardAtt> attList = new ArrayList<BoardAtt>();
+	List<ArtBayAtt> attList = new ArrayList<ArtBayAtt>();
 	List<String> delList = new ArrayList<String>();	
 	String[] delFile;
 	
@@ -46,8 +46,8 @@ public class BoardVO {
 		return attCnt;
 	}
 	public void setAttCnt(int attCnt) {this.attCnt = attCnt;}
-	public List<BoardAtt> getAttList() {return attList;}
-	public void setAttList(List<BoardAtt> attList) {this.attList = attList;}
+	public List<ArtBayAtt> getAttList() {return attList;}
+	public void setAttList(List<ArtBayAtt> attList) {this.attList = attList;}
 	public List<String> getDelList() {return delList;}
 	public void setDelList(List<String> delList) {this.delList = delList;}
 	
