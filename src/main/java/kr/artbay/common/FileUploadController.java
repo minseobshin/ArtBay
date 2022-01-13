@@ -52,7 +52,7 @@ public class FileUploadController {
 				attList.add(att);
 			}
 			vo.setAttList(attList);
-			b = service.insertAtt(vo, job); //서비스에서 insertAtt만들어야 해요
+			//b = service.insertAtt(vo, job); //서비스에서 insertAtt만들어야 해요
 			if(b) msg = "저료가 정상적으로 입력 되었습니다.";
 			else msg= "자료 입력 중 오류 발생";
 			
