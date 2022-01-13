@@ -26,6 +26,7 @@ public class ArtBayController {
 	AES aes = new AES();
 	Page page = new Page();
 	ArtBayVo vo = null;
+	boolean b = false;
 	
 	/*gitSpring 컨트롤러 내용
 	@Autowired
@@ -34,14 +35,15 @@ public class ArtBayController {
 	int serial;
 	int grp = 0;
 	String pwd = "";
-	boolean b = false;
 	PrintWriter out;
 	*/
 	
 	//회원가입
 	@RequestMapping(value="/insertMemberSave", method= {RequestMethod.POST})
 	public void insertMemberSave(ArtBayVo vo) {
-		System.out.println("ArtBayController : " + vo.getMid());
+		//System.out.println("ArtBayController : " + vo.getMid());
+		
+		this.b = memberService.insertMember(vo);
 	}
 	
 	/*

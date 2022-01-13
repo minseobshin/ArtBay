@@ -31,7 +31,7 @@ public class MemberService {
 		status = manager.getTransaction(new DefaultTransactionDefinition());
 		//vo.setPwd(aes.encrypt(vo.getPwd())); //암호화는 나중에..
 		
-		System.out.println("MemberService : " + vo.getMid());
+		//System.out.println("MemberService : " + vo.getMid());
 		
 		int c = mapper.insertMember(vo);
 		if(c>0) {
