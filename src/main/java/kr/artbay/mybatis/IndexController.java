@@ -16,7 +16,7 @@ public class IndexController {
 
 	@Autowired
 	TestService service;
-	/*
+	
 
 	@RequestMapping(value="/main")
 	public ModelAndView main() {
@@ -215,6 +215,6 @@ public class IndexController {
 		return mv;
 	}
 	
-	*/
+	
 	
 }
