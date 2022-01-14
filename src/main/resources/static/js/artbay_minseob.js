@@ -4,9 +4,7 @@
 
 $(function(){
 	
-	var cal = ''; //생년월일 temp
-	var a = []; //나이 추출용
-	var b = 0; //나이 추출용
+	var now = new Date(); //현재시간
 	var c = 1; //mypage 토글용
 	
 	//우편번호 팝업
@@ -15,12 +13,7 @@ $(function(){
 		if($('#birth').val() == ""){
 			alert("기본정보를 모두 입력해주세요.");
 		}else{
-			cal = $('#birth').val();
-			a = cal.split("-");
-			b = today.getFullYear();
-			cal = b-a[0]+1;
-			alert(cal);
-			$('#age').val(cal);
+			$('#age').val(now.getFullYear()-$('#birth').val().split("-")[0]+1);
 			//우편번호
 			new daum.Postcode({
 				oncomplete : function(data){
