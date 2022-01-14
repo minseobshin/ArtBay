@@ -5,7 +5,7 @@
 <head>
 <meta charset="UTF-8">
 <title>Insert title here</title>
-<link rel='stylesheet' type='text/css' href="./css/application.css">
+<link rel='stylesheet' type='text/css' href="./css/application2.css">
 <link rel='stylesheet' type='text/css' href="./css/basic.css">
 <script src="https://code.jquery.com/jquery-3.6.0.js"></script>
 
@@ -103,7 +103,7 @@
                     <td class="essential"><span>작품명</span></td>
                     <td>
                         <div>
-                            <input id="title" class="apply-input" type="text" >
+                            <input id="artwk_name" class="apply-input" type="text" >
                         </div>
                     </td>
                 </tr>
@@ -124,7 +124,7 @@
                     <td>작품의 재료</td>
                     <td>
                         <div>
-                            <select id="material-code" class="material-ch" >
+                            <select id="material" class="material-ch" >
                                 <option value="">재료를 선택해 주세요.</option>
                                 <option value="001">캔버스의 유채</option>
                                 <option value="002">종이에 채색</option>
@@ -133,7 +133,6 @@
                                 <option value="005">조각</option>
                                 <option value="006">도자기</option>
                             </select>
-                            <input type="text">
                         </div>
                     </td>
                 </tr>
@@ -158,20 +157,11 @@
                         </div>
                     </td>
                 </tr>
-
-                <tr>
-                    <td>제작시기</td>
-                    <td>
-                        <div>
-                            <input type="text" id="make-date" >
-                        </div>
-                    </td>
-                </tr>
                 <tr>
                     <td>작품설명</td>
                     <td>
                         <div>
-                            <textarea class="conapply-text" id="desc"  placeholder="작품에 대해서 가능한 많은 정보를 기입해 주세요. (예 : 소장 경로 또는 출처, 감정서 유무, 전시이력)"></textarea>
+                            <textarea class="conapply-text" id="contents"  placeholder="작품에 대해서 가능한 많은 정보를 기입해 주세요. (예 : 소장 경로 또는 출처, 감정서 유무, 전시이력)"></textarea>
                         </div>
                     </td>
                 </tr>
@@ -193,7 +183,7 @@
                                 </div>
                                 <label class="tui-btn tui-btn-upload m-t-5" style="background-color: rgb(102, 102, 102); color: rgb(255, 255, 255); border: 1px solid gray; height: 28px; line-height: 28px; text-align: center; padding: 0px; width: 80px; display: flex; align-items: center; justify-content: center;">
                                     <span class="tui-btn-txt" style="line-height: initial;">파일 추가</span>
-                                    <input type="file" name="userfile[]" class="tui-input-file">
+                                    <input type="file" name="addFile" class="tui-input-file" multiple="multiple">
                                 </label>
                             </div>
                         </div>
@@ -203,7 +193,7 @@
                     <td>시작가</td>
                     <td>
                         <div>
-                            <input type="text"  id="price-desired"  numberonly="true">
+                            <input type="text"  id="start_price"  numberonly="true">
                         </div>
                     </td>
                 </tr>
@@ -211,7 +201,7 @@
                     <td>즉시판매가</td>
                     <td>
                         <div>
-     	        			<input type="text"  id="price-desired"  numberonly="true">
+     	        			<input type="text"  id="direct_price"  numberonly="true">
      	        			 <span>※ 즉시 판매를 원치 않을 때는 기입하지 마세요!</span>
                         </div>
                     </td>

@@ -18,6 +18,9 @@ label, input, button, select, textarea {
     font-weight: normal;
     line-height: 20px;
 }
+div[class="container"] td{
+	vertical-align: middle;
+}
 form[name="frm_bay_insert"] ul {
     margin-block-start: 1em;
     margin-block-end: 1em;

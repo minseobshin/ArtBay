@@ -16,7 +16,16 @@
 <form name="frm_view" id="frm_view" method="post">
 	<div class="view_left">
 		<div class="view_top">
-			<p class="img"><img src="../img/spongebob.png" width=300 height=350/></p>
+			<p class="img">
+				<img src="../img/spongebob.png" />
+				<br/>
+				<img src="../img/view1.jpeg" />
+				<br/>
+				<img src="../img/view2.png" />
+			</p>
+			<p class="thumbnail">
+				<img src="../img/spongebob.png" width=300 height=350/>
+			</p>
 			<br/>
 			<div class="view_sml_btn">
 				<p id="like">❤️</p>
