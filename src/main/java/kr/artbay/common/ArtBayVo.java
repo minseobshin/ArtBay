@@ -63,7 +63,7 @@ public class ArtBayVo {
 	int grp;
 	int seq;
 	int deep;
-	int thumbnail;
+	String thumbnail;
 	
 	
 	String imgFile;
@@ -145,8 +145,8 @@ public class ArtBayVo {
 	public void setQna_date(String qna_date) {this.qna_date = qna_date;}
 	public String getQna_status() {return qna_status;}
 	public void setQna_status(String qna_status) {this.qna_status = qna_status;}
-	public int getThumbnail() {return thumbnail;}
-	public void setThumbnail(int thumbnail) {this.thumbnail = thumbnail;}
+	public String getThumbnail() {return thumbnail;}
+	public void setThumbnail(String thumbnail) {this.thumbnail = thumbnail;}
 	public String getImgFile() {return imgFile;}
 	public void setImgFile(String imgFile) {this.imgFile = imgFile;}
 	public void setPwd(String pwd) {this.pwd = pwd;}

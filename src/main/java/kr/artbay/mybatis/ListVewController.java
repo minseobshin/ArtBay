@@ -24,7 +24,7 @@ public class ListVewController {
 	ArtBayVo vo = null;
 	boolean b = false;
 	
-	@RequestMapping(value="/bidList", method= {RequestMethod.POST, RequestMethod.GET})
+	@RequestMapping(value="/bidList", method= {RequestMethod.POST})
 	public ModelAndView bidList() {
 		ModelAndView mv = new ModelAndView();
 		List<ArtBayVo> list = service.search(page);
@@ -35,7 +35,7 @@ public class ListVewController {
 		return mv;
 	}
 
-	@RequestMapping(value="/bidView", method= {RequestMethod.POST, RequestMethod.GET})
+	@RequestMapping(value="/bidView", method= {RequestMethod.POST})
 	public ModelAndView bidView(int lot) {
 		ModelAndView mv = new ModelAndView();
 		vo = service.view(lot);
