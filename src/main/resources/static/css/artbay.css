@@ -358,6 +358,17 @@ form[name=frm_view]{
 	text-align: center;
 }
 
+.view_top>.img{
+	width: 15%;
+	float: left;
+}
+
+.view_top>.img>img{
+	width: 90%;
+	border: 1px solid rgb(239, 239, 239);
+	display: block;
+	margin: 10px auto;
+}
 
 form[name=frm_view] div.view_sml_btn p{
 	display: inline-block;

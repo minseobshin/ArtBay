@@ -17,10 +17,11 @@ public interface ArtBayMapper {
 	//회원가입
 	public int insertMember(ArtBayVo vo);
 	public int insertArtWork(ArtBayVo vo);
+	
 	//List, view 화면
 	public Integer totSize(String findStr);
 	public List<ArtBayVo> search(Page page);
-	
+	public ArtBayVo view(int lot);
 	
 	//공지사항
 	public int saveNotice(ArtBayVo vo);  

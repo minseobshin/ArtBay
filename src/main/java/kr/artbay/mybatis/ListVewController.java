@@ -36,8 +36,10 @@ public class ListVewController {
 	}
 
 	@RequestMapping(value="/bidView", method= {RequestMethod.POST, RequestMethod.GET})
-	public ModelAndView bidView() {
+	public ModelAndView bidView(int lot) {
 		ModelAndView mv = new ModelAndView();
+		vo = service.view(lot);
+		mv.addObject("vo", vo);
 		mv.setViewName("bid.view");
 		return mv;
 	}
