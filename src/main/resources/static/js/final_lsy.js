@@ -150,6 +150,14 @@
 	});
 	
 	
+	//공지작성
+	$('#btnSaveNotice').click(function(){
+		$param = $('#frm_board').serialize(); //입력된 새 글
+		$.post('saveNotice', $param, function(data){ 
+			var json = JSON.parse(data);	
+		})
+	})
+	
 	
 	
 	

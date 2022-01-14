@@ -21,6 +21,10 @@
 		limit ${startNo-1}, ${listSize};
 	</select>
 	
+	<select id='noticeSave' parameterType="kr.artbay.common.ArtBayVo">
+		insert into(title, doc, not_date) 
+		values (#{title}, #{doc}, ${not_date})
+	</select>
 
 
 

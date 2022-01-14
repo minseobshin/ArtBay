@@ -18,4 +18,8 @@ public interface ArtBayMapper {
 	//List, view 화면
 	public Integer totSize(String findStr);
 	public List<ArtBayVo> search(Page page);
+	
+	
+	//공지사항
+	public int saveNotice(ArtBayVo vo);  
 }

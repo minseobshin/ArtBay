@@ -15,6 +15,7 @@ import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.servlet.ModelAndView;
 
 import kr.artbay.mybatis.MemberService;
+import kr.artbay.mybatis.NoticeService;
 
 
 @RestController
@@ -22,6 +23,7 @@ public class ArtBayController {
 	
 	@Autowired
 	MemberService memberService;
+	NoticeService noticeService;
 	
 	AES aes = new AES();
 	Page page = new Page();
@@ -46,6 +48,11 @@ public class ArtBayController {
 		this.b = memberService.insertMember(vo);
 	}
 	
+	
+	@RequestMapping(value="/saveNotice", method= {RequestMethod.POST})
+	public void saveNotice(ArtBayVo vo) {
+		this.b = noticeService.saveNotice(vo);
+	}
 	/*
 	@RequestMapping(value="/")
 	public ModelAndView index() {
