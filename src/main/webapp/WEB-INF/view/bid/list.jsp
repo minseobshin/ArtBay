@@ -1,4 +1,5 @@
 <%@ page import="kr.artbay.common.ArtBayVo"%>
+<%@page import="java.util.List"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jstl/core_rt" prefix="c" %>
@@ -13,10 +14,11 @@
 <link rel="stylesheet" type="text/css" href="../css/artbay.css">
 <link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Open+Sans:400,300,700,800">
 <script src="js/index.js"></script>
+<script src="js/artbay.js"></script>
 </head>
 <body>
 
-<form name="frm_list" method="post">
+<form name="frm_list" id="frm_list" method="post">
 	<div class="div_list">
 		<!-- 섹션/정렬 영역 -->
 		<div class="nav">
@@ -30,7 +32,7 @@
 		<!-- 검색 영역 -->
 		<div class="search">
 			<div class="search_box">
-				<input type="text" id="findStr" placeholder="작가 또는 작품명" value="${page.findStr }" />
+				<input type="text" id="findStr" placeholder="작가 또는 작품명"/>
 				<input type="button" id="btnSearch" value="🔎" />
 			</div>
 			<div class="search_option_boxes">
@@ -80,15 +82,14 @@
 			</div>
 		</div>
 		<div class="listBox">
-			<c:forEach begin="0" end="4">
-			<div class="listInner" onclick="location.href='bidView';">
-			<!-- onclick = 필요 -->
+			<c:forEach var="vo" items="${list }">
+			<div class="listInner" onclick="artbay.view(${vo.lot })">
 				<p class="img"><img src="../img/spongebob.png" /></p>
 				<div class="listInnerText">
-					<p class="painter">작가명</p>
-					<p class="art_name">그림 제목</p>
-					<p class="material">재료 좋은 재료를 썼습니다 굉장히 좋은 재료입니다 오버플로우 테스트</p>
-					<p class="paintSize">사이즈</p>
+					<p class="painter">${vo.artist }작가명</p>
+					<p class="art_name">${vo.artwork_name }</p>
+					<p class="material">${vo.material }</p>
+					<p class="paintSize">${vo.artwork_size }</p>
 					<div class="listInnerTextTitle">
 						<p>추정가</p>
 						<p>　</p>
@@ -98,12 +99,12 @@
 					<div class="listInnerTextPrice">
 						<p class="approximateStart">KRW 4,000,000</p>
 						<p> ~ 9,000,000</p>
-						<p class="minimumPrice">KRW 2,500,000</p>
-						<p class="currentPrice">KRW 9,000,000</p>
+						<p class="minimumPrice">${vo.start_price }</p>
+						<p class="currentPrice">${vo.current_price }</p>
 					</div>
 					<div class="listInnerTextTail">
-						<p class="endDate">마감 01-04 오후 4:00</p>
-						<p class="bidCnt">25회</p>
+						<p class="endDate">${vo.due_date }</p>
+						<p class="bidCnt">${vo.bid_cnt }</p>
 					</div>
 				</div>
 			</div>
@@ -116,12 +117,11 @@
 			<input type="button" value="&gt" />
 			<input type="button" value="&gt&gt" />
 		</div>
-	</div>
-	<div id="hiddenZone" style="display: none">
-		<input type="text" name="nowPage" value="${page.nowPage }" />
-		<input type="text" name="lot" value="${page.lot }"/>
+		<div id="hiddenZone">
+			<input type="text" name="nowPage" value="${page.nowPage }"/>
+			<input type="text" name="lot" id="lot" value="${vo.lot }"/>
+		</div>
 	</div>
 </form>
-<script src="../js/artbay.js"></script>
 </body>
 </html>

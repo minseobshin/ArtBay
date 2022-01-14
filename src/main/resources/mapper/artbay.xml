@@ -8,13 +8,23 @@
 		values(#{mid}, #{injung}, #{irum}, #{birth}, #{phone}, #{email}, #{gender}, #{age}, #{pwd}, #{zip}, #{address}, #{address2}, now(), #{m_status})
 	</insert>
 
+
 	<select id="totSize" parameterType="String" resultType="Integer">
 		select count(lot) totSize from artwork
 		where mid like '%${_parameter}%' or artwork_name like '%${_parameter}%'
 	</select>
-
 	
-
+	<select id="search" parameterType="kr.artbay.common.Page" resultType="kr.artbay.common.ArtBayVo">
+		select lot, mid, artwork_name, artwork_ctgr, artist, material, artwork_size, start_price, current_price,
+				regist_date, due_date, hit, direct_price, bid_cnt, crnt_status from artwork
+		where mid like '%${findStr}%' or artist like '%${findStr}%'
+		limit ${startNo-1}, ${listSize};
+	</select>
+	
+	<select id='noticeSave' parameterType="kr.artbay.common.ArtBayVo">
+		insert into(title, doc, not_date) 
+		values (#{title}, #{doc}, ${not_date})
+	</select>
 
 
 
