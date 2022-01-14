@@ -33,7 +33,7 @@
 				now(), (SELECT DATE_ADD(NOW(), INTERVAL 7 DAY)), #{direct_price}, 0, 0, #{crnt_status} )
 	</insert>
 	
-	<select id="view" parameterType="Integer" resultType="List">
+	<select id="view" parameterType="Integer" resultType="kr.artbay.common.ArtBayVo">
 		select * from artwork join artimg on artwork.lot = artimg.lot
 		where artwork.lot = ${_parameter};
 	</select>
