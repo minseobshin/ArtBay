@@ -13,7 +13,7 @@
 		where mid like '%${_parameter}%' or artwork_name like '%${_parameter}%'
 	</select>
 
-
+	
 
 
 
