@@ -16,12 +16,14 @@
 <form name="frm_view" id="frm_view" method="post">
 	<div class="view_left">
 		<div class="view_top">
+	<!-- 
 			<c:forEach var="att" items="${vo.attList }">
 				<p class="img">
 					<img src="${att.attFile }" />
 					<br/>
 				</p>
 			</c:forEach>
+	 -->
 			<p class="thumbnail">
 				<img src="../img/spongebob.png" width=300 height=350/>
 			</p>
