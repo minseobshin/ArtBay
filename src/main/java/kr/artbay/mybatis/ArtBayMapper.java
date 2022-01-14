@@ -6,6 +6,7 @@ import java.util.List;
 import org.apache.ibatis.annotations.Mapper;
 import org.springframework.stereotype.Repository;
 
+import kr.artbay.common.ArtBayAtt;
 import kr.artbay.common.ArtBayVo;
 import kr.artbay.common.Page;
 
@@ -20,7 +21,8 @@ public interface ArtBayMapper {
 	//List, view 화면
 	public Integer totSize(String findStr);
 	public List<ArtBayVo> search(Page page);
-	public ArtBayVo view(int lot);
+	public List<ArtBayAtt> view(int lot);
+	public List<ArtBayVo> attList(int lot);
 	
 	//공지사항
 	public int saveNotice(ArtBayVo vo);

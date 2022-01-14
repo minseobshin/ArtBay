@@ -1,5 +1,6 @@
 package kr.artbay.mybatis;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -9,6 +10,7 @@ import org.springframework.transaction.TransactionStatus;
 import org.springframework.transaction.annotation.Transactional;
 
 import kr.artbay.common.AES;
+import kr.artbay.common.ArtBayAtt;
 import kr.artbay.common.ArtBayVo;
 import kr.artbay.common.Page;
 
@@ -39,8 +41,9 @@ public class ListViewService {
 	public ArtBayVo view(int lot) {
 		ArtBayVo vo = new ArtBayVo();
 		vo.setLot(lot);
-		vo = mapper.view(lot);
-		
+		List<ArtBayAtt> list = new ArrayList<ArtBayAtt>();
+		list = mapper.view(lot);
+		vo.setAttList(list);
 		return vo;
 	}
 	
