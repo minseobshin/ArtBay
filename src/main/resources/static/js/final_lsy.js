@@ -1,6 +1,20 @@
 /**
  * 
  */
+function bid(){};
+bid.view = function(lot){
+	$frm=$('#frm_auction')[0];
+	$frm.lot.value = lot;
+	$frm.action = 'mypageListView'
+	$frm.submit();
+}
+bid.page = function(nowPage) {
+	$frm = $('#frm_search')[0];
+	$frm.nowPage.value = nowPage;
+	$frm.action = 'mypageBid';
+	$frm.submit();
+}
+
 
  $(function(){
 	

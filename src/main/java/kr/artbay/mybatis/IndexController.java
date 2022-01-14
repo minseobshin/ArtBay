@@ -201,16 +201,16 @@ public class IndexController {
 		
 		return mv;
 	}
-	@RequestMapping(value="/customerListView")
+	@RequestMapping(value="/mypageListView")
 	public ModelAndView ListView(HttpServletRequest req) {
 		ModelAndView mv = new ModelAndView();
-		mv.setViewName("customer/ListView");
+		mv.setViewName("mypage/ListView");
 		return mv;
 	}
-	@RequestMapping(value="/customerListModify")
+	@RequestMapping(value="/mypageListModify")
 	public ModelAndView ListModify(HttpServletRequest req) {
 		ModelAndView mv = new ModelAndView();
-		mv.setViewName("customer/ListModify");
+		mv.setViewName("mypage/ListModify");
 		return mv;
 	}
 	

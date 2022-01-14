@@ -26,7 +26,7 @@ public class NoticeService {
 	TransactionStatus status;
 	String title;
 	String doc;
-	
+	/*
 	public boolean saveNotice(ArtBayVo vo) {
 		boolean b = false;
 		status = manager.getTransaction(new DefaultTransactionDefinition());
@@ -40,5 +40,5 @@ public class NoticeService {
 		
 		return b;
 	}
-	
+	*/
 }

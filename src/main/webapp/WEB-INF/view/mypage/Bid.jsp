@@ -32,85 +32,39 @@
 		
 		<div id='rows'>
 			
-				<div id='item' onclick ="location.href='/customerListView';">
-					<span class='num'>11111</span>
-					<span class='name'>공갈도자기</span>
-					<span class='artist'>홍길동</span>
-					<span class='artName'>홍길동전</span>
-					<span class='requestDate'>2022-01-30</span>
-					<span class='requestPrice'>1000만원</span>	
+				<div id='item' onclick ='bid.view(${vo.lot})'>
+					<span class='num'>${vo.lot }</span>
+					<span class='name'>${vo.artwk_ctgr }</span>
+					<span class='artist'>${vo.artist }</span>
+					<span class='artName'>${vo.artwk_name }</span>
+					<span class='requestDate'>${vo.bid_date }</span>
+					<span class='requestPrice'>${vo.bid_price }</span>	
 									
 				</div>
-				<div id='item' onclick ="location.href='./customerListView';">
-					<span class='num'>124234</span>
-					<span class='name'>공갈도자기</span>
-					<span class='artist'>홍길동</span>
-					<span class='artName'>홍길동전</span>
-					<span class='requestDate'>2022-01-30</span>
-					<span class='requestPrice'>1000만원</span>					
-				</div>
-				<div id='item' onclick ="location.href='./customerListView';">
-					<span class='num'>124234</span>
-					<span class='name'>공갈도자기</span>
-					<span class='artist'>홍길동</span>
-					<span class='artName'>홍길동전</span>
-					<span class='requestDate'>2022-01-30</span>
-					<span class='requestPrice'>1000만원</span>					
-				</div>
-				<div id='item' onclick ="location.href='./customerListView';">
-					<span class='num'>124234</span>
-					<span class='name'>공갈도자기</span>
-					<span class='artist'>홍길동</span>
-					<span class='artName'>홍길동전</span>
-					<span class='requestDate'>2022-01-30</span>
-					<span class='requestPrice'>1000만원</span>					
-				</div>
-				<div id='item' onclick ="location.href='./customerListView';">
-					<span class='num'>124234</span>
-					<span class='name'>공갈도자기</span>
-					<span class='artist'>홍길동</span>
-					<span class='artName'>홍길동전</span>
-					<span class='requestDate'>2022-01-30</span>
-					<span class='requestPrice'>1000만원</span>					
-				</div>
-				<div id='item' onclick ="location.href='./customerListView';">
-					<span class='num'>124234</span>
-					<span class='name'>공갈도자기</span>
-					<span class='artist'>홍길동</span>
-					<span class='artName'>홍길동전</span>
-					<span class='requestDate'>2022-01-30</span>
-					<span class='requestPrice'>1000만원</span>					
-				</div>
-				<div id='item' onclick ="location.href='./customerListView';">
-					<span class='num'>124234</span>
-					<span class='name'>공갈도자기</span>
-					<span class='artist'>홍길동</span>
-					<span class='artName'>홍길동전</span>
-					<span class='requestDate'>2022-01-30</span>
-					<span class='requestPrice'>1000만원</span>					
-				</div>
+				
 			</div>
 		</div>
-	<div id='btnZone'>
+		<div id='btnZone'>
+			<c:if test="${page.startPage>1 }">
+				<input type='button' value='맨첨' id='btnFirst' onclick='bid.page(1)'/>
+				<input type='button' value='이전' id='btnPrev'  onclick='bid.page(${page.startPage-1})'/>
+			</c:if>
 			
-				<input type='button' value='&lt&lt' id='btnFirst' onclick='bid.move(1)'/>
-				<input type='button' value='&lt' id='btnPrev'  onclick='bid.move(1)'/>
-			
-			
-			<c:forEach var='i' begin='1' end='3'>
-				<input type='button' value='${i }' class=""  onclick='bid.move(1)'/>
+			<c:forEach var='i' begin="${page.startPage }" end='${page.endPage }'>
+				<input type='button' value='${i }' class="${(i==page.nowPage)? 'here' :'' }"  onclick='bid.page(${i})'/>
 			</c:forEach>
 
-			
-				<input type='button' value='&gt' id='btnNext'  onclick='bid.move(1)'/>
-				<input type='button' value='&gt&gt' id='btnLast'  onclick='bid.move(1)'/>
-			 			
-	</div>
+			<c:if test="${page.endPage<page.totPage }">
+				<input type='button' value='다음' id='btnNext'  onclick='bid.page(${page.endPage+1})'/>
+				<input type='button' value='맨끝' id='btnLast'  onclick='bid.page(${page.totPage})'/>
+			</c:if> 			
+		
+		</div>
 		
 	</form>
 		<form name='frm_page' id='frm_page' method='post'>
-			<input type='text' name='nowPage' value=''>
-			<input type='text' name='num' value=''>
+			<input type='text' name='nowPage' value='${page.nowPage }'>
+			<input type='text' name='lot' >
 		</form>
 </div>
 </body>

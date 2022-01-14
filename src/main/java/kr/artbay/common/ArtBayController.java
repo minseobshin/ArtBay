@@ -51,7 +51,7 @@ public class ArtBayController {
 	
 	@RequestMapping(value="/insertNotice", method= {RequestMethod.POST})
 	public void saveNotice(ArtBayVo vo) {
-		this.b = noticeService.saveNotice(vo);
+		
 	} 
 	/*
 	@RequestMapping(value="/")
