@@ -24,7 +24,7 @@
 			</c:forEach>
 			<p class="thumbnail">
 			<c:forEach var="att" items="${vo.attList }">
-				<c:if test="${att.thumbnail }=='Y'">
+				<c:if test="${att.thumbnail eq 'Y' }">
 					<div><img src="${att.imgFile }" width=300 height=350/></div>
 				</c:if>
 			</c:forEach>
