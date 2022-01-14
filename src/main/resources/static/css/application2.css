@@ -23,6 +23,9 @@ form[name="frm_bay_insert"] ul{
     margin-block-end: 1em;
     padding-inline-start: 40px;
 }
+div[class="container"] td{
+	vertical-align: middle;
+}
 form[name="frm_bay_insert"] body, form[name="frm_bay_insert"] input, form[name="frm_bay_insert"] textarea,
 form[name="frm_bay_insert"] select, form[name="frm_bay_insert"] button, form[name="frm_bay_insert"] table,
 div[class="container"] table{
