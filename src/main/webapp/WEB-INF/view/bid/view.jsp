@@ -16,15 +16,18 @@
 <form name="frm_view" id="frm_view" method="post">
 	<div class="view_left">
 		<div class="view_top">
-			<p class="img">
-				<img src="../img/spongebob.png" />
-				<br/>
-				<img src="../img/view1.jpeg" />
-				<br/>
-				<img src="../img/view2.png" />
-			</p>
+			<c:forEach var="att" items="${vo.attList }">
+				<p class="img">
+					<img src="${att.imgFile }" />
+					<br/>
+				</p>
+			</c:forEach>
 			<p class="thumbnail">
-				<img src="../img/spongebob.png" width=300 height=350/>
+			<c:forEach var="att" items="${vo.attList }">
+				<c:if test="${att.thumbnail eq 'Y' }">
+					<div><img src="${att.imgFile }" width=300 height=350/></div>
+				</c:if>
+			</c:forEach>
 			</p>
 			<br/>
 			<div class="view_sml_btn">

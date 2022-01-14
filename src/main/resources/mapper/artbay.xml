@@ -34,8 +34,11 @@
 	</insert>
 	
 	<select id="view" parameterType="Integer" resultType="kr.artbay.common.ArtBayVo">
-		select * from artwork join artimg on artwork.lot = artimg.lot
-		where artwork.lot = ${_parameter};
+		select * from artwork where lot = ${_parameter};
+	</select>
+	
+	<select id="attList" parameterType="Integer" resultType="kr.artbay.common.ArtBayAtt">
+		select * from artimg where lot = #{_parameter};	
 	</select>
 
 

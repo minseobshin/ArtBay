@@ -5,7 +5,7 @@ public class ArtBayAtt {
 	int Serial;
 	int lot;
 	String imgFile;
-	int thumbanil;
+	String thumbnail;
 	
 	public int getSerial() {return Serial;}
 	public void setSerial(int serial) {Serial = serial;}
@@ -13,7 +13,7 @@ public class ArtBayAtt {
 	public void setLot(int lot) {this.lot = lot;}
 	public String getImgFile() {return imgFile;}
 	public void setImgFile(String imgFile) {this.imgFile = imgFile;}
-	public int getThumbanil() {return thumbanil;}
-	public void setThumbanil(int thumbanil) {this.thumbanil = thumbanil;}
+	public String getThumbnail() {return thumbnail;}
+	public void setThumbnail(String thumbanil) {this.thumbnail = thumbanil;}
 	
 }
