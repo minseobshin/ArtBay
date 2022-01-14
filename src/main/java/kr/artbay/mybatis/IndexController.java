@@ -1,5 +1,7 @@
 package kr.artbay.mybatis;
 
+import java.util.List;
+
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
@@ -9,6 +11,9 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
+
+import kr.artbay.common.ArtBayVo;
+import kr.artbay.common.Page;
 
 @Controller
 @RequestMapping("/")
@@ -26,8 +31,9 @@ public class IndexController {
 	}
 	
 	@RequestMapping(value="/bidList")
-	public ModelAndView bidList() {
+	public ModelAndView bidList(Page page) {
 		ModelAndView mv = new ModelAndView();
+		mv.addObject("page", page);
 		mv.setViewName("bid.list");
 		return mv;
 	}

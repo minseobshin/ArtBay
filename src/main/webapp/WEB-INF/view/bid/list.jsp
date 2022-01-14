@@ -1,3 +1,4 @@
+<%@ page import="kr.artbay.common.ArtBayVo"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jstl/core_rt" prefix="c" %>
@@ -29,7 +30,7 @@
 		<!-- 검색 영역 -->
 		<div class="search">
 			<div class="search_box">
-				<input type="text" id="findStr" placeholder="작가 또는 작품명" />
+				<input type="text" id="findStr" placeholder="작가 또는 작품명" value="${page.findStr }" />
 				<input type="button" id="btnSearch" value="🔎" />
 			</div>
 			<div class="search_option_boxes">
@@ -115,6 +116,10 @@
 			<input type="button" value="&gt" />
 			<input type="button" value="&gt&gt" />
 		</div>
+	</div>
+	<div id="hiddenZone" style="display: none">
+		<input type="text" name="nowPage" value="${page.nowPage }" />
+		<input type="text" name="lot" value="${page.lot }"/>
 	</div>
 </form>
 <script src="../js/artbay.js"></script>
