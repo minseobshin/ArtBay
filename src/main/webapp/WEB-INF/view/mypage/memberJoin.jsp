@@ -39,7 +39,7 @@
 	<input type='text' name='address' id='address' readonly required="required" placeholder="주소">
 	<input type='text' name='address2' id='address2' required="required" placeholder="상세주소">
 	<div class='join3'>
-		<input type='submit' name='btnJoin' id='btnJoin' value='가입 하기'>
+		<input type='button' name='btnJoin' id='btnJoin' value='가입 하기'>
 	</div>
 	<div class='h6'>* 추후 My Page에서 수정 가능합니다.</div>
 	<input type='text' name='m_status' id='m_status' value='Y'>
