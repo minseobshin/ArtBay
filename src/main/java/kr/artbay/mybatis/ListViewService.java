@@ -32,7 +32,11 @@ public class ListViewService {
 		page.setTotSize(totSize);
 		this.page = page;
 		
-		
-		return null;
+		list = mapper.search(page);
+		System.out.println(list.size());
+		return list;
 	}
+	
+	public Page getPage() {return page;}
+	public void setPage(Page page) {this.page = page;}
 }
