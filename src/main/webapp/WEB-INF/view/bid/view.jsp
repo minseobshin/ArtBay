@@ -18,12 +18,12 @@
 		<div class="view_top">
 			<c:forEach var="att" items="${vo.attList }">
 				<p class="img">
-					<img src="${vo.imgFile }" />
+					<img src="${att.imgFile }" />
 					<br/>
 				</p>
 			</c:forEach>
 			<p class="thumbnail">
-				<img src="../img/spongebob.png" width=300 height=350/>
+				<div><img src="../img/spongebob.png" width=300 height=350/></div>
 			</p>
 			<br/>
 			<div class="view_sml_btn">

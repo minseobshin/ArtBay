@@ -42,10 +42,12 @@ public class ListVewController {
 		ModelAndView mv = new ModelAndView();
 		vo = service.view(lot);
 		mv.addObject("vo", vo);
-		mv.addObject("page", page);
 		List<ArtBayAtt> att = new ArrayList<ArtBayAtt>();
-		att.addAll(vo.getAttList());
+		for(int i=0; i<vo.getAttList().size(); i++) {
+			att.add(vo.getAttList().get(i));
+		}
 		mv.addObject("att", att);
+		mv.addObject("page", page);
 		mv.setViewName("bid.view");
 		return mv;
 	}
