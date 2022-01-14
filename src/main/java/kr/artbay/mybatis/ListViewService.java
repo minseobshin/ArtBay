@@ -39,6 +39,7 @@ public class ListViewService {
 	public ArtBayVo view(int lot) {
 		ArtBayVo vo = new ArtBayVo();
 		vo.setLot(lot);
+		vo = mapper.view(lot);
 		
 		return vo;
 	}
