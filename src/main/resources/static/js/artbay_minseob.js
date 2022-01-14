@@ -4,16 +4,31 @@
 
 $(function(){
 	
-	var c = 1; //mypage 토글용;
+	var cal = ''; //생년월일 temp
+	var a = []; //나이 추출용
+	var b = 0; //나이 추출용
+	var c = 1; //mypage 토글용
 	
 	//우편번호 팝업
 	$('#btnZip').click(function(){
-		new daum.Postcode({
-			oncomplete : function(data){
-				$('#zip').val(data.zonecode);
-				$('#address').val(data.address);
-			}
-		}).open().close();
+		//우편번호 버튼 누르면 (생년월일 칸 공백이면)"기본정보를 모두 입력해주세요." 출력. (생년월일 썼으면)나이 계산한뒤 히든박스에 넣기.
+		if($('#birth').val() == ""){
+			alert("기본정보를 모두 입력해주세요.");
+		}else{
+			cal = $('#birth').val();
+			a = cal.split("-");
+			b = today.getFullYear();
+			cal = b-a[0]+1;
+			alert(cal);
+			$('#age').val(cal);
+			//우편번호
+			new daum.Postcode({
+				oncomplete : function(data){
+					$('#zip').val(data.zonecode);
+					$('#address').val(data.address);
+				}
+			}).open().close();
+		}
 	})
 	
 	//탈퇴 모달창
@@ -89,7 +104,3 @@ $(function(){
 	
 	
 })
-
-
-
-
