@@ -337,6 +337,11 @@
 
 			</div>
 	</div>
+	<div id="hiddenZone">
+			<input type="text" id="findStr" value="${page.findStr }"/>
+			<input type="text" name="nowPage" value="${page.nowPage }"/>
+			<input type="text" name="lot" id="lot" value="${vo.lot }"/>
+		</div>
 </form>
 <script src="../js/artbay.js"></script>
 </body>

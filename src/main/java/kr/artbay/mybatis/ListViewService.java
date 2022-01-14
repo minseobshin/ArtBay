@@ -33,7 +33,6 @@ public class ListViewService {
 		this.page = page;
 		
 		list = mapper.search(page);
-		System.out.println(list.size());
 		return list;
 	}
 	
