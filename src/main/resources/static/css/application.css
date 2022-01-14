@@ -179,8 +179,6 @@ ul, li, ol {
     font-size: 16px;
     color: #D83C31;
 }
-
-
 .material-ch {
     width: 180px;
     height: 32px;
@@ -191,6 +189,9 @@ ul, li, ol {
     background: url(/img/schedule-img.png) no-repeat 95% 50%;
     border: 1px solid rgb(185, 185, 185);
     appearance: none;
+}
+.ctgr{
+    width: 200px;
 }
 .sizeinfo > div {
     position: relative;

@@ -108,6 +108,19 @@
                     </td>
                 </tr>
                 <tr>
+                    <td>작품의 카테고리</td>
+                    <td>
+                        <div>
+                            <select id="artwk_ctgr" class="material-ch ctgr" >
+                                <option value="">카테고리를 선택해 주세요.</option>
+                                <option value="001">그림</option>
+                                <option value="002">사진</option>
+                                <option value="003">도자기</option>
+                            </select>
+                        </div>
+                    </td>
+                </tr>
+                <tr>
                     <td>작품의 재료</td>
                     <td>
                         <div>

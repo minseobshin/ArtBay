@@ -25,6 +25,13 @@
 		insert into(title, doc, not_date) 
 		values (#{title}, #{doc}, ${not_date})
 	</select>
+	
+	<insert id="insertArtWork" parameterType="kr.artbay.common.ArtBayVo">
+		insert into artwork(mid, artwork_name, artwork_ctgr, artist, material, 
+			artwork_size, start_price, current_price, regist_date, due_date, direct_price, hit, bid_cnt, crnt_status)
+		values(#{mid}, #{artwork_name}, #{artwork_ctgr}, #{artist}, #{material}, #{artwork_size}, #{start_price}, 0,
+				now(), (SELECT DATE_ADD(NOW(), INTERVAL 7 DAY)), #{direct_price}, 0, 0, #{crnt_status} )
+	</insert>
 
 
 

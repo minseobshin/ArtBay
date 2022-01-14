@@ -194,6 +194,9 @@ div[class="container"] ul, div[class="container"] li, div[class="container"] ol 
     border: 1px solid rgb(185, 185, 185);
     appearance: none;
 }
+.ctgr{
+    width: 200px;
+}
 .sizeinfo > div {
     position: relative;
     display: inline-block;

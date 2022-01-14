@@ -14,7 +14,7 @@ import kr.artbay.common.Page;
 @Mapper
 public interface ArtBayMapper {
 	public int insertMember(ArtBayVo vo);
-	
+	public int insertArtWork(ArtBayVo vo);
 	//List, view 화면
 	public Integer totSize(String findStr);
 	public List<ArtBayVo> search(Page page);
