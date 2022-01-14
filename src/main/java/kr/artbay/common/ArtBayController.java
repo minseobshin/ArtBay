@@ -49,10 +49,10 @@ public class ArtBayController {
 	}
 	
 	
-	@RequestMapping(value="/saveNotice", method= {RequestMethod.POST})
+	@RequestMapping(value="/insertNotice", method= {RequestMethod.POST})
 	public void saveNotice(ArtBayVo vo) {
 		this.b = noticeService.saveNotice(vo);
-	}
+	} 
 	/*
 	@RequestMapping(value="/")
 	public ModelAndView index() {

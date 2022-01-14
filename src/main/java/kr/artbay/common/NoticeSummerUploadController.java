@@ -16,7 +16,7 @@ import org.springframework.web.multipart.MultipartFile;
 
 
 @Controller
-public class SummerUploadController {
+public class NoticeSummerUploadController {
 	@RequestMapping(value="/summerUp")
 	public void upload(@RequestParam("file") List<MultipartFile> mul,
 						HttpServletRequest req,	HttpServletResponse resp,
@@ -39,13 +39,4 @@ public class SummerUploadController {
 			e.printStackTrace();
 		}
 	}
-	
-	@RequestMapping(value="/summerDelete")
-	public void delete(HttpServletRequest req) {
-		
-		String target = req.getParameter("target");
-		String[] temp = target.split("/");
-		File delFile = new File(FileUploadController.uploadPath + temp[temp.length-1]);
-		if(delFile.exists()) delFile.delete();
-	}
-}
+}	

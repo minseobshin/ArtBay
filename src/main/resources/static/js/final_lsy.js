@@ -158,12 +158,76 @@
 		})
 	})
 	
+	// 공지 작성 summernote 
+function summer() {
+
+	var fonts = [
+		"맑은 고딕", "고딕", "돋음", "바탕", "바탕체", "굴림", "굴림체", "궁서체"
+	]
+	fonts.sort();
 	
+	$('#summernote').summernote({
+		height: 300,
+		fontNames: fonts,
+		callbacks: { //이미지를 첨부하는 부분
+			onImageUpload: function(files) {
+				loadInterval.length = files.length;
+				for (var i = files.length-1; i >= 0; i--) {
+					sendFile(i, files[i]);
+				}
+			},
+			onMediaDelete : function(target){ //서머노트에서 삭제를 누르면
+				
+				var file = decodeURI(target[0].src);
+				
+				$.ajax({
+					data : { target : file}, //file을 맵구조로 전달
+					type : 'POST',
+					url  : 'summerUpDelete', //summerUploadController와 연결 summerUp?flag=delete
+					cache : false,
+					success : function(msg){
+						console.log("delete ok....")
+					}
+				})
+			}
+		}
+	});
+}
+
+function sendFile(intervalPos, file) {
 	
+	var form_data = new FormData();// form tag 생성
+	form_data.append('file', file);
+	$.ajax({
+		data: form_data,
+		type: 'POST',
+		url: 'summerUp',
+		enctype: 'multipart/form-data',
+		cache: false,
+		contentType: false,
+		processData: false,
+		success: function(img) {
+			loadInterval[intervalPos] = 
+				setInterval(loadCheck.bind(null, intervalPos, img), 1000);
+		}
+	})
+}
+function loadCheck(pos, img) {
 	
+	var target = new Image(); //업로드가 될 이미지
+	target.onload = function() {// 이미지가 모두 서버에 저장된 상태 
+		clearInterval(loadInterval[pos]);
+		$('#summernote').summernote('editor.insertImage', img);
+		$('#board').removeClass('spinner');
+	}
+	target.src = img;
 	
+}
 	
-	
+
+
+
+
 	
 	
 	

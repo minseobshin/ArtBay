@@ -410,6 +410,9 @@
 	line-height:1.5em;
 	margin:0 auto;
 }
+#writeNotice #summernote{
+	min-height:250px;
+}
 #writeNotice h1{
 	text-align:center;
 	font-size:28px;
