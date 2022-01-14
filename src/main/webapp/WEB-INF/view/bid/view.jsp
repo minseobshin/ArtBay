@@ -23,7 +23,11 @@
 				</p>
 			</c:forEach>
 			<p class="thumbnail">
-				<div><img src="../img/spongebob.png" width=300 height=350/></div>
+			<c:forEach var="att" items="${vo.attList }">
+				<c:if test="${att.thumbnail }=='Y'">
+					<div><img src="${att.imgFile }" width=300 height=350/></div>
+				</c:if>
+			</c:forEach>
 			</p>
 			<br/>
 			<div class="view_sml_btn">
