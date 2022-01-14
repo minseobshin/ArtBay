@@ -21,7 +21,7 @@ public interface ArtBayMapper {
 	//List, view 화면
 	public Integer totSize(String findStr);
 	public List<ArtBayVo> search(Page page);
-	public List<ArtBayAtt> view(int lot);
+	public ArtBayVo view(int lot);
 	public List<ArtBayVo> attList(int lot);
 	 
 	//공지사항
