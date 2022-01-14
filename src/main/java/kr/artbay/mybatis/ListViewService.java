@@ -42,8 +42,8 @@ public class ListViewService {
 		ArtBayVo vo = new ArtBayVo();
 		vo.setLot(lot);
 		List<ArtBayAtt> list = new ArrayList<ArtBayAtt>();
-		list = mapper.view(lot);
-		vo.setAttList(list);
+		vo = mapper.view(lot);
+		list = mapper.attList(lot);
 		return vo;
 	}
 	

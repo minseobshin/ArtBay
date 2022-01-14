@@ -24,7 +24,10 @@ public interface ArtBayMapper {
 	public List<ArtBayVo> search(Page page);
 	public List<ArtBayAtt> view(int lot);
 	public List<ArtBayVo> attList(int lot);
-	
+	 
 	//공지사항
-	public int saveNotice(ArtBayVo vo);  
+	public int saveNotice(ArtBayVo vo);
+	
+	//경매신청
+	public int insertArtWork(ArtBayVo vo);
 }

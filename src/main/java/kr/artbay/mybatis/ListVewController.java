@@ -1,5 +1,6 @@
 package kr.artbay.mybatis;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -37,11 +38,14 @@ public class ListVewController {
 	}
 
 	@RequestMapping(value="/bidView", method= {RequestMethod.POST})
-	public ModelAndView bidView(int lot) {
+	public ModelAndView bidView(int lot, Page page) {
 		ModelAndView mv = new ModelAndView();
 		vo = service.view(lot);
 		mv.addObject("vo", vo);
-		System.out.println(vo.getAttList().size());
+		mv.addObject("page", page);
+		List<ArtBayAtt> att = new ArrayList<ArtBayAtt>();
+		att.addAll(vo.getAttList());
+		mv.addObject("att", att);
 		mv.setViewName("bid.view");
 		return mv;
 	}
