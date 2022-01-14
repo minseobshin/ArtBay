@@ -41,10 +41,12 @@ public class ArtBayVo {
 	String artist;
 	String material;
 	String artwork_size;
-	int strt_price;
+	int start_price;
 	int current_price;
 	String regist_date;
 	String due_date;
+	int bid_cnt;
+	String crnt_status;
 	
 	//공지사항
 	String title;
@@ -123,8 +125,8 @@ public class ArtBayVo {
 	public void setMaterial(String material) {this.material = material;}
 	public String getArtwork_size() {return artwork_size;}
 	public void setArtwork_size(String artwork_size) {this.artwork_size = artwork_size;}
-	public int getStrt_price() {return strt_price;}
-	public void setStrt_price(int strt_price) {this.strt_price = strt_price;}
+	public int getStart_price() {return start_price;}
+	public void setStart_price(int start_price) {this.start_price = start_price;}
 	public int getCurrent_price() {return current_price;}
 	public void setCurrent_price(int current_price) {this.current_price = current_price;}
 	public String getRegist_date() {return regist_date;}
@@ -166,5 +168,9 @@ public class ArtBayVo {
 	public void setAttList(List<ArtBayAtt> attList) {this.attList = attList;}
 	public List<String> getDelList() {return delList;}
 	public void setDelList(List<String> delList) {this.delList = delList;}
+	public int getBid_cnt() {return bid_cnt;}
+	public void setBid_cnt(int bid_cnt) {this.bid_cnt = bid_cnt;}
+	public String getCrnt_status() {return crnt_status;}
+	public void setCrnt_status(String crnt_status) {this.crnt_status = crnt_status;}
 	
 }
