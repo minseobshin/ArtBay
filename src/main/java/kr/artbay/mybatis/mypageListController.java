@@ -28,7 +28,7 @@ public class mypageListController {
 		vo = service.listView(lot);
 		mv.addObject("vo", vo);
 		mv.addObject("Page", page);
-		mv.setViewName("mypage/listView");
+		mv.setViewName("mypage.listView");
 		return mv;
 	}
 	@RequestMapping(value="/mypageBid", method= {RequestMethod.POST, RequestMethod.GET})
@@ -39,7 +39,7 @@ public class mypageListController {
 		
 		mv.addObject("page", page);
 		mv.addObject("list", list);
-		mv.setViewName("board/list");
+		mv.setViewName("mypage.Bid");
 		
 		return mv;
 	}
