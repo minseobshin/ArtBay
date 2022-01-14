@@ -1,7 +1,16 @@
 /**
- * 
+ * 2021-01. 곽은정
  */
- 
+ function artbay(){
+	
+}
+ artbay.view = function(lot){
+	$frm = $("#frm_list")[0];
+	$frm.lot.value = lot;
+	console.log($("#lot").val())
+	$frm.action = "bidView";
+	$frm.submit();
+}
  $(function(){
 	//$("form[name='frm_view']").attr({'min':0.5000, 'max':1.5000});
 	/* 리스트 화면 작동 */

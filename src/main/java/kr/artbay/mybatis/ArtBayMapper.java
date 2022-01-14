@@ -13,6 +13,8 @@ import kr.artbay.common.Page;
 @Repository
 @Mapper
 public interface ArtBayMapper {
+	
+	//회원가입
 	public int insertMember(ArtBayVo vo);
 	public int insertArtWork(ArtBayVo vo);
 	//List, view 화면
