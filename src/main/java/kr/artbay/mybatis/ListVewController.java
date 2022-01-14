@@ -40,8 +40,8 @@ public class ListVewController {
 	public ModelAndView bidView(int lot) {
 		ModelAndView mv = new ModelAndView();
 		vo = service.view(lot);
-		System.out.println(vo.getAttList());
 		mv.addObject("vo", vo);
+		System.out.println(vo.getAttList().size());
 		mv.setViewName("bid.view");
 		return mv;
 	}
