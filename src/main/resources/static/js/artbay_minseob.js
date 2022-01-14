@@ -86,9 +86,37 @@ $(function(){
 		c+=1;
 	});
 	
+	//이메일인증 모달
+	$('#btnCertification').click(function(){
+		$('#certificationNum').val(541398); //랜덤으로 바꿀것
+		$(".emailCheck").fadeIn();
+		//$param = $('#frm_join').serialize();
+		//$.post('emailCertification', $param);
+	})
+	$('.btnEmailCheckCancel').click(function(){
+		$(".emailCheck").fadeOut();
+	})
+	//이메일인증 메일전송
+	const btn = document.getElementById('btnEmailCheck');
 	
+	document.getElementById('frm_emailCheck')
+	 .addEventListener('submit', function(event) {
+	   event.preventDefault();
+		
+	   btn.value = '보내는 중...';
 	
+	   const serviceID = 'default_service';
+	   const templateID = 'template_rlaotob';
 	
+	   emailjs.sendForm(serviceID, templateID, this)
+	    .then(() => {
+	      btn.value = '완료';
+	      $(".emailCheck").fadeOut();
+	    }, (err) => {
+	      btn.value = '완료';
+	      alert(JSON.stringify(err));
+	    });
+	});
 	
 	
 	

@@ -18,10 +18,6 @@
 <div class='h1'>ArtBay 회원정보 수정</div>
 <div id='join'>
 <form name='frm_join' method='post'>
-	<div class='h5'>➢ 본인인증</div>
-	<input type='button' name='btnCertification' id='btnCertification' value='✉ 이메일 본인 인증'>
-	<br>
-	<!-- readonly 부분은 핸드폰 본인인증 후 DB에서 읽어와서 뿌려줌 -->
 	<div class='h5'>➢ 개인정보 변경</div>
 	<input type='text' name='mid' id='mid' readonly="readonly">
 	<input type='text' name='irum' id='irum' readonly="readonly">
