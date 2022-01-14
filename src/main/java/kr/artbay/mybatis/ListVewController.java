@@ -34,4 +34,11 @@ public class ListVewController {
 		mv.setViewName("bid.list");
 		return mv;
 	}
+
+	@RequestMapping(value="/bidView")
+	public ModelAndView bidView() {
+		ModelAndView mv = new ModelAndView();
+		mv.setViewName("bid.view");
+		return mv;
+	}
 }

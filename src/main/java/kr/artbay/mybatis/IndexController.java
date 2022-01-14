@@ -31,13 +31,6 @@ public class IndexController {
 		return mv;
 	}
 	
-	@RequestMapping(value="/bidView")
-	public ModelAndView bidView() {
-		ModelAndView mv = new ModelAndView();
-		mv.setViewName("bid.view");
-		return mv;
-	}
-	
 	@RequestMapping(value="/bidResult")
 	public ModelAndView bidResult() {
 		ModelAndView mv = new ModelAndView();
