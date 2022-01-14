@@ -36,6 +36,13 @@ public class ListViewService {
 		return list;
 	}
 	
+	public ArtBayVo view(int lot) {
+		ArtBayVo vo = new ArtBayVo();
+		vo.setLot(lot);
+		
+		return vo;
+	}
+	
 	public Page getPage() {return page;}
 	public void setPage(Page page) {this.page = page;}
 }
