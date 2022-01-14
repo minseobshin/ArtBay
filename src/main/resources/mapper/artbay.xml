@@ -8,7 +8,10 @@
 		values(#{mid}, #{injung}, #{irum}, #{birth}, #{phone}, #{email}, #{gender}, #{age}, #{pwd}, #{zip}, #{address}, #{address2}, now(), #{m_status})
 	</insert>
 
-
+	<select id="totSize" parameterType="String" resultType="Integer">
+		select count(lot) totSize from artwork
+		where mid like '%${_parameter}%' or artwork_name like '%${_parameter}%'
+	</select>
 
 
 

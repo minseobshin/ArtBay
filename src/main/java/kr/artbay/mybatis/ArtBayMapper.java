@@ -14,5 +14,4 @@ import kr.artbay.common.ArtBayVo;
 public interface ArtBayMapper {
 	public Integer totSize(String findStr);
 	public int insertMember(ArtBayVo vo);
-	
 }
