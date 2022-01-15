@@ -2,7 +2,7 @@
     pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%> 
 <header>	
-<script src = '/js/artbay_minseob.js'></script><!-- 로그인 페이지 모달창 제어용 -->
+<script src = '/js/login_only.js'></script><!-- 로그인 전용 페이지(모달창 제어용) -->
 	<!-- 메인 로고 -->	
 	<ul class="logo clearfix">
 		<li><a href="main">ARTBAY</a></li>

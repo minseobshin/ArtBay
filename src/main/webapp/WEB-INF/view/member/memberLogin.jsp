@@ -6,7 +6,7 @@
 <meta charset="UTF-8">
 <script src="https://code.jquery.com/jquery-3.6.0.js"></script>
 <link rel='stylesheet' type='text/css' href='./css/artbay_minseob.css'>
-<script src = '/js/artbay_minseob.js'></script>
+<script src = '/js/login_only.js'></script>
 <title>로그인 페이지</title>
 </head>
 <body>
