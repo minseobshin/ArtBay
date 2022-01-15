@@ -32,7 +32,10 @@
 		values(#{mid}, #{artwork_name}, #{artwork_ctgr}, #{artist}, #{material}, #{artwork_size}, #{start_price}, 0,
 				now(), (SELECT DATE_ADD(NOW(), INTERVAL 7 DAY)), #{direct_price}, 0, 0, #{crnt_status} )
 	</insert>
-	
+	<insert id="imgInsert" parameterType="kr.artbay.common.ArtBayAtt">
+		insert into artimg(lot, imgFile, thumbnail)
+		values (#{lot}, #{imgFile}, #{thumbnail})
+	</insert>
 	<select id="view" parameterType="Integer" resultType="kr.artbay.common.ArtBayVo">
 		select * from artwork where lot = ${_parameter};
 	</select>

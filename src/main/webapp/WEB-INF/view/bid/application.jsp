@@ -181,10 +181,18 @@
                             <div id="uploader" class="tui-file-uploader uploader-box">
                                 <div class="tui-file-uploader-area" style="min-height: 100px; width: 100%;">
                                 </div>
-                                <label class="tui-btn tui-btn-upload m-t-5" style="background-color: rgb(102, 102, 102); color: rgb(255, 255, 255); border: 1px solid gray; height: 28px; line-height: 28px; text-align: center; padding: 0px; width: 80px; display: flex; align-items: center; justify-content: center;">
-                                    <span class="tui-btn-txt" style="line-height: initial;">파일 추가</span>
-                                    <input type="file" name="addFile" class="tui-input-file" multiple="multiple">
-                                </label>
+                                <div class="thumbnail">
+	                                <label class="tui-btn tui-btn-upload m-t-5" style="background-color: rgb(102, 102, 102); color: rgb(255, 255, 255); border: 1px solid gray; height: 28px; line-height: 28px; text-align: center; padding: 0px; width: 100%; display: flex; align-items: center; justify-content: center;">
+	                                    <span class="tui-btn-txt" style="line-height: initial;">대표 이미지 추가</span>
+	                                    <input type="file" name="thumbnailFile" class="tui-input-file" >
+	                                </label>
+                                </div>
+                                <div class="viewimg">
+	                                <label class="tui-btn tui-btn-upload m-t-5" style="background-color: rgb(102, 102, 102); color: rgb(255, 255, 255); border: 1px solid gray; height: 28px; line-height: 28px; text-align: center; padding: 0px; width: 100%; display: flex; align-items: center; justify-content: center;">
+	                                    <span class="tui-btn-txt" style="line-height: initial;">상세 이미지 추가</span>
+	                                    <input type="file" name="addFile" class="tui-input-file" multiple="multiple">
+	                                </label>
+                                </div>
                             </div>
                         </div>
                     </td>
