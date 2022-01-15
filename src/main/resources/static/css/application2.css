@@ -249,6 +249,12 @@ div[class="container"] ul, div[class="container"] li, div[class="container"] ol 
     margin: 0;
     text-align: center;
 }
+.thumbnail{
+	width: 35%;
+}
+.viewimg{
+	width: 35%;
+}
 element.style {
     min-height: 100px;
     width: 100%;

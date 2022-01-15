@@ -11,6 +11,16 @@
 	font-weight: bold;
 }
 
+.h3{
+	display: block;
+	font-size: 1.17em;
+	margin-top: 1em;
+	margin-bottom: 1em;
+	margin-left: 0;
+	margin-right: 0;
+	font-weight: bold;
+}
+
 .h5{
 	display: block;
 	font-size: .83em;
@@ -200,14 +210,14 @@
 	font-size: 12px;
 }
 
-#midLogin, #pwdLogin{
+.midLogin{
 	float: left;
 	width: 380px;
 	height: 50px;
 	margin-bottom: 10px;
 }
 
-#btnGoLogin{
+.btnGoLogin{
 	width: 285px;
 	height: 44px;
 	background-color: #f60;
@@ -225,15 +235,101 @@
 	color: white;
 }
 
-#btnGoLogin:hover, #btnCancelLogin:hover{
+.btnGoLogin:hover, #btnCancelLogin:hover{
 	background-color: white;
 	color: #f60;
 	border: 1px solid #f60;
 }
 
-#btnGoLogin:active, #btnCancelLogin:active{
+.btnGoLogin:active, #btnCancelLogin:active{
 	background-color: #f60;
 	color: white;
 }
 
 /* 로그인화면 모달창 꾸미기 끝 */
+
+/* 이메일인증 요청창 모달 배경 시작 */
+
+.emailCheck{
+	position: fixed;
+	z-index: 999;
+	background-color: rgba(0,0,0,0.7);
+	width: 100%;
+	height: 100%;
+	top: 0;
+	left: 0;
+	display: none;
+}
+
+.emailCheck2{
+	position: relative;
+	background-color: white;
+	width: 450px;
+	margin: 0 auto;
+	margin-top: 265px;
+	padding: 30px 20px 30px 30px;
+	box-sizing: border-box;
+	text-align: center;
+}
+
+/* 이메일인증 요청창 모달 배경 끝 */
+
+/* 이메일인증 요청창 모달 꾸미기 시작 */
+
+.emailCheck2 h3{
+	text-align: center;
+	font-size: 25px;
+	font-weight: bolder;
+	margin-top: 20px;
+	margin-bottom: 20px;
+}
+
+.irumc, .emailc{
+	float: left;
+	width: 380px;
+	height: 50px;
+	margin-bottom: 10px;
+}
+
+.btnEmailCheck{
+	width: 100px;
+	height: 45px;
+	background-color: #f60;
+	border: 0;
+	font-weight: bolder;
+	color: white;
+}
+
+.btnEmailCheck:hover{
+	background-color: white;
+	color: #f60;
+	border: 1px solid #f60;
+}
+
+.btnEmailCheck:active{
+	color: #f60;
+	background-color: white;
+	border: 1px solid #f60;
+}
+
+.btnEmailCheckCancel{
+	width: 100px;
+	height: 45px;
+	background-color: #f60;
+	border: 0;
+	font-weight: bolder;
+	color: white;
+}
+
+.btnEmailCheckCancel:hover{
+	background-color: white;
+	color: #f60;
+	border: 1px solid #f60;
+}
+
+.btnEmailCheckCancel:active{
+	color: white;
+	background-color: #f60;
+}
+
+/* 이메일인증 요청창 모달 꾸미기 끝 */

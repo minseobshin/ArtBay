@@ -3,7 +3,9 @@ package kr.artbay.common;
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.util.Arrays;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -23,6 +25,7 @@ public class ArtBayController {
 	
 	@Autowired
 	MemberService memberService;
+	@Autowired
 	NoticeService noticeService;
 	
 	AES aes = new AES();
@@ -44,15 +47,21 @@ public class ArtBayController {
 	@RequestMapping(value="/insertMemberSave", method= {RequestMethod.POST})
 	public void insertMemberSave(ArtBayVo vo) {
 		//System.out.println("ArtBayController : " + vo.getMid());
-		
 		this.b = memberService.insertMember(vo);
 	}
 	
+	//이메일인증
+	@RequestMapping(value="/emailCertification", method= {RequestMethod.POST})
+	public void emailCertification(ArtBayVo vo) {
+        //this.b = memberService.insertMember(vo);
+	}
 	
 	@RequestMapping(value="/insertNotice", method= {RequestMethod.POST})
 	public void saveNotice(ArtBayVo vo) {
-		
-	} 
+		//this.b = noticeService.saveNotice(vo);
+	}
+	
+
 	/*
 	@RequestMapping(value="/")
 	public ModelAndView index() {

@@ -30,5 +30,10 @@ public interface ArtBayMapper {
 	
 	//경매신청
 	public int insertArtWork(ArtBayVo vo);
+<<<<<<< HEAD
 }
 
+=======
+	public int imgInsert(ArtBayAtt att);
+}
+>>>>>>> branch 'master' of https://github.com/minseobshin/ArtBay.git
