@@ -109,37 +109,6 @@ public class TestController {
 		return mv;		
 	}	
 	
-	@RequestMapping("/application")
-	public ModelAndView application() {
-		ModelAndView mv = new ModelAndView();
-		mv.setViewName("KD/application");
-		return mv;
-	}
-	@RequestMapping("/consultationInsert")
-	public ModelAndView consultation() {
-		ModelAndView mv = new ModelAndView();
-		mv.setViewName("KD/consultationInsert");
-		return mv;
-	}
-	@RequestMapping("/consultationList")
-	public ModelAndView consultationList() {
-		ModelAndView mv = new ModelAndView();
-		mv.setViewName("KD/consultationList");
-		return mv;
-	}
-	@RequestMapping("/consultationView")
-	public ModelAndView consultationView() {
-		ModelAndView mv = new ModelAndView();
-		mv.setViewName("KD/consultationView");
-		return mv;
-	}
-	@RequestMapping("/howto")
-	public ModelAndView howto() {
-		ModelAndView mv = new ModelAndView();
-		mv.setViewName("KD/howto");
-		return mv;
-	}
-	
 	@RequestMapping(value="/list")
 	public ModelAndView artbayMain(HttpServletRequest req) {
 		ModelAndView mv = new ModelAndView();
