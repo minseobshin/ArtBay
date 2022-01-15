@@ -20,7 +20,7 @@ function removeCommas(x) {
 }
 
 function validate(){
-	if(title.value==''){
+	if(artwk_name.value==''){
 		$("#modal-common").show();
 	}else{
 		$("#modal-warning").show();
