@@ -18,7 +18,7 @@
 <div class="container">
 	
 	<!-- 메뉴 네비게이션 -->
-	<%@include file="./header.jsp" %>
+	<%@include file="./inc/header.jsp" %>
 	
 	<!-- 이미지 슬라이드 start -->
 	<div class="keyvisual">
@@ -153,7 +153,7 @@
 	<div class="scrollBtn" id="bottomBtn">▽</div>
 	
 	<!-- 메인 푸터 -->
-	<%@include file="./footer.jsp" %>
+	<%@include file="./inc/footer.jsp" %>
 </div>
 </body>
 </html>

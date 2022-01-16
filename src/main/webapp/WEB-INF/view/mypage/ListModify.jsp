@@ -13,22 +13,7 @@
 <link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Open+Sans:400,300,700,800">
 <script src="https://code.jquery.com/jquery-3.6.0.js"></script>
 
-</head>
-<body>
-<!-- 메뉴 네비게이션 -->
-	<%@include file="../header.jsp" %>
-	
-<form name='frm_bay_insert' id='frm_bay_insert' method="post">
-<!-- START KA-CONTAINER -->
-<div class="ka-container ">
-
-        <!-- START CONTENT WRAPPER -->
-        <div class="ka-content-wrapper">
-        
-            <!-- START CONTENT SECTION -->
-            <div class="content">
-
-<style>
+	<style>
     input[type="text"] {
         width: 180px;
         height: 32px;
@@ -43,6 +28,21 @@
         padding: 0.2em 0.2em;
     }
 </style>
+</head>
+<body>
+<!-- 메뉴 네비게이션 -->
+	<%@include file="../inc/header.jsp" %>
+<form name='frm_bay_insert' id='frm_bay_insert' method="post">
+<!-- START KA-CONTAINER -->
+<div class="ka-container ">
+
+        <!-- START CONTENT WRAPPER -->
+        <div class="ka-content-wrapper">
+        
+            <!-- START CONTENT SECTION -->
+            <div class="content">
+
+
 <div class = "applyform">
 		<h1>미술품 위탁 수정</h1>
 </div>
@@ -261,7 +261,7 @@
 </div>
 </form>
 <!-- 메인 푸터 -->
-	<%@include file="../footer.jsp" %>
+	<%@include file="../inc/footer.jsp" %>
 </body>
 <script type="text/javascript" src="./js/application.js"></script>
 </html>

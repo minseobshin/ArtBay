@@ -30,7 +30,7 @@
 }
 </style>
 <body> 
-<%@include file="../header.jsp" %> 
+<%@include file="../inc/header.jsp" %> 
 <form name="frm_view" id="frm_view" method="post">
 	<div class="view_left">
 		<div class="view_top">
@@ -85,7 +85,7 @@
 			</div>
 	</div>
 </form>
-<%@include file="../footer.jsp" %>
+<%@include file="../inc/footer.jsp" %>
 
 <script src="../js/artbay.js"></script>
 </body>
