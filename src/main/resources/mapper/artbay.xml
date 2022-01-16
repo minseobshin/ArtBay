@@ -44,9 +44,27 @@
 		select * from artimg where lot = #{_parameter};	
 	</select>
 
-
-
-
+	<!-- QNA 조회 건수 -->
+	<select id="qnaTotSize" parameterType="String" resultType="Integer">
+		SELECT COUNT(QNA_NUM) FROM QNA
+		WHERE QNA_TITLE LIKE '%${_parameter}%'
+	</select>
+	
+	<!-- QNA 조회 -->
+	<select id="qnaSearch" parameterType="kr.artbay.common.Page" resultType="kr.artbay.common.ArtBayVo">
+		SELECT 
+			QNA_NUM, MID, QNA_DOC, GRP, SEQ, DEEP,
+			DATE_FORMAT(QNA_DATE, "%y-%m-%d") QNA_DATE,						 
+			CONCAT(LPAD(" ", DEEP*6, "&#160;"), QNA_TITLE) QNA_TITLE
+		FROM 
+			QNA q
+		WHERE 
+			QNA_TITLE LIKE '%${findStr}%'
+		ORDER BY 
+			GRP DESC, SEQ ASC 
+		LIMIT 
+			${startNo-1}, ${listSize}
+	</select>
 
 
 

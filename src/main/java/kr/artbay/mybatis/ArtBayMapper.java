@@ -32,5 +32,9 @@ public interface ArtBayMapper {
 	public int insertArtWork(ArtBayVo vo);
 
 	public int imgInsert(ArtBayAtt att);
+	
+	//QNA
+	public Integer qnaTotSize(String findStr);
+	public List<ArtBayVo> qnaSearch(Page page);
 
 }
