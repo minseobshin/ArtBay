@@ -14,7 +14,12 @@ bid.page = function(nowPage) {
 	$frm.action = 'mypageBid';
 	$frm.submit();
 }
-
+bid.category = function(ctgr){
+	$frm_faq = $('#frm_faq')[0];
+	$frm_faq.ctgr.value=ctgr;
+	$frm_faq.action='customerFaq';
+	$frm_faq.submit();
+} 
 
  $(function(){
 	

@@ -27,6 +27,7 @@ public interface ArtBayMapper {
 	 
 	//공지사항
 	public int saveNotice(ArtBayVo vo);
+	public List<ArtBayVo> faqList(String ctgr);
 	
 	//경매신청
 	public int insertArtWork(ArtBayVo vo);

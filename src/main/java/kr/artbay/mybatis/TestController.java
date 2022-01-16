@@ -87,13 +87,7 @@ public class TestController {
 		return mv;
 	}
 	
-	@RequestMapping(value="/FAQ")
-	public ModelAndView FAQ() {
-		ModelAndView mv = new ModelAndView();
-		mv.setViewName("lsy/FAQ");
-		
-		return mv;
-	}
+	
 	
 	@RequestMapping(value = "/noticeList")
 	public ModelAndView noticeList() {

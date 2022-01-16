@@ -72,6 +72,19 @@ public class ArtBayVo {
 	List<String> delList = new ArrayList<String>();	
 	String[] delFile;
 	
+	
+	//faq
+	String ctgr;
+	String faq_title;
+	String faq_doc;
+	public String getCtgr() {return ctgr;}
+	public void setCtgr(String ctgr) {this.ctgr = ctgr;}
+	public String getFaq_title() {return faq_title;}
+	public void setFaq_title(String faq_title) {this.faq_title = faq_title;}
+	public String getFaq_doc() {return faq_doc;}
+	public void setFaq_doc(String faq_doc) {this.faq_doc = faq_doc;}
+	
+	
 	public String[] getDelFile() {return delFile;}
 	public void setDelFile(String[] delFile) {this.delFile = delFile;}
 	public int getSerial() {return serial;}

@@ -16,6 +16,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.servlet.ModelAndView;
 
+import kr.artbay.mybatis.FaqService;
 import kr.artbay.mybatis.MemberService;
 import kr.artbay.mybatis.NoticeService;
 
@@ -27,6 +28,8 @@ public class ArtBayController {
 	MemberService memberService;
 	@Autowired
 	NoticeService noticeService;
+	@Autowired
+	FaqService faqService;
 	
 	AES aes = new AES();
 	Page page = new Page();
@@ -60,7 +63,7 @@ public class ArtBayController {
 	public void saveNotice(ArtBayVo vo) {
 		//this.b = noticeService.saveNotice(vo);
 	}
-	
+	 
 
 	/*
 	@RequestMapping(value="/")

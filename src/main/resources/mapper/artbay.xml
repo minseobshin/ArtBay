@@ -44,7 +44,9 @@
 		select * from artimg where lot = #{_parameter};	
 	</select>
 
-
+	<select id='faqList' parameterType="String" resultType="kr.artbay.common.ArtBayVo">
+		select * from faq where ctgr = #{_parameter};
+	</select>
 
 
 
