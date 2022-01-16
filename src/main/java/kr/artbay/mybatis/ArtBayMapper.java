@@ -15,8 +15,8 @@ import kr.artbay.common.Page;
 @Mapper
 public interface ArtBayMapper {
 	
-	//회원가입
-	public int insertMember(ArtBayVo vo);
+	public int insertMember(ArtBayVo vo); //회원가입
+	public String checkId(String c); //아이디 중복체크
 	
 	//List, view 화면
 	public Integer totSize(String findStr);

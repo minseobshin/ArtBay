@@ -7,6 +7,7 @@
 <meta charset="UTF-8">
 <script src="https://code.jquery.com/jquery-3.6.0.js"></script>
 <script src = '/js/artbay_minseob.js'></script>
+<script src = '/js/api_only.js'></script>
 <script src="//t1.daumcdn.net/mapjsapi/bundle/postcode/prod/postcode.v2.js"></script>
 <link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Open+Sans:400,300,700,800">
 <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
@@ -23,28 +24,37 @@
 <form name='frm_join' id='frm_join' method='post'>
 	<div class='h5'>➢ 본인인증</div>
 	<input type='button' name='btnCertification' id='btnCertification' value='✉ 이메일 본인 인증'>
+	<input type='text' name='certificationNumChk' id='certificationNumChk' placeholder='이메일 인증번호' disabled>
 	<br>
 	<div class='h5'>➢ 기본정보</div>
-	<input type='text' name='mid' id='mid' placeholder='ID 영문/숫자 조합 5~12자리' required="required">
-	<input type='text' name='irum' id='irum' placeholder='이름' required="required">
-	<input type='text' name='birth' id='birth' placeholder='생년월일 2000-12-30' required="required">
-	<input type='text' name='gender' id='gender' placeholder='성별' required="required">
-	<input type='text' name='phone' id='phone' placeholder='휴대전화 숫자만 입력' required="required">
-	<input type='text' name='email' class='email' placeholder="이메일" required="required">
-	<input type='password' name='pwd' id='pwd' placeholder="비밀번호" required="required">
-	<input type='password' name='pwdChk' id='pwdChk' placeholder="비밀번호 확인" required="required">
+	<input type='text' name='mid' id='mid' placeholder='ID 영문/숫자 조합 5~12자리' disabled>
+	<input type='text' name='irum' id='irum' placeholder='이름' disabled>
+	<input type='date' name='birth' id='birth' placeholder='생년월일 2000-12-30' disabled>
+	<select name='gender' id='gender' disabled>
+		<option value=''>성별</option>
+		<option value='M'>남</option>
+		<option value='W'>여</option>
+	</select>
+	<input type='text' name='phone' id='phone' placeholder='휴대전화 010-0000-0000' disabled>
+	<input type='text' name='email' class='email' placeholder="이메일" disabled>
+	<input type='password' name='pwd' id='pwd' placeholder="비밀번호" disabled>
+	<input type='password' name='pwdChk' id='pwdChk' placeholder="비밀번호 확인" disabled>
 	<div class='h5'>➢ 주소</div>
-	<input type='text' name='zip' id='zip' readonly placeholder="우편번호" required="required">
-	<input type='button' value='우편번호' name='btnZip' id='btnZip'>
+	<input type='text' name='zip' id='zip' readonly placeholder="우편번호" disabled>
+	<input type='button' value='우편번호' name='btnZip' id='btnZip' disabled>
 	<br/>
-	<input type='text' name='address' id='address' readonly required="required" placeholder="주소">
-	<input type='text' name='address2' id='address2' required="required" placeholder="상세주소">
+	<input type='text' name='address' id='address' readonly required="required" placeholder="주소" disabled>
+	<input type='text' name='address2' id='address2' required="required" placeholder="상세주소" disabled>
 	<div class='join3'>
-		<input type='button' name='btnJoin' id='btnJoin' value='가입 하기'>
+		<input type='button' name='btnJoin' id='btnJoin' value='가입 하기' disabled>
 	</div>
 	<div class='h6'>* 추후 My Page에서 수정 가능합니다.</div>
+	<!-- !!!!!!!!!!!!!!!!!!!!!!!!!!!!!히든영역!!!!!!!!!!!!!!!!!!!!!!!!!!!!! -->
 	<input type='text' name='m_status' id='m_status' value='Y'>
-	<input type='text' name='age' id='age'>
+	<input type='text' name='age' id='age' value='0'>
+	<input type='hidden' name='certificationNum2' id='certificationNum2'>
+	<input type='text' name='certificationChk' id='certificationChk' value='false'>
+	<!-- !!!!!!!!!!!!!!!!!!!!!!!!!!!!!히든영역!!!!!!!!!!!!!!!!!!!!!!!!!!!!! -->
 </form>
 </div>
 </div>
@@ -57,7 +67,7 @@
 			<input type='submit' name='btnEmailCheck' id='btnEmailCheck' class='btnEmailCheck' value='보내기'>
 			<input type='button' name='btnEmailCheckCancel' class='btnEmailCheckCancel' value='취소'>
 			<script type="text/javascript">emailjs.init('user_Bmru9OgJfTWiBNKpR24gp')</script>
-			<input type='text' name='certificationNum' id='certificationNum'>
+			<input type='hidden' name='certificationNum' id='certificationNum'>
 			<br/>
 			<br/>
 		</form>

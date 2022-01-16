@@ -7,6 +7,10 @@
 		insert into artbay_member(mid, injung, irum, birth, phone, email, gender, age, pwd, zip, address, address2, mdate, m_status)
 		values(#{mid}, #{injung}, #{irum}, #{birth}, #{phone}, #{email}, #{gender}, #{age}, #{pwd}, #{zip}, #{address}, #{address2}, now(), #{m_status})
 	</insert>
+	<!-- 아이디 중복체크 -->
+	<select id="checkId" parameterType="String" resultType="String">
+		select mid from artbay_member where mid like #{_parameter}
+	</select>
 
 
 	<select id="totSize" parameterType="String" resultType="Integer">

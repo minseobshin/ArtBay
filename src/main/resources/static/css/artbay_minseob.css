@@ -84,10 +84,22 @@
 	color: white;
 }
 
-#mid, #irum, #birth, #gender, #phone, .email, #pwd, #newPwd, #newPwdChk, #pwdChk,
-#zip, #address, #address2{
+#mid, #irum, #phone, .email, #pwd, #newPwd, #newPwdChk, #pwdChk,
+#zip, #address, #address2, #certificationNumChk{
 	width: 604px;
 	height: 40px;
+	margin: 5px 2px;
+}
+
+#birth{
+	width: 607px;
+	height: 40px;
+	margin: 5px 2px;
+}
+
+#gender{
+	width: 612px;
+	height: 45px;
 	margin: 5px 2px;
 }
 
