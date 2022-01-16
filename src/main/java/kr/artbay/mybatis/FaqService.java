@@ -4,14 +4,10 @@ import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-import org.springframework.transaction.PlatformTransactionManager;
-import org.springframework.transaction.TransactionStatus;
 import org.springframework.transaction.annotation.Transactional;
 
 import kr.artbay.common.AES;
 import kr.artbay.common.ArtBayVo;
-
-
 
 
 @Service
@@ -22,19 +18,17 @@ public class FaqService {
 	ArtBayMapper mapper;
 	
 	@Autowired
-	PlatformTransactionManager manager;	
-
-	@Autowired
 	AES aes;
+	String ctgr;
 	
-	TransactionStatus status;
-	
-	
+
 	public List<ArtBayVo> faqList(String ctgr) {
 		
-		List<ArtBayVo> list = null;
-		list = mapper.faqList(ctgr);
+		this.ctgr = ctgr;
+		List<ArtBayVo> list = mapper.faqList(ctgr);
 		return list;
 	} 
 	
+	public String getCtgr() {return ctgr;}
+	public void setCtgr(String ctgr) {this.ctgr = ctgr;}
 }

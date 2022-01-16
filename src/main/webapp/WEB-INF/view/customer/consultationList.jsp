@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%> 
 <!DOCTYPE html>
 <html>
 <head>
@@ -8,10 +9,11 @@
 <link rel='stylesheet' type='text/css' href="./css/consultation.css">
 <link rel='stylesheet' type='text/css' href="./css/basic.css">
 <script src="https://code.jquery.com/jquery-3.6.0.js"></script>
+<script src="js/consultation.js"></script>
 </head>
 <body>
 	
-<form name="frmBoard" method="POST" >
+
 	<!-- location -->
 	<div class = "applyform">
 		<h1>1:1상담문의</h1>
@@ -34,7 +36,8 @@
 			</div>
 
 			<!-- 조회 테이블 -->
-			<div class="tableDefault table-vertical mb30 mt30">					
+			<form name="frmQna" id="frmQna" method="POST" >
+			<div class="tableDefault table-vertical mb30 mt30">	
 				<table>
 					<tbody>
 						<tr>
@@ -60,13 +63,16 @@
 								<div class="form-inline">
 									<div class="form-group">
 										<select name="field" id="field" class="form-control material-ch"  style="width: 80px;">
-											<option value="SA" selected="">제목</option>
+											<option value="SA" selected>제목</option>
 											<option value="SB">등록자</option>
 											<option value="SC">내용</option>
 										</select>
 									</div>
 									<div class="form-group mt5m">
-										<input type="text" id="qry" name="qry" class="form-control" value="" onkeyup="">
+										<!-- <input type="text" id="qry" name="qry" class="form-control" value="" onkeyup="">  -->
+										<input type="text" name="findStr" class="form-control" value="${ page.findStr }" onkeyup="">
+										<input type="text" name="nowPage" class="form-control" value="${ page.nowPage }" onkeyup="">
+										<input type="text" name="qnaNum" class="form-control">	<!-- 상세조회 위한 키 -->
 									</div>
 								</div>
 							</td>
@@ -75,9 +81,11 @@
 				</table>
 			</div>
 			<div class="btnSearch">
-				<button class="btn btn-search" onclick="">검색</button>
+				<button class="btn btn-search" id="btnSearch">검색</button>
             	<button class="btn btn-search-delete" onclick="">검색삭제</button>
 			</div>
+			</form>
+			
 			<!--// 조회 테이블 -->
 			<div class="table-infoTop clearfix mt50">
 				<div class="pull-left fs15">
@@ -95,24 +103,20 @@
 				</ul>
 
 				<div class="customer-basic">
-					<ul class="bContent text-center clearFix">
-						<li class="sortation mb5m">기타문의 <strong class=" visible-xs-inline-block ml10">답변중</strong></li>
-						<li class="text-left subject"><a href="customerConsultationView" onclick="" class="fcBlack collapsed">기타문의</a></li>
-						<li class="hit mobileNone"><strong class="">답변완료</strong></li>
-						<li class="date"><span class="visible-xs-inline-block">등록일 : </span>2022.01.06</li>
-						<li class="date"><span class="visible-xs-inline-block">작성일 : </span>2022.01.06</li>
-					</ul>
-					<ul class="bContent text-center clearFix">
-						<li class="sortation mb5m">기타문의 <strong class=" visible-xs-inline-block ml10">답변중</strong></li>
-						<li class="text-left subject"><a href="customerConsultationView" onclick="" class="fcBlack collapsed">기타문의</a></li>
-						<li class="hit mobileNone"><strong class="">답변중</strong></li>
-						<li class="date"><span class="visible-xs-inline-block">등록일 : </span>2022.01.06</li>
-						<li class="date"><span class="visible-xs-inline-block">작성일 : </span></li>
-					</ul>
-					<ul class="bContent text-center clearFix">
-					
+					<c:forEach var="vo" items="${ list }">
+						<ul class="bContent text-center clearFix">
+							<li class="sortation mb5m">기타문의 <strong class=" visible-xs-inline-block ml10">답변중</strong></li>
+							<li class="text-left subject"><a href="customerConsultationView" onclick="" class="fcBlack collapsed">${ vo.qna_title }</a></li>
+							<li class="hit mobileNone"><strong class="">답변완료</strong></li>
+							<li class="date"><span class="visible-xs-inline-block">등록일 : </span>${ vo.qna_date }</li>
+							<li class="date"><span class="visible-xs-inline-block">작성일 : </span>${ vo.qna_date }</li>
+						</ul>
+					</c:forEach>					
+					<!-- 
+					<ul class="bContent text-center clearFix">					
 						<li class="text-center subject">검색된 내용이 없습니다.</li>
 					</ul>
+					 -->
 				</div>
 
 			</div>
@@ -124,15 +128,23 @@
 		<!-- pagination -->
 		<div class="pager">
 			<ul class="pagination">
-				<li><a href="#none" onclick="" style="letter-spacing:-3px;">&lt;&lt;</a></li>
-				<li><a href="#none" onclick="" style="letter-spacing:-3px;">&lt;</a></li>
-				<li class="active"><a href="#none">1</a></li>
-				<li><a href="#none" onclick="" style="letter-spacing:-3px;">&gt;</a></li>
-				<li><a href="#none" onclick="" style="letter-spacing:-3px;">&gt;&gt;</a></li>
+				<c:if test="${ page.startPage > 1 }">
+					<li><a href="#none" onclick="brd.page(1)" style="letter-spacing:-3px;">&lt;&lt;</a></li>
+					<li><a href="#none" onclick="brd.page(${ page.startPage-1 })" style="letter-spacing:-3px;">&lt;</a></li>
+				</c:if>				
+				
+				<c:forEach var="i" begin="${ page.startPage }" end="${ page.endPage }">	
+					<li class="active"><a href="#none" onclick="brd.page(${i})" class="${ (i == page.nowPage) ? 'selectedPage' : '' }">${ i }</a></li>
+				</c:forEach>	
+				
+				<c:if test="${ page.endPage < page.totPage }">
+					<li><a href="#none" onclick="brd.page(${ page.endPage+1 })" style="letter-spacing:-3px;">&gt;</a></li>
+					<li><a href="#none" onclick="brd.page(${ page.totPage })" style="letter-spacing:-3px;">&gt;&gt;</a></li>				
+				</c:if>
 			</ul>
 		</div><!--// pagination -->
 	</div>
 
-</form>
+
 </body>
 </html>

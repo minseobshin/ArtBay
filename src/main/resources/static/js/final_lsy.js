@@ -17,7 +17,7 @@ bid.page = function(nowPage) {
 bid.category = function(ctgr){
 	$frm_faq = $('#frm_faq')[0];
 	$frm_faq.ctgr.value=ctgr;
-	$frm_faq.action='customerFaq';
+	$frm_faq.action='faqList';
 	$frm_faq.submit();
 } 
 
@@ -106,16 +106,7 @@ bid.category = function(ctgr){
 		$('#consign_step4').css('background-color', '#f60');
 
 	});
-	/*//howto 사이드 메뉴
-	$('.howto-subbtn').hide(); 
-	$('.howtobtn ul>li').hover(function() {
-	$(this).children('div').fadeIn();
-	}, function() {
-	$(this).children('div').fadeOut('slow');
-	});
-
-	$(".howtobtn ul>li>a").attr("style","color:#777");
-	*/
+	
 	//공지사항 목록으로 돌아가기
 	$('#btnViewList').click(function(){
 		location.href='/customerNoticeList'
@@ -138,10 +129,8 @@ bid.category = function(ctgr){
 		location.href='./bidApplication';
 	})
 	
-	//FAQ 카테고리 선택하면 아래에 그 faq만 보이기
-
-	
-	$('.faq_desc ul').each(function(index, item){
+	//FAQ 카테고리 선택하면 아래에 그 faq만 보이기	
+	/*$('.faq_desc ul').each(function(index, item){
 		$(item).hide();	
 	})
 	
@@ -167,7 +156,7 @@ bid.category = function(ctgr){
 		$('.active[menu-index=' + index +']').addClass('clicked_menu');
 		$('.active[menu-index !=' + index + ']').removeClass('clicked_menu');
 	});
-	
+	*/
 	
 	//공지작성
 	$('#btnSaveNotice').click(function(){

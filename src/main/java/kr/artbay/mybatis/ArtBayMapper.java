@@ -27,11 +27,16 @@ public interface ArtBayMapper {
 	 
 	//공지사항
 	public int saveNotice(ArtBayVo vo);
+	//faq
 	public List<ArtBayVo> faqList(String ctgr);
 	
 	//경매신청
 	public int insertArtWork(ArtBayVo vo);
 
 	public int imgInsert(ArtBayAtt att);
+	
+	//QNA
+	public Integer qnaTotSize(String findStr);
+	public List<ArtBayVo> qnaSearch(Page page);
 
 }

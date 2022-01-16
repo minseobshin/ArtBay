@@ -18,7 +18,7 @@
 <body>
 <div id='auction_faq'>
 	<form name='frm_faq' id='frm_faq' method='post'>
-		<input type='text' name='ctgr' value=''>
+		<input type='text' name='ctgr' value='${ctgr }'>
 	</form>
 		<h1>자주 하시는 질문</h1>
 			<div class='container_faq'>
@@ -57,19 +57,19 @@
 				</ul>
 			</div>
 			<div class="faq_descList">
-			<c:forEach var='vo' items='${list }'>
 				<div class='faq_desc'>
+			<c:forEach var='vo' items='${list }'>
 					<ul class='faq_desc01_list'>
 						<li>
-							<input type="checkbox" id='faq-1'>
-							<label for="faq-1">${vo.title }</label>
+							<input type="checkbox" id='${vo.serial }'>
+							<label for='${vo.serial }'>${vo.title }</label>
 							<div>
 								<p>${vo.doc }</p>
 							</div>
 						</li>
 					</ul>
-				</div>	
 			</c:forEach>
+				</div>	
 			</div>	
 			
 	

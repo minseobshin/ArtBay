@@ -9,27 +9,24 @@ import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.servlet.ModelAndView;
 
 import kr.artbay.common.ArtBayVo;
+import kr.artbay.common.Page;
 
 @RestController
-public class FaqController {
+public class QnaController {
 
 	@Autowired
-	FaqService service;
-
-	ArtBayVo vo = null;
-
-	//faq 조회
-	@RequestMapping(value="/faqList", method= {RequestMethod.POST, RequestMethod.GET})
-	public ModelAndView faqList(String ctgr) { //req로 받지 않아도 변수들 다 세팅해서 가져옴
+	QnaService service;
+	
+	//QNA 조회
+	@RequestMapping(value = "/qnaList", method = {RequestMethod.POST, RequestMethod.GET})
+	public ModelAndView qnaSearch(Page page) {
 		ModelAndView mv = new ModelAndView();
-		List<ArtBayVo> list  = service.faqList(ctgr); //service=>dao역할
-		ctgr = service.getCtgr();
+		List<ArtBayVo> list = service.search(page);
+		page = service.getPage();
 		
-		mv.addObject("ctgr", ctgr);
+		mv.addObject("page", page);
 		mv.addObject("list", list);
-		mv.setViewName("customer.FAQ");
-		
+		mv.setViewName("customer.consultationList");
 		return mv;
 	}
-	
 }
