@@ -28,8 +28,6 @@ public class ArtBayController {
 	MemberService memberService;
 	@Autowired
 	NoticeService noticeService;
-	@Autowired
-	FaqService faqService;
 	
 	AES aes = new AES();
 	Page page = new Page();
@@ -59,10 +57,7 @@ public class ArtBayController {
         //this.b = memberService.insertMember(vo);
 	}
 	
-	@RequestMapping(value="/insertNotice", method= {RequestMethod.POST})
-	public void saveNotice(ArtBayVo vo) {
-		//this.b = noticeService.saveNotice(vo);
-	}
+
 	 
 
 	/*

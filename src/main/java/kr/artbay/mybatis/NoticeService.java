@@ -26,8 +26,8 @@ public class NoticeService {
 	TransactionStatus status;
 	String title;
 	String doc;
-	/*
-	public boolean saveNotice(ArtBayVo vo) {
+	
+	public boolean noticeSave(ArtBayVo vo) {
 		boolean b = false;
 		status = manager.getTransaction(new DefaultTransactionDefinition());
 		int c = mapper.saveNotice(vo);
@@ -40,5 +40,5 @@ public class NoticeService {
 		
 		return b;
 	}
-	*/
+	
 }

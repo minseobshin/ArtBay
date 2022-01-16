@@ -398,6 +398,7 @@
 	border:1px solid #aaa;
 	
 }
+
 #noticeView #btnViewList:hover{
 	cursor:pointer;
 	background-color:#f60;
@@ -443,7 +444,7 @@
 
 #writeNotice #btnSaveNotice{
 	position:relative;
-	left:600px;
+	left:650px;
 	background-color:#fff;
 	border:2px solid #555;
 	color:#000;
@@ -455,7 +456,20 @@
 	color:#fff;
 	cursor:pointer;
 }
-
+#writeNotice #btnViewList:hover{
+	background-color:#f60;
+	color:#fff;
+	cursor:pointer;
+}
+#writeNotice  #btnViewList{
+	position:relative;
+	left:470px;
+	background-color:#fff;
+	border:2px solid #555;
+	color:#000;
+	width:80px;
+	height:30px;
+}
 /*FAQ*/
 #auction_faq{
 	width:1280px;

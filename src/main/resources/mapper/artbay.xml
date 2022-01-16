@@ -43,11 +43,14 @@
 	<select id="attList" parameterType="Integer" resultType="kr.artbay.common.ArtBayAtt">
 		select * from artimg where lot = #{_parameter};	
 	</select>
-
+	<!-- faq 조회 -->
 	<select id='faqList' parameterType="String" resultType="kr.artbay.common.ArtBayVo">
 		select * from faq where ctgr = #{_parameter};
 	</select>
-
+	<!-- 공지 저장 -->
+	<insert id='saveNotice' parameterType="kr.artbay.common.ArtBayVo">
+		insert into notice(title, doc, not_date) values(#{title}, #{doc}, #{not_date})	;
+	</insert>
 
 
 	<!-- QNA 조회 건수 -->

@@ -17,28 +17,34 @@
 <link href="https://cdn.jsdelivr.net/npm/summernote@0.8.18/dist/summernote.min.css" rel="stylesheet">
 <script src="https://cdn.jsdelivr.net/npm/summernote@0.8.18/dist/summernote.min.js"></script>
 
-
-<script>
-$(function(){
-	summer();
-})
-</script>
 </head>
 <body>
 <div id='writeNotice'>
 		<h1>공지사항 작성</h1>
-	<form name='frm_writeNotice' method='post'>
+	<form name='frm_writeNotice' id='frm_writeNotice' method='post'>
 		<div id='noticeWrite_container'>
 			<label>제목</label>
 			<input type='text' name='subject' size='50' value='공지사항입니다.'>
+			<label>작성일</label>
+			<input type='date' name='not_date' readonly='readonly'/>
 			<div>
-				<textarea id='summernote' id='notice_doc' rows='20'></textarea>
+				<textarea id='notice_doc' rows="15" cols="120" name='doc'></textarea>
 			</div>	
 		</div>
 		<br/>
+	
+	<input type='text' name='nowPage' value='${page.nowPage }'/>
+	<input type='text' name='findStr' value='${page.findStr }'/>
+	<br/>
+	<div id='btnZone'>
 		<input type='button' id='btnSaveNotice' value='저장'> 
-	</form>
+		<input type='button' id='btnViewList' value='목록으로' >
+	</div>
+</form>
 </div>
+	<script>
+		document.frm_writeNotice.not_date.valueAsDate = new Date();
+	</script>
 </body>
 <script src='./js/final_lsy.js'></script>
 </html>

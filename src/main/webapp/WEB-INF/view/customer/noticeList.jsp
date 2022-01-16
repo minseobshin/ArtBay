@@ -16,15 +16,18 @@
 <body>
 <div id='noticeList'>
 	<h1>공지사항</h1>
-	<form name='frm_notice' method='post'>
+	<form name='frm_notice' id='frm_notice' method='post'>
 		<div id='noticeSearch'>
 			<output>공지사항 300건</output>
 			<div id='findZone'>
-				<input type='search' size='28' placeholder="검색어">
-				<input type='button' name='btnSearch' value='검색'> 
+				<input type='search' name='findStr' size='28' placeholder="검색어">
+				<input type='button' id='btnSearch' value='검색'> 
+				<input type='hidden' name='nowPage' value=''>
+				
 			</div>
 		
 		</div>
+	</form>
 	<div id='notice'>
 		<div id='title'>
 			<div id='title_sub'>
@@ -119,18 +122,15 @@
 				<input type='button' value='&gt' id='btnNext'  onclick='bid.move(1)'/>
 				<input type='button' value='&gt&gt' id='btnLast'  onclick='bid.move(1)'/>
 				<br/>
-				<input type='button' id='btnWriteNotice' value='공지 작성' onclick='customerWriteNotice'>
+				<input type='button' id='btnWriteNotice' value='공지 작성'>
 				<input type='button' id='btnDeleteNotice' value='선택공지 삭제'>
 			 			
 	</div>
 		
-	</form>
-		<form name='frm_page' id='frm_page' method='post'>
-			<input type='hidden' name='nowPage' value=''>
-			<input type='hidden' name='num' value=''>
-		</form>
+
+</div>		
 </div>
-</body>
+
 <script src='./js/final_lsy.js'></script>
 </body>
 </html>
