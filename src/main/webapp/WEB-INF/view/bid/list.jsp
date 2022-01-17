@@ -1,5 +1,5 @@
 <%@ page import="kr.artbay.common.ArtBayVo"%>
-<%@page import="java.util.List"%>
+<%@ page import="java.util.List"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jstl/core_rt" prefix="c" %>
@@ -14,7 +14,7 @@
 <link rel="stylesheet" type="text/css" href="../css/artbay.css">
 <link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Open+Sans:400,300,700,800">
 <script src="js/index.js"></script>
-<script src="js/artbay.js"></script>
+<script src="js/artbay.js" charset="UTF-8"></script>
 </head>
 <body>
 
@@ -32,7 +32,7 @@
 		<!-- 검색 영역 -->
 		<div class="search">
 			<div class="search_box">
-				<input type="text" id="findStr" placeholder="작가 또는 작품명"/>
+				<input type="text" name="findStr" id="findStr" placeholder="작가 또는 작품명" value="${page.findStr }"/>
 				<input type="button" id="btnSearch" value="🔎" />
 			</div>
 			<div class="search_option_boxes">
@@ -77,8 +77,10 @@
 		<div class="selected_option_area">
 			<div class="selected_option_title"><p>선택된 검색 옵션</p></div>
 			<div class="selected_option">
-				<div class="selected_findStr">
-				</div>
+				<span class="selected_findStr" id="selected_findStr" >
+					${page.findStr }
+					<input type="button" value="X" style="border: none; background-color: transparent;" onclick="$(this).parent().remove()"/>
+				</span>
 			</div>
 		</div>
 		<div class="listBox">
