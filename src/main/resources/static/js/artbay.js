@@ -18,9 +18,18 @@ artbay.page = function(nowPage){
 	$frm.submit();
 }
 
+function category(ctgr){
+	$frm = $("#frm_list")[0];
+	$frm.findStr.value="ctgr";
+	$frm.action="bidList";
+	$frm.submit();
+}
+
  $(function(){
+	$frm = $("#frm_list")[0];
 	//$("form[name='frm_view']").attr({'min':0.5000, 'max':1.5000});
 	/* 리스트 화면 작동 */
+	
 	$(".search_box #btnSearch").on("click", function(){
 		$frm = $("#frm_list")[0];
 		$frm.nowPage.value = 1;

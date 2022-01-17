@@ -24,9 +24,9 @@
 		<!-- 섹션/정렬 영역 -->
 		<div class="nav">
 			<ul>
-				<li>전체</li>
-				<li>paint</li>
-				<li>pottery</li>
+				<li onclick="category('')">전체</li>
+				<li onclick="category('paint')">paint</li>
+				<li onclick="category('pottery')">pottery</li>
 			</ul>
 		</div>
 		<br/>
