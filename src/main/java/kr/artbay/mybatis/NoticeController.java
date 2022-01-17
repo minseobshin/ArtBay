@@ -65,6 +65,7 @@ public class NoticeController {
 				e.printStackTrace();
 			}
 		}
+		
 		//검색어 조회
 		@RequestMapping(value="/customerNoticeList", method= {RequestMethod.POST, RequestMethod.GET})
 		public ModelAndView noticeList(Page page) {
