@@ -11,6 +11,7 @@
 	$frm.action = "bidView";
 	$frm.submit();
 }
+
  $(function(){
 	//$("form[name='frm_view']").attr({'min':0.5000, 'max':1.5000});
 	/* 리스트 화면 작동 */
@@ -70,4 +71,8 @@ function modalOn(modal){
 
 function modalOff(modal){
 	modal.parent().parent().hide();
+}
+
+function thumbnailChange(src1){
+	$("#thumbnail_img").attr("src", src1);
 }
