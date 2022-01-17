@@ -62,6 +62,11 @@
 	}, function() {
 		$(this).children('div').fadeOut('slow');
 	});
+	
+	$(".selected_findStr input").on("click", function(){
+		$(this).parent().parent().parent().hide();
+		$(".idle_selected_option_area").show();
+	})
 })
 
 /*howto화면 버튼 누르면 하위 메뉴 등장*/

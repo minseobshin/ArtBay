@@ -87,6 +87,13 @@ form[name=frm_list]{
 	text-align: left;
 }
 
+.idle_selected_option_area{
+	width: 95%;
+	height: 50px;
+	margin-top: 30px !important;
+	margin: 10px auto;
+}
+
 .selected_option_area div{
 	height: 50px;
 	display: inline-block;

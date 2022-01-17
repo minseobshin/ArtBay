@@ -3,6 +3,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jstl/core_rt" prefix="c" %>
+<%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -74,15 +75,20 @@
 		</div>
 		<br/>
 		<!-- 선택된 검색 옵션 -->
-		<div class="selected_option_area">
-			<div class="selected_option_title"><p>선택된 검색 옵션</p></div>
-			<div class="selected_option">
-				<span class="selected_findStr" id="selected_findStr" >
-					${page.findStr }
-					<input type="button" value="X" style="border: none; background-color: transparent;" onclick="$(this).parent().remove()"/>
-				</span>
-			</div>
-		</div>
+		<c:choose>
+			<c:when test="${fn:length(page.findStr) gt 0 }">
+				<div class="selected_option_area">
+					<div class="selected_option_title"><p>선택된 검색 옵션</p></div>
+					<div class="selected_option">
+						<div class="selected_findStr" id="selected_findStr" >
+							${page.findStr }
+							<input type="button" value="X" style="border: none; background-color: transparent;" />
+						</div>
+					</div>
+				</div>
+			</c:when>
+		</c:choose>
+		<div class="idle_selected_option_area" style="display: none;"></div>
 		<div class="listBox">
 			<c:forEach var="vo" items="${list }">
 			<div class="listInner" onclick="artbay.view(${vo.lot })">
