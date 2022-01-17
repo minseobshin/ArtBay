@@ -8,6 +8,7 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.PlatformTransactionManager;
 import org.springframework.transaction.TransactionStatus;
 import org.springframework.transaction.annotation.Transactional;
+import org.springframework.web.bind.annotation.RequestParam;
 
 import kr.artbay.common.AES;
 import kr.artbay.common.ArtBayAtt;
@@ -28,9 +29,12 @@ public class ListViewService {
 	TransactionStatus status;
 	Page page;
 	
-	public List<ArtBayVo> search(Page page){
+	
+	
+	public List<ArtBayVo> search(Page page, @RequestParam(value="findStr", required=false) String findStr){
 		List<ArtBayVo> list = null;
-		int totSize = mapper.totSize(page.getFindStr());
+		page.setFindStr(findStr);
+		int totSize = mapper.totSize(findStr);
 		page.setTotSize(totSize);
 		this.page = page;
 		

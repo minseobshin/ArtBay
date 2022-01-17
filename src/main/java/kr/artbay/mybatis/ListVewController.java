@@ -7,8 +7,10 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 
+import jakarta.servlet.http.HttpServletRequest;
 import kr.artbay.common.AES;
 import kr.artbay.common.ArtBayAtt;
 import kr.artbay.common.ArtBayVo;
@@ -20,16 +22,16 @@ public class ListVewController {
 
 	@Autowired
 	ListViewService service;
-
 	AES aes = new AES();
 	Page page = new Page();
 	ArtBayVo vo = null;
 	boolean b = false;
 	
 	@RequestMapping(value="/bidList", method= {RequestMethod.POST, RequestMethod.GET})
-	public ModelAndView bidList() {
+	public ModelAndView bidList(@RequestParam(value="findStr", required=false) String findStr) {
 		ModelAndView mv = new ModelAndView();
-		List<ArtBayVo> list = service.search(page);
+		page.setFindStr(findStr);
+		List<ArtBayVo> list = service.search(page, findStr);
 		page = service.getPage();
 		mv.addObject("page", page);
 		mv.addObject("list", list);

@@ -90,6 +90,7 @@ $(function(){
 			$("#address").removeAttr("disabled");
 			$("#address2").removeAttr("disabled");
 			$("#btnJoin").removeAttr("disabled");
+			$("#injung").val("true");
 			/*
 			$("#birth").datepicker({
 			  dateFormat: 'yy-mm-dd',
