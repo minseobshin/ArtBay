@@ -33,10 +33,9 @@ public class ArtBayController {
 	Page page = new Page();
 	ArtBayVo vo = null;
 	boolean b = false;
+	String c = "";
 	
 	/*gitSpring 컨트롤러 내용
-	@Autowired
-	BoardService service;
 	String msg="";
 	int serial;
 	int grp = 0;
@@ -49,6 +48,14 @@ public class ArtBayController {
 	public void insertMemberSave(ArtBayVo vo) {
 		//System.out.println("ArtBayController : " + vo.getMid());
 		this.b = memberService.insertMember(vo);
+	}
+	
+	//아이디중복체크
+	@RequestMapping(value="/checkId", method= {RequestMethod.POST})
+	public boolean checkId(ArtBayVo vo) {
+		c = vo.getMid();
+		this.b = memberService.checkId(c);
+		return b;
 	}
 	
 	//이메일인증

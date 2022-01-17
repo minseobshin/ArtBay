@@ -26,6 +26,7 @@ public class MemberService {
 	
 	TransactionStatus status;
 	
+	//회원가입 정보 저장
 	public boolean insertMember(ArtBayVo vo) {
 		boolean b = false;
 		status = manager.getTransaction(new DefaultTransactionDefinition());
@@ -39,6 +40,21 @@ public class MemberService {
 			b = true;
 		}else {
 			manager.rollback(status);
+		}
+		
+		return b;
+	}
+	
+	//아이디 중복체크
+	public boolean checkId(String c) {
+		boolean b = true;
+		
+		try {
+			String d = mapper.checkId(c);
+			if(d.equals(c)) b = false;
+			
+		}catch(Exception e) {
+			e.printStackTrace();
 		}
 		
 		return b;

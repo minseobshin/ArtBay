@@ -18,16 +18,16 @@
 		<div class="view_top">
 			<c:forEach var="att" items="${vo.attList }">
 				<p class="img">
-					<img src="${att.imgFile }" />
+					<img name="small_img" id="small_img" src="${att.imgFile }" onclick="thumbnailChange('${att.imgFile }')"/>
 					<br/>
 				</p>
 			</c:forEach>
 			<p class="thumbnail">
-			<c:forEach var="att" items="${vo.attList }">
-				<c:if test="${att.thumbnail eq 'Y' }">
-					<div><img src="${att.imgFile }" width=300 height=350/></div>
-				</c:if>
-			</c:forEach>
+				<c:forEach var="att" items="${vo.attList }">
+					<c:if test="${att.thumbnail eq 'Y' }">
+						<div><img name="thumbnail_img" id="thumbnail_img" src="${att.imgFile }" width=300 height=350/></div>
+					</c:if>
+				</c:forEach>
 			</p>
 			<br/>
 			<div class="view_sml_btn">

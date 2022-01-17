@@ -5,6 +5,7 @@
 
 $(function(){
 	var c = 1; //mypage 토글용
+	var d = 0;
 	
 	//로그인
 	$("#btnGoLogin").click(function() {
@@ -25,16 +26,20 @@ $(function(){
 		  	}
 		});
 	});
-	/*
+	
 	//로그인 모달창
 	$('#btnLogin').click(function(){
-		alert("d");
-		$(".modal-content").load("mypageMemberLogin").fadeIn();
+		if(d>0){
+			$(".modal-content").show();
+		}else{
+			$(".modal-content").load("mypageMemberLogin");
+			d+=1;
+		}
 	})
 	$('#btnCancelLogin').click(function(){
-		$(".modal-content").load("mypageMemberLogin").fadeOut();
-	})*/
-	
+		$(".modal-content").load("mypageMemberLogin").hide();
+	})
+		
 	//마이 페이지
 	$("#btnMyPage").click(function() {
 		if(c%2 != 0){
@@ -44,5 +49,7 @@ $(function(){
 		}
 		c+=1;
 	});
+	
+	
 	
 })
