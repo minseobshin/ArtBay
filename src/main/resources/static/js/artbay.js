@@ -1,14 +1,20 @@
 /**
  * 2021-01. 곽은정
  */
- function artbay(){
-	
-}
- artbay.view = function(lot){
+function artbay(){}
+
+artbay.view = function(lot){
 	$frm = $("#frm_list")[0];
 	$frm.lot.value = lot;
 	console.log($("#lot").val())
 	$frm.action = "bidView";
+	$frm.submit();
+}
+
+artbay.page = function(nowPage){
+	$frm = $("#frm_list")[0];
+	$frm.nowPage.value = nowPage;
+	$frm.action = "bidList";
 	$frm.submit();
 }
 
@@ -66,6 +72,10 @@
 	$(".selected_findStr input").on("click", function(){
 		$(this).parent().parent().parent().hide();
 		$(".idle_selected_option_area").show();
+		$frm = $("#frm_list")[0];
+		$frm.findStr.value="";
+		$frm.action="bidList";
+		$frm.submit();
 	})
 })
 

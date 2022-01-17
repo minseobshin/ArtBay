@@ -86,9 +86,12 @@
 						</div>
 					</div>
 				</div>
+				<div class="idle_selected_option_area" style="display:none;"></div>
 			</c:when>
+			<c:otherwise>
+				<div class="idle_selected_option_area"></div>
+			</c:otherwise>
 		</c:choose>
-		<div class="idle_selected_option_area" style="display: none;"></div>
 		<div class="listBox">
 			<c:forEach var="vo" items="${list }">
 			<div class="listInner" onclick="artbay.view(${vo.lot })">
@@ -119,11 +122,17 @@
 			</c:forEach>
 		</div>
 		<div id="pageZone">
-			<input type="button" value="&lt&lt" />
-			<input type="button" value="&lt" />
-			<input type="button" value="1" />
-			<input type="button" value="&gt" />
-			<input type="button" value="&gt&gt" />
+			<c:if test="${page.startPage gt 1 }">
+				<input type="button" value="처음으로" onclick="artbay.page(1)"/>
+				<input type="button" value="&lt" onclick="artbay.page(${page.startPage - 1})"/>			
+			</c:if>
+			<c:forEach var="i" begin="${page.startPage }" end="${page.endPage }">
+				<input type="button" value="${i }" onclick="artbay.page(${i})" />			
+			</c:forEach>
+			<c:if test="${page.endPage lt page.totPage }">
+				<input type="button" value="&gt" onclick = "artbay.page(${page.endPage + 1})" />
+				<input type="button" value="끝으로" onclick="artbay.page(${page.totPage})" />
+			</c:if>
 		</div>
 		<div id="hiddenZone">
 			<input type="text" name="nowPage" value="${page.nowPage }"/>
