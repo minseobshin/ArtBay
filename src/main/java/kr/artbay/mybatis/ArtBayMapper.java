@@ -37,7 +37,6 @@ public interface ArtBayMapper {
 	
 	//경매신청
 	public int insertArtWork(ArtBayVo vo);
-
 	public int imgInsert(ArtBayAtt att);
 	
 	//QNA

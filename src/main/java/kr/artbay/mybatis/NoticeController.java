@@ -22,6 +22,19 @@ public class NoticeController {
 	ArtBayVo vo = null;
 	PrintWriter out;
 	String msg;
+	String serial = "";
+	Page page = new Page();
+	
+	@RequestMapping(value="/noticeView", method= {RequestMethod.POST, RequestMethod.GET}) 
+	public ModelAndView view(String serial, Page page) {
+		ModelAndView mv = new ModelAndView();
+		vo = service.noticeView(serial, 'n');
+		
+		mv.addObject("vo", vo);
+		mv.addObject("Page", page);
+		mv.setViewName("customer.noticeView"); //응답할 view이름. 경로. 뷰페이지 이동. value랑 관계없음
+		return mv;
+	} 
 	//작성버튼 클릭 시 이동
 	@RequestMapping(value="/noticeInsert", method= {RequestMethod.POST, RequestMethod.GET})
 	public ModelAndView noticeInsert(Page page) {
@@ -32,44 +45,40 @@ public class NoticeController {
 	}
 	
 	//공지 저장
-	@RequestMapping(value="/noticeSave", method= {RequestMethod.POST, RequestMethod.GET})
-	public void modifySave(ArtBayVo vo, Page page, HttpServletResponse resp) {
-		try {
-			out = resp.getWriter();
-			
-			b = service.noticeSave(vo);
-			String temp = "{'flag':'%s'}";
-			String flag = "";
-			if(b) {
-				flag="OK";
-			}else {
-				flag="Fail";
+		@RequestMapping(value="/noticeSave", method= {RequestMethod.POST, RequestMethod.GET})
+		public void modifySave(ArtBayVo vo, Page page, HttpServletResponse resp) {
+			try {
+				out = resp.getWriter();
+				
+				b = service.noticeSave(vo);
+				String temp = "{'flag':'%s'}";
+				String flag = "";
+				if(b) {
+					flag="OK";
+				}else {
+					flag="Fail";
+				}
+				String json = String.format(temp, flag);
+				json = json.replaceAll("'", "\"");
+				out.print(json);
+			} catch (IOException e) {
+				e.printStackTrace();
 			}
-			String json = String.format(temp, flag);
-			json = json.replaceAll("'", "\"");
-			out.print(json);
-		} catch (IOException e) {
-			e.printStackTrace();
 		}
-	}
-	@RequestMapping(value="/noticeList", method= {RequestMethod.POST, RequestMethod.GET})
-	public ModelAndView search(Page page) {
-		ModelAndView mv = new ModelAndView();
-		List<ArtBayVo> list = service.noticeSearch(page); //service=>dao역할
-		page = service.getPage();
-		mv.addObject("page", page);
-		mv.addObject("list", list);
-		mv.setViewName("customer.noticeList");
+		//검색어 조회
+		@RequestMapping(value="/customerNoticeList", method= {RequestMethod.POST, RequestMethod.GET})
+		public ModelAndView noticeList(Page page) {
+			ModelAndView mv = new ModelAndView();
+			List<ArtBayVo> list = service.noticeSearch(page); //service=>dao역할
+			page = service.getPage();
+			mv.addObject("page", page);
+			mv.addObject("list", list);
+			mv.setViewName("customer.noticeList");
+			
+			return mv;
+		}
+		@RequestMapping(value="/customerNoticeList", {RequestMethod.POST, RequestMethod.GET})
+		public void deleteNotice()
 		
-		return mv;
-	}
-	@RequestMapping(value="/noticeView", method= {RequestMethod.POST, RequestMethod.GET}) 
-	public ModelAndView view(String serial, Page page) {
-		ModelAndView mv = new ModelAndView();
-		vo = service.noticeView(serial, 'n');
-		mv.addObject("vo", vo);
-		mv.addObject("Page", page);
-		mv.setViewName("customer.noticeView"); //응답할 view이름. 경로. 뷰페이지 이동. value랑 관계없음
-		return mv;
-	} 
+		
 }

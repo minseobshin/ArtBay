@@ -71,7 +71,7 @@
 	<update id="notice_hit_up" parameterType="String">
 		update notice set hit = hit+1 where serial = #{_parameter}
 	</update>
-	<select id="view" parameterType="String" resultType="kr.jobtc.board.BoardVo">
+	<select id="noticeView" parameterType="String" resultType="kr.artbay.common.ArtBayVo">
 		select * from notice where serial = #{serial} 
 	</select>
 	

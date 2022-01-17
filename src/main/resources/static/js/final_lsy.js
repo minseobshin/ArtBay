@@ -14,25 +14,29 @@ bid.page = function(nowPage) {
 	$frm.action = 'mypageBid';
 	$frm.submit();
 }
+/*FAQ*/
 bid.category = function(ctgr){
 	$frm_faq = $('#frm_faq')[0];
 	$frm_faq.ctgr.value=ctgr;
 	$frm_faq.action='faqList';
 	$frm_faq.submit();
 } 
-
-bid.noticePage = function(nowPage){
+/*notice*/
+function ntc(){};
+ntc.noticePage = function(nowPage){
 	$frm = $('#frm_notice')[0];
 	$frm.nowPage.value = nowPage;
-	$frm.action = 'noticeList';
+	$frm.action = 'customerNoticeList';
 	$frm.submit();
 }
-bid.noticeView = function(serial){
+ntc.noticeView = function(serial){
 	$frm = $('#frm_notice')[0];
 	$frm.serial.value = serial;
 	$frm.action = 'noticeView'; 
 	$frm.submit();
 }
+
+	
  $(function(){
 	
 	//위탁신청 취소
@@ -120,7 +124,7 @@ bid.noticeView = function(serial){
 	});
 	
 	//공지사항 목록으로 돌아가기
-	$('#btnViewList').click(function(){
+	$('#btnNoticeList').click(function(){
 		location.href='/customerNoticeList'
 	})
 			
@@ -150,13 +154,23 @@ bid.noticeView = function(serial){
 	)
 	$('#btnNoticeSearch').click(function(){
 		$frm = $('#frm_notice')[0];
-		$frm.action = "noticeList";
 		$frm.nowPage.value = 1;
+		$frm.action = "customerNoticeList";
 		$frm.submit();
 	})
 	
 	$('#btnDeleteNotice').click(function(){
-		alert("선택한 공지가 삭제되었습니다.");
+		var checkbox = $('delNotice');
+		var delValue = "";
+		var url = "";
+		
+		for(var v of checkbox){
+			if(v.checked == true){
+			delValue += v.value + ",";
+			}
+		}
+		delValue = delValue.substr(0, delValue.length-1);
+		location.href= ""
 	})
 	
 	//응찰내역에서 응찰신청

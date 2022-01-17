@@ -38,7 +38,7 @@
 	<br/>
 	<div id='btnZone'>
 		<input type='button' id='btnSaveNotice' value='저장'> 
-		<input type='button' id='btnViewList' value='목록으로' >
+		<input type='button' id='btnNoticeList' value='목록으로' >
 	</div>
 </form>
 </div>
