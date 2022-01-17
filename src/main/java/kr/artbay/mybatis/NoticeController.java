@@ -2,7 +2,7 @@ package kr.artbay.mybatis;
 
 import java.io.IOException;
 import java.io.PrintWriter;
-import java.util.Arrays;
+import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -22,7 +22,7 @@ public class NoticeController {
 	ArtBayVo vo = null;
 	PrintWriter out;
 	String msg;
-	
+	//작성버튼 클릭 시 이동
 	@RequestMapping(value="/noticeInsert", method= {RequestMethod.POST, RequestMethod.GET})
 	public ModelAndView noticeInsert(Page page) {
 		ModelAndView mv = new ModelAndView();
@@ -31,11 +31,12 @@ public class NoticeController {
 		return mv;
 	}
 	
-	
-	@RequestMapping(value="/noticeSave", method= {RequestMethod.POST})
+	//공지 저장
+	@RequestMapping(value="/noticeSave", method= {RequestMethod.POST, RequestMethod.GET})
 	public void modifySave(ArtBayVo vo, Page page, HttpServletResponse resp) {
 		try {
 			out = resp.getWriter();
+			
 			b = service.noticeSave(vo);
 			String temp = "{'flag':'%s'}";
 			String flag = "";
@@ -51,4 +52,24 @@ public class NoticeController {
 			e.printStackTrace();
 		}
 	}
+	@RequestMapping(value="/noticeList", method= {RequestMethod.POST, RequestMethod.GET})
+	public ModelAndView search(Page page) {
+		ModelAndView mv = new ModelAndView();
+		List<ArtBayVo> list = service.noticeSearch(page); //service=>dao역할
+		page = service.getPage();
+		mv.addObject("page", page);
+		mv.addObject("list", list);
+		mv.setViewName("customer.noticeList");
+		
+		return mv;
+	}
+	@RequestMapping(value="/noticeView", method= {RequestMethod.POST, RequestMethod.GET}) 
+	public ModelAndView view(String serial, Page page) {
+		ModelAndView mv = new ModelAndView();
+		vo = service.noticeView(serial, 'n');
+		mv.addObject("vo", vo);
+		mv.addObject("Page", page);
+		mv.setViewName("customer.noticeView"); //응답할 view이름. 경로. 뷰페이지 이동. value랑 관계없음
+		return mv;
+	} 
 }

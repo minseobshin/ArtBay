@@ -51,8 +51,26 @@
 	<insert id='saveNotice' parameterType="kr.artbay.common.ArtBayVo">
 		insert into notice(title, doc, not_date) values(#{title}, #{doc}, #{not_date})	;
 	</insert>
-
-
+	<!-- 공지 리스트 조회 건수 -->
+	<select id="noticeTotSize" parameterType="String" resultType="Integer">
+		SELECT COUNT(serial) FROM notice WHERE title LIKE '%${_parameter}%'
+	</select>
+	<!-- 공지 리스트 조회-->
+	<select id="noticeSearch" parameterType="kr.artbay.common.Page" resultType="kr.artbay.common.ArtBayVo">
+		SELECT serial, title, doc, hit, date_format(not_date, "%y-%m-%d") not_date
+		FROM notice
+		WHERE title LIKE '%${findStr}%'
+		ORDER BY serial DESC 
+		LIMIT ${startNo-1}, ${listSize}
+	</select>
+	<!-- 공지 클릭 시 -->
+	<update id="notice_hit_up" parameterType="String">
+		update notice set hit = hit+1 where serial = #{_parameter}
+	</update>
+	<select id="view" parameterType="String" resultType="kr.jobtc.board.BoardVo">
+		select * from notice where serial = #{serial} 
+	</select>
+	
 	<!-- QNA 조회 건수 -->
 	<select id="qnaTotSize" parameterType="String" resultType="Integer">
 		SELECT COUNT(QNA_NUM) FROM QNA
@@ -74,7 +92,7 @@
 		LIMIT 
 			${startNo-1}, ${listSize}
 	</select>
-
+	
 
 
 </mapper>

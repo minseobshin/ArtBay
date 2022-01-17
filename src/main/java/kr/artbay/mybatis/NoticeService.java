@@ -1,5 +1,7 @@
 package kr.artbay.mybatis;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.PlatformTransactionManager;
@@ -9,6 +11,8 @@ import org.springframework.transaction.support.DefaultTransactionDefinition;
 
 import kr.artbay.common.AES;
 import kr.artbay.common.ArtBayVo;
+import kr.artbay.common.Page;
+
 
 @Service
 @Transactional
@@ -16,7 +20,8 @@ public class NoticeService {
 	
 	@Autowired
 	ArtBayMapper mapper;
-	
+
+
 	@Autowired
 	PlatformTransactionManager manager;
 	
@@ -24,8 +29,18 @@ public class NoticeService {
 	AES aes;
 	
 	TransactionStatus status;
-	String title;
-	String doc;
+	Page page;
+	
+	//검색어 입력 시 
+	public List<ArtBayVo> noticeSearch(Page p) {
+		List<ArtBayVo> list = null;
+		int totSize = mapper.noticeTotSize(p.getFindStr());
+		p.setTotSize(totSize);
+		this.page = p;
+		list = mapper.noticeSearch(p);
+		
+		return list;
+	}
 	
 	public boolean noticeSave(ArtBayVo vo) {
 		boolean b = false;
@@ -37,8 +52,26 @@ public class NoticeService {
 		}else {
 			manager.rollback(status);
 		}
-		
+		 
 		return b;
 	}
-	
+	public ArtBayVo noticeView(String serial, char mode) {
+		status = manager.getTransaction(new DefaultTransactionDefinition());
+		ArtBayVo vo = null;
+		try {
+			
+			if(mode == 'n') {
+				mapper.notice_hit_up(serial);
+				manager.commit(status);
+			}
+
+			vo = mapper.noticeView(serial);
+		
+		}catch(Exception ex) {
+			ex.printStackTrace();
+		}
+		return vo;
+	}
+	public Page getPage() {return page;}
+	public void setPage(Page page) {this.page = page;}
 }

@@ -26,7 +26,7 @@
 
 #noticeList #notice #title{
 	background-color:#ddd;
-	height:25px;
+	height:30px;
 	
 }
 
@@ -51,7 +51,7 @@
 }
 #noticeList #notice #rows #row{
 	border-bottom:2px solid #ddd;
-	height:28px;
+	height:30px;
 }
 #noticeList #notice #title .chkDeleteNotice{
 	position:relative;
@@ -88,7 +88,7 @@
 }
 #noticeList #btnZone{
 	margin-top:130px;
-	margin-left:300px;
+	text-align:center;
 }
 #noticeList #btnZone #btnDeleteNotice{
 	display:inline-block;
@@ -96,7 +96,7 @@
 	height:30px;
 	background-color:#fff;
 	margin-top:40px;
-	margin-left:20px;
+	margin-left:670px;
 }
 #noticeList #btnZone #btnDeleteNotice:hover{
 	color:#fff;

@@ -21,6 +21,18 @@ bid.category = function(ctgr){
 	$frm_faq.submit();
 } 
 
+bid.noticePage = function(nowPage){
+	$frm = $('#frm_notice')[0];
+	$frm.nowPage.value = nowPage;
+	$frm.action = 'noticeList';
+	$frm.submit();
+}
+bid.noticeView = function(serial){
+	$frm = $('#frm_notice')[0];
+	$frm.serial.value = serial;
+	$frm.action = 'noticeView'; 
+	$frm.submit();
+}
  $(function(){
 	
 	//위탁신청 취소
@@ -120,22 +132,29 @@ bid.category = function(ctgr){
 	})
 	
 	$('#btnSaveNotice').click(function(){
-		$frm = $('#frm_writeNotice');
-		$param = $frm.serialize();
-		if($frm.doc.value != null || $frm.subject.value != null){
+		
+			$param = $('#frm_writeNotice').serialize();
 			$.post('noticeSave', $param, function(data){
 				var json = JSON.parse(data);
 				
 				if(json.flag=='OK'){
-					alert("공지가 저장되었습니다.")
+					var $fd = $('#frm_upload')[0];
+					$fd.enctype = "multipart/form-data";
+					$fd.action = "fileUp";
+					$fd.submit();
 				}else{
 					alert("저장 중 오류 발생");
 				}
 			})
-		}else{
-			alert("모든 항목을 입력하세요");
 		}
+	)
+	$('#btnNoticeSearch').click(function(){
+		$frm = $('#frm_notice')[0];
+		$frm.action = "noticeList";
+		$frm.nowPage.value = 1;
+		$frm.submit();
 	})
+	
 	$('#btnDeleteNotice').click(function(){
 		alert("선택한 공지가 삭제되었습니다.");
 	})

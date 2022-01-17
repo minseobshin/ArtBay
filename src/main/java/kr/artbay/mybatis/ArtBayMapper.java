@@ -25,8 +25,13 @@ public interface ArtBayMapper {
 
 	public List<ArtBayAtt> attList(int lot);
 	 
-	//공지사항
+	//공지사항 저장
 	public int saveNotice(ArtBayVo vo);
+	//공지사항 조회
+	public Integer noticeTotSize(String findStr);
+	public List<ArtBayVo> noticeSearch(Page page);
+	public void notice_hit_up(String serial);
+	public ArtBayVo noticeView(String serial);
 	//faq
 	public List<ArtBayVo> faqList(String ctgr);
 	

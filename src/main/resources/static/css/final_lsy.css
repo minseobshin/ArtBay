@@ -351,8 +351,11 @@
 }
 
 /*noticeList , noticeView*/
-
-
+#noticeList{
+	width:1080px;
+	margin:10px auto;
+	min-height:900px;
+}
 
 /*noticeView*/
 #noticeView{

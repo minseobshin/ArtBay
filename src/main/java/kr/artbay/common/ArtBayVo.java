@@ -51,6 +51,8 @@ public class ArtBayVo {
 	//공지사항
 	String title;
 	String doc;
+	String not_date;
+	
 	
 	//QNA
 	int qna_num;
@@ -185,5 +187,7 @@ public class ArtBayVo {
 	public void setBid_cnt(int bid_cnt) {this.bid_cnt = bid_cnt;}
 	public String getCrnt_status() {return crnt_status;}
 	public void setCrnt_status(String crnt_status) {this.crnt_status = crnt_status;}
+	public String getNot_date() {return not_date;}
+	public void setNot_date(String not_date) {this.not_date = not_date;}
 	
 }
