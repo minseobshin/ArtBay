@@ -77,8 +77,7 @@ public class NoticeController {
 			
 			return mv;
 		}
-		@RequestMapping(value="/customerNoticeList", {RequestMethod.POST, RequestMethod.GET})
-		public void deleteNotice()
+	
 		
 		
 }
