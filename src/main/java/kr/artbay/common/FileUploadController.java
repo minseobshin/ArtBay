@@ -17,7 +17,7 @@ import org.springframework.web.servlet.ModelAndView;
 
 @Controller
 public class FileUploadController {
-	public static String uploadPath = "C:/Users/ej/eclipse-workspace/GitSpring/src/main/webapp/upload/";
+	public static String uploadPath = "C:/upload/";
 	
 	//@Autowired BoardService service;
 	
