@@ -14,7 +14,7 @@
 <script src="js/index.js"></script>
 </head>
 <body>
-<%@include file="../header.jsp" %>
+<%-- <%@include file="../header.jsp" %> --%>
 <form name="frm_bidIntro" method="post">
 <div class="bidIntroTitle">응찰 안내</div>
 <div class="container">
@@ -387,7 +387,7 @@
 
 </form>
 
-<%@include file="../footer.jsp" %>      
+<%-- <%@include file="../footer.jsp" %> --%>      
 <script src="../js/artbay.js"></script>
 </body>
 </html>
