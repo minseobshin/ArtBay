@@ -28,9 +28,13 @@ public class ListVewController {
 	boolean b = false;
 	
 	@RequestMapping(value="/bidList", method= {RequestMethod.POST, RequestMethod.GET})
-	public ModelAndView bidList(@RequestParam(value="findStr", required=false) String findStr) {
+	public ModelAndView bidList(@RequestParam(value="findStr", required=false) String findStr,
+			@RequestParam(value="cnt", required=false, defaultValue="10") int cnt,
+			@RequestParam(value="nowPage", required=false) int nowPage) {
 		ModelAndView mv = new ModelAndView();
+		page.setListSize(cnt);
 		page.setFindStr(findStr);
+		page.setNowPage(nowPage);
 		List<ArtBayVo> list = service.search(page, findStr);
 		page = service.getPage();
 		mv.addObject("page", page);
@@ -40,7 +44,9 @@ public class ListVewController {
 	}
 
 	@RequestMapping(value="/bidView", method= {RequestMethod.POST, RequestMethod.GET})
-	public ModelAndView bidView(int lot, Page page) {
+	public ModelAndView bidView(@RequestParam(value="lot", required=false) int lot,
+			@RequestParam(value="nowPage", required=false) int nowPage,
+			Page page){
 		ModelAndView mv = new ModelAndView();
 		vo = service.view(lot);
 		mv.addObject("vo", vo);
@@ -51,6 +57,7 @@ public class ListVewController {
 		mv.addObject("att", att);
 		mv.addObject("page", page);
 		mv.setViewName("bid.view");
+		System.out.println("됨5");
 		return mv;
 	}
 }

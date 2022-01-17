@@ -39,6 +39,7 @@
 			<div class="search_option_boxes">
 				<!-- sort -->
 				<select class="page_combo1">
+					<option>정렬</option>
 					<option value="estimate_price_asec">낮은 추정가 순</option>
 					<option value="estimate_price_desc">높은 추정가 순</option>
 					<option value="init_price_asec">낮은 시작가 순</option>
@@ -46,12 +47,13 @@
 					<option value="bid_history_cnt_asec">응찰 낮은 순</option>
 					<option value="bid_history_cnt_desc">응찰 많은 순</option>
 				</select>
-				<select class="page_combo2">
-					<option value="10cnt">10건씩</option>
-					<option value="20cnt">20건씩</option>
-					<option value="30cnt">30건씩</option>
-					<option value="40cnt">40건씩</option>
-					<option value="50cnt">50건씩</option>
+				<select class="page_combo2" name="page_combo2" id="page_combo2" onchange="search()">
+					<option value="10">개수</option>
+					<option value="10">10건씩</option>
+					<option value="20">20건씩</option>
+					<option value="30">30건씩</option>
+					<option value="40">40건씩</option>
+					<option value="50">50건씩</option>
 				</select>
 
 				<!-- 케이옥션 페이지 형식. 추후에 필요하면 아래로 바꿔쓸 것.			
