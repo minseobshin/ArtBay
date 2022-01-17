@@ -14,7 +14,7 @@
 <script src="js/index.js"></script>
 </head>
 <body>
-<%@include file="../header.jsp" %>
+<%-- <%@include file="../header.jsp" %> --%>
 <form name="frm_list" method="post">
 	<div class="div_list">
 		<!-- 섹션/정렬 영역 -->
@@ -117,7 +117,7 @@
 		</div>
 	</div>
 </form>
-<%@include file="../footer.jsp" %>
+<%-- <%@include file="../footer.jsp" %> --%>
 <script src="../js/artbay.js"></script>
 </body>
 </html>

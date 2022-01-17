@@ -25,7 +25,7 @@ public class ArtBayVo {
 	String irum;
 	String birth;
 	String phone;
-	String email;
+	String memberJoinEmail;
 	String gender;
 	int age;
 	String pwd;
@@ -116,8 +116,8 @@ public class ArtBayVo {
 	public void setBirth(String birth) {this.birth = birth;}
 	public String getPhone() {return phone;}
 	public void setPhone(String phone) {this.phone = phone;}
-	public String getEmail() {return email;}
-	public void setEmail(String email) {this.email = email;}
+	public String getEmail() {return memberJoinEmail;}
+	public void setEmail(String email) {this.memberJoinEmail = email;}
 	public String getGender() {return gender;}
 	public void setGender(String gender) {this.gender = gender;}
 	public int getAge() {return age;}

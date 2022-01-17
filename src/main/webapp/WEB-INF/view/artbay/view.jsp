@@ -13,7 +13,7 @@
 <link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Open+Sans:400,300,700,800">
 <script src="js/index.js"></script>
 <body>
-<%@include file="../header.jsp" %>
+<%-- <%@include file="../header.jsp" %> --%>
 <form name="frm_view" id="frm_view" method="post">
 	<div class="view_left">
 		<div class="view_top">
@@ -323,7 +323,7 @@
 			</div>
 	</div>
 </form>
-<%@include file="../footer.jsp" %>
+<%-- <%@include file="../footer.jsp" %> --%>
 <script src="../js/artbay.js"></script>
 </body>
 </html>
