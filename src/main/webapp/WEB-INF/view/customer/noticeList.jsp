@@ -49,7 +49,7 @@
 						<span class='noticeDate'>${vo.not_date }</span>
 						<span class='hit'>${vo.hit }</span>
 					</div>
-					<input type='checkbox' class='chkDeleteNotice' name='delNotice'>				
+					<input type='checkbox' class='chkDeleteNotice' name='delNotice' value='${vo.title }'>				
 				</div> 
 			</c:forEach>
 			
@@ -69,13 +69,18 @@
 				<input type='button' value='맨끝' id='btnLast'  onclick='ntc.noticePage(${page.totPage})'/>
 			</c:if> 			
 		<br/>
+		
 		<input type='button' id='btnDeleteNotice' value='선택공지 삭제' >
 		<input type='button' id='btnWriteNotice' value='공지 작성'>
 		</div>
 	<!--  모달창 형태로 -->
 		<div id='deleteNotice_alert'>
-				<div>선택한 공지가 삭제되었습니다.</div>
-					
+			<form name='frm_deleteNotice' method='post'>
+				<output name='hiddenChk' id='hiddenChk'></output>
+				<div>선택한 공지를 삭제하시겠습니까?</div>
+				<input type='button' id='btnConfirmDelete' value='확인'>
+				<input type='button' id='btnConfirmCancel' value='취소'>
+			</form>	
 		</div>
 	</div>		
 </div>

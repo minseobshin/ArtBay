@@ -72,6 +72,20 @@ public class NoticeService {
 		}
 		return vo;
 	}
+	
+	public boolean deleteNotice(String serial) {
+		boolean b=false;
+		status = manager.getTransaction(new DefaultTransactionDefinition());
+		int c = mapper.deleteNotice(serial);
+		if(c>0) {
+			manager.commit(status);
+			b = true;
+		}else {
+			manager.rollback(status);
+		}
+		 
+		return b;
+	}
 	public Page getPage() {return page;}
 	public void setPage(Page page) {this.page = page;}
 }

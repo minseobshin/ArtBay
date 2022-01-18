@@ -4,6 +4,8 @@ import java.io.IOException;
 import java.io.PrintWriter;
 import java.util.List;
 
+import javax.servlet.http.HttpServletRequest;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -78,7 +80,13 @@ public class NoticeController {
 			
 			return mv;
 		}
-	
-		
+		//선택된 공지 삭제
+		/*
+		@RequestMapping(value="/deleteNotice", method= {RequestMethod.POST, RequestMethod.GET})
+		public ModelAndView deleteNotice(HttpServletRequest req, HttpServletResponse resp) {
+			ModelAndView mv = new ModelAndView();
+			
+		}
+	*/
 		
 }

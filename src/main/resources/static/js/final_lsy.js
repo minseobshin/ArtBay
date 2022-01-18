@@ -158,25 +158,38 @@ ntc.noticeView = function(serial){
 		$frm.action = "customerNoticeList";
 		$frm.submit();
 	})
-	
+	//선택공지 삭제 버튼
 	$('#btnDeleteNotice').click(function(){
-		var checkbox = $('delNotice');
-		var delValue = "";
-		var url = "";
-		
-		for(var v of checkbox){
-			if(v.checked == true){
-			delValue += v.value + ",";
-			}
-		}
-		delValue = delValue.substr(0, delValue.length-1);
-		location.href= ""
+		var obj = $("[name=delNotice]");
+		var chkArray = new Array();
+		$('input:checkbox[name=delNotice]:checked').each(function(){
+			chkArray.push(this.value);
+		});
+		$('#hiddenChk').val(chkArray);	
+		if($('#hiddenChk').val()){
+			$('#deleteNotice_alert').show();
+		}else{
+			alert("선택된 공지가 없습니다.");
+		}	
 	})
+	
+	$('#btnConfirmDelete').click(function(){
+		
+	})
+	$('#btnConfirmCancel').click(function(){
+		$('#deleteNotice_alert').hide();
+	})
+	
 	
 	//응찰내역에서 응찰신청
 	$('#btnRequestApplication').click(function(){
 		location.href='./bidApplication';
 	})
+	
+	
+	
+	
+	
 	
 	//FAQ 카테고리 선택하면 아래에 그 faq만 보이기	
 	/*$('.faq_desc ul').each(function(index, item){

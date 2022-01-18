@@ -74,6 +74,10 @@
 	<select id="noticeView" parameterType="String" resultType="kr.artbay.common.ArtBayVo">
 		select * from notice where serial = #{serial} 
 	</select>
+	<!-- 선택된 공지 삭제 -->
+	<delete id='deleteNotice' parameterType='String'> 
+		delete from notice where serial = #{_parameter}
+	</delete>
 	
 	<!-- QNA 조회 건수 -->
 	<select id="qnaTotSize" parameterType="String" resultType="Integer">
