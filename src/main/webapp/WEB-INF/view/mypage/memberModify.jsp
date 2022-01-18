@@ -10,6 +10,7 @@
 <script src = '/js/api_only.js'></script>
 <script src="//t1.daumcdn.net/mapjsapi/bundle/postcode/prod/postcode.v2.js"></script>
 <link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Open+Sans:400,300,700,800">
+<script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
 <link rel="stylesheet" href="css/reset.css">
 <link rel="stylesheet" href="css/index.css">
 <link rel='stylesheet' type='text/css' href='./css/artbay_minseob.css'>
@@ -77,6 +78,22 @@
 			</div>
 		</form>
 	</div>
+	<!-- 이메일인증 모달창 -->
+	<div class='emailCheck'>
+	<div class='emailCheck2'>
+		<form name='frm_emailCheck' id='frm_emailCheck' method='post'>
+			<h3 class='h3'>이메일 본인인증</h3>
+			<input type='text' name='irum' class='irumc' placeholder='이름' required="required">
+			<input type='text' name='to_name' id='to_name' class='emailc' placeholder="이메일" required="required">
+			<input type='submit' name='btnEmailCheck' id='btnEmailCheck' class='btnEmailCheck' value='보내기'>
+			<input type='button' name='btnEmailCheckCancel' class='btnEmailCheckCancel' value='취소'>
+			<script type="text/javascript">emailjs.init('user_Bmru9OgJfTWiBNKpR24gp')</script>
+			<input type='hidden' name='certificationNum' id='certificationNum'>
+			<br/>
+			<br/>
+		</form>
+	</div>
+</div>
 </div>
 </body>
 </html>

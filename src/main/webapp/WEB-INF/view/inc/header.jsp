@@ -37,7 +37,7 @@
 	<!-- 로그인/회원가입/마이페이지/위시리스트 -->
 	<ul class="mainLogin clearfix">
 		<c:choose>
-			<c:when test="${ empty sessionScope.mid }">
+			<c:when test="${ empty sessionScope.sv }">
 				<li><a href="#" id='btnLogin' data-toggle='modal' data-target='#madal' role='botton'>LOGIN</a></li>
 				<li><a href="mypageMemberJoin">JOIN</a></li>			
 			</c:when>

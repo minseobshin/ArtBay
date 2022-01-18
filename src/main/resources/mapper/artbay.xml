@@ -11,7 +11,9 @@
 	<select id="checkId" parameterType="String" resultType="String">
 		select mid from artbay_member where mid like #{_parameter}
 	</select>
-
+	<select id="memberLogin" parameterType="kr.artbay.common.ArtBaySessionVo" resultType="kr.artbay.common.ArtBaySessionVo">
+		select mid, pwd from artbay_member where mid = #{mid}
+	</select>
 
 	<select id="totSize" parameterType="String" resultType="Integer">
 		select count(lot) totSize from artwork
@@ -22,7 +24,17 @@
 		select lot, mid, artwork_name, artwork_ctgr, artist, material, artwork_size, start_price, current_price,
 				regist_date, due_date, hit, direct_price, bid_cnt, crnt_status from artwork
 		where mid like '%${findStr}%' or artist like '%${findStr}%' or artwork_ctgr like '%${findStr}%'
-		limit ${startNo-1}, ${listSize};
+		limit ${startNo-1}, ${listSize}
+		<!-- 
+		order by
+		<choose>
+			<when test="sort eq 'default'"> due_date asc</when>
+			<when test="sort eq 'init_price_asce'"> start_price asc</when>
+			<when test="sort eq 'init_price_desc'"> start_price desc</when>
+			<when test="sort eq 'bid_history_cnt_asce'"> bid_cnt asc</when>
+			<when test="sort eq 'bid_history_cnt_desc'"> bid_cnt desc</when>
+			<otherwise> due_date asc</otherwise>
+		</choose> -->;
 	</select>
 	
 	<select id='noticeSave' parameterType="kr.artbay.common.ArtBayVo">

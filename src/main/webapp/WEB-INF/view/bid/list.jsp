@@ -38,13 +38,11 @@
 			</div>
 			<div class="search_option_boxes">
 				<!-- sort -->
-				<select class="page_combo1">
-					<option>정렬</option>
-					<option value="estimate_price_asec">낮은 추정가 순</option>
-					<option value="estimate_price_desc">높은 추정가 순</option>
-					<option value="init_price_asec">낮은 시작가 순</option>
+				<select class="page_combo1" name="sort" onchange="search()">
+					<option value="default">정렬</option>
+					<option value="init_price_asce">낮은 시작가 순</option>
 					<option value="init_price_desc">높은 시작가 순</option>
-					<option value="bid_history_cnt_asec">응찰 낮은 순</option>
+					<option value="bid_history_cnt_asce">응찰 낮은 순</option>
 					<option value="bid_history_cnt_desc">응찰 많은 순</option>
 				</select>
 				<select class="page_combo2" name="page_combo2" id="page_combo2" onchange="search()">

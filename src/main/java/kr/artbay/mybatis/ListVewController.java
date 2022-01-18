@@ -30,11 +30,13 @@ public class ListVewController {
 	@RequestMapping(value="/bidList", method= {RequestMethod.POST, RequestMethod.GET})
 	public ModelAndView bidList(@RequestParam(value="findStr", required=false) String findStr,
 			@RequestParam(value="cnt", required=false, defaultValue="10") int cnt,
-			@RequestParam(value="nowPage", required=false) int nowPage) {
+			@RequestParam(value="nowPage", required=false, defaultValue="1") int nowPage,
+			@RequestParam(value="sort", required=false, defaultValue="default") String sort) {
 		ModelAndView mv = new ModelAndView();
 		page.setListSize(cnt);
 		page.setFindStr(findStr);
 		page.setNowPage(nowPage);
+		page.setSort(sort);
 		List<ArtBayVo> list = service.search(page, findStr);
 		page = service.getPage();
 		mv.addObject("page", page);

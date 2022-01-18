@@ -10,6 +10,7 @@ artbay.view = function(lot){
 	$.ajax({
 		url: "/bidView",
 		cache: false,
+		type: "POST",
 		data: $param,
 		success: function(){
 			window.location.href = "bidView?lot="+lot+"&nowPage="+$frm.nowPage.value;
@@ -43,20 +44,18 @@ function category(ctgr){
 function search(){
 	$frm = $("#frm_list")[0];
 	$param = $("#frm_list").serialize();
-	var cnt = $(".page_combo2").val();
+	const sort = $(".page_combo1").val();
+	const cnt = $(".page_combo2").val();
+	const findStr = $("#findStr").val()
 	$.ajax({
-		url: "/bidList?cnt="+cnt,
-		data: {
-			cnt: $(".page_combo2").val(),
-			findStr: $frm.findStr.value,
-			nowPage: $frm.nowPage.value
-		},
+		url: "/bidList",
+		data: $param,
 		type: "POST",
 		cache: false,
 		async: true,
 		success: function(){
-			window.location.href = "/bidList?cnt="+cnt+"&findStr="+$frm.findStr.value+"&nowPage="+$frm.nowPage.value;
-			var findStr = $("#findStr").val()
+			alert($param)
+			window.location.href = "/bidList?cnt="+cnt+"&findStr="+$frm.findStr.value+"&nowPage="+$frm.nowPage.value+"&sort="+sort;
 			if(findStr=="") {
 				$(".selected_option_area").hide();
 				$(".idle_selected_option_area").show();

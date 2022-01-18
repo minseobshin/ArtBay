@@ -29,6 +29,7 @@ public class ArtBayVo {
 	String gender;
 	int age;
 	String pwd;
+	String oldPwd;
 	String zip;
 	String address;
 	String address2;
@@ -47,6 +48,7 @@ public class ArtBayVo {
 	String due_date;
 	int bid_cnt;
 	String crnt_status;
+	String sort;
 	
 	//공지사항
 	String title;
@@ -96,6 +98,8 @@ public class ArtBayVo {
 	public String getDoc() {return doc;}
 	public void setDoc(String doc) {this.doc = doc;}
 	public String getPwd() {return pwd;}
+	public String getOldPwd() {return oldPwd;}
+	public void setOldPwd(String oldPwd) {this.oldPwd = oldPwd;}
 	public int getLot() {return lot;}
 	public void setLot(int lot) {this.lot = lot;}
 	public int getDirect_price() {return direct_price;}
@@ -117,6 +121,8 @@ public class ArtBayVo {
 	public String getPhone() {return phone;}
 	public void setPhone(String phone) {this.phone = phone;}
 	public String getEmail() {return memberJoinEmail;}
+	public String getMemberJoinEmail() {return memberJoinEmail;}
+	public void setMemberJoinEmail(String memberJoinEmail) {this.memberJoinEmail = memberJoinEmail;}
 	public void setEmail(String email) {this.memberJoinEmail = email;}
 	public String getGender() {return gender;}
 	public void setGender(String gender) {this.gender = gender;}
@@ -189,5 +195,7 @@ public class ArtBayVo {
 	public void setCrnt_status(String crnt_status) {this.crnt_status = crnt_status;}
 	public String getNot_date() {return not_date;}
 	public void setNot_date(String not_date) {this.not_date = not_date;}
+	public String getSort() {return sort;}
+	public void setSort(String sort) {this.sort = sort;}
 	
 }

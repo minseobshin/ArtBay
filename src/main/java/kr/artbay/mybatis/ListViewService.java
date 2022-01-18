@@ -30,7 +30,6 @@ public class ListViewService {
 	Page page;
 	
 	
-	
 	public List<ArtBayVo> search(Page page, @RequestParam(value="findStr", required=false) String findStr){
 		List<ArtBayVo> list = null;
 		page.setFindStr(findStr);

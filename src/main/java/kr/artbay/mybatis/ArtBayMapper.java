@@ -7,6 +7,7 @@ import org.apache.ibatis.annotations.Mapper;
 import org.springframework.stereotype.Repository;
 
 import kr.artbay.common.ArtBayAtt;
+import kr.artbay.common.ArtBaySessionVo;
 import kr.artbay.common.ArtBayVo;
 import kr.artbay.common.Page;
 
@@ -17,6 +18,7 @@ public interface ArtBayMapper {
 	
 	public int insertMember(ArtBayVo vo); //회원가입
 	public String checkId(String c); //아이디 중복체크
+	public ArtBaySessionVo memberLogin(ArtBaySessionVo sv); //회원 로그인
 	
 	//List, view 화면
 	public Integer totSize(String findStr);
