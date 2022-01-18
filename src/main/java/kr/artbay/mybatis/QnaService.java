@@ -7,6 +7,7 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.PlatformTransactionManager;
 import org.springframework.transaction.TransactionStatus;
 import org.springframework.transaction.annotation.Transactional;
+import org.springframework.transaction.support.DefaultTransactionDefinition;
 
 import kr.artbay.common.ArtBayVo;
 import kr.artbay.common.Page;
@@ -23,7 +24,9 @@ public class QnaService {
 	
 	TransactionStatus status;
 	Page page;
+	int serial;
 	
+	//qna 조회
 	public List<ArtBayVo> search(Page page) {
 		//조건에 맞는 데이터 건수
 		int ts = mapper.qnaTotSize(page.getFindStr());
@@ -38,7 +41,31 @@ public class QnaService {
 		return list;
 	}
 
+	
+	//qna 작성
+	public boolean insert(ArtBayVo vo) {
+		boolean result = false;
+		status = manager.getTransaction(new DefaultTransactionDefinition());
+		int rows = mapper.qnaInsert(vo);
+		
+		if(rows > 0) {
+			manager.commit(status);
+			serial = mapper.getQnaSerial(); 
+			result = true;
+		}
+		else {
+			manager.rollback(status);
+		}
+		return result;
+	}
+	
+	//페이지 반환
 	public Page getPage() {
 		return page;
-	}	
+	}
+
+	//시리얼키 반환
+	public int getSerial() {
+		return serial;
+	}
 }

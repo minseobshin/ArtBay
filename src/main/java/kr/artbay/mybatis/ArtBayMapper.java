@@ -41,8 +41,10 @@ public interface ArtBayMapper {
 	public int insertArtWork(ArtBayVo vo);
 	public int imgInsert(ArtBayAtt att);
 	
-	//QNA
-	public Integer qnaTotSize(String findStr);
-	public List<ArtBayVo> qnaSearch(Page page);
+	//QNA 
+	public Integer qnaTotSize(String findStr);	//조회건수
+	public List<ArtBayVo> qnaSearch(Page page); //조회
+	public Integer qnaInsert(ArtBayVo vo);		//등록
+	public Integer getQnaSerial();				//시리얼키 조회
 
 }

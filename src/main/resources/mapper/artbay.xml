@@ -95,7 +95,7 @@
 	<!-- QNA 조회 -->
 	<select id="qnaSearch" parameterType="kr.artbay.common.Page" resultType="kr.artbay.common.ArtBayVo">
 		SELECT 
-			QNA_NUM, MID, QNA_DOC, GRP, SEQ, DEEP,
+			QNA_NUM, MID, QNA_DOC, GRP, SEQ, DEEP, MID, QNA_PWD, QNA_TYPE, QNA_TYPE,
 			DATE_FORMAT(QNA_DATE, "%y-%m-%d") QNA_DATE,						 
 			CONCAT(LPAD(" ", DEEP*6, "&#160;"), QNA_TITLE) QNA_TITLE
 		FROM 
@@ -107,6 +107,18 @@
 		LIMIT 
 			${startNo-1}, ${listSize}
 	</select>
+
+	<!-- QNA 저장 -->
+	<insert id="qnaInsert" parameterType="kr.artbay.common.ArtBayVo">
+		INSERT INTO QNA(QNA_NUM, GRP, SEQ, DEEP, MID, QNA_PWD, QNA_TITLE, QNA_DOC, QNA_DATE, QNA_STATUS, QNA_TYPE) 
+		VALUES(getQnaSerial('i'), getQnaSerial(''), 0, 0, #{mid}, #{qna_pwd}, #{qna_title}, #{qna_doc}, now(), #{qna_status}, #{qna_type})
+	</insert>
+	
+	<!-- QNA serial 조회 --> 
+	<select id="getQnaSerial" resultType="Integer">
+		SELECT getQnaSerial('') SERIAL
+	</select>
+
 	
 
 
