@@ -11,7 +11,9 @@
 	<select id="checkId" parameterType="String" resultType="String">
 		select mid from artbay_member where mid like #{_parameter}
 	</select>
-
+	<select id="memberLogin" parameterType="kr.artbay.common.ArtBaySessionVo" resultType="kr.artbay.common.ArtBaySessionVo">
+		select mid, pwd from artbay_member where mid = #{mid}
+	</select>
 
 	<select id="totSize" parameterType="String" resultType="Integer">
 		select count(lot) totSize from artwork

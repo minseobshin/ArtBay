@@ -9,6 +9,7 @@ import org.springframework.transaction.interceptor.DefaultTransactionAttribute;
 import org.springframework.transaction.support.DefaultTransactionDefinition;
 
 import kr.artbay.common.AES;
+import kr.artbay.common.ArtBaySessionVo;
 import kr.artbay.common.ArtBayVo;
 
 @Service
@@ -58,6 +59,27 @@ public class MemberService {
 		}
 		
 		return b;
+	}
+	
+	//로그인
+	public String memberLogin(ArtBaySessionVo sv) {
+		String c = "";
+		
+		try {
+			ArtBaySessionVo svv = mapper.memberLogin(sv);
+			if(svv.getMid().equals(sv.getMid())) {
+				if(svv.getPwd().equals(sv.getPwd())) {
+					c = "login";
+				}else {
+					c = "failPwd";
+				}
+			}
+		}catch(Exception e) {
+			e.printStackTrace();
+			c = "failMid";
+		}
+		
+		return c;
 	}
 	
 }
