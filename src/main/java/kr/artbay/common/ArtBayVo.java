@@ -48,6 +48,7 @@ public class ArtBayVo {
 	String due_date;
 	int bid_cnt;
 	String crnt_status;
+	String sort;
 	
 	//공지사항
 	String title;
@@ -194,5 +195,7 @@ public class ArtBayVo {
 	public void setCrnt_status(String crnt_status) {this.crnt_status = crnt_status;}
 	public String getNot_date() {return not_date;}
 	public void setNot_date(String not_date) {this.not_date = not_date;}
+	public String getSort() {return sort;}
+	public void setSort(String sort) {this.sort = sort;}
 	
 }

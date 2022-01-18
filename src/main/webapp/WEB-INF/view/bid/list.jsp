@@ -139,6 +139,7 @@
 		<div id="hiddenZone">
 			<input type="text" name="nowPage" value="${page.nowPage }"/>
 			<input type="text" name="lot" id="lot" value="${vo.lot }"/>
+			<input type="text" name="order" id="order" value="${vo.sort }"/>
 		</div>
 	</div>
 </form>
