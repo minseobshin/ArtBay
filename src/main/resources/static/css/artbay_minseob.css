@@ -85,10 +85,17 @@
 }
 
 #mid, #irum, #phone, .email, #pwd, #newPwd, #newPwdChk, #pwdChk,
-#zip, #address, #address2, #certificationNumChk, #oldPwd{
+#zip, #address, #address2, #oldPwd{
 	width: 604px;
 	height: 40px;
 	margin: 5px 2px;
+}
+
+#certificationNumChk{
+	width: 604px;
+	height: 40px;
+	margin: 5px 2px;
+	visibility: hidden;
 }
 
 #birth{

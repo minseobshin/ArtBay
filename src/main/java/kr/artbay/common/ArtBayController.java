@@ -14,6 +14,7 @@ import javax.servlet.http.HttpSession;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.servlet.ModelAndView;
 
@@ -91,8 +92,9 @@ public class ArtBayController {
 	}
 	
 	//회원정보수정화면 비밀번호체크 후 정보조회 출력
+	@ResponseBody
 	@RequestMapping(value="/pwdChkForModi")
-	public String pwdChkForModi(ArtBaySessionVo sv, HttpServletRequest req) { 
+	public ArtBayVo pwdChkForModi(ArtBaySessionVo sv, HttpServletRequest req) { 
 		HttpSession session = req.getSession();
 		String npwd = sv.getOldPwd(); //사용자가 방금 입력한 pwd
 		sv = (ArtBaySessionVo)session.getAttribute("sv"); //세션에 있던 로그인 정보
@@ -107,7 +109,7 @@ public class ArtBayController {
 			c = "failPwd";
 		}
 		
-		return c;
+		return vo;
 	}
 	
 	//경매신청 페이지

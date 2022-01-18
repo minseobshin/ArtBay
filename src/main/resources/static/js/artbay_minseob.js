@@ -57,6 +57,9 @@ $(function(){
 		$("#btnCertification").attr("disabled", true);
 		$("#certificationChk").val(true);
 		$("#certificationNumChk").removeAttr("disabled");
+		$("#certificationNumChk").css({
+			"visibility" : "visible"
+		})
 	})
 	//취소
 	$('.btnEmailCheckCancel').click(function(){
@@ -333,12 +336,64 @@ $(function(){
 	
 	//회원정보수정 화면 시작 =======================================================================
 	
+	//비밀번호 입력 후 기본 정보 뿌리기
 	$("#oldPwd").focusout(function(){
 		$param = $("#frm_join").serialize();
-		$.post('pwdChkForModi', $param, function(data){
-			console.log(data);
-			
+		$.ajax({
+			url: "/pwdChkForModi",
+			data: $param,
+			type: "POST",
+			success: function(data){
+				if(data.oldPwd === "passPwd"){
+					$("#memberJoinEmail").removeAttr("disabled");
+					$("#memberJoinEmail").attr("readonly", true);
+					$("#phone").removeAttr("disabled");
+					$("#newPwd").removeAttr("disabled");
+					$("#newPwdChk").removeAttr("disabled");
+					$("#zip").removeAttr("disabled");
+					$("#btnZip").removeAttr("disabled");
+					$("#address").removeAttr("disabled");
+					$("#address2").removeAttr("disabled");
+					$("#btnModify").removeAttr("disabled");
+					$("#btnOut").removeAttr("disabled");
+					$("#oldPwd").attr("disabled", true);
+					$("#mid").val(data.mid);
+					$("#irum").val(data.irum);
+					$("#birth").val(data.birth);
+					$("#phone").val(data.phone);
+					$("#memberJoinEmail").val(data.memberJoinEmail);
+					$("#zip").val(data.zip);
+					$("#address").val(data.address);
+					$("#address2").val(data.address2);
+				}
+			}
 		})
+	})
+	
+	//이메일 textbox 클릭
+	$("#memberJoinEmail").click(function(){
+		var ran = Math.floor(Math.random()*1000000);
+		$('#certificationNum').val(ran);
+		$('#certificationNum2').val(ran);
+		$(".emailCheck").fadeIn();
+	})
+	//모달창 확인버튼 클릭
+	$("#btnEmailCheck2").click(function(){
+		$("#memberJoinEmail").val($("#to_name").val());
+		$("#memberJoinEmail").css({
+			"border" : "1px solid green",
+			"border-radius" : "3px",
+			"background-color" : "#3f3"
+		})
+		$("#btnCertification").val('이메일 인증 번호가 전송되었으니 확인 후 입력해주세요.');
+		$("#certificationNumChk").removeAttr("disabled");
+		$("#certificationNumChk").css({
+			"visibility" : "visible"
+		})
+	})
+	//취소
+	$('.btnEmailCheckCancel').click(function(){
+		$(".emailCheck").fadeOut();
 	})
 	
 	$('#btnModify').click(function(){
