@@ -39,6 +39,17 @@ public class ApplicationService {
 		}
 		return b;
 	}  
+	public ArtBayVo  memberview(String mid) {
+		status = manager.getTransaction(new DefaultTransactionDefinition());
+		ArtBayVo vo = null;
+		try {
+			vo = mapper.memberview(mid);
+			
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		return vo;
+	}
 	
 	
 	

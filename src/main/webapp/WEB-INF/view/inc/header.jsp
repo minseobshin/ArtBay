@@ -14,7 +14,6 @@
 			<ul>
 				<li><a href="bidList">진행중인 경매</a></li>
 				<li><a href="bidResult">경매결과</a></li>
-				<li><a href="bidApplication">경매신청</a></li>
 			</ul>
 		</li>			
 		<li><a href="#">How To</a>

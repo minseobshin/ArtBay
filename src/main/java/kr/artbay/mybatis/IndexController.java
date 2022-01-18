@@ -38,12 +38,6 @@ public class IndexController {
 		return mv;
 	}
 	
-	@RequestMapping(value="/bidApplication")
-	public ModelAndView bidApplication() {
-		ModelAndView mv = new ModelAndView();
-		mv.setViewName("bid.application");
-		return mv;
-	}
 	
 	@RequestMapping(value="/howtoHowto")
 	public ModelAndView howTo() {

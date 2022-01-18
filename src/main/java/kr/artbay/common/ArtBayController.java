@@ -17,6 +17,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.servlet.ModelAndView;
 
+import kr.artbay.mybatis.ApplicationService;
 import kr.artbay.mybatis.FaqService;
 import kr.artbay.mybatis.MemberService;
 import kr.artbay.mybatis.NoticeService;
@@ -29,6 +30,8 @@ public class ArtBayController {
 	MemberService memberService;
 	@Autowired
 	NoticeService noticeService;
+	@Autowired
+	ApplicationService applicationService;
 	
 	AES aes = new AES();
 	Page page = new Page();
@@ -36,6 +39,7 @@ public class ArtBayController {
 	ArtBaySessionVo sv = null;
 	boolean b = false;
 	String c = "";
+	PrintWriter out;
 	
 	/*gitSpring 컨트롤러 내용
 	String msg="";
@@ -96,7 +100,40 @@ public class ArtBayController {
 		System.out.println(mid);
 		System.out.println(pwd);
 	}
+	//경매신청 페이지
+	@RequestMapping(value="/bidApplication" , method = {RequestMethod.POST,  RequestMethod.GET})
+	public ModelAndView bidApplication( HttpServletRequest req, Page page) {
+		HttpSession session = req.getSession();
+		sv = (ArtBaySessionVo)session.getAttribute("sv");
+		String mid = sv.getMid();
+		ModelAndView mv = new ModelAndView();
+		vo = applicationService.memberview(mid);
+		mv.addObject("vo", vo);
+		mv.addObject("page", page);
+		mv.setViewName("bid.application");
+		return mv;
+	}
 	
+	//경매신청 insert
+	@RequestMapping(value="/insertArtWorSave", method= {RequestMethod.POST})
+	public void insertArtWorSave(ArtBayVo vo, HttpServletResponse resq) {
+		try {
+			out = resq.getWriter();
+			b = applicationService.insertArtwork(vo);
+			String temp = "{'flag':'%s'}";
+			String flag ="";
+			if(b) {
+				flag = "OK";
+			}else {
+				flag = "Fail";
+			}
+			String json = String.format(temp, flag);
+			json = json.replaceAll("'", "\"");
+			out.print(json);
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+	}
 
 	 
 

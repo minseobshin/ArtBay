@@ -38,8 +38,9 @@ public interface ArtBayMapper {
 	public List<ArtBayVo> faqList(String ctgr);
 	
 	//경매신청
-	public int insertArtWork(ArtBayVo vo);
-	public int imgInsert(ArtBayAtt att);
+	public ArtBayVo memberview(String mid);  //회원정보
+	public int insertArtWork(ArtBayVo vo);			//경매정보 insert
+	public int imgInsert(ArtBayAtt att);			//이미지 	 insert
 	
 	//QNA 
 	public Integer qnaTotSize(String findStr);	//조회건수
