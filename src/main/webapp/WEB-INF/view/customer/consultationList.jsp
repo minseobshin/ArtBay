@@ -52,7 +52,7 @@
 											<option value="30">입금/결제문의</option>
 											<option value="40">배송문의</option>
 											<option value="50">반품/취소/환불</option>
-											<option value="80">기타문의</option>
+											<option value="80">기타문의</option> 
 										</select>
 									</div>
 								</td>

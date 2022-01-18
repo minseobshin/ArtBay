@@ -115,7 +115,7 @@
 		VALUES(getQnaSerial('i'), getQnaSerial(''), 0, 0, #{mid}, #{qna_pwd}, #{qna_title}, #{qna_doc}, now(), #{qna_status}, #{qna_type})
 	</insert>
 	
-	<!-- QNA serial 조회 -->
+	<!-- QNA serial 조회 --> 
 	<select id="getQnaSerial" resultType="Integer">
 		SELECT getQnaSerial('') SERIAL
 	</select>

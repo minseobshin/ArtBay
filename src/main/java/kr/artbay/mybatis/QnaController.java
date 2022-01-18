@@ -56,7 +56,7 @@ public class QnaController {
 			out = resp.getWriter();
 			
 			//비공개글 일때만 비밀번호 암호화
-			if(vo.getQna_status().equals("N")) {
+			if(vo.getQna_status().equals("N")) { 
 				vo.setQna_pwd( aes.encrypt(vo.getQna_pwd()) );				
 			}
 			

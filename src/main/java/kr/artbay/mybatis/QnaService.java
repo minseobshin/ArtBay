@@ -50,7 +50,7 @@ public class QnaService {
 		
 		if(rows > 0) {
 			manager.commit(status);
-			serial = mapper.getQnaSerial();
+			serial = mapper.getQnaSerial(); 
 			result = true;
 		}
 		else {

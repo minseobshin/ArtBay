@@ -55,7 +55,7 @@ $(function()  {
 			$("#qna_pwd").show();
 		} else {
 			$("#qna_pwd").val("");
-			$("#qna_pwd").hide();
+			$("#qna_pwd").hide(); 
 		}
 	});
 });
