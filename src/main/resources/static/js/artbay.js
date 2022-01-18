@@ -10,6 +10,7 @@ artbay.view = function(lot){
 	$.ajax({
 		url: "/bidView",
 		cache: false,
+		type: "POST",
 		data: $param,
 		success: function(){
 			window.location.href = "bidView?lot="+lot+"&nowPage="+$frm.nowPage.value;

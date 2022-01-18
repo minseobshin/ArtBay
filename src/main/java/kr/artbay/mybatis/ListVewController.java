@@ -30,7 +30,7 @@ public class ListVewController {
 	@RequestMapping(value="/bidList", method= {RequestMethod.POST, RequestMethod.GET})
 	public ModelAndView bidList(@RequestParam(value="findStr", required=false) String findStr,
 			@RequestParam(value="cnt", required=false, defaultValue="10") int cnt,
-			@RequestParam(value="nowPage", required=false) int nowPage) {
+			@RequestParam(value="nowPage", required=false, defaultValue="1") int nowPage) {
 		ModelAndView mv = new ModelAndView();
 		page.setListSize(cnt);
 		page.setFindStr(findStr);
