@@ -38,7 +38,7 @@
 	<ul class="mainLogin clearfix">
 		<c:choose>
 			<c:when test="${ empty sessionScope.sv }">
-				<li><a id='btnLogin' data-toggle='modal' data-target='#madal' role='botton'>LOGIN</a></li>
+				<li><a href="#" id='btnLogin' data-toggle='modal' data-target='#madal' role='botton'>LOGIN</a></li>
 				<li><a href="mypageMemberJoin">JOIN</a></li>			
 			</c:when>
 			<c:otherwise>
