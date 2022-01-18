@@ -36,6 +36,8 @@ $(function(){
 	//나이계산
 	//$("#age").val(now.getFullYear()-$("#bitrh").val().split("-")[0]+1);
 	
+	//회원가입 화면 시작 =======================================================================
+	
 	//이메일인증 모달
 	$('#btnCertification').click(function(){
 		var ran = Math.floor(Math.random()*1000000);
@@ -43,11 +45,10 @@ $(function(){
 		$('#certificationNum2').val(ran);
 		$(".emailCheck").fadeIn();
 	})
-	//이메일 전송 후
+	//모달창 확인버튼 클릭
 	$("#btnEmailCheck").click(function(){
-		$(".email").val($("#to_name").val());
-		$(".email").removeAttr("readonly");
-		$(".email").css({
+		$("#memberJoinEmail").val($("#to_name").val());
+		$("#memberJoinEmail").css({
 			"border" : "1px solid green",
 			"border-radius" : "3px",
 			"background-color" : "#3f3"
@@ -60,12 +61,6 @@ $(function(){
 	//취소
 	$('.btnEmailCheckCancel').click(function(){
 		$(".emailCheck").fadeOut();
-		/*
-		$("#btnCertification").val('이메일 인증 번호가 전송되었으니 확인 후 입력해주세요.');
-		$("#btnCertification").attr("disabled", true);
-		$("#certificationChk").val(true);
-		$("#certificationNumChk").removeAttr("disabled");
-		*/
 	})
 	
 	//이메일 인증번호 체크
@@ -90,6 +85,8 @@ $(function(){
 			$("#address").removeAttr("disabled");
 			$("#address2").removeAttr("disabled");
 			$("#btnJoin").removeAttr("disabled");
+			$("#memberJoinEmail").removeAttr("disabled");
+			$("#memberJoinEmail").attr("readonly", true);
 			$("#injung").val("true");
 			/*
 			$("#birth").datepicker({
@@ -257,6 +254,12 @@ $(function(){
 	
 	//비밀번호 정규식
 	$("#pwd").focusout(function(){
+		$("#pwdChk").val("");
+		$("#pwdChk").css({
+				"border" : "1px solid gray",
+				"border-radius" : "3px",
+				"background-color" : "white"
+			})
 		if(isPwd($("#pwd").val()) == false){
 			$("#pwd").css({
 				"border" : "2px solid red",
@@ -278,7 +281,7 @@ $(function(){
 	
 	//비밀번호 확인
 	$("#pwdChk").focusout(function(){
-		if($("#pwd").val() === $("#pwdChk").val()){
+		if($("#pwd").val() === $("#pwdChk").val() && pwd === 1){
 			$("#pwdChk").css({
 				"border" : "1px solid green",
 				"border-radius" : "3px",
@@ -286,6 +289,14 @@ $(function(){
 			})
 			pwdChk = 1;
 			$("#btnCertification").val('- ArtBay -');
+		}else if(pwd === 0){
+			$("#pwdChk").css({
+				"border" : "2px solid red",
+				"border-radius" : "3px",
+				"background-color" : "white"
+			})
+			pwdChk = 0;
+			$("#btnCertification").val('비밀번호를 정확히 입력해주세요. 영문/숫자/특수문자 최소 한가지 조합 8~16자');
 		}else{
 			$("#pwdChk").css({
 				"border" : "2px solid red",
@@ -317,19 +328,22 @@ $(function(){
 			$("#btnCertification").val('모든 정보를 입력해주세요.');
 		}
 	})
+	
+	//회원가입 화면 끝 =======================================================================
+	
+	//회원정보수정 화면 시작 =======================================================================
+	
 	$('#btnModify').click(function(){
 		window.open('mypageMemberResult', 'result', 'width=750, height=445, top=200, left=300');
 	})
+	
+	//회원정보수정 화면 끝 =======================================================================
+	
+	//회원탈퇴 화면 시작 =======================================================================
+	
 	$('#btnOutChk').click(function(){
 		window.open('mypageMemberResult', 'result', 'width=750, height=445, top=200, left=300');
 	})
-	
-	
-	
-	
-	
-	
-	
 	
 	//탈퇴 모달창
 	$('#btnOut').click(function(){
@@ -339,4 +353,19 @@ $(function(){
 	$('#btnOutCancel').click(function(){
 		$('#out_chk').fadeOut();
 	})
+	
+	//회원탈퇴 화면 끝 =======================================================================
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
 })

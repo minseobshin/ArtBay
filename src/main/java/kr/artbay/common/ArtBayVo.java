@@ -120,6 +120,8 @@ public class ArtBayVo {
 	public String getPhone() {return phone;}
 	public void setPhone(String phone) {this.phone = phone;}
 	public String getEmail() {return memberJoinEmail;}
+	public String getMemberJoinEmail() {return memberJoinEmail;}
+	public void setMemberJoinEmail(String memberJoinEmail) {this.memberJoinEmail = memberJoinEmail;}
 	public void setEmail(String email) {this.memberJoinEmail = email;}
 	public String getGender() {return gender;}
 	public void setGender(String gender) {this.gender = gender;}

@@ -36,7 +36,7 @@
 		<option value='W'>여</option>
 	</select>
 	<input type='text' name='phone' id='phone' placeholder='휴대전화 010-0000-0000' disabled>
-	<input type='text' name='email' id='memberJoinEmail' class='email' placeholder="이메일" disabled>
+	<input type='text' name='memberJoinEmail' id='memberJoinEmail' class='email' placeholder="이메일" disabled>
 	<input type='password' name='pwd' id='pwd' placeholder="비밀번호" disabled>
 	<input type='password' name='pwdChk' id='pwdChk' placeholder="비밀번호 확인" disabled>
 	<div class='h5'>➢ 주소</div>
@@ -50,10 +50,10 @@
 	</div>
 	<div class='h6'>* 추후 My Page에서 수정 가능합니다.</div>
 	<!-- !!!!!!!!!!!!!!!!!!!!!!!!!!!!!히든영역!!!!!!!!!!!!!!!!!!!!!!!!!!!!! -->
-	<input type='text' name='m_status' id='m_status' value='Y'> <!-- 탈퇴여부표시 Y(회원), N(탈퇴) -->
-	<input type='text' name='age' id='age' value='0'> <!-- 나이 -->
+	<input type='hidden' name='m_status' id='m_status' value='Y'> <!-- 탈퇴여부표시 Y(회원), N(탈퇴) -->
+	<input type='hidden' name='age' id='age' value='0'> <!-- 나이 -->
 	<input type='hidden' name='certificationNum2' id='certificationNum2'> <!-- 이메일 인증번호 -->
-	<input type='text' name='injung' id='injung' value='false'> <!-- 이메일 인증 완료여부 -->
+	<input type='hidden' name='injung' id='injung' value='false'> <!-- 이메일 인증 완료여부 -->
 	<!-- !!!!!!!!!!!!!!!!!!!!!!!!!!!!!히든영역!!!!!!!!!!!!!!!!!!!!!!!!!!!!! -->
 </form>
 </div>
