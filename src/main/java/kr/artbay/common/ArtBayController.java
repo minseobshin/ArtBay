@@ -9,6 +9,7 @@ import java.util.Map;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -32,6 +33,7 @@ public class ArtBayController {
 	AES aes = new AES();
 	Page page = new Page();
 	ArtBayVo vo = null;
+	//ArtBaySessionVo sv = null;
 	boolean b = false;
 	String c = "";
 	
@@ -46,14 +48,14 @@ public class ArtBayController {
 	//회원가입
 	@RequestMapping(value="/insertMemberSave", method= {RequestMethod.POST})
 	public void insertMemberSave(ArtBayVo vo) {
-		//System.out.println("ArtBayController : " + vo.getMid());
+		//System.out.println("ArtBayController : " + vo.getMemberJoinEmail());
 		this.b = memberService.insertMember(vo);
 	}
 	
 	//아이디중복체크
 	@RequestMapping(value="/checkId", method= {RequestMethod.POST})
 	public boolean checkId(ArtBayVo vo) {
-		c = vo.getMid();
+		this.c = vo.getMid();
 		this.b = memberService.checkId(c);
 		return b;
 	}
@@ -62,6 +64,37 @@ public class ArtBayController {
 	@RequestMapping(value="/emailCertification", method= {RequestMethod.POST})
 	public void emailCertification(ArtBayVo vo) {
         //this.b = memberService.insertMember(vo);
+	}
+	
+	//회원 로그인
+	@RequestMapping(value="/memberLogin", method= {RequestMethod.POST})
+	public String memberLogin(ArtBayVo vo, HttpServletRequest req) {
+		HttpSession session = req.getSession();
+		//this.c = memberService.memberLogin(vo);
+		if(c == "failMid" || c == "failPwd") {
+			session.invalidate();
+		}else {
+			session.setAttribute("vo", vo);
+		}
+		return c;
+	}
+	
+	//회원 로그아웃
+	@RequestMapping(value="/memberLogout")
+	public void memberLogout(HttpServletRequest req) { 
+		HttpSession session = req.getSession();
+		session.invalidate();		
+	}
+	
+	//회원정보수정화면 비밀번호체크 후 정보조회 출력
+	@RequestMapping(value="/pwdChkForModi")
+	public void pwdChkForModi(ArtBayVo vo, HttpServletRequest req) { 
+		HttpSession session = req.getSession();
+		vo = (ArtBayVo)session.getAttribute("vo");
+		String mid = vo.getMid();
+		String pwd = vo.getPwd();
+		System.out.println(mid);
+		System.out.println(pwd);
 	}
 	
 

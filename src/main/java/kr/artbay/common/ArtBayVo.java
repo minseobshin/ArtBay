@@ -29,6 +29,7 @@ public class ArtBayVo {
 	String gender;
 	int age;
 	String pwd;
+	String oldPwd;
 	String zip;
 	String address;
 	String address2;
@@ -96,6 +97,8 @@ public class ArtBayVo {
 	public String getDoc() {return doc;}
 	public void setDoc(String doc) {this.doc = doc;}
 	public String getPwd() {return pwd;}
+	public String getOldPwd() {return oldPwd;}
+	public void setOldPwd(String oldPwd) {this.oldPwd = oldPwd;}
 	public int getLot() {return lot;}
 	public void setLot(int lot) {this.lot = lot;}
 	public int getDirect_price() {return direct_price;}
