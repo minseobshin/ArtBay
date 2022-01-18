@@ -44,13 +44,15 @@ function category(ctgr){
 function search(){
 	$frm = $("#frm_list")[0];
 	$param = $("#frm_list").serialize();
-	var cnt = $(".page_combo2").val();
+	const sort = $(".page_combo1").val();
+	const cnt = $(".page_combo2").val();
 	$.ajax({
 		url: "/bidList?cnt="+cnt,
 		data: {
 			cnt: $(".page_combo2").val(),
 			findStr: $frm.findStr.value,
-			nowPage: $frm.nowPage.value
+			nowPage: $frm.nowPage.value,
+			sort: $(".page_combo1").val()
 		},
 		type: "POST",
 		cache: false,
