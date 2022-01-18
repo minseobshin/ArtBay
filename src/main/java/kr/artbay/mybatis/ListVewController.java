@@ -36,12 +36,12 @@ public class ListVewController {
 		page.setListSize(cnt);
 		page.setFindStr(findStr);
 		page.setNowPage(nowPage);
+		page.setSort(sort);
 		List<ArtBayVo> list = service.search(page, findStr);
 		page = service.getPage();
 		mv.addObject("page", page);
 		mv.addObject("list", list);
 		mv.setViewName("bid.list");
-		System.out.println(vo.getSort());
 		return mv;
 	}
 
