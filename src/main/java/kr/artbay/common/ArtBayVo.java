@@ -62,6 +62,8 @@ public class ArtBayVo {
 	String qna_doc;
 	String qna_date;
 	String qna_status;
+	String qna_type;
+	String qna_pwd;
 	
 	int hit;
 	int grp;
@@ -165,7 +167,11 @@ public class ArtBayVo {
 	public String getQna_date() {return qna_date;}
 	public void setQna_date(String qna_date) {this.qna_date = qna_date;}
 	public String getQna_status() {return qna_status;}
-	public void setQna_status(String qna_status) {this.qna_status = qna_status;}
+	public void setQna_status(String qna_status) {this.qna_status = qna_status;}	
+	public String getQna_type() {return qna_type;}
+	public void setQna_type(String qna_type) {this.qna_type = qna_type;}
+	public String getQna_pwd() {return qna_pwd;}
+	public void setQna_pwd(String qna_pwd) {this.qna_pwd = qna_pwd;}
 	public String getThumbnail() {return thumbnail;}
 	public void setThumbnail(String thumbnail) {this.thumbnail = thumbnail;}
 	public String getImgFile() {return imgFile;}

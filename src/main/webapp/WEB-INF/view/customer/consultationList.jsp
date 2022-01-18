@@ -1,6 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%> 
+<%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions"%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -37,59 +38,59 @@
 
 			<!-- 조회 테이블 -->
 			<form name="frmQna" id="frmQna" method="POST" >
-			<div class="tableDefault table-vertical mb30 mt30">	
-				<table>
-					<tbody>
-						<tr>
-							<th>질문유형</th>
-							<td>
-								<div class="form-inline">
-									 <select name="kind" id="kind" class="form-control material-ch" style="width: 130px;">
-									 	<option>선택하세요</option>
-									 	<option value="10">회원가입/탈퇴</option>
-										<option value="20">물품문의</option>
-										<option value="30">입금/결제문의</option>
-										<option value="40">배송문의</option>
-										<option value="50">반품/취소/환불</option>
-										<option value="80">기타문의</option>
-									</select>
-								</div>
-							</td>
-						</tr>
-						
-						<tr>
-							<th>검색어</th>
-							<td>
-								<div class="form-inline">
-									<div class="form-group">
-										<select name="field" id="field" class="form-control material-ch"  style="width: 80px;">
-											<option value="SA" selected>제목</option>
-											<option value="SB">등록자</option>
-											<option value="SC">내용</option>
+				<div class="tableDefault table-vertical mb30 mt30">	
+					<table>
+						<tbody>
+							<tr>
+								<th>질문유형</th>
+								<td>
+									<div class="form-inline">
+										 <select name="kind" id="kind" class="form-control material-ch" style="width: 130px;">
+										 	<option>선택하세요</option>
+										 	<option value="10">회원가입/탈퇴</option>
+											<option value="20">물품문의</option>
+											<option value="30">입금/결제문의</option>
+											<option value="40">배송문의</option>
+											<option value="50">반품/취소/환불</option>
+											<option value="80">기타문의</option>
 										</select>
 									</div>
-									<div class="form-group mt5m">
-										<!-- <input type="text" id="qry" name="qry" class="form-control" value="" onkeyup="">  -->
-										<input type="text" name="findStr" class="form-control" value="${ page.findStr }" onkeyup="">
-										<input type="text" name="nowPage" class="form-control" value="${ page.nowPage }" onkeyup="">
-										<input type="text" name="qnaNum" class="form-control">	<!-- 상세조회 위한 키 -->
+								</td>
+							</tr>
+							
+							<tr>
+								<th>검색어</th>
+								<td>
+									<div class="form-inline">
+										<div class="form-group">
+											<select name="field" id="field" class="form-control material-ch"  style="width: 80px;">
+												<option value="SA" selected>제목</option>
+												<option value="SB">등록자</option>
+												<option value="SC">내용</option>
+											</select>
+										</div>
+										<div class="form-group mt5m">
+											<!-- <input type="text" id="qry" name="qry" class="form-control" value="" onkeyup="">  -->
+											<input type="text" name="findStr" class="form-control" value="${ page.findStr }" onkeyup="">
+											<input type="text" name="nowPage" class="form-control" value="${ page.nowPage }" onkeyup="">
+											<input type="text" name="qnaNum" class="form-control">	<!-- 상세조회 위한 키 -->
+										</div>
 									</div>
-								</div>
-							</td>
-						</tr>
-					</tbody>
-				</table>
-			</div>
-			<div class="btnSearch">
-				<button class="btn btn-search" id="btnSearch">검색</button>
-            	<button class="btn btn-search-delete" onclick="">검색삭제</button>
-			</div>
+								</td>
+							</tr>
+						</tbody>
+					</table>
+				</div>
+				<div class="btnSearch">
+					<button class="btn btn-search" id="btnSearch">검색</button>
+	            	<button class="btn btn-search-delete" onclick="">검색삭제</button>
+				</div>
 			</form>
 			
 			<!--// 조회 테이블 -->
 			<div class="table-infoTop clearfix mt50">
 				<div class="pull-left fs15">
-					<span class="fcBlue"><strong>나의 1:1 상담문의</strong></span>에 대해서 모두 <span class="fcBlue"><strong>7</strong></span>개가 검색되었습니다.
+					<span class="fcBlue"><strong>나의 1:1 상담문의</strong></span>에 대해서 모두 <span class="fcBlue"><strong>${ fn:length(list) }</strong></span>개가 검색되었습니다.
 				</div>
 			</div>
 
@@ -105,7 +106,18 @@
 				<div class="customer-basic">
 					<c:forEach var="vo" items="${ list }">
 						<ul class="bContent text-center clearFix">
-							<li class="sortation mb5m">기타문의 <strong class=" visible-xs-inline-block ml10">답변중</strong></li>
+							<!--  
+							<li class="sortation mb5m">기타문의 <strong class=" visible-xs-inline-block ml10">답변중</strong></li>-->
+							<li class="sortation mb5m">
+								<c:choose>
+									<c:when test="${ vo.qna_type == '10' }">회원가입/탈퇴</c:when>
+									<c:when test="${ vo.qna_type == '20' }">물품문의</c:when>
+									<c:when test="${ vo.qna_type == '30' }">입금/결제문의</c:when>
+									<c:when test="${ vo.qna_type == '40' }">배송문의</c:when>
+									<c:when test="${ vo.qna_type == '50' }">반품/취소/환불</c:when>
+									<c:when test="${ vo.qna_type == '80' }">기타문의</c:when>
+								</c:choose>
+							</li>
 							<li class="text-left subject"><a href="customerConsultationView" onclick="" class="fcBlack collapsed">${ vo.qna_title }</a></li>
 							<li class="hit mobileNone"><strong class="">답변완료</strong></li>
 							<li class="date"><span class="visible-xs-inline-block">등록일 : </span>${ vo.qna_date }</li>
@@ -121,7 +133,7 @@
 
 			</div>
 			<div class="btnWrap view text-right clearFix mb0">
-					<a href="customerConsultationInsert" onclick="" class="btn btn-Insert">글쓰기</a>
+					<a href="customerConsultationInsert" id="btnInsertForm" class="btn btn-Insert">글쓰기</a>
 			</div>
 		</div>
  
@@ -129,17 +141,17 @@
 		<div class="pager">
 			<ul class="pagination">
 				<c:if test="${ page.startPage > 1 }">
-					<li><a href="#none" onclick="brd.page(1)" style="letter-spacing:-3px;">&lt;&lt;</a></li>
-					<li><a href="#none" onclick="brd.page(${ page.startPage-1 })" style="letter-spacing:-3px;">&lt;</a></li>
+					<li><a href="#none" onclick="qna.page(1)" style="letter-spacing:-3px;">&lt;&lt;</a></li>
+					<li><a href="#none" onclick="qna.page(${ page.startPage-1 })" style="letter-spacing:-3px;">&lt;</a></li>
 				</c:if>				
 				
 				<c:forEach var="i" begin="${ page.startPage }" end="${ page.endPage }">	
-					<li class="active"><a href="#none" onclick="brd.page(${i})" class="${ (i == page.nowPage) ? 'selectedPage' : '' }">${ i }</a></li>
+					<li class="active"><a href="#none" onclick="qna.page(${i})" class="${ (i == page.nowPage) ? 'selectedPage' : '' }">${ i }</a></li>
 				</c:forEach>	
 				
 				<c:if test="${ page.endPage < page.totPage }">
-					<li><a href="#none" onclick="brd.page(${ page.endPage+1 })" style="letter-spacing:-3px;">&gt;</a></li>
-					<li><a href="#none" onclick="brd.page(${ page.totPage })" style="letter-spacing:-3px;">&gt;&gt;</a></li>				
+					<li><a href="#none" onclick="qna.page(${ page.endPage+1 })" style="letter-spacing:-3px;">&gt;</a></li>
+					<li><a href="#none" onclick="qna.page(${ page.totPage })" style="letter-spacing:-3px;">&gt;&gt;</a></li>				
 				</c:if>
 			</ul>
 		</div><!--// pagination -->
