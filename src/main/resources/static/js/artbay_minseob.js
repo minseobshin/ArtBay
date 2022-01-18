@@ -335,7 +335,10 @@ $(function(){
 	
 	$("#oldPwd").focusout(function(){
 		$param = $("#frm_join").serialize();
-		$.post('')
+		$.post('pwdChkForModi', $param, function(data){
+			console.log(data);
+			
+		})
 	})
 	
 	$('#btnModify').click(function(){

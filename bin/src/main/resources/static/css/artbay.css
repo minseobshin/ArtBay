@@ -1,0 +1,959 @@
+@charset "UTF-8";
+
+@viewport{
+    zoom: 1.0;
+    width: extend-to-zoom;
+}
+html, body{
+	overflow-x: hidden;
+	zoom: 1.0;
+}
+/*리스트 페이지 시작*/
+form[name=frm_list]{
+	margin: 0 auto;
+	text-align: center;
+	width: 1280px;
+	min-height: 900px;
+}
+
+.div_list{
+	margin: 0 auto;
+	width: 1280px;
+	min-height: 900px;
+}
+
+	/* nav 구간 */
+.nav{
+	display: inline-block;
+	margin: 10px auto;
+}
+
+.nav>ul li{
+	display: inline-block;
+	margin-left: 30px;
+	padding: 10px;
+	font-size: 20px;
+	font-weight: bolder;
+}
+
+.orangeLi{
+	color: rgb(244, 113, 4);
+	border-bottom: 5px solid rgb(244, 113, 4);
+}
+
+.nav>ul li:hover{
+	cursor: pointer;
+}
+	/* nav 구간 끝 */
+
+
+	/* 검색 영역 시작 */
+.search .search_box{
+	float: left;
+	margin-left: 35px;
+}
+
+.search_box #findStr{
+	height: 30px;
+	width: 200px;
+	vertical-align: middle;
+	margin: 0;
+}
+
+.search_box #btnSearch{
+	height: 36px;
+	width: 36px;
+	margin: 0;
+	margin-left: -6px;
+	vertical-align: middle;
+}
+
+.search div{
+	display: inline-block;
+}
+
+.search .search_option_boxes{
+	width: 20%;
+	text-align: right;
+	float: right;
+}
+
+.search_option_boxes select{
+	height: 30px;
+}
+
+.page_combo2{
+	margin-right: 35px;
+}
+
+.selected_option_area{
+	width: 95%;
+	height: 50px;
+	margin-top: 30px !important;
+	margin: 10px auto;
+	border-top: 1px solid rgb(218, 218, 218);
+	border-bottom: 1px solid rgb(218, 218, 218);
+	background-color: rgb(249, 249, 249);
+	text-align: left;
+}
+
+.idle_selected_option_area{
+	width: 95%;
+	height: 10px;
+	margin-top: 30px !important;
+	margin: 10px auto;
+}
+
+.selected_option_area div{
+	height: 50px;
+	display: inline-block;
+	vertical-align: middle !important;
+}
+
+.selected_findStr{
+	margin: 0 !important;
+	height: 10px;
+}
+
+.selected_option_title{
+	font-weight: bolder;
+	padding: 15px;
+	margin-left: 5px;
+}
+
+	/*검색 영역 끝*/
+
+	/*본문 시작*/
+.listBox{
+	text-align: left;
+	margin-left: 20px;
+}
+.listInner{
+	margin: 10px;
+	width: 17.5%;
+	border: 1px solid rgb(222, 222, 222);
+	display: inline-block;
+	height: 550px;
+}
+
+
+.listInner p.img{
+	width: 100%;
+	height: 50%;
+	background-color: rgb(249, 249, 249);
+	margin-top: 0;
+}
+
+.listInner p.img img{
+	width: 90%;
+	height: 90%;
+	margin: 10px auto;
+}
+
+.listInnerText{
+	width: 98%;
+}
+
+.listInnerText p{
+	color: rgb(102, 102, 102);
+	text-align: left;
+	margin: 0;
+	padding: 5px;
+	box-sizing: border-box;
+	margin-left: 10px;
+	font-size: 1em;
+}
+
+.listInnerText p.painter{
+	color: black;
+	font-size: 1.5em;
+	font-weight: bolder;
+	margin-bottom: 10px;
+}
+
+.listInnerText p.art_name{
+	font-size: 1.2em;
+	margin-bottom: 10px;
+}
+
+.listInnerText p.material, .listInnerText p.paintSize{
+	overflow: hidden;
+	text-overflow: ellipsis;
+	white-space: nowrap;
+	padding: 3px;
+}
+
+.listInnerText p.paintSize{
+	border-bottom: 1px solid rgb(102, 102, 102);
+}
+
+.listInnerTextTitle, .listInnerTextPrice{
+	display: inline-block;
+}
+
+.listInnerTextTitle{
+	font-size: 0.9em;
+	font-weight: bolder;
+	float: left;
+}
+
+.listInnerTextPrice{
+	font-size: 0.9em;
+	float: right;
+	width: 70%;
+	height: 80px;
+}
+
+.listInnerTextPrice p{
+	text-align: right !important;
+}
+
+p.currentPriceTitle, p.currentPrice{
+	color: rgb(255, 93, 22);
+	font-weight: bolder;
+}
+
+p.endDate{
+	font-size: 0.9em;
+	margin-left: 5px;
+	margin-right: 0;
+	float: left;
+	width: 75%;
+	text-align: left;
+}
+
+p.bidCnt{
+	font-size: 0.9em;
+	margin-left: 0;
+	margin-right: 0;
+	float: right;
+	width: 20%;
+	text-align: right;
+}
+
+.listInnerTextTail{
+	clear: both;
+	margin: 0 auto;
+	margin-left: 5px;
+	width: 98%;
+	height: 100px;
+	border-top: 1px solid rgb(102, 102, 102);
+}
+
+
+
+/*리스트 페이지 끝*/
+
+.rightmodal_m1, .rightmodal_m2, .rightmodal_m3, .rightmodal_m4, .login, .bid_caution{
+	display: none;
+	z-index : 1 !important;
+	background-color: rgba(0,0,0,.3);
+	position:fixed;
+	left: 0;
+	top: 0;
+	width:100%;
+	height:100%;
+	font-size: 13px;
+}
+
+table{
+	border-collapse: collapse;
+	border: 1px solid rgb(239, 239, 239);
+	box-sizing: border-box;
+	margin: 5px auto;
+}
+
+th, td{
+	padding: 5px;
+}
+
+th, .deliv_th1, .deliv_th2{
+	background-color: rgb(204, 204, 204);
+	text-align: center;
+}
+
+
+.bid_price_standard{
+	width: 400px !important;
+	table-layout: fixed; 
+}
+
+.modal_title{
+	background-color: rgb(12, 40, 91);
+	margin: 0;
+	color: white;
+	font-size: 15px;
+	font-weight: bolder;
+	height: 50px;
+	box-sizing: border-box;
+}
+
+.modal_title p{
+	line-height: 50px;
+}
+
+.modal_body{
+	padding: 10px !important;
+}
+
+.xBtn{
+	z-index: 1;
+	position: absolute;
+	margin: -20px;
+	margin-left: 240px;
+	width: 100%;
+    background-color: transparent;
+    background-repeat: no-repeat;
+    border: none;
+    cursor: pointer;
+    overflow: hidden;
+    outline: none;
+    font-size: 20px;
+}
+
+.btnBidList .xBtn{
+	margin-left: 160px !important;
+}
+
+/* 뷰 페이지 시작*/
+
+form[name=frm_view]{
+	margin: 10px auto;
+	width: 1280px;
+	overflow-x: auto;
+}
+.caution h3, .caution div{
+	width: 800px;
+	margin: 10px auto;
+}
+
+.view_left{
+	width: 60% !important;
+	margin: 10px auto;
+	margin-left: 30px;
+	display: inline-block;
+}
+
+.caution{
+	width: 58% !important;
+	margin-left: 30px;
+}
+
+.caution_inquiry{
+	width: 100% !important;
+}
+
+.view_right{
+	width: 20%;
+	position: fixed;
+	display: inline-block;
+}
+
+.bid_price{
+	display: none;
+	position: absolute;
+	top: 3px;
+	background-color: white;
+	min-width: 450px;
+	width: 100%;
+	min-height: 550px;
+	height: 50px;
+	box-shadow: 0 0 5px 5px rgb(150, 150, 150);
+	
+	box-sizing: border-box;
+}
+
+.bid_price h2{
+	margin-left: 20px !important;
+}
+
+.view_left div{
+	text-align: center;
+}
+
+.view_top{
+	text-align: center;
+}
+
+.view_top>p.img{
+	width: 15%;
+}
+
+.view_top>.img>img{
+	width: 90%;
+	border: 1px solid rgb(239, 239, 239);
+	margin: 10px auto;
+	float: left;
+}
+
+form[name=frm_view] div.view_sml_btn p{
+	display: inline-block;
+	border-radius: 50%;
+	padding: 0.5px;
+	box-sizing: border-box;
+}
+
+.view_detail, .view_price{
+	border-bottom: 1px dotted grey;
+}
+
+.view_detail>p, .view_price>p{
+	padding: 5px;
+	box-sizing: border-box;
+}
+
+.deadline_time{
+	float: right;
+	clear: both;
+}
+
+
+/*모달 영역 시작*/
+.modal1, .modal2, .modal3, .modal4, .modal_login, .bid_caution_modal{
+	width:500px;
+	z-index: 2;
+	margin:100px auto;
+	position: relative;
+	background-color:#fff;
+	padding: 0;
+	min-height: 400px;
+	box-sizing: border-box;
+}
+
+.commission_rate{
+	width: 450px;
+	margin: 0px auto;
+	height: 100px;
+}
+
+
+th.bid{
+	width: 150px;
+}
+
+.deliv_table{
+	width: 450px !important;
+	table-layout: fixed;
+}
+
+.closing_hour{
+	margin: 0 auto;
+	margin-top: 5px;
+	margin-bottom: 10px;
+	width: 80%;
+	background-color: rgb(239, 239, 239);
+	padding: 5px;
+	text-align: center;
+	box-sizing: border-box;
+	font-size: 10px;
+	height: 35px;
+	line-height: 20px;
+}
+
+#right_modal_btn1, #right_modal_btn3{
+	margin-left: 10%;
+}
+
+.right_modal_btn{
+	list-style-type: none;
+	float: left;
+	margin: 1px;
+	width: 39.8%;
+	height: 40px;
+	background-color: rgb(239, 239, 239);
+}
+
+.right_modal_btn p{
+	margin-top: 0;
+	margin-left: 10px;
+	line-height: 40px;
+	font-size: 10px;
+	color: grey;
+}
+
+.right_modal_btn p span{
+	line-height: 40px;
+}
+
+form[name=frm_view]>ul li:nth-child(3){
+	clear: both;
+	margin-bottom: 10px;
+}
+
+.btnBidStart, .btnBidApplyFinal{
+	width: 80%;
+	height: 35px;
+	background-color: black;
+	color: white;
+	display: block;
+	margin: 10px auto !important;
+	font-size: 12px;
+	font-weight: bolder;
+}
+
+.btnBidStart{
+	margin-top: 80px !important;
+}
+
+.btnBidApplyFinal{
+	font-size: 20px;
+	font-weight: bolder;
+	width: 90%;
+}
+
+.bid_price_choose li{
+	float: left;
+	margin-left: 25%;
+	margin-top: 20px;
+	margin-bottom: 20px;
+}
+
+.bidList{
+	width: 100%;
+	clear: both;
+	text-align: left;
+}
+
+.bidHistory, .current_bid_price{
+	width: 90%;
+	margin: 0 auto;
+}
+
+.bidHistory ul{
+	clear: both;
+	width: 100%;
+	margin-top: 20px;
+	border-bottom: 0.5px solid grey;
+	padding: 10px;
+	box-sizing: border-box;
+}
+
+.bidHistory ul li{
+	display: inline-block;
+}
+
+.bidHistory ul li:nth-child(4){
+	float: right;
+}
+
+.my_choice{
+	width: 95%;
+	margin: 20px auto;
+}
+
+.my_choice_left, .my_choice_right{
+	display: inline-block;
+	vertical-align: top;
+}
+
+.my_choice_left{
+	width: 20%;
+}
+
+.my_choice_right{
+	width: 80%;
+	float: right;
+	text-align: right;
+}
+
+.price_combo{
+	width: 100%;
+}
+
+.my_choice+.btnBid{
+	width: 400px;
+}
+
+.bidApplyBtn{
+	text-align: center;
+	margin-top: 10px;	
+}
+
+.bid_caution{
+	text-align: center;
+}
+
+.bid_caution h2{
+	text-align: left;
+	font-weight: bolder;
+}
+
+.bid_caution_modal ul{
+	width: 95%;
+	text-align: left;
+	border-top: 1px solid grey;
+	border-bottom: 1px solid grey;
+	margin: 0 auto;
+}
+
+.bid_caution_modal ul li{
+	line-height: 25px;
+}
+
+.bid_caution_modal ul, .bid_caution_modal ul~p{
+	margin-top: 10px;
+	margin-bottom: 10px;
+}
+
+.bid_caution_modal{
+	padding: 10px !important;
+	box-sizing: border-box;
+}
+
+.btnBidCancel{
+	display: inline-block;
+	width: 150px;
+	height: 50px;
+	border: 1px solid grey;
+	background-color: white;
+	margin: 10px;
+}
+
+.btnBidApply{
+	display: inline-block;
+	width: 150px;
+	height: 50px;
+	border: 1px solid black;
+	background-color: black;
+	color: white;
+	margin: 10px;
+}
+
+ul{
+	list-style: none;
+}
+
+
+@media(max-width: 1300px){
+	.view_right, .view_left{
+		display: block !important;
+		position: static;
+	}
+	
+	.view_right{
+		margin-left: 22%;
+		width: 20%;
+	}
+	
+	.bid_price{
+		font-size: 0.8em;
+		display: none;
+		top: 50%;
+		height: 500px;
+		width: 100%;
+		position: fixed;
+		bottom: 0 !important;
+		right: 0;
+		border-radius: 15px 15px 0 0;
+	}
+	
+	.bidList{
+		width: 95% !important;
+		margin: 0 auto;
+		padding: 0;
+	}
+	
+	.current_bid_price{
+		width: 100% !important;
+		padding: 0;
+	}
+	
+	.xBtn{
+		right: -45%;
+		bottom: 98%;
+	}
+	
+	.my_choice>div{
+		display: inline-block;
+	}
+	
+	.my_choice .my_choice_left, .my_choice .my_choice_right{
+		vertical-align: top;
+		margin-top: -10px;
+	}
+	
+	.my_choice{
+		width: 100%;
+	}
+
+	.my_choice .my_choice_left{
+		width: 10%;
+	}
+	
+	.my_choice .my_choice_right{
+		width: 85%;
+		float: right;
+	}
+	
+	
+	.my_choice .my_choice_left strong, .my_choice .my_choice_right strong{
+		width: 100%;
+	}
+	
+	.btnBidApplyFinal{
+		width: 100% !important;
+		height: 50px !important;
+	}
+}
+
+/*모달 영역 끝*/
+
+
+/*응찰 안내 시작*/
+/*
+.howtobtn{
+	display: block;
+	float: left;
+	width: 25%;
+	position: fixed;
+	text-align: left;
+}
+
+.howto-subbtn>ul{
+	display: none;
+	text-align: left;
+}
+*/
+
+
+	/*reset으로 틀어진 elements들 속성 되돌려놓기*/
+
+.caution li{
+	margin-top: 10px;
+}
+
+form[name=frm_bidIntro] h4, form[name=frm_view] h4, form[name=frm_list] h4{
+	display: block;
+	margin-top: 1.33em;
+	margin-bottom: 1.33em;
+	margin-left: 0;
+	margin-right: 0;
+	font-weight: bold;
+}
+
+form[name=frm_bidIntro] h3, form[name=frm_view] h3, form[name=frm_list] h3{
+	display: block;
+	font-size: 1.17em;
+	margin-top: 1em;
+	margin-bottom: 1em;
+	margin-left: 0;
+	margin-right: 0;
+	font-weight: bold;
+}
+
+form[name=frm_bidIntro] h2, form[name=frm_view] h2, form[name=frm_list] h2{
+	display: block;
+	font-size: 1.5em;
+	margin-top: 0.83em;
+	margin-bottom: 0.83em;
+	margin-left: 0;
+	margin-right: 0;
+	font-weight: bold;
+}
+
+.bidIntroRight div{
+	display: block;
+}
+.bidIntroRight ul{
+	display: block;
+	list-style-type: none;
+	margin-top: 1em;
+	margin-bottom: 1 em;
+	margin-left: 0;
+	margin-right: 0;
+	padding-left: 40px;
+}
+.bidIntroRight li{
+	display: list-item;
+}
+.bidIntroRight table{
+	display: table;
+	border: 1px solid rgb(249, 249, 249);
+	border-collapse: collapse;
+	border-color: gray;
+	margin-left: 3%;
+	width: 80%;
+}
+.bidIntroRight p{
+	display: block;
+	margin-top: 1em;
+	margin-bottom: 1em;
+	margin-left: 0;
+	margin-right: 0;
+}
+
+.bidIntroRight th{
+	display: table-cell;
+	vertical-align: middle;
+	font-weight: bold;
+	text-align: center;
+	height: 50px;
+	border: 1px solid rgb(249, 249, 249);
+	padding: 5px;
+}
+
+.bidIntroRight td{
+	height: 30px;
+	display: table-cell;
+	vertical-align: middle;
+	border: 1px solid rgb(220, 220, 220);
+	padding: 5px;
+}
+
+.bidIntroRight strong{
+	font-weight: bold;
+	margin-top: 10px;
+	margin-bottom: 10px;
+	color: rgb(244, 78, 37);
+}
+	
+	/*reset으로 틀어진 elements들 속성 되돌려놓기 끝*/
+
+
+.bidIntroTitle{
+	width: 100%;
+	text-align: center;
+	background-color: rgb(249, 249, 249);
+	vertical-align: middle !important;
+	padding: 30px;
+	height: 100px;
+	font-size: 30px;
+	font-weight: bolder;
+	margin: 0;
+	box-sizing: border-box;
+}
+
+
+/*
+#Howto{
+	display:inline-block;
+	width:250px;
+	height:200px;
+	text-align:left;
+	margin-top:200px;
+	margin-left:60px;
+	position:fixed;
+	top:20px;
+	color:#ddd;
+}
+
+#Howto .howtobtn>ul>li{
+	font-size:17px;
+	margin-top:10px;
+	border-top:2px solid #ddd;
+	padding:10px;
+	color:#ddd;
+	line-height:1.4em;
+}
+
+.howto-subbtn{
+	display: none;
+}
+
+*/
+.bidIntroRight{
+	display: inline-block;
+	position: relative;
+	margin-top:80px;
+	margin-left: 200px;
+	max-width: 70%;
+}
+
+.step1-desc>div{
+	width: 30%;
+	display: inline-block;
+	border: 1px solid rgb(204, 204, 204);
+	max-width: 300px;
+	height: 600px;
+	vertical-align: top;
+}
+
+.step1-desc .img{
+	width: 100%;
+	max-width: 300px;
+}
+
+.step1-desc img{
+	max-width: 300px;
+	max-height: 300px;
+}
+
+.preview-img>div{
+	width: 40%;
+	max-width: 500px;
+}
+
+.preview-img img{
+	width: 100%;
+	max-width: 500px;
+}
+
+.preview-img>div, .live-auc>div, .preview-img>div, .liveauc-guide>div{
+	display: inline-block;
+}
+
+.liveauc-guide>div{
+	width: 40%;
+	height: 600px;
+	vertical-align: top;
+	max-width: 500px;
+	margin: 10px;
+	border: 1px solid rgb(204, 204, 204);
+}
+
+.liveauc-guide>div:nth-child(3){
+	display: block;
+	width: 10px;
+	height: 10px;
+}
+
+.liveauc-guide img{
+	width: 100%;
+}
+
+.howtobtn a{
+	color:#aaa;
+	text-decoration: none;
+}
+
+.howto-subbtn>ul>li:nth-child(3){
+	margin-bottom: 0 !important;
+}
+
+
+.howto-subbtn>ul>li:nth-child(5){
+	margin-bottom: 10px !important;
+}
+
+.howto-subbtn{
+	margin: 0;
+	margin-left: 5px;
+	font-size: 0.8em;
+}
+
+.howto-desc ul{
+	list-style-type: square !important;
+}
+#Howto .howtobtn .howto-subbtn ul li{
+	font-size:16px;
+}
+#Howto .howtobtn .howto-subbtn ul li a:hover{
+	color:#000;
+	font-size:17px;
+}
+
+/*응찰 안내 끝*/
+
+
+
+
+
+
+
+
+
+
+
+
+
+

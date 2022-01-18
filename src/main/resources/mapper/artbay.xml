@@ -11,8 +11,13 @@
 	<select id="checkId" parameterType="String" resultType="String">
 		select mid from artbay_member where mid like #{_parameter}
 	</select>
+	<!-- 로그인 -->
 	<select id="memberLogin" parameterType="kr.artbay.common.ArtBaySessionVo" resultType="kr.artbay.common.ArtBaySessionVo">
 		select mid, pwd from artbay_member where mid = #{mid}
+	</select>
+	<!-- 회원정보 수정시 비밀번호 입력 후 내용출력 -->
+	<select id="pwdChkForModi" parameterType="String" resultType="kr.artbay.common.ArtBayVo">
+		select * from artbay_member where mid = #{_parameter}
 	</select>
 
 	<select id="totSize" parameterType="String" resultType="Integer">

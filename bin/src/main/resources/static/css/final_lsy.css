@@ -1,0 +1,561 @@
+@charset "UTF-8";
+/* Bid.jsp, Consign.jsp */
+*{
+	box-sizing:border-box;
+	margin:0px auto;
+}
+
+#auction{
+	width:1280px;
+	margin-top:40px;
+	margin:0px auto;
+	min-height:500px;
+}
+#auction>h1{
+	text-align:center;
+	font-size:30px;
+	margin-top:20px;
+	font-weight:bold;
+}
+
+#auction #items {
+	width:1100px;
+	line-height:1.5em;
+	margin:40px 0 30px 90px;
+	min-height:350px;
+}
+
+#auction #items #title{
+	height:30px;
+	font-weight:bold;
+	padding-top:4px;
+	background-color:#ddd;
+	width:900px;
+	
+
+}
+#auction #items #title, #rows{
+	text-align:center;
+	margin:0 auto;
+}
+#auction #items #rows #item{
+	border-top:2px solid #ddd;
+	width:900px;
+	margin:0 auto;
+}
+#auction #items #rows #item:hover{
+	cursor:pointer;
+	background-color:#ddd;
+	
+}
+#auction #items .artName{
+	width:150px;
+	overflow:hidden;
+	display:inline-block;
+	text-align:center;
+	vertical-align:middle;
+}
+#auction #items .num, .artist, .requestPrice, .successPrice {
+	display:inline-block;
+	width:120px;
+	text-align:center;
+	vertical-align:middle;
+}
+#auction #items .requestDate, .successDate, .name, .consignDate, .delConsign{
+	width:110px;
+	display:inline-block;
+	text-align:center;
+	vertical-align:middle;
+}
+#auction #btnZone{
+	height:50px;
+	padding-top:20px;
+	margin-top:40px;
+}
+#auction #btnZone input{
+	color:#222;
+	border:1px solid #d7d7d7;
+	margin-left:3px;
+	height:22px;
+		
+}
+#auction #btnZone input:hover{
+	border:1px solid #000;
+	cursor:pointer;
+	
+}
+#auction #btnZone input:active{
+	background-color:#aaa;
+}
+#auction #btnZone{
+	text-align:center;
+	margin-top:10px;
+}
+
+
+#auction .successPrice{
+	display:inline-block;
+	width:80px;
+	text-align:center;
+}
+
+/*consign*/
+#auction #btnRequestApplication{
+	background-color:#f60;
+	margin-bottom:10px;
+	display:inline-block;
+	height:35px;
+	width:74px;
+	position:relative;
+	top:30px;
+	left:870px;
+	color:#fff;
+	font-weight:bold;
+}
+#auction #delConsignBtn{
+	background-color:#f60;
+	margin-bottom:10px;
+	display:inline-block;
+	height:35px;
+	width:120px;
+	position:relative;
+	top:30px;
+	left:890px;
+	color:#fff;
+	font-weight:bold;
+}
+#auction #consignBtn:hover{
+	cursor:pointer;
+	background-color:#fff;
+	color:#f60;
+	border:1px solid #f60;
+}
+
+#auction #delConsignBtn:hover{
+	cursor:pointer;
+	background-color:#ff0000;
+	color:#fff;
+}	
+
+/*Result*/
+#auction form #findZone{
+	margin: 20px 7px;
+	position:relative;
+	
+}
+#auction form #findZone input[type='search']{
+	width:380px;
+	height:28px;
+	border:1px solid #aaa;
+	margin-left:178px;
+}
+#auction form #findZone input[type='button']{
+	height:28px;
+	width:40px;
+	background-color:#fff;
+	border:1px solid #aaa;
+}
+#auction form #findZone input[type='button']:hover{
+	cursor:pointer;
+	background-color:#ddd;
+}
+#auction form #findZone select{
+	border:1.5px solid #aaa;
+	position:absolute;
+	right:190px;
+}
+#auction form #findZone option[value='none']{
+	font-weight:bold;
+}
+#auction #list{
+	text-align:center;
+}
+#auction #list #item{
+	text-align:left;
+	display:inline-block;
+	width:450px;
+	height:160px;
+	border:1px solid #aaa;
+	position:relative;
+} 
+
+#auction #list #item img{
+	position:absolute;
+	right:0px;
+	top:0px;
+	
+}
+#auction #list #item{
+	padding:20px;
+	margin-left:15px;
+	margin-bottom:15px;
+}
+#auction #list #item .weekly_value, .weekly_title{
+	font-size:15px;
+	font-weight:bold;
+}
+#auction #list #item .startDate_title, .startDate_value, .endDate_title, .endDate_value{
+	font-size:14px;
+}
+#auction #list #item input{
+	width:70px;
+	height:30px;
+	margin-top:10px;
+	background-color:#111;
+	color:#fff;
+}
+#auction #list #item input[type='button']:hover{
+	cursor:pointer;
+}
+
+/*consignGuide 위탁절차*/
+#consign_title h1{
+	height:160px;
+	font-size:30px;
+	text-align:center;
+	font-weight:bolder;
+	padding-top:40px;
+	
+}
+#consignGuide{
+	width:1020px;
+	box-sizing:border-box;
+	position:relative;
+	margin:20px 120px 30px 320px;
+	line-height:1.5em;
+}
+
+#consignGuide h2{
+	font-size:20px;
+	margin-bottom:30px;
+	font-weight:bold;
+}
+#consignGuide .guide img{
+	display:inline-block;
+	width:220px;
+	height:170px;
+	margin:13px;
+}
+#consignGuide .guide div p{
+	font-weight: bold;
+	font-size:17px;
+	margin-bottom:28px;
+}
+#consignGuide .guide div{
+	display:inline-block;
+	width:580px;	
+	position:absolute;
+	margin-top:20px;
+	padding-top:10px;
+	margin-left:10px;
+	font-size:15px;
+	color:#333;
+	
+}
+#consignGuide #consign_steps ul li{
+	display:inline-block;
+	width:190px;
+	height:90px;
+	background-color:#ddd;
+	color:#000;
+	text-align:center;
+	padding-top:20px;
+	margin-left:10px;
+}
+#consignGuide #consign_steps #consign_step1{
+	background-color:#f60;
+}
+#consignGuide #consign_steps ul li:hover{
+	cursor:pointer;
+}
+#consignGuide .consign_desc .desc01, .desc02, .desc03, .desc04{
+	min-height:500px;
+	margin-left:15px;
+}
+
+#consignGuide .consign_desc .desc01 p{
+	margin:24px auto;
+}
+#consignGuide .consign_desc .desc01 .desc01_sub{
+	border:2px solid #bbb;
+	padding:18px;
+}
+#consignGuide .consign_desc .desc01 .desc01_sub h4{
+	font-weight:bold;
+}
+#consignGuide .consign_desc .desc01 .bot_desc ul li{
+	list-style-type:disc;
+	margin:15px 0 15px 20px;
+}
+#consignGuide .consign_desc .desc02 p{
+	margin:24px auto;
+}
+#consignGuide .consign_desc .desc02 .desc02_sub{
+	border:2px solid #bbb;
+	height:160px;
+	text-align:center;
+}
+#consignGuide .consign_desc .desc02 .desc02_sub span{
+	padding-top:10px;
+	display:inline-block;
+	width:160px;
+	height:80px;
+	margin:30px 15px;
+	font-size:15px;
+	border:1px solid #ccc;
+	vertical-align:middle;
+	text-align:center;
+}
+#consignGuide .consign_desc .desc02 ul li{
+	list-style-type:disc;
+	margin:15px 0 15px 20px;
+}
+
+#consignGuide .consign_desc .desc03 p{
+	margin:24px auto;
+}
+#consignGuide .consign_desc .desc03 .desc03_sub{
+	border:2px solid #bbb;
+	height:190px;
+	text-align:center;
+}
+#consignGuide .consign_desc .desc03 .desc03_sub ul p{
+	font-weight:bold;
+	font-size:15px;
+}
+#consignGuide .consign_desc .desc03 .desc03_sub ul li{
+	display:inline-block;
+	height:150px;
+	width:200px;
+	margin:20px 10px;
+	font-size:13px;
+	border:1px solid #ccc;
+	vertical-align:middle;
+	text-align:center;
+}
+#consignGuide .consign_desc .desc04 h4{
+	margin:24px auto;
+	font-weight:bold;
+}
+#consignGuide .consign_desc .desc04 div>div{
+	text-align:center;
+	font-weight:bolder;
+	font-size:16px;
+	margin:20px auto;
+	text-align:center;
+}
+#consignGuide .consign_desc .desc04 ul li{
+	list-style-type:disc;
+	font-size:13px;
+	margin:10px 0 10px 20px;
+}
+
+/*noticeList , noticeView*/
+#noticeList{
+	width:1080px;
+	margin:10px auto;
+	min-height:900px;
+}
+
+/*noticeView*/
+#noticeView{
+	width:1080px;
+	margin:10px auto;
+	min-height:900px;
+}
+
+#noticeView h1{
+	text-align:center;
+	font-size:30px;
+	margin-top:120px;
+	font-weight:bold;
+	margin-bottom:40px;
+}
+#noticeView #noticeView_sub{
+	border-top:2px solid #333;
+	border-bottom:2px solid #333;
+	min-height:400px;
+	line-height:1.5em;
+}
+
+#noticeView #noticeView_sub div{
+	border-bottom:2px solid #ddd;
+	height:50px;
+	padding-left:20px;
+	padding-top:15px;
+	font-weight:bolder;
+}
+#noticeView #noticeView_sub p{
+	padding:20px 40px;
+	box-sizing:border-box;
+
+}
+#noticeView #btnViewList{
+	position:relative;
+	left:940px;
+	top:20px;
+	display:inline-block;
+	width:50px;
+	height:30px;
+	background-color:#fff;
+	border:1px solid #aaa;
+	
+}
+
+#noticeView #btnViewList:hover{
+	cursor:pointer;
+	background-color:#f60;
+	color:#fff;
+}
+/* customerWriteNotice*/
+#writeNotice{
+	width:1280px;
+	min-height:900px;
+	line-height:1.5em;
+	margin:0 auto;
+}
+#writeNotice #summernote{
+	min-height:250px;
+}
+#writeNotice h1{
+	text-align:center;
+	font-size:28px;
+	margin-top:50px;
+	font-weight:bold;
+	margin-bottom:80px;
+}
+
+#writeNotice #noticeWrite_container{
+	display:inline-block;
+	margin-left:200px;
+	
+}
+#writeNotice #noticeWrite_container label{
+	margin:20px 5px;
+	position:relative;
+	bottom:5px;
+	
+}
+#writeNotice #noticeWrite_container input{
+	display:inline-block;
+	margin-right:20px;
+	margin-bottom:10px;
+}
+#writeNotice #notice_doc{
+	width:900px;
+}
+
+#writeNotice #btnSaveNotice{
+	position:relative;
+	left:650px;
+	background-color:#fff;
+	border:2px solid #555;
+	color:#000;
+	width:80px;
+	height:30px;
+}
+#writeNotice #btnSaveNotice:hover{
+	background-color:#f60;
+	color:#fff;
+	cursor:pointer;
+}
+#writeNotice #btnViewList:hover{
+	background-color:#f60;
+	color:#fff;
+	cursor:pointer;
+}
+#writeNotice  #btnViewList{
+	position:relative;
+	left:470px;
+	background-color:#fff;
+	border:2px solid #555;
+	color:#000;
+	width:80px;
+	height:30px;
+}
+/*FAQ*/
+#auction_faq{
+	width:1280px;
+	min-height:1000px;
+	margin:0px auto;
+	box-sizing:border-box;
+}
+
+#auction_faq h1{
+	text-align:center;
+	font-weight:bold;
+	margin-bottom:90px;
+	font-size:28px;
+	padding-top:32px;
+}
+#auction_faq .container_faq .faq{
+	border-top:2px solid #aaa;
+	width:1000px;
+	margin: 10px auto;
+	list-style:none;
+	padding:0;
+}
+/*faq 카테고리*/
+#auction_faq .container_faq .faq li{
+	list-style-type:none;
+	display:inline-block;
+	margin-top:10px;
+	margin-left:7px;
+	background-color:#eee;
+	width:85px;
+	height:33px;
+	text-align:center;
+	font-size:18px;
+	cursor:pointer;
+	padding-top:8px;
+	
+}
+
+#auction_faq .faq_descList .faq_desc ul{
+	margin:0 auto;
+	width:1000px;
+	line-height:1.7em;
+	font-size:16px;
+}
+
+#auction_faq .faq_descList .faq_desc ul li{
+	margin:5px;
+	border:2px solid #ddd; 
+}
+#auction_faq .faq_desc ul input{
+	display:none;
+}
+#auction_faq .faq_descList ul label:hover{
+	cursor:pointer;
+	
+}
+#auction_faq .faq_descList ul label::before{ /*체크박스*/
+	display:block;
+	content:"▷";
+	color:#000;
+	margin-right:8px;
+	float:left;
+	
+}
+#auction_faq .faq_descList ul input:checked + label::before{/*내용 펼쳤을때 화살표*/
+	content:"▼";
+}	
+#auction_faq .faq_descList ul div{
+	display:none;
+	color:#333;
+	overflow:hidden;
+	padding:10px 0 10px 30px;
+	box-sizing:border-box;
+	transition:max-height 0.4s;
+}
+#auction_faq .faq_descList ul input:checked + label + div{
+	display:block;
+}
+.clicked_menu{
+	border:2px solid #000;
+}
+
+
+
+
+

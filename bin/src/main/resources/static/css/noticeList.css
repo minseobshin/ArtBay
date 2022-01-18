@@ -1,0 +1,113 @@
+@charset "UTF-8";
+#noticeList{
+	margin:0 auto;
+}
+#noticeList h1{
+	height:160px;
+	font-size:30px;
+	text-align:center;
+	font-weight:bolder;
+	padding-top:40px;
+}
+#noticeList #notice{
+	position:relative;
+	min-height:600px;
+	line-height:1.5em;
+	width:900px;
+	margin:0 auto;
+}
+#noticeList #noticeSearch{
+	width:900px;
+	margin:10px auto;
+}
+#noticeList #noticeSearch #findZone{
+	float:right;
+}
+
+#noticeList #notice #title{
+	background-color:#ddd;
+	height:30px;
+	
+}
+
+#noticeList #notice .title{
+	display:inline-block;
+	text-align:center;
+	width:650px;
+	text-align:center;
+	overflow:hidden;
+}
+#noticeList #notice .noticeDate{
+	display:inline-block;
+	text-align:center;
+	width:100px;
+	text-align:center;
+}
+#noticeList #notice .hit{
+	display:inline-block;
+	text-align:center;
+	width:70px;
+	text-align:center;
+}
+#noticeList #notice #rows #row{
+	border-bottom:2px solid #ddd;
+	height:30px;
+}
+#noticeList #notice #title .chkDeleteNotice{
+	position:relative;
+	top:-25px;
+}
+#noticeList #notice #rows .chkDeleteNotice{
+	position:relative;
+	top:-25px;
+}
+#noticeList #notice .chkDeleteNotice{
+	display:inline-block;
+	text-align:center;
+	width:80px;
+	margin-left:820px;
+	padding-bottom:28px;
+	
+}
+#noticeList #notice #row:hover{
+	background-color:#ddd;	
+	cursor:pointer;
+}
+#noticeList #btnZone #btnWriteNotice{
+	display:inline-block;
+	width:80px;
+	height:30px;
+	background-color:#fff;
+	margin-top:40px;
+}
+
+#noticeList #btnZone #btnWriteNotice:hover{
+	background-color:#f60;
+	color:#fff;
+	cursor:pointer;
+}
+#noticeList #btnZone{
+	margin-top:130px;
+	text-align:center;
+}
+#noticeList #btnZone #btnDeleteNotice{
+	display:inline-block;
+	width:100px;
+	height:30px;
+	background-color:#fff;
+	margin-top:40px;
+	margin-left:670px;
+}
+#noticeList #btnZone #btnDeleteNotice:hover{
+	color:#fff;
+	background-color:#f60;
+	cursor:pointer;
+}
+
+#noticeList #btnZone .here{
+	border:2px solid #0000a0;
+}
+
+#noticeList #deleteNotice_alert{
+	display:none;
+}

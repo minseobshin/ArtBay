@@ -1,0 +1,347 @@
+@charset "UTF-8";
+
+/* 회원가입, 회원가입 수정 페이지 공통부분 시작 */
+
+.h1{
+	width: 1280px;
+	margin: 0 auto;
+	margin-top: 50px;
+	margin-bottom: 30px;
+	font-size: 2em;
+	font-weight: bold;
+}
+
+.h3{
+	display: block;
+	font-size: 1.17em;
+	margin-top: 1em;
+	margin-bottom: 1em;
+	margin-left: 0;
+	margin-right: 0;
+	font-weight: bold;
+}
+
+.h5{
+	display: block;
+	font-size: .83em;
+	margin-top: 1.67em;
+	margin-bottom: 1.67em;
+	margin-left: 0;
+	margin-right: 0;
+	font-weight: bold;
+}
+
+.h6{
+	display: block;
+	font-size: .67em;
+	margin-top: 2.33em;
+	margin-bottom: 2.33em;
+	margin-left: 0;
+	margin-right: 0;
+	font-weight: bold;
+}
+
+#join{
+	width: 1280px;
+	margin: 0 auto;
+	border: 1px solid #f60;
+	border-radius: 4px;
+	padding: 0 20px 20px 20px;
+	box-sizing: border-box;
+}
+
+#memberResult{
+	width: 700px;
+	height: 400px;
+	margin: 0 auto;
+	margin-top: 20px;
+	border: 1px solid #f60;
+	border-radius: 4px;
+	padding: 0 20px 20px 20px;
+	box-sizing: border-box;
+	overflow: hidden;
+}
+
+#join2{
+	display: inline-block;
+}
+
+#btnCertification{
+	width: 615px;
+	height: 47px;
+	background-color: #f60;
+	border: 0;
+	font-weight: bolder;
+	color: white;
+}
+
+#btnZip, #btnOut, #btnOutChk, #btnOutCancel, #btnOk{
+	width: 100px;
+	height: 44px;
+	background-color: #f60;
+	border: 0;
+	font-weight: bolder;
+	color: white;
+}
+
+#mid, #irum, #phone, .email, #pwd, #newPwd, #newPwdChk, #pwdChk,
+#zip, #address, #address2, #certificationNumChk, #oldPwd{
+	width: 604px;
+	height: 40px;
+	margin: 5px 2px;
+}
+
+#birth{
+	width: 607px;
+	height: 40px;
+	margin: 5px 2px;
+}
+
+#gender{
+	width: 612px;
+	height: 45px;
+	margin: 5px 2px;
+}
+
+.join3{
+	text-align: center;
+	margin-top: 50px;
+}
+
+.join4{height: 160px;}
+
+#btnJoin, #btnModify{
+	width: 200px;
+	height: 47px;
+	background-color: #f60;
+	border: 0;
+	font-weight: bolder;
+	color: white;
+}
+
+#btnCertification:hover, #btnZip:hover, #btnJoin:hover, #btnOut:hover, #btnModify:hover,
+#btnOutChk:hover, #btnOutCancel:hover, #btnOk:hover{
+	background-color: white;
+	color: #f60;
+	border: 1px solid #f60;
+}
+
+#btnCertification:active, #btnZip:active, #btnJoin:active, #btnOut:active, #btnModify:active,
+#btnOutChk:active, #btnOutCancel:active, #btnOk:active{
+	background-color: #f60;
+	color: white;
+}
+
+/* 회원가입, 회원가입 수정 페이지 공통부분 끝 */
+
+/* 탈퇴화면 모달창 띄우기 옵션 시작 */
+
+#out_chk{
+	position: fixed;
+	z-index: 50;
+	background-color: rgba(0,0,0,0.7);
+	width: 100%;
+	height: 100%;
+	top: 0;
+	left: 0;
+	display: none;
+}
+
+#out_chk form{
+	position: relative;
+	background-color: white;
+	width: 1280px;
+	margin: 0 auto;
+	margin-top: 160px;
+	padding: 20px;
+	padding-top: 10px;
+	box-sizing: border-box;
+}
+
+/* 탈퇴화면 모달창 띄우기 옵션 끝 */
+
+/* 탈퇴화면 모달창 꾸미기 시작 */
+
+#out_chk form label{
+	display: inline-block;
+	margin-left: 15px;
+	margin-bottom: 10px;
+	width: 250px;
+}
+
+#out_chk form textarea{
+	width: 1200px;
+	height: 200px;
+	margin-left: 15px;
+}
+
+/* 탈퇴화면 모달창 꾸미기 끝 */
+
+/* 로그인화면 모달창 띄우기 옵션 시작 */
+
+#memberLogin{
+	position: fixed;
+	z-index: 999;
+	background-color: rgba(0,0,0,0.7);
+	width: 100%;
+	height: 100%;
+	top: 0;
+	left: 0;
+}
+
+#memberLogin2{
+	position: relative;
+	background-color: white;
+	width: 450px;
+	margin: 0 auto;
+	margin-top: 265px;
+	padding: 30px 20px 30px 30px;
+	box-sizing: border-box;
+}
+
+/* 로그인화면 모달창 띄우기 옵션 끝 */
+
+/* 로그인화면 모달창 꾸미기 시작 */
+
+#memberLogin2 h1{
+	text-align: center;
+	font-size: 28px;
+	font-weight: bolder;
+	margin-top: 20px;
+	margin-bottom: 20px;
+}
+
+#memberLogin2 h5{
+	display: inline-block;
+	width: 170px;
+	font-size: 12px;
+}
+
+#memberLogin2 a{
+	display: inline-block;
+	font-size: 12px;
+}
+
+.midLogin{
+	float: left;
+	width: 380px;
+	height: 50px;
+	margin-bottom: 10px;
+}
+
+.btnGoLogin{
+	width: 285px;
+	height: 44px;
+	background-color: #f60;
+	border: 0;
+	font-weight: bolder;
+	color: white;
+}
+
+#btnCancelLogin{
+	width: 100px;
+	height: 44px;
+	background-color: #f60;
+	border: 0;
+	font-weight: bolder;
+	color: white;
+}
+
+.btnGoLogin:hover, #btnCancelLogin:hover{
+	background-color: white;
+	color: #f60;
+	border: 1px solid #f60;
+}
+
+.btnGoLogin:active, #btnCancelLogin:active{
+	background-color: #f60;
+	color: white;
+}
+
+/* 로그인화면 모달창 꾸미기 끝 */
+
+/* 이메일인증 요청창 모달 배경 시작 */
+
+.emailCheck{
+	position: fixed;
+	z-index: 999;
+	background-color: rgba(0,0,0,0.7);
+	width: 100%;
+	height: 100%;
+	top: 0;
+	left: 0;
+	display: none;
+}
+
+.emailCheck2{
+	position: relative;
+	background-color: white;
+	width: 450px;
+	margin: 0 auto;
+	margin-top: 265px;
+	padding: 30px 20px 30px 30px;
+	box-sizing: border-box;
+	text-align: center;
+}
+
+/* 이메일인증 요청창 모달 배경 끝 */
+
+/* 이메일인증 요청창 모달 꾸미기 시작 */
+
+.emailCheck2 h3{
+	text-align: center;
+	font-size: 25px;
+	font-weight: bolder;
+	margin-top: 20px;
+	margin-bottom: 20px;
+}
+
+.irumc, .emailc{
+	float: left;
+	width: 380px;
+	height: 50px;
+	margin-bottom: 10px;
+}
+
+.btnEmailCheck{
+	width: 100px;
+	height: 45px;
+	background-color: #f60;
+	border: 0;
+	font-weight: bolder;
+	color: white;
+}
+
+.btnEmailCheck:hover{
+	background-color: white;
+	color: #f60;
+	border: 1px solid #f60;
+}
+
+.btnEmailCheck:active{
+	color: #f60;
+	background-color: white;
+	border: 1px solid #f60;
+}
+
+.btnEmailCheckCancel{
+	width: 100px;
+	height: 45px;
+	background-color: #f60;
+	border: 0;
+	font-weight: bolder;
+	color: white;
+}
+
+.btnEmailCheckCancel:hover{
+	background-color: white;
+	color: #f60;
+	border: 1px solid #f60;
+}
+
+.btnEmailCheckCancel:active{
+	color: white;
+	background-color: #f60;
+}
+
+/* 이메일인증 요청창 모달 꾸미기 끝 */

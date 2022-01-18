@@ -84,4 +84,31 @@ public class MemberService {
 		return c;
 	}
 	
+	//회원정보수정화면 비밀번호체크 후 정보조회 출력
+	public ArtBayVo pwdChkForModi(String mid, String pwd, String npwd) {
+		ArtBayVo vo = null;
+		
+		try {
+			vo = mapper.pwdChkForModi(mid);
+			if(vo.getPwd().equals(npwd)) {
+				vo.setOldPwd("passPwd");
+			}else {
+				vo.setOldPwd("failPwd");
+			}
+			
+		}catch(Exception e) {
+			e.printStackTrace();
+			vo.setOldPwd("err");
+		}
+		return vo;
+	}
+	
 }
+
+
+
+
+
+
+
+

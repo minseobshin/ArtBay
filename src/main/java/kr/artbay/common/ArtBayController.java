@@ -92,14 +92,24 @@ public class ArtBayController {
 	
 	//회원정보수정화면 비밀번호체크 후 정보조회 출력
 	@RequestMapping(value="/pwdChkForModi")
-	public void pwdChkForModi(ArtBayVo vo, HttpServletRequest req) { 
+	public String pwdChkForModi(ArtBaySessionVo sv, HttpServletRequest req) { 
 		HttpSession session = req.getSession();
-		vo = (ArtBayVo)session.getAttribute("vo");
-		String mid = vo.getMid();
-		String pwd = vo.getPwd();
-		System.out.println(mid);
-		System.out.println(pwd);
+		String npwd = sv.getOldPwd(); //사용자가 방금 입력한 pwd
+		sv = (ArtBaySessionVo)session.getAttribute("sv"); //세션에 있던 로그인 정보
+		String mid = sv.getMid();
+		String pwd = sv.getPwd();
+		
+		this.vo = memberService.pwdChkForModi(mid, pwd, npwd);		
+		System.out.println(vo.getOldPwd());
+		if(vo.getOldPwd().equals("passPwd")) {
+			c = "passPwd";
+		}else {
+			c = "failPwd";
+		}
+		
+		return c;
 	}
+	
 	//경매신청 페이지
 	@RequestMapping(value="/bidApplication" , method = {RequestMethod.POST,  RequestMethod.GET})
 	public ModelAndView bidApplication( HttpServletRequest req, Page page) {
