@@ -6,6 +6,7 @@ public class Page {
 	int startPage, endPage, totPage;
 	int nowPage=1;
 	String findStr="";
+	String sort="";
 
 	public Page() {}
 	
@@ -50,5 +51,7 @@ public class Page {
 	public void setNowPage(int nowPage) {this.nowPage = nowPage;}
 	public String getFindStr() {return findStr;}
 	public void setFindStr(String findStr) {this.findStr = findStr;}
+	public String getSort() {return sort;}
+	public void setSort(String sort) {this.sort = sort;}
 	
 }

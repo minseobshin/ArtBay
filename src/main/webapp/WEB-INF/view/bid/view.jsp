@@ -353,6 +353,7 @@
 			<input type="text" id="findStr" value="${page.findStr }"/>
 			<input type="text" name="nowPage" value="${page.nowPage }"/>
 			<input type="text" name="lot" id="lot" value="${vo.lot }"/>
+			<input type="text" name="sort" id="sort" value="${vo.sort }"/>
 		</div>
 </form>
 <script src="../js/artbay.js"></script>

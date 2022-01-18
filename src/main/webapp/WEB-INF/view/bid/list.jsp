@@ -38,8 +38,8 @@
 			</div>
 			<div class="search_option_boxes">
 				<!-- sort -->
-				<select class="page_combo1">
-					<option>정렬</option>
+				<select class="page_combo1" name="sort" onchange="search()">
+					<option value="default">정렬</option>
 					<option value="estimate_price_asec">낮은 추정가 순</option>
 					<option value="estimate_price_desc">높은 추정가 순</option>
 					<option value="init_price_asec">낮은 시작가 순</option>
@@ -139,7 +139,6 @@
 		<div id="hiddenZone">
 			<input type="text" name="nowPage" value="${page.nowPage }"/>
 			<input type="text" name="lot" id="lot" value="${vo.lot }"/>
-			<input type="text" name="order" id="order" value="${vo.sort }"/>
 		</div>
 	</div>
 </form>
