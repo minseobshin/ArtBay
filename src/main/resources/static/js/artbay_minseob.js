@@ -333,6 +333,11 @@ $(function(){
 	
 	//회원정보수정 화면 시작 =======================================================================
 	
+	$("#oldPwd").focusout(function(){
+		$param = $("#frm_join").serialize();
+		$.post('')
+	})
+	
 	$('#btnModify').click(function(){
 		window.open('mypageMemberResult', 'result', 'width=750, height=445, top=200, left=300');
 	})

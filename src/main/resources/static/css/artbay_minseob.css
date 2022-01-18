@@ -85,7 +85,7 @@
 }
 
 #mid, #irum, #phone, .email, #pwd, #newPwd, #newPwdChk, #pwdChk,
-#zip, #address, #address2, #certificationNumChk{
+#zip, #address, #address2, #certificationNumChk, #oldPwd{
 	width: 604px;
 	height: 40px;
 	margin: 5px 2px;

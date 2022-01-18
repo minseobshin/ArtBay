@@ -19,37 +19,39 @@
 <body>
 <div class='h1'>ArtBay 회원정보 수정</div>
 <div id='join'>
-<form name='frm_join' method='post'>
+<form name='frm_join' id='frm_join' method='post'>
+	<div class='h5'>회원정보 수정을 위해 먼저 현재 비밀번호를 입력한 후 진행해주세요.</div>
+	<div class='h5'>➢ 현재 비밀번호 입력</div>
+	<input type='button' name='btnCertification' id='btnCertification' value='계속 진행하시려면 현재 비밀번호를 입력해주세요.' disabled>
+	<input type='password' name='oldPwd' id='oldPwd' placeholder="현재 비밀번호">
 	<div class='h5'>➢ 개인정보 변경</div>
-	<input type='text' name='mid' id='mid' readonly="readonly">
-	<input type='text' name='irum' id='irum' readonly="readonly">
-	<input type='text' name='birth' id='birth' readonly="readonly">
-	<input type='text' name='phone' id='phone' readonly="readonly">
-	<input type='text' name='email' class='email' placeholder="이메일">
+	<input type='text' name='mid' id='mid' readonly="readonly" disabled>
+	<input type='text' name='irum' id='irum' readonly="readonly" disabled>
+	<input type='text' name='birth' id='birth' readonly="readonly" disabled>
+	<input type='text' name='phone' id='phone' placeholder="전화번호" disabled>
+	<input type='text' name='email' class='email' placeholder="이메일" disabled>
 	<br>
 	<div class='h5'>➢ 비밀번호 변경</div>
 	<div class='h5'>비밀번호 변경을 원하신다면, 현재 비밀번호를 기입 후, '새 비밀번호'란에 변경할 비밀번호를 입력하세요.</div>
-	<input type='password' name='pwd' id='pwd' required="required" placeholder="현재 비밀번호">
+	<input type='password' name='newPwd' id='newPwd' placeholder="새 비밀번호" disabled>
 	<br>
-	<input type='password' name='newPwd' id='newPwd' required="required" placeholder="새 비밀번호">
-	<br>
-	<input type='password' name='newPwdChk' id='newPwdChk' required="required" placeholder="새 비밀번호 확인">
+	<input type='password' name='newPwdChk' id='newPwdChk' placeholder="새 비밀번호 확인" disabled>
 	<br>
 	<div class='h5'>➢ 주소 변경</div>
-	<input type='text' name='zip' id='zip' required="required" readonly="readonly">
-	<input type='button' value='우편번호' name='btnZip' id='btnZip'>
+	<input type='text' name='zip' id='zip' readonly="readonly" disabled>
+	<input type='button' value='우편번호' name='btnZip' id='btnZip' disabled>
 	<br>
-	<input type='text' name='address' id='address' readonly="readonly">
-	<input type='text' name='address2' id='address2'>
+	<input type='text' name='address' id='address' readonly="readonly" disabled>
+	<input type='text' name='address2' id='address2' disabled>
 	<br>
 	<div class='join3'>
-		<input type='submit' name='btnModify' id='btnModify' value='수정'>
+		<input type='submit' name='btnModify' id='btnModify' value='수정' disabled>
 	</div>
 </form>
 <form name='frm_out' method='post'>
 	<!-- 탈퇴 버튼 누르면 배경 어두워지며 팝업생성 -->
 	<div class='h5'>➢ 회원 탈퇴</div>
-	<input type='button' name='btnOut' id='btnOut' value='탈퇴'>
+	<input type='button' name='btnOut' id='btnOut' value='탈퇴' disabled>
 </form>
 
 	<!-- 탈퇴시 확인 화면(모달창) -->
