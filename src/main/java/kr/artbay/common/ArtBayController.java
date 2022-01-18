@@ -33,7 +33,7 @@ public class ArtBayController {
 	AES aes = new AES();
 	Page page = new Page();
 	ArtBayVo vo = null;
-	//ArtBaySessionVo sv = null;
+	ArtBaySessionVo sv = null;
 	boolean b = false;
 	String c = "";
 	
@@ -68,13 +68,13 @@ public class ArtBayController {
 	
 	//회원 로그인
 	@RequestMapping(value="/memberLogin", method= {RequestMethod.POST})
-	public String memberLogin(ArtBayVo vo, HttpServletRequest req) {
+	public String memberLogin(ArtBaySessionVo sv, HttpServletRequest req) {
 		HttpSession session = req.getSession();
-		//this.c = memberService.memberLogin(vo);
+		this.c = memberService.memberLogin(sv);
 		if(c == "failMid" || c == "failPwd") {
 			session.invalidate();
 		}else {
-			session.setAttribute("vo", vo);
+			session.setAttribute("sv", sv);
 		}
 		return c;
 	}
