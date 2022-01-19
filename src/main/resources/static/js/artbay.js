@@ -18,6 +18,20 @@ artbay.view = function(lot){
 	})
 }
 
+artbay.othersView = function(lot){
+	$frm = $("#frm_view")[0];
+	$("#othersLot").val(lot);
+	$param = $("#frm_view").serialize();
+	$.ajax({
+		cache: false,
+		type: "POST",
+		data: $param,
+		success: function(){
+			window.location.href = "bidView?lot="+lot+"&nowPage="+$frm.nowPage.value;
+		}
+	})
+}
+
 artbay.page = function(nowPage){
 	$frm = $("#frm_list")[0];
 	$frm.nowPage.value = nowPage;
@@ -54,7 +68,6 @@ function search(){
 		cache: false,
 		async: true,
 		success: function(){
-			alert($param)
 			window.location.href = "/bidList?cnt="+cnt+"&findStr="+$frm.findStr.value+"&nowPage="+$frm.nowPage.value+"&sort="+sort;
 			if(findStr=="") {
 				$(".selected_option_area").hide();
@@ -83,6 +96,10 @@ function search(){
 }
 
  $(function(){
+	$(window).scroll(function(){
+    $(".view_right").css("top", Math.max(0, 100 - $(this).scrollTop()));
+	});
+
 	$frm = $("#frm_list")[0];
 	//$("form[name='frm_view']").attr({'min':0.5000, 'max':1.5000});
 	/* 리스트 화면 작동 */
@@ -91,8 +108,8 @@ function search(){
 		search();
 	});
 	
-	
 	$("#navAll").on("click", function(){
+		search();
 		$("#navAll").addClass("orangeLi");
 		$("#navPaint").removeClass("orangeLi");
 		$("#navPottery").removeClass("orangeLi");
@@ -101,6 +118,7 @@ function search(){
 	})
 	
 	$("#navPaint").on("click", function(){
+		search();
 		$("#findStr").val("");
 		$("#navAll").removeClass("orangeLi");
 		$("#navPaint").addClass("orangeLi");
@@ -110,6 +128,7 @@ function search(){
 	})
 	
 	$("#navPottery").on("click", function(){
+		search();
 		$("#findStr").val("");
 		$("#navAll").removeClass("orangeLi");
 		$("#navPaint").removeClass("orangeLi");

@@ -14,7 +14,6 @@
 			<ul>
 				<li><a href="bidList">진행중인 경매</a></li>
 				<li><a href="bidResult">경매결과</a></li>
-				<li><a href="bidApplication">경매신청</a></li>
 			</ul>
 		</li>			
 		<li><a href="#">How To</a>
@@ -28,7 +27,7 @@
 		<li><a href="#">Customer Service</a>
 			<ul>
 				<li><a href="customerFAQ">자주묻는질문(FAQ)</a></li>
-				<li><a href="customerConsultationList">1:1상담문의</a></li>
+				<li><a href="qnaList">1:1상담문의</a></li>
 				<li><a href="customerNoticeList">공지사항</a></li>
 			</ul>
 		</li>

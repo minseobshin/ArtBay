@@ -1,0 +1,99 @@
+CREATE TABLE bidding(
+serial		INT					PRIMARY KEY,
+lot 		INT,
+mid 		VARCHAR(100),	
+bid_price 	INT,
+bid_date 	DATETIME
+);
+
+CREATE TABLE winning_bid(
+lot 			INT					PRIMARY KEY,
+mid 			VARCHAR(100),	
+winbid_price 	INT,
+winbid_date 	DATETIME,
+bid_type		VARCHAR(10),
+CONSTRAINT chk_bid_type CHECK (bid_type IN ("bid", "direct"))
+);
+
+CREATE TABLE artwork(
+lot 			INT 					PRIMARY KEY,
+mid 			VARCHAR(100),
+artwork_name 	VARCHAR(200),
+artwork_ctgr 	VARCHAR(10),
+artist 		VARCHAR(50),
+material 		VARCHAR(500),
+artwork_size 	VARCHAR(50),
+start_price 	INT,
+current_price 	INT,
+regist_date 	datetime,
+due_date 		datetime,
+hit 			INT,
+direct_price	INT,
+bid_cnt		INT,
+crnt_status	VARCHAR(10),
+CONSTRAINT chk_artwork CHECK(artwork_ctgr IN ("paint", "pottery"))
+);
+
+CREATE TABLE notice(
+serial 		INT 					PRIMARY KEY		AUTO_INCREMENT,
+title			VARCHAR(200) 		NOT NULL,
+doc 			VARCHAR(4000) 		NOT NULL,
+hit 			INT 					DEFAULT 0,
+not_date 		DATETIME	
+);
+
+CREATE TABLE faq(
+serial 		INT 					PRIMARY KEY		AUTO_INCREMENT ,
+ctgr 			VARCHAR(20) NOT NULL,
+title 			VARCHAR(200) 		NOT NULL,
+doc 			VARCHAR(4000) 		NOT NULL
+);
+
+CREATE TABLE artbay_member(
+mid 			VARCHAR(100)		 PRIMARY KEY,
+injung 		VARCHAR(100),
+irum 			VARCHAR(50),
+birth 			VARCHAR(100),
+phone 		VARCHAR(100),
+email 		VARCHAR(100),
+gender 		VARCHAR(10),
+age 			INT,
+pwd 			VARCHAR(100),
+zip 			VARCHAR(50),
+address 		VARCHAR(250),
+address2 		VARCHAR(250),
+mdate 		DATETIME,
+m_status		VARCHAR(10),
+CONSTRAINT status_info CHECK (m_status in("Y", "N") )
+);
+
+CREATE TABLE qna(
+qna_num 		INT					PRIMARY KEY,
+mid 			VARCHAR(100),
+qna_title 		VARCHAR(200),
+qna_doc 		VARCHAR(4000),
+qna_date 		DATETIME,
+grp 			INT,
+seq 			INT,
+deep 		INT,
+qna_status 	VARCHAR(10),
+CONSTRAINT chk_status CHECK(qna_status in ("Y", "N"))
+);
+
+CREATE TABLE artimg(
+serial 		INT					 PRIMARY KEY		AUTO_INCREMENT,
+lot 			INT,
+imgFile 		VARCHAR(200),
+thumbnail 	INT
+);
+
+ALTER TABLE artwork ADD CONSTRAINT fk_aw_m FOREIGN KEY (mid) REFERENCES artbay_member(mid) ON DELETE CASCADE ON UPDATE CASCADE;
+ALTER TABLE artimg ADD CONSTRAINT fk_ai_aw FOREIGN KEY (lot) REFERENCES artwork(lot) ON DELETE CASCADE ON UPDATE CASCADE;
+ALTER TABLE bidding ADD CONSTRAINT fk_bd_aw_lot FOREIGN KEY (lot) REFERENCES artwork(lot) ON DELETE CASCADE ON UPDATE CASCADE;
+ALTER TABLE bidding ADD CONSTRAINT fk_bd_aw_mid FOREIGN KEY (mid) REFERENCES artwork(mid) ON DELETE CASCADE ON UPDATE CASCADE;
+ALTER TABLE winning_bid ADD CONSTRAINT fk_wb_bd_lot FOREIGN KEY (lot) REFERENCES bidding(lot) ON DELETE CASCADE ON UPDATE CASCADE;
+ALTER TABLE winning_bid ADD CONSTRAINT fk_wb_bd_mid FOREIGN KEY (mid) REFERENCES bidding(mid) ON DELETE CASCADE ON UPDATE CASCADE;
+ALTER TABLE qna ADD CONSTRAINT fk_qna_m FOREIGN KEY (mid) REFERENCES artbay_member(mid) ON DELETE CASCADE ON UPDATE CASCADE;
+commit;
+
+alter table artwork modify column direct_price int default 0;

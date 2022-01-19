@@ -51,6 +51,19 @@ public class ListViewService {
 		return vo;
 	}
 	
+	public ArtBayVo viewOthers(int lot) {
+		ArtBayVo vo = new ArtBayVo();
+		List<ArtBayAtt> list = new ArrayList<ArtBayAtt>();
+		list = mapper.viewOthers(lot);
+		vo.setAttList(list);
+		for(int i=0; i<list.size(); i++) {
+			//System.out.println(list.get(i).getImgFile());
+			//System.out.println(vo.getAttList().get(i).getImgFile());
+			//System.out.println(vo.getAttList().get(i).getLot());
+		}
+		return vo;
+	}
+	
 	public Page getPage() {return page;}
 	public void setPage(Page page) {this.page = page;}
 }

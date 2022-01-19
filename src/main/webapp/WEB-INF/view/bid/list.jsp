@@ -135,7 +135,7 @@
 			</c:if>
 		</div>
 		<div id="hiddenZone">
-			<input type="text" name="nowPage" value="${page.nowPage }"/>
+			<input type="text" name="nowPage" id="nowPage" value="${page.nowPage }"/>
 			<input type="text" name="lot" id="lot" value="${vo.lot }"/>
 		</div>
 	</div>

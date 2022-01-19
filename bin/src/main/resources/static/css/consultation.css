@@ -1,0 +1,402 @@
+@charset "UTF-8";
+*{
+	box-sizing:border-box; 
+}
+div{
+	display: block; 
+}
+h2{
+    font-size: 30px;
+    text-align: center;
+}
+form[name="frmBoard"] strong{
+	font-weight: bold;
+}
+#subContentsWrap{
+	min-height: 850px;
+}
+
+p {
+    margin: 0;
+}
+table {
+    border-spacing: 0;
+    border-collapse: collapse;
+}
+ 
+.applyform {
+    position: relative;
+    height: 120px;
+    background-color: #f9f9f9;
+    margin-bottom: 40px;
+}
+.applyform > h1 {
+    margin-top: 10px;
+    position: absolute;
+    top: 40%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-size: 30px;
+    font-weight: 700;
+    color: #333333;
+    white-space: nowrap;
+}
+#subContentsWrap {
+    margin-bottom: 50px;
+}
+.container {
+    width: 1280px;
+    margin-right: auto;
+    margin-left: auto;
+}
+.boxBar {
+    border: 1px solid #e0e0e0;
+    padding: 50px 70px;
+    background: #f8f8f8;
+}
+
+.list-default {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+
+.list-bul-blue li {
+    clear: both;
+    background: url(../img/list-bul-blue.png) no-repeat 0 2px;
+    padding-left: 25px;
+}
+.boxBar .list-bul-blue li + li {
+    margin-top: 10px;
+}
+
+
+
+.tableDefault > table {
+    width: 100%;
+    border-top: 1px solid #111 !important;
+}
+.tableDefault > table > tbody > tr > th:first-child, .tableDefault > table > tbody > tr > td:first-child {
+    border-left: 0;
+}
+.tableDefault > table > tbody > tr > th {
+    background: #f8f8f8;
+    color: #444444;
+    font-weight: bold;
+    font-size: 15px;
+    text-align: center;
+    width: 200px;
+}
+.tableDefault > table > tbody > tr > td {
+    font-size: 14px;
+}
+.tableDefault > table > tbody > tr > td, .tableDefault > table > tbody > tr > th {
+    padding: 7px 25px;
+    vertical-align: middle;
+    border-bottom: 1px solid #ddd;
+    border-left: 1px solid #ddd;
+    height: 45px;
+}
+.form-control {
+    display: block;
+    width: 100%;
+    height: 34px;
+    padding: 6px 12px;
+    padding-top: 6px;
+    padding-right: 12px;
+    padding-bottom: 6px;
+    padding-left: 12px;
+    font-size: 14px;
+    line-height: 1.42857143;
+    color: #555;
+    background-color: #fff;
+    background-image: none;
+    border: 1px solid #dbdbdb;
+}
+.material-ch {
+    margin-right: 5px;
+    font-family: inherit;
+    background: url(/img/schedule-img.png) no-repeat 95% 50%;
+    appearance: none;
+}
+
+.form-inline .form-group {
+  display: inline-block;
+  margin-bottom: 0;
+  vertical-align: middle;
+}
+.form-inline .form-control {
+  display: inline-block;
+  width:auto;
+  vertical-align: baseline;
+}
+.form-inline .form-control.width-md {
+	width: 25%;
+}
+.fcRed {
+    color: #e41515;
+}
+textarea.form-control {
+    height: auto;
+}
+div.file-uploader{
+	position: relative;
+	border: 1px solid #ccc;
+}
+div.uploader-box{
+	display: inline-block;
+}
+.tui-file-uploader .tui-btn {
+    overflow: hidden;
+    font-size: 13px;
+    vertical-align: top;
+    background: #4b96e6;
+    cursor: pointer;
+}
+.tui-file-uploader .tui-btn-upload {
+    position: relative;
+}
+.tui-file-uploader .tui-btn-upload .tui-btn-txt {
+    display: inline-block;
+    vertical-align: top;
+    line-height: 32px;
+}
+.tui-file-uploader .tui-input-file {
+    position: absolute;
+    right: 0;
+    top: 0;
+    height: 100%;
+    opacity: 0;
+    cursor: pointer;
+}
+
+.checkbox input[type="checkbox"], .checkbox-inline input[type="checkbox"] {
+    position: absolute;
+    margin-left: -20px;
+}
+.checkbox-inline {
+    position: relative;
+    display: inline-block;
+    margin-bottom: 0;
+    margin-right: 10px;
+    font-weight: normal;
+    cursor: pointer;
+    padding-left: 20px;
+    vertical-align: baseline;
+}
+
+.col-xs-8{
+    float: left;
+    position: relative;
+    min-height: 1px;
+    margin-right: 10px;
+}
+
+
+.btnWrap {
+    margin-top: 30px;
+    align-items: center;
+    justify-content: center;
+    
+}
+.bwflex {
+    display: flex;
+}
+.btnWrap .btn {
+	display: block;
+    width: 215px;
+    height: 48px;
+    line-height: 48px;
+    text-align: center;
+    text-decoration-line: none;
+}
+.btn.btn-save{
+    margin-right: 20px;    
+    border: 1px solid #666666;
+    background-color: #ffffff;
+    color: #000000;
+}
+.btn.btn-cancel {
+    background-color: #333333;
+    color: #ffffff;
+}
+
+
+
+
+/* LIST*/
+.fa {
+    font: normal normal normal 14px/1 FontAwesome;
+}
+
+#read-txt.collapse {
+    display: block;
+}
+.table-vertical td .checkbox-inline {
+    margin-right: 20px;
+}
+.input-group .form-control {
+    display: table-cell;
+}
+
+button, html input[type="button"], input[type="reset"], input[type="submit"] {
+    -webkit-appearance: button;
+    cursor: pointer;
+}
+
+.table-vertical td:first-child {
+    border-left: 1px #e0e0e0 solid !important;
+}
+.btnSearch {
+    text-align: center;
+}
+.btnSearch .btn {
+	display: inline-block;
+    width: 180px;
+    height: 40px;
+    line-height: 08px;
+    text-align: center;
+    text-decoration-line: none;
+}
+.btn.btn-search{
+    margin-right: 20px;    
+    border: 1px solid #666666;
+    background-color: #ffffff;
+    color: #000000;
+}
+.btn.btn-search-delete{
+    background-color: #333333;
+    color: #ffffff;
+}
+
+.pull-left {
+    float: left ;
+}
+
+form[name="frmBoard"] .clearfix:after{
+	display: table;
+    content: " ";
+    clear: both;
+}
+
+
+.boardList {
+    border-top: 1px solid #1f1f1f;
+}
+.boardList > .bTitle {
+    background: #f8f8f8;
+    display: table;
+    text-align: center;
+    font-weight: bold;
+}
+.boardList > ul, .boardList ul.bContent {
+    display: table;
+    width: 100%;
+    border-bottom: 1px solid #ddd;
+}
+.boardList ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+.boardList ul.bTitle > li.num {
+    width: 12%;
+}
+.boardList > ul > li,  .boardList ul.bContent > li{
+    display: table-cell;
+    vertical-align: middle;
+    padding: 12px 0;
+}
+
+.boardList .bContent a.collapsed {
+    font-weight: normal;
+    text-decoration-line: none;
+}
+.boardList ul.bContent > li.hit, .boardList ul.bTitle > li.hit {
+    width: 10%;
+}
+.boardList ul.bContent > li.date, .boardList ul.bTitle > li.date {
+    width: 10%;
+}
+.text-left {
+    text-align: left !important;
+}
+.fcBlack {
+    color: #111111 !important;
+}
+.boardList ul.bContent > li.sortation, .boardList ul.bTitle > li.sortation {
+    width: 12%;
+}
+
+.boardList ul.bTitle > li.hit {
+    width: 10%;
+}
+.boardList ul.bTitle > li.date {
+    width: 10%;
+}
+.text-center {
+    text-align: center !important;
+}
+.visible-xs-block, .visible-xs-inline, .visible-xs-inline-block, .visible-sm-block, .visible-sm-inline, .visible-sm-inline-block, .visible-md-block, .visible-md-inline, .visible-md-inline-block, .visible-lg-block, .visible-lg-inline, .visible-lg-inline-block {
+    display: none !important;
+}
+.text-right {
+    text-align: right;
+}
+.btnWrap.view .btn {
+	display: inline-block;
+	text-align: center;
+    width: 100px;
+    border: 1px solid #666666;
+    background-color: #ffffff;
+    color: #000000;
+    font-size: 15px;
+    cursor: pointer;
+}
+.pager {
+    padding-left: 0;
+    margin: 20px 0;
+    text-align: center;
+    list-style: none;
+}
+.pagination {
+    display: inline-block;
+    padding-left: 0;
+    margin: 20px 0;
+    border-radius: 4px;
+}
+.pager li {
+    display: inline;
+}
+.pagination > li:first-child > a, .pagination > li:first-child > span {
+    margin-left: 0;
+}
+.pager li > a, .pager li > span {
+    display: inline-block;
+    padding: 5px 12px;
+    background-color: #fff;
+    border: 1px solid #ddd;
+    margin: 0 3px;
+    border-radius: 4px;
+}
+.pagination > li > a, .pagination > li > span {
+    position: relative;
+    float: left;
+    padding: 5px 10px;
+    margin: 0 2px;
+    line-height: 1.42857143;
+    color: #666;
+    text-decoration: none;
+    background-color: #fff;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+}
+.pagination > .active > a{
+    z-index: 3;
+    color: #fff;
+    cursor: default;
+    background-color: #222;
+    border-color: #222;
+}
+
+

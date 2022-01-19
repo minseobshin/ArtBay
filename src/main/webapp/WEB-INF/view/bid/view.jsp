@@ -11,7 +11,13 @@
 <link rel="stylesheet" href="css/index.css">
 <link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Open+Sans:400,300,700,800">
 <link rel="stylesheet" type="text/css" href="../css/artbay.css">
-<script src="js/index.js"></script>
+<script src="../js/index.js"></script>
+<script src="../js/artbay.js" charset="UTF-8"></script>
+
+<link rel="stylesheet" type="text/css" href="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css"/>
+<script type="text/javascript" src="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js"></script>
+				
+
 <body>
 <form name="frm_view" id="frm_view" method="post">
 	<div class="view_left">
@@ -340,7 +346,10 @@
 			<input type="button" class="btnBidApplyFinal" value="응찰하기"  onclick="modalOn($('.bid_caution'))"/>
 			</div>
 		</div>
+		<div class="idle_view_right">
 	</div>
+	</div>
+	
 	<div class="caution">
 			<h3>Condition Report</h3>
 			<div class="caution_inquiry">
@@ -349,13 +358,34 @@
 
 			</div>
 	</div>
+	<div class="otherWorks" style="display:inline-block;">
+		<c:forEach var="atts" items="${others }" varStatus="status">
+			<div>
+				<img name="otherWorksImg" id="otherWorksImg" src="${atts.imgFile }"
+					onclick="artbay.othersView(${atts.lot})"/>
+			</div>
+		</c:forEach>
+	</div>
 	<div id="hiddenZone">
-			<input type="text" id="findStr" value="${page.findStr }"/>
-			<input type="text" name="nowPage" value="${page.nowPage }"/>
-			<input type="text" name="lot" id="lot" value="${vo.lot }"/>
-			<input type="text" name="sort" id="sort" value="${vo.sort }"/>
-		</div>
+		<input type="text" name="findStr" 	id="findStr" value="${page.findStr }"/>
+		<input type="text" name="nowPage"	id="nowPage" value="${page.nowPage }"/>
+		<input type="text" name="lot"		id="lot" value="${vo.lot }"/>
+		<input type="text" name="othersLot" id="othersLot" />
+		<input type="text" name="sort" 		id="sort" value="${page.sort }"/>
+	</div>
 </form>
-<script src="../js/artbay.js"></script>
+ <script type="text/javascript">
+   $(document).ready(function(){
+		$('.otherWorks').slick({
+			slidesToShow: 5,
+			slidesToScroll: 1,
+			prevArrow: '<div class="arrPrev" style="float: left;"><span height:290px></span></div>',
+			nextArrow: '<div class="arrNext" style="float: right;"><span></span></div>',
+		});
+   });
+ </script>
+
+
+
 </body>
 </html>

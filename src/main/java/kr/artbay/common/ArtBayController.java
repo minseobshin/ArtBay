@@ -14,9 +14,11 @@ import javax.servlet.http.HttpSession;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.servlet.ModelAndView;
 
+import kr.artbay.mybatis.ApplicationService;
 import kr.artbay.mybatis.FaqService;
 import kr.artbay.mybatis.MemberService;
 import kr.artbay.mybatis.NoticeService;
@@ -29,6 +31,8 @@ public class ArtBayController {
 	MemberService memberService;
 	@Autowired
 	NoticeService noticeService;
+	@Autowired
+	ApplicationService applicationService;
 	
 	AES aes = new AES();
 	Page page = new Page();
@@ -36,6 +40,7 @@ public class ArtBayController {
 	ArtBaySessionVo sv = null;
 	boolean b = false;
 	String c = "";
+	PrintWriter out;
 	
 	/*gitSpring 컨트롤러 내용
 	String msg="";
@@ -70,6 +75,7 @@ public class ArtBayController {
 	@RequestMapping(value="/memberLogin", method= {RequestMethod.POST})
 	public String memberLogin(ArtBaySessionVo sv, HttpServletRequest req) {
 		HttpSession session = req.getSession();
+		session.setMaxInactiveInterval(10*360);
 		this.c = memberService.memberLogin(sv);
 		if(c == "failMid" || c == "failPwd") {
 			session.invalidate();
@@ -87,16 +93,65 @@ public class ArtBayController {
 	}
 	
 	//회원정보수정화면 비밀번호체크 후 정보조회 출력
+	@ResponseBody
 	@RequestMapping(value="/pwdChkForModi")
-	public void pwdChkForModi(ArtBayVo vo, HttpServletRequest req) { 
+	public ArtBayVo pwdChkForModi(ArtBaySessionVo sv, HttpServletRequest req) { 
 		HttpSession session = req.getSession();
-		vo = (ArtBayVo)session.getAttribute("vo");
-		String mid = vo.getMid();
-		String pwd = vo.getPwd();
-		System.out.println(mid);
-		System.out.println(pwd);
+		String npwd = sv.getOldPwd(); //사용자가 방금 입력한 pwd
+		sv = (ArtBaySessionVo)session.getAttribute("sv"); //세션에 있던 로그인 정보
+		String mid = sv.getMid();
+		String pwd = sv.getPwd();
+		
+		this.vo = memberService.pwdChkForModi(mid, pwd, npwd);		
+		System.out.println(vo.getOldPwd());
+		if(vo.getOldPwd().equals("passPwd")) {
+			c = "passPwd";
+		}else {
+			c = "failPwd";
+		}
+		
+		return vo;
 	}
 	
+	//경매신청 페이지
+	@RequestMapping(value="/bidApplication" , method = {RequestMethod.POST,  RequestMethod.GET})
+	public ModelAndView bidApplication( HttpServletRequest req, Page page) {
+		HttpSession session = req.getSession();
+		sv = (ArtBaySessionVo)session.getAttribute("sv");
+		String mid = sv.getMid();
+		ModelAndView mv = new ModelAndView();
+		vo = applicationService.memberview(mid);
+		mv.addObject("vo", vo);
+		mv.addObject("page", page);
+		mv.setViewName("bid.application");
+		return mv;
+	}
+	
+	//경매신청 insert
+	@RequestMapping(value="/insertArtWorSave", method= {RequestMethod.POST})
+	public void insertArtWorSave(ArtBayVo vo, HttpServletResponse resq,  HttpServletRequest req) {
+		try {
+			HttpSession session = req.getSession();
+			sv = (ArtBaySessionVo)session.getAttribute("sv");
+			String mid = sv.getMid();
+			out = resq.getWriter();
+			vo.setMid(mid);
+			vo.setCrnt_status("경매중");
+			b = applicationService.insertArtwork(vo);
+			String temp = "{'flag':'%s'}";
+			String flag ="";
+			if(b) {
+				flag = "OK";
+			}else {
+				flag = "Fail";
+			}
+			String json = String.format(temp, flag);
+			json = json.replaceAll("'", "\"");
+			out.print(json);
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+	}
 
 	 
 

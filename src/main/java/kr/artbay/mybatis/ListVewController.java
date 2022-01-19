@@ -10,7 +10,6 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 
-import jakarta.servlet.http.HttpServletRequest;
 import kr.artbay.common.AES;
 import kr.artbay.common.ArtBayAtt;
 import kr.artbay.common.ArtBayVo;
@@ -48,18 +47,26 @@ public class ListVewController {
 	@RequestMapping(value="/bidView", method= {RequestMethod.POST, RequestMethod.GET})
 	public ModelAndView bidView(@RequestParam(value="lot", required=false) int lot,
 			@RequestParam(value="nowPage", required=false) int nowPage,
+			@RequestParam(value="sort", required=false) String sort,
 			Page page){
 		ModelAndView mv = new ModelAndView();
 		vo = service.view(lot);
+		page.setSort(sort);
 		mv.addObject("vo", vo);
 		List<ArtBayAtt> att = new ArrayList<ArtBayAtt>();
 		for(int i=0; i<vo.getAttList().size(); i++) {
 			att.add(vo.getAttList().get(i));
 		}
 		mv.addObject("att", att);
+		
+		//작가의 다른 작품들
+		ArtBayVo voOthers = new ArtBayVo();
+		voOthers = service.viewOthers(lot);
+		List<ArtBayAtt> others = voOthers.getAttList();
+		
+		mv.addObject("others", others);
 		mv.addObject("page", page);
 		mv.setViewName("bid.view");
-		System.out.println("됨5");
 		return mv;
 	}
 }

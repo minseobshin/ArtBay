@@ -65,6 +65,7 @@
 			<input type='text' name='irum' class='irumc' placeholder='이름' required="required">
 			<input type='text' name='to_name' id='to_name' class='emailc' placeholder="이메일" required="required">
 			<input type='submit' name='btnEmailCheck' id='btnEmailCheck' class='btnEmailCheck' value='보내기'>
+			<input type='hidden' name='btnEmailCheck2' id='btnEmailCheck2' class='btnEmailCheck' value='보내기'>
 			<input type='button' name='btnEmailCheckCancel' class='btnEmailCheckCancel' value='취소'>
 			<script type="text/javascript">emailjs.init('user_Bmru9OgJfTWiBNKpR24gp')</script>
 			<input type='hidden' name='certificationNum' id='certificationNum'>

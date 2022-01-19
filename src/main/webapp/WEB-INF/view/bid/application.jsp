@@ -6,13 +6,12 @@
 <meta charset="UTF-8">
 <title>Insert title here</title>
 <link rel='stylesheet' type='text/css' href="./css/application2.css">
-<link rel='stylesheet' type='text/css' href="./css/basic.css">
 <script src="https://code.jquery.com/jquery-3.6.0.js"></script>
+<script type="text/javascript" src="./js/application.js"></script>
 
 </head>
 <body>
 	
-<form name='frm_bay_insert' id='frm_bay_insert' method="post">
 <!-- START KA-CONTAINER -->
 <div class="ka-container ">
 
@@ -72,30 +71,32 @@
             <table class="apply-table">
                 <tbody><tr>
                     <td>이름</td>
-                    <td>홍길동</td>
+                    <td>${vo.irum}</td>
                 </tr>
                 <tr>
                     <td>주소</td>
-                    <td> 서울 관악구</td>
+                    <td>${vo.address}</td>
                 </tr>
                 <tr>
                     <td>휴대전화</td>
-                    <td>010-2222-3333</td>
+                    <td>${vo.phone}</td>
                 </tr>
                 <tr>
                     <td>이메일</td>
-                    <td>test@naver.com</td>
+                    <td>${vo.email}</td>
                 </tr>
             </tbody></table>
         </div>
         <div class="conapply-form">
             <h5>위탁작품 정보</h5>
+<form name='frm_bay_insert' id='frm_bay_insert' method="post">
             <table class="apply-table">
-                <tbody><tr>
+                <tbody>
+                <tr>
                     <td>작가명</td>
                     <td>
                         <div id="artist-area">
-                            <input id="artist" type="text" >
+                            <input id="artist" name="artist" type="text" >
                         </div>
                     </td>
                 </tr>
@@ -103,7 +104,7 @@
                     <td class="essential"><span>작품명</span></td>
                     <td>
                         <div>
-                            <input id="artwk_name" class="apply-input" type="text" >
+                            <input id="artwork_name" name="artwork_name" class="apply-input" type="text" >
                         </div>
                     </td>
                 </tr>
@@ -111,11 +112,11 @@
                     <td>작품의 카테고리</td>
                     <td>
                         <div>
-                            <select id="artwk_ctgr" class="material-ch ctgr" >
+                            <select id="artwork_ctgr" name="artwork_ctgr" class="material-ch ctgr" >
                                 <option value="">카테고리를 선택해 주세요.</option>
-                                <option value="001">그림</option>
-                                <option value="002">사진</option>
-                                <option value="003">도자기</option>
+                                <option value="paint">그림</option>
+                                <option value="photo">사진</option>
+                                <option value="pottery">도자기</option>
                             </select>
                         </div>
                     </td>
@@ -124,14 +125,14 @@
                     <td>작품의 재료</td>
                     <td>
                         <div>
-                            <select id="material" class="material-ch" >
+                            <select id="material" name="material" class="material-ch" >
                                 <option value="">재료를 선택해 주세요.</option>
-                                <option value="001">캔버스의 유채</option>
-                                <option value="002">종이에 채색</option>
-                                <option value="003">사진</option>
-                                <option value="004">판화</option>
-                                <option value="005">조각</option>
-                                <option value="006">도자기</option>
+                                <option value="캔버스의 유채">캔버스의 유채</option>
+                                <option value="종이에 채색">종이에 채색</option>
+                                <option value="사진">사진</option>
+                                <option value="판화">판화</option>
+                                <option value="조각">조각</option>
+                                <option value="도자기">도자기</option>
                             </select>
                         </div>
                     </td>
@@ -152,7 +153,7 @@
                                 <input type="text" name="s_size03" id="s_size03" class="s_fld s_size03" placeholder="작품의 폭" numberonly="true">
                             </div>
                             <span>/</span>
-                            <input type="text" id="ho" class="size" numberonly="true">
+                            <input type="text" id="ho" name="ho" class="size" numberonly="true">
                             <span>호</span>
                         </div>
                     </td>
@@ -161,7 +162,7 @@
                     <td>작품설명</td>
                     <td>
                         <div>
-                            <textarea class="conapply-text" id="contents"  placeholder="작품에 대해서 가능한 많은 정보를 기입해 주세요. (예 : 소장 경로 또는 출처, 감정서 유무, 전시이력)"></textarea>
+                            <textarea class="conapply-text" id="contents" name="contents" placeholder="작품에 대해서 가능한 많은 정보를 기입해 주세요. (예 : 소장 경로 또는 출처, 감정서 유무, 전시이력)"></textarea>
                         </div>
                     </td>
                 </tr>
@@ -169,31 +170,8 @@
                     <td>기타</td>
                     <td>
                         <div>
-                            <textarea class="conapply-text" id="etc"  placeholder="작품에 대한 보관 상태나 요구 사항 등을 기입해 주세요."></textarea>
+                            <textarea class="conapply-text" id="etc" name="etc" placeholder="작품에 대한 보관 상태나 요구 사항 등을 기입해 주세요."></textarea>
 
-                        </div>
-                    </td>
-                </tr>
-                <tr>
-                    <td class="essential"><span>작품이미지</span></td>
-                    <td>
-                        <div>
-                            <div id="uploader" class="tui-file-uploader uploader-box">
-                                <div class="tui-file-uploader-area" style="min-height: 100px; width: 100%;">
-                                </div>
-                                <div class="thumbnail">
-	                                <label class="tui-btn tui-btn-upload m-t-5" style="background-color: rgb(102, 102, 102); color: rgb(255, 255, 255); border: 1px solid gray; height: 28px; line-height: 28px; text-align: center; padding: 0px; width: 100%; display: flex; align-items: center; justify-content: center;">
-	                                    <span class="tui-btn-txt" style="line-height: initial;">대표 이미지 추가</span>
-	                                    <input type="file" name="thumbnailFile" class="tui-input-file" >
-	                                </label>
-                                </div>
-                                <div class="viewimg">
-	                                <label class="tui-btn tui-btn-upload m-t-5" style="background-color: rgb(102, 102, 102); color: rgb(255, 255, 255); border: 1px solid gray; height: 28px; line-height: 28px; text-align: center; padding: 0px; width: 100%; display: flex; align-items: center; justify-content: center;">
-	                                    <span class="tui-btn-txt" style="line-height: initial;">상세 이미지 추가</span>
-	                                    <input type="file" name="addFile" class="tui-input-file" multiple="multiple">
-	                                </label>
-                                </div>
-                            </div>
                         </div>
                     </td>
                 </tr>
@@ -201,7 +179,7 @@
                     <td>시작가</td>
                     <td>
                         <div>
-                            <input type="text"  id="start_price"  numberonly="true">
+                            <input type="text"  id="start_price" name="start_price" numberonly="true">
                         </div>
                     </td>
                 </tr>
@@ -209,15 +187,45 @@
                     <td>즉시판매가</td>
                     <td>
                         <div>
-     	        			<input type="text"  id="direct_price"  numberonly="true">
+     	        			<input type="text"  id="direct_price" name="direct_price" numberonly="true">
      	        			 <span>※ 즉시 판매를 원치 않을 때는 기입하지 마세요!</span>
                         </div>
                     </td>
                 </tr>
             </tbody></table>
+</form>                
+<form name="frm_upload" id="frm_upload" method="post">
+            <table class="apply-table talbeline">
+            	<tbody>
+	                <tr>
+	                    <td class="essential"><span>작품이미지</span></td>
+	                    <td>
+	                        <div>
+	                            <div id="uploader" class="tui-file-uploader uploader-box">
+	                                <div class="tui-file-uploader-area" style="min-height: 100px; width: 100%;">
+	                                </div>
+	                                <div class="thumbnail">
+		                                <label class="tui-btn tui-btn-upload m-t-5" style="background-color: rgb(102, 102, 102); color: rgb(255, 255, 255); border: 1px solid gray; height: 28px; line-height: 28px; text-align: center; padding: 0px; width: 100%; display: flex; align-items: center; justify-content: center;">
+		                                    <span class="tui-btn-txt" style="line-height: initial;">대표 이미지 추가</span>
+		                                    <input type="file" name="thumbnailFile" class="tui-input-file" >
+		                                </label>
+	                                </div>
+	                                <div class="viewimg">
+		                                <label class="tui-btn tui-btn-upload m-t-5" style="background-color: rgb(102, 102, 102); color: rgb(255, 255, 255); border: 1px solid gray; height: 28px; line-height: 28px; text-align: center; padding: 0px; width: 100%; display: flex; align-items: center; justify-content: center;">
+		                                    <span class="tui-btn-txt" style="line-height: initial;">상세 이미지 추가</span>
+		                                    <input type="file" name="addFile" class="tui-input-file" multiple="multiple">
+		                                </label>
+	                                </div>
+	                            </div>
+	                        </div>
+	                    </td>
+	                </tr>
+            	</tbody>
+            </table>
+</form>
             <div class="apply-btn">
-                <a href="consultationList" onclick="">취소</a>
-                <a href="#" onclick="validate()">위탁 신청</a>
+                <a id="btnCancle" href="main" onclick="">취소</a>
+                <a id="Save" href="#" onclick="validate()">위탁 신청</a>
             </div>
         </div>
     </div>
@@ -229,7 +237,7 @@
         </div>
 <!-- END KA-CONTAINER -->
 </div>
-
+</form>
 
 <!--알림 모달창 -->
 <div class="modals fade show" id="modal-common" >
@@ -257,14 +265,13 @@
 			    <span id="modal-warning-message">위탁 신청을 하시겠습니까?</span>
 			    <div class="modal-btn">
 			        <a href="#" onclick="modalOff($('#modal-warning'))">취소</a>
-			    	<a id="btn-warning-confirm" href="consultationList" onclick="">확인</a>
+			    	<a id="btn-warning-confirm" >확인</a>
 		        </div>
 		    </div>
 			<img src="./img/popup-close@1x.png" class="modal-close" onclick="modalOff($('#modal-warning'))">
 		</div>
 	</div>
 </div>
-</form>
+
 </body>
-<script type="text/javascript" src="./js/application.js"></script>
 </html>

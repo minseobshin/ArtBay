@@ -30,7 +30,7 @@ function isEmail(asValue) { //이메일
 $(function(){
 	
 	//초록불체크
-	var mid, irum, birth, gender, phone, pwd, pwdChk;
+	var mid, irum, birth, gender, phone, pwd, pwdChk, newPwd, newPwdChk, certification;
 	var now = new Date();
 
 	//나이계산
@@ -40,6 +40,7 @@ $(function(){
 	
 	//이메일인증 모달
 	$('#btnCertification').click(function(){
+		certification=0;
 		var ran = Math.floor(Math.random()*1000000);
 		$('#certificationNum').val(ran);
 		$('#certificationNum2').val(ran);
@@ -57,6 +58,9 @@ $(function(){
 		$("#btnCertification").attr("disabled", true);
 		$("#certificationChk").val(true);
 		$("#certificationNumChk").removeAttr("disabled");
+		$("#certificationNumChk").css({
+			"visibility" : "visible"
+		})
 	})
 	//취소
 	$('.btnEmailCheckCancel').click(function(){
@@ -65,41 +69,44 @@ $(function(){
 	
 	//이메일 인증번호 체크
 	$('#certificationNumChk').focusout(function(){
-		if($('#certificationNum2').val() === $('#certificationNumChk').val()){
-			$('#certificationNumChk').css({
-				"border" : "1px solid green",
-				"border-radius" : "3px",
-				"background-color" : "#3f3"
-			})
-			$("#certificationNumChk").attr("readonly", true);
-			$("#btnCertification").val('기본정보 및 주소를 입력해주세요.');
-			$("#mid").removeAttr("disabled");
-			$("#irum").removeAttr("disabled");
-			$("#birth").removeAttr("disabled");
-			$("#gender").removeAttr("disabled");
-			$("#phone").removeAttr("disabled");
-			$("#pwd").removeAttr("disabled");
-			$("#pwdChk").removeAttr("disabled");
-			$("#zip").removeAttr("disabled");
-			$("#btnZip").removeAttr("disabled");
-			$("#address").removeAttr("disabled");
-			$("#address2").removeAttr("disabled");
-			$("#btnJoin").removeAttr("disabled");
-			$("#memberJoinEmail").removeAttr("disabled");
-			$("#memberJoinEmail").attr("readonly", true);
-			$("#injung").val("true");
-			/*
-			$("#birth").datepicker({
-			  dateFormat: 'yy-mm-dd',
-				maxDate: 0
-			});*/
-		}else{
-			$("#btnCertification").val('이메일 인증 번호를 다시 확인해주세요.');
-			$('#certificationNumChk').css({
-				"border" : "2px solid red",
-				"border-radius" : "3px",
-				"background-color" : "white"
-			})
+		if(certification==0){
+			if($('#certificationNum2').val() === $('#certificationNumChk').val()){
+				$('#certificationNumChk').css({
+					"border" : "1px solid green",
+					"border-radius" : "3px",
+					"background-color" : "#3f3"
+				})
+				phone=0; //회원가입, 수정 id 중복사용 구분용
+				$("#certificationNumChk").attr("readonly", true);
+				$("#btnCertification").val('기본정보 및 주소를 입력해주세요.');
+				$("#mid").removeAttr("disabled");
+				$("#irum").removeAttr("disabled");
+				$("#birth").removeAttr("disabled");
+				$("#gender").removeAttr("disabled");
+				$("#phone").removeAttr("disabled");
+				$("#pwd").removeAttr("disabled");
+				$("#pwdChk").removeAttr("disabled");
+				$("#zip").removeAttr("disabled");
+				$("#btnZip").removeAttr("disabled");
+				$("#address").removeAttr("disabled");
+				$("#address2").removeAttr("disabled");
+				$("#btnJoin").removeAttr("disabled");
+				$("#memberJoinEmail").removeAttr("disabled");
+				$("#memberJoinEmail").attr("readonly", true);
+				$("#injung").val("true");
+				/*
+				$("#birth").datepicker({
+				  dateFormat: 'yy-mm-dd',
+					maxDate: 0
+				});*/
+			}else{
+				$("#btnCertification").val('이메일 인증 번호를 다시 확인해주세요.');
+				$('#certificationNumChk').css({
+					"border" : "2px solid red",
+					"border-radius" : "3px",
+					"background-color" : "white"
+				})
+			}
 		}
 	})
 	
@@ -202,22 +209,24 @@ $(function(){
 	
 	//휴대전화 정규식
 	$("#phone").focusout(function(){
-		if(isPhone($("#phone").val()) == false){
-			$("#phone").css({
-				"border" : "2px solid red",
-				"border-radius" : "3px",
-				"background-color" : "white"
-			})
-			phone = 0;
-			$("#btnCertification").val('휴대전화 번호를 정확히 입력해주세요. 010-0000-0000');
-		}else{
-			$("#phone").css({
-				"border" : "1px solid green",
-				"border-radius" : "3px",
-				"background-color" : "#3f3"
-			})	
-			phone = 1;
-			$("#btnCertification").val('- ArtBay -');
+		if(phone==0 || phone==1){
+			if(isPhone($("#phone").val()) == false){
+				$("#phone").css({
+					"border" : "2px solid red",
+					"border-radius" : "3px",
+					"background-color" : "white"
+				})
+				phone = 0;
+				$("#btnCertification").val('휴대전화 번호를 정확히 입력해주세요. 010-0000-0000');
+			}else{
+				$("#phone").css({
+					"border" : "1px solid green",
+					"border-radius" : "3px",
+					"background-color" : "#3f3"
+				})	
+				phone = 1;
+				$("#btnCertification").val('- ArtBay -');
+			}
 		}
 	})
 	
@@ -333,9 +342,234 @@ $(function(){
 	
 	//회원정보수정 화면 시작 =======================================================================
 	
-	$('#btnModify').click(function(){
-		window.open('mypageMemberResult', 'result', 'width=750, height=445, top=200, left=300');
+	//비밀번호 입력 후 기본 정보 뿌리기
+	var num;
+	$("#oldPwd").focusout(function(){
+		$param = $("#frm_join").serialize();
+		$.ajax({
+			url: "/pwdChkForModi",
+			data: $param,
+			type: "POST",
+			success: function(data){
+				if(data.oldPwd === "passPwd"){
+					$("#memberJoinEmail").removeAttr("disabled");
+					$("#memberJoinEmail").attr("readonly", true);
+					$("#phone").removeAttr("disabled");
+					$("#newPwd").removeAttr("disabled");
+					$("#newPwdChk").removeAttr("disabled");
+					$("#zip").removeAttr("disabled");
+					$("#btnZip").removeAttr("disabled");
+					$("#address").removeAttr("disabled");
+					$("#address2").removeAttr("disabled");
+					$("#btnModify").removeAttr("disabled");
+					$("#btnOut").removeAttr("disabled");
+					$("#oldPwd").attr("disabled", true);
+					$("#mid").val(data.mid);
+					$("#irum").val(data.irum);
+					$("#birth").val(data.birth);
+					$("#phone").val(data.phone);
+					$("#memberJoinEmail").val(data.memberJoinEmail);
+					$("#zip").val(data.zip);
+					$("#address").val(data.address);
+					$("#address2").val(data.address2);
+					$("#oldPwd").css({
+						"border" : "1px solid green",
+						"border-radius" : "3px",
+						"background-color" : "#3f3"
+					})
+					$("#btnCertification").val('- ArtBay -');
+					phone=2; //회원가입, 수정 id 중복사용 구분용
+					newPwd=2;
+					newPwdChk=2;
+					num = $('#phone').val();
+				}else{
+					$("#oldPwd").css({
+					"border" : "2px solid red",
+					"border-radius" : "3px",
+					"background-color" : "white"
+				})
+				$("#btnCertification").val('비밀번호가 다릅니다. 정확히 입력해주세요.');
+				}
+			}
+		})
 	})
+	
+	//휴대전화 정규식
+	$("#phone").focusout(function(){
+		console.log(phone);
+		console.log(num);
+		if(phone==2 || phone==3 || phone==4){
+			if(num !== $('#phone').val()){
+				if(isPhone($("#phone").val()) == false){
+					$("#phone").css({
+						"border" : "2px solid red",
+						"border-radius" : "3px",
+						"background-color" : "white"
+					})
+					phone = 3;
+					$("#btnCertification").val('휴대전화 번호를 정확히 입력해주세요. 010-0000-0000');
+				}else{
+					$("#phone").css({
+						"border" : "1px solid green",
+						"border-radius" : "3px",
+						"background-color" : "#3f3"
+					})	
+					phone = 4;
+					$("#btnCertification").val('- ArtBay -');
+				}
+			}else if(num === $('#phone').val()){ //같은 번호 다시 입력하면 CSS 초기화
+				$("#phone").css({
+					"border" : "1px solid gray",
+					"border-radius" : "3px",
+					"background-color" : "white"
+				})
+				$("#btnCertification").val('- ArtBay -');
+			}
+		}
+	})
+	
+	//이메일 textbox 클릭
+	$("#memberJoinEmail").click(function(){
+		certification=1;
+		var ran = Math.floor(Math.random()*1000000);
+		$('#certificationNum').val(ran);
+		$('#certificationNum2').val(ran);
+		$(".emailCheck").fadeIn();
+	})
+	//모달창 확인버튼 클릭
+	$("#btnEmailCheck2").click(function(){
+		$("#memberJoinEmail").val($("#to_name").val());
+		$("#memberJoinEmail").css({
+			"border" : "1px solid green",
+			"border-radius" : "3px",
+			"background-color" : "#3f3"
+		})
+		$("#btnCertification").val('이메일 인증 번호가 전송되었으니 확인 후 입력해주세요.');
+		$("#certificationNumChk2").removeAttr("disabled");
+		$("#certificationNumChk2").css({
+			"visibility" : "visible"
+		})
+	})
+	//취소
+	$('.btnEmailCheckCancel').click(function(){
+		$(".emailCheck").fadeOut();
+	})
+	
+	//이메일 인증번호 넣기
+	$('#certificationNumChk2').focusout(function(){
+		if(certification==1){
+			if($('#certificationNum2').val() === $('#certificationNumChk2').val()){
+				$('#certificationNumChk2').css({
+					"border" : "1px solid green",
+					"border-radius" : "3px",
+					"background-color" : "#3f3"
+				})
+				$("#certificationNumChk2").attr("readonly", true);
+				$("#btnCertification").val('- ArtBay -');
+			}else{
+				$('#certificationNumChk2').css({
+					"border" : "2px solid red",
+					"border-radius" : "3px",
+					"background-color" : "white"
+				})
+				$("#btnCertification").val('이메일 인증 번호를 다시 확인해주세요.');
+			}
+		}
+	})
+	
+	//비밀번호 정규식
+	$("#newPwd").focusout(function(){
+		$("#newPwdChk").val("");
+		$("#newPwdChk").css({
+				"border" : "1px solid gray",
+				"border-radius" : "3px",
+				"background-color" : "white"
+			})
+		if($("#newPwd").val() !== ""){
+			if($("#oldPwd").val() !== $("#newPwd").val() && $("#newPwd").val() !== ""){
+				if(isPwd($("#newPwd").val()) == false){
+					$("#newPwd").css({
+						"border" : "2px solid red",
+						"border-radius" : "3px",
+						"background-color" : "white"
+					})
+					newPwd = 3;
+					$("#btnCertification").val('비밀번호를 정확히 입력해주세요. 영문/숫자/특수문자 최소 한가지 조합 8~16자');
+				}else{
+					$("#newPwd").css({
+						"border" : "1px solid green",
+						"border-radius" : "3px",
+						"background-color" : "#3f3"
+					})	
+					newPwd = 4;
+					$("#btnCertification").val('- ArtBay -');
+				}
+			}
+		}else{
+			newPwd = 2;
+			$("#newPwd").css({
+				"border" : "1px solid gray",
+				"border-radius" : "3px",
+				"background-color" : "white"
+			})
+			$("#btnCertification").val('- ArtBay -');
+		}
+	})
+	
+	//비밀번호 확인
+	$("#newPwdChk").focusout(function(){
+		if($("#newPwd").val() === $("#newPwdChk").val() && newPwd === 4){
+			$("#newPwdChk").css({
+				"border" : "1px solid green",
+				"border-radius" : "3px",
+				"background-color" : "#3f3"
+			})
+			newPwdChk = 4;
+			$("#btnCertification").val('- ArtBay -');
+		}else if(newPwd === 3){ //새 비번이 틀리면 확인은 맞게써도 빨간불
+			$("#newPwdChk").css({
+				"border" : "2px solid red",
+				"border-radius" : "3px",
+				"background-color" : "white"
+			})
+			newPwdChk = 3;
+			$("#btnCertification").val('비밀번호를 정확히 입력해주세요. 영문/숫자/특수문자 최소 한가지 조합 8~16자');
+		}else if(newPwd === 2){
+			$("#newPwdChk").val("");
+		}else{
+			$("#newPwdChk").css({
+				"border" : "2px solid red",
+				"border-radius" : "3px",
+				"background-color" : "white"
+			})
+			newPwdChk = 3;
+			$("#btnCertification").val('비밀번호가 다릅니다. 정확히 입력해주세요.');
+		}
+	})
+	
+	//수정 클릭
+	$('#btnModify').click(function(){
+		if(phone !== 3 && newPwd !== 3 && newPwdChk !== 3 && $("#zip").val() !== "" && $("#address2").val() !== ""){
+			if(newPwd===4 && newPwdChk !== 4){
+				$("#newPwdChk").css({
+					"border" : "2px solid red",
+					"border-radius" : "3px",
+					"background-color" : "white"
+				})
+				$("#btnCertification").val('새 비밀번호를 확인해주세요.');
+			}else{
+				alert("폰"+phone+"패" + newPwdChk + "수정성공")
+				$param = $('#frm_join').serialize();
+				$.post('updateMemberInfo', $param, function(){
+					window.open('mypageMemberResult', 'result', 'width=750, height=445, top=200, left=300');
+				});
+			}
+		}else{
+			alert("폰"+phone+"패" + newPwdChk + "수정실패")
+			$("#btnCertification").val('모든 정보를 입력해주세요.');
+		}
+	})
+
 	
 	//회원정보수정 화면 끝 =======================================================================
 	
