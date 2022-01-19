@@ -10,7 +10,6 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 
-import jakarta.servlet.http.HttpServletRequest;
 import kr.artbay.common.AES;
 import kr.artbay.common.ArtBayAtt;
 import kr.artbay.common.ArtBayVo;
@@ -48,8 +47,10 @@ public class ListVewController {
 	@RequestMapping(value="/bidView", method= {RequestMethod.POST, RequestMethod.GET})
 	public ModelAndView bidView(@RequestParam(value="lot", required=false) int lot,
 			@RequestParam(value="nowPage", required=false) int nowPage,
+			@RequestParam(value="sort", required=false) String sort,
 			Page page){
 		ModelAndView mv = new ModelAndView();
+		page.setSort(sort);
 		vo = service.view(lot);
 		mv.addObject("vo", vo);
 		List<ArtBayAtt> att = new ArrayList<ArtBayAtt>();
@@ -59,7 +60,6 @@ public class ListVewController {
 		mv.addObject("att", att);
 		mv.addObject("page", page);
 		mv.setViewName("bid.view");
-		System.out.println("됨5");
 		return mv;
 	}
 }

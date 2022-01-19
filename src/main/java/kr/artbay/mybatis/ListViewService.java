@@ -51,6 +51,15 @@ public class ListViewService {
 		return vo;
 	}
 	
+	public ArtBayAtt viewOthers(String artist) {
+		ArtBayAtt att = new ArtBayAtt();
+		ArtBayVo vo = new ArtBayVo();
+		vo.setArtist(artist);
+		
+		
+		return att;
+	}
+	
 	public Page getPage() {return page;}
 	public void setPage(Page page) {this.page = page;}
 }

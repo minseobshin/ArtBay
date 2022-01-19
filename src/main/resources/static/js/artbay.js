@@ -54,7 +54,6 @@ function search(){
 		cache: false,
 		async: true,
 		success: function(){
-			alert($param)
 			window.location.href = "/bidList?cnt="+cnt+"&findStr="+$frm.findStr.value+"&nowPage="+$frm.nowPage.value+"&sort="+sort;
 			if(findStr=="") {
 				$(".selected_option_area").hide();
@@ -93,6 +92,7 @@ function search(){
 	
 	
 	$("#navAll").on("click", function(){
+		search();
 		$("#navAll").addClass("orangeLi");
 		$("#navPaint").removeClass("orangeLi");
 		$("#navPottery").removeClass("orangeLi");
@@ -101,6 +101,7 @@ function search(){
 	})
 	
 	$("#navPaint").on("click", function(){
+		search();
 		$("#findStr").val("");
 		$("#navAll").removeClass("orangeLi");
 		$("#navPaint").addClass("orangeLi");
@@ -110,6 +111,7 @@ function search(){
 	})
 	
 	$("#navPottery").on("click", function(){
+		search();
 		$("#findStr").val("");
 		$("#navAll").removeClass("orangeLi");
 		$("#navPaint").removeClass("orangeLi");
