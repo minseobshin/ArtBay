@@ -51,13 +51,11 @@ public class ListViewService {
 		return vo;
 	}
 	
-	public ArtBayAtt viewOthers(String artist) {
+	public List<ArtBayAtt> viewOthers(int lot) {
 		ArtBayAtt att = new ArtBayAtt();
-		ArtBayVo vo = new ArtBayVo();
-		vo.setArtist(artist);
-		
-		
-		return att;
+		List<ArtBayAtt> list = new ArrayList<ArtBayAtt>();
+		list = mapper.viewOthers(artist);
+		return list;
 	}
 	
 	public Page getPage() {return page;}

@@ -66,7 +66,7 @@
 	</select>
 	
 	<select id="viewOthers" parameterType="String" resultType="kr.artbay.common.ArtBayAtt">
-		select * from artimg where lot in (select lot from artwork where artist=#{artist});
+		select * from artimg where lot in (select lot from artwork where artist=(select artist from artwork where lot=#{_parameter}));
 	</select>
 	
 	<select id="attList" parameterType="Integer" resultType="kr.artbay.common.ArtBayAtt">
