@@ -54,7 +54,8 @@ public class ListViewService {
 	public List<ArtBayAtt> viewOthers(int lot) {
 		ArtBayAtt att = new ArtBayAtt();
 		List<ArtBayAtt> list = new ArrayList<ArtBayAtt>();
-		list = mapper.viewOthers(artist);
+		list = mapper.viewOthers(lot);
+		System.out.println(list.get(1));
 		return list;
 	}
 	

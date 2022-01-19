@@ -57,6 +57,11 @@ public class ListVewController {
 		for(int i=0; i<vo.getAttList().size(); i++) {
 			att.add(vo.getAttList().get(i));
 		}
+		
+		//작가의 다른 작품들
+		List<ArtBayAtt> others = new ArrayList<ArtBayAtt>();
+		others = service.viewOthers(lot);
+		mv.addObject("others", others);
 		mv.addObject("att", att);
 		mv.addObject("page", page);
 		mv.setViewName("bid.view");
