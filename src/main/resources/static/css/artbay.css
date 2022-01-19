@@ -345,16 +345,71 @@ form[name=frm_view]{
 }
 
 .otherWorks{
-	border: 5px solid red;
-	width: 95%;
+	width: 90%;
 	min-height: 200px;
 	margin: 10px auto;
 }
 
+#otherWorksImg{
+	width: 100%;
+}
+
+.arrPrev, .arrPrev>span, .arrNext, .arrNext>span{
+	display: inline-block;
+	height: 290px;
+	width: 150px;
+	vertical-align: middle;
+}
+.arrPrev span::after {
+    content: '';
+    width: 80px; /* 사이즈 */
+    height: 80px; /* 사이즈 */
+    border-top: 5px solid #121212; /* 선 두께 */
+    border-right: 5px solid #121212; /* 선 두께 */
+    display: inline-block;
+    transform: rotate(225deg); /* 각도 */
+    margin: 50px auto; 
+    margin-left: 50px;
+    vertical-align: middle;
+}
+
+.arrNext span::after {
+    content: '';
+    width: 80px; /* 사이즈 */
+    height: 80px; /* 사이즈 */
+    border-top: 5px solid #121212; /* 선 두께 */
+    border-right: 5px solid #121212; /* 선 두께 */
+    display: inline-block;
+    transform: rotate(45deg); /* 각도 */
+    margin: 50px auto;
+    margin-top: -180px;
+    margin-left: 100px;
+    vertical-align: middle;
+}
+
+.slick-next{
+	color: red;
+}
+.slick-track{
+	width: 80%;
+	display: inline-block;
+}
+
+.slick-list{
+	left: -30px;
+}
+
 .view_right{
 	width: 20%;
-	position: fixed;
 	display: inline-block;
+	position: fixed;
+	height: 50%;
+	border: 5px solid red;
+}
+.idle_view_right{
+	width: 20%;
+	height: 100%;
+	border: 5px solid red;
 }
 
 .bid_price{

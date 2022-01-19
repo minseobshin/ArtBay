@@ -18,6 +18,20 @@ artbay.view = function(lot){
 	})
 }
 
+artbay.othersView = function(lot){
+	$frm = $("#frm_view")[0];
+	$("#othersLot").val(lot);
+	$param = $("#frm_view").serialize();
+	$.ajax({
+		cache: false,
+		type: "POST",
+		data: $param,
+		success: function(){
+			window.location.href = "bidView?lot="+lot+"&nowPage="+$frm.nowPage.value;
+		}
+	})
+}
+
 artbay.page = function(nowPage){
 	$frm = $("#frm_list")[0];
 	$frm.nowPage.value = nowPage;
@@ -82,6 +96,10 @@ function search(){
 }
 
  $(function(){
+	$(window).scroll(function(){
+    $(".view_right").css("top", Math.max(0, 100 - $(this).scrollTop()));
+	});
+
 	$frm = $("#frm_list")[0];
 	//$("form[name='frm_view']").attr({'min':0.5000, 'max':1.5000});
 	/* 리스트 화면 작동 */
@@ -89,7 +107,6 @@ function search(){
 	$(".search_box #btnSearch").on("click", function(){
 		search();
 	});
-	
 	
 	$("#navAll").on("click", function(){
 		search();

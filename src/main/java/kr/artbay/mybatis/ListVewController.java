@@ -50,19 +50,21 @@ public class ListVewController {
 			@RequestParam(value="sort", required=false) String sort,
 			Page page){
 		ModelAndView mv = new ModelAndView();
-		page.setSort(sort);
 		vo = service.view(lot);
+		page.setSort(sort);
 		mv.addObject("vo", vo);
 		List<ArtBayAtt> att = new ArrayList<ArtBayAtt>();
 		for(int i=0; i<vo.getAttList().size(); i++) {
 			att.add(vo.getAttList().get(i));
 		}
+		mv.addObject("att", att);
 		
 		//작가의 다른 작품들
-		List<ArtBayAtt> others = new ArrayList<ArtBayAtt>();
-		others = service.viewOthers(lot);
+		ArtBayVo voOthers = new ArtBayVo();
+		voOthers = service.viewOthers(lot);
+		List<ArtBayAtt> others = voOthers.getAttList();
+		
 		mv.addObject("others", others);
-		mv.addObject("att", att);
 		mv.addObject("page", page);
 		mv.setViewName("bid.view");
 		return mv;

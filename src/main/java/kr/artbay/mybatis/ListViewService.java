@@ -56,6 +56,11 @@ public class ListViewService {
 		List<ArtBayAtt> list = new ArrayList<ArtBayAtt>();
 		list = mapper.viewOthers(lot);
 		vo.setAttList(list);
+		for(int i=0; i<list.size(); i++) {
+			//System.out.println(list.get(i).getImgFile());
+			//System.out.println(vo.getAttList().get(i).getImgFile());
+			//System.out.println(vo.getAttList().get(i).getLot());
+		}
 		return vo;
 	}
 	
