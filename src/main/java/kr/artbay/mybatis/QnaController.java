@@ -40,6 +40,17 @@ public class QnaController {
 		return mv;
 	}
 	
+	//QNA 문의 상세내역 조회
+	@RequestMapping(value = "/qnaView", method = RequestMethod.POST)
+	public ModelAndView qnaView(String qnaNum, Page page) {
+		ModelAndView mv = new ModelAndView();
+		ArtBayVo vo = service.qnaView(qnaNum);
+		mv.addObject("vo", vo);
+		mv.addObject("page", page);
+		mv.setViewName("customer.consultationView");
+		return mv;
+	}
+	
 	//QNA 문의 작성폼 이동
 	@RequestMapping(value = "/qnaInsertForm", method = RequestMethod.POST)
 	public ModelAndView qnaInsertForm(Page page) {

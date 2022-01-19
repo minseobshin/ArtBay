@@ -13,9 +13,9 @@
 <form name="frmBoard" method="POST">
 	
 	<!-- location -->
-				<div class = "applyform">
-					<h1>1:1상담문의</h1>
-				</div>
+	<div class = "applyform">
+		<h1>1:1 상담문의</h1>
+	</div>
 	<!-- //location -->
 
 	<div id="subContentsWrap" >
@@ -30,17 +30,16 @@
 					<tbody><tr>
 						<th>제목</th>
 						<td>
-							(기타문의) <strong>기타문의</strong>
-
+							${ vo.qna_type } <strong>${ vo.qna_title }</strong>
 						</td>
 					</tr>
 					<tr>
 						<th>문의 내용</th>
 						<td>
 							<div class="boardConentsView">
-								안녀하세요 문의 입니다. 
+								${ vo.doc }
 							</div>
-							<p class="mt15 fcGray7">등록일 : 2022-01-06</p>
+							<p class="mt15 fcGray7">등록일 : ${ vo.qna_date }</p>
 						</td>
 					</tr>
 					<tr>

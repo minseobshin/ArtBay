@@ -1,4 +1,10 @@
 function qna() {};
+qna.view = function(qna_num) {
+	$frm = $("#frmQna")[0];
+	$frm.qnaNum.value = qna_num;
+	$frm.action = "qnaView";
+	$frm.submit();
+}
 qna.page = function(nowPage) {
 	$frm = $("#frmQna")[0];
 	$frm.nowPage.value = nowPage;

@@ -295,6 +295,7 @@ form[name="frmBoard"] .clearfix:after{
     display: table;
     text-align: center;
     font-weight: bold;
+    height: 50px;
 }
 .boardList > ul, .boardList ul.bContent {
     display: table;
@@ -307,23 +308,33 @@ form[name="frmBoard"] .clearfix:after{
     margin: 0;
 }
 .boardList ul.bTitle > li.num {
-    width: 12%;
+    width: 15%;
 }
 .boardList > ul > li,  .boardList ul.bContent > li{
     display: table-cell;
     vertical-align: middle;
     padding: 12px 0;
 }
+.boardList ul.bContent li {
+	height: 50px;
+}
+.boardList ul.bContent li.qnaTitle {
+	padding-left: 50px;
+}
+.boardList ul.bContent:hover {
+	background: #ececec;
+	cursor: pointer;
+}
 
 .boardList .bContent a.collapsed {
     font-weight: normal;
     text-decoration-line: none;
 }
-.boardList ul.bContent > li.hit, .boardList ul.bTitle > li.hit {
+.boardList ul.bContent > li.status, .boardList ul.bTitle > li.status {
     width: 10%;
 }
 .boardList ul.bContent > li.date, .boardList ul.bTitle > li.date {
-    width: 10%;
+    width: 15%;
 }
 .text-left {
     text-align: left !important;
@@ -332,14 +343,14 @@ form[name="frmBoard"] .clearfix:after{
     color: #111111 !important;
 }
 .boardList ul.bContent > li.sortation, .boardList ul.bTitle > li.sortation {
-    width: 12%;
+    width: 15%;
 }
 
-.boardList ul.bTitle > li.hit {
+.boardList ul.bTitle > li.status {
     width: 10%;
 }
 .boardList ul.bTitle > li.date {
-    width: 10%;
+    width: 15%;
 }
 .text-center {
     text-align: center !important;

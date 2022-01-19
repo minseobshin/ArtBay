@@ -41,6 +41,13 @@ public class QnaService {
 		return list;
 	}
 
+	//qna 상세조회
+	public ArtBayVo qnaView(String qnaNum) {
+		ArtBayVo vo = mapper.qnaView(qnaNum);
+		//파일조회 후 vo에 추가
+		//..		
+		return vo;
+	}
 	
 	//qna 작성
 	public boolean insert(ArtBayVo vo) {
