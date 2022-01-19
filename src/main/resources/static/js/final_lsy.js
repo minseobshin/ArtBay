@@ -158,27 +158,46 @@ ntc.noticeView = function(serial){
 		$frm.action = "customerNoticeList";
 		$frm.submit();
 	})
+	
+	
 	//선택공지 삭제 버튼
 	$('#btnDeleteNotice').click(function(){
-		var obj = $("[name=delNotice]");
-		var chkArray = new Array();
-		$('input:checkbox[name=delNotice]:checked').each(function(){
-			chkArray.push(this.value);
-		});
-		$('#hiddenChk').val(chkArray);	
-		if($('#hiddenChk').val()){
+		var countChk = 0;
+		var chk_Value = [];
+
+		if($('input:checkbox[name=delNotice]:checked').length != 0){
 			$('#deleteNotice_alert').show();
+			$('input:checkbox[name=delNotice]:checked').each(function(){
+				countChk++; //선택한 체크박스 갯수
+				chk_Value.push($(this).val());
+			});
 		}else{
 			alert("선택된 공지가 없습니다.");
-		}	
-	})
-	
-	$('#btnConfirmDelete').click(function(){
+		}
+		$('#countChk').val(countChk);
+		$('#hiddenChk').val(chk_Value);	
+		
 		
 	})
+	
+	//선택한 공지 삭제 모달창 확인버튼
+	$('#btnConfirmDelete').click(function(){
+
+		$frm = $('#frm_notice')[0];
+		$frm.action='./deleteNotice';
+		$frm.submit();
+		
+	})
+
+	//선택한 공지 삭제 모달창 취소버튼
 	$('#btnConfirmCancel').click(function(){
 		$('#deleteNotice_alert').hide();
 	})
+	//선택한 공지 삭제 모달창 X 
+	$('#close-area').click(function(){
+		$('#deleteNotice_alert').hide();
+	})
+
 	
 	
 	//응찰내역에서 응찰신청

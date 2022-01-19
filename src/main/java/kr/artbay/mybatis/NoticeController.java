@@ -2,6 +2,8 @@ package kr.artbay.mybatis;
 
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 
 import javax.servlet.http.HttpServletRequest;
@@ -26,6 +28,7 @@ public class NoticeController {
 	String msg;
 	String serial = "";
 	Page page = new Page();
+	List<String> delNoticeList;
 	
 	@RequestMapping(value="/noticeView", method= {RequestMethod.POST, RequestMethod.GET}) 
 	public ModelAndView view(String serial, Page page) {
@@ -81,12 +84,26 @@ public class NoticeController {
 			return mv;
 		}
 		//선택된 공지 삭제
-		/*
 		@RequestMapping(value="/deleteNotice", method= {RequestMethod.POST, RequestMethod.GET})
-		public ModelAndView deleteNotice(HttpServletRequest req, HttpServletResponse resp) {
+		public ModelAndView deleteNotice(HttpServletRequest req, Page page){
 			ModelAndView mv = new ModelAndView();
+			String[] chk_Value = req.getParameterValues("hiddenChk"); 
+			delNoticeList = new ArrayList<String>(Arrays.asList(chk_Value));
+			b = service.deleteNotice(delNoticeList);
+			if(b) {
+				msg="공지가 삭제되었습니다.";
+			}else {
+				msg="공지 삭제 중 오류 발생.";
+			}
+			List<ArtBayVo> list = service.noticeSearch(page);
+			page = service.getPage();
+			mv.addObject("msg", msg);
+			mv.addObject("Page", page);
+			mv.addObject("list", list);
+			mv.setViewName("customer.noticeList");
+			return mv;
+			
 			
 		}
-	*/
-		
+	
 }

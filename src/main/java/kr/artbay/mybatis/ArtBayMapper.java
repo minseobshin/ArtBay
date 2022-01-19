@@ -35,9 +35,8 @@ public interface ArtBayMapper {
 	public void notice_hit_up(String serial);
 	public ArtBayVo noticeView(String serial);
 	//공지사항 삭제
-	public int deleteNotice(String serial);
+	public Integer deleteNotice(List<String> delNoticeList);
 	
-	//faq
 	public List<ArtBayVo> faqList(String ctgr);
 	
 	//경매신청

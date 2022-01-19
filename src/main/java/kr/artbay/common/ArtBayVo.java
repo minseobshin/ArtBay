@@ -70,6 +70,7 @@ public class ArtBayVo {
 	String thumbnail;
 	
 	
+	
 	String imgFile;
 	int attCnt;
 	List<ArtBayAtt> attList = new ArrayList<ArtBayAtt>();
@@ -181,9 +182,7 @@ public class ArtBayVo {
 	public void setSeq(int seq) {this.seq = seq;}
 	public int getDeep() {return deep;}
 	public void setDeep(int deep) {this.deep = deep;}
-	public int getAttCnt() {
-		return attCnt;
-	}
+	public int getAttCnt() {return attCnt;}
 	public void setAttCnt(int attCnt) {this.attCnt = attCnt;}
 	public List<ArtBayAtt> getAttList() {return attList;}
 	public void setAttList(List<ArtBayAtt> attList) {this.attList = attList;}

@@ -79,6 +79,7 @@
 		ORDER BY serial DESC 
 		LIMIT ${startNo-1}, ${listSize}
 	</select>
+	
 	<!-- 공지 클릭 시 -->
 	<update id="notice_hit_up" parameterType="String">
 		update notice set hit = hit+1 where serial = #{_parameter}
@@ -87,8 +88,11 @@
 		select * from notice where serial = #{serial} 
 	</select>
 	<!-- 선택된 공지 삭제 -->
-	<delete id='deleteNotice' parameterType='String'> 
-		delete from notice where serial = #{_parameter}
+	<delete id='deleteNotice' parameterType='list'> 
+		delete from notice where serial in
+			<foreach collection="list" item="item" open="(" close=")" separator=",">
+				${item}
+			</foreach>
 	</delete>
 	
 	<!-- QNA 조회 건수 -->

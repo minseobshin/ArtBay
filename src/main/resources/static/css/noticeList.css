@@ -1,127 +1,168 @@
 @charset "UTF-8";
-#noticeList{
-	margin:0 auto;
-}
-#noticeList h1{
-	height:160px;
-	font-size:30px;
-	text-align:center;
-	font-weight:bolder;
-	padding-top:40px;
-}
-#noticeList #notice{
-	position:relative;
-	min-height:600px;
-	line-height:1.5em;
-	width:900px;
-	margin:0 auto;
-}
-#noticeList #noticeSearch{
-	width:900px;
-	margin:10px auto;
-}
-#noticeList #noticeSearch #findZone{
-	float:right;
+
+#noticeList {
+	margin: 0 auto;
 }
 
-#noticeList #notice #title{
-	background-color:#ddd;
-	height:30px;
-	
+#noticeList h1 {
+	height: 160px;
+	font-size: 30px;
+	text-align: center;
+	font-weight: bolder;
+	padding-top: 40px;
 }
 
-#noticeList #notice .title{
-	display:inline-block;
-	text-align:center;
-	width:650px;
-	text-align:center;
-	overflow:hidden;
+#noticeList #notice {
+	position: relative;
+	min-height: 600px;
+	line-height: 1.5em;
+	width: 900px;
+	margin: 0 auto;
 }
-#noticeList #notice .noticeDate{
-	display:inline-block;
-	text-align:center;
-	width:100px;
-	text-align:center;
+
+#noticeList #noticeSearch {
+	width: 900px;
+	margin: 10px auto;
 }
-#noticeList #notice .hit{
-	display:inline-block;
-	text-align:center;
-	width:70px;
-	text-align:center;
+
+#noticeList #noticeSearch #findZone {
+	float: right;
 }
-#noticeList #notice #rows #row{
-	border-bottom:2px solid #ddd;
-	height:30px;
-}
-#noticeList #notice #title .chkDeleteNotice{
-	position:relative;
-	top:-25px;
-}
-#noticeList #notice #rows .chkDeleteNotice{
-	position:relative;
-	top:-25px;
-}
-#noticeList #notice .chkDeleteNotice{
-	display:inline-block;
-	text-align:center;
-	width:80px;
-	margin-left:820px;
-	padding-bottom:28px;
-	
-}
-#noticeList #notice #row:hover{
-	background-color:#ddd;	
+#noticeList #noticeSearch #findZone #btnNoticeSearch{
 	cursor:pointer;
 }
-#noticeList #btnZone #btnWriteNotice{
-	display:inline-block;
-	width:80px;
-	height:30px;
-	background-color:#fff;
-	margin-top:40px;
+#noticeList #notice #title {
+	background-color: #ddd;
+	height: 30px;
 }
 
-#noticeList #btnZone #btnWriteNotice:hover{
-	background-color:#f60;
-	color:#fff;
-	cursor:pointer;
-}
-#noticeList #btnZone{
-	margin-top:130px;
-	text-align:center;
-}
-#noticeList #btnZone #btnDeleteNotice{
-	display:inline-block;
-	width:100px;
-	height:30px;
-	background-color:#fff;
-	margin-top:40px;
-	margin-left:670px;
-}
-#noticeList #btnZone #btnDeleteNotice:hover{
-	color:#fff;
-	background-color:#f60;
-	cursor:pointer;
+#noticeList #notice .title {
+	display: inline-block;
+	text-align: center;
+	width: 650px;
+	text-align: center;
+	overflow: hidden;
 }
 
-#noticeList #btnZone .here{
-	border:2px solid #0000a0;
+#noticeList #notice .noticeDate {
+	display: inline-block;
+	text-align: center;
+	width: 100px;
+	text-align: center;
 }
 
-#noticeList #deleteNotice_alert{
-	display:none;
-	z-index:1;
-	background-color : rgba(0,0,0,0.5);
+#noticeList #notice .hit {
+	display: inline-block;
+	text-align: center;
+	width: 70px;
+	text-align: center;
+}
+
+#noticeList #notice #rows #row {
+	border-bottom: 2px solid #ddd;
+	height: 30px;
+}
+
+#noticeList #notice #title .chkDeleteNotice {
+	position: relative;
+	top: -25px;
+}
+
+#noticeList #notice #rows .chkDeleteNotice {
+	position: relative;
+	top: -25px;
+}
+
+#noticeList #notice .chkDeleteNotice {
+	display: inline-block;
+	text-align: center;
+	width: 80px;
+	margin-left: 820px;
+	padding-bottom: 28px;
+}
+
+#noticeList #notice #row:hover {
+	background-color: #ddd;
+	cursor: pointer;
+}
+
+#noticeList #btnWriteNotice {
+	display: inline-block;
+	width: 80px;
+	height: 30px;
+	background-color: #fff;
+	margin-top: 40px;
+}
+
+#noticeList #btnWriteNotice:hover {
+	background-color: #f60;
+	color: #fff;
+	cursor: pointer;
+}
+
+#noticeList #btnZone {
+	margin-top: 130px;
+	text-align: center;
+}
+
+#noticeList #btnZone input {
+	cursor: pointer;
+}
+
+#noticeList #btnDeleteNotice {
+	display: inline-block;
+	width: 100px;
+	height: 30px;
+	background-color: #fff;
+	margin-top: 40px;
+	margin-left: 670px;
+}
+
+#noticeList #btnDeleteNotice:hover {
+	color: #fff;
+	background-color: #f60;
+	cursor: pointer;
+}
+
+#noticeList #btnZone .here {
+	border: 2px solid #0000a0;
+}
+
+#noticeList #deleteNotice_alert {
+	display: none;
+	z-index: 1;
+	background-color: rgba(0, 0, 0, 0.5);
 	position: fixed;
-	left:0;
-	top:0;
-	width:100%;
-	height:100%;
+	left: 0;
+	top: 0;
+	width: 100%;
+	height: 100%;
 }
-#id_check form{
-	background-color:#fff;
-	width:340px;
-	padding:40px;
-	margin:300px auto;
-	position:relative;
+
+#noticeList #deleteNotice_alert form {
+	background-color: #fff;
+	width: 340px;
+	padding: 40px;
+	margin: 300px auto;
+	position: relative;
+	border-radius: 10px;
+}
+
+#noticeList #deleteNotice_alert form input[type='button'] {
+	margin: 10px 10px 0 30px;
+	width: 60px;
+	background-color: #000;
+	color: #fff;
+}
+
+#noticeList #deleteNotice_alert form input[type='button']:hover {
+	cursor: pointer;
+	background-color: #f60;
+}
+
+#noticeList #deleteNotice_alert form #close-area {
+	position: absolute;
+	right: 10px;
+	top: 5px;
+	cursor: pointer;
 }
