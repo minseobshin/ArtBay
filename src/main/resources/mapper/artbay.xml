@@ -65,6 +65,10 @@
 		select * from artwork where lot = ${_parameter};
 	</select>
 	
+	<select id="viewOthers" parameterType="Integer" resultType="kr.artbay.common.ArtBayAtt">
+		select * from artimg where thumbnail='Y' and lot in (select lot from artwork where artist=(select artist from artwork where lot=${_parameter}));
+	</select>
+	
 	<select id="attList" parameterType="Integer" resultType="kr.artbay.common.ArtBayAtt">
 		select * from artimg where lot = #{_parameter};	
 	</select>

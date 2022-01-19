@@ -349,12 +349,17 @@
 
 			</div>
 	</div>
+	<div class="otherWorks">
+		<c:forEach var="atts" items="${others.thumbnail }">
+			<div><img name="thumbnail_img2" id="thumbnail_img2" src="${others.imgFile }" width=300 height=350/></div>
+		</c:forEach>
+	</div>
 	<div id="hiddenZone">
-			<input type="text" id="findStr" value="${page.findStr }"/>
-			<input type="text" name="nowPage" value="${page.nowPage }"/>
-			<input type="text" name="lot" id="lot" value="${vo.lot }"/>
-			<input type="text" name="sort" id="sort" value="${page.sort }"/>
-		</div>
+		<input type="text" id="findStr" value="${page.findStr }"/>
+		<input type="text" name="nowPage" value="${page.nowPage }"/>
+		<input type="text" name="lot" id="lot" value="${vo.lot }"/>
+		<input type="text" name="sort" id="sort" value="${page.sort }"/>
+	</div>
 </form>
 <script src="../js/artbay.js"></script>
 </body>
