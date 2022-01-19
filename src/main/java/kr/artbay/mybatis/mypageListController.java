@@ -21,7 +21,7 @@ public class mypageListController {
 	ArtBayVo vo = null;
 	 
 	 
-	
+	/*
 	@RequestMapping(value="/mypageListView", method= {RequestMethod.POST})
 	public ModelAndView ListView(int lot, Page page) {
 		ModelAndView mv = new ModelAndView();
@@ -31,12 +31,13 @@ public class mypageListController {
 		mv.setViewName("mypage.listView");
 		return mv;
 	}
+	*/
 	@RequestMapping(value="/mypageBid", method= {RequestMethod.POST, RequestMethod.GET})
-	public ModelAndView search(Page page) { //req로 받지 않아도 변수들 다 세팅해서 가져옴
+	public ModelAndView list(Page page) { //req로 받지 않아도 변수들 다 세팅해서 가져옴
 		ModelAndView mv = new ModelAndView();
-		List<ArtBayVo> list = service.mypageSearch(page); //service=>dao역할
+		System.out.println(page.getTotSize());
+		List<ArtBayVo> list = service.mypageBidList(page); //service=>dao역할
 		page = service.getPage();
-		
 		mv.addObject("page", page);
 		mv.addObject("list", list);
 		mv.setViewName("mypage.Bid");

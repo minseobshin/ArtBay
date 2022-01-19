@@ -38,8 +38,11 @@ public interface ArtBayMapper {
 	public ArtBayVo noticeView(String serial);
 	//공지사항 삭제
 	public Integer deleteNotice(List<String> delNoticeList);
-	
 	public List<ArtBayVo> faqList(String ctgr);
+	//응찰내역 조회
+	public Integer mypageBidTotSize(); 
+	public List<ArtBayVo> mypageBidList();
+	
 	
 	//경매신청
 	public ArtBayVo memberview(String mid);  //회원정보

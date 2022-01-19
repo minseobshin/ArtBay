@@ -108,6 +108,17 @@
 			</foreach>
 	</delete>
 	
+	<!-- 응찰내역 조회 건수 -->
+	<select id='mypageBidTotSize' resultType='Integer'>
+		select count(B.lot) from bidding B join artwork A on B.lot = A.lot; 
+	</select>
+	<!-- 응찰내역 조회  -->
+	<select id='mypageBidList' resultType="kr.artbay.common.ArtBayVo">
+		select B.lot, A.artwork_ctgr, A.artist, A.artwork_name, B.bid_price, B.bid_date
+		from bidding B join artwork A
+		on B.lot = A.lot
+	</select>
+	
 	<!-- QNA 조회 건수 -->
 	<select id="qnaTotSize" parameterType="kr.artbay.common.Page" resultType="Integer">
 		SELECT COUNT(QNA_NUM) FROM QNA

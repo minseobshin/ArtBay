@@ -15,16 +15,20 @@ public class FaqController {
 
 	@Autowired
 	FaqService service;
-
 	ArtBayVo vo = null;
-
+	List<ArtBayVo> list;
+	
 	//faq 조회
 	@RequestMapping(value="/faqList", method= {RequestMethod.POST, RequestMethod.GET})
 	public ModelAndView faqList(String ctgr) { //req로 받지 않아도 변수들 다 세팅해서 가져옴
 		ModelAndView mv = new ModelAndView();
-		List<ArtBayVo> list  = service.faqList(ctgr); //service=>dao역할
-		ctgr = service.getCtgr();
-		
+		if(ctgr == null) {
+			ctgr="general";
+			list  = service.faqList(ctgr); 
+		}else {
+			list  = service.faqList(ctgr); //service=>dao역할
+			ctgr = service.getCtgr();
+		}
 		mv.addObject("ctgr", ctgr);
 		mv.addObject("list", list);
 		mv.setViewName("customer.FAQ");

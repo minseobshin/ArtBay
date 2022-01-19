@@ -80,7 +80,6 @@ public class NoticeController {
 			mv.addObject("page", page);
 			mv.addObject("list", list);
 			mv.setViewName("customer.noticeList");
-			
 			return mv;
 		}
 		//선택된 공지 삭제

@@ -14,10 +14,6 @@ import kr.artbay.common.ArtBayAtt;
 import kr.artbay.common.ArtBayVo;
 import kr.artbay.common.Page;
 
-
-
-
-
 @Service
 @Transactional
 public class mypageListService {
@@ -29,12 +25,10 @@ public class mypageListService {
 	
 	@Autowired
 	AES aes;	
-	public Page getPage() {return page;}
-	public void setPage(Page page) {this.page = page;}
-	
+
 	TransactionStatus status;
 	Page page;
-	
+	/*
 	public ArtBayVo listView(int lot) {
 		status = manager.getTransaction(new DefaultTransactionDefinition());
 		ArtBayVo vo = null;
@@ -45,15 +39,17 @@ public class mypageListService {
 			ex.printStackTrace();
 		}
 		return vo; 
-	}
-	public List<ArtBayVo> mypageSearch(Page p){
+	}*/
+	public List<ArtBayVo> mypageBidList(Page p){
 		List<ArtBayVo> list = null;
-		int totSize = mapper.totSize("");
+		int totSize = mapper.mypageBidTotSize();
 		p.setTotSize(totSize);
 		this.page = p;
-		list = mapper.search(p);		
+		list = mapper.mypageBidList();		
 		return list;
+	
 	}
 	
-	
+	public Page getPage() {return page;}
+	public void setPage(Page page) {this.page = page;}
 }

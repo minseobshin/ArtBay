@@ -388,7 +388,7 @@
 #noticeView #noticeView_sub p{
 	padding:20px 40px;
 	box-sizing:border-box;
-
+	overflow:scroll;
 }
 #noticeView #btnViewList{
 	position:relative;
@@ -413,6 +413,7 @@
 	min-height:900px;
 	line-height:1.5em;
 	margin:0 auto;
+	position:relative;
 }
 #writeNotice #summernote{
 	min-height:250px;
@@ -425,18 +426,18 @@
 	margin-bottom:80px;
 }
 
-#writeNotice #noticeWrite_container{
+#writeNotice form{
 	display:inline-block;
 	margin-left:200px;
 	
 }
-#writeNotice #noticeWrite_container label{
+#writeNotice form label{
 	margin:20px 5px;
 	position:relative;
 	bottom:5px;
 	
 }
-#writeNotice #noticeWrite_container input{
+#writeNotice form input{
 	display:inline-block;
 	margin-right:20px;
 	margin-bottom:10px;
@@ -444,35 +445,37 @@
 #writeNotice #notice_doc{
 	width:900px;
 }
+#writeNotice #btnZone{
+	width:300px;
+	left:550px;
+	position:absolute;
 
-#writeNotice #btnSaveNotice{
-	position:relative;
-	left:650px;
+}
+#writeNotice #btnZone #btnSaveNotice{
 	background-color:#fff;
 	border:2px solid #555;
 	color:#000;
 	width:80px;
 	height:30px;
 }
-#writeNotice #btnSaveNotice:hover{
-	background-color:#f60;
-	color:#fff;
-	cursor:pointer;
-}
-#writeNotice #btnViewList:hover{
-	background-color:#f60;
-	color:#fff;
-	cursor:pointer;
-}
-#writeNotice  #btnViewList{
-	position:relative;
-	left:470px;
+#writeNotice #btnZone #btnNoticeList{
 	background-color:#fff;
 	border:2px solid #555;
 	color:#000;
 	width:80px;
 	height:30px;
 }
+#writeNotice #btnZone #btnSaveNotice:hover{
+	background-color:#f60;
+	color:#fff;
+	cursor:pointer;
+}
+#writeNotice #btnZone #btnNoticeList:hover{
+	background-color:#f60;
+	color:#fff;
+	cursor:pointer;
+}
+
 /*FAQ*/
 #auction_faq{
 	width:1280px;
