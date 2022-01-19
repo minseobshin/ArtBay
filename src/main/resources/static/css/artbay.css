@@ -337,10 +337,18 @@ form[name=frm_view]{
 .caution{
 	width: 58% !important;
 	margin-left: 30px;
+	line-height: 2em;
 }
 
 .caution_inquiry{
 	width: 100% !important;
+}
+
+.otherWorks{
+	border: 5px solid red;
+	width: 95%;
+	min-height: 200px;
+	margin: 10px auto;
 }
 
 .view_right{
@@ -359,7 +367,6 @@ form[name=frm_view]{
 	min-height: 550px;
 	height: 50px;
 	box-shadow: 0 0 5px 5px rgb(150, 150, 150);
-	
 	box-sizing: border-box;
 }
 

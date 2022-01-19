@@ -96,37 +96,45 @@
 				<ul class="bTitle">
 					<li class="num">구분</li>
 					<li>제목</li>
-					<li class="hit">답변여부</li>
-					<li class="date">등록일</li>
-					<li class="date">답변일</li>
+					<li class="status">공개여부</li>
+					<li class="date">작성일</li>
 				</ul>
 
 				<div class="customer-basic">
-					<c:forEach var="vo" items="${ list }">
-						<ul class="bContent text-center clearFix">
-							<!--  
-							<li class="sortation mb5m">기타문의 <strong class=" visible-xs-inline-block ml10">답변중</strong></li>-->
-							<li class="sortation mb5m">
-								<c:choose>
-									<c:when test="${ vo.qna_type == '10' }">회원가입/탈퇴</c:when>
-									<c:when test="${ vo.qna_type == '20' }">물품문의</c:when>
-									<c:when test="${ vo.qna_type == '30' }">입금/결제문의</c:when>
-									<c:when test="${ vo.qna_type == '40' }">배송문의</c:when>
-									<c:when test="${ vo.qna_type == '50' }">반품/취소/환불</c:when>
-									<c:when test="${ vo.qna_type == '80' }">기타문의</c:when>
-								</c:choose>
-							</li>
-							<li class="text-left subject"><a href="customerConsultationView" onclick="" class="fcBlack collapsed">${ vo.qna_title }</a></li>
-							<li class="hit mobileNone"><strong class="">답변완료</strong></li>
-							<li class="date"><span class="visible-xs-inline-block">등록일 : </span>${ vo.qna_date }</li>
-							<li class="date"><span class="visible-xs-inline-block">작성일 : </span>${ vo.qna_date }</li>
-						</ul>
-					</c:forEach>					
-					<!-- 
-					<ul class="bContent text-center clearFix">					
-						<li class="text-center subject">검색된 내용이 없습니다.</li>
-					</ul>
-					 -->
+					<c:choose>
+						<c:when test="${ fn:length(list) > 0}">
+							<c:forEach var="vo" items="${ list }">
+								<ul class="bContent text-center clearFix">									
+									<li class="sortation mb5m">
+										<c:choose>
+											<c:when test="${ vo.qna_type == '10' }">회원가입/탈퇴</c:when>
+											<c:when test="${ vo.qna_type == '20' }">물품문의</c:when>
+											<c:when test="${ vo.qna_type == '30' }">입금/결제문의</c:when>
+											<c:when test="${ vo.qna_type == '40' }">배송문의</c:when>
+											<c:when test="${ vo.qna_type == '50' }">반품/취소/환불</c:when>
+											<c:when test="${ vo.qna_type == '80' }">기타문의</c:when>
+										</c:choose>
+									</li>
+									<li class="text-left qnaTitle">
+										<div onclick="qna.view(${ vo.qna_num })">${ vo.qna_title }</div>
+									</li>
+									<li class="status mobileNone">
+										<c:if test="${ vo.qna_status == 'N'}">
+											<img src="img/locked_pwd.png" width="20px" height="20px">
+										</c:if>
+									</li>
+									<li class="date">
+										<span class="visible-xs-inline-block">작성일 : </span>${ vo.qna_date }
+									</li>
+								</ul>
+							</c:forEach>
+						</c:when>
+						<c:otherwise>
+							<ul class="bContent text-center clearFix">					
+								<li class="text-center subject">검색된 내용이 없습니다.</li>
+							</ul>					
+						</c:otherwise>
+					</c:choose>
 				</div>
 
 			</div>

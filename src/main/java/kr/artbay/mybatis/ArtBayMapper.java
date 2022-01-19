@@ -25,6 +25,7 @@ public interface ArtBayMapper {
 	public Integer totSize(String findStr);
 	public List<ArtBayVo> search(Page page);
 	public ArtBayVo view(int lot);
+	public List<ArtBayAtt> viewOthers(int lot);
 
 	public List<ArtBayAtt> attList(int lot);
 	 
@@ -48,5 +49,6 @@ public interface ArtBayMapper {
 	public List<ArtBayVo> qnaSearch(Page page); //조회
 	public Integer qnaInsert(ArtBayVo vo);		//등록
 	public Integer getQnaSerial();				//시리얼키 조회
+	public ArtBayVo qnaView(String qnaNum);		//상세조회
 
 }
