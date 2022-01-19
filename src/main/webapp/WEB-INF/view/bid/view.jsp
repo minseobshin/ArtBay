@@ -350,7 +350,8 @@
 			</div>
 	</div>
 	<div class="otherWorks">
-		
+		<c:forEach var="atts" items="${others.thumbnail }">
+		</c:forEach>
 	</div>
 	<div id="hiddenZone">
 		<input type="text" id="findStr" value="${page.findStr }"/>
