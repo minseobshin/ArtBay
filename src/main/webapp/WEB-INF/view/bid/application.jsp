@@ -12,7 +12,6 @@
 </head>
 <body>
 	
-<form name='frm_bay_insert' id='frm_bay_insert' method="post">
 <!-- START KA-CONTAINER -->
 <div class="ka-container ">
 
@@ -90,8 +89,10 @@
         </div>
         <div class="conapply-form">
             <h5>위탁작품 정보</h5>
+<form name='frm_bay_insert' id='frm_bay_insert' method="post">
             <table class="apply-table">
-                <tbody><tr>
+                <tbody>
+                <tr>
                     <td>작가명</td>
                     <td>
                         <div id="artist-area">
@@ -175,29 +176,6 @@
                     </td>
                 </tr>
                 <tr>
-                    <td class="essential"><span>작품이미지</span></td>
-                    <td>
-                        <div>
-                            <div id="uploader" class="tui-file-uploader uploader-box">
-                                <div class="tui-file-uploader-area" style="min-height: 100px; width: 100%;">
-                                </div>
-                                <div class="thumbnail">
-	                                <label class="tui-btn tui-btn-upload m-t-5" style="background-color: rgb(102, 102, 102); color: rgb(255, 255, 255); border: 1px solid gray; height: 28px; line-height: 28px; text-align: center; padding: 0px; width: 100%; display: flex; align-items: center; justify-content: center;">
-	                                    <span class="tui-btn-txt" style="line-height: initial;">대표 이미지 추가</span>
-	                                    <input type="file" name="thumbnailFile" class="tui-input-file" >
-	                                </label>
-                                </div>
-                                <div class="viewimg">
-	                                <label class="tui-btn tui-btn-upload m-t-5" style="background-color: rgb(102, 102, 102); color: rgb(255, 255, 255); border: 1px solid gray; height: 28px; line-height: 28px; text-align: center; padding: 0px; width: 100%; display: flex; align-items: center; justify-content: center;">
-	                                    <span class="tui-btn-txt" style="line-height: initial;">상세 이미지 추가</span>
-	                                    <input type="file" name="addFile" class="tui-input-file" multiple="multiple">
-	                                </label>
-                                </div>
-                            </div>
-                        </div>
-                    </td>
-                </tr>
-                <tr>
                     <td>시작가</td>
                     <td>
                         <div>
@@ -215,8 +193,38 @@
                     </td>
                 </tr>
             </tbody></table>
+</form>                
+<form name="frm_upload" id="frm_upload" method="post">
+            <table class="apply-table talbeline">
+            	<tbody>
+	                <tr>
+	                    <td class="essential"><span>작품이미지</span></td>
+	                    <td>
+	                        <div>
+	                            <div id="uploader" class="tui-file-uploader uploader-box">
+	                                <div class="tui-file-uploader-area" style="min-height: 100px; width: 100%;">
+	                                </div>
+	                                <div class="thumbnail">
+		                                <label class="tui-btn tui-btn-upload m-t-5" style="background-color: rgb(102, 102, 102); color: rgb(255, 255, 255); border: 1px solid gray; height: 28px; line-height: 28px; text-align: center; padding: 0px; width: 100%; display: flex; align-items: center; justify-content: center;">
+		                                    <span class="tui-btn-txt" style="line-height: initial;">대표 이미지 추가</span>
+		                                    <input type="file" name="thumbnailFile" class="tui-input-file" >
+		                                </label>
+	                                </div>
+	                                <div class="viewimg">
+		                                <label class="tui-btn tui-btn-upload m-t-5" style="background-color: rgb(102, 102, 102); color: rgb(255, 255, 255); border: 1px solid gray; height: 28px; line-height: 28px; text-align: center; padding: 0px; width: 100%; display: flex; align-items: center; justify-content: center;">
+		                                    <span class="tui-btn-txt" style="line-height: initial;">상세 이미지 추가</span>
+		                                    <input type="file" name="addFile" class="tui-input-file" multiple="multiple">
+		                                </label>
+	                                </div>
+	                            </div>
+	                        </div>
+	                    </td>
+	                </tr>
+            	</tbody>
+            </table>
+</form>
             <div class="apply-btn">
-                <a href="#" onclick="">취소</a>
+                <a id="btnCancle" href="main" onclick="">취소</a>
                 <a id="Save" href="#" onclick="validate()">위탁 신청</a>
             </div>
         </div>
@@ -229,7 +237,7 @@
         </div>
 <!-- END KA-CONTAINER -->
 </div>
-
+</form>
 
 <!--알림 모달창 -->
 <div class="modals fade show" id="modal-common" >
@@ -264,6 +272,6 @@
 		</div>
 	</div>
 </div>
-</form>
+
 </body>
 </html>

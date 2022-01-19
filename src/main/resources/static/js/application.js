@@ -3,24 +3,27 @@
  */
 $(function(){
 	
+	/*$("btnCancle").click(function(){ //취소 클릭시 전페이지 이동
+	})*/
 	
 	$('#btn-warning-confirm').click(function(){
 		$param = $('#frm_bay_insert').serialize();
 		alert($param);
 		$.post('insertArtWorSave', $param, function(data){
 			var json = JSON.parse(data);
-			
-			if(json.flag == 'OK'){
-					var $fd = $('#test')[0];
-					$fd.action = "main";
-					$fd.submit();
-				}else{
-					alert("저장중 오류 발생")
-				}
+			if(json.flag == "OK") {
+				$frm = $("#frm_upload")[0];
+				$frm.serial.value = json.serial;	//시리얼 번호
+				$frm.enctype = "multipart/form-data";
+				$frm.action = "fileUp"; 
+				//$frm.submit();
+				console.log(json.serial);						
+			}
+			else {
+				alert("저장중 오류가 발생하였습니다.");
+			}		
 		})
 	})
-	
-	
 })
 
 
