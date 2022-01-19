@@ -75,6 +75,7 @@ public class ArtBayController {
 	@RequestMapping(value="/memberLogin", method= {RequestMethod.POST})
 	public String memberLogin(ArtBaySessionVo sv, HttpServletRequest req) {
 		HttpSession session = req.getSession();
+		session.setMaxInactiveInterval(10*360);
 		this.c = memberService.memberLogin(sv);
 		if(c == "failMid" || c == "failPwd") {
 			session.invalidate();

@@ -33,7 +33,7 @@
 	<input type='text' name='certificationNumChk2' id='certificationNumChk2' placeholder='이메일 인증번호' disabled>
 	<br>
 	<div class='h5'>➢ 비밀번호 변경</div>
-	<div class='h5'>비밀번호 변경을 원하신다면, 현재 비밀번호를 기입 후, '새 비밀번호'란에 변경할 비밀번호를 입력하세요.</div>
+	<div class='h5'>비밀번호 변경을 원하신다면, 현재 비밀번호를 입력 후, '새 비밀번호'란에 변경할 비밀번호를 입력하세요.</div>
 	<input type='password' name='newPwd' id='newPwd' placeholder="새 비밀번호" disabled>
 	<br>
 	<input type='password' name='newPwdChk' id='newPwdChk' placeholder="새 비밀번호 확인" disabled>
