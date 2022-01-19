@@ -7,16 +7,16 @@ $(function(){
 	})*/
 	
 	$('#btn-warning-confirm').click(function(){
+		
 		$param = $('#frm_bay_insert').serialize();
-		alert($param);
 		$.post('insertArtWorSave', $param, function(data){
 			var json = JSON.parse(data);
 			if(json.flag == "OK") {
 				$frm = $("#frm_upload")[0];
-				$frm.serial.value = json.serial;	//시리얼 번호
-				$frm.enctype = "multipart/form-data";
-				$frm.action = "fileUp"; 
-				//$frm.submit();
+			/*	$frm.serial.value = json.serial;	//시리얼 번호
+				$frm.enctype = "multipart/form-data";*/
+				$frm.action = "main"; 
+				$frm.submit();
 				console.log(json.serial);						
 			}
 			else {
@@ -43,7 +43,11 @@ function removeCommas(x) {
 }
 
 function validate(){
-	if(artwk_name.value==''){
+	if(artwork_name.value==''){
+		$('#frm_bay_insert')[0].start_price.value = removeCommas($('#start_price').val());
+		if($('#direct_price').val()==''){
+			$('#frm_bay_insert')[0].direct_price.value = removeCommas($('#direct_price').val());
+		}
 		$("#modal-common").show();
 	}else{
 		$("#modal-warning").show();

@@ -128,9 +128,14 @@ public class ArtBayController {
 	
 	//경매신청 insert
 	@RequestMapping(value="/insertArtWorSave", method= {RequestMethod.POST})
-	public void insertArtWorSave(ArtBayVo vo, HttpServletResponse resq) {
+	public void insertArtWorSave(ArtBayVo vo, HttpServletResponse resq,  HttpServletRequest req) {
 		try {
+			HttpSession session = req.getSession();
+			sv = (ArtBaySessionVo)session.getAttribute("sv");
+			String mid = sv.getMid();
 			out = resq.getWriter();
+			vo.setMid(mid);
+			vo.setCrnt_status("경매중");
 			b = applicationService.insertArtwork(vo);
 			String temp = "{'flag':'%s'}";
 			String flag ="";

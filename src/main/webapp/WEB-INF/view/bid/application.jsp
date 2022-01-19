@@ -104,7 +104,7 @@
                     <td class="essential"><span>작품명</span></td>
                     <td>
                         <div>
-                            <input id="artwk_name" name="artwk_name" class="apply-input" type="text" >
+                            <input id="artwork_name" name="artwork_name" class="apply-input" type="text" >
                         </div>
                     </td>
                 </tr>
@@ -112,11 +112,11 @@
                     <td>작품의 카테고리</td>
                     <td>
                         <div>
-                            <select id="artwk_ctgr" name="artwk_ctgr" class="material-ch ctgr" >
+                            <select id="artwork_ctgr" name="artwork_ctgr" class="material-ch ctgr" >
                                 <option value="">카테고리를 선택해 주세요.</option>
-                                <option value="그림">그림</option>
-                                <option value="사진">사진</option>
-                                <option value="도자기">도자기</option>
+                                <option value="paint">그림</option>
+                                <option value="photo">사진</option>
+                                <option value="pottery">도자기</option>
                             </select>
                         </div>
                     </td>
@@ -125,7 +125,7 @@
                     <td>작품의 재료</td>
                     <td>
                         <div>
-                            <select id="material" class="material-ch" >
+                            <select id="material" name="material" class="material-ch" >
                                 <option value="">재료를 선택해 주세요.</option>
                                 <option value="캔버스의 유채">캔버스의 유채</option>
                                 <option value="종이에 채색">종이에 채색</option>
