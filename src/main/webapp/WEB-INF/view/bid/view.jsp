@@ -351,6 +351,7 @@
 	</div>
 	<div class="otherWorks">
 		<c:forEach var="atts" items="${others.thumbnail }">
+			<div><img name="thumbnail_img2" id="thumbnail_img2" src="${others.imgFile }" width=300 height=350/></div>
 		</c:forEach>
 	</div>
 	<div id="hiddenZone">

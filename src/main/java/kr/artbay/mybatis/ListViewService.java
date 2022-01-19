@@ -51,12 +51,12 @@ public class ListViewService {
 		return vo;
 	}
 	
-	public List<ArtBayAtt> viewOthers(int lot) {
-		ArtBayAtt att = new ArtBayAtt();
+	public ArtBayVo viewOthers(int lot) {
+		ArtBayVo vo = new ArtBayVo();
 		List<ArtBayAtt> list = new ArrayList<ArtBayAtt>();
 		list = mapper.viewOthers(lot);
-		System.out.println(list.get(1));
-		return list;
+		vo.setAttList(list);
+		return vo;
 	}
 	
 	public Page getPage() {return page;}
