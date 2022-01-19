@@ -12,8 +12,15 @@ $(function()  {
 	$("#btnSearch").click(function() {
 		$frm = $("#frmQna")[0];
 		$frm.action = "qnaList";
-		$frm.nowPage.value = 1;
+		$frm.nowPage.value = 1;		
 		$frm.submit();
+	});
+	
+	//조회조건 초기화
+	$("#btnSearchCancle").click(function() {
+		$("#qna_type").val("");
+		$("#findCol").val("QNA_TITLE");
+		$("#findStr").val("");
 	});
 	
 	//qna 문의 작성폼 이동

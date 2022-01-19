@@ -63,7 +63,7 @@
 						</td>
 					</tr>
 					-->
-					<tr> 
+					<tr>
 						<th>제목</th>
 						<td>
 							<div class="form-group">
@@ -75,8 +75,7 @@
 						<th>작성자</th>
 						<td>
 							<div class="form-group">
-								<input type="text" name="irum" class="form-control width-md" value="홍길동">
-								<input type="hidden" name="mid" class="form-control width-md" value="hong">
+								<input type="text" name="mid" class="form-control width-md" value="${ sessionScope.sv.mid }" readonly>
 							</div>
 						</td>
 					</tr>

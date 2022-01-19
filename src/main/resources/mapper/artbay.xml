@@ -97,9 +97,16 @@
 	</select>
 	
 	<!-- QNA 조회 건수 -->
-	<select id="qnaTotSize" parameterType="String" resultType="Integer">
+	<select id="qnaTotSize" parameterType="kr.artbay.common.Page" resultType="Integer">
 		SELECT COUNT(QNA_NUM) FROM QNA
-		WHERE QNA_TITLE LIKE '%${_parameter}%'
+		<where>
+			<if test="qna_type != ''">
+				QNA_TYPE = #{qna_type}	
+			</if>
+			<if test="findCol != ''">
+				AND ${findCol} LIKE '%${findStr}%'
+			</if>
+		</where>		
 	</select>
 	
 	<!-- QNA 조회 -->
@@ -110,8 +117,14 @@
 			CONCAT(LPAD(" ", DEEP*6, "&#160;"), QNA_TITLE) QNA_TITLE
 		FROM 
 			QNA q
-		WHERE 
-			QNA_TITLE LIKE '%${findStr}%'
+		<where>
+			<if test="qna_type != ''">
+				QNA_TYPE = #{qna_type}	
+			</if>
+			<if test="findCol != ''">
+				AND ${findCol} LIKE '%${findStr}%'
+			</if>
+		</where>	
 		ORDER BY 
 			GRP DESC, SEQ ASC 
 		LIMIT 

@@ -17,7 +17,7 @@
 
 	<!-- location -->
 	<div class = "applyform">
-		<h1>1:1상담문의</h1>
+		<h1>1:1 상담문의</h1>
 	</div>
 	<!-- //location -->
 
@@ -45,14 +45,14 @@
 								<th>질문유형</th>
 								<td>
 									<div class="form-inline">
-										 <select name="kind" id="kind" class="form-control material-ch" style="width: 130px;">
-										 	<option>선택하세요</option>
-										 	<option value="10">회원가입/탈퇴</option>
-											<option value="20">물품문의</option>
-											<option value="30">입금/결제문의</option>
-											<option value="40">배송문의</option>
-											<option value="50">반품/취소/환불</option>
-											<option value="80">기타문의</option> 
+										 <select name="qna_type" id="qna_type" class="form-control material-ch" style="width: 130px;">
+										 	<option value="" <c:if test="${ page.qna_type == '' }">selected</c:if>>선택하세요</option>
+										 	<option value="10" <c:if test="${ page.qna_type == '10' }">selected</c:if>>회원가입/탈퇴</option>
+											<option value="20" <c:if test="${ page.qna_type == '20' }">selected</c:if>>물품문의</option>
+											<option value="30" <c:if test="${ page.qna_type == '30' }">selected</c:if>>입금/결제문의</option>
+											<option value="40" <c:if test="${ page.qna_type == '40' }">selected</c:if>>배송문의</option>
+											<option value="50" <c:if test="${ page.qna_type == '50' }">selected</c:if>>반품/취소/환불</option>
+											<option value="80" <c:if test="${ page.qna_type == '80' }">selected</c:if>>기타문의</option> 
 										</select>
 									</div>
 								</td>
@@ -63,15 +63,15 @@
 								<td>
 									<div class="form-inline">
 										<div class="form-group">
-											<select name="field" id="field" class="form-control material-ch"  style="width: 80px;">
-												<option value="SA" selected>제목</option>
-												<option value="SB">등록자</option>
-												<option value="SC">내용</option>
+											<select name="findCol" id="findCol" class="form-control material-ch"  style="width: 80px;">
+												<option value="QNA_TITLE" <c:if test="${ page.findCol == 'QNA_TITLE' }">selected</c:if>>제목</option>
+												<option value="MID" <c:if test="${ page.findCol == 'MID' }">selected</c:if>>등록자</option>
+												<option value="QNA_DOC" <c:if test="${ page.findCol == 'QNA_DOC' }">selected</c:if>>내용</option>
 											</select>
 										</div>
 										<div class="form-group mt5m">
 											<!-- <input type="text" id="qry" name="qry" class="form-control" value="" onkeyup="">  -->
-											<input type="text" name="findStr" class="form-control" value="${ page.findStr }" onkeyup="">
+											<input type="text" name="findStr" id="findStr" class="form-control" value="${ page.findStr }" onkeyup="">
 											<input type="text" name="nowPage" class="form-control" value="${ page.nowPage }" onkeyup="">
 											<input type="text" name="qnaNum" class="form-control">	<!-- 상세조회 위한 키 -->
 										</div>
@@ -82,16 +82,14 @@
 					</table>
 				</div>
 				<div class="btnSearch">
-					<button class="btn btn-search" id="btnSearch">검색</button>
-	            	<button class="btn btn-search-delete" onclick="">검색삭제</button>
+					<input type="button" class="btn btn-search" id="btnSearch" value="검색">
+					<input type="button" class="btn btn-search-delete" id="btnSearchCancle" value="검색삭제">	            	
 				</div>
 			</form>
 			
 			<!--// 조회 테이블 -->
 			<div class="table-infoTop clearfix mt50">
-				<div class="pull-left fs15">
-					<span class="fcBlue"><strong>나의 1:1 상담문의</strong></span>에 대해서 모두 <span class="fcBlue"><strong>${ fn:length(list) }</strong></span>개가 검색되었습니다.
-				</div>
+				<div>TOTAL : <span>${ fn:length(list) }</span></div>
 			</div>
 
 			<div class="boardList">

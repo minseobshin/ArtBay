@@ -29,7 +29,7 @@ public class QnaService {
 	//qna 조회
 	public List<ArtBayVo> search(Page page) {
 		//조건에 맞는 데이터 건수
-		int ts = mapper.qnaTotSize(page.getFindStr());
+		int ts = mapper.qnaTotSize(page);
 		
 		//페이지 초기화
 		page.setTotSize(ts);

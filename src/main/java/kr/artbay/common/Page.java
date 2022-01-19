@@ -5,6 +5,8 @@ public class Page {
 	int listSize = 10, blockSize=5, totSize;
 	int startPage, endPage, totPage;
 	int nowPage=1;
+	String findCol="";
+	String qna_type="";
 	String findStr="";
 	String sort="";
 
@@ -51,6 +53,11 @@ public class Page {
 	public void setNowPage(int nowPage) {this.nowPage = nowPage;}
 	public String getFindStr() {return findStr;}
 	public void setFindStr(String findStr) {this.findStr = findStr;}
+	public String getFindCol() {return findCol;}
+	public void setFindCol(String findCol) {this.findCol = findCol;}
+	public String getQna_type() {return qna_type;}
+	public void setQna_type(String qna_type) {this.qna_type = qna_type;}
+
 	public String getSort() {return sort;}
 	public void setSort(String sort) {this.sort = sort;}
 	

@@ -29,7 +29,7 @@ public class QnaController {
 	
 	//QNA 조회
 	@RequestMapping(value = "/qnaList", method = {RequestMethod.POST, RequestMethod.GET})
-	public ModelAndView qnaSearch(Page page) {
+	public ModelAndView qnaSearch(Page page) {		
 		ModelAndView mv = new ModelAndView();
 		List<ArtBayVo> list = service.search(page);
 		page = service.getPage();

@@ -26,9 +26,9 @@ table {
  
 .applyform {
     position: relative;
-    height: 120px;
-    background-color: #f9f9f9;
-    margin-bottom: 40px;
+    height: 190px;
+    background-color: #1f2d4a;
+    margin-bottom: 60px;
 }
 .applyform > h1 {
     margin-top: 10px;
@@ -36,9 +36,9 @@ table {
     top: 40%;
     left: 50%;
     transform: translate(-50%, -50%);
-    font-size: 30px;
-    font-weight: 700;
-    color: #333333;
+    font-size: 1.2em;
+    font-weight: bold;
+    color: #fff;
     white-space: nowrap;
 }
 #subContentsWrap {
@@ -279,7 +279,14 @@ form[name="frmBoard"] .clearfix:after{
     clear: both;
 }
 
-
+.table-infoTop {
+	margin: 15px 0;
+	font-size: 1.15em;
+}
+.table-infoTop span {
+	font-weight: bold;
+	color: #173b70;
+}
 .boardList {
     border-top: 1px solid #1f1f1f;
 }

@@ -44,7 +44,7 @@ public interface ArtBayMapper {
 	public int imgInsert(ArtBayAtt att);			//이미지 	 insert
 	
 	//QNA 
-	public Integer qnaTotSize(String findStr);	//조회건수
+	public Integer qnaTotSize(Page page);		//조회건수
 	public List<ArtBayVo> qnaSearch(Page page); //조회
 	public Integer qnaInsert(ArtBayVo vo);		//등록
 	public Integer getQnaSerial();				//시리얼키 조회
