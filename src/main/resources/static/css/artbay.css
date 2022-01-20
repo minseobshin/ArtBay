@@ -321,6 +321,7 @@ form[name=frm_view]{
 	margin: 10px auto;
 	width: 1280px;
 	overflow-x: auto;
+	min-height: 1600px;
 }
 .caution h3, .caution div{
 	width: 800px;
@@ -346,8 +347,18 @@ form[name=frm_view]{
 
 .otherWorks{
 	width: 90%;
-	min-height: 200px;
 	margin: 10px auto;
+}
+
+#otherWorksImg{
+    opacity: 0.7;
+    filter: alpha(opacity=40);
+    transition: opacity 0.5s;
+}
+
+#otherWorksImg:hover{
+	cursor: pointer;
+    opacity: 1;
 }
 
 #otherWorksImg{
@@ -360,6 +371,18 @@ form[name=frm_view]{
 	width: 150px;
 	vertical-align: middle;
 }
+
+.arrPrev{
+	height: 200px;
+}
+
+.arrNext{
+	height: 200px;
+	position: relative;
+	top: -200px;
+	left: 100px;
+}
+
 .arrPrev span::after {
     content: '';
     width: 80px; /* 사이즈 */
@@ -382,8 +405,6 @@ form[name=frm_view]{
     display: inline-block;
     transform: rotate(45deg); /* 각도 */
     margin: 50px auto;
-    margin-top: -180px;
-    margin-left: 100px;
     vertical-align: middle;
 }
 
@@ -394,6 +415,11 @@ form[name=frm_view]{
 
 .slick-list{
 	left: -30px;
+}
+
+.slick-slide
+{
+    height: 200px !important;
 }
 
 .view_right{
@@ -438,11 +464,23 @@ form[name=frm_view]{
 	float: left;
 }
 
+.work_info, .view_sml_btn{
+	width: 86.5%;
+	margin-left: 13.5%;
+}
+
 form[name=frm_view] div.view_sml_btn p{
 	display: inline-block;
 	border-radius: 50%;
-	padding: 0.5px;
+	padding: 0.35em;
 	box-sizing: border-box;
+	border: 1px solid rgb(100, 100, 100);
+	width: 2em;
+	height: 2em;
+}
+
+form[name=frm_view] div.shareUrl{
+	display: none;
 }
 
 .view_detail, .view_price{

@@ -103,6 +103,33 @@ public class MemberService {
 		return vo;
 	}
 	
+	//회원정보수정 update
+	public boolean updateMemberInfo(ArtBayVo vo) {
+		boolean b = false;
+		status = manager.getTransaction(new DefaultTransactionDefinition());
+		
+		try {
+			System.out.println("mapper 돌리나?1");
+			int c = mapper.updateMemberInfo(vo);
+			System.out.println("mapper 돌리나?2");
+			System.out.println(c);
+			if(c>0) {
+				System.out.println("commit 돌리나?1");
+				manager.commit(status);
+				System.out.println("commit 돌리나?2");
+				b = true;
+			}
+		}catch(Exception e) {
+			System.out.println("err 인가?1");
+			e.printStackTrace();
+			System.out.println("err 인가?2");
+			manager.rollback(status);
+			System.out.println("err 인가?3");
+		}
+		
+		return b;
+	}
+	
 }
 
 

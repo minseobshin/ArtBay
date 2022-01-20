@@ -58,6 +58,9 @@ $(function(){
 			}
 		});	
 	});
+	//엔터키
+	$("#midLogin").keyup(function(e){if(e.keyCode==13){$("#btnGoLogin").click();}})
+	$("#pwdLogin").keyup(function(e){if(e.keyCode==13){$("#btnGoLogin").click();}})
 	
 	$('#btnCancelLogin').click(function(){
 		$(".modal-content").load("mypageMemberLogin").hide();

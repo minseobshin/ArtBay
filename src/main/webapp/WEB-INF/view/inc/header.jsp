@@ -18,10 +18,9 @@
 		</li>			
 		<li><a href="#">How To</a>
 			<ul>
-				<li><a href="howtoHowto">경매소개</a></li>
-				<li><a href="howtoBidIntro">응찰안내</a></li>
-				<li><a href="howtoConsignGuide">위탁안내</a></li>
-				<li><a href="howtoHowtotest">안내 테스트</a></li>
+				<li><a href="howtoHowtotest">경매소개</a></li>
+				<li><a href="howtoBidIntrotest">응찰안내</a></li>
+				<li><a href="howtoConsignGuidetest">위탁안내</a></li>
 			</ul>
 		</li>
 		<li><a href="#">Customer Service</a>

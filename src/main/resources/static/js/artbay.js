@@ -96,22 +96,27 @@ function search(){
 }
 
  $(function(){
+	//오른쪽 응찰내역 div 위치
+	if($(window).width()>1300){
 	$(window).scroll(function(){
    		$(".view_right").css("top", Math.max(0, 100 - $(this).scrollTop()));
-   		$(this).css("border", "1px solid red")
-   		if ($(window).scrollTop() > 900) {
+
+   		if ($(window).scrollTop() > 880) {
             $(".view_right").css({
                 position: 'fixed',
-                top: Math.max(900-$(this).scrollTop())
+                top: Math.max(880-$(this).scrollTop())
             });
-            console.log($(this).scrollTop())
         } else {
-            $(".view_right").css({
-                position: 'fixed',
-                top: Math.max(0, 100 - $(this).scrollTop())
-            });
-        }
+		if($(window).width()<1300){
+	            $(".view_right").css({
+	                display: 'block',
+	                position: 'static'
+	            });
+	        }
+		}
 	});
+		
+	}
 
 	$frm = $("#frm_list")[0];
 	//$("form[name='frm_view']").attr({'min':0.5000, 'max':1.5000});
@@ -169,6 +174,7 @@ function search(){
 			$(".btnBidList ul").remove();
 			$(".bidList .bidHistory").remove();
 		}
+		location.reload();
 	})
 	
 	if($(window).width()<1300){
@@ -189,7 +195,12 @@ function search(){
 		$(".idle_selected_option_area").show();
 		search();
 	})
+	
 })
+//버튼을 누르면 url 복사
+function clip(){
+	
+}
 
 /*howto화면 버튼 누르면 하위 메뉴 등장*/
 function subMenuOn(e){
