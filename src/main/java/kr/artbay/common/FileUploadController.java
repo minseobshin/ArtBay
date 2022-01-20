@@ -13,6 +13,8 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.servlet.ModelAndView;
 
+import kr.artbay.mybatis.ApplicationService;
+
 
 
 @Controller
@@ -20,10 +22,13 @@ public class FileUploadController {
 	public static String uploadPath = "C:/upload/";
 	
 	//@Autowired BoardService service;
+	@Autowired 
+	ApplicationService applicationService;
 	
 	@RequestMapping(value="/fileUp")
-	public ModelAndView upload(String job, int grp, int seq,
-								@RequestParam("attfile") List<MultipartFile> mul,
+	public ModelAndView upload(String job,
+			int lot, /* int seq, */
+								@RequestParam("addFile") List<MultipartFile> mul,
 								@ModelAttribute ArtBayAtt attVo,
 								@ModelAttribute ArtBayVo vo,
 								@ModelAttribute Page page) {
@@ -44,19 +49,20 @@ public class FileUploadController {
 				File reName = new File(uploadPath + temp);
 				targetFile.renameTo(reName);
 				ArtBayAtt att = new ArtBayAtt();
-				att.setLot(grp);
-				System.out.println(seq);
+				att.setLot(lot);
+				//System.out.println(seq);
 				att.setImgFile(temp);
+				att.setThumbnail("N");
 				attList.add(att);
 			}
 			vo.setAttList(attList);
-			//b = service.insertAtt(vo, job); //서비스에서 insertAtt만들어야 해요
+			b =  applicationService.insertAtt(vo, job); //서비스에서 insertAtt만들어야 해요
 			if(b) msg = "저료가 정상적으로 입력 되었습니다.";
 			else msg= "자료 입력 중 오류 발생";
 			
-			mv.addObject("msg", msg);
-			mv.addObject("page", page);
-			mv.setViewName("board/result");
+			//mv.addObject("msg", msg);
+			//mv.addObject("page", page);
+			mv.setViewName("main");
 		} catch (Exception e) {
 			e.printStackTrace();
 		}

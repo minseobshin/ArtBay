@@ -8,6 +8,7 @@ import org.springframework.transaction.TransactionStatus;
 import org.springframework.transaction.annotation.Transactional;
 import org.springframework.transaction.support.DefaultTransactionDefinition;
 
+import kr.artbay.common.ArtBayAtt;
 import kr.artbay.common.ArtBayVo;
 
 @Service
@@ -21,7 +22,7 @@ public class ApplicationService {
 	PlatformTransactionManager manager;
 	
 	TransactionStatus status;
-	
+	int lot;
 	public boolean insertArtwork(ArtBayVo vo) {
 		boolean b = false;
 		status = manager.getTransaction(new DefaultTransactionDefinition());
@@ -30,6 +31,8 @@ public class ApplicationService {
 		try {
 			if(c>0) {
 				manager.commit(status);
+				this.lot = mapper.get_lot();
+				System.out.println("lot" + lot);
 				b = true;
 			}else {
 				status.rollbackToSavepoint(savePoint);
@@ -50,7 +53,38 @@ public class ApplicationService {
 		}
 		return vo;
 	}
+	public boolean insertAtt(ArtBayVo vo, String job) {
+		status = manager.getTransaction(new DefaultTransactionDefinition());
+		boolean b =false;
+		int c = 0;
+		Object savePoint = null;
+		try {
+			savePoint = status.createSavepoint();
+			for(ArtBayAtt att: vo.getAttList()) {
+				if(job.equals("i") || job.equals("r")) {
+					c += mapper.imgInsert(att);
+				}
+				/*
+				 * else if( job.equals("m")) { c += mapper.attModify(att); }
+				 */
+			}
+				if(c == vo.getAttList().size()) {
+					manager.commit(status);
+					b=true;
+				}else {
+					status.rollbackToSavepoint(savePoint);
+				}
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		
+		return b;
+	}
 	
 	
+	
+	
+	
+	public int getLot() {return lot;}
 	
 }

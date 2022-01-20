@@ -216,6 +216,7 @@
 	                          <input type="file" name="addFile" class="tui-input-file" multiple="multiple">
 	                      </label>
 	                     </div>
+                         <input type="hidden" name="lot">	
 	                 </div>
 	             </div>
 	         </td>
@@ -292,7 +293,7 @@
 			    <span id="modal-warning-message">위탁 신청을 하시겠습니까?</span>
 			    <div class="modal-btn">
 			        <a href="#" onclick="modalOff($('#modal-warning'))">취소</a>
-			    	<a href="#" id="btn-warning-confirm" >확인</a>
+			    	<a id="btn-warning-confirm" >확인</a>
 		        </div>
 		    </div>
 			<img src="./img/popup-close@1x.png" class="modal-close" onclick="modalOff($('#modal-warning'))">

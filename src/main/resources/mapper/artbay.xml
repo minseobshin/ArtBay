@@ -54,16 +54,18 @@
 		select * from artbay_member where mid = #{mid}
 	</select>
 	<insert id="insertArtWork" parameterType="kr.artbay.common.ArtBayVo">
-		insert into artwork(mid, artwork_name, artwork_ctgr, artist, material, 
+		insert into artwork(lot, mid, artwork_name, artwork_ctgr, artist, material, 
 			artwork_size, contents, etc, start_price, current_price, regist_date, due_date, direct_price, hit, bid_cnt, crnt_status)
-		values(#{mid}, #{artwork_name}, #{artwork_ctgr}, #{artist}, #{material}, #{artwork_size}, #{contents}, #{etc}, #{start_price}, 0,
+		values(getlot('i'), #{mid}, #{artwork_name}, #{artwork_ctgr}, #{artist}, #{material}, #{artwork_size}, #{contents}, #{etc}, #{start_price}, 0,
 				now(), (SELECT DATE_ADD(NOW(), INTERVAL 7 DAY)), #{direct_price}, 0, 0, #{crnt_status} )
 	</insert>
 	<insert id="imgInsert" parameterType="kr.artbay.common.ArtBayAtt">
 		insert into artimg(lot, imgFile, thumbnail)
 		values (#{lot}, #{imgFile}, #{thumbnail})
 	</insert>
-	
+	<select id="get_lot" resultType="Integer">
+		select getlot('') lot
+	</select>
 	
 	<select id="view" parameterType="Integer" resultType="kr.artbay.common.ArtBayVo">
 		select * from artwork where lot = ${_parameter}
