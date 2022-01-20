@@ -13,7 +13,7 @@ public class ArtBayVo {
 	
 	//응찰
 	int bid_price;
-	int bid_date;
+	String bid_date;
 	
 	//낙찰 
 	int winbid_price;
@@ -78,6 +78,7 @@ public class ArtBayVo {
 	String thumbnail;
 	
 	
+	
 	String imgFile;
 	int attCnt;
 	List<ArtBayAtt> attList = new ArrayList<ArtBayAtt>();
@@ -114,8 +115,8 @@ public class ArtBayVo {
 	public void setDirect_price(int direct_price) {this.direct_price = direct_price;}
 	public int getBid_price() {return bid_price;}
 	public void setBid_price(int bid_price) {this.bid_price = bid_price;}
-	public int getBid_date() {return bid_date;}
-	public void setBid_date(int bid_date) {this.bid_date = bid_date;}
+	public String getBid_date() {return bid_date;}
+	public void setBid_date(String bid_date) {this.bid_date = bid_date;}
 	public int getWinbid_price() {return winbid_price;}
 	public void setWinbid_price(int winbid_price) {this.winbid_price = winbid_price;}
 	public int getWinbid_date() {return winbid_date;}
@@ -205,9 +206,7 @@ public class ArtBayVo {
 	public void setSeq(int seq) {this.seq = seq;}
 	public int getDeep() {return deep;}
 	public void setDeep(int deep) {this.deep = deep;}
-	public int getAttCnt() {
-		return attCnt;
-	}
+	public int getAttCnt() {return attCnt;}
 	public void setAttCnt(int attCnt) {this.attCnt = attCnt;}
 	public List<ArtBayAtt> getAttList() {return attList;}
 	public void setAttList(List<ArtBayAtt> attList) {this.attList = attList;}

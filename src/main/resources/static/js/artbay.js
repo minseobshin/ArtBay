@@ -96,15 +96,15 @@ function search(){
 }
 
  $(function(){
+	//오른쪽 응찰내역 div 위치
 	$(window).scroll(function(){
    		$(".view_right").css("top", Math.max(0, 100 - $(this).scrollTop()));
    		$(this).css("border", "1px solid red")
-   		if ($(window).scrollTop() > 900) {
+   		if ($(window).scrollTop() > 880) {
             $(".view_right").css({
                 position: 'fixed',
-                top: Math.max(900-$(this).scrollTop())
+                top: Math.max(880-$(this).scrollTop())
             });
-            console.log($(this).scrollTop())
         } else {
             $(".view_right").css({
                 position: 'fixed',
