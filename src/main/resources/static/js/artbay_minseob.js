@@ -561,6 +561,7 @@ $(function(){
 				alert("폰"+phone+"패" + newPwdChk + "수정성공")
 				$param = $('#frm_join').serialize();
 				$.post('updateMemberInfo', $param, function(){
+					alert($param);
 					window.open('mypageMemberResult', 'result', 'width=750, height=445, top=200, left=300');
 				});
 			}
