@@ -56,5 +56,9 @@ public interface ArtBayMapper {
 	public Integer qnaInsert(ArtBayVo vo);		//등록
 	public Integer getQnaSerial();				//시리얼키 조회
 	public ArtBayVo qnaView(String qnaNum);		//상세조회
+	public int qnaAttSave(ArtBayAtt att);		//첨부파일 정보 저장
+	public List<ArtBayAtt> qnaAttList(String qnaNum); //첨부파일 정보 조회
+	public int qnaDelete(ArtBayVo vo);			//삭제
+	public void qnaAttDelete(String qna_num);	//첨부파일 정보 삭제
 
 }
