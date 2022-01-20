@@ -113,6 +113,19 @@ public class ArtBayController {
 		return vo;
 	}
 	
+	//회원정보수정 update
+	@RequestMapping(value="/updateMemberInfo", method= {RequestMethod.POST})
+	public String updateMemberInfo(ArtBayVo vo) {
+		this.b = memberService.updateMemberInfo(vo);
+		if(b == true) {
+			c = "passUpdate";
+		}else {
+			c = "failUpdate";
+		}
+		
+		return c;
+	}
+	
 	//경매신청 페이지
 	@RequestMapping(value="/bidApplication" , method = {RequestMethod.POST,  RequestMethod.GET})
 	public ModelAndView bidApplication( HttpServletRequest req, Page page) {

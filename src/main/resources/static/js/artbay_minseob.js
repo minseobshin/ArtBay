@@ -344,6 +344,7 @@ $(function(){
 	
 	//비밀번호 입력 후 기본 정보 뿌리기
 	var num;
+	var rollback;
 	$("#oldPwd").focusout(function(){
 		$param = $("#frm_join").serialize();
 		$.ajax({
@@ -382,6 +383,7 @@ $(function(){
 					newPwd=2;
 					newPwdChk=2;
 					num = $('#phone').val();
+					rollback = $("#oldPwd").val(); //DB 전송 준비 oldPwd로 연결됨
 				}else{
 					$("#oldPwd").css({
 					"border" : "2px solid red",
@@ -496,6 +498,9 @@ $(function(){
 					newPwd = 3;
 					$("#btnCertification").val('비밀번호를 정확히 입력해주세요. 영문/숫자/특수문자 최소 한가지 조합 8~16자');
 				}else{
+					//비밀번호가 새로 바뀌면 DB에 저장하기 위해서(oldPwd를 전송할것임) oldPwd 업데이트 or 다시 지우면 oldPwd 원복
+					//비밀번호가 바뀌었을때 oldPwd를 전송하기 위함
+					$("#oldPwd").val($("#newPwd").val());
 					$("#newPwd").css({
 						"border" : "1px solid green",
 						"border-radius" : "3px",
@@ -513,6 +518,8 @@ $(function(){
 				"background-color" : "white"
 			})
 			$("#btnCertification").val('- ArtBay -');
+			//비밀번호 바꿨다가 다시 지웠을때 oldPwd 원복
+			$("#oldPwd").val(rollback);
 		}
 	})
 	
@@ -558,15 +565,16 @@ $(function(){
 				})
 				$("#btnCertification").val('새 비밀번호를 확인해주세요.');
 			}else{
-				alert("폰"+phone+"패" + newPwdChk + "수정성공")
+				console.log("폰"+phone+"패" + newPwdChk + "수정성공");
 				$param = $('#frm_join').serialize();
-				$.post('updateMemberInfo', $param, function(){
-					alert($param);
+				$.post('updateMemberInfo', $param, function(data){
+					//alert($param);
+					console.log(data);
 					window.open('mypageMemberResult', 'result', 'width=750, height=445, top=200, left=300');
 				});
 			}
 		}else{
-			alert("폰"+phone+"패" + newPwdChk + "수정실패")
+			console.log("폰"+phone+"패" + newPwdChk + "수정실패");
 			$("#btnCertification").val('모든 정보를 입력해주세요.');
 		}
 	})
