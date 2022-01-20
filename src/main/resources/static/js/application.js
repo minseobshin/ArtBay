@@ -24,6 +24,11 @@ $(function(){
 			}		
 		})
 	})
+	
+	
+	
+	
+	
 })
 
 
@@ -52,8 +57,14 @@ function Commas(){
 		$('#frm_bay_insert')[0].ho.value = removeCommas($('#ho').val());
 }
 function validate(){
+	var start_p = parseInt(removeCommas($('#start_price').val()))
+	var diect_p = parseInt(removeCommas($('#direct_price').val()))
 	if(artwork_name.value==''){
 		$("#modal-common").show();
+	}else if($('#artwork_ctgr').val()==""){
+		$("#modal-ctgr").show();
+	}else if(start_p>diect_p){
+		$("#modal-price").show();
 	}else{
 		$("#modal-warning").show();
 	}

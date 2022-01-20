@@ -115,7 +115,7 @@
                             <select id="artwork_ctgr" name="artwork_ctgr" class="material-ch ctgr" >
                                 <option value="">카테고리를 선택해 주세요.</option>
                                 <option value="paint">그림</option>
-                                <option value="photo">사진</option>
+<!--                                 <option value="photo">사진</option> -->
                                 <option value="pottery">도자기</option>
                             </select>
                         </div>
@@ -195,33 +195,33 @@
             </tbody></table>
 </form>                
 <form name="frm_upload" id="frm_upload" method="post">
-            <table class="apply-table talbeline">
-            	<tbody>
-	                <tr>
-	                    <td class="essential"><span>작품이미지</span></td>
-	                    <td>
-	                        <div>
-	                            <div id="uploader" class="tui-file-uploader uploader-box">
-	                                <div class="tui-file-uploader-area" style="min-height: 100px; width: 100%;">
-	                                </div>
-	                                <div class="thumbnail">
-		                                <label class="tui-btn tui-btn-upload m-t-5" style="background-color: rgb(102, 102, 102); color: rgb(255, 255, 255); border: 1px solid gray; height: 28px; line-height: 28px; text-align: center; padding: 0px; width: 100%; display: flex; align-items: center; justify-content: center;">
-		                                    <span class="tui-btn-txt" style="line-height: initial;">대표 이미지 추가</span>
-		                                    <input type="file" name="thumbnailFile" class="tui-input-file" >
-		                                </label>
-	                                </div>
-	                                <div class="viewimg">
-		                                <label class="tui-btn tui-btn-upload m-t-5" style="background-color: rgb(102, 102, 102); color: rgb(255, 255, 255); border: 1px solid gray; height: 28px; line-height: 28px; text-align: center; padding: 0px; width: 100%; display: flex; align-items: center; justify-content: center;">
-		                                    <span class="tui-btn-txt" style="line-height: initial;">상세 이미지 추가</span>
-		                                    <input type="file" name="addFile" class="tui-input-file" multiple="multiple">
-		                                </label>
-	                                </div>
-	                            </div>
-	                        </div>
-	                    </td>
-	                </tr>
-            	</tbody>
-            </table>
+	<table class="apply-table talbeline">
+		<tbody>
+	     <tr>
+	         <td class="essential"><span>작품이미지</span></td>
+	         <td>
+	             <div>
+	                 <div id="uploader" class="tui-file-uploader uploader-box">
+	                     <div class="tui-file-uploader-area" style="min-height: 100px; width: 100%;">
+	                     </div>
+	                     <div class="thumbnail">
+	                      <label class="tui-btn tui-btn-upload m-t-5" style="background-color: rgb(102, 102, 102); color: rgb(255, 255, 255); border: 1px solid gray; height: 28px; line-height: 28px; text-align: center; padding: 0px; width: 100%; display: flex; align-items: center; justify-content: center;">
+	                          <span class="tui-btn-txt" style="line-height: initial;">대표 이미지 추가</span>
+	                          <input type="file" name="thumbnailFile" class="tui-input-file" >
+	                      </label>
+	                     </div>
+	                     <div class="viewimg">
+	                      <label class="tui-btn tui-btn-upload m-t-5" style="background-color: rgb(102, 102, 102); color: rgb(255, 255, 255); border: 1px solid gray; height: 28px; line-height: 28px; text-align: center; padding: 0px; width: 100%; display: flex; align-items: center; justify-content: center;">
+	                          <span class="tui-btn-txt" style="line-height: initial;">상세 이미지 추가</span>
+	                          <input type="file" name="addFile" class="tui-input-file" multiple="multiple">
+	                      </label>
+	                     </div>
+	                 </div>
+	             </div>
+	         </td>
+	     </tr>
+		</tbody>
+	</table>
 </form>
             <div class="apply-btn">
                 <a id="btnCancle" href="main" onclick="">취소</a>
@@ -249,6 +249,34 @@
 				<a href="#" class="btn-ok" onclick="modalOff($('#modal-common'))">확인</a>
 			</div>
 			<img src="./img/popup-close@1x.png" class="modal-close" onclick="modalOff($('#modal-common'))">
+		</div>
+	</div>
+</div>
+<!--알림 모달창 -->
+<div class="modals fade show" id="modal-ctgr" >
+	<div>
+		<div>
+			<div>
+			    <img src="./img/warning-icon@1x.png" id="img-warning">
+			    <h2>알림</h2>
+				<span id="modal-message">카테고리를 선택해 주세요.</span>
+				<a href="#" class="btn-ok" onclick="modalOff($('#modal-ctgr'))">확인</a>
+			</div>
+			<img src="./img/popup-close@1x.png" class="modal-close" onclick="modalOff($('#modal-ctgr'))">
+		</div>
+	</div>
+</div>
+<!--알림 모달창 -->
+<div class="modals fade show" id="modal-price" >
+	<div>
+		<div>
+			<div>
+			    <img src="./img/warning-icon@1x.png" id="img-warning">
+			    <h2>알림</h2>
+				<span id="modal-message">즉시 판매 가격이 시작가격 보다 낮습니다.</span>
+				<a href="#" class="btn-ok" onclick="modalOff($('#modal-price'))">확인</a>
+			</div>
+			<img src="./img/popup-close@1x.png" class="modal-close" onclick="modalOff($('#modal-price'))">
 		</div>
 	</div>
 </div>
