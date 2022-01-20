@@ -1,5 +1,6 @@
 package kr.artbay.mybatis;
 
+import java.io.File;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -9,7 +10,10 @@ import org.springframework.transaction.TransactionStatus;
 import org.springframework.transaction.annotation.Transactional;
 import org.springframework.transaction.support.DefaultTransactionDefinition;
 
+import kr.artbay.common.AES;
+import kr.artbay.common.ArtBayAtt;
 import kr.artbay.common.ArtBayVo;
+import kr.artbay.common.FileUploadController;
 import kr.artbay.common.Page;
 
 @Service
@@ -21,7 +25,7 @@ public class QnaService {
 	
 	@Autowired
 	PlatformTransactionManager manager;
-	
+		
 	TransactionStatus status;
 	Page page;
 	int serial;
@@ -44,8 +48,8 @@ public class QnaService {
 	//qna 상세조회
 	public ArtBayVo qnaView(String qnaNum) {
 		ArtBayVo vo = mapper.qnaView(qnaNum);
-		//파일조회 후 vo에 추가
-		//..		
+		List<ArtBayAtt> attList = mapper.qnaAttList(qnaNum);
+		vo.setAttList(attList);	
 		return vo;
 	}
 	
@@ -66,6 +70,63 @@ public class QnaService {
 		return result;
 	}
 	
+	//첨부파일 정보 저장
+	public boolean insertAtt(ArtBayVo vo) {
+		boolean result = false;
+		status = manager.getTransaction(new DefaultTransactionDefinition());
+		int attRows = 0;
+		
+		for(ArtBayAtt att : vo.getAttList()) {
+			attRows += mapper.qnaAttSave(att);			
+		}
+		
+		if(attRows == vo.getAttList().size()) {
+			manager.commit(status);
+			result = true;
+		}
+		else {
+			manager.rollback(status);
+		}
+		return result;
+	}
+	
+	//qna 삭제
+	//1) 게시글, 첨부파일 정보 삭제
+	//2) 실제 첨부파일 삭제
+	public boolean delete(String qna_num, String qna_pwd) {
+		boolean result = false;
+		status = manager.getTransaction(new DefaultTransactionDefinition());
+		Object savePoint = status.createSavepoint();
+		
+		ArtBayVo vo = qnaView(qna_num);
+		vo.setQna_pwd(qna_pwd);
+				
+		//1) 게시글, 첨부파일 정보 삭제
+		//게시글 정보 삭제
+		int dRows = mapper.qnaDelete(vo);
+				
+		if(dRows > 0) {			
+			//첨부파일 정보 삭제
+			if(vo.getAttList().size() > 0) {
+				mapper.qnaAttDelete(qna_num);
+			}
+			manager.commit(status);
+			result = true;
+			
+			//2) 실제 첨부파일 삭제
+			for(ArtBayAtt att : vo.getAttList()) {
+				File delFile = new File(FileUploadController.uploadPath + att.getAttFile());
+				if(delFile.exists()) {
+					delFile.delete();
+				}
+			}
+		}
+		else {
+			status.rollbackToSavepoint(savePoint);
+		}
+		return result;
+	}
+	
 	//페이지 반환
 	public Page getPage() {
 		return page;
@@ -74,5 +135,5 @@ public class QnaService {
 	//시리얼키 반환
 	public int getSerial() {
 		return serial;
-	}
+	}	
 }

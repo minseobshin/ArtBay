@@ -26,6 +26,7 @@ public class QnaController {
 	PrintWriter out;
 	AES aes = new AES();
 	boolean result = false;
+	String msg = "";
 	
 	//QNA 조회
 	@RequestMapping(value = "/qnaList", method = {RequestMethod.POST, RequestMethod.GET})
@@ -66,11 +67,10 @@ public class QnaController {
 		try {
 			out = resp.getWriter();
 			
-			//비공개글 일때만 비밀번호 암호화
-			if(vo.getQna_status().equals("N")) { 
-				vo.setQna_pwd( aes.encrypt(vo.getQna_pwd()) );				
-			}
+			//비밀번호 암호화
+			vo.setQna_pwd( aes.encrypt(vo.getQna_pwd()) );				
 			
+			//저장
 			result = service.insert(vo);
 			
 			String format = "{'flag':'%s', 'serial':'%s'}";
@@ -89,4 +89,27 @@ public class QnaController {
 			e.printStackTrace();
 		}
 	}
+	
+	@RequestMapping(value = "qnaDelete", method = RequestMethod.POST)
+	public ModelAndView qnaDelete(ArtBayVo vo, Page page) {
+		ModelAndView mv = new ModelAndView();
+		
+		//입력한 비밀번호 암호화
+		vo.setQna_pwd( aes.encrypt(vo.getQna_pwd()) );
+		
+		result =  service.delete(vo.getQna_num()+"", vo.getQna_pwd());
+		
+		if(result) {
+			msg = "자료가 삭제되었습니다.";
+		} 
+		else {
+			msg = "자료 삭제중 오류가 발생되었습니다.";
+		}
+		
+		mv.addObject("msg", msg);
+		mv.addObject("page", page);
+		mv.setViewName("customer.consultationResult");
+		return mv;
+	}
+	
 }

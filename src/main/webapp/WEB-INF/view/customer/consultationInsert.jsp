@@ -93,8 +93,14 @@
 							<div class="form-inline">
 								<label><input type="radio" name="qna_status" value="Y" checked>공개</label>
 								<label><input type="radio" name="qna_status" value="N">비공개</label>
-								<!-- 비공개일때만 비밀번호 보임 -->
-								<input type="password" name="qna_pwd" id="qna_pwd" class="form-control" style="display: none;" autocomplete="off">
+							</div>	
+						</td>
+					</tr>
+					<tr>
+						<th>비밀번호</th>
+						<td>
+							<div class="form-inline">
+								<input type="password" name="qna_pwd" id="qna_pwd" class="form-control" autocomplete="qna_pwd">
 							</div>	
 						</td>
 					</tr>
@@ -159,9 +165,9 @@
 	                                    <span class="tui-btn-txt" style="line-height: initial;">파일 추가</span>
 	                                    <input type="file" name="attFile" multiple="multiple" class="tui-input-file">
 	                                    <input type="hidden" name="serial">	<!-- 시리얼 번호 -->
-										<input type="hidden" name="nowPage" value="${ page.nowPage }">
-										<input type="hidden" name="findStr" value="${ page.findStr }">	
 	                                </label>
+										<input type="text" name="nowPage" value="${ page.nowPage }">
+										<input type="text" name="findStr" value="${ page.findStr }">	
 	                            </div>
 	                  		 </td>
 	            	   </tr>

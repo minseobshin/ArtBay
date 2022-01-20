@@ -194,10 +194,13 @@ div.uploader-box{
 
 
 .btnWrap {
-    margin-top: 30px;
+	margin-top: 30px; 
     align-items: center;
     justify-content: center;
-    
+    text-align: center;
+}
+.btnWrap a {
+	text-align: center;
 }
 .bwflex {
     display: flex;
@@ -334,7 +337,7 @@ form[name="frmBoard"] .clearfix:after{
     width: 10%;
 }
 .boardList ul.bContent > li.date, .boardList ul.bTitle > li.date {
-    width: 15%;
+    width: 10%;
 }
 .text-left {
     text-align: left !important;
@@ -350,8 +353,14 @@ form[name="frmBoard"] .clearfix:after{
     width: 10%;
 }
 .boardList ul.bTitle > li.date {
-    width: 15%;
+    width: 10%;
 }
+
+.boardConentsView {
+	height: 300px;
+	padding: 10px 0;
+}
+
 .text-center {
     text-align: center !important;
 }
@@ -417,4 +426,53 @@ form[name="frmBoard"] .clearfix:after{
     border-color: #222;
 }
 
+#qna_result_wrapper {
+	margin: 100px 0;
+}
+#qna_result_wrapper .qna_result_msg {
+	width: 460px;
+	margin: 60px auto;
+	padding: 80px 0;
+	text-align: center;
+	border-radius: 10px;
+	-webkit-box-shadow: 10px 10px 10px gray; 
+	-moz-box-shadow: 10px 10px 10px gray; 
+	box-shadow: 10px 10px 10px gray; 
+	border: 1px solid gray;
+}
 
+/* 암호입력 폼 */
+#pwd_check {
+	display: none;
+	z-index: 1;
+	background-color : rgba(0,0,0,0.4);
+	position: fixed;
+	left: 0;
+	top: 0;
+	width: 100%;
+	height: 100%;
+}
+#pwd_check form {
+	background-color: #fff;
+	width: 460px;
+	padding: 40px;
+	margin: 300px auto;
+	position: relative;
+	border-radius: 10px;
+	-webkit-box-shadow: 10px 10px 10px gray; 
+	-moz-box-shadow: 10px 10px 10px gray; 
+	box-shadow: 10px 10px 10px gray; 
+	border: 1px solid gray;
+}
+#pwd_check form > * {
+	height: 40px;
+	line-height: 40px;
+	margin-bottom: 20px;
+	text-align: center;
+}
+#pwd_check form input[type=button] {
+	width: 80px;
+	background: #e97108;
+	color: #fff;
+	border: none;
+}

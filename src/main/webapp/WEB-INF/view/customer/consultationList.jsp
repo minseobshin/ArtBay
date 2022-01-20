@@ -97,6 +97,7 @@
 					<li class="num">구분</li>
 					<li>제목</li>
 					<li class="status">공개여부</li>
+					<li class="date">작성자</li>
 					<li class="date">작성일</li>
 				</ul>
 
@@ -124,6 +125,9 @@
 										</c:if>
 									</li>
 									<li class="date">
+										<span class="visible-xs-inline-block">작성자 : </span>${ vo.mid }
+									</li>
+									<li class="date">
 										<span class="visible-xs-inline-block">작성일 : </span>${ vo.qna_date }
 									</li>
 								</ul>
@@ -139,7 +143,7 @@
 
 			</div>
 			<div class="btnWrap view text-right clearFix mb0">
-					<a href="customerConsultationInsert" id="btnInsertForm" class="btn btn-Insert">글쓰기</a>
+					<a id="btnInsertForm" class="btn btn-Insert">글쓰기</a>
 			</div>
 		</div>
  
