@@ -123,9 +123,11 @@ ntc.noticeView = function(serial){
 
 	});
 	
-	//공지사항 목록으로 돌아가기
+	//공지작성->공지사항 목록으로 돌아가기===============================writeNotice==================
 	$('#btnNoticeList').click(function(){
-		location.href='/customerNoticeList'
+		$frm = $('#frm_writeNotice')[0];
+		$frm.action = "customerNoticeList";
+		$frm.submit();
 	})
 			
 	$('#btnWriteNotice').click(function(){
@@ -138,20 +140,98 @@ ntc.noticeView = function(serial){
 	$('#btnSaveNotice').click(function(){
 		
 			$param = $('#frm_writeNotice').serialize();
+			System.out.println($param);
 			$.post('noticeSave', $param, function(data){
 				var json = JSON.parse(data);
 				
 				if(json.flag=='OK'){
 					var $fd = $('#frm_upload')[0];
 					$fd.enctype = "multipart/form-data";
-					$fd.action = "fileUp";
+					$fd.action = "fileUp?job=n";
 					$fd.submit();
 				}else{
-					alert("저장 중 오류 발생");
+					alert("공지 저장 중 오류 발생");
 				}
 			})
 		}
 	)
+//공지작성summernote
+// summernote 
+var loadInterval = [];// 이미지가 서버에 upload 되었는지 체크하는 기능
+
+function summer() {
+
+	var fonts = [
+		"맑은 고딕", "고딕", "돋음", "바탕", "바탕체", "굴림", "굴림체", "궁서체"
+	]
+	fonts.sort();
+
+	$('#summernote').summernote({
+		height: 300,
+		fontNames: fonts,
+		callbacks: { //이미지를 첨부하는 부분
+			onImageUpload: function(files) {
+				loadInterval.length = files.length;
+				$('#writeNotice').addClass('spinner');
+				
+				for (var i = files.length-1; i >= 0; i--) {
+					sendFile(i, files[i]);
+				}
+			},
+			onMediaDelete : function(target){ //서머노트에서 삭제를 누르면
+				
+				var file = decodeURI(target[0].src);
+				
+				$.ajax({
+					data : { target : file}, //file을 맵구조로 전달
+					type : 'POST',
+					url  : 'ntcSummerDelete', //summerUploadController와 연결 summerUp?flag=delete
+					cache : false,
+					success : function(msg){
+						console.log("delete ok....")
+					}
+				})
+			}
+		}
+	});
+}
+
+function sendFile(intervalPos, file) {
+	
+	var form_data = new FormData();// form tag 생성
+	form_data.append('file', file);
+	$.ajax({
+		data: form_data,
+		type: 'POST',
+		url: 'ntcSummerUp',
+		enctype: 'multipart/form-data',
+		cache: false,
+		contentType: false,
+		processData: false,
+		success: function(img) {
+			loadInterval[intervalPos] = 
+				setInterval(loadCheck.bind(null, intervalPos, img), 1000);
+		}
+	})
+}
+
+function loadCheck(pos, img) {
+	
+	var target = new Image(); //업로드가 될 이미지
+	target.onload = function() {// 이미지가 모두 서버에 저장된 상태 
+		clearInterval(loadInterval[pos]);
+		$('#summernote').summernote('editor.insertImage', img);
+		$('#writeNotice').removeClass('spinner');
+	}
+	target.src = img;
+	
+}
+	
+	
+	
+	
+	
+	//공지 검색====================================noticeList===================
 	$('#btnNoticeSearch').click(function(){
 		$frm = $('#frm_notice')[0];
 		$frm.nowPage.value = 1;
@@ -159,24 +239,56 @@ ntc.noticeView = function(serial){
 		$frm.submit();
 	})
 	
+	
+	//선택공지 삭제 버튼
 	$('#btnDeleteNotice').click(function(){
-		var checkbox = $('delNotice');
-		var delValue = "";
-		var url = "";
-		
-		for(var v of checkbox){
-			if(v.checked == true){
-			delValue += v.value + ",";
-			}
+		var countChk = 0;
+		var chk_Value = [];
+
+		if($('input:checkbox[name=delNotice]:checked').length != 0){
+			$('#deleteNotice_alert').show();
+			$('input:checkbox[name=delNotice]:checked').each(function(){
+				countChk++; //선택한 체크박스 갯수
+				chk_Value.push($(this).val());
+			});
+		}else{
+			alert("선택된 공지가 없습니다.");
 		}
-		delValue = delValue.substr(0, delValue.length-1);
-		location.href= ""
+		$('#countChk').val(countChk);
+		$('#hiddenChk').val(chk_Value);	
+		
+		
 	})
 	
-	//응찰내역에서 응찰신청
+	//선택한 공지 삭제 모달창 확인버튼
+	$('#btnConfirmDelete').click(function(){
+
+		$frm = $('#frm_notice')[0];
+		$frm.action='./deleteNotice';
+		$frm.submit();
+		
+	})
+
+	//선택한 공지 삭제 모달창 취소버튼
+	$('#btnConfirmCancel').click(function(){
+		$('#deleteNotice_alert').hide();
+	})
+	//선택한 공지 삭제 모달창 X 
+	$('#close-area').click(function(){
+		$('#deleteNotice_alert').hide();
+	})
+
+	
+	
+	//응찰내역에서 응찰신청=============================================================
 	$('#btnRequestApplication').click(function(){
 		location.href='./bidApplication';
 	})
+	
+	
+	
+	
+	
 	
 	//FAQ 카테고리 선택하면 아래에 그 faq만 보이기	
 	/*$('.faq_desc ul').each(function(index, item){

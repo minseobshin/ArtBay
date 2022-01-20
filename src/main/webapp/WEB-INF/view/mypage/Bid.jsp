@@ -31,18 +31,17 @@
 		</div>
 		
 		<div id='rows'>
-			
+			<c:forEach var='vo' items='${list }'>
 				<div id='item' onclick ='bid.view(${vo.lot})'>
 					<span class='num'>${vo.lot }</span>
-					<span class='name'>${vo.artwk_ctgr }</span>
+					<span class='name'>${vo.artwork_ctgr }</span>
 					<span class='artist'>${vo.artist }</span>
-					<span class='artName'>${vo.artwk_name }</span>
+					<span class='artName'>${vo.artwork_name }</span>
 					<span class='requestDate'>${vo.bid_date }</span>
-					<span class='requestPrice'>${vo.bid_price }</span>	
-									
+					<span class='requestPrice'>${vo.bid_price }</span>									
 				</div>
-				
-			</div>
+			</c:forEach>	
+		</div>
 		</div>
 		<div id='btnZone'>
 			<c:if test="${page.startPage>1 }">

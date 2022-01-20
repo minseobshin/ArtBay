@@ -18,12 +18,13 @@
 	<h1>공지사항</h1>
 	<form name='frm_notice' id='frm_notice' method='post'>
 		<div id='noticeSearch'>
-			<output>공지사항 300건</output>
+			<output>공지사항 ${page.totSize }건</output>
 			<div id='findZone'>
 				<input type='search' name='findStr' value='${page.findStr }' size='28' placeholder="검색어">
 				<input type='button' id='btnNoticeSearch' value='검색'> 
 				<input type='hidden' name='nowPage' value='${page.nowPage }'>
 				<input type='hidden' name='serial' value='${vo.serial}'>
+				<input type='hidden' name='hiddenChk' id='hiddenChk'>
 			</div>
 		
 		</div>
@@ -49,7 +50,7 @@
 						<span class='noticeDate'>${vo.not_date }</span>
 						<span class='hit'>${vo.hit }</span>
 					</div>
-					<input type='checkbox' class='chkDeleteNotice' name='delNotice'>				
+					<input type='checkbox' class='chkDeleteNotice' name='delNotice' value='${vo.serial }'>				
 				</div> 
 			</c:forEach>
 			
@@ -69,15 +70,22 @@
 				<input type='button' value='맨끝' id='btnLast'  onclick='ntc.noticePage(${page.totPage})'/>
 			</c:if> 			
 		<br/>
+		
+		</div>
 		<input type='button' id='btnDeleteNotice' value='선택공지 삭제' >
 		<input type='button' id='btnWriteNotice' value='공지 작성'>
-		</div>
-	<!--  모달창 형태로 -->
+	<!--  선택 삭제 모달창 -->
 		<div id='deleteNotice_alert'>
-				<div>선택한 공지가 삭제되었습니다.</div>
-					
+			<form name='frm_deleteNotice' id='frm_deleteNotice' method='post'>
+				<div id='close-area'>X</div>
+				
+				<div>선택한 공지 <input type="text" id='countChk' size='1' readOnly>개를 삭제하시겠습니까?</div>
+				<input type='button' id='btnConfirmDelete' value='확인'>
+				<input type='button' id='btnConfirmCancel' value='취소'>
+			</form>	
 		</div>
-	</div>		
+	</div>	
+	
 </div>
 
 <script src='./js/final_lsy.js'></script>

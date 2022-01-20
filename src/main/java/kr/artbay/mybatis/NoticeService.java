@@ -38,7 +38,6 @@ public class NoticeService {
 		p.setTotSize(totSize);
 		this.page = p;
 		list = mapper.noticeSearch(p);
-		
 		return list;
 	}
 	
@@ -64,13 +63,34 @@ public class NoticeService {
 				mapper.notice_hit_up(serial);
 				manager.commit(status);
 			}
-
-			vo = mapper.noticeView(serial);
+			
+			vo = mapper.noticeView(serial);	
 		
 		}catch(Exception ex) {
 			ex.printStackTrace();
 		}
 		return vo;
+	}
+	
+	public boolean deleteNotice(List<String> delNoticeList) {
+		
+		boolean b=false;
+		int c=0;
+		status = manager.getTransaction(new DefaultTransactionDefinition());
+		try {
+				c = mapper.deleteNotice(delNoticeList);	
+			
+			if(c>0) {
+				manager.commit(status);
+				b = true;
+			}else {
+				manager.rollback(status);
+			}
+		}catch(Exception ex) {
+			ex.printStackTrace();
+		}
+			return b;
+			
 	}
 	public Page getPage() {return page;}
 	public void setPage(Page page) {this.page = page;}

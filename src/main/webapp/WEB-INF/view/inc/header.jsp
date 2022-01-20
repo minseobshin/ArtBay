@@ -26,7 +26,7 @@
 		</li>
 		<li><a href="#">Customer Service</a>
 			<ul>
-				<li><a href="customerFAQ">자주묻는질문(FAQ)</a></li>
+				<li><a href="faqList">자주묻는질문(FAQ)</a></li>
 				<li><a href="qnaList">1:1상담문의</a></li>
 				<li><a href="customerNoticeList">공지사항</a></li>
 			</ul>
