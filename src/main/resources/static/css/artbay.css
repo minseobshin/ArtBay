@@ -472,8 +472,11 @@ form[name=frm_view]{
 form[name=frm_view] div.view_sml_btn p{
 	display: inline-block;
 	border-radius: 50%;
-	padding: 0.5px;
+	padding: 0.35em;
 	box-sizing: border-box;
+	border: 1px solid rgb(100, 100, 100);
+	width: 2em;
+	height: 2em;
 }
 
 form[name=frm_view] div.shareUrl{
