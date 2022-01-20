@@ -358,6 +358,7 @@
 
 			</div>
 	</div>
+	<h3>작가의 다른 작품</h3>
 	<div class="otherWorks" style="display:inline-block; height:200px;">
 		<c:forEach var="atts" items="${others }" varStatus="status">
 			<div style=" height:200px;">

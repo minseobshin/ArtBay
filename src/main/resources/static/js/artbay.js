@@ -96,7 +96,7 @@ function search(){
 }
 
  $(function(){
-	//
+	//오른쪽 응찰내역 div 위치
 	$(window).scroll(function(){
    		$(".view_right").css("top", Math.max(0, 100 - $(this).scrollTop()));
    		$(this).css("border", "1px solid red")

@@ -464,6 +464,11 @@ form[name=frm_view]{
 	float: left;
 }
 
+.work_info, .view_sml_btn{
+	width: 86.5%;
+	margin-left: 13.5%;
+}
+
 form[name=frm_view] div.view_sml_btn p{
 	display: inline-block;
 	border-radius: 50%;
