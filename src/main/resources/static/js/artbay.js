@@ -97,16 +97,15 @@ function search(){
 
  $(function(){
 	$(window).scroll(function(){
-		console.log($(this).scrollTop())
    		$(".view_right").css("top", Math.max(0, 100 - $(this).scrollTop()));
    		$(this).css("border", "1px solid red")
-   		if ($(window).scrollTop() > 950) {
+   		if ($(window).scrollTop() > 900) {
             $(".view_right").css({
-                position: 'absolute',
-                bottom: 100
+                position: 'fixed',
+                top: Math.max(900-$(this).scrollTop())
             });
+            console.log($(this).scrollTop())
         } else {
-			console.log("됨")
             $(".view_right").css({
                 position: 'fixed',
                 top: Math.max(0, 100 - $(this).scrollTop())
