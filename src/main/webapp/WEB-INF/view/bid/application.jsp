@@ -237,7 +237,6 @@
         </div>
 <!-- END KA-CONTAINER -->
 </div>
-</form>
 
 <!--알림 모달창 -->
 <div class="modals fade show" id="modal-common" >
@@ -265,7 +264,7 @@
 			    <span id="modal-warning-message">위탁 신청을 하시겠습니까?</span>
 			    <div class="modal-btn">
 			        <a href="#" onclick="modalOff($('#modal-warning'))">취소</a>
-			    	<a id="btn-warning-confirm" >확인</a>
+			    	<a href="#" id="btn-warning-confirm" >확인</a>
 		        </div>
 		    </div>
 			<img src="./img/popup-close@1x.png" class="modal-close" onclick="modalOff($('#modal-warning'))">

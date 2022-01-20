@@ -41,6 +41,10 @@ public class ArtBayVo {
 	String artwork_ctgr;
 	String artist;
 	String material;
+	int s_size01;
+	int s_size02;
+	int s_size03;
+	int ho;
 	String artwork_size;
 	String contents;
 	String etc;
@@ -147,6 +151,14 @@ public class ArtBayVo {
 	public String getArtist() {return artist;}
 	public void setArtist(String artist) {this.artist = artist;}
 	public String getMaterial() {return material;}
+	public int getS_size01() {return s_size01;}
+	public void setS_size01(int s_size01) {this.s_size01 = s_size01;}
+	public int getS_size02() {return s_size02;}
+	public void setS_size02(int s_size02) {this.s_size02 = s_size02;}
+	public int getS_size03() {return s_size03;}
+	public void setS_size03(int s_size03) {this.s_size03 = s_size03;}
+	public int getHo() {return ho;}
+	public void setHo(int ho) {this.ho = ho;}
 	public void setMaterial(String material) {this.material = material;}
 	public String getArtwork_size() {return artwork_size;}
 	public String getContents() {return contents;}
