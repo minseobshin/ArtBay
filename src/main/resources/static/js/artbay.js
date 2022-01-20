@@ -100,7 +100,7 @@ function search(){
 		console.log($(this).scrollTop())
    		$(".view_right").css("top", Math.max(0, 100 - $(this).scrollTop()));
    		$(this).css("border", "1px solid red")
-   		if ($(window).scrollTop() > 950) {
+   		if ($(window).scrollTop() > 850) {
             $(".view_right").css({
                 position: 'absolute',
                 bottom: 100
