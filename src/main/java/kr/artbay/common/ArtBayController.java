@@ -137,6 +137,7 @@ public class ArtBayController {
 			out = resq.getWriter();
 			vo.setMid(mid);
 			vo.setCrnt_status("경매중");
+			vo.setArtwork_size(vo.getS_size01()+"x"+ vo.getS_size02() +"x"+ vo.getS_size03() +"/"+ vo.getHo() + "호");
 			b = applicationService.insertArtwork(vo);
 			String temp = "{'flag':'%s'}";
 			String flag ="";
