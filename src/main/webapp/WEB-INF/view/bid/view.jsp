@@ -356,9 +356,9 @@
 
 			</div>
 	</div>
-	<div class="otherWorks" style="display:inline-block;">
+	<div class="otherWorks" style="display:inline-block; height:200px;">
 		<c:forEach var="atts" items="${others }" varStatus="status">
-			<div>
+			<div style=" height:200px;">
 				<img name="otherWorksImg" id="otherWorksImg" src="${atts.imgFile }"
 					onclick="artbay.othersView(${atts.lot})"/>
 			</div>
@@ -377,8 +377,11 @@
 		$('.otherWorks').slick({
 			slidesToShow: 5,
 			slidesToScroll: 1,
-			prevArrow: '<div class="arrPrev" style="float: left;"><span height:290px></span></div>',
+			addaptiveHeight: true,
+			prevArrow: '<div class="arrPrev" style="float: left;"><span></span></div>',
 			nextArrow: '<div class="arrNext" style="float: right;"><span></span></div>',
+			respondTo: 'slider', //makes the slider to change width depending on the container it is in
+			adaptiveHeight: true 
 		});
    });
  </script>
