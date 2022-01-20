@@ -37,9 +37,11 @@
 			</p>
 			<br/>
 			<div class="view_sml_btn">
-				<p id="like">❤️</p>
 				<p id="share">🔗</p>
 				<p id="magnifier">🔎</p>
+			</div>
+			<div class="shareUrl">
+				<input type="text" value="가나다">
 			</div>
 		</div>
 		<div class="work_info">

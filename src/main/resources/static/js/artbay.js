@@ -96,6 +96,7 @@ function search(){
 }
 
  $(function(){
+	//
 	$(window).scroll(function(){
    		$(".view_right").css("top", Math.max(0, 100 - $(this).scrollTop()));
    		$(this).css("border", "1px solid red")
@@ -104,7 +105,6 @@ function search(){
                 position: 'fixed',
                 top: Math.max(880-$(this).scrollTop())
             });
-            console.log($(this).scrollTop())
         } else {
             $(".view_right").css({
                 position: 'fixed',
