@@ -16,8 +16,7 @@
 <body>
 <div id='auction'>
 	<h1>낙찰내역</h1>
-<form name='frm_auction' method='post'>
-
+	<form name='frm_auction' method='post'>
 	<div id='items'>
 		<div id='title'>
 			<span class='num'>번호</span>
@@ -29,14 +28,16 @@
 		</div>
 		
 		<div id='rows'>
-			<div id='item' onclick=bid.view()>
-				<span class='num'>436546</span>
-				<span class='name'>공갈작품</span>
-				<span class='artist'>공갈작가명</span>
-				<span class='artName'>공갈작품명</span>
-				<span class='successDate'>낙찰일자</span>
-				<span class='successPrice'>낙찰가격</span>
-			</div>
+			<c:forEach var='vo' items='${list }'>
+				<div id='item' onclick ='bid.view(${vo.lot})'>
+					<span class='num'>${vo.lot }</span>
+					<span class='name'>${vo.artwork_ctgr }</span>
+					<span class='artist'>${vo.artist }</span>
+					<span class='artName'>${vo.artwork_name }</span>
+					<span class='successDate'>${vo.winbid_date }</span>
+					<span class='successPrice'>${vo.winbid_price }</span>
+				</div>
+			</c:forEach>
 		</div>	
 	</div>
 	
@@ -55,11 +56,12 @@
 				<input type='button' value='맨끝' id='btnLast'  onclick='bid.page(${page.totPage})'/>
 			</c:if> 					
 		</div>
-		
-		<div class='findZone'>
-			<input type='hidden' name='nowPage' value='${nowPage }'/>
-		</div>
 	</form>
+		
+		<form name='frm_page' id='frm_page' method='post'>
+			<input type='hidden' name='nowPage' value='${page.nowPage }'>
+			<input type='hidden' name='lot' >
+		</form>
 </div>
 </body>
 <script src='./js/final_lsy.js'></script>

@@ -7,8 +7,6 @@
 <meta charset="UTF-8">
 <title>Insert title here</title>
 <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-<link rel="stylesheet" href="css/reset.css">
-<link rel="stylesheet" href="css/index.css">
 <link rel="stylesheet" type="text/css" href="../css/artbay.css">
 <link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Open+Sans:400,300,700,800">
 <script src="js/index.js"></script>
@@ -30,14 +28,12 @@
 }
 </style>
 <body> 
-<%@include file="../inc/header.jsp" %> 
 <form name="frm_view" id="frm_view" method="post">
 	<div class="view_left">
 		<div class="view_top">
 			<p class="img"><img src="../img/spongebob.png" width=300 height=350/></p>
 			<br/>
 			<div class="view_sml_btn">
-				<p id="like">❤️</p>
 				<p id="share">🔗</p>
 				<p id="magnifier">🔎</p>
 			</div>
@@ -53,7 +49,7 @@
 		<div class="right_work_info">	
 			
 			<div class="view_detail">
-				<p class="painter"><span>작가 이름</span></p>
+				<p class="painter"><span>작가 이름</span>${vo. }</p>
 				<p class="art_name">그림 제목</p>
 				<p class="material">재료</p>
 				<p class="paintSize">사이즈</p>
@@ -72,7 +68,7 @@
 					</p>
 				</c:if>
 			</div>
-				<input type="button" id="btnRequestModify" value="응찰내용 수정"  onclick= "location.href= '/customerListModify';"/>
+			
 			
 		</div>
 	</div>
@@ -85,7 +81,6 @@
 			</div>
 	</div>
 </form>
-<%@include file="../inc/footer.jsp" %>
 
 <script src="../js/artbay.js"></script>
 </body>

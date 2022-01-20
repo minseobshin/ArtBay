@@ -42,7 +42,12 @@ public interface ArtBayMapper {
 	//응찰내역 조회
 	public Integer mypageBidTotSize(); 
 	public List<ArtBayVo> mypageBidList();
+	//낙찰내역 조회
+	public Integer mypageSuccessBidTotSize(); 
+	public List<ArtBayVo> mypageSuccessBidList();
 	
+	//경매결과 조회
+	public List<String> bidResult();
 	
 	//경매신청
 	public ArtBayVo memberview(String mid);  //회원정보

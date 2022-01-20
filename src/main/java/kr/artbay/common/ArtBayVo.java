@@ -17,7 +17,7 @@ public class ArtBayVo {
 	
 	//낙찰 
 	int winbid_price;
-	int winbid_date;
+	String winbid_date;
 	
 	//member
 	String mid;
@@ -86,14 +86,18 @@ public class ArtBayVo {
 	String ctgr;
 	String faq_title;
 	String faq_doc;
+	
+	
+	
+	
+	
 	public String getCtgr() {return ctgr;}
 	public void setCtgr(String ctgr) {this.ctgr = ctgr;}
 	public String getFaq_title() {return faq_title;}
 	public void setFaq_title(String faq_title) {this.faq_title = faq_title;}
 	public String getFaq_doc() {return faq_doc;}
 	public void setFaq_doc(String faq_doc) {this.faq_doc = faq_doc;}
-	
-	
+		
 	public String[] getDelFile() {return delFile;}
 	public void setDelFile(String[] delFile) {this.delFile = delFile;}
 	public int getSerial() {return serial;}
@@ -115,8 +119,8 @@ public class ArtBayVo {
 	public void setBid_date(String bid_date) {this.bid_date = bid_date;}
 	public int getWinbid_price() {return winbid_price;}
 	public void setWinbid_price(int winbid_price) {this.winbid_price = winbid_price;}
-	public int getWinbid_date() {return winbid_date;}
-	public void setWinbid_date(int winbid_date) {this.winbid_date = winbid_date;}
+	public String getWinbid_date() {return winbid_date;}
+	public void setWinbid_date(String winbid_date) {this.winbid_date = winbid_date;}
 	public String getInjung() {return injung;}
 	public void setInjung(String injung) {this.injung = injung;}
 	public String getIrum() {return irum;}

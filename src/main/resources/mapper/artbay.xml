@@ -108,7 +108,7 @@
 			</foreach>
 	</delete>
 	
-	<!-- 응찰내역 조회 건수 -->
+	<!-- 응찰내역 건수 조회-->
 	<select id='mypageBidTotSize' resultType='Integer'>
 		select count(B.lot) from bidding B join artwork A on B.lot = A.lot; 
 	</select>
@@ -117,6 +117,20 @@
 		select B.lot, A.artwork_ctgr, A.artist, A.artwork_name, B.bid_price, date_format(B.bid_date, "%y-%m-%d") bid_date
 		from bidding B join artwork A
 		on B.lot = A.lot
+	</select>
+	<!-- 낙찰내역 건수 조회 -->	
+	<select id='mypageSuccessBidTotSize' resultType='Integer'>
+		select count(W.lot) from winning_bid W join artwork A on W.lot = A.lot; 
+	</select>
+	<!--낙찰내역 조회 -->
+	<select id='mypageSuccessBidList' resultType="kr.artbay.common.ArtBayVo">
+		select W.lot, A.artwork_ctgr, A.artist, A.artwork_name, W.winbid_price, date_format(W.winbid_date, "%y-%m-%d") winbid_date
+		from winning_bid W join artwork A
+		on W.lot = A.lot
+	</select>
+	<!-- 경매결과 월별조회 -->
+	<select id='bidResult' resultType="String">
+		select date_format(winbid_date, "%Y년 %m월") as winning_month, count(*) from winning_bid group by winning_month;	
 	</select>
 	
 	<!-- QNA 조회 건수 -->

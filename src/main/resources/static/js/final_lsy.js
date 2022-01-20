@@ -2,16 +2,11 @@
  * 
  */
 function bid(){};
-bid.view = function(lot){
-	$frm=$('#frm_auction')[0];
-	$frm.lot.value = lot;
-	$frm.action = 'mypageListView'
-	$frm.submit();
-}
-bid.page = function(nowPage) {
-	$frm = $('#frm_search')[0];
+/*Result*/
+bid.page = function(nowPage){
+	$frm = $('#frm_auction')[0];
 	$frm.nowPage.value = nowPage;
-	$frm.action = 'mypageBid';
+	$frm.action = 'bidResult';
 	$frm.submit();
 }
 /*FAQ*/
@@ -35,32 +30,27 @@ ntc.noticeView = function(serial){
 	$frm.action = 'noticeView'; 
 	$frm.submit();
 }
+/*bidView 응찰내역 상세보기*/
+function mBid(){};
+mBid.view = function(lot){
+	$frm = $('#frm_page')[0];
+	$frm.lot.value = lot;
+	$frm.action = 'bidListView'; 
+	$frm.submit();
+}
+mBid.page = function(nowPage) {
+	$frm = $('#frm_page')[0];
+	$frm.nowPage.value = nowPage;
+	$frm.action = 'mypageBid';
+	$frm.submit();
+}
 
 	
  $(function(){
 	
-	//위탁신청 취소
-	
-	$('#delConsignBtn').click(function(){
-		confirm("선택한 위탁 신청을 취소하시겠습니까?");
-			if(confirm){
-				alert("취소되었습니다.");
-			}
-			location.href='/home';
-	})
-	
-	//위탁신청 클릭
-	$('#consignBtn').click(function(){
-			location.href='/application';
-	})
-	
-	$('#btnFind').click(function(){
-		location.href='/Result';
-
-	})
 	//result창에서 상세보기
 	$('.detail').click(function(){
-		location.href='/list';
+		location.href='/bidList';
 	})
 	//customer 위탁안내 부분 
 	$('.desc01').show();

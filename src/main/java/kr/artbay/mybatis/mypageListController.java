@@ -32,16 +32,38 @@ public class mypageListController {
 		return mv;
 	}
 	*/
+	//응찰내역
 	@RequestMapping(value="/mypageBid", method= {RequestMethod.POST, RequestMethod.GET})
-	public ModelAndView list(Page page) { //req로 받지 않아도 변수들 다 세팅해서 가져옴
+	public ModelAndView bidList(Page page) { //req로 받지 않아도 변수들 다 세팅해서 가져옴
 		ModelAndView mv = new ModelAndView();
-		System.out.println(page.getTotSize());
 		List<ArtBayVo> list = service.mypageBidList(page); //service=>dao역할
 		page = service.getPage();
 		mv.addObject("page", page);
 		mv.addObject("list", list);
 		mv.setViewName("mypage.Bid");
 		
+		return mv;
+	}
+	//응찰작품 상세내역
+	@RequestMapping(value="/bidListView", method= {RequestMethod.POST, RequestMethod.GET}) //value=요청한 경로
+	public ModelAndView bidListview(int lot, Page page) {
+		ModelAndView mv = new ModelAndView();
+		vo = service.bidListView(lot);
+		mv.addObject("vo", vo);
+		mv.addObject("Page", page);
+		mv.setViewName("mypage.ListView"); //응답할 view이름. 경로. 뷰페이지 이동. value랑 관계없음
+		return mv;
+	}
+	//낙찰내역
+	@RequestMapping(value="/mypageSuccessBid", method= {RequestMethod.POST, RequestMethod.GET})
+	public ModelAndView sBidList(Page page) { 
+		ModelAndView mv = new ModelAndView();
+		List<ArtBayVo> list = service.mypageSuccessBidList(page); 
+		page = service.getPage();
+		
+		mv.addObject("page", page);
+		mv.addObject("list", list);
+		mv.setViewName("mypage.SuccessfulBid");
 		return mv;
 	}
 	
