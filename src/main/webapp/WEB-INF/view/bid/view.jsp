@@ -346,8 +346,6 @@
 			<input type="button" class="btnBidApplyFinal" value="응찰하기"  onclick="modalOn($('.bid_caution'))"/>
 			</div>
 		</div>
-		<div class="idle_view_right">
-	</div>
 	</div>
 	
 	<div class="caution">

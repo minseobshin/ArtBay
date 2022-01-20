@@ -406,11 +406,6 @@ form[name=frm_view]{
 	height: 50%;
 	border: 5px solid red;
 }
-.idle_view_right{
-	width: 20%;
-	height: 100%;
-	border: 5px solid red;
-}
 
 .bid_price{
 	display: none;
