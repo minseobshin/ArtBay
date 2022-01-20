@@ -408,9 +408,9 @@ form[name=frm_view]{
 	position: absolute;
 	top: 3px;
 	background-color: white;
-	min-width: 450px;
+	min-width: 400px;
 	width: 100%;
-	height: 100%;
+	height: 140%;
 	box-shadow: 0 0 5px 5px rgb(150, 150, 150);
 	box-sizing: border-box;
 }
