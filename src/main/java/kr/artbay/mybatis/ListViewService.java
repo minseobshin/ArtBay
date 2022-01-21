@@ -40,12 +40,6 @@ public class ListViewService {
 		return list;
 	}
 	
-	public List<ArtBayVo> listThumbs(Page page, @RequestParam(value="findStr", required=false) String findStr){
-		List<String> list = new ArrayList<String>();
-		
-		return null;
-	}
-	
 	public ArtBayVo view(int lot) {
 		ArtBayVo vo = new ArtBayVo();
 		vo.setLot(lot);
