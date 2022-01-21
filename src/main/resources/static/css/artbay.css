@@ -152,7 +152,7 @@ form[name=frm_list]{
 .listInner p.img img{
 	width: 100%;
 	height: 100%;
-	margin: 10px auto;
+	/* margin: 10px auto; */
 }
 
 .listInnerText{

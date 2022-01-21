@@ -2,8 +2,8 @@
  * 
  */
 $(function(){
-	//var storedFiles = [];
-	
+	var storedFiles = [];
+	var formData = new FormData($("#frm_upload")[0]);
 	/*$("btnCancle").click(function(){ //취소 클릭시 전페이지 이동
 	})*/
 	
@@ -17,6 +17,7 @@ $(function(){
 				$frm = $("#frm_upload")[0];
 				$frm.lot.value = json.lot;	//lot 번호
 				$frm.enctype = "multipart/form-data";
+				console.log($frm.enctype)
 				$frm.action = "artworkfileUp?job=i";
 				$frm.submit();
 			}
@@ -33,18 +34,71 @@ $(function(){
 		$frm.submit();
 	});
 	
-/*	
-	element.addEventListener('change', function () {    
-		var fileList = this.files; 
-		for (var i = 0; i < fileList.length; i++) {
-	    storedFiles.push(fileList[i]);
-	    ul.appendChild(li);
-	  }
+
+	thumbnailFile.addEventListener('change', function () {
+		$file = $("#thumbnailFile")[0];
+			var fileList;
+	for(var i = 0; i < this.files.length; i++){
+			fileList = $file.files[i]; 
+			console.log(formData);
+			var li = document.createElement('li');
+			li.className = 'tui-upload-item';
+			var span = document.createElement('span');
+			span.className = 'tui-file-name';
+			var Content = document.createTextNode(fileList.name + '(' + fileList.size + 'byte)');
+			var Remove = document.createTextNode('Remove');
+			var fileul =  document.querySelector('#file-ul');
+			var btn= document.createElement("input");
+			btn.type = "button";
+			btn.id = "btnRemove";
+			btn.className = 'tui-btn-delete'
+ 
+		    storedFiles.push(fileList[i]);
+		    fileul.appendChild(li);
+			li.appendChild(span);
+			li.appendChild(btn);
+			span.appendChild(Content);
+			btn.appendChild(Remove);
+		}
+		console.log(storedFiles)
 	})
-	*/
+	addFile.addEventListener('change', function () {
+		$file = $("#addFile")[0];
+			var fileList;
+	for(var i = 0; i < this.files.length; i++){
+			fileList = $file.files[i]; 
+			console.log(formData);
+			var li = document.createElement('li');
+			li.className = 'tui-upload-item';
+			var span = document.createElement('span');
+			span.className = 'tui-file-name';
+			var Content = document.createTextNode(fileList.name + '(' + fileList.size + 'byte)');
+			var Remove = document.createTextNode('Remove');
+			var fileul =  document.querySelector('#file-ul');
+			var btn= document.createElement("input");
+			btn.type = "button";
+			btn.id = "btnRemove";
+			btn.className = 'tui-btn-delete'
+ 
+		    storedFiles.push(fileList[i]);
+		    fileul.appendChild(li);
+			li.appendChild(span);
+			li.appendChild(btn);
+			span.appendChild(Content);
+			btn.appendChild(Remove);
+		}
+		console.log(storedFiles)
+		
+	})
+	
+/*		btnRemove.addEventListener('click', function () {
+		  var index	 = li.index();
+		  storedFiles.splice(index, 1);
+	
+		  // 해당 li 태그 제거
+		});*/
 	
 })
-
 
 
 //숫자만 입력 가능

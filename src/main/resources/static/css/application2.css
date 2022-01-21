@@ -238,9 +238,53 @@ div[class="container"] ul, div[class="container"] li, div[class="container"] ol 
     min-height: 234px;
     border: 1px solid #ccc;
 }
+.tui-file-uploader .tui-upload-lst .tui-upload-item {
+    position: relative;
+    margin-top: 5px;
+    height: 26px;
+    line-height: 26px;
+}
+.tui-file-uploader .tui-filename-area {
+    display: inline-block;
+    font-size: 0;
+    vertical-align: top;
+    word-break: break-all;
+}
+.tui-file-uploader .tui-upload-lst .tui-upload-item .tui-file-name {
+    max-width: 122px;
+}
 .tui-dropzone-support .tui-dropzone-contents {
     display: block;
     margin-top: 32px;
+}
+.tui-file-uploader .tui-file-name {
+    overflow: hidden;
+    max-width: 280px;
+    display: inline-block;
+    font-size: 12px;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    vertical-align: top;
+}
+.tui-file-uploader .tui-upload-item .tui-btn-delete {
+    position: absolute;
+    top: 0;
+    right: 0;
+    margin-top: 0;
+    vertical-align: middle;
+}
+.tui-file-uploader .tui-btn-delete {
+    overflow: hidden;
+    position: relative;
+    margin: 0;
+    width: 26px;
+    height: 26px;
+    border: 0;
+    cursor: pointer;
+    font-size: 1px;
+    line-height: 200px;
+    vertical-align: top;
+    background: url(/img/popup-close@1x.png) no-repeat;
 }
 .tui-file-uploader .tui-dropzone-contents {
     display: none;
