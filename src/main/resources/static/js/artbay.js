@@ -128,12 +128,12 @@ function off(){
 	//오른쪽 응찰내역 div 위치가 일정 위치에 다다르면 scroll을 멈추도록
 	if($(window).width()>1300){
 	$(window).scroll(function(){
-   		$(".view_right").css("top", Math.max(0, 100 - $(this).scrollTop()));
+   		$(".view_right").css("top", Math.max(0, 150 - $(this).scrollTop()));
 
-   		if ($(window).scrollTop() > 880) {
+   		if ($(window).scrollTop() > 900) {
             $(".view_right").css({
                 position: 'fixed',
-                top: Math.max(880-$(this).scrollTop())
+                top: Math.max(900-$(this).scrollTop())
             });
         } else {
 		if($(window).width()<1300){
