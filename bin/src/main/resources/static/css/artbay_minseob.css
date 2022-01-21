@@ -85,10 +85,18 @@
 }
 
 #mid, #irum, #phone, .email, #pwd, #newPwd, #newPwdChk, #pwdChk,
-#zip, #address, #address2, #certificationNumChk, #oldPwd{
+#zip, #address, #address2, #oldPwd{
 	width: 604px;
 	height: 40px;
 	margin: 5px 2px;
+}
+.email{cursor: pointer;}
+
+#certificationNumChk, #certificationNumChk2{
+	width: 604px;
+	height: 40px;
+	margin: 5px 2px;
+	visibility: hidden;
 }
 
 #birth{
@@ -124,6 +132,7 @@
 	background-color: white;
 	color: #f60;
 	border: 1px solid #f60;
+	cursor: pointer;
 }
 
 #btnCertification:active, #btnZip:active, #btnJoin:active, #btnOut:active, #btnModify:active,
@@ -251,6 +260,7 @@
 	background-color: white;
 	color: #f60;
 	border: 1px solid #f60;
+	cursor: pointer;
 }
 
 .btnGoLogin:active, #btnCancelLogin:active{
@@ -316,6 +326,7 @@
 	background-color: white;
 	color: #f60;
 	border: 1px solid #f60;
+	cursor: pointer;
 }
 
 .btnEmailCheck:active{
@@ -337,6 +348,7 @@
 	background-color: white;
 	color: #f60;
 	border: 1px solid #f60;
+	cursor: pointer;
 }
 
 .btnEmailCheckCancel:active{

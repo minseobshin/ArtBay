@@ -1,6 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-    <%@taglib prefix="c" uri="http://java.sun.com/jstl/core_rt" %>
+<%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -16,7 +16,7 @@
 <div id='noticeView'>
 	<h1>공지사항</h1>
 	<div id='noticeView_sub'>
-		<div id='title'>${vo.title } <span>${vo.not_date }<span></div>
+		<div id='title'>${vo.title } <span>${vo.not_date }</span></div>
 	
 			<p>
 				${vo.doc }

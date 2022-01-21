@@ -34,7 +34,7 @@
 		<div class="search">
 			<div class="search_box">
 				<input type="text" name="findStr" id="findStr" placeholder="작가 또는 작품명" value="${page.findStr }"/>
-				<input type="button" id="btnSearch" value="🔎" />
+				<input type="button" id="btnSearch" value="🔎" onclick="search()"/>
 			</div>
 			<div class="search_option_boxes">
 				<!-- sort -->
@@ -135,7 +135,7 @@
 			</c:if>
 		</div>
 		<div id="hiddenZone">
-			<input type="text" name="nowPage" value="${page.nowPage }"/>
+			<input type="text" name="nowPage" id="nowPage" value="${page.nowPage }"/>
 			<input type="text" name="lot" id="lot" value="${vo.lot }"/>
 		</div>
 	</div>

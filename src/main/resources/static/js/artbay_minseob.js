@@ -27,6 +27,14 @@ function isEmail(asValue) { //이메일
 	return regExp.test(asValue);
 }
 
+//결과 메시지 자식창
+function joLoMoResult(){
+	var joLoMo;
+	joLoMo = window.open('mypageMemberResult', 'result', 'width=750, height=445, top=200, left=300');
+	joLoMo.document.getElementById("joLoMo").innerHTML = "회원정보가 수정되었습니다.";
+	$("#joLoMo").text("회원님의 정보가 변경되었습니다.");
+}
+
 $(function(){
 	
 	//초록불체크
@@ -364,7 +372,7 @@ $(function(){
 					$("#address2").removeAttr("disabled");
 					$("#btnModify").removeAttr("disabled");
 					$("#btnOut").removeAttr("disabled");
-					$("#oldPwd").attr("disabled", true);
+					$("#oldPwd").attr("readonly", true);
 					$("#mid").val(data.mid);
 					$("#irum").val(data.irum);
 					$("#birth").val(data.birth);
@@ -556,6 +564,7 @@ $(function(){
 	
 	//수정 클릭
 	$('#btnModify').click(function(){
+		console.log("수정버튼 클릭직후 : "+$("#oldPwd").val())
 		if(phone !== 3 && newPwd !== 3 && newPwdChk !== 3 && $("#zip").val() !== "" && $("#address2").val() !== ""){
 			if(newPwd===4 && newPwdChk !== 4){
 				$("#newPwdChk").css({
@@ -566,11 +575,15 @@ $(function(){
 				$("#btnCertification").val('새 비밀번호를 확인해주세요.');
 			}else{
 				console.log("폰"+phone+"패" + newPwdChk + "수정성공");
+				$("#mid").removeAttr("disabled");
+				$("#mid").attr("readonly", true);
 				$param = $('#frm_join').serialize();
+				console.log($param);
 				$.post('updateMemberInfo', $param, function(data){
-					alert($param);
-					console.log(data);
-					window.open('mypageMemberResult', 'result', 'width=750, height=445, top=200, left=300');
+					console.log("데이터"+data);
+					
+					joLoMoResult();
+					
 				});
 			}
 		}else{

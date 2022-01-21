@@ -18,7 +18,7 @@
 <body>
 <div id='auction'> 
 	<h1>응찰내역</h1>
-	<input type='button' id='btnRequestApplication' value='위탁신청'>
+	<input type='button' id='btnRequestApplication' value='경매신청'>
 	<form name='frm_auction' method='post'>
 	<div id='items'>
 		<div id='title'>
@@ -31,40 +31,39 @@
 		</div>
 		
 		<div id='rows'>
-			
-				<div id='item' onclick ='bid.view(${vo.lot})'>
+			<c:forEach var='vo' items='${list }'>
+				<div id='item' onclick ='mBid.view(${vo.lot})'>
 					<span class='num'>${vo.lot }</span>
-					<span class='name'>${vo.artwk_ctgr }</span>
+					<span class='name'>${vo.artwork_ctgr }</span>
 					<span class='artist'>${vo.artist }</span>
-					<span class='artName'>${vo.artwk_name }</span>
+					<span class='artName'>${vo.artwork_name }</span>
 					<span class='requestDate'>${vo.bid_date }</span>
-					<span class='requestPrice'>${vo.bid_price }</span>	
-									
+					<span class='requestPrice'>${vo.bid_price }</span>									
 				</div>
-				
-			</div>
+			</c:forEach>	
+		</div>
 		</div>
 		<div id='btnZone'>
 			<c:if test="${page.startPage>1 }">
-				<input type='button' value='맨첨' id='btnFirst' onclick='bid.page(1)'/>
-				<input type='button' value='이전' id='btnPrev'  onclick='bid.page(${page.startPage-1})'/>
+				<input type='button' value='맨첨' id='btnFirst' onclick='mBid.page(1)'/>
+				<input type='button' value='이전' id='btnPrev'  onclick='mBid.page(${page.startPage-1})'/>
 			</c:if>
 			
 			<c:forEach var='i' begin="${page.startPage }" end='${page.endPage }'>
-				<input type='button' value='${i }' class="${(i==page.nowPage)? 'here' :'' }"  onclick='bid.page(${i})'/>
+				<input type='button' value='${i }' class="${(i==page.nowPage)? 'here' :'' }"  onclick='mBid.page(${i})'/>
 			</c:forEach>
 
 			<c:if test="${page.endPage<page.totPage }">
-				<input type='button' value='다음' id='btnNext'  onclick='bid.page(${page.endPage+1})'/>
-				<input type='button' value='맨끝' id='btnLast'  onclick='bid.page(${page.totPage})'/>
+				<input type='button' value='다음' id='btnNext'  onclick='mBid.page(${page.endPage+1})'/>
+				<input type='button' value='맨끝' id='btnLast'  onclick='mBid.page(${page.totPage})'/>
 			</c:if> 			
 		
 		</div>
 		
 	</form>
 		<form name='frm_page' id='frm_page' method='post'>
-			<input type='text' name='nowPage' value='${page.nowPage }'>
-			<input type='text' name='lot' >
+			<input type='hidden' name='nowPage' value='${page.nowPage }'>
+			<input type='hidden' name='lot' >
 		</form>
 </div>
 </body>

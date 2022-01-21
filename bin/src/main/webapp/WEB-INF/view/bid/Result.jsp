@@ -12,26 +12,28 @@
 <link rel="stylesheet" href="css/index.css">
 <meta charset="UTF-8">
 <title>경매결과</title>
+<script src='./js/final_lsy.js'></script>
 </head>
 <body>
 <div id='auction'>
 <h1>Online Action 경매 결과</h1>	
 	<form name='frm_auction' method='post'>
 		<div id='findZone'>
-			<input type='text' name='nowPage' ><br/>
-			<input type='search'  placeholder='검색어를 입력해 주세요' name='findStr' value='${findStr }'>
+			<input type='hidden' name='nowPage' value='${page.nowPage }'>
+			<input type='search'  placeholder='검색어를 입력해 주세요' name='findStr' value='${page.findStr }'>
 			<input type='button' name='btnFind' value='검색'>
-			<select name='sort' style="width:90px;height:30px;" >
+			<input type='hidden' name='rSort'>
+			<select id='rSort' style="width:90px;height:30px;" onchange="selectOrder(this.value);">
 				<option value='none'>경매 정렬</option>
-				<option value='up'>경매일▲</option>
-				<option value='down'>경매일▼</option>
-			</select>
+				<option value='asc'>경매일▲</option>
+				<option value='desc'>경매일▼</option>
+			</select>`
 		</div>
 	
 	<div id='list'>
-		
-			<div id='item' onclick = >
-				<span class='weekly_value'  >2021년 12월 27일</span>
+		<c:forEach var='item' items='${list }'>
+			<div id='item'>
+				<span class='weekly_value'  >${item}</span>
 				<span class='weekly_title'>  온라인 경매</span><br/>
 				<span class='startDate_title'>경매시작일</span>
 				<span class='startDate_value'>2021-12-12</span><br/>
@@ -40,95 +42,27 @@
 				<img src = 'http://placehold.it/120x160'/>
 				<input type='button' class='detail' name='btnDetail' value='상세보기' >
 			</div>
-			<div id='item' onclick = >
-				<span class='weekly_value'  >2021년 12월 27일</span>
-				<span class='weekly_title'> 온라인 경매</span><br/>
-				<span class='startDate_title'>경매시작일</span>
-				<span class='startDate_value'>2021-12-12</span><br/>
-				<span class='endDate_title' >경매종료일</span>	
-				<span class='endDate_value' >2021-12-22</span>	<br/>
-				<img src = 'http://placehold.it/120x160'/>
-				<input type='button' class='detail'  name='btnDetail' value='상세보기' >
-			</div>
-			<div id='item' onclick = >
-				<span class='weekly_value'  >2021년 12월 27일</span>
-				<span class='weekly_title'> 온라인 경매</span><br/>
-				<span class='startDate_title'>경매시작일</span>
-				<span class='startDate_value'>2021-12-12</span><br/>
-				<span class='endDate_title' >경매종료일</span>	
-				<span class='endDate_value' >2021-12-22</span>	<br/>
-				<img src = 'http://placehold.it/120x160'/>
-				<input type='button' class='detail'  name='btnDetail' value='상세보기' >
-			</div>
-			<div id='item' onclick = >
-				<span class='weekly_value'  >2021년 12월 27일</span>
-				<span class='weekly_title'>  온라인 경매</span><br/>
-				<span class='startDate_title'>경매시작일</span>
-				<span class='startDate_value'>2021-12-12</span><br/>
-				<span class='endDate_title' >경매종료일</span>	
-				<span class='endDate_value' >2021-12-22</span>	<br/>
-				<img src = 'http://placehold.it/120x160'/>
-				<input type='button' class='detail'  name='btnDetail' value='상세보기' >
-			</div>
-			<div id='item' onclick = >
-				<span class='weekly_value'  >2021년 12월 27일</span>
-				<span class='weekly_title'>  온라인 경매</span><br/>
-				<span class='startDate_title'>경매시작일</span>
-				<span class='startDate_value'>2021-12-12</span><br/>
-				<span class='endDate_title' >경매종료일</span>	
-				<span class='endDate_value' >2021-12-22</span>	<br/>
-				<img src = 'http://placehold.it/120x160'/>
-				<input type='button' class='detail'  name='btnDetail' value='상세보기' >
-			</div>
-			<div id='item' onclick = >
-				<span class='weekly_value'  >2021년 12월 27일</span>
-				<span class='weekly_title'>  온라인 경매</span><br/>
-				<span class='startDate_title'>경매시작일</span>
-				<span class='startDate_value'>2021-12-12</span><br/>
-				<span class='endDate_title' >경매종료일</span>	
-				<span class='endDate_value' >2021-12-22</span>	<br/>
-				<img src = 'http://placehold.it/120x160'/>
-				<input type='button' class='detail'  name='btnDetail' value='상세보기' >
-			</div>
-			<div id='item' onclick = >
-				<span class='weekly_value'  >2021년 12월 27일</span>
-				<span class='weekly_title'>  온라인 경매</span><br/>
-				<span class='startDate_title'>경매시작일</span>
-				<span class='startDate_value'>2021-12-12</span><br/>
-				<span class='endDate_title' >경매종료일</span>	
-				<span class='endDate_value' >2021-12-22</span>	<br/>
-				<img src = 'http://placehold.it/120x160'/>
-				<input type='button' class='detail' name='btnDetail' value='상세보기' >
-			</div>
-			<div id='item' onclick = >
-				<span class='weekly_value'  >2021년 12월 27일</span>
-				<span class='weekly_title'>  온라인 경매</span><br/>
-				<span class='startDate_title'>경매시작일</span>
-				<span class='startDate_value'>2021-12-12</span><br/>
-				<span class='endDate_title' >경매종료일</span>	
-				<span class='endDate_value' >2021-12-22</span>	<br/>
-				<img src = 'http://placehold.it/120x160'/>
-				<input type='button' class='detail'  name='btnDetail' value='상세보기' >
-			</div>
-	</div>
-
-		<div id='btnZone'>
-			
-				<input type='button' value='&lt&lt' id='btnFirst' onclick='bid.page(1)'/>
-				<input type='button' value='&lt' id='btnPrev'  onclick=''/>
-			
-			
-			<c:forEach var='i' begin='1' end='3'>
-				<input type='button' value='${i }' class=""  onclick=''/>
-			</c:forEach>
-
-			
-				<input type='button' value='&gt' id='btnNext'  onclick=''/>
-				<input type='button' value='&gt&gt' id='btnLast'  onclick=''/>
-			 			
+		</c:forEach>	
 	</div>
 	</form>
+		<div id='btnZone'>
+			<c:if test="${page.startPage>1 }">
+				<input type='button' value='맨첨' id='btnFirst' onclick='bid.page(1)'/>
+				<input type='button' value='이전' id='btnPrev'  onclick='bid.page(${page.startPage-1})'/>
+			</c:if>
+			
+			<c:forEach var='i' begin="${page.startPage }" end='${page.endPage }'>
+				<input type='button' value='${i }' class="${(i==page.nowPage)? 'here' :'' }"  onclick='bid.page(${i})'/>
+			</c:forEach>
+
+			<c:if test="${page.endPage<page.totPage }">
+				<input type='button' value='다음' id='btnNext'  onclick='bid.page(${page.endPage+1})'/>
+				<input type='button' value='맨끝' id='btnLast'  onclick='bid.page(${page.totPage})'/>
+			</c:if> 			
+		
+		</div>
+
 </div>
 </body>
-<script src='./js/final_lsy.js'></script>
+
 </html>

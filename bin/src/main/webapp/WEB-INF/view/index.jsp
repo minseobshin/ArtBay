@@ -5,15 +5,14 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<<<<<<< HEAD
+
 <title>ArtBay Index</title>
 <link rel='stylesheet' type='text/css' href='/css/index.css'>
 <script src="https://code.jquery.com/jquery-3.6.0.js"></script>
 </head>
 <body>
 	<div id='index'>
-<<<<<<< HEAD
-======
+
 		<h1>ArtBay Index 임시 테스트 페이지</h1>
 		<ul>
 			<li><a href="/memberJoin">회원가입 화면</a></li>

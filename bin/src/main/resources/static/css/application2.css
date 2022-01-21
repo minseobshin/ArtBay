@@ -156,6 +156,9 @@ div[class="container"] ul, div[class="container"] li, div[class="container"] ol 
 .apply-table tr:first-child {
     border-top: 1px solid #666666;
 }
+.talbeline tr:first-child {
+    border-top: 0px solid;
+}
 .apply-table tr > td:first-child {
     width: 30%;
     padding: 10px 10px 10px 40px;

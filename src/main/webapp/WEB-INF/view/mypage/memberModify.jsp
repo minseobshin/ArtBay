@@ -24,6 +24,7 @@
 	<div class='h5'>➢ 현재 비밀번호 입력</div>
 	<input type='button' name='btnCertification' id='btnCertification' value='계속 진행하시려면 현재 비밀번호를 입력해주세요.' disabled>
 	<input type='password' name='oldPwd' id='oldPwd' placeholder="현재 비밀번호">
+	<input type='hidden' name='injung' id='injung' placeholder="현재 비밀번호가 말을 안들어서 얘로 대체함">
 	<div class='h5'>➢ 개인정보 변경</div>
 	<input type='text' name='mid' id='mid' readonly="readonly" disabled>
 	<input type='text' name='irum' id='irum' readonly="readonly" disabled>

@@ -118,7 +118,7 @@ public class ArtBayController {
 	//회원정보수정 update
 	@RequestMapping(value="/updateMemberInfo", method= {RequestMethod.POST})
 	public String updateMemberInfo(ArtBayVo vo) {
-		this.b = memberService.updateMemberInfo(vo);
+		System.out.println("controller 넘어온 직후 :"+vo.getOldPwd());
 		if(b == true) {
 			c = "passUpdate";
 		}else {
