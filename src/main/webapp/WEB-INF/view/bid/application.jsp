@@ -202,18 +202,29 @@
 	         <td>
 	             <div>
 	                 <div id="uploader" class="tui-file-uploader uploader-box">
-	                     <div class="tui-file-uploader-area" style="min-height: 100px; width: 100%;">
+	                     <div class="tui-file-uploader-area" id="file-div" style="min-height: 100px; width: 100%;">
+	                     	 <ul class="tui-upload-lst tui-js-file-uploader-list-items" id="file-ul">
+	                     	 <!--
+	                     		<li class="tui-upload-item">
+	                     			<span class="tui-filename-area">
+	                     				<span class="tui-file-name">img3.jpg</span>
+	                     			</span>
+	                     			<button type="button" class="tui-btn-delete">Remove</button>
+                     			</li>-->
+                   			</ul> 
+                   			
+                   			
 	                     </div>
 	                     <div class="thumbnail">
 	                      <label class="tui-btn tui-btn-upload m-t-5" style="background-color: rgb(102, 102, 102); color: rgb(255, 255, 255); border: 1px solid gray; height: 28px; line-height: 28px; text-align: center; padding: 0px; width: 100%; display: flex; align-items: center; justify-content: center;">
 	                          <span class="tui-btn-txt" style="line-height: initial;">대표 이미지 추가</span>
-	                          <input type="file" name="thumbnailFile" class="tui-input-file" >
+	                          <input type="file" name="thumbnailFile" id="thumbnailFile" class="tui-input-file" >
 	                      </label>
 	                     </div>
 	                     <div class="viewimg">
 	                      <label class="tui-btn tui-btn-upload m-t-5" style="background-color: rgb(102, 102, 102); color: rgb(255, 255, 255); border: 1px solid gray; height: 28px; line-height: 28px; text-align: center; padding: 0px; width: 100%; display: flex; align-items: center; justify-content: center;">
 	                          <span class="tui-btn-txt" style="line-height: initial;">상세 이미지 추가</span>
-	                          <input type="file" name="addFile" class="tui-input-file" multiple="multiple">
+	                          <input type="file" name="addFile" id="addFile" class="tui-input-file" multiple="multiple">
 	                      </label>
 	                     </div>
                          <input type="hidden" name="lot">	
