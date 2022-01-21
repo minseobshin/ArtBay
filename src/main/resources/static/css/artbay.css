@@ -245,7 +245,19 @@ p.bidCnt{
 	border-top: 1px solid rgb(102, 102, 102);
 }
 
+#pageZone input{
+	width: 30px;
+	height: 30px;
+	margin: 3px;
+	background-color: transparent;
+	border: 1px solid rgb(150, 150, 150);
+	border-radius: 3px;
+	font-size: 1em;
+}
 
+#pageZone input:hover{
+	border: 1px solid rgb(50, 50, 50s);
+}
 
 /*리스트 페이지 끝*/
 
