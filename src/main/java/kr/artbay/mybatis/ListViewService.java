@@ -36,13 +36,7 @@ public class ListViewService {
 		int totSize = mapper.totSize(findStr);
 		page.setTotSize(totSize);
 		this.page = page;
-		
 		list = mapper.search(page);
-		
-		List<ArtBayVo> thumbs = mapper.thumbnails(page);
-		for(ArtBayVo thumb : thumbs) {
-			System.out.println(thumb.getImgFile());
-		}
 		return list;
 	}
 	

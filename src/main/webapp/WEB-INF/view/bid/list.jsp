@@ -95,9 +95,7 @@
 		<div class="listBox">
 			<c:forEach var="vo" items="${list }">
 			<div class="listInner" onclick="artbay.view(${vo.lot })">
-				<c:if test="${vo.thumbnail eq 'Y' }">
-					<p class="img"><img src="${vo.imgFile }" /></p>
-				</c:if>
+				<p class="img"><img src="${vo.imgFile }" /></p>
 				<div class="listInnerText">
 					<p class="painter">${vo.artist }작가명</p>
 					<p class="art_name">${vo.artwork_name }</p>
