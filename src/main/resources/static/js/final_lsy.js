@@ -115,7 +115,7 @@ mBid.page = function(nowPage) {
 	
 	//공지작성->공지사항 목록으로 돌아가기===============================writeNotice==================
 	$('#btnNoticeList').click(function(){
-		$frm = $('#frm_writeNotice')[0];
+		$frm = $('#frm_notice')[0];
 		$frm.action = "customerNoticeList";
 		$frm.submit();
 	})
