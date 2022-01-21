@@ -83,12 +83,6 @@ public class IndexController {
 	
 	//test
 	
-	@RequestMapping(value="/customerFAQ")
-	public ModelAndView customerFAQ() {
-		ModelAndView mv = new ModelAndView();
-		mv.setViewName("customer.FAQ");
-		return mv;
-	}
 	
 	@RequestMapping(value="/customerConsultationList")
 	public ModelAndView customerConsultationList() {
