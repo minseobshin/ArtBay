@@ -109,6 +109,7 @@ public class MemberService {
 		status = manager.getTransaction(new DefaultTransactionDefinition());
 		
 		try {
+			System.out.println("서비스단 : " + vo.getMid());
 			int c = mapper.updateMemberInfo(vo);
 			if(c>0) {
 				manager.commit(status);

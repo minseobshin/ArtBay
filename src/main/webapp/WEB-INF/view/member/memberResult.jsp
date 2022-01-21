@@ -12,10 +12,10 @@
 <body>
 <!-- 결과 페이지는 팝업창으로 띄웁니다. 그리고 메인 화면은 홈페이지로 로그아웃 된 상태로 나가집니다. -->
 <div id='memberResult'>
-<div id='joLoMo' class='h1'></div> <!-- js에서 메시지 뿌려줄것 -->
-	<div id='joLoMo2' class='join4'></div>
+<div id='joLoMo' class='h1'>회원정보 수정이 완료되었습니다.</div> <!-- js에서 메시지 뿌려줄것 -->
+	<div id='joLoMo2' class='join4'>ArtBay 가입을 축하드립니다!</div>
 	<div class='join3'><input type='button' value='확인' id='btnOk' onclick='self.close()'></div>
-	<input type='text' id='abcd' name='abcd'>
+	<input type='hidden' id='abcd' name='abcd'>
 </div>
 </body>
 </html>

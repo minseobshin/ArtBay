@@ -581,8 +581,8 @@ $(function(){
 				console.log($param);
 				$.post('updateMemberInfo', $param, function(data){
 					console.log("데이터"+data);
-					
-					joLoMoResult();
+					window.open('mypageMemberResult', 'result', 'width=750, height=445, top=200, left=300');
+					//joLoMoResult();
 					
 				});
 			}

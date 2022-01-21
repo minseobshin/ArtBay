@@ -30,6 +30,8 @@ public class ArtBayVo {
 	int age;
 	String pwd;
 	String oldPwd;
+	String newPwd;
+	String newPwdChk;
 	String zip;
 	String address;
 	String address2;

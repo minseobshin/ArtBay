@@ -119,6 +119,12 @@ public class ArtBayController {
 	@RequestMapping(value="/updateMemberInfo", method= {RequestMethod.POST})
 	public String updateMemberInfo(ArtBayVo vo) {
 		System.out.println("controller 넘어온 직후 :"+vo.getOldPwd());
+		System.out.println("controller 넘어온 직후 :"+vo.getMid());
+		System.out.println("controller 넘어온 직후 :"+vo.getPhone());
+		System.out.println("controller 넘어온 직후 :"+vo.getMemberJoinEmail());
+		System.out.println("controller 넘어온 직후 :"+vo.getAddress());
+		boolean b = memberService.updateMemberInfo(vo);
+		
 		if(b == true) {
 			c = "passUpdate";
 		}else {
