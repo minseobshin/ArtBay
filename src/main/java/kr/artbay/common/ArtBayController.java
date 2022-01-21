@@ -41,7 +41,7 @@ public class ArtBayController {
 	boolean b = false;
 	String c = "";
 	PrintWriter out;
-	
+	int lot = 0;
 	/*gitSpring 컨트롤러 내용
 	String msg="";
 	int serial;
@@ -153,15 +153,17 @@ public class ArtBayController {
 			vo.setMid(mid);
 			vo.setCrnt_status("경매중");
 			vo.setArtwork_size(vo.getS_size01()+"x"+ vo.getS_size02() +"x"+ vo.getS_size03() +"/"+ vo.getHo() + "호");
-			b = applicationService.insertArtwork(vo);
-			String temp = "{'flag':'%s'}";
+			this.b = applicationService.insertArtwork(vo);
+			this.lot = applicationService.getLot();
+			System.out.println("lot " + this.lot);
+			String temp = "{'flag':'%s', 'lot' : '%s'}";
 			String flag ="";
 			if(b) {
 				flag = "OK";
 			}else {
 				flag = "Fail";
 			}
-			String json = String.format(temp, flag);
+			String json = String.format(temp, flag, lot);
 			json = json.replaceAll("'", "\"");
 			out.print(json);
 		} catch (Exception e) {
@@ -169,8 +171,8 @@ public class ArtBayController {
 		}
 	}
 
-	 
 
+	 
 	/*
 	@RequestMapping(value="/")
 	public ModelAndView index() {

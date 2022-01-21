@@ -31,17 +31,36 @@
 			<p class="thumbnail">
 				<c:forEach var="att" items="${vo.attList }">
 					<c:if test="${att.thumbnail eq 'Y' }">
-						<div><img name="thumbnail_img" id="thumbnail_img" src="${att.imgFile }" width=300 height=350/></div>
+						<div><img name="thumbnail_img" id="thumbnail_img" src="${att.imgFile }" width=300 height=350 /></div>
 					</c:if>
 				</c:forEach>
+				<div class="thumbnailHidden">
+					<div style="text-align: right;">
+						<input type="button" value="X" style="position: relative; border: none; background-color: transparent; font-size: 30px; right: 50px; top: 50px; color: white; font-weight: bolder;" onclick="modalOff($(this))"/>
+					</div>
+					<div class="thumbnailHiddenDiv" style="position: relative;">
+						<img name="thumbnailHiddenImg" id="thumbnailHiddenImg" class="thumbnailHiddenImg" />
+						<br/>
+						<c:forEach var="att" items="${vo.attList }">
+							<div class="smlImgList">
+								<img name="hiddenSmlImg" id="hiddenSmlImg" class="hiddenSmlImg" src="${att.imgFile }" onclick="thumbnailMagnify('${att.imgFile }', $('.thumbnailHidden'))"/>
+							</div>
+						</c:forEach>
+					</div>
+				</div>
 			</p>
 			<br/>
 			<div class="view_sml_btn">
-				<p id="share">🔗</p>
-				<p id="magnifier">🔎</p>
+				<p class="share" onclick="clip($('.shareUrl'))">🔗</p>
+				<p class="magnifier" onclick="thumbnailMagnify($('#thumbnail_img').attr('src'), $('.thumbnailHidden'))">🔎</p>
 			</div>
 			<div class="shareUrl">
-				<input type="text" value="가나다">
+				<div>
+					<h2>알림</h2>
+					<span>아래 주소가 복사되었습니다. 공유를 원하는 곳에 붙여넣기(ctrl+V) 하세요.</span><br/><br/>
+					<input type="text" class="pastedUrl" value=""><br/><br/>
+					<input type="button" class="pastedUrlClose" value="확 인" onclick="modalOff($(this))">
+				</div>
 			</div>
 		</div>
 		<div class="work_info">

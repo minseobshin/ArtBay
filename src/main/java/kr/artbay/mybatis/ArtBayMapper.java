@@ -54,6 +54,7 @@ public interface ArtBayMapper {
 	public ArtBayVo memberview(String mid);  //회원정보
 	public int insertArtWork(ArtBayVo vo);			//경매정보 insert
 	public int imgInsert(ArtBayAtt att);			//이미지 	 insert
+	public Integer get_lot();
 	
 	//QNA 
 	public Integer qnaTotSize(Page page);		//조회건수

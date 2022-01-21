@@ -8,6 +8,11 @@ html, body{
 	overflow-x: hidden;
 	zoom: 1.0;
 }
+
+#hiddenZone{
+	display: none;
+}
+
 /*리스트 페이지 시작*/
 form[name=frm_list]{
 	margin: 0 auto;
@@ -244,7 +249,7 @@ p.bidCnt{
 
 /*리스트 페이지 끝*/
 
-.rightmodal_m1, .rightmodal_m2, .rightmodal_m3, .rightmodal_m4, .login, .bid_caution{
+.rightmodal_m1, .rightmodal_m2, .rightmodal_m3, .rightmodal_m4, .login, .bid_caution, .shareUrl, .thumbnailHidden{
 	display: none;
 	z-index : 1 !important;
 	background-color: rgba(0,0,0,.3);
@@ -254,6 +259,10 @@ p.bidCnt{
 	width:100%;
 	height:100%;
 	font-size: 13px;
+}
+
+.thumbnailHidden{
+	background-color: rgba(0,0,0,.8);
 }
 
 table{
@@ -464,9 +473,45 @@ form[name=frm_view]{
 	float: left;
 }
 
+.thumbnailHidden{
+	height: 100%;
+	z-index: 1 !important;
+}
+
+.thumbnailHiddenDiv{
+	height: 100% !important;
+	width: 50%;
+	margin: 0 auto;
+	z-index: 2 !important;
+}
+
+.thumbnailHiddenImg{
+	height: 80% !important;
+	z-index: 3 !important;
+}
+
+.smlImgList{
+	height: 15%;
+	display: inline-block !important;
+	z-index: 4 !important;
+}
+
+#hiddenSmlImg{
+	height: 90% !important;
+	z-index: 5 !important;
+}
+
+#hiddenSmlImg:hover{
+	cursor:pointer;
+}
+
 .work_info, .view_sml_btn{
 	width: 86.5%;
 	margin-left: 13.5%;
+}
+
+.share:hover, .magnifier:hover{
+	cursor: pointer;
 }
 
 form[name=frm_view] div.view_sml_btn p{
@@ -479,8 +524,42 @@ form[name=frm_view] div.view_sml_btn p{
 	height: 2em;
 }
 
-form[name=frm_view] div.shareUrl{
-	display: none;
+form[name=frm_view] div.shareUrl>div{
+	background-color: white;
+	width: 30%;
+	height: 40%;
+	padding: 10px;
+	box-sizing: border-box;
+	position: relative;
+	top: 40%;
+	left: 30%;
+}
+.shareUrl h2, .shareUrl span, .shareUrl input[type=button]{
+	margin: 10px auto;
+}
+
+.shareUrl h2{
+	font-weight: bolder;
+}
+
+.shareUrl span{
+	color: rgb(102, 102, 136);
+	font-weight: 600;
+}
+
+.pastedUrl{
+	width: 90%;
+	height: 20%;
+	overflow: hidden;
+}
+
+.pastedUrlClose{
+	height: 20%;
+	width: 20%;
+	background-color: black;
+	color: white;
+	font-size: 1.2em;
+	font-weight: 900;
 }
 
 .view_detail, .view_price{
