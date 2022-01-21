@@ -30,19 +30,22 @@
 	</select>
 	
 	<select id="search" parameterType="kr.artbay.common.Page" resultType="kr.artbay.common.ArtBayVo">
-		select lot, mid, artwork_name, artwork_ctgr, artist, material, artwork_size, start_price, current_price,
-				regist_date, due_date, hit, direct_price, bid_cnt, crnt_status from artwork
-		where mid like '%${findStr}%' or artist like '%${findStr}%' or artwork_ctgr like '%${findStr}%'
+		select * from artwork a join artimg b on a.lot=b.lot
+		where (a.mid like '%${findStr}%' or a.artist like '%${findStr}%' or a.artwork_ctgr like '%${findStr}%')
 		order by
 		<choose>
-			<when test="sort eq 'default'"> due_date asc</when>
-			<when test="sort eq 'init_price_asce'"> start_price asc</when>
-			<when test="sort eq 'init_price_desc'"> start_price desc</when>
-			<when test="sort eq 'bid_history_cnt_asce'"> bid_cnt asc</when>
-			<when test="sort eq 'bid_history_cnt_desc'"> bid_cnt desc</when>
+			<when test="sort eq 'default'"> a.due_date asc</when>
+			<when test="sort eq 'init_price_asce'"> a.start_price asc</when>
+			<when test="sort eq 'init_price_desc'"> a.start_price desc</when>
+			<when test="sort eq 'bid_history_cnt_asce'"> a.bid_cnt asc</when>
+			<when test="sort eq 'bid_history_cnt_desc'"> a.bid_cnt desc</when>
 			<otherwise> due_date asc</otherwise>
 		</choose>
 		limit ${startNo-1}, ${listSize}
+	</select>
+	
+	<select id="thumbnails" parameterType="kr.artbay.common.Page" resultType="kr.artbay.common.ArtBayVo">
+		select a.lot, b.imgFile from artwork a join artimg b on a.lot=b.lot where b.thumbnail="Y";
 	</select>
 	
 	<select id='noticeSave' parameterType="kr.artbay.common.ArtBayVo">

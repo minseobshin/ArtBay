@@ -2,6 +2,7 @@
  * 
  */
 $(function(){
+	//var storedFiles = [];
 	
 	/*$("btnCancle").click(function(){ //취소 클릭시 전페이지 이동
 	})*/
@@ -32,6 +33,15 @@ $(function(){
 		$frm.submit();
 	});
 	
+/*	
+	element.addEventListener('change', function () {    
+		var fileList = this.files; 
+		for (var i = 0; i < fileList.length; i++) {
+	    storedFiles.push(fileList[i]);
+	    ul.appendChild(li);
+	  }
+	})
+	*/
 	
 })
 

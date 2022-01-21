@@ -17,7 +17,7 @@ import kr.artbay.mybatis.ApplicationService;
 
 @Controller
 public class artworkFileUploadCoutroller {
-	public static String uploadPath = "C:/upload/";
+	public static String uploadPath = "C:\\Users\\elzle\\git\\ArtBay-project\\src\\main\\resources\\static\\upload\\";
 	
 	@Autowired 
 	ApplicationService applicationService;
@@ -25,22 +25,23 @@ public class artworkFileUploadCoutroller {
 	@RequestMapping(value="/artworkfileUp") 
 	public ModelAndView upload(String job, int lot, 
 								@RequestParam("addFile") List<MultipartFile> mul,
+								@RequestParam("thumbnailFile") List<MultipartFile> mainimg,
 								@ModelAttribute ArtBayAtt attVo,
-								@ModelAttribute ArtBayVo vo,
-								@ModelAttribute Page page) { 
+								@ModelAttribute ArtBayVo vo) { 
 		
 		ModelAndView mv = new ModelAndView(); 
 		String msg = ""; 
-		UUID uuid = null; vo = new ArtBayVo(); 
+		UUID uuid = null; 
+		vo = new ArtBayVo(); 
 		boolean b = true;
 		List<ArtBayAtt> attList = new ArrayList<ArtBayAtt>(); 
 		
 		try { 
-			for(MultipartFile m : mul) { 
+			for(MultipartFile m : mul) {
 				if(m.getOriginalFilename().equals("")) continue;
 				File targetFile = new File(uploadPath + m.getOriginalFilename());
 				m.transferTo(targetFile); uuid = UUID.randomUUID(); 
-				String temp = uuid.toString() + "-" + m.getOriginalFilename(); 
+				String temp = "../upload/" + uuid.toString() + "-" + m.getOriginalFilename(); 
 				File reName = new File(uploadPath + temp); 
 				targetFile.renameTo(reName); 
 				ArtBayAtt att = new	ArtBayAtt(); 
@@ -49,6 +50,20 @@ public class artworkFileUploadCoutroller {
 				att.setThumbnail("N"); 
 				attList.add(att); 
 				}
+			for(MultipartFile m : mainimg) {
+				if(m.getOriginalFilename().equals("")) continue;
+				File targetFile = new File(uploadPath + m.getOriginalFilename());
+				m.transferTo(targetFile); uuid = UUID.randomUUID(); 
+				String temp = "../upload/" + uuid.toString() + "-" + m.getOriginalFilename(); 
+				File reName = new File(uploadPath + temp); 
+				targetFile.renameTo(reName); 
+				ArtBayAtt att = new	ArtBayAtt(); 
+				att.setLot(lot); 
+				att.setImgFile(temp); 
+				att.setThumbnail("Y"); 
+				attList.add(att);
+				}
+			
 			vo.setAttList(attList);
 			b = applicationService.insertAtt(vo, job);  
 			if(b) msg = "저료가 정상적으로 입력 되었습니다."; 

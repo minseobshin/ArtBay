@@ -151,6 +151,7 @@ function off(){
 
 	
 	$("#navAll").on("click", function(){
+		$("#findStr").val("");
 		search();
 		$("#navAll").addClass("orangeLi");
 		$("#navPaint").removeClass("orangeLi");
