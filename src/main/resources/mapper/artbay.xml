@@ -132,9 +132,17 @@
 		from winning_bid W join artwork A
 		on W.lot = A.lot
 	</select>
+	
 	<!-- 경매결과 월별조회 -->
-	<select id='bidResult' resultType="String">
-		select date_format(winbid_date, "%Y년 %m월") as winning_month, count(*) from winning_bid group by winning_month;	
+	<select id='bidResult' parameterType='kr.artbay.common.Page' resultType="String">
+		select date_format(winbid_date, "%Y년 %m월") as winning_month 
+		from winning_bid 
+		group by winning_month 
+		order by winning_month 
+		<where>
+			<if test="rSort eq 'asc'">asc</if>
+			<if test="rSort eq 'desc'">desc</if>
+		</where>
 	</select>
 	
 	<!-- QNA 조회 건수 -->

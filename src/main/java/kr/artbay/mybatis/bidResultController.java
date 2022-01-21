@@ -23,12 +23,10 @@ ArtBayVo vo = null;
 @RequestMapping(value="/bidResult", method= {RequestMethod.POST, RequestMethod.GET})
 public ModelAndView bidResult(Page page) { 
 	ModelAndView mv = new ModelAndView();
-	List<ArtBayVo> list = service.bidResult(page); //service=>dao역할
-	page = service.getPage();
+	List<String> list = service.bidResult(page); //service=>dao역할
 	mv.addObject("page", page);
 	mv.addObject("list", list);
 	mv.setViewName("bid.Result");
-	
 	return mv;
 }
 	

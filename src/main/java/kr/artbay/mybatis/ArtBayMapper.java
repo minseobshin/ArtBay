@@ -48,7 +48,7 @@ public interface ArtBayMapper {
 	public List<ArtBayVo> mypageSuccessBidList();
 	
 	//경매결과 조회
-	public List<String> bidResult();
+	public List<String> bidResult(Page page);
 	
 	//경매신청
 	public ArtBayVo memberview(String mid);  //회원정보

@@ -23,12 +23,13 @@ public class bidResultService {
 		Page page;
 		
 
-		public List<ArtBayVo> bidResult(Page p) {
-			List<ArtBayVo> list = null;
-			int totSize = mapper.mypageBidTotSize();
+		public List<String> bidResult(Page p) {
+			List<String> list = null;
+			list = mapper.bidResult(p);		
+			int totSize = list.size();
 			p.setTotSize(totSize);
 			this.page = p;
-			list = mapper.mypageBidList();		
+			
 			return list;
 		} 
 		

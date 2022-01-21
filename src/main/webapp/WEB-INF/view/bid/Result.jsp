@@ -12,6 +12,7 @@
 <link rel="stylesheet" href="css/index.css">
 <meta charset="UTF-8">
 <title>경매결과</title>
+<script src='./js/final_lsy.js'></script>
 </head>
 <body>
 <div id='auction'>
@@ -21,17 +22,18 @@
 			<input type='hidden' name='nowPage' value='${page.nowPage }'>
 			<input type='search'  placeholder='검색어를 입력해 주세요' name='findStr' value='${page.findStr }'>
 			<input type='button' name='btnFind' value='검색'>
-			<select name='sort' style="width:90px;height:30px;" >
+			<input type='hidden' name='rSort'>
+			<select id='rSort' style="width:90px;height:30px;" onchange="selectOrder(this.value);">
 				<option value='none'>경매 정렬</option>
-				<option value='up'>경매일▲</option>
-				<option value='down'>경매일▼</option>
-			</select>
+				<option value='asc'>경매일▲</option>
+				<option value='desc'>경매일▼</option>
+			</select>`
 		</div>
 	
 	<div id='list'>
-		<c:forEach var='vo' items='${list }'>
+		<c:forEach var='item' items='${list }'>
 			<div id='item'>
-				<span class='weekly_value'  >${winning_month } 월</span>
+				<span class='weekly_value'  >${item}</span>
 				<span class='weekly_title'>  온라인 경매</span><br/>
 				<span class='startDate_title'>경매시작일</span>
 				<span class='startDate_value'>2021-12-12</span><br/>
@@ -62,5 +64,5 @@
 
 </div>
 </body>
-<script src='./js/final_lsy.js'></script>
+
 </html>
