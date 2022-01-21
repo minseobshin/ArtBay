@@ -5,7 +5,7 @@
 <script src = '/js/login_only.js'></script><!-- 로그인 전용 페이지(모달창 제어용) -->
 	<!-- 메인 로고 -->	
 	<ul class="logo clearfix">
-		<li><a href="main">ARTBAY</a></li>
+		<li><img src="img/greatTasty_resize.png"><a href="main">칰BAY</a></li>
 	</ul>
 	
 	<!-- 메인 메뉴 -->
@@ -45,7 +45,7 @@
 					<div id="mypage">
 						<ul>
 							<li><a href="mypageBid">응찰내역</a></li>
-							<li><a href="mypageSuccessfulBid">낙찰내역</a></li>
+							<li><a href="mypageSuccessBid">낙찰내역</a></li>
 							<li><a href="bidApplication">경매신청</a></li>
 							<li><a href="customerConsultationList">작품문의내역</a></li>
 							<li><a href="mypageMemberModify">정보수정</a></li>

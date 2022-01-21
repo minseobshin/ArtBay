@@ -18,7 +18,7 @@
 <body>
 <div id='auction_faq'>
 	<form name='frm_faq' id='frm_faq' method='post'>
-		<input type='text' name='ctgr' value='${ctgr }'>
+		<input type='hidden' name='ctgr' value='general'>
 	</form>
 		<h1>자주 하시는 질문</h1>
 			<div class='container_faq'>

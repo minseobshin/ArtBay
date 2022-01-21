@@ -82,7 +82,7 @@
 					<div class="selected_option">
 						<div class="selected_findStr" id="selected_findStr" >
 							${page.findStr }
-							<input type="button" value="X" style="border: none; background-color: transparent;" />
+							<input class="btnSearchX" type="button" value="X" style="border: none; background-color: transparent;" />
 						</div>
 					</div>
 				</div>

@@ -27,12 +27,13 @@
 	<div class='h5'>➢ 개인정보 변경</div>
 	<input type='text' name='mid' id='mid' readonly="readonly" disabled>
 	<input type='text' name='irum' id='irum' readonly="readonly" disabled>
-	<input type='text' name='birth' id='birth' readonly="readonly" disabled>
+	<input type='date' name='birth' id='birth' readonly="readonly" disabled>
 	<input type='text' name='phone' id='phone' placeholder="전화번호" disabled>
-	<input type='text' name='email' class='email' placeholder="이메일" disabled>
+	<input type='text' name='memberJoinEmail' id='memberJoinEmail' class='email' placeholder="이메일" disabled>
+	<input type='text' name='certificationNumChk2' id='certificationNumChk2' placeholder='이메일 인증번호' disabled>
 	<br>
 	<div class='h5'>➢ 비밀번호 변경</div>
-	<div class='h5'>비밀번호 변경을 원하신다면, 현재 비밀번호를 기입 후, '새 비밀번호'란에 변경할 비밀번호를 입력하세요.</div>
+	<div class='h5'>비밀번호 변경을 원하신다면, 현재 비밀번호를 입력 후, '새 비밀번호'란에 변경할 비밀번호를 입력하세요.</div>
 	<input type='password' name='newPwd' id='newPwd' placeholder="새 비밀번호" disabled>
 	<br>
 	<input type='password' name='newPwdChk' id='newPwdChk' placeholder="새 비밀번호 확인" disabled>
@@ -45,8 +46,9 @@
 	<input type='text' name='address2' id='address2' disabled>
 	<br>
 	<div class='join3'>
-		<input type='submit' name='btnModify' id='btnModify' value='수정' disabled>
+		<input type='button' name='btnModify' id='btnModify' value='수정' disabled>
 	</div>
+	<input type='hidden' name='certificationNum2' id='certificationNum2'> <!-- 이메일 인증번호 -->
 </form>
 <form name='frm_out' method='post'>
 	<!-- 탈퇴 버튼 누르면 배경 어두워지며 팝업생성 -->
@@ -87,7 +89,8 @@
 			<h3 class='h3'>이메일 본인인증</h3>
 			<input type='text' name='irum' class='irumc' placeholder='이름' required="required">
 			<input type='text' name='to_name' id='to_name' class='emailc' placeholder="이메일" required="required">
-			<input type='submit' name='btnEmailCheck' id='btnEmailCheck' class='btnEmailCheck' value='보내기'>
+			<input type='submit' name='btnEmailCheck2' id='btnEmailCheck2' class='btnEmailCheck' value='보내기'>
+			<input type='hidden' name='btnEmailCheck' id='btnEmailCheck' class='btnEmailCheck' value='보내기'>
 			<input type='button' name='btnEmailCheckCancel' class='btnEmailCheckCancel' value='취소'>
 			<script type="text/javascript">emailjs.init('user_Bmru9OgJfTWiBNKpR24gp')</script>
 			<input type='hidden' name='certificationNum' id='certificationNum'>

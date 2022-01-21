@@ -9,6 +9,9 @@ public class Page {
 	String qna_type="";
 	String findStr="";
 	String sort="";
+	String rSort="";
+	
+	
 
 	public Page() {}
 	
@@ -60,5 +63,7 @@ public class Page {
 
 	public String getSort() {return sort;}
 	public void setSort(String sort) {this.sort = sort;}
+	public String getrSort() {return rSort;}
+	public void setrSort(String rSort) {this.rSort = rSort;}
 	
 }

@@ -101,9 +101,11 @@ public class ArtBayController {
 		sv = (ArtBaySessionVo)session.getAttribute("sv"); //세션에 있던 로그인 정보
 		String mid = sv.getMid();
 		String pwd = sv.getPwd();
-		
+		if(mid==null || pwd==null || npwd==null) {
+			System.out.println("하이");
+		}else {
 		this.vo = memberService.pwdChkForModi(mid, pwd, npwd);		
-		System.out.println(vo.getOldPwd());
+		}
 		if(vo.getOldPwd().equals("passPwd")) {
 			c = "passPwd";
 		}else {
@@ -116,13 +118,13 @@ public class ArtBayController {
 	//회원정보수정 update
 	@RequestMapping(value="/updateMemberInfo", method= {RequestMethod.POST})
 	public String updateMemberInfo(ArtBayVo vo) {
-		this.b = memberService.updateMemberInfo(vo);
+		System.out.println("controller 넘어온 직후 :"+vo.getOldPwd());
 		if(b == true) {
 			c = "passUpdate";
 		}else {
 			c = "failUpdate";
 		}
-		
+		System.out.println(vo.getOldPwd());
 		return c;
 	}
 	
