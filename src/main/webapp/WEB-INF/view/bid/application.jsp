@@ -281,6 +281,34 @@
 		</div>
 	</div>
 </div>
+<!--알림 모달창 -->
+<div class="modals fade show" id="modal-startprice" >
+	<div>
+		<div>
+			<div>
+			    <img src="./img/warning-icon@1x.png" id="img-warning">
+			    <h2>알림</h2>
+				<span id="modal-message">시작가를 입력해 주세요.</span>
+				<a href="#" class="btn-ok" onclick="modalOff($('#modal-startprice'))">확인</a>
+			</div>
+			<img src="./img/popup-close@1x.png" class="modal-close" onclick="modalOff($('#modal-startprice'))">
+		</div>
+	</div>
+</div>
+<!--알림 모달창 -->
+<div class="modals fade show" id="modal-size" >
+	<div>
+		<div>
+			<div>
+			    <img src="./img/warning-icon@1x.png" id="img-warning">
+			    <h2>알림</h2>
+				<span id="modal-message">작품의 크기를 모두 입력해 주세요.</span>
+				<a href="#" class="btn-ok" onclick="modalOff($('#modal-size'))">확인</a>
+			</div>
+			<img src="./img/popup-close@1x.png" class="modal-close" onclick="modalOff($('#modal-size'))">
+		</div>
+	</div>
+</div>
 
 
 <!-- 위탁신청 -->
