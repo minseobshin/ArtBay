@@ -38,13 +38,18 @@ public class ListViewService {
 		this.page = page;
 		
 		list = mapper.search(page);
+		
+		List<ArtBayVo> thumbs = mapper.thumbnails(page);
+		for(ArtBayVo thumb : thumbs) {
+			System.out.println(thumb.getImgFile());
+		}
 		return list;
 	}
 	
-	public List<String> listThumbs(int lot){
+	public List<ArtBayVo> listThumbs(Page page, @RequestParam(value="findStr", required=false) String findStr){
 		List<String> list = new ArrayList<String>();
 		
-		return list;
+		return null;
 	}
 	
 	public ArtBayVo view(int lot) {
