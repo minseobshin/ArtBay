@@ -61,12 +61,9 @@ public class ApplicationService {
 		try {
 			savePoint = status.createSavepoint();
 			for(ArtBayAtt att: vo.getAttList()) {
-				if(job.equals("i") || job.equals("r")) {
+				if(job.equals("i") ) {
 					c += mapper.imgInsert(att);
 				}
-				/*
-				 * else if( job.equals("m")) { c += mapper.attModify(att); }
-				 */
 			}
 				if(c == vo.getAttList().size()) {
 					manager.commit(status);
