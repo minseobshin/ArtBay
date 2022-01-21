@@ -150,8 +150,8 @@
 	<select id="qnaTotSize" parameterType="kr.artbay.common.Page" resultType="Integer">
 		SELECT COUNT(QNA_NUM) FROM QNA
 		<where>
-			<if test="qna_type != ''">
-				QNA_TYPE = #{qna_type}	
+			<if test="findType != ''">
+				QNA_TYPE = #{findType}	
 			</if>
 			<if test="findCol != ''">
 				AND ${findCol} LIKE '%${findStr}%'
@@ -168,8 +168,8 @@
 		FROM 
 			QNA q
 		<where>
-			<if test="qna_type != ''">
-				QNA_TYPE = #{qna_type}	
+			<if test="findType != ''">
+				QNA_TYPE = #{findType}	
 			</if>
 			<if test="findCol != ''">
 				AND ${findCol} LIKE '%${findStr}%'
@@ -220,4 +220,15 @@
 		WHERE GRP = #{_parameter}
 	</delete>
 	
+	<!-- SEQ 증가 -->
+	<update id="qnaSeqUp" parameterType="kr.artbay.common.ArtBayVo">
+		UPDATE QNA SET SEQ = SEQ + 1
+		WHERE GRP = ${grp} AND SEQ > ${seq}
+	</update>
+	
+	<!-- 댓글 작성 -->
+	<insert id="reply" parameterType="kr.artbay.common.ArtBayVo">
+		INSERT INTO QNA(QNA_NUM, GRP, SEQ, DEEP, MID, QNA_PWD, QNA_TITLE, QNA_DOC, QNA_DATE, QNA_STATUS, QNA_TYPE) 
+		VALUES(getQnaSerial('i'), #{grp}, ${seq+1}, ${deep+1}, #{mid}, #{qna_pwd}, #{qna_title}, #{qna_doc}, now(), #{qna_status}, #{qna_type})
+	</insert>
 </mapper>

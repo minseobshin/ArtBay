@@ -90,6 +90,27 @@ public class QnaService {
 		return result;
 	}
 	
+	//댓글 저장
+	public boolean reply(ArtBayVo vo) {
+		boolean result = false;
+		status = manager.getTransaction(new DefaultTransactionDefinition());
+		
+		//같은 grp인 글중에 seq가 본문글보다 큰 seq 값 증가
+		mapper.qnaSeqUp(vo);
+		
+		int iRows = mapper.reply(vo);
+		
+		if(iRows > 0) {
+			manager.commit(status);
+			serial = mapper.getQnaSerial();
+			result = true;
+		}
+		else {
+			manager.rollback(status);
+		}
+		return result;
+	}
+	
 	//qna 삭제
 	//1) 게시글, 첨부파일 정보 삭제
 	//2) 실제 첨부파일 삭제

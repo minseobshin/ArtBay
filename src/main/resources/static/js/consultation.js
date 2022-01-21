@@ -24,7 +24,7 @@ $(function()  {
 	
 	//조회조건 초기화
 	$("#btnSearchCancle").click(function() {
-		$("#qna_type").val("");
+		$("#findType").val("");
 		$("#findCol").val("QNA_TITLE");
 		$("#findStr").val("");
 	});
@@ -57,12 +57,12 @@ $(function()  {
 	
 	//qna 문의 취소
 	$("#btnQnaCancle").click(function() {
-		
+		alert("작업예정");
 	});
 		
 	//qna 수정폼으로 이동
 	$("#btnUpdateForm").click(function() {
-		console.log("수정폼으로 ㄱㄱ");
+		alert("작업예정");
 	});
 	
 	//qna 삭제
@@ -103,8 +103,28 @@ $(function()  {
 	
 	//qna 댓글폼으로 이동
 	$("#btnReplyForm").click(function() {
-		console.log("댓글작성 폼으로 ㄱㄱ");
+		$frm = $("#frmQna")[0];		
+		$frm.action = "qnaReplyForm";
+		$frm.submit();
 	});
 	
+	//qna 답글 저장
+	$("#btnQnaReply").click(function() {
+		$param = $("#frmQna").serialize();
+		
+		$.post("qnaReply", $param, function(data) {			
+			var json = JSON.parse(data);
+			if(json.flag == "OK") {
+				$frm = $("#frm_upload")[0];
+				$frm.serial.value = json.serial;	//시리얼 번호
+				$frm.enctype = "multipart/form-data";
+				$frm.action = "fileUp";
+				$frm.submit();					
+			}
+			else {
+				alert("저장중 오류가 발생하였습니다.");
+			}				
+		});
+	});
 	
 });

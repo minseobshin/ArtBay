@@ -59,19 +59,25 @@
 				</tbody></table>
 			</div>
 			<div class="btnWrap view clearFix">
+				<!-- 관리자는 수정/삭제/댓글/목록 모두 가능 -->
+				<!-- 내가 작성한 글만 수정/삭제/목록 가능 -->
+				<!-- 다른사람이 작성한 글은 댓글/목록만 가능 -->
 				<c:choose>
-					<c:when test="${ sessionScope.sv.mid == vo.mid }">
-						<a href="#none" id="btnUpdateForm" class="btn btn-gray2 btn-lg fs15">수정</a>
-						<a href="#none" id="btnQnaDelete" class="btn btn-gray2 btn-lg fs15">삭제</a>
-						<a href="#none" id="btnQnaList" class="btn btn-gray2 btn-lg fs15">목록</a>
-					</c:when>
 					<c:when test="${ sessionScope.sv.mid == 'admin' }">
 						<a href="#none" id="btnUpdateForm" class="btn btn-gray2 btn-lg fs15">수정</a>
 						<a href="#none" id="btnQnaDelete" class="btn btn-gray2 btn-lg fs15">삭제</a>
 						<a href="#none" id="btnReplyForm" class="btn btn-gray2 btn-lg fs15">댓글</a>
 						<a href="#none" id="btnQnaList" class="btn btn-gray2 btn-lg fs15">목록</a>
 					</c:when>
+					<c:when test="${ sessionScope.sv.mid == vo.mid }">
+						<a href="#none" id="btnUpdateForm" class="btn btn-gray2 btn-lg fs15">수정</a>
+						<a href="#none" id="btnQnaDelete" class="btn btn-gray2 btn-lg fs15">삭제</a>
+						<a href="#none" id="btnQnaList" class="btn btn-gray2 btn-lg fs15">목록</a>
+					</c:when>
 					<c:otherwise>
+						<c:if test="${ not empty sessionScope.sv }">
+							<a href="#none" id="btnReplyForm" class="btn btn-gray2 btn-lg fs15">댓글</a>
+						</c:if>
 						<a href="#none" id="btnQnaList" class="btn btn-gray2 btn-lg fs15">목록</a>	
 					</c:otherwise>
 				</c:choose>				
@@ -81,12 +87,21 @@
 		<!-- 입력한 비밀번호 -->
 		<input type="hidden" name="qna_pwd">
 		
+		<!-- 조회 조건 -->
 		<input type="hidden" name="nowPage" value="${ page.nowPage }">
 		<input type="hidden" name="findStr" value="${ page.findStr }">
+		<input type="hidden" name="findCol" value="${ page.findCol }">
+		<input type="hidden" name="findType" value="${ page.findType }">
+		
 		<input type="hidden" name="qna_num" value="${ vo.qna_num }">
+		<!-- 
 		<input type="hidden" name="grp" value="${ vo.grp }">
 		<input type="hidden" name="seq" value="${ vo.seq }">
-		<input type="hidden" name="deep" value="${ vo.deep }">
+		<input type="hidden" name="deep" value="${ vo.deep }">		
+		<input type="hidden" name="qna_type" value="${ vo.qna_type }">
+		<input type="hidden" name="qna_title" value="${ vo.qna_title }">
+		<input type="hidden" name="qna_status" value="${ vo.qna_status }">
+		 -->			
 	</div>
 </form>
 
