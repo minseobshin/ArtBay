@@ -31,7 +31,7 @@
 	
 	<select id="search" parameterType="kr.artbay.common.Page" resultType="kr.artbay.common.ArtBayVo">
 		select * from artwork a join artimg b on a.lot=b.lot
-		where (a.mid like '%${findStr}%' or a.artist like '%${findStr}%' or a.artwork_ctgr like '%${findStr}%' and b.thumbnail="Y")
+		where (a.mid like '%${findStr}%' or a.artist like '%${findStr}%' or a.artwork_ctgr like '%${findStr}%')
 		order by
 		<choose>
 			<when test="sort eq 'default'"> a.due_date asc</when>
