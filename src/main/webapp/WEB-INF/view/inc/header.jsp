@@ -5,7 +5,7 @@
 <script src = '/js/login_only.js'></script><!-- 로그인 전용 페이지(모달창 제어용) -->
 	<!-- 메인 로고 -->	
 	<ul class="logo clearfix">
-		<li><img src="img/greatTasty_resize.png"><a href="main">칰BAY</a></li>
+		<li><a href="main">ARTBAY</a></li>
 	</ul>
 	
 	<!-- 메인 메뉴 -->

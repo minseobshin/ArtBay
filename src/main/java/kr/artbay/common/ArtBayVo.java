@@ -9,7 +9,7 @@ public class ArtBayVo {
 	int lot;
 	
 	//즉시판매가
-	int direct_price;
+	Integer direct_price;
 	
 	//응찰
 	int bid_price;
@@ -41,15 +41,15 @@ public class ArtBayVo {
 	String artwork_ctgr;
 	String artist;
 	String material;
-	int s_size01;
-	int s_size02;
-	int s_size03;
-	int ho;
+	Integer s_size01;
+	Integer s_size02;
+	Integer s_size03;
+	Integer ho;
 	String artwork_size;
 	String contents;
 	String etc;
-	int start_price;
-	int current_price;
+	Integer start_price;
+	Integer current_price;
 	String regist_date;
 	String due_date;
 	int bid_cnt;
@@ -115,8 +115,8 @@ public class ArtBayVo {
 	public void setOldPwd(String oldPwd) {this.oldPwd = oldPwd;}
 	public int getLot() {return lot;}
 	public void setLot(int lot) {this.lot = lot;}
-	public int getDirect_price() {return direct_price;}
-	public void setDirect_price(int direct_price) {this.direct_price = direct_price;}
+	public Integer getDirect_price() {return direct_price;}
+	public void setDirect_price(Integer direct_price) {this.direct_price = direct_price;}
 	public int getBid_price() {return bid_price;}
 	public void setBid_price(int bid_price) {this.bid_price = bid_price;}
 	public String getBid_date() {return bid_date;}
@@ -156,14 +156,15 @@ public class ArtBayVo {
 	public String getArtist() {return artist;}
 	public void setArtist(String artist) {this.artist = artist;}
 	public String getMaterial() {return material;}
-	public int getS_size01() {return s_size01;}
-	public void setS_size01(int s_size01) {this.s_size01 = s_size01;}
-	public int getS_size02() {return s_size02;}
-	public void setS_size02(int s_size02) {this.s_size02 = s_size02;}
-	public int getS_size03() {return s_size03;}
-	public void setS_size03(int s_size03) {this.s_size03 = s_size03;}
-	public int getHo() {return ho;}
-	public void setHo(int ho) {this.ho = ho;}
+	
+	public Integer getS_size01() {return s_size01;}
+	public void setS_size01(Integer s_size01) {this.s_size01 = s_size01;}
+	public Integer getS_size02() {return s_size02;}
+	public void setS_size02(Integer s_size02) {this.s_size02 = s_size02;}
+	public Integer getS_size03() {return s_size03;}
+	public void setS_size03(Integer s_size03) {this.s_size03 = s_size03;}
+	public Integer getHo() {return ho;}
+	public void setHo(Integer ho) {this.ho = ho;}
 	public void setMaterial(String material) {this.material = material;}
 	public String getArtwork_size() {return artwork_size;}
 	public String getContents() {return contents;}
@@ -171,10 +172,10 @@ public class ArtBayVo {
 	public String getEtc() {return etc;}
 	public void setEtc(String etc) {this.etc = etc;}
 	public void setArtwork_size(String artwork_size) {this.artwork_size = artwork_size;}
-	public int getStart_price() {return start_price;}
-	public void setStart_price(int start_price) {this.start_price = start_price;}
-	public int getCurrent_price() {return current_price;}
-	public void setCurrent_price(int current_price) {this.current_price = current_price;}
+	public Integer getStart_price() {return start_price;}
+	public void setStart_price(Integer start_price) {this.start_price = start_price;}
+	public Integer getCurrent_price() {return current_price;}
+	public void setCurrent_price(Integer current_price) {this.current_price = current_price;}
 	public String getRegist_date() {return regist_date;}
 	public void setRegist_date(String regist_date) {this.regist_date = regist_date;}
 	public String getDue_date() {return due_date;}
