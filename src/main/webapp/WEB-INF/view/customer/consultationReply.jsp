@@ -31,13 +31,12 @@
 			<form name="frmQna" id="frmQna" method="POST" >
 			<!-- 게시판 쓰기 -->
 			<div class="tableDefault mt40">
-				<table>
-					<tbody>
+				<table><tbody>
 					<tr>
 						<th>작성자</th>
 						<td>
 							<div class="form-group">
-								${ sessionScope.sv.mid }
+								${ vo.mid }
 								<input type="hidden" name="mid" value="${ sessionScope.sv.mid }">
 							</div>
 						</td>
@@ -45,44 +44,35 @@
 					<tr>
 						<th>분류</th>
 						<td>
-							<div class="form-inline">
-								<div class="form-group">
-								<select id="qna_type" name="qna_type" class="w130 form-control material-ch" style="width: 130px;">
-												<option value="00">선택하세요</option>
-												<option value="10">회원가입/탈퇴</option>
-												<option value="20">물품문의</option>
-												<option value="30">입금/결제문의</option>
-												<option value="40">배송문의</option>
-												<option value="50">반품/취소/환불</option>
-												<option value="80">기타문의</option>
-								</select>
-								</div>	
+							<div class="form-group">
+								<c:if test="${ vo.qna_type == '10' }">회원가입/탈퇴</c:if>
+								<c:if test="${ vo.qna_type == '20' }">물품문의</c:if>
+								<c:if test="${ vo.qna_type == '30' }">입금/결제문의</c:if>
+								<c:if test="${ vo.qna_type == '40' }">배송문의</c:if>
+								<c:if test="${ vo.qna_type == '50' }">반품/취소/환불</c:if>
+								<c:if test="${ vo.qna_type == '80' }">기타문의</c:if>
+								<input type="hidden" name="qna_type" value="${ vo.qna_type }">
 							</div>	
 						</td>
-					</tr>
-					<!--  
+					</tr>	
 					<tr>
-						<th>물품번호</th>
+						<th>문의내용</th>
 						<td>
-							<div class="form-inline">
-								<div class="form-group">
-									<input type="text" name="lot" id="lot" class="form-control width-md" value="" maxlength="11">
-									<span class="fcRed mt5m dpInblock">*물품번호를 입력하시면 보다 정확한 답변을 확인하실 수 있습니다. </span>
-								</div>	
+							<div class="form-group" style="width: 100%; height: 200px; padding-top: 10px;">
+								${ vo.qna_doc }
 							</div>	
 						</td>
-					</tr>
-					-->
+					</tr>				
 					<tr>
 						<th>제목</th>
 						<td>
 							<div class="form-group">
-								<input type="text" name="qna_title" id="qna_title" class="form-control width-md" value="">
+								<input type="text" name="qna_title" id="qna_title" class="form-control width-md" value="[Re] ${ vo.qna_title }">
 							</div>	
 						</td>
 					</tr>					
 					<tr>
-						<th>내용</th>
+						<th>답변내용</th>
 						<td>
 							<div class="form-group">
 								<textarea name="qna_doc" id="qna_doc" class="form-control" rows="10"></textarea>
@@ -92,67 +82,31 @@
 					<tr>
 						<th>공개여부</th>
 						<td>
-							<div class="form-inline">
-								<label><input type="radio" name="qna_status" value="Y" checked>공개</label>
-								<label><input type="radio" name="qna_status" value="N">비공개</label>
-							</div>	
+							<c:if test="${ vo.qna_status == 'Y' }">공개</c:if>
+							<c:if test="${ vo.qna_status == 'N' }">비공개</c:if>
+							<input type="hidden" name="qna_status" value="${ vo.qna_status }">
 						</td>
 					</tr>
-					<tr>
-						<th>비밀번호</th>
-						<td>
-							<div class="form-inline">
-								<input type="password" name="qna_pwd" id="qna_pwd" class="form-control" autocomplete="qna_pwd">
-							</div>	
-						</td>
-					</tr>
-					<tr>
-						<th>답변완료알림</th>
-						<td>
-							<div class="form-inline">
-								<div class="form-group clearfix">
-									<label class="checkbox-inline col-xs-4 mt7">
-										<input type="checkbox" name="resms" id="resms" value="Y">
-										SMS
-									</label>
-									<div class=" col-xs-8">
-										<input type="text" name="sms" id="sms" class="form-control" value="010-2228-7514">
-									</div>
-								</div>
-								<div class="form-group clearfix ml30 ml0m mt5m">
-									<label class="checkbox-inline col-xs-4 mt7">
-										<input type="checkbox" name="reemail" id="reemail" value="Y">
-										메일
-									</label>
-									<div class=" col-xs-8">
-										<input type="text" name="email" id="email" class="form-control" value="5411515@naver.com">
-									</div> 
-								 </div>
-							</div>
-						</td>
-					</tr>
-					<tr>
-						<th>개인정보 수집, <br>이용안내</th>
-						<td>
-							<p>
-								수집, 이용 목적 : 문의에 대한 답변 완료시 알림 SMS, 메일 발송
-								<br>수집, 이용 항목 : 휴대전화번호, 이메일 주소
-								<br>수집, 이용 기간 : 문의에 대한 답변 완료 알림 후 즉시 삭제
-							</p>
-							<p class="mt10">
-								<label class="checkbox-inline">
-									<input type="checkbox" name="agree" id="agree" value="Y">
-									위와 같이 개인정보 수집, 이용에 동의합니다.
-								</label>
-							</p>
-						</td>
-					</tr>
+					<c:if test="${ sessionScope.sv.mid != 'admin'}">
+						<tr>
+							<th>비밀번호</th>
+							<td>
+								<div class="form-inline">
+									<input type="password" name="qna_pwd" id="qna_pwd" class="form-control" autocomplete="qna_pwd">
+								</div>	
+							</td>
+						</tr>						
+					</c:if>
 				</tbody></table>
-				<!-- 목록이동 시 페이지 정보 -->				
+				<!-- 목록이동 시 페이지 정보 -->	
 				<input type="hidden" name="nowPage" value="${ page.nowPage }">
 				<input type="hidden" name="findStr" value="${ page.findStr }">	
 				<input type="hidden" name="findCol" value="${ page.findCol }">	
 				<input type="hidden" name="findType" value="${ page.findType }">
+				
+				<input type="text" name="grp" value="${ vo.grp }">
+				<input type="text" name="seq" value="${ vo.seq }">
+				<input type="text" name="deep" value="${ vo.deep }">
 			</div>
 			</form>
 			
@@ -186,7 +140,7 @@
  			</form>
  			
 			<div class="btnWrap bwflex">
-				<a href="#none" id="btnQnaInsert" class="btn btn-save">저장</a>
+				<a href="#none" id="btnQnaReply" class="btn btn-save">저장</a>
 				<a href="#none" id="btnQnaList" class="btn btn-save">목록</a>
 			</div>
 

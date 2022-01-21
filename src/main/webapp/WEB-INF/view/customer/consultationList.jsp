@@ -45,14 +45,14 @@
 								<th>질문유형</th>
 								<td>
 									<div class="form-inline">
-										 <select name="qna_type" id="qna_type" class="form-control material-ch" style="width: 130px;">
-										 	<option value="" <c:if test="${ page.qna_type == '' }">selected</c:if>>선택하세요</option>
-										 	<option value="10" <c:if test="${ page.qna_type == '10' }">selected</c:if>>회원가입/탈퇴</option>
-											<option value="20" <c:if test="${ page.qna_type == '20' }">selected</c:if>>물품문의</option>
-											<option value="30" <c:if test="${ page.qna_type == '30' }">selected</c:if>>입금/결제문의</option>
-											<option value="40" <c:if test="${ page.qna_type == '40' }">selected</c:if>>배송문의</option>
-											<option value="50" <c:if test="${ page.qna_type == '50' }">selected</c:if>>반품/취소/환불</option>
-											<option value="80" <c:if test="${ page.qna_type == '80' }">selected</c:if>>기타문의</option> 
+										 <select name="findType" id="findType" class="form-control material-ch" style="width: 130px;">
+										 	<option value="" <c:if test="${ page.findType == '' }">selected</c:if>>선택하세요</option>
+										 	<option value="10" <c:if test="${ page.findType == '10' }">selected</c:if>>회원가입/탈퇴</option>
+											<option value="20" <c:if test="${ page.findType == '20' }">selected</c:if>>물품문의</option>
+											<option value="30" <c:if test="${ page.findType == '30' }">selected</c:if>>입금/결제문의</option>
+											<option value="40" <c:if test="${ page.findType == '40' }">selected</c:if>>배송문의</option>
+											<option value="50" <c:if test="${ page.findType == '50' }">selected</c:if>>반품/취소/환불</option>
+											<option value="80" <c:if test="${ page.findType == '80' }">selected</c:if>>기타문의</option> 
 										</select>
 									</div>
 								</td>

@@ -90,6 +90,49 @@ public class QnaController {
 		}
 	}
 	
+	//QNA 문의 댓글폼 이동
+	@RequestMapping(value = "/qnaReplyForm", method = RequestMethod.POST)
+	public ModelAndView qnaReplyForm(String qna_num, Page page) {
+		ModelAndView mv = new ModelAndView();
+		ArtBayVo vo = service.qnaView(qna_num);
+		mv.addObject("vo", vo);
+		mv.addObject("page", page);
+		mv.setViewName("customer.consultationReply");
+		return mv;
+	}
+	
+	//QNA 문의 댓글작성
+	@RequestMapping(value = "/qnaReply", method = RequestMethod.POST)
+	public void qnaReply(ArtBayVo vo, HttpServletResponse resp) {
+		try {
+			out = resp.getWriter();
+			
+			//비밀번호 암호화
+			if(vo.getQna_pwd() != null) {
+				vo.setQna_pwd( aes.encrypt(vo.getQna_pwd()) );				
+			}
+			
+			//댓글 저장
+			result = service.reply(vo);
+			
+			String format = "{'flag':'%s', 'serial':'%s'}";
+			String flag = "";
+			
+			if(result) {
+				flag = "OK";
+			} else {
+				flag = "FAIL";
+			} 
+			
+			String json = String.format(format, flag, service.getSerial());
+			json = json.replaceAll("'", "\"");			
+			out.print(json);
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
+	}
+	
+	//QNA 문의 삭제
 	@RequestMapping(value = "qnaDelete", method = RequestMethod.POST)
 	public ModelAndView qnaDelete(ArtBayVo vo, Page page) {
 		ModelAndView mv = new ModelAndView();

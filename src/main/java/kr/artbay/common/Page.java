@@ -6,7 +6,7 @@ public class Page {
 	int startPage, endPage, totPage;
 	int nowPage=1;
 	String findCol="";
-	String qna_type="";
+	String findType="";
 	String findStr="";
 	String sort="";
 	String rSort="";
@@ -58,8 +58,8 @@ public class Page {
 	public void setFindStr(String findStr) {this.findStr = findStr;}
 	public String getFindCol() {return findCol;}
 	public void setFindCol(String findCol) {this.findCol = findCol;}
-	public String getQna_type() {return qna_type;}
-	public void setQna_type(String qna_type) {this.qna_type = qna_type;}
+	public String getFindType() {return findType;}
+	public void setFindType(String findType) {this.findType = findType;}
 
 	public String getSort() {return sort;}
 	public void setSort(String sort) {this.sort = sort;}
