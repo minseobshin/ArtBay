@@ -41,6 +41,12 @@ public class ListViewService {
 		return list;
 	}
 	
+	public List<String> listThumbs(int lot){
+		List<String> list = new ArrayList<String>();
+		
+		return list;
+	}
+	
 	public ArtBayVo view(int lot) {
 		ArtBayVo vo = new ArtBayVo();
 		vo.setLot(lot);

@@ -40,6 +40,12 @@ public class ListVewController {
 		page = service.getPage();
 		mv.addObject("page", page);
 		mv.addObject("list", list);
+
+
+		System.out.println(list.size());
+		for(ArtBayVo vo : list) {
+			System.out.println(vo.getLot());
+		}
 		mv.setViewName("bid.list");
 		return mv;
 	}

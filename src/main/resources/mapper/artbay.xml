@@ -45,6 +45,10 @@
 		limit ${startNo-1}, ${listSize}
 	</select>
 	
+	<select id="thumbnails" parameterType="kr.artbay.common.Page" resultType="kr.artbay.common.ArtBayVo">
+		select a.lot, b.imgFile from artwork a join artimg b on a.lot=b.lot where b.thumbnail="Y";
+	</select>
+	
 	<select id='noticeSave' parameterType="kr.artbay.common.ArtBayVo">
 		insert into(title, doc, not_date) 
 		values (#{title}, #{doc}, ${not_date})
