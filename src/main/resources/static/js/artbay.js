@@ -72,15 +72,14 @@ function search(){
 		type: "POST",
 		cache: false,
 		async: true,
-		success: function(e){
+		success: function(){
 			window.location.href = "/bidList?cnt="+cnt+"&findStr="+$frm.findStr.value+"&nowPage="+$frm.nowPage.value+"&sort="+sort;
-			e.preventDefault();
 			if(findStr=="") {
 				$(".selected_option_area").hide();
 				$(".idle_selected_option_area").show();
 			}
 			$(this).parent().parent().parent().hide();
-			var findStrAttach = $(`<div><span style="margin: 0;"> ${findStr} </span> <input class="btnSearchX" type="button" value="X" style="border: none; background-color: transparent;"/></div>`);
+			var findStrAttach = $(`<div><span style="margin: 0;"> ${findStr} </span> <input class="btnSearchX" type="button" value="X" style="border: none; background-color: transparent;" /></div>`);
 			$("#selected_findStr").html(findStrAttach);
 		}
 	})
@@ -115,10 +114,14 @@ function off(){
 
  $(function(){
 	if($(".btnSearchX")){
-		$(".btnSearchX").on("click", function(){
-			alert("클릭");
-			alert($(this).parent().value)
-			 $(this).parent().remove();
+	$.ajax({
+			url:"/bidList",
+			success: $(".btnSearchX").on("click", function(){
+				$("#findStr").val("")
+				window.location.href = "/bidList";
+				$(this).parent().parent().parent().remove();
+				$("#selected_findStr").html("");
+		})
 		})
 	}
 	
