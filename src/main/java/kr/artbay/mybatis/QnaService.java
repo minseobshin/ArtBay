@@ -10,7 +10,6 @@ import org.springframework.transaction.TransactionStatus;
 import org.springframework.transaction.annotation.Transactional;
 import org.springframework.transaction.support.DefaultTransactionDefinition;
 
-import kr.artbay.common.AES;
 import kr.artbay.common.ArtBayAtt;
 import kr.artbay.common.ArtBayVo;
 import kr.artbay.common.FileUploadController;
@@ -111,17 +110,53 @@ public class QnaService {
 		return result;
 	}
 	
+	//qna 수정
+	public boolean update(ArtBayVo vo) {
+		status = manager.getTransaction(new DefaultTransactionDefinition());
+		boolean result = false;
+		Object savePoint = status.createSavepoint();
+		
+		//문의내역 정보 수정
+		int rows = mapper.qnaUpdate(vo);
+		
+		if(rows > 0) {
+			//첨부파일 정보 삭제
+			if(vo.getDelList().size() > 0) {
+				mapper.qnaChkAttDelete(vo.getDelList());
+			}
+			manager.commit(status);
+			result = true;
+			
+			//첨부파일 삭제
+			for(String delFile : vo.getDelList()) {
+				File file = new File(FileUploadController.uploadPath + delFile);
+				if(file.exists()) {
+					file.delete();
+				}
+			}
+		}
+		else {
+			status.rollbackToSavepoint(savePoint);
+		}
+		return result;
+	}	
+	
 	//qna 삭제
 	//1) 게시글, 첨부파일 정보 삭제
 	//2) 실제 첨부파일 삭제
-	public boolean delete(String qna_num, String qna_pwd) {
+	public boolean delete(ArtBayVo vo) {
 		boolean result = false;
 		status = manager.getTransaction(new DefaultTransactionDefinition());
 		Object savePoint = status.createSavepoint();
 		
-		ArtBayVo vo = qnaView(qna_num);
+		String qna_pwd = vo.getQna_pwd();
+		String qna_num = vo.getQna_num() + "";
+		String mid = vo.getMid();
+		
+		vo = qnaView(qna_num);
 		vo.setQna_pwd(qna_pwd);
-				
+		vo.setMid(mid);
+		
 		//1) 게시글, 첨부파일 정보 삭제
 		//게시글 정보 삭제
 		int dRows = mapper.qnaDelete(vo);
@@ -156,5 +191,5 @@ public class QnaService {
 	//시리얼키 반환
 	public int getSerial() {
 		return serial;
-	}	
+	}
 }

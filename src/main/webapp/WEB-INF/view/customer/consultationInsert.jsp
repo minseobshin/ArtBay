@@ -106,6 +106,7 @@
 							</div>	
 						</td>
 					</tr>
+					<!--  
 					<tr>
 						<th>답변완료알림</th>
 						<td>
@@ -147,6 +148,7 @@
 							</p>
 						</td>
 					</tr>
+					-->
 				</tbody></table>
 				<!-- 목록이동 시 페이지 정보 -->				
 				<input type="hidden" name="nowPage" value="${ page.nowPage }">

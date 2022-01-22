@@ -27,6 +27,8 @@
 				<a href="#none" id="btnQnaList" class="btn btn-save">목록</a><br>
 				<input type="hidden" name="nowPage" value="${ page.nowPage }">
 				<input type="hidden" name="findStr" value="${ page.findStr }">			
+				<input type="hidden" name="findCol" value="${ page.findCol }">			
+				<input type="hidden" name="findType" value="${ page.findType }">			
 			</form>
 		</div>
 	</div>

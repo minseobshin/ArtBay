@@ -62,10 +62,76 @@ $(function()  {
 		
 	//qna 수정폼으로 이동
 	$("#btnUpdateForm").click(function() {
-		alert("작업예정");
+		$frm = $("#frmQna")[0];		
+		$frm.action = "qnaUpdateForm";
+		$frm.submit();
 	});
 	
-	//qna 삭제
+	//qna 문의 수정(암호확인)
+	$("#btnQnaUpdate").click(function() {
+		//암호창 보이기
+		$('#pwd_check').css('display', 'block');
+		$("#enterPwd").focus();
+		
+		//암호 확인
+		$("#btnPwdOk").click(function() {
+			if($("#enterPwd").val() == "") {
+				$("#pwd_check div").html("비밀번호를 입력해주세요.");
+				$("#pwd_check div").css("color", "#f00");					
+				$("#enterPwd").focus();
+			}
+			else {
+				//비밀번호 세팅
+				$frm = $("#frmQna")[0];
+				$frm.qna_pwd.value = $("#enterPwd").val();				
+				$param = $("#frmQna").serialize();
+	
+				$.post("qnaUpdate", $param, function(data) {			
+					var json = JSON.parse(data);
+					if(json.flag == "OK") {
+						$frm = $("#frm_upload")[0];
+						$frm.enctype = "multipart/form-data";
+						$frm.action = "fileUp";
+						$frm.submit();					
+					}
+					else {
+						alert("저장중 오류가 발생하였습니다.");
+						$("#btnQnaList").click();
+					}				
+				});
+			}
+		});
+		
+		//암호 취소
+		$("#btnPwdCancel").click(function() {
+			$('#pwd_check').css('display', 'none');
+			$("#pwd_check div").css("color", "#000");
+			$("#enterPwd").val("");
+		});
+	});
+	
+	//qna 수정(관리자)
+	$("#btnQnaUpdateAdmin").click(function() {
+		$frm = $("#frmQna")[0];
+		$frm.mid.value = "admin";			
+		$param = $("#frmQna").serialize();
+
+		$.post("qnaUpdate", $param, function(data) {			
+			var json = JSON.parse(data);
+			if(json.flag == "OK") {
+				$frm = $("#frm_upload")[0];
+				$frm.enctype = "multipart/form-data";
+				$frm.action = "fileUp";
+				$frm.submit();					
+			}
+			else {
+				alert("저장중 오류가 발생하였습니다.");
+				$("#btnQnaList").click();
+			}				
+		});
+	});
+	
+	//qna 삭제(암호확인)
 	$("#btnQnaDelete").click(function() {
 		//암호창 보이기
 		$('#pwd_check').css('display', 'block');
@@ -92,6 +158,14 @@ $(function()  {
 			$("#pwd_check div").css("color", "#000");
 			$("#enterPwd").val("");
 		});
+	});
+	
+	//qna 삭제(관리자)
+	$("#btnQnaDeleteAdmin").click(function() {
+		$frm = $("#frmQna")[0];
+		$frm.mid.value = "admin";
+		$frm.action = "qnaDelete";
+		$frm.submit();
 	});
 	
 	//qna 목록으로 이동
