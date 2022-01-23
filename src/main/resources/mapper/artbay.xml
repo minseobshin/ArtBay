@@ -34,7 +34,7 @@
 		a.current_price, date_format(a.regist_date, '%y-%m-%d') as regist_date,
 		date_format(a.due_date, '%y-%m-%d') as due_date, a.hit, a.direct_price, a.bid_cnt, a.crnt_status,
 		b.serial, b.imgFile, b.thumbnail from artwork a join artimg b on a.lot=b.lot and b.thumbnail="Y" 
-		where a.mid like '%${findStr}%' or a.artist like '%${findStr}%' or a.artwork_ctgr like '%${findStr}%'
+		where a.mid like '%${findStr}%' or a.artist like '%${findStr}%' or a.artwork_name like '%${findStr}%' or a.artwork_ctgr like '%${findStr}%'
 		order by
 		<choose>
 			<when test="sort eq 'default'"> a.due_date asc</when>
