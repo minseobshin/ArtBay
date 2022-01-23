@@ -30,7 +30,7 @@
 	</select>
 	
 	<select id="search" parameterType="kr.artbay.common.Page" resultType="kr.artbay.common.ArtBayVo">
-		select a.lot, a.mid, a.artwork_name, a.artwork_ctgr, a.artist, a.material, a.artwork_size, a.contents, a.etc, a.start_price, a.current_price, date_format(a.regist_date, '%y-%m-%d') as regist_date, date_format(a.due_date, '%y-%m-%d') as due_date, a.hit, a.direct_price, a.bid_cnt, a.crnt_status, b.serial, b.imgFile, b.thumbnail from artwork a join artimg b on a.lot=b.lot and b.thumbnail="Y" 
+		select a.lot, a.mid, a.artwork_name, a.artwork_ctgr, a.artist, a.material, a.artwork_size, a.contents, a.etc, format(a.start_price, 0) as start_price, format(a.current_price, 0) as current_price, date_format(a.regist_date, '%y-%m-%d') as regist_date, date_format(a.due_date, '%y-%m-%d') as due_date, a.hit, a.direct_price, a.bid_cnt, a.crnt_status, b.serial, b.imgFile, b.thumbnail from artwork a join artimg b on a.lot=b.lot and b.thumbnail="Y" 
 		where a.mid like '%${findStr}%' or a.artist like '%${findStr}%' or a.artwork_ctgr like '%${findStr}%'
 		order by
 		<choose>
