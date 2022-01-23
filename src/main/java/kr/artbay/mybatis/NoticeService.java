@@ -42,11 +42,10 @@ public class NoticeService {
 		list = mapper.noticeSearch(p);
 		return list;
 	}
-
+	//공지 저장
 	public boolean insertNtc(ArtBayVo vo) {
 		boolean b = false;
 		status = manager.getTransaction(new DefaultTransactionDefinition());
-		vo.setPwd(aes.encrypt(vo.getPwd()));
 		int c = mapper.insertNtc(vo);
 		if(c>0) {
 			manager.commit(status);

@@ -23,9 +23,8 @@ public class ntcFileUploadController {
 		
 		@RequestMapping (value="/ntcFileUp") //첨팦 저장 관련 컨트롤러
 		public ModelAndView upload(
-				String job, int grp,
 				@RequestParam("attFile") List<MultipartFile> mul,
-				@ModelAttribute ArtBayVo vo, @ModelAttribute Page page){//attFile은 insert.jsp의 파일태그 name
+				@ModelAttribute ArtBayVo vo, @ModelAttribute Page page){//attFile은 jsp의 파일태그 name
 			
 			ModelAndView mv= new ModelAndView();
 			String msg = "";
@@ -43,7 +42,6 @@ public class ntcFileUploadController {
 					File reName = new File(uploadPath + temp);
 					targetFile.renameTo(reName); //중간에 uuid추가해서 이름 재정의
 					ArtBayAtt att = new ArtBayAtt();
-					att.setGrp(grp); 
 					att.setAttFile(temp);
 					attList.add(att);
 				}
@@ -57,7 +55,7 @@ public class ntcFileUploadController {
 				}
 				mv.addObject("msg", msg);
 				mv.addObject("page", page);
-				mv.setViewName("board/result");
+				mv.setViewName("customer.noticeList");
 				
 			}catch(Exception ex) {
 				ex.printStackTrace();

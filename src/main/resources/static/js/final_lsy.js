@@ -126,25 +126,7 @@ mBid.page = function(nowPage) {
 		$frm.action = "noticeInsert";
 		$frm.submit();
 	})
-	
-	$('#btnSaveNotice').click(function(){
-		
-			$param = $('#frm_writeNotice').serialize();
-			$.post('noticeSave', $param, function(data){
-				var json = JSON.parse(data);
-				
-				if(json.flag=='OK'){
-					var $fd = $('#frm_upload')[0];
-					$fd.enctype = "multipart/form-data";
-					$fd.action = "fileUp?job=n";
-					$fd.submit();
-				}else{
-					alert("공지 저장 중 오류 발생");
-				}
-			})
-		}
-	)
-	
+
 
 	//공지 검색====================================noticeList===================
 	$('#btnNoticeSearch').click(function(){
@@ -199,6 +181,25 @@ mBid.page = function(nowPage) {
 	$('#btnRequestApplication').click(function(){
 		location.href='./bidApplication';
 	})
+	
+		//공지 저장 버튼
+	$('#btnSaveNotice').click(function(){
+		
+			$param = $('#frm_writeNotice').serialize();
+			$.post('noticeSave', $param, function(data){
+				var json = JSON.parse(data);
+				if(json.flag=='OK'){ //공지 vo가 저장 성공했을 때
+					var $fd = $('#frm_upload')[0];
+					$fd.enctype = "multipart/form-data";
+					$fd.action = "ntcFileUp";
+					$fd.submit();
+				}else{
+					alert("공지 저장 중 오류 발생");
+				}
+			})
+		}
+	)
+	
 })	
 
 //경매결과 정렬	

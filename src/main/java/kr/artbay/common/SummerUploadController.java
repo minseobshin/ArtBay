@@ -16,8 +16,7 @@ import org.springframework.web.multipart.MultipartFile;
 @Controller
 public class SummerUploadController {
 	
-	
-	@RequestMapping(value="/ntcSummerUp") //
+	@RequestMapping(value="/ntcSummerUp") 
 	public void upload(@RequestParam("file") List<MultipartFile> mul, 
 						HttpServletResponse resp){
 		resp.setContentType("text/html;charset=utf-8");

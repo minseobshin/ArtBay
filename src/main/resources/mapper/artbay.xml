@@ -44,10 +44,7 @@
 		limit ${startNo-1}, ${listSize}
 	</select>
 	
-	<select id='noticeSave' parameterType="kr.artbay.common.ArtBayVo">
-		insert into(title, doc, not_date) 
-		values (#{title}, #{doc}, ${not_date})
-	</select>
+	
 	<!-- 경매신청 -->
 	<select id="memberview" parameterType="String" resultType="kr.artbay.common.ArtBayVo">
 		select * from artbay_member where mid = #{mid}
@@ -81,10 +78,7 @@
 	<select id='faqList' parameterType="String" resultType="kr.artbay.common.ArtBayVo">
 		select * from faq where ctgr = #{_parameter}
 	</select>
-	<!-- 공지 저장 -->
-	<insert id='saveNotice' parameterType="kr.artbay.common.ArtBayVo">
-		insert into notice(title, doc, not_date) values(#{title}, #{doc}, #{not_date})
-	</insert>
+	
 	<!-- 공지 리스트 조회 건수 -->
 	<select id="noticeTotSize" parameterType="String" resultType="Integer">
 		SELECT COUNT(serial) FROM notice WHERE title LIKE '%${_parameter}%'
@@ -112,7 +106,15 @@
 				${item}
 			</foreach>
 	</delete>
-	
+	<!-- 공지 작성 -->
+	<insert id="insertNtc" parameterType="kr.artbay.common.ArtBayVo">
+		insert into notice(serial, grp, title, doc, not_date)
+		values(getNtcSerial('i'), getNtcSerial(''), #{title}, #{doc}, #{not_date})
+	</insert>
+	<insert id='insertNtcAtt' parameterType='kr.artbay.common.ArtBayAtt'>
+		insert into noticeAtt(grp, attFile) 
+		values (#{grp}, #{attFile} )
+	</insert>
 	<!-- 응찰내역 건수 조회-->
 	<select id='mypageBidTotSize' resultType='Integer'>
 		select count(B.lot) from bidding B join artwork A on B.lot = A.lot
