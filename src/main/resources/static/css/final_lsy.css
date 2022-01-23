@@ -392,6 +392,9 @@
 	box-sizing:border-box;
 	
 }
+#noticeView #noticeView_sub span{
+	margin-left:750px;
+}
 #noticeView #btnNoticeList{
 	margin-top:30px;
 	margin-left:480px;
