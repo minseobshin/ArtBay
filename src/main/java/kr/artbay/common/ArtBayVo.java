@@ -51,10 +51,13 @@ public class ArtBayVo {
 	String contents;
 	String etc;
 	Integer start_price;
+	String str_start_price;
 	Integer current_price;
+	String str_current_price;
 	String regist_date;
 	String due_date;
 	int bid_cnt;
+	String str_bid_cnt;
 	String crnt_status;
 	String sort;
 	
@@ -227,5 +230,15 @@ public class ArtBayVo {
 	public void setNot_date(String not_date) {this.not_date = not_date;}
 	public String getSort() {return sort;}
 	public void setSort(String sort) {this.sort = sort;}
+	public String getNewPwd() {return newPwd;}
+	public void setNewPwd(String newPwd) {this.newPwd = newPwd;}
+	public String getNewPwdChk() {return newPwdChk;}
+	public void setNewPwdChk(String newPwdChk) {this.newPwdChk = newPwdChk;}
+	public String getStr_start_price() {return str_start_price;}
+	public void setStr_start_price(String str_start_price) {this.str_start_price = str_start_price;}
+	public String getStr_current_price() {return str_current_price;}
+	public void setStr_current_price(String str_current_price) {this.str_current_price = str_current_price;}
+	public String getStr_bid_cnt() {return str_bid_cnt;}
+	public void setStr_bid_cnt(String str_bid_cnt) {this.str_bid_cnt = str_bid_cnt;}
 	
 }

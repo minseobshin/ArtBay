@@ -106,14 +106,14 @@
 						<p class="currentPriceTitle">현재가</p>
 					</div>
 					<div class="listInnerTextPrice">
-						<p class="minimumPrice">${vo.start_price }</p>
-						<p class="currentPrice">${vo.current_price }</p>
+						<p class="minimumPrice">${vo.str_start_price }</p>
+						<p class="currentPrice">${vo.str_current_price }</p>
 					</div>
 					<div class="listInnerTextTail">
 						<p class="endDate">마감일</p>
 						<p class="bidCnt">응찰횟수</p>
 						<p class="endDate">${vo.due_date }</p>
-						<p class="bidCnt">${vo.bid_cnt }</p>
+						<p class="bidCnt">${vo.str_bid_cnt }</p>
 					</div>
 				</div>
 			</div>
