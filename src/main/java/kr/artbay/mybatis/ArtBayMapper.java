@@ -21,6 +21,7 @@ public interface ArtBayMapper {
 	public ArtBaySessionVo memberLogin(ArtBaySessionVo sv); //회원 로그인
 	public ArtBayVo pwdChkForModi(String mid); //회원정보 수정시 비밀번호 입력 후 내용출력
 	public int updateMemberInfo(ArtBayVo vo); //회원정보수정 update
+	public int memberOut(ArtBaySessionVo sv); //회원탈퇴
 	
 	//List, view 화면
 	public Integer totSize(String findStr);

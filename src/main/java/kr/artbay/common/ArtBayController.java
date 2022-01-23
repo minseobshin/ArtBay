@@ -12,6 +12,7 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
@@ -22,7 +23,6 @@ import kr.artbay.mybatis.ApplicationService;
 import kr.artbay.mybatis.FaqService;
 import kr.artbay.mybatis.MemberService;
 import kr.artbay.mybatis.NoticeService;
-
 
 @RestController
 public class ArtBayController {
@@ -37,9 +37,14 @@ public class ArtBayController {
 	AES aes = new AES();
 	Page page = new Page();
 	ArtBayVo vo = null;
+	ArtBayVo voMid = null;
 	ArtBaySessionVo sv = null;
+	ArtBaySessionVo svMid = null;
 	boolean b = false;
 	String c = "";
+	String d = "";
+	String msg = "";
+	String midResult = "";
 	PrintWriter out;
 	int lot = 0;
 	/*gitSpring 컨트롤러 내용
@@ -52,9 +57,19 @@ public class ArtBayController {
 	
 	//회원가입
 	@RequestMapping(value="/insertMemberSave", method= {RequestMethod.POST})
-	public void insertMemberSave(ArtBayVo vo) {
+	public ModelAndView insertMemberSave(ArtBayVo vo) {
+		ModelAndView mv = new ModelAndView();
 		//System.out.println("ArtBayController : " + vo.getMemberJoinEmail());
 		this.b = memberService.insertMember(vo);
+		String msgSuccess = "님의 회원가입이 완료되었습니다.";
+		String msgSuccess2 = "계속하시려면 확인 버튼을 눌러주세요.";
+		
+		mv.addObject("vo", vo);
+		mv.addObject("msg", msgSuccess);
+		mv.addObject("msg2", msgSuccess2);
+		mv.setViewName("main");
+		
+		return mv;
 	}
 	
 	//아이디중복체크
@@ -76,11 +91,13 @@ public class ArtBayController {
 	public String memberLogin(ArtBaySessionVo sv, HttpServletRequest req) {
 		HttpSession session = req.getSession();
 		session.setMaxInactiveInterval(10*360);
+		this.d = sv.getMid();
 		this.c = memberService.memberLogin(sv);
 		if(c == "failMid" || c == "failPwd") {
 			session.invalidate();
 		}else {
 			session.setAttribute("sv", sv);
+			session.setAttribute("mid", d);
 		}
 		return c;
 	}
@@ -102,7 +119,6 @@ public class ArtBayController {
 		String mid = sv.getMid();
 		String pwd = sv.getPwd();
 		if(mid==null || pwd==null || npwd==null) {
-			System.out.println("하이");
 		}else {
 		this.vo = memberService.pwdChkForModi(mid, pwd, npwd);		
 		}
@@ -118,20 +134,91 @@ public class ArtBayController {
 	//회원정보수정 update
 	@RequestMapping(value="/updateMemberInfo", method= {RequestMethod.POST})
 	public String updateMemberInfo(ArtBayVo vo) {
-		System.out.println("controller 넘어온 직후 :"+vo.getOldPwd());
-		System.out.println("controller 넘어온 직후 :"+vo.getMid());
-		System.out.println("controller 넘어온 직후 :"+vo.getPhone());
-		System.out.println("controller 넘어온 직후 :"+vo.getMemberJoinEmail());
-		System.out.println("controller 넘어온 직후 :"+vo.getAddress());
 		boolean b = memberService.updateMemberInfo(vo);
+		this.d = "update";
 		
 		if(b == true) {
 			c = "passUpdate";
+			this.voMid = vo;
 		}else {
 			c = "failUpdate";
 		}
 		System.out.println(vo.getOldPwd());
+		
 		return c;
+	}
+	
+	//회원 탈퇴
+	@RequestMapping(value="/memberOut", method= {RequestMethod.POST})
+	public String memberOut(ArtBaySessionVo sv, HttpServletRequest req) {
+		HttpSession session = req.getSession();
+		this.sv = (ArtBaySessionVo)session.getAttribute("sv"); //세션에 있던 로그인 정보
+		String mid = this.sv.getMid();
+		String pwd = this.sv.getPwd();
+		this.d = "memberOut";
+		
+		if(sv.getMidOut().equals(mid)) {
+			if(sv.getPwdOut().equals(pwd)) {
+				this.b = memberService.memberOut(sv);
+				if(b == true) {
+					this.svMid = sv;
+					c = "passOut";
+				}else {
+					c = "failOut";
+				}
+			}else {
+				c = "failPwd";
+			}
+		}else {
+			c = "failMid";
+		}
+		
+		return c;
+	}
+	
+	//회원가입, 정보수정, 탈퇴 결과 페이지
+	@RequestMapping(value="/updateMemberInfoResult")
+	public ModelAndView updateMemberInfoResult() {
+		ModelAndView mv = new ModelAndView();
+		
+		//회원정보수정 결과페이지 출력
+		if(this.d == "update") {
+			this.midResult = voMid.getMid();
+			if(this.c == "passUpdate") {
+				this.c = "님의 회원정보가 수정되었습니다.";
+				this.msg = "ArtBay 가입을 축하합니다! 계속하시려면 확인 버튼을 클릭해주세요.";
+			}else if(this.c == "failUpdate"){
+				this.c = "님의 회원정보 수정 중 오류가 발생했습니다.";
+				this.msg = "관리자에게 문의해주세요.";
+			}
+		}
+		
+		//회원탈퇴 결과페이지 출력
+		if(this.d == "memberOut") {
+			this.midResult = svMid.getMidOut();
+			if(this.c == "passOut") {
+				this.c = "님의 회원탈퇴가 정상 처리되었습니다.";
+				this.msg = "지금까지 ArtBay를 이용해 주셔서 감사합니다. 더 발전하는 ArtBay가 되겠습니다.";
+			}else if(this.c == "failOut") {
+				this.c = "님의 탈퇴 처리 중 오류가 발생했습니다.";
+				this.msg = "관리자에게 문의해주세요.";
+			}
+		}
+		
+		mv.addObject("midResult", midResult);
+		mv.addObject("msg", msg);
+		mv.addObject("c", c);
+		mv.setViewName("mypage.memberResult");
+		
+		return mv;
+	}
+	
+	//관리자 페이지
+	@RequestMapping(value="/memberManage")
+	public ModelAndView memberManage() {
+		ModelAndView mv = new ModelAndView();
+		mv.setViewName("mypage.memberManage");
+		return mv;
 	}
 	
 	//경매신청 페이지

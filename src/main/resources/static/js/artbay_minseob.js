@@ -3,43 +3,35 @@
  */
 //검증 정규식
 function isMid(asValue) { //ID 영문/숫자 조합 5~12자리
-	var regExp = /^(?=.*[a-zA-z])(?=.*[0-9]).{5,12}$/;
+	let regExp = /^(?=.*[a-zA-z])(?=.*[0-9]).{5,12}$/;
 	return regExp.test(asValue);
 }
 function isIrum(asValue) { //한글/영어
-	var regExp = /^[a-zA-Zㄱ-힣][a-zA-Zㄱ-힣 ]*$/;
+	let regExp = /^[a-zA-Zㄱ-힣][a-zA-Zㄱ-힣 ]*$/;
 	return regExp.test(asValue);
 }
 function isBirth(asValue) { //생년월일
-	var regExp = RegExp(/^\d{4}-(0[1-9]|1[012])-(0[1-9]|[12][0-9]|3[01])$/);
+	let regExp = RegExp(/^\d{4}-(0[1-9]|1[012])-(0[1-9]|[12][0-9]|3[01])$/);
 	return regExp.test(asValue);
 }
 function isPhone(asValue) { //휴대전화
-	var regExp = /^01(?:0|1|[6-9])-(?:\d{3}|\d{4})-\d{4}$/;
+	let regExp = /^01(?:0|1|[6-9])-(?:\d{3}|\d{4})-\d{4}$/;
 	return regExp.test(asValue);
 }
 function isPwd(asValue) { //비밀번호 영문/숫자/특수문자 최소 한가지 조합 8~16자
-	var regExp = /^(?=.*[a-zA-z])(?=.*[0-9])(?=.*[$`~!@$!%*#^?&\\(\\)\-_=+]).{8,16}$/;
+	let regExp = /^(?=.*[a-zA-z])(?=.*[0-9])(?=.*[$`~!@$!%*#^?&\\(\\)\-_=+]).{8,16}$/;
 	return regExp.test(asValue);
 }
 function isEmail(asValue) { //이메일
-	var regExp = /^[0-9a-zA-Z]([-_\.]?[0-9a-zA-Z])*@[0-9a-zA-Z]([-_\.]?[0-9a-zA-Z])*\.[a-zA-Z]{2,3}$/i;
+	let regExp = /^[0-9a-zA-Z]([-_\.]?[0-9a-zA-Z])*@[0-9a-zA-Z]([-_\.]?[0-9a-zA-Z])*\.[a-zA-Z]{2,3}$/i;
 	return regExp.test(asValue);
-}
-
-//결과 메시지 자식창
-function joLoMoResult(){
-	var joLoMo;
-	joLoMo = window.open('mypageMemberResult', 'result', 'width=750, height=445, top=200, left=300');
-	joLoMo.document.getElementById("joLoMo").innerHTML = "회원정보가 수정되었습니다.";
-	$("#joLoMo").text("회원님의 정보가 변경되었습니다.");
 }
 
 $(function(){
 	
 	//초록불체크
-	var mid, irum, birth, gender, phone, pwd, pwdChk, newPwd, newPwdChk, certification;
-	var now = new Date();
+	let mid, irum, birth, gender, phone, pwd, pwdChk, newPwd, newPwdChk, certification;
+	let now = new Date();
 
 	//나이계산
 	//$("#age").val(now.getFullYear()-$("#bitrh").val().split("-")[0]+1);
@@ -580,10 +572,9 @@ $(function(){
 				$param = $('#frm_join').serialize();
 				console.log($param);
 				$.post('updateMemberInfo', $param, function(data){
-					console.log("데이터"+data);
-					window.open('mypageMemberResult', 'result', 'width=750, height=445, top=200, left=300');
-					//joLoMoResult();
-					
+					if(data == "passUpdate"){
+						location.href = "updateMemberInfoResult";
+					}
 				});
 			}
 		}else{
@@ -598,7 +589,26 @@ $(function(){
 	//회원탈퇴 화면 시작 =======================================================================
 	
 	$('#btnOutChk').click(function(){
-		window.open('mypageMemberResult', 'result', 'width=750, height=445, top=200, left=300');
+		console.log($("#outChk").is(":checked"));
+		if($("#outChk").is(":checked") == true){
+			$param = $('#frm_outChk').serialize();
+			console.log($param);
+			$.post('memberOut', $param, function(data){
+				console.log("넘어온 데이터 : " + data);
+				if(data == "passOut"){
+					$.post('memberLogout');
+					location.href = "updateMemberInfoResult";
+				}else if(data == "failMid"){
+					alert("아이디를 확인해주세요.");
+				}else if(data == "failPwd"){
+					alert("비밀번호를 확인해주세요.");
+				}else if(data == "failOut"){
+					alert("탈퇴에 실패했습니다. 관리자에게 문의해주시기 바랍니다.");
+				}
+			})
+		}else{
+			alert("ArtBay를 탈퇴하시려면 탈퇴 동의에 체크해주세요.");
+		}
 	})
 	
 	//탈퇴 모달창
@@ -612,7 +622,10 @@ $(function(){
 	
 	//회원탈퇴 화면 끝 =======================================================================
 	
-	
+	//결과 페이지
+	$("#btnOk").click(function(){
+		location.href = "main";
+	})
 	
 	
 	
