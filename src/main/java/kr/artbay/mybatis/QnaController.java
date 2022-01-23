@@ -2,6 +2,7 @@ package kr.artbay.mybatis;
 
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.util.Arrays;
 import java.util.List;
 
 import javax.servlet.http.HttpServletResponse;
@@ -132,15 +133,66 @@ public class QnaController {
 		}
 	}
 	
+	//QNA 문의 수정폼 이동
+	@RequestMapping(value = "/qnaUpdateForm", method = RequestMethod.POST)
+	public ModelAndView qnaUpdateForm(String qna_num, Page page) {
+		ModelAndView mv = new ModelAndView();
+		ArtBayVo vo = service.qnaView(qna_num);
+		mv.addObject("vo", vo);
+		mv.addObject("page", page);
+		mv.setViewName("customer.consultationUpdate");
+		return mv;
+	}
+	
+	//QNA 문의 수정
+	@RequestMapping(value = "/qnaUpdate", method = RequestMethod.POST)
+	public void qnaUpdate(ArtBayVo vo, HttpServletResponse resp) {
+		try {
+			out = resp.getWriter();
+			
+			//비밀번호 암호화
+			if(!vo.getMid().equals("admin")) {
+				vo.setQna_pwd( aes.encrypt(vo.getQna_pwd()) );				
+			}
+			
+			//선택한 삭제할 파일들
+			String[] delFile = vo.getDelFile();
+			if(delFile != null) {
+				vo.setDelList(Arrays.asList(delFile));				
+			}
+			
+			//수정
+			result = service.update(vo);
+			
+			String format = "{'flag':'%s'}";
+			String flag = "";
+			
+			if(result) {
+				flag = "OK";
+			}
+			else {
+				flag = "FAIL";
+			}
+			
+			String json = String.format(format, flag);
+			json = json.replaceAll("'", "\"");
+			out.print(json);
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
+	}
+	
 	//QNA 문의 삭제
 	@RequestMapping(value = "qnaDelete", method = RequestMethod.POST)
 	public ModelAndView qnaDelete(ArtBayVo vo, Page page) {
 		ModelAndView mv = new ModelAndView();
 		
 		//입력한 비밀번호 암호화
-		vo.setQna_pwd( aes.encrypt(vo.getQna_pwd()) );
+		if(!vo.getMid().equals("admin")) {
+			vo.setQna_pwd( aes.encrypt(vo.getQna_pwd()) );			
+		}
 		
-		result =  service.delete(vo.getQna_num()+"", vo.getQna_pwd());
+		result =  service.delete(vo);
 		
 		if(result) {
 			msg = "자료가 삭제되었습니다.";

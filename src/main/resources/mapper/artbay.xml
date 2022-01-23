@@ -211,7 +211,12 @@
 	<!-- 삭제 -->
 	<delete id="qnaDelete" parameterType="kr.artbay.common.ArtBayVo">
 		DELETE FROM QNA  
-		WHERE QNA_NUM = #{qna_num} AND QNA_PWD = #{qna_pwd}
+		<where>
+			QNA_NUM = #{qna_num} 
+			<if test="mid != 'admin'">
+				AND QNA_PWD = #{qna_pwd}
+			</if>
+		</where>
 	</delete>
 	
 	<!-- 첨부파일 정보 삭제 -->
@@ -231,4 +236,25 @@
 		INSERT INTO QNA(QNA_NUM, GRP, SEQ, DEEP, MID, QNA_PWD, QNA_TITLE, QNA_DOC, QNA_DATE, QNA_STATUS, QNA_TYPE) 
 		VALUES(getQnaSerial('i'), #{grp}, ${seq+1}, ${deep+1}, #{mid}, #{qna_pwd}, #{qna_title}, #{qna_doc}, now(), #{qna_status}, #{qna_type})
 	</insert>
+	
+	<!-- 수정 -->
+	<update id="qnaUpdate" parameterType="kr.artbay.common.ArtBayVo">
+		UPDATE QNA SET QNA_TYPE = #{qna_type}, QNA_TITLE = #{qna_title}, QNA_DOC = #{qna_doc}, QNA_STATUS = #{qna_status} 
+		<where>
+			QNA_NUM = #{qna_num} 
+			<if test="mid != 'admin'">
+				AND QNA_PWD = #{qna_pwd}
+			</if>
+		</where>
+	</update>
+	
+	<!-- 선택한 첨부파일 정보 삭제 -->
+	<delete id="qnaChkAttDelete" parameterType="List">
+		DELETE FROM QNAATT  
+		WHERE ATTFILE IN
+		<foreach collection="list" item="att" open="(" separator="," close=")">
+			#{att}
+		</foreach>
+	</delete>
+	
 </mapper>

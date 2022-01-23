@@ -67,5 +67,7 @@ public interface ArtBayMapper {
 	public void qnaAttDelete(String qna_num);	//첨부파일 정보 삭제
 	public void qnaSeqUp(ArtBayVo vo);			//seq 증가
 	public int reply(ArtBayVo vo);				//댓글 저장
+	public int qnaUpdate(ArtBayVo vo);			//수정
+	public void qnaChkAttDelete(List<String> delList); //선택한 첨부파일 정보 삭제
 
 }
