@@ -30,7 +30,8 @@ public interface ArtBayMapper {
 	public List<ArtBayAtt> attList(int lot);
 	 
 	//공지사항 저장
-	public int saveNotice(ArtBayVo vo);
+	public int insertNtc(ArtBayVo vo);
+	public int insertNtcAtt(ArtBayAtt att);
 	//공지사항 조회
 	public Integer noticeTotSize(String findStr);
 	public List<ArtBayVo> noticeSearch(Page page);

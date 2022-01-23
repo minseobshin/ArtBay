@@ -130,7 +130,6 @@ mBid.page = function(nowPage) {
 	$('#btnSaveNotice').click(function(){
 		
 			$param = $('#frm_writeNotice').serialize();
-			System.out.println($param);
 			$.post('noticeSave', $param, function(data){
 				var json = JSON.parse(data);
 				
