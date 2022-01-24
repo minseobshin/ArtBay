@@ -51,6 +51,10 @@
 		insert into bidding(lot, mid, bid_price, bid_date) values(${lot}, #{mid}, #{bid_price}, now());
 	</insert>
 	
+	<select id="viewBids" parameterType="Integer" resultType="kr.artbay.common.ArtBayVo">
+		select mid, bid_price, bid_date from bidding where lot=${_parameter};
+	</select>
+	
 	
 	<!-- 경매신청 -->
 	<select id="memberview" parameterType="String" resultType="kr.artbay.common.ArtBayVo">

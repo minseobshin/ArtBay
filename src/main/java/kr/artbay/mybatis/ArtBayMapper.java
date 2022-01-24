@@ -31,6 +31,7 @@ public interface ArtBayMapper {
 	public List<ArtBayAtt> attList(int lot);
 	public int bidApply(ArtBayVo vo);
 	public void hit_up(int lot);
+	public List<ArtBayVo> viewBids(int lot);
 
 	
 	//공지사항 저장
