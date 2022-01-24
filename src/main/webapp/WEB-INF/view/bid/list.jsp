@@ -76,29 +76,29 @@
 		</c:choose>
 		<div class="listBox">
 			<c:forEach var="vo" items="${list }">
-			<div class="listInner" onclick="artbay.view(${vo.lot })">
-				<p class="img"><img src="${vo.imgFile }" /></p>
-				<div class="listInnerText">
-					<p class="painter">${vo.artist }</p>
-					<p class="art_name">${vo.artwork_name }</p>
-					<p class="material">${vo.material }</p>
-					<p class="paintSize">${vo.artwork_size }</p>
-					<div class="listInnerTextTitle">
-						<p>시작가</p>
-						<p class="currentPriceTitle">현재가</p>
-					</div>
-					<div class="listInnerTextPrice">
-						<p class="minimumPrice">${vo.str_start_price }</p>
-						<p class="currentPrice">${vo.str_current_price }</p>
-					</div>
-					<div class="listInnerTextTail">
-						<p class="endDate">마감일</p>
-						<p class="bidCnt">응찰횟수</p>
-						<p class="endDate">${vo.due_date }</p>
-						<p class="bidCnt">${vo.str_bid_cnt }</p>
+				<div class="listInner" onclick="artbay.view(${vo.lot })">
+					<p class="img"><img src="${vo.imgFile }" /></p>
+					<div class="listInnerText">
+						<p class="painter">${vo.artist }</p>
+						<p class="art_name">${vo.artwork_name }</p>
+						<p class="material">${vo.material }</p>
+						<p class="paintSize">${vo.artwork_size }</p>
+						<div class="listInnerTextTitle">
+							<p>시작가</p>
+							<p class="currentPriceTitle">현재가</p>
+						</div>
+						<div class="listInnerTextPrice">
+							<p class="minimumPrice">${vo.str_start_price }</p>
+							<p class="currentPrice">${vo.str_current_price }</p>
+						</div>
+						<div class="listInnerTextTail">
+							<p class="endDate">마감일</p>
+							<p class="bidCnt">응찰횟수</p>
+							<p class="endDate">${vo.due_date }</p>
+							<p class="bidCnt">${vo.str_bid_cnt }</p>
+						</div>
 					</div>
 				</div>
-			</div>
 			</c:forEach>
 		</div>
 		<div id="pageZone">

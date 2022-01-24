@@ -72,6 +72,9 @@ public class ListViewService {
    public List<ArtBayVo> viewBids(int lot) {
 	   List<ArtBayVo> list = new ArrayList<ArtBayVo>();
 	   list = mapper.viewBids(lot);
+	   for(ArtBayVo vo: list) {
+		   vo.setBid_cnt(mapper.countBids(lot));
+	   }
 	   return list;
    }
 	

@@ -317,19 +317,20 @@
 			<h2>응찰내역</h2>
 			<div class="btnBidList">
 				<input type="button" value="X" onclick="modalOff($(this))" class="xBtn"/>
-				<ul class="bid_price_choose">
-					<li>전체</li>
-					<li>내 응찰</li>
+				<ul class="bidPriceChoose">
+					<li class="bidHistoryAll">전체</li>
+					<li class="bidHistoryMy">내 응찰</li>
 				</ul>
 			</div>
 			<div class="bidList">
 				<div class="bidHistory">
-					<ul>
-						<li>2021-12-25</li>
-						<br/>
-						<li>10:23:00</li>
-						<li>4,4000,00</li>
-					</ul>
+					<c:forEach var="i" items="${history }">					
+						<ul>
+							<li>${i.bid_date }</li>
+							<li>${i.mid }</li>
+							<li>${i.bid_price }</li>
+						</ul>
+					</c:forEach>
 				</div>
 				<div class="current_bid_price">
 					<div class="my_choice">

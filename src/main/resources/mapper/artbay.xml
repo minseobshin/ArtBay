@@ -59,6 +59,10 @@
 		select count(*) from bidding where lot=${_parameter};
 	</select>
 	
+	<select id="viewBidHistoryAll" resultType="kr.artbay.common.ArtBayVo">
+		select * from bidding
+	</select>
+	
 	
 	<!-- 경매신청 -->
 	<select id="memberview" parameterType="String" resultType="kr.artbay.common.ArtBayVo">

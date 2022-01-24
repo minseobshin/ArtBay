@@ -792,7 +792,7 @@ form[name=frm_view]>ul li:nth-child(3){
 	width: 90%;
 }
 
-.bid_price_choose li{
+.bidPriceChoose li{
 	float: left;
 	margin-left: 25%;
 	margin-top: 20px;
