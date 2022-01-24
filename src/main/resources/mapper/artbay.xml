@@ -60,7 +60,7 @@
 	</select>
 	
 	<select id="viewBidHistoryAll" resultType="kr.artbay.common.ArtBayVo">
-		select lot, concat(repeat('*', 3), substr(mid, length(mid)-1, length(mid))) as mid, bid_price, date_format(bid_date, '%y-%m-%d') as bid_date, date_format(bid_date,'%H:%i:%s') as bid_time from bidding
+		select lot, mid, bid_price, date_format(bid_date, '%y-%m-%d') as bid_date, date_format(bid_date,'%H:%i:%s') as bid_time from bidding
 		order by bid_price desc
 	</select>
 	

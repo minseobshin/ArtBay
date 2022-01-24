@@ -129,6 +129,16 @@ function off(){
 		})	
 	})
 	
+	//응찰하기에서 전체를 누르면 전체 내역, 내 응찰을 누르면 내 응찰 내역 확인
+	$(".bidHistoryAll").on("click", function(){
+		$(".bidHistory").css("display", "block");
+		$(".bidMyHistory").css("display", "none");
+	});
+	$(".bidHistoryMy").on("click", function(){
+		$(".bidHistory").css("display", "none");
+		$(".bidMyHistory").css("display", "block");
+	});
+	
 	//상세 조회 화면 : 작품의 전체 응찰 기록 조회
 	if($(".btnSearchX")){
 	$.ajax({

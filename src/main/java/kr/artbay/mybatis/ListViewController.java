@@ -85,10 +85,13 @@ public class ListViewController {
 	public ModelAndView bidView(@RequestParam(value="lot", required=false) int lot,
 			@RequestParam(value="nowPage", required=false) int nowPage,
 			@RequestParam(value="sort", required=false) String sort,
-			Page page){
+			Page page, HttpServletRequest req){
 		ModelAndView mv = new ModelAndView();
 		vo = service.view(lot);
 		mv = viewBidHistory(lot);
+		
+		ModelAndView mv2 = new ModelAndView();
+		mv2 = viewBidMyHistory(lot, req);
 		
 		vo.setStr_start_price(NumberFormat.getInstance().format(vo.getStart_price()));
 		vo.setStr_current_price(NumberFormat.getInstance().format(vo.getCurrent_price()));
@@ -143,6 +146,27 @@ public class ListViewController {
 		}
 		
 		mv.addObject("history", realList);
+		mv.setViewName("bid.view");
+		return mv;
+	}
+	
+	@RequestMapping(value="/bidViewMyHistory", method= {RequestMethod.POST, RequestMethod.GET})
+	public ModelAndView viewBidMyHistory(int lot, HttpServletRequest req) {
+		ModelAndView mv = new ModelAndView();
+		List<ArtBayVo> list = new ArrayList<ArtBayVo>();
+		List<ArtBayVo> realList = new ArrayList<ArtBayVo>();
+		list = scheduler();
+		
+		HttpSession session = req.getSession();
+		String mid = (String) session.getAttribute("mid");
+		
+		for(ArtBayVo vo : list) {
+			if(vo.getLot()==lot && vo.getMid()==mid) {
+				realList.add(vo);
+			}
+		}
+		
+		mv.addObject("myHistory", realList);
 		mv.setViewName("bid.view");
 		return mv;
 	}

@@ -334,6 +334,15 @@
 						</ul>
 					</c:forEach>
 				</div>
+				<div class="bidMyHistory">
+					<c:forEach var="i" items="${myHistory }">				
+						<ul>
+							<li>${i.bid_date }<br/>${i.bid_time }</li>
+							<li>${i.mid }</li>
+							<li>${i.bid_price }</li>
+						</ul>
+					</c:forEach>
+				</div>
 				<div class="current_bid_price">
 					<div class="my_choice">
 						<div class="my_choice_left">

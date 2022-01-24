@@ -815,7 +815,15 @@ form[name=frm_view]>ul li:nth-child(3){
 	overflow-y: scroll;
 }
 
-.bidHistory ul{
+.bidMyHistory{
+	display: none;
+}
+
+.bidHistoryAll:hover, .bidHistoryMy:hover{
+	cursor: pointer;
+}
+
+.bidHistory ul, .bidMyHistory ul{
 	clear: both;
 	width: 100%;
 	border-bottom: 0.5px solid grey;
@@ -824,18 +832,14 @@ form[name=frm_view]>ul li:nth-child(3){
 	font-size: 0.8em;
 }
 
-.bidHistory ul li{
+.bidHistory ul li, .bidMyHistory ul li{
 	display: inline-block;
 	width: 30%;
 }
 
-.bidHistory ul li:nth-child(3){
+.bidHistory ul li:nth-child(3), .bidMyHistory ul li:nth-child(3){
 	width: 35%;
 	text-align: right;
-}
-
-.bidHistory ul li:nth-child(4){
-	float: right;
 }
 
 .my_choice{
