@@ -135,6 +135,12 @@
 		from bidding B join artwork A
 		on B.lot = A.lot
 	</select>
+	
+	<!--경매 종료 update-->
+	<update id="artwork_status" parameterType="kr.artbay.common.ArtBayVo">
+		UPDATE artwork set crnt_status='경매종료' WHERE crnt_status='경매중' and #{current_price} = #{direct_price} or #{due_date} &lt; NOW();
+	</update>
+	
 	<!-- 낙찰내역 건수 조회 -->	
 	<select id='mypageSuccessBidTotSize' resultType='Integer'>
 		select count(W.lot) from winning_bid W join artwork A on W.lot = A.lot; 

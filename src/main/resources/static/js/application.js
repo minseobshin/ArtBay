@@ -91,9 +91,10 @@ $(function(){
 		
 	})
 	
-/*		btnRemove.addEventListener('click', function () {
+		/*btnRemove.addEventListener('click', function () {
 		  var index	 = li.index();
-		  storedFiles.splice(index, 1);
+		console.log(index);
+		  removeEventListener(index);
 	
 		  // 해당 li 태그 제거
 		});*/
