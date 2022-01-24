@@ -14,7 +14,6 @@
 <link rel="stylesheet" type="text/css" href="../css/artbay.css">
 <script src="../js/index.js"></script>
 <script src="../js/artbay.js" charset="UTF-8"></script>
-<script src="../js/login_only.js"></script>
 
 <link rel="stylesheet" type="text/css" href="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css"/>
 <script type="text/javascript" src="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js"></script>

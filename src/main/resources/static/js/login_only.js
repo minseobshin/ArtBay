@@ -8,10 +8,15 @@ $(function(){
 	var d = 0;
 	
 	//헤더 로그인/마이페이지/로그아웃 시작===============================
+	//BidView 로그인 모달창
 	$("#needLogin").click(function(){
-		$("#frm_view").load("mypageMemberLogin");
+		if(d>0){
+			$(".modal-content").show();
+		}else{
+			$(".modal-content").load("mypageMemberLogin");
+			d+=1;
+		}
 	})
-	
 	//로그인 모달창
 	$('#btnLogin').click(function(){
 		if(d>0){
