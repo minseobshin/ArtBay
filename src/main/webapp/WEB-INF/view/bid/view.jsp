@@ -56,11 +56,14 @@
 				<p class="magnifier" onclick="thumbnailMagnify($('#thumbnail_img').attr('src'), $('.thumbnailHidden'))">🔎</p>
 			</div>
 			<div class="shareUrl">
-				<div>
-					<h2>알림</h2>
+				<div class="shareUrlInner">
+					<img src="../img/checked.png" /><br/>
+					<h1>알림</h1>
 					<span>아래 주소가 복사되었습니다. 공유를 원하는 곳에 붙여넣기(ctrl+V) 하세요.</span><br/><br/>
 					<input type="text" class="pastedUrl" value=""><br/><br/>
-					<input type="button" class="pastedUrlClose" value="확 인" onclick="modalOff($(this))">
+					<div>
+						<input type="button" class="btnBidCancel" value="확 인"/>
+					</div>
 				</div>
 			</div>
 		</div>
@@ -325,7 +328,7 @@
 						<li>2021-12-25</li>
 						<br/>
 						<li>10:23:00</li>
-						<li>4,400,000</li>
+						<li>4,4000,00</li>
 					</ul>
 				</div>
 				<div class="current_bid_price">

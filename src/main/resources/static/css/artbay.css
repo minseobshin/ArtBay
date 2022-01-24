@@ -661,7 +661,6 @@ form[name=frm_view] div.view_sml_btn p{
 form[name=frm_view] div.shareUrl>div{
 	background-color: white;
 	width: 30%;
-	height: 40%;
 	padding: 10px;
 	box-sizing: border-box;
 	position: relative;
@@ -913,9 +912,12 @@ form[name=frm_view]>ul li:nth-child(3){
 	color: rgb(102, 102, 102);
 }
 
-.applyResultInner img{
+.applyResultInner img, .shareUrlInner img{
 	width: 50px;
 	margin-top: 50px;
+}
+.shareUrlInner img{
+	margin-top: 30px;
 }
 
 .applyResultInner input{

@@ -96,11 +96,6 @@ public class ListVewController {
 	      vo.setMid(mid);
 	      vo.setBid_price(Integer.parseInt(price));
 	      int cnt = service.bidApply(vo);
-	      if(cnt>0) {
-	         System.out.println("됐음");
-	      }else {
-	         System.out.println("안됐음");
-	      }
 	      mv.addObject("vo", vo);
 	      mv.setViewName("bid.view");
 	      return mv;
