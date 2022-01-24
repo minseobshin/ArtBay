@@ -347,7 +347,7 @@
 								</c:forEach>
 							</c:if>
 							<c:if test="${vo.start_price lt 100001 }">
-								<c:forEach var="i" begin=${vo.start_price} end=${vo.start_price+50000} step="10000">
+								<c:forEach var="i" begin=${vo.start_price} end=${vo.start_price+100000} step="10000">
 									<option value=i>i</option>
 								</c:forEach>
 							</c:if>

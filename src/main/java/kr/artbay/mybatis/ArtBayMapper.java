@@ -29,6 +29,7 @@ public interface ArtBayMapper {
 	public ArtBayVo view(int lot);
 	public List<ArtBayAtt> viewOthers(int lot);
 	public List<ArtBayAtt> attList(int lot);
+	public int bidApply(ArtBayVo vo);
 	 
 	//공지사항 저장
 	public int insertNtc(ArtBayVo vo);

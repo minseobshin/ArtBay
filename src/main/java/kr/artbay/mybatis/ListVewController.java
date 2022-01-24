@@ -78,4 +78,13 @@ public class ListVewController {
 		mv.setViewName("bid.view");
 		return mv;
 	}
+	
+	@RequestMapping(value="/bidApplied", method= {RequestMethod.POST})
+	public ModelAndView bidApplied() {
+		ModelAndView mv = new ModelAndView();
+		
+		
+		return mv;
+	}
+	
 }

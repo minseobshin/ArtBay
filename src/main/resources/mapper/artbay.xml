@@ -47,6 +47,10 @@
 		limit ${startNo-1}, ${listSize}
 	</select>
 	
+	<insert id="bidApply" parameterType="kr.artbay.common.ArtBayVo">
+		insert into bidding(lot, mid, bid_price, bid_date) values(${lot}, #{mid}, ${bid_price}, now());
+	</insert>
+	
 	
 	<!-- 경매신청 -->
 	<select id="memberview" parameterType="String" resultType="kr.artbay.common.ArtBayVo">
