@@ -48,7 +48,14 @@
 							<li><a href="mypageSuccessBid">낙찰내역</a></li>
 							<li><a href="bidApplication">경매신청</a></li>
 							<li><a href="customerConsultationList">작품문의내역</a></li>
-							<li><a href="mypageMemberModify">정보수정</a></li>
+							<c:choose>
+								<c:when test="${ sessionScope.mid eq 'chicken' }">
+									<li><a href="memberManage">관리자 페이지</a></li>
+								</c:when>
+								<c:otherwise>
+									<li><a href="mypageMemberModify">정보수정</a></li>
+								</c:otherwise>
+							</c:choose>
 							<li><a id="btnGoLogout">로그아웃</a></li> 
 						</ul>
 					</div>

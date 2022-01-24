@@ -123,6 +123,26 @@ public class MemberService {
 		return b;
 	}
 	
+	//회원 탈퇴
+	public boolean memberOut(ArtBaySessionVo sv) {
+		boolean b = false;
+		status = manager.getTransaction(new DefaultTransactionDefinition());
+		
+		try {
+			int c = mapper.memberOut(sv);
+			if(c>0) {
+				manager.commit(status);
+				b = true;
+			}
+			
+		}catch(Exception e) {
+			e.printStackTrace();
+			manager.rollback(status);
+		}
+		
+		return b;
+	}
+	
 }
 
 

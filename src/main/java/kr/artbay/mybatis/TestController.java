@@ -31,7 +31,7 @@ public class TestController {
 		mv.setViewName("index_sby");
 		return mv;		
 	}
-	
+	/*
 	@RequestMapping(value = "/login")
 	public void memberLogin(HttpServletRequest req) {
 		String mid = req.getParameter("mid");
@@ -49,7 +49,7 @@ public class TestController {
 		HttpSession session = req.getSession();
 		session.removeAttribute("mid");		
 	}
-	
+	*/
 	@RequestMapping(value="/Bid")
 	public ModelAndView Bid() {
 		ModelAndView mv = new ModelAndView();

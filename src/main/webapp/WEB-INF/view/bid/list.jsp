@@ -97,25 +97,23 @@
 			<div class="listInner" onclick="artbay.view(${vo.lot })">
 				<p class="img"><img src="${vo.imgFile }" /></p>
 				<div class="listInnerText">
-					<p class="painter">${vo.artist }작가명</p>
+					<p class="painter">${vo.artist }</p>
 					<p class="art_name">${vo.artwork_name }</p>
 					<p class="material">${vo.material }</p>
 					<p class="paintSize">${vo.artwork_size }</p>
 					<div class="listInnerTextTitle">
-						<p>추정가</p>
-						<p>　</p>
 						<p>시작가</p>
 						<p class="currentPriceTitle">현재가</p>
 					</div>
 					<div class="listInnerTextPrice">
-						<p class="approximateStart">KRW 4,000,000</p>
-						<p> ~ 9,000,000</p>
-						<p class="minimumPrice">${vo.start_price }</p>
-						<p class="currentPrice">${vo.current_price }</p>
+						<p class="minimumPrice">${vo.str_start_price }</p>
+						<p class="currentPrice">${vo.str_current_price }</p>
 					</div>
 					<div class="listInnerTextTail">
+						<p class="endDate">마감일</p>
+						<p class="bidCnt">응찰횟수</p>
 						<p class="endDate">${vo.due_date }</p>
-						<p class="bidCnt">${vo.bid_cnt }</p>
+						<p class="bidCnt">${vo.str_bid_cnt }</p>
 					</div>
 				</div>
 			</div>

@@ -59,23 +59,23 @@
 
 	<!-- 탈퇴시 확인 화면(모달창) -->
 	<div id='out_chk'>
-		<form name='frm_outChk' method='post'>
+		<form name='frm_outChk' id='frm_outChk' method='post'>
 			<div class='h5'>➢ 탈퇴사유</div>
-				<label><input type='checkbox' name='outEu'> 이용 빈도 낮음</label>
-				<label><input type='checkbox' name='outEu'> 회원 혜택 부족</label>
-				<label><input type='checkbox' name='outEu'> 과한 광고 메시지</label>
+				<label><input type='checkbox' name='outEu1'> 이용 빈도 낮음</label>
+				<label><input type='checkbox' name='outEu2'> 회원 혜택 부족</label>
+				<label><input type='checkbox' name='outEu3'> 과한 광고 메시지</label>
 			<br>
-				<label><input type='checkbox' name='outEu'> 이용하고자 하는 정보 없음</label>
-				<label><input type='checkbox' name='outEu'> 서비스 불만</label>
-				<label><input type='checkbox' name='outEu'> 개인정보 유출 우려</label>
+				<label><input type='checkbox' name='outEu4'> 이용하고자 하는 정보 없음</label>
+				<label><input type='checkbox' name='outEu5'> 서비스 불만</label>
+				<label><input type='checkbox' name='outEu6'> 개인정보 유출 우려</label>
 			<br/>
-			<textarea name='outEu2' placeholder="탈퇴 사유를 입력해 주시면 사이트 개선에 적극 반영하겠습니다."></textarea>
+			<textarea name='outEu7' placeholder="탈퇴 사유를 입력해 주시면 사이트 개선에 적극 반영하겠습니다."></textarea>
 			<div class='h5'>➢ 탈퇴신청</div>
 			<div class='h5'>아이디와 비밀번호를 한번 더 입력한 후 탈퇴신청을 해 주시기 바랍니다.</div>
-			<input type='text' name='mid' id='mid' placeholder='ID' required="required">
-			<input type='password' name='pwd' id='pwd' placeholder="비밀번호" required="required">
+			<input type='text' name='midOut' id='midOut' placeholder='ID' required="required">
+			<input type='password' name='pwdOut' id='pwdOut' placeholder="비밀번호" required="required">
 			<br/><br>
-			<label><input type='checkbox' name='outChk'> 회원 탈퇴에 동의합니다.</label>
+			<label><input type='checkbox' name='outChk' id='outChk'> 회원 탈퇴에 동의합니다.</label>
 			<br>
 			<div class='join3'>
 				<input type='button' name='btnOutChk' id='btnOutChk' value='회원탈퇴'>
