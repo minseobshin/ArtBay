@@ -1,6 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jstl/core_rt" prefix="c" %>
+<%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -380,10 +381,14 @@
 	<h3>작가의 다른 작품</h3>
 	<div class="otherWorks" style="display:inline-block; height:200px;">
 		<c:forEach var="atts" items="${others }" varStatus="status">
-			<div style=" height:200px;">
-				<img name="otherWorksImg" id="otherWorksImg" src="${atts.imgFile }"
-					onclick="artbay.othersView(${atts.lot})"/>
-			</div>
+			<c:if test="${status.count gt 0}">
+				<c:if test="${atts.thumbnail eq 'Y' && atts.lot ne vo.lot}">
+					<div style=" height:200px;">
+						<img name="otherWorksImg" id="otherWorksImg" src="${atts.imgFile }"
+							onclick="artbay.othersView(${atts.lot})"/>
+					</div>
+				</c:if>
+			</c:if>
 		</c:forEach>
 	</div>
 	<div id="hiddenZone">
