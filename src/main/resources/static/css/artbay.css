@@ -386,7 +386,7 @@ form[name=frm_view]{
 }
 
 #otherWorksImg{
-	width: 100%;
+	height: 100%;
 }
 
 .arrPrev, .arrPrev>span, .arrNext, .arrNext>span{
