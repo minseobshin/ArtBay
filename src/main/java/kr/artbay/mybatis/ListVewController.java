@@ -11,8 +11,8 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 
-import jakarta.servlet.http.HttpServletRequest;
-import jakarta.servlet.http.HttpSession;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpSession;
 import kr.artbay.common.AES;
 import kr.artbay.common.ArtBayAtt;
 import kr.artbay.common.ArtBaySessionVo;
@@ -90,7 +90,7 @@ public class ListVewController {
 	      vo = service.view(lot);
 	      
 	      HttpSession session = req.getSession();
-	      sv = (ArtBaySessionVo)session.getAttribute("sv"); //세션에 있던 로그인 정보
+	      sv = (ArtBaySessionVo)session.getAttribute("sessionScope.mid"); //세션에 있던 로그인 정보
 	      String mid = sv.getMid();
 	      
 	      vo.setMid(mid);

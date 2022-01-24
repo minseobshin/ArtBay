@@ -113,12 +113,16 @@ function off(){
 */
 
  $(function(){
-	var d = 0;
-	
-	//상세 조회 화면에서 로그인 버튼 클릭 시 로그인 모달 창
-	$("#needLogin").click(function(){
-		$("#frm_view").load("mypageMemberLogin");
+	//상세 조회 화면에서 최종 동의 및 응찰 버튼 클릭하면 응찰하도록
+	$(".btnBidApply").on("click", function(){
+		console.log("클릭")
+		var frm = $("#frm_view")[0];
+		frm.action = "/bidApplied";
+		frm.submit();
+		
+		
 	})
+
 	
 	if($(".btnSearchX")){
 	$.ajax({
