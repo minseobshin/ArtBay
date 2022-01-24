@@ -189,8 +189,7 @@
 	<select id="qnaSearch" parameterType="kr.artbay.common.Page" resultType="kr.artbay.common.ArtBayVo">
 		SELECT 
 			QNA_NUM, MID, QNA_DOC, GRP, SEQ, DEEP, QNA_PWD, QNA_TYPE, QNA_STATUS,
-			DATE_FORMAT(QNA_DATE, "%y-%m-%d") QNA_DATE,						 
-			CONCAT(LPAD(" ", DEEP*6, "&#160;"), QNA_TITLE) QNA_TITLE
+			DATE_FORMAT(QNA_DATE, "%y-%m-%d") QNA_DATE, QNA_TITLE
 		FROM 
 			qna q
 		<where>

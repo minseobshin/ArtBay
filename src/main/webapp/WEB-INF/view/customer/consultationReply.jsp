@@ -15,7 +15,7 @@
 
 
 <div class = "applyform">
-		<h1>1:1상담문의</h1>
+		<h1>1:1 상담문의</h1>
 </div>
 <div id="subContentsWrap">
 		<div class="container mt40">
@@ -24,7 +24,7 @@
 				<ul class="list-default list-bul-blue">
 					<li>FAQ 검색에서 원하는 내용을 검색하시면 즉시 답변을 얻으실 수 있습니다.</li>
 					<li>물품문의는 판매자에게 해주시기바랍니다.</li>
-					<li>답변은 마이페이지 &gt; 나의활동내역 &gt; 1:1문의에서 확인 가능합니다.</li>
+					<li>비공개글은 마이페이지 작품문의내역에서 확인 가능합니다.</li>
 				</ul>
 			</div>
 			

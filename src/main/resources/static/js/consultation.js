@@ -1,10 +1,14 @@
 function qna() {};
+
+//상세 조회
 qna.view = function(qna_num) {
 	$frm = $("#frmQna")[0];
 	$frm.qnaNum.value = qna_num;
 	$frm.action = "qnaView";
 	$frm.submit();
 }
+
+//페이지 이동
 qna.page = function(nowPage) {
 	$frm = $("#frmQna")[0];
 	$frm.nowPage.value = nowPage;
@@ -37,7 +41,27 @@ $(function()  {
 	});
 	
 	//qna 문의 저장
-	$("#btnQnaInsert").click(function() {
+	$("#btnQnaInsert").click(function() {		
+		if($("#qna_type").val() == "") {
+			alert("분류를 선택해주세요.");
+			$("#qna_type").focus();
+			return;
+		}
+		if($("#qna_title").val() == "") {
+			alert("제목을 입력해주세요.");
+			$("#qna_title").focus();
+			return;
+		}
+		if($("#qna_doc").val() == "") {
+			alert("문의내용을 입력해주세요.");
+			$("#qna_doc").focus();
+			return;
+		}
+		if($("#qna_pwd").val() == "") {
+			alert("비밀번호를 입력해주세요.");
+			$("#qna_pwd").focus();
+			return;
+		}
 		$param = $("#frmQna").serialize();
 	
 		$.post("qnaInsert", $param, function(data) {			
@@ -54,12 +78,7 @@ $(function()  {
 			}				
 		});
 	});
-	
-	//qna 문의 취소
-	$("#btnQnaCancle").click(function() {
-		alert("작업예정");
-	});
-		
+			
 	//qna 수정폼으로 이동
 	$("#btnUpdateForm").click(function() {
 		$frm = $("#frmQna")[0];		
@@ -69,6 +88,21 @@ $(function()  {
 	
 	//qna 문의 수정(암호확인)
 	$("#btnQnaUpdate").click(function() {
+		if($("#qna_type").val() == "") {
+			alert("분류를 선택해주세요.");
+			$("#qna_type").focus();
+			return;
+		}
+		if($("#qna_title").val() == "") {
+			alert("제목을 입력해주세요.");
+			$("#qna_title").focus();
+			return;
+		}
+		if($("#qna_doc").val() == "") {
+			alert("문의내용을 입력해주세요.");
+			$("#qna_doc").focus();
+			return;
+		}
 		//암호창 보이기
 		$('#pwd_check').css('display', 'block');
 		$("#enterPwd").focus();
@@ -184,6 +218,21 @@ $(function()  {
 	
 	//qna 답글 저장
 	$("#btnQnaReply").click(function() {
+		if($("#qna_title").val() == "") {
+			alert("제목을 입력해주세요.");
+			$("#qna_title").focus();
+			return;
+		}
+		if($("#qna_doc").val() == "") {
+			alert("문의내용을 입력해주세요.");
+			$("#qna_doc").focus();
+			return;
+		}
+		if($("#qna_pwd").val() == "") {
+			alert("비밀번호를 입력해주세요.");
+			$("#qna_pwd").focus();
+			return;
+		}
 		$param = $("#frmQna").serialize();
 		
 		$.post("qnaReply", $param, function(data) {			
