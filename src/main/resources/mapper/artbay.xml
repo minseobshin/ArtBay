@@ -55,6 +55,10 @@
 		select mid, bid_price, bid_date from bidding where lot=${_parameter};
 	</select>
 	
+	<select id="countBids" parameterType="Integer" resultType="Integer">
+		select count(*) from bidding where lot=${_parameter};
+	</select>
+	
 	
 	<!-- 경매신청 -->
 	<select id="memberview" parameterType="String" resultType="kr.artbay.common.ArtBayVo">
