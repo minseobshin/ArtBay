@@ -86,7 +86,8 @@ public class ListViewService {
 	}
 	
 	public int updateCurrentPrice() {
-		
+		int cnt = mapper.updateCurrentPrice();
+		return cnt;
 	}
 	
 	public Page getPage() {return page;}

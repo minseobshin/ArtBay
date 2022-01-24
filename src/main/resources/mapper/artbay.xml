@@ -64,7 +64,7 @@
 		order by bid_price desc
 	</select>
 	
-	<update id="updateCurrentPrice" parameterType="kr.artbay.common.ArtBayVo">
+	<update id="updateCurrentPrice">
 		update artwork set current_price =(select max(bid_price) from bidding where lot=#{_parameter});
 	</update>
 	
