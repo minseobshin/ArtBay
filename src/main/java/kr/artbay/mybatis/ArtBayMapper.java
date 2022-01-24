@@ -52,6 +52,7 @@ public interface ArtBayMapper {
 	//응찰내역 조회
 	public Integer mypageBidTotSize(); 
 	public List<ArtBayVo> mypageBidList(Page page);
+	public ArtBayVo bidListView(Integer lot);
 	//낙찰내역 조회
 	public Integer mypageSuccessBidTotSize(); 
 	public List<ArtBayVo> mypageSuccessBidList(Page page);

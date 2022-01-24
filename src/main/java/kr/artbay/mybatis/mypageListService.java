@@ -51,7 +51,7 @@ public class mypageListService {
 		ArtBayVo vo = null;
 		List<ArtBayAtt> attList = null;
 		try {			
-			vo = mapper.view(lot);
+			vo = mapper.bidListView(lot);
 			attList = mapper.attList(lot);
 			vo.setAttList(attList);
 			

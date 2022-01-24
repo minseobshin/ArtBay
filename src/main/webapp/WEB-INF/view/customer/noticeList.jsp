@@ -15,7 +15,7 @@
 <body>
 <div id='noticeList'>
 	<h1>공지사항</h1>
-	<input type='text' name='msg' value='${msg }'>
+
 	<form name='frm_notice' id='frm_notice' method='post'>
 		<div id='noticeSearch'>
 			<output>공지사항 ${page.totSize }건</output>

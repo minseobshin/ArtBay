@@ -153,8 +153,14 @@
 		select B.lot, A.artwork_ctgr, A.artist, A.artwork_name, B.bid_price, date_format(B.bid_date, "%y-%m-%d") bid_date
 		from bidding B join artwork A
 		on B.lot = A.lot
-		ORDER BY bid_date
+		ORDER BY bid_date desc
 		LIMIT ${startNo-1}, ${listSize}
+	</select>
+	<!-- 응찰 상세 -->
+	<select id='bidListView' parameterType='integer' resultType="kr.artbay.common.ArtBayVo">
+		select B.*, A.artwork_ctgr, A.artist, A.artwork_name
+		from bidding B join artwork A
+		on B.lot = A.lot
 	</select>
 	
 	<!--경매 종료 update-->

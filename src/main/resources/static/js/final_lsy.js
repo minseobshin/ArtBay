@@ -304,7 +304,7 @@ function sendFile(intervalPos, file) {
 		processData: false,
 		success: function(img) {
 			loadInterval[intervalPos] = 
-				setInterval(loadCheck.bind(null, intervalPos, img), 1000);
+				setInterval(loadCheck.bind(null, intervalPos, img), 2000);
 		}
 	})
 }
