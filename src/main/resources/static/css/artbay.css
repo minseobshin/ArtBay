@@ -812,7 +812,6 @@ form[name=frm_view]>ul li:nth-child(3){
 
 .bidHistory{
 	height: 100px;
-	border: 3px solid orange;
 	overflow-y: scroll;
 }
 
@@ -822,10 +821,17 @@ form[name=frm_view]>ul li:nth-child(3){
 	border-bottom: 0.5px solid grey;
 	padding: 10px;
 	box-sizing: border-box;
+	font-size: 0.8em;
 }
 
 .bidHistory ul li{
 	display: inline-block;
+	width: 30%;
+}
+
+.bidHistory ul li:nth-child(3){
+	width: 35%;
+	text-align: right;
 }
 
 .bidHistory ul li:nth-child(4){
