@@ -74,8 +74,9 @@ $(function(){
 				alert("비밀번호를 확인해주세요.");
 				console.log("failPwd");
 			}else{
-				d = 0;
 				console.log("login");
+				location.reload();
+				d = 0;
 			}
 		});	
 	});
