@@ -114,7 +114,12 @@
 					<p><span>설치 및 보관</span></p>
 				</li>
 			<br/>
-			<input type="button" class="btnBidStart" value="응찰하기" onclick="modalOn($('.bid_price'))"/>
+			<c:if test="${sessionScope.mid ne null }">
+				<input type="button" class="btnBidStart" value="응찰하기" onclick="modalOn($('.bid_price'))"/>
+			</c:if>
+			<c:if test="${sessionScope.mid eq null }">
+				<input type="button" class="btnBidStart" style="background-color: rgb(255, 109, 45); border: 1px solid rgb(255, 109, 45);"value="로그인하시면 응찰이 가능합니다."/>
+			</c:if>
 		</div>
 	<!-- 낙찰 수수료 모달 -->
 		<div class="rightmodal_m1" style="border:1px solid grey;">
@@ -336,53 +341,31 @@
 							<strong>KRW ${vo.str_current_price } </strong><br/><br/>
 							<strong>${vo.str_bid_cnt }</strong><br/><br/>
 							<select class="price_combo">
-							<c:if test="${vo.start_price lt 10001}">
-								<c:forEach var="i" begin=${vo.start_price} end=${vo.start_price+5000} step="500">
-									<option value=i>i</option>
-								</c:forEach>
-							</c:if>
-							<c:if test="${vo.start_price lt 50001 }">
-								<c:forEach var="i" begin=${vo.start_price} end=${vo.start_price+50000} step="1000">
-									<option value=i>i</option>
-								</c:forEach>
-							</c:if>
-							<c:if test="${vo.start_price lt 100001 }">
-								<c:forEach var="i" begin=${vo.start_price} end=${vo.start_price+100000} step="10000">
-									<option value=i>i</option>
-								</c:forEach>
-							</c:if>
-							<c:otherwise>
-								<c:forEach var="i" begin=${vo.start_price} end=${vo.start_price+50000} step="20000">
-									<option value=i>i</option>
-								</c:forEach>
-							</c:otherwise>
+							<c:choose>
+								<c:when test="${vo.start_price lt 10001}">
+									<c:forEach var="i" begin="${vo.start_price}" end="${vo.start_price+5000}" step="500">
+										<option value="i">${i }</option>
+									</c:forEach>
+								</c:when>
+								<c:when test="${vo.start_price lt 50001 }">
+									<c:forEach var="i" begin="${vo.start_price}" end="${vo.start_price+10000}" step="1000">
+										<option value="i">${i }</option>
+									</c:forEach>
+								</c:when>
+								<c:when test="${vo.start_price lt 100001 }">
+									<c:forEach var="i" begin="${vo.start_price}" end="${vo.start_price+100000}" step="10000">
+										<option value="i">${i }</option>
+									</c:forEach>
+								</c:when>
+								<c:otherwise>
+									<c:forEach var="i" begin="${vo.start_price}" end="${vo.start_price+100000}" step="20000">
+										<option value="i">${i }</option>
+									</c:forEach>
+								</c:otherwise>
+							</c:choose>
 							</select><br/><br/>
 							최고 응찰가를 선택하세요.<br/><br/>
 						</div>
-						<!-- 
-						<div>
-							<strong>시작가</strong>
-							<div>
-								<strong>KRW 4,000,000</strong>
-							</div>
-						</div>
-						<div>
-							<strong>현재가</strong>
-							<div>
-								<strong>KRW 11,000,000 (응찰횟수 20회)</strong>
-							</div>
-						</div>
-						<div>
-							<strong>응찰가</strong>
-							<select class="price_combo">
-								<option value="10000">10,000</option>
-								<option value="20000">20,000</option>
-							</select>
-							<br/>
-							<strong>　</strong>
-							최고 응찰가를 선택하세요.
-						</div>
-						 -->
 					</div>
 				</div>
 			<input type="button" class="btnBidApplyFinal" value="응찰하기"  onclick="modalOn($('.bid_caution'))"/>

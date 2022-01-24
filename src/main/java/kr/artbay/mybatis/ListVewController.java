@@ -11,8 +11,11 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 
+import jakarta.servlet.http.HttpServletRequest;
+import jakarta.servlet.http.HttpSession;
 import kr.artbay.common.AES;
 import kr.artbay.common.ArtBayAtt;
+import kr.artbay.common.ArtBaySessionVo;
 import kr.artbay.common.ArtBayVo;
 import kr.artbay.common.Page;
 
@@ -80,11 +83,27 @@ public class ListVewController {
 	}
 	
 	@RequestMapping(value="/bidApplied", method= {RequestMethod.POST})
-	public ModelAndView bidApplied() {
-		ModelAndView mv = new ModelAndView();
-		
-		
-		return mv;
-	}
+	   public ModelAndView bidApplied(ArtBaySessionVo sv, HttpServletRequest req,
+	         @RequestParam(value="lot", required=false) int lot) {
+	      ModelAndView mv = new ModelAndView();
+	      ArtBayVo vo = new ArtBayVo();
+	      vo = service.view(lot);
+	      
+	      HttpSession session = req.getSession();
+	      sv = (ArtBaySessionVo)session.getAttribute("sv"); //세션에 있던 로그인 정보
+	      String mid = sv.getMid();
+	      
+	      vo.setMid(mid);
+	      
+	      int cnt = service.bidApply(vo);
+	      if(cnt>0) {
+	         System.out.println("됐음");
+	      }else {
+	         System.out.println("안됐음");
+	      }
+	      mv.addObject("vo", vo);
+	      mv.setViewName("bid.view");
+	      return mv;
+	   }
 	
 }
