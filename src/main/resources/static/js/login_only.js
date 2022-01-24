@@ -14,21 +14,26 @@ $(function(){
 			$(".modal-content").show();
 		}else{
 			$(".modal-content").load("mypageMemberLogin");
-			d+=1;
+			d = 1;
 		}
 	})
 	//로그인 모달창
 	$('#btnLogin').click(function(){
 		if(d>0){
+			console.log(d);
 			$(".modal-content").show();
 		}else{
 			$(".modal-content").load("mypageMemberLogin");
-			d+=1;
+			console.log(d);
+			d = 1;
 		}
 	})
 	//로그인창 취소버튼
 	$('#btnCancelLogin').click(function(){
 		$(".modal-content").load("mypageMemberLogin").hide();
+		console.log(d);
+		d = 1;
+		console.log(d);
 	})
 	//엔터키 로그인
 	$("#midLogin").keyup(function(e){if(e.keyCode==13){$("#btnGoLogin").click();}})
@@ -69,7 +74,7 @@ $(function(){
 				alert("비밀번호를 확인해주세요.");
 				console.log("failPwd");
 			}else{
-				location.reload();
+				d = 0;
 				console.log("login");
 			}
 		});	
