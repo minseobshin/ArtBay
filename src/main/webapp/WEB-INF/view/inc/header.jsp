@@ -52,6 +52,9 @@
 								<c:when test="${ sessionScope.mid eq 'chicken' }">
 									<li><a href="memberManage">관리자 페이지</a></li>
 								</c:when>
+								<c:when test="${ sessionScope.mid eq 'admin' }">
+									<li><a href="memberManage">관리자 페이지</a></li>
+								</c:when>
 								<c:otherwise>
 									<li><a href="mypageMemberModify">정보수정</a></li>
 								</c:otherwise>
