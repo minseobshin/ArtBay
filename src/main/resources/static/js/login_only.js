@@ -17,7 +17,14 @@ $(function(){
 			d+=1;
 		}
 	})
-		
+	//로그인창 취소버튼
+	$('#btnCancelLogin').click(function(){
+		$(".modal-content").load("mypageMemberLogin").hide();
+	})
+	//엔터키 로그인
+	$("#midLogin").keyup(function(e){if(e.keyCode==13){$("#btnGoLogin").click();}})
+	$("#pwdLogin").keyup(function(e){if(e.keyCode==13){$("#btnGoLogin").click();}})
+	
 	//마이 페이지
 	$("#btnMyPage").click(function() {
 		if(c%2 != 0){
@@ -58,13 +65,7 @@ $(function(){
 			}
 		});	
 	});
-	//엔터키
-	$("#midLogin").keyup(function(e){if(e.keyCode==13){$("#btnGoLogin").click();}})
-	$("#pwdLogin").keyup(function(e){if(e.keyCode==13){$("#btnGoLogin").click();}})
 	
-	$('#btnCancelLogin').click(function(){
-		$(".modal-content").load("mypageMemberLogin").hide();
-	})
 	
 	
 	
