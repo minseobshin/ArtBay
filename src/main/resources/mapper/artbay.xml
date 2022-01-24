@@ -65,7 +65,9 @@
 	</select>
 	
 	<update id="updateCurrentPrice" parameterType="Integer">
-		update artwork set current_price =(select max(bid_price) from bidding where lot=${_parameter}) where lot=${_parameter};
+		<if test="(select max(bid_price) from bidding where lot=${_parameter}) != null">
+			update artwork set current_price =(select max(bid_price) from bidding where lot=${_parameter}) where lot=${_parameter};
+		</if>
 	</update>
 	
 	
