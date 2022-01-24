@@ -87,11 +87,11 @@ public class ListViewController {
 			@RequestParam(value="sort", required=false) String sort,
 			Page page, HttpServletRequest req){
 		ModelAndView mv = new ModelAndView();
+		//상세 조회 화면 불러오기
 		vo = service.view(lot);
-		mv = viewBidHistory(lot);
 		
-		ModelAndView mv2 = new ModelAndView();
-		mv2 = viewBidMyHistory(lot, req);
+		//전체 응찰 내역 불러오기
+		mv = viewBidHistory(lot);
 		
 		vo.setStr_start_price(NumberFormat.getInstance().format(vo.getStart_price()));
 		vo.setStr_current_price(NumberFormat.getInstance().format(vo.getCurrent_price()));
@@ -104,11 +104,16 @@ public class ListViewController {
 		}
 		mv.addObject("att", att);
 		
-		//작가의 다른 작품들
+		//작가의 다른 작품들 사진 불러오기
 		ArtBayVo voOthers = new ArtBayVo();
 		voOthers = service.viewOthers(lot);
 		List<ArtBayAtt> others = voOthers.getAttList();
 		
+		//내 응찰 내역 불러오기
+		List<ArtBayVo> realList = new ArrayList<ArtBayVo>();
+		realList = viewBidMyHistory(lot, req);
+		
+		mv.addObject("myHistory", realList);
 		mv.addObject("others", others);
 		mv.addObject("page", page);
 		mv.setViewName("bid.view");
@@ -150,8 +155,7 @@ public class ListViewController {
 		return mv;
 	}
 	
-	@RequestMapping(value="/bidViewMyHistory", method= {RequestMethod.POST, RequestMethod.GET})
-	public ModelAndView viewBidMyHistory(int lot, HttpServletRequest req) {
+	public List<ArtBayVo> viewBidMyHistory(int lot, HttpServletRequest req) {
 		ModelAndView mv = new ModelAndView();
 		List<ArtBayVo> list = new ArrayList<ArtBayVo>();
 		List<ArtBayVo> realList = new ArrayList<ArtBayVo>();
@@ -159,18 +163,25 @@ public class ListViewController {
 		
 		HttpSession session = req.getSession();
 		String mid = (String) session.getAttribute("mid");
-		
 		for(ArtBayVo vo : list) {
-			if(vo.getLot()==lot && vo.getMid()==mid) {
+			if(vo.getLot()==lot && vo.getMid().equals(mid)) {
 				realList.add(vo);
 			}
 		}
+		return realList;
+	}
+
+	/*
+	@RequestMapping(value="/bidLoadMyHistory", method= {RequestMethod.POST, RequestMethod.GET})
+	public ModelAndView bidViewMyHistory(@RequestParam(value="lot", required=false) int lot,
+			HttpServletRequest req){
+		ModelAndView mv = new ModelAndView();
+		mv = viewBidMyHistory(lot, req);
 		
-		mv.addObject("myHistory", realList);
 		mv.setViewName("bid.view");
 		return mv;
 	}
-	
+	*/
 	@Scheduled(cron="*/5 * * * * *")
 	public List<ArtBayVo> scheduler() {
 		List<ArtBayVo> list = new ArrayList<ArtBayVo>();

@@ -136,7 +136,8 @@ function off(){
 	});
 	$(".bidHistoryMy").on("click", function(){
 		$(".bidHistory").css("display", "none");
-		$(".bidMyHistory").css("display", "block");
+		$(".bidMyHistory").css("display", "block");			
+
 	});
 	
 	//상세 조회 화면 : 작품의 전체 응찰 기록 조회
