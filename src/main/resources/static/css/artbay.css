@@ -9,6 +9,111 @@ html, body{
 	zoom: 1.0;
 }
 
+	/*reset으로 틀어진 elements들 속성 되돌려놓기*/
+
+.caution li{
+	margin-top: 10px;
+}
+
+form[name=frm_bidIntro] h4, form[name=frm_view] h4, form[name=frm_list] h4{
+	display: block;
+	margin-top: 1.33em;
+	margin-bottom: 1.33em;
+	margin-left: 0;
+	margin-right: 0;
+	font-weight: bold;
+}
+
+form[name=frm_bidIntro] h3, form[name=frm_view] h3, form[name=frm_list] h3{
+	display: block;
+	font-size: 1.17em;
+	margin-top: 1em;
+	margin-bottom: 1em;
+	margin-left: 0;
+	margin-right: 0;
+	font-weight: bold;
+}
+
+form[name=frm_bidIntro] h2, form[name=frm_view] h2, form[name=frm_list] h2{
+	display: block;
+	font-size: 1.5em;
+	margin-top: 0.83em;
+	margin-bottom: 0.83em;
+	margin-left: 0;
+	margin-right: 0;
+	font-weight: bold;
+}
+
+form[name=frm_bidIntro] h1, form[name=frm_view] h1, form[name=frm_list] h1{
+	display: block;
+	font-size: 2em;
+	margin-top: 0.67em;
+	margin-bottom: 0.67em;
+	margin-left: 0;
+	margin-right: 0;
+	font-weight: bold;
+}
+
+
+.bidIntroRight div{
+	display: block;
+}
+.bidIntroRight ul{
+	display: block;
+	list-style-type: none;
+	margin-top: 1em;
+	margin-bottom: 1 em;
+	margin-left: 0;
+	margin-right: 0;
+	padding-left: 40px;
+}
+.bidIntroRight li{
+	display: list-item;
+}
+.bidIntroRight table{
+	display: table;
+	border: 1px solid rgb(249, 249, 249);
+	border-collapse: collapse;
+	border-color: gray;
+	margin-left: 3%;
+	width: 80%;
+}
+.bidIntroRight p{
+	display: block;
+	margin-top: 1em;
+	margin-bottom: 1em;
+	margin-left: 0;
+	margin-right: 0;
+}
+
+.bidIntroRight th{
+	display: table-cell;
+	vertical-align: middle;
+	font-weight: bold;
+	text-align: center;
+	height: 50px;
+	border: 1px solid rgb(249, 249, 249);
+	padding: 5px;
+}
+
+.bidIntroRight td{
+	height: 30px;
+	display: table-cell;
+	vertical-align: middle;
+	border: 1px solid rgb(220, 220, 220);
+	padding: 5px;
+}
+
+.bidIntroRight strong{
+	font-weight: bold;
+	margin-top: 10px;
+	margin-bottom: 10px;
+	color: rgb(244, 78, 37);
+}
+	
+	/*reset으로 틀어진 elements들 속성 되돌려놓기 끝*/
+
+
 #hiddenZone{
 	display: none;
 }
@@ -264,18 +369,31 @@ p.bidCnt{
 
 /*리스트 페이지 끝*/
 
-.rightmodal_m1, .rightmodal_m2, .rightmodal_m3, .rightmodal_m4, .login, .bid_caution, .shareUrl, .thumbnailHidden{
-	display: none;
-	z-index : 1 !important;
-	background-color: rgba(0,0,0,.3);
-	position:fixed;
-	left: 0;
-	top: 0;
-	width:100%;
-	height:100%;
-	font-size: 13px;
-}
-
+	/*모달창 기본 설정(리스트, 뷰 같이 있음)*/
+	.rightmodal_m1, .rightmodal_m2, .rightmodal_m3, .rightmodal_m4, .login, .bid_caution, .shareUrl, .thumbnailHidden, .applyResult{
+		display: none;
+		z-index : 1 !important;
+		background-color: rgba(0,0,0,.3);
+		position:fixed;
+		left: 0;
+		top: 0;
+		width:100%;
+		height:100%;
+		font-size: 13px;
+	}
+	
+	.modal1, .modal2, .modal3, .modal4, .modal_login, .bid_caution_modal, .applyResultInner{
+		width:500px;
+		z-index: 2;
+		margin:100px auto;
+		position: relative;
+		background-color:#fff;
+		padding: 0;
+		min-height: 400px;
+		box-sizing: border-box;
+	}
+	/*모달 기본 설정 끝*/
+	
 .thumbnailHidden{
 	background-color: rgba(0,0,0,.8);
 }
@@ -347,6 +465,7 @@ form[name=frm_view]{
 	overflow-x: auto;
 	min-height: 1600px;
 }
+
 .caution h3, .caution div{
 	width: 800px;
 	margin: 10px auto;
@@ -542,7 +661,6 @@ form[name=frm_view] div.view_sml_btn p{
 form[name=frm_view] div.shareUrl>div{
 	background-color: white;
 	width: 30%;
-	height: 40%;
 	padding: 10px;
 	box-sizing: border-box;
 	position: relative;
@@ -593,23 +711,12 @@ form[name=frm_view] div.shareUrl>div{
 
 
 /*모달 영역 시작*/
-.modal1, .modal2, .modal3, .modal4, .modal_login, .bid_caution_modal{
-	width:500px;
-	z-index: 2;
-	margin:100px auto;
-	position: relative;
-	background-color:#fff;
-	padding: 0;
-	min-height: 400px;
-	box-sizing: border-box;
-}
 
 .commission_rate{
 	width: 450px;
 	margin: 0px auto;
 	height: 100px;
 }
-
 
 th.bid{
 	width: 150px;
@@ -685,7 +792,7 @@ form[name=frm_view]>ul li:nth-child(3){
 	width: 90%;
 }
 
-.bid_price_choose li{
+.bidPriceChoose li{
 	float: left;
 	margin-left: 25%;
 	margin-top: 20px;
@@ -791,6 +898,33 @@ form[name=frm_view]>ul li:nth-child(3){
 	border: 1px solid grey;
 	background-color: white;
 	margin: 10px;
+}
+
+.applyResultInner{
+	text-align: center;
+}
+
+.applyResultInner p{
+	padding: 30px;
+	box-sizing: border-box;
+	font-size: 1.2em !important;
+	text-align: left;
+	color: rgb(102, 102, 102);
+}
+
+.applyResultInner img, .shareUrlInner img{
+	width: 50px;
+	margin-top: 50px;
+}
+.shareUrlInner img{
+	margin-top: 30px;
+}
+
+.applyResultInner input{
+	font-size: 1.3em !important;
+	color: white;
+	background-color: black;
+	font-weight: bold;
 }
 
 .btnBidApply{
@@ -900,98 +1034,6 @@ ul{
 */
 
 
-	/*reset으로 틀어진 elements들 속성 되돌려놓기*/
-
-.caution li{
-	margin-top: 10px;
-}
-
-form[name=frm_bidIntro] h4, form[name=frm_view] h4, form[name=frm_list] h4{
-	display: block;
-	margin-top: 1.33em;
-	margin-bottom: 1.33em;
-	margin-left: 0;
-	margin-right: 0;
-	font-weight: bold;
-}
-
-form[name=frm_bidIntro] h3, form[name=frm_view] h3, form[name=frm_list] h3{
-	display: block;
-	font-size: 1.17em;
-	margin-top: 1em;
-	margin-bottom: 1em;
-	margin-left: 0;
-	margin-right: 0;
-	font-weight: bold;
-}
-
-form[name=frm_bidIntro] h2, form[name=frm_view] h2, form[name=frm_list] h2{
-	display: block;
-	font-size: 1.5em;
-	margin-top: 0.83em;
-	margin-bottom: 0.83em;
-	margin-left: 0;
-	margin-right: 0;
-	font-weight: bold;
-}
-
-.bidIntroRight div{
-	display: block;
-}
-.bidIntroRight ul{
-	display: block;
-	list-style-type: none;
-	margin-top: 1em;
-	margin-bottom: 1 em;
-	margin-left: 0;
-	margin-right: 0;
-	padding-left: 40px;
-}
-.bidIntroRight li{
-	display: list-item;
-}
-.bidIntroRight table{
-	display: table;
-	border: 1px solid rgb(249, 249, 249);
-	border-collapse: collapse;
-	border-color: gray;
-	margin-left: 3%;
-	width: 80%;
-}
-.bidIntroRight p{
-	display: block;
-	margin-top: 1em;
-	margin-bottom: 1em;
-	margin-left: 0;
-	margin-right: 0;
-}
-
-.bidIntroRight th{
-	display: table-cell;
-	vertical-align: middle;
-	font-weight: bold;
-	text-align: center;
-	height: 50px;
-	border: 1px solid rgb(249, 249, 249);
-	padding: 5px;
-}
-
-.bidIntroRight td{
-	height: 30px;
-	display: table-cell;
-	vertical-align: middle;
-	border: 1px solid rgb(220, 220, 220);
-	padding: 5px;
-}
-
-.bidIntroRight strong{
-	font-weight: bold;
-	margin-top: 10px;
-	margin-bottom: 10px;
-	color: rgb(244, 78, 37);
-}
-	
-	/*reset으로 틀어진 elements들 속성 되돌려놓기 끝*/
 
 
 .bidIntroTitle{

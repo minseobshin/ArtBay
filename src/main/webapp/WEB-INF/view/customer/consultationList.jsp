@@ -70,10 +70,9 @@
 											</select>
 										</div>
 										<div class="form-group mt5m">
-											<!-- <input type="text" id="qry" name="qry" class="form-control" value="" onkeyup="">  -->
 											<input type="text" name="findStr" id="findStr" class="form-control" value="${ page.findStr }" onkeyup="">
-											<input type="text" name="nowPage" class="form-control" value="${ page.nowPage }" onkeyup="">
-											<input type="text" name="qnaNum" class="form-control">	<!-- 상세조회 위한 키 -->
+											<input type="hidden" name="nowPage" class="form-control" value="${ page.nowPage }" onkeyup="">
+											<input type="hidden" name="qnaNum" class="form-control">	<!-- 상세조회 위한 키 -->
 										</div>
 									</div>
 								</td>
@@ -117,7 +116,15 @@
 										</c:choose>
 									</li>
 									<li class="text-left qnaTitle">
-										<div onclick="qna.view(${ vo.qna_num })">${ vo.qna_title }</div>
+										<div onclick="qna.view(${ vo.qna_num })">
+											<c:if test="${ vo.qna_num == vo.grp }">
+												${ vo.qna_title }
+											</c:if>
+											<c:if test="${ vo.qna_num != vo.grp }">
+												<c:forEach begin="0" end="${ vo.deep*6 }">&nbsp;</c:forEach>
+												<img src="img/reply_arrow.png" width="20px" height="20px" style="vertical-align: middle"> ${ vo.qna_title }
+											</c:if>
+										</div>
 									</li>
 									<li class="status mobileNone">
 										<c:if test="${ vo.qna_status == 'N'}">
@@ -143,7 +150,9 @@
 
 			</div>
 			<div class="btnWrap view text-right clearFix mb0">
+				<c:if test="${ not empty sessionScope.sv }">
 					<a id="btnInsertForm" class="btn btn-Insert">글쓰기</a>
+				</c:if>
 			</div>
 		</div>
  

@@ -113,6 +113,34 @@ function off(){
 */
 
  $(function(){
+	//상세 조회 화면에서 최종 동의 및 응찰 버튼 클릭하면 응찰하도록
+	$(".btnBidApply").on("click", function(){
+		$param = $("#frm_view").serialize();
+		$.post({
+		url: "/bidApplied",
+		data: $param,
+		type: "POST",
+		cache: false,
+		async: true,
+		success: function(){
+			$(".bid_caution").css("display", "none");
+			$(".applyResult").css("display", "block");
+			}
+		})	
+	})
+	
+	//상세 조회 화면 : 작품의 전체 응찰 기록 조회
+	$.post({
+			data:{
+				lot: $("#lot").val()
+			},
+			cache: false,
+			async: false,
+			success: function(){
+				window.location.href = "/bidList?lot"+lot;
+			}
+		})
+	
 	if($(".btnSearchX")){
 	$.ajax({
 			url:"/bidList",

@@ -8,16 +8,37 @@ $(function(){
 	var d = 0;
 	
 	//헤더 로그인/마이페이지/로그아웃 시작===============================
-	//로그인 모달창
-	$('#btnLogin').click(function(){
+	//BidView 로그인 모달창
+	$("#needLogin").click(function(){
 		if(d>0){
 			$(".modal-content").show();
 		}else{
 			$(".modal-content").load("mypageMemberLogin");
-			d+=1;
+			d = 1;
 		}
 	})
-		
+	//로그인 모달창
+	$('#btnLogin').click(function(){
+		if(d>0){
+			console.log(d);
+			$(".modal-content").show();
+		}else{
+			$(".modal-content").load("mypageMemberLogin");
+			console.log(d);
+			d = 1;
+		}
+	})
+	//로그인창 취소버튼
+	$('#btnCancelLogin').click(function(){
+		$(".modal-content").load("mypageMemberLogin").hide();
+		console.log(d);
+		d = 1;
+		console.log(d);
+	})
+	//엔터키 로그인
+	$("#midLogin").keyup(function(e){if(e.keyCode==13){$("#btnGoLogin").click();}})
+	$("#pwdLogin").keyup(function(e){if(e.keyCode==13){$("#btnGoLogin").click();}})
+	
 	//마이 페이지
 	$("#btnMyPage").click(function() {
 		if(c%2 != 0){
@@ -48,23 +69,18 @@ $(function(){
 		$.post("memberLogin", $param, function(data) {
 			if(data === "failMid"){
 				alert("아이디를 확인해주세요.");
-				console.log("failMid");
+				console.log(data);
 			}else if(data === "failPwd"){
 				alert("비밀번호를 확인해주세요.");
-				console.log("failPwd");
+				console.log(data);
 			}else{
+				console.log(data);
 				location.reload();
-				console.log("login");
+				d = 0;
 			}
 		});	
 	});
-	//엔터키
-	$("#midLogin").keyup(function(e){if(e.keyCode==13){$("#btnGoLogin").click();}})
-	$("#pwdLogin").keyup(function(e){if(e.keyCode==13){$("#btnGoLogin").click();}})
 	
-	$('#btnCancelLogin').click(function(){
-		$(".modal-content").load("mypageMemberLogin").hide();
-	})
 	
 	
 	

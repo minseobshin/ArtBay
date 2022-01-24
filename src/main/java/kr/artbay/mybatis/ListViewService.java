@@ -63,6 +63,21 @@ public class ListViewService {
 		return vo;
 	}
 	
+   public int bidApply(ArtBayVo vo) {
+      int cnt = 0;
+      cnt = mapper.bidApply(vo);
+      return cnt;
+   }
+   
+   public List<ArtBayVo> viewBids(int lot) {
+	   List<ArtBayVo> list = new ArrayList<ArtBayVo>();
+	   list = mapper.viewBids(lot);
+	   for(ArtBayVo vo: list) {
+		   vo.setBid_cnt(mapper.countBids(lot));
+	   }
+	   return list;
+   }
+	
 	public Page getPage() {return page;}
 	public void setPage(Page page) {this.page = page;}
 }

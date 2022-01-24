@@ -53,24 +53,6 @@
 					<option value="40">40건씩</option>
 					<option value="50">50건씩</option>
 				</select>
-
-				<!-- 케이옥션 페이지 형식. 추후에 필요하면 아래로 바꿔쓸 것.			
-				<div class="dropdown_01">
-					<a id="sort_price_desc">높은 시작가 순</a>
-					<a id="sort_price_asec">낮은 시작가 순</a>
-					<a id="sort_bid_cnt_desc">응찰 많은 순</a>
-					<a id="sort_bid_cnt_asec">응찰 낮은 순</a>
-				</div>
-				<!-- page size -->
-				<!--
-				<div class="dropdown_02">
-					<a id="page_size_10" class="dropdown_item"></a>
-					<a id="page_size_20" class="dropdown_item"></a>
-					<a id="page_size_30" class="dropdown_item"></a>
-					<a id="page_size_40" class="dropdown_item"></a>
-					<a id="page_size_50" class="dropdown_item"></a>
-				</div>
-				 -->
 			</div>
 		</div>
 		<br/>
@@ -94,29 +76,29 @@
 		</c:choose>
 		<div class="listBox">
 			<c:forEach var="vo" items="${list }">
-			<div class="listInner" onclick="artbay.view(${vo.lot })">
-				<p class="img"><img src="${vo.imgFile }" /></p>
-				<div class="listInnerText">
-					<p class="painter">${vo.artist }</p>
-					<p class="art_name">${vo.artwork_name }</p>
-					<p class="material">${vo.material }</p>
-					<p class="paintSize">${vo.artwork_size }</p>
-					<div class="listInnerTextTitle">
-						<p>시작가</p>
-						<p class="currentPriceTitle">현재가</p>
-					</div>
-					<div class="listInnerTextPrice">
-						<p class="minimumPrice">${vo.str_start_price }</p>
-						<p class="currentPrice">${vo.str_current_price }</p>
-					</div>
-					<div class="listInnerTextTail">
-						<p class="endDate">마감일</p>
-						<p class="bidCnt">응찰횟수</p>
-						<p class="endDate">${vo.due_date }</p>
-						<p class="bidCnt">${vo.str_bid_cnt }</p>
+				<div class="listInner" onclick="artbay.view(${vo.lot })">
+					<p class="img"><img src="${vo.imgFile }" /></p>
+					<div class="listInnerText">
+						<p class="painter">${vo.artist }</p>
+						<p class="art_name">${vo.artwork_name }</p>
+						<p class="material">${vo.material }</p>
+						<p class="paintSize">${vo.artwork_size }</p>
+						<div class="listInnerTextTitle">
+							<p>시작가</p>
+							<p class="currentPriceTitle">현재가</p>
+						</div>
+						<div class="listInnerTextPrice">
+							<p class="minimumPrice">${vo.str_start_price }</p>
+							<p class="currentPrice">${vo.str_current_price }</p>
+						</div>
+						<div class="listInnerTextTail">
+							<p class="endDate">마감일</p>
+							<p class="bidCnt">응찰횟수</p>
+							<p class="endDate">${vo.due_date }</p>
+							<p class="bidCnt">${vo.str_bid_cnt }</p>
+						</div>
 					</div>
 				</div>
-			</div>
 			</c:forEach>
 		</div>
 		<div id="pageZone">

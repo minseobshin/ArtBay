@@ -29,7 +29,13 @@ public interface ArtBayMapper {
 	public ArtBayVo view(int lot);
 	public List<ArtBayAtt> viewOthers(int lot);
 	public List<ArtBayAtt> attList(int lot);
-	 
+	public int bidApply(ArtBayVo vo);
+	public void hit_up(int lot);
+	public List<ArtBayVo> viewBids(int lot);
+	public int countBids(int lot);
+	public List<ArtBayVo> viewBidHistoryAll();
+
+	
 	//공지사항 저장
 	public int insertNtc(ArtBayVo vo);
 	public int insertNtcAtt(ArtBayAtt att);
@@ -52,6 +58,8 @@ public interface ArtBayMapper {
 	
 	//경매결과 조회
 	public List<String> bidResult(Page page);
+	//경매종료 update
+	public int artwork_status(ArtBayVo vo);
 	
 	//경매신청
 	public ArtBayVo memberview(String mid);  //회원정보
