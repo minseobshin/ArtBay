@@ -53,24 +53,6 @@
 					<option value="40">40건씩</option>
 					<option value="50">50건씩</option>
 				</select>
-
-				<!-- 케이옥션 페이지 형식. 추후에 필요하면 아래로 바꿔쓸 것.			
-				<div class="dropdown_01">
-					<a id="sort_price_desc">높은 시작가 순</a>
-					<a id="sort_price_asec">낮은 시작가 순</a>
-					<a id="sort_bid_cnt_desc">응찰 많은 순</a>
-					<a id="sort_bid_cnt_asec">응찰 낮은 순</a>
-				</div>
-				<!-- page size -->
-				<!--
-				<div class="dropdown_02">
-					<a id="page_size_10" class="dropdown_item"></a>
-					<a id="page_size_20" class="dropdown_item"></a>
-					<a id="page_size_30" class="dropdown_item"></a>
-					<a id="page_size_40" class="dropdown_item"></a>
-					<a id="page_size_50" class="dropdown_item"></a>
-				</div>
-				 -->
 			</div>
 		</div>
 		<br/>

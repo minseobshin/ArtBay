@@ -66,8 +66,6 @@ public class ListViewService {
    public int bidApply(ArtBayVo vo) {
       int cnt = 0;
       cnt = mapper.bidApply(vo);
-      
-      
       return cnt;
    }
 	

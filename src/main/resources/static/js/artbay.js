@@ -115,12 +115,20 @@ function off(){
  $(function(){
 	//상세 조회 화면에서 최종 동의 및 응찰 버튼 클릭하면 응찰하도록
 	$(".btnBidApply").on("click", function(){
-		console.log("클릭")
-		var frm = $("#frm_view")[0];
-		frm.action = "/bidApplied";
-		frm.submit();
-		
-		
+		$param = $("#frm_view").serialize();
+		alert($param)
+		$.post({
+		url: "/bidApplied",
+		data: $param,
+		type: "POST",
+		cache: false,
+		async: true,
+		success: function(){
+			window.location.href = "/bidApplied?lot="+$("#lot").val()+"&price_combo="+$("#price_combo").val();
+			
+			
+			}
+		})	
 	})
 
 	

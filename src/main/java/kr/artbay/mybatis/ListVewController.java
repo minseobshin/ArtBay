@@ -9,6 +9,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.context.request.SessionScope;
 import org.springframework.web.servlet.ModelAndView;
 
 import javax.servlet.http.HttpServletRequest;
@@ -82,19 +83,17 @@ public class ListVewController {
 		return mv;
 	}
 	
-	@RequestMapping(value="/bidApplied", method= {RequestMethod.POST})
+	@RequestMapping(value="/bidApplied", method= {RequestMethod.POST, RequestMethod.GET})
 	   public ModelAndView bidApplied(ArtBaySessionVo sv, HttpServletRequest req,
-	         @RequestParam(value="lot", required=false) int lot) {
+	         @RequestParam(value="lot", required=false) int lot,
+	         @RequestParam(value="price_combo", required=false) String price) {
 	      ModelAndView mv = new ModelAndView();
 	      ArtBayVo vo = new ArtBayVo();
 	      vo = service.view(lot);
 	      
 	      HttpSession session = req.getSession();
-	      sv = (ArtBaySessionVo)session.getAttribute("sessionScope.mid"); //세션에 있던 로그인 정보
-	      String mid = sv.getMid();
-	      
+	      String mid = (String) session.getAttribute("mid");
 	      vo.setMid(mid);
-	      
 	      int cnt = service.bidApply(vo);
 	      if(cnt>0) {
 	         System.out.println("됐음");

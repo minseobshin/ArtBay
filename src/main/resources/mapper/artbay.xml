@@ -48,7 +48,7 @@
 	</select>
 	
 	<insert id="bidApply" parameterType="kr.artbay.common.ArtBayVo">
-		insert into bidding(lot, mid, bid_price, bid_date) values(${lot}, #{mid}, ${bid_price}, now());
+		insert into bidding(lot, mid, bid_price, bid_date) values(${lot}, #{mid}, #{bid_price}, now());
 	</insert>
 	
 	
