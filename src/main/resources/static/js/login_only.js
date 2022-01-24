@@ -69,12 +69,12 @@ $(function(){
 		$.post("memberLogin", $param, function(data) {
 			if(data === "failMid"){
 				alert("아이디를 확인해주세요.");
-				console.log("failMid");
+				console.log(data);
 			}else if(data === "failPwd"){
 				alert("비밀번호를 확인해주세요.");
-				console.log("failPwd");
+				console.log(data);
 			}else{
-				console.log("login");
+				console.log(data);
 				location.reload();
 				d = 0;
 			}

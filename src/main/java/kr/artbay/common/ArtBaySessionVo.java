@@ -4,6 +4,7 @@ public class ArtBaySessionVo {
 	
 	//로그인세션, 계정, 탈퇴 등 회원관리 전용
 
+	String injung;
 	String mid;
 	String midOut;
 	String pwd;
@@ -19,6 +20,9 @@ public class ArtBaySessionVo {
 	String outEu6;
 	String outEu7;
 	
+	
+	public String getInjung() {return injung;}
+	public void setInjung(String injung) {this.injung = injung;}
 	public String getMid() {return mid;}
 	public void setMid(String mid) {this.mid = mid;}
 	public String getPwd() {return pwd;}
