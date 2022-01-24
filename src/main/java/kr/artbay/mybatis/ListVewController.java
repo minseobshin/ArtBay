@@ -94,6 +94,7 @@ public class ListVewController {
 	      HttpSession session = req.getSession();
 	      String mid = (String) session.getAttribute("mid");
 	      vo.setMid(mid);
+	      vo.setBid_price(Integer.parseInt(price));
 	      int cnt = service.bidApply(vo);
 	      if(cnt>0) {
 	         System.out.println("됐음");

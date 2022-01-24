@@ -116,7 +116,6 @@ function off(){
 	//상세 조회 화면에서 최종 동의 및 응찰 버튼 클릭하면 응찰하도록
 	$(".btnBidApply").on("click", function(){
 		$param = $("#frm_view").serialize();
-		alert($param)
 		$.post({
 		url: "/bidApplied",
 		data: $param,
@@ -124,9 +123,8 @@ function off(){
 		cache: false,
 		async: true,
 		success: function(){
-			window.location.href = "/bidApplied?lot="+$("#lot").val()+"&price_combo="+$("#price_combo").val();
-			
-			
+			$(".bid_caution").css("display", "none");
+			$(".applyResult").css("display", "block");
 			}
 		})	
 	})

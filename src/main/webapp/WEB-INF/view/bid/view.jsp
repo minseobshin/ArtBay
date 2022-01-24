@@ -371,6 +371,20 @@
 			<input type="button" class="btnBidApplyFinal" value="응찰하기"  onclick="modalOn($('.bid_caution'))"/>
 			</div>
 		</div>
+		
+		<div class="applyResult">
+			<div class="applyResultInner">
+				<img src="../img/checked.png" /><br/>
+				<h1>응찰 완료</h1>
+				<p>
+				'${vo.artwork_name} (작가명 : ${vo.artist})'에 성공적으로 응찰하였습니다.<br/><br/>
+				상세 내용은 MyPage의 응찰내역에서 확인하시기 바랍니다.
+				</p>
+				<div>
+					<input type="button" class="btnBidCancel" value="확 인"/>
+				</div>
+			</div>
+		</div>
 	</div>
 	
 	<div class="caution">
