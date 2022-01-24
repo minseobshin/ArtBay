@@ -113,6 +113,13 @@ function off(){
 */
 
  $(function(){
+	var d = 0;
+	
+	//상세 조회 화면에서 로그인 버튼 클릭 시 로그인 모달 창
+	$("#needLogin").click(function(){
+		$("#frm_view").load("mypageMemberLogin");
+	})
+	
 	if($(".btnSearchX")){
 	$.ajax({
 			url:"/bidList",

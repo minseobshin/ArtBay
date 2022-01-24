@@ -114,11 +114,11 @@
 					<p><span>설치 및 보관</span></p>
 				</li>
 			<br/>
-			<c:if test="${sessionScope.mid ne null }">
+			<c:if test="${not empty sessionScope.mid}">
 				<input type="button" class="btnBidStart" value="응찰하기" onclick="modalOn($('.bid_price'))"/>
 			</c:if>
-			<c:if test="${sessionScope.mid eq null }">
-				<input type="button" class="btnBidStart" style="background-color: rgb(255, 109, 45); border: 1px solid rgb(255, 109, 45);"value="로그인하시면 응찰이 가능합니다."/>
+			<c:if test="${empty sessionScope.mid}">
+				<input type="button" class="btnBidStart" id="needLogin" style="background-color: rgb(255, 109, 45); border: 1px solid rgb(255, 109, 45);"value="로그인하시면 응찰이 가능합니다."/>
 			</c:if>
 		</div>
 	<!-- 낙찰 수수료 모달 -->
