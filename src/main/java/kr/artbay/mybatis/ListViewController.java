@@ -69,8 +69,10 @@ public class ListViewController {
 		page.setNowPage(nowPage);
 		page.setSort(sort);
 		List<ArtBayVo> list = service.search(page, findStr);
+		
 		for(ArtBayVo vo : list) {
 			vo.setStr_start_price(NumberFormat.getInstance().format(vo.getStart_price()));
+			if(vo.getCurrent_price()==null) vo.setCurrent_price(0);
 			vo.setStr_current_price(NumberFormat.getInstance().format(vo.getCurrent_price()));
 			vo.setStr_bid_cnt(NumberFormat.getInstance().format(vo.getBid_cnt()));
 		}
@@ -86,10 +88,8 @@ public class ListViewController {
 			@RequestParam(value="nowPage", required=false) int nowPage,
 			@RequestParam(value="sort", required=false) String sort,
 			Page page, HttpServletRequest req){
-		ModelAndView mv = new ModelAndView();	
-		//현재가를 최고가로 업데이트하기
-		int cnt = service.updateCurrentPrice();
-		
+		ModelAndView mv = new ModelAndView();
+
 		//상세 조회 화면 불러오기
 		vo = service.view(lot);
 		

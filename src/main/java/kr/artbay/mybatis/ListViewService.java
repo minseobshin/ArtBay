@@ -66,6 +66,7 @@ public class ListViewService {
 	public int bidApply(ArtBayVo vo) {
 		int cnt = 0;
 		cnt = mapper.bidApply(vo);
+		cnt = mapper.updateCurrentPrice(vo.getLot());
 		return cnt;
 	}
 	
@@ -84,11 +85,7 @@ public class ListViewService {
 			   
 		return list;
 	}
-	
-	public int updateCurrentPrice() {
-		int cnt = mapper.updateCurrentPrice();
-		return cnt;
-	}
+
 	
 	public Page getPage() {return page;}
 	public void setPage(Page page) {this.page = page;}
