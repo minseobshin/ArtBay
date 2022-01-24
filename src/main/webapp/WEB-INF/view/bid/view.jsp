@@ -327,15 +327,35 @@
 					<div class="my_choice">
 						<div class="my_choice_left">
 							<strong>시작가</strong><br/><br/>
-							<strong>현재가</strong><br/><br/><br/>
+							<strong>현재가</strong><br/><br/>
+							<strong>응찰횟수</strong><br/><br/>
 							<strong>응찰가</strong><br/><br/>
 						</div>
 						<div class="my_choice_right">
-							<strong>KRW 4,000,000</strong><br/><br/>
-							<strong>KRW 11,000,000 <br/> (응찰횟수 20회)</strong><br/><br/>
+							<strong>KRW ${vo.str_start_price }</strong><br/><br/>
+							<strong>KRW ${vo.str_current_price } </strong><br/><br/>
+							<strong>${vo.str_bid_cnt }</strong><br/><br/>
 							<select class="price_combo">
-								<option value="10000">10,000</option>
-								<option value="20000">20,000</option>
+							<c:if test="${vo.start_price lt 10001}">
+								<c:forEach var="i" begin=${vo.start_price} end=${vo.start_price+5000} step="500">
+									<option value=i>i</option>
+								</c:forEach>
+							</c:if>
+							<c:if test="${vo.start_price lt 50001 }">
+								<c:forEach var="i" begin=${vo.start_price} end=${vo.start_price+50000} step="1000">
+									<option value=i>i</option>
+								</c:forEach>
+							</c:if>
+							<c:if test="${vo.start_price lt 100001 }">
+								<c:forEach var="i" begin=${vo.start_price} end=${vo.start_price+50000} step="10000">
+									<option value=i>i</option>
+								</c:forEach>
+							</c:if>
+							<c:otherwise>
+								<c:forEach var="i" begin=${vo.start_price} end=${vo.start_price+50000} step="20000">
+									<option value=i>i</option>
+								</c:forEach>
+							</c:otherwise>
 							</select><br/><br/>
 							최고 응찰가를 선택하세요.<br/><br/>
 						</div>
