@@ -86,7 +86,10 @@ public class ListViewController {
 			@RequestParam(value="nowPage", required=false) int nowPage,
 			@RequestParam(value="sort", required=false) String sort,
 			Page page, HttpServletRequest req){
-		ModelAndView mv = new ModelAndView();
+		ModelAndView mv = new ModelAndView();	
+		//현재가를 최고가로 업데이트하기
+		int cnt = service.updateCurrentPrice();
+		
 		//상세 조회 화면 불러오기
 		vo = service.view(lot);
 		

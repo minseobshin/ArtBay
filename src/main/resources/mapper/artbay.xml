@@ -64,8 +64,8 @@
 		order by bid_price desc
 	</select>
 	
-	<update id="updateCurrentPrice">
-		update artwork set current_price =(select max(bid_price) from bidding where lot=#{_parameter});
+	<update id="updateCurrentPrice" parameterType="Integer">
+		update artwork set current_price =(select max(bid_price) from bidding where lot=${_parameter}) where lot=${_parameter};
 	</update>
 	
 	
