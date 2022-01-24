@@ -42,7 +42,7 @@ public class mypageListService {
 		int totSize = mapper.mypageBidTotSize();
 		p.setTotSize(totSize);
 		this.page = p;
-		list = mapper.mypageBidList();		
+		list = mapper.mypageBidList(p);		
 		return list;
 	
 	}
@@ -65,7 +65,7 @@ public class mypageListService {
 		int totSize = mapper.mypageSuccessBidTotSize();
 		p.setTotSize(totSize);
 		this.page = p;
-		list = mapper.mypageSuccessBidList();		
+		list = mapper.mypageSuccessBidList(p);		
 		return list;
 		
 	}

@@ -29,7 +29,7 @@
 			<span class='requestDate'>응찰일자</span>
 			<span class='requestPrice'>응찰가격</span>
 		</div>
-		
+	
 		<div id='rows'>
 			<c:forEach var='vo' items='${list }'>
 				<div id='item' onclick ='mBid.view(${vo.lot})'>
@@ -42,6 +42,7 @@
 				</div>
 			</c:forEach>	
 		</div>
+	
 		</div>
 		<div id='btnZone'>
 			<c:if test="${page.startPage>1 }">
@@ -58,8 +59,7 @@
 				<input type='button' value='맨끝' id='btnLast'  onclick='mBid.page(${page.totPage})'/>
 			</c:if> 			
 		
-		</div>
-		
+		</div>		
 	</form>
 		<form name='frm_page' id='frm_page' method='post'>
 			<input type='hidden' name='nowPage' value='${page.nowPage }'>

@@ -51,10 +51,10 @@ public interface ArtBayMapper {
 	public List<ArtBayVo> faqList(String ctgr);
 	//응찰내역 조회
 	public Integer mypageBidTotSize(); 
-	public List<ArtBayVo> mypageBidList();
+	public List<ArtBayVo> mypageBidList(Page page);
 	//낙찰내역 조회
 	public Integer mypageSuccessBidTotSize(); 
-	public List<ArtBayVo> mypageSuccessBidList();
+	public List<ArtBayVo> mypageSuccessBidList(Page page);
 	
 	//경매결과 조회
 	public List<String> bidResult(Page page);

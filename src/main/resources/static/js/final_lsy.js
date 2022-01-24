@@ -190,6 +190,7 @@ mBid.page = function(nowPage) {
 				var json = JSON.parse(data);
 				if(json.flag=='OK'){ //공지 vo가 저장 성공했을 때
 					var $fd = $('#frm_noticeUpload')[0];
+					alert($fd);
 					$fd.grp.value = json.grp;
 					$fd.enctype = "multipart/form-data";
 					$fd.action = "ntcFileUp";
@@ -281,7 +282,7 @@ function summer() {
 					url  : 'ntcSummerDelete', //summerUploadController와 연결 summerUp?flag=delete
 					cache : false,
 					success : function(msg){
-						console.log("delete ok....")
+						console.log(msg);
 					}
 				})
 			}

@@ -144,14 +144,16 @@
 		values (#{grp}, #{attFile} )
 	</insert>
 	<!-- 응찰내역 건수 조회-->
-	<select id='mypageBidTotSize' resultType='Integer'>
+	<select id='mypageBidTotSize'  resultType='Integer'>
 		select count(B.lot) from bidding B join artwork A on B.lot = A.lot
 	</select>
 	<!-- 응찰내역 조회  -->
-	<select id='mypageBidList' resultType="kr.artbay.common.ArtBayVo">
+	<select id='mypageBidList' parameterType="kr.artbay.common.Page" resultType="kr.artbay.common.ArtBayVo">
 		select B.lot, A.artwork_ctgr, A.artist, A.artwork_name, B.bid_price, date_format(B.bid_date, "%y-%m-%d") bid_date
 		from bidding B join artwork A
 		on B.lot = A.lot
+		ORDER BY bid_date
+		LIMIT ${startNo-1}, ${listSize}
 	</select>
 	
 	<!--경매 종료 update-->
