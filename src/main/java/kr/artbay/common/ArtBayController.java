@@ -93,8 +93,15 @@ public class ArtBayController {
 		session.setMaxInactiveInterval(10*360);
 		String injung = "";
 		this.d = sv.getMid();
-		this.sv = memberService.memberLogin(sv);
-		if(this.sv.getOutEu7() == "failMid" || this.sv.getOutEu7() == "failPwd") {
+		this.b = memberService.checkId(this.d);
+		if(this.b == false) { //id 중복체크를 먼저 돌려서 DB에 존재하는 ID인지 체크한 뒤 중복이면(DB에 있으면) 진행
+			this.sv = memberService.memberLogin(sv);
+			this.c = this.sv.getOutEu7();
+		}else {
+			this.c = "failMid";
+		}
+		
+		if(this.c == "failMid" || this.c == "failPwd") {
 			session.invalidate();
 		}else {
 			injung = this.sv.getInjung();
@@ -102,7 +109,6 @@ public class ArtBayController {
 			session.setAttribute("mid", d);
 			session.setAttribute("injung", injung);
 		}
-		this.c = this.sv.getOutEu7();
 		System.out.println(this.sv.getInjung());
 		return c;
 	}

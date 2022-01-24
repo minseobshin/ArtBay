@@ -6,8 +6,10 @@ public class ArtBaySessionVo {
 
 	String injung;
 	String mid;
+	String midLogin;
 	String midOut;
 	String pwd;
+	String pwdLogin;
 	String oldPwd;
 	String newPwd;
 	String newPwdChk;
@@ -21,6 +23,11 @@ public class ArtBaySessionVo {
 	String outEu7;
 	
 	
+	
+	public String getMidLogin() {return midLogin;}
+	public void setMidLogin(String midLogin) {this.midLogin = midLogin;}
+	public String getPwdLogin() {return pwdLogin;}
+	public void setPwdLogin(String pwdLogin) {this.pwdLogin = pwdLogin;}
 	public String getInjung() {return injung;}
 	public void setInjung(String injung) {this.injung = injung;}
 	public String getMid() {return mid;}
