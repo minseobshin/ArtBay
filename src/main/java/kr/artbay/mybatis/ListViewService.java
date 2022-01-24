@@ -85,6 +85,10 @@ public class ListViewService {
 		return list;
 	}
 	
+	public int updateCurrentPrice() {
+		
+	}
+	
 	public Page getPage() {return page;}
 	public void setPage(Page page) {this.page = page;}
 }

@@ -805,12 +805,12 @@ form[name=frm_view]>ul li:nth-child(3){
 	text-align: left;
 }
 
-.bidHistory, .current_bid_price{
+.bidHistory, .current_bid_price, .bidMyHistory{
 	width: 90%;
 	margin: 0 auto;
 }
 
-.bidHistory{
+.bidHistory, .bidMyHistory{
 	height: 100px;
 	overflow-y: scroll;
 }
