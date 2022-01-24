@@ -100,7 +100,10 @@
 		update notice set hit = hit+1 where serial = #{_parameter}
 	</update>
 	<select id="noticeView" parameterType="String" resultType="kr.artbay.common.ArtBayVo">
-		select * from notice where serial = #{serial} 
+		select serial, title, hit, doc, date_format(not_date, "%y-%m-%d") not_date, grp from notice where serial = #{serial} 
+	</select>
+	<select id="ntcAttList" parameterType="String" resultType="kr.artbay.common.ArtBayAtt">
+		select * from noticeAtt where grp = #{serial}
 	</select>
 	<!-- 선택된 공지 삭제 -->
 	<delete id='deleteNotice' parameterType='list'> 
@@ -112,10 +115,13 @@
 	<!-- 공지 작성 -->
 	<insert id="insertNtc" parameterType="kr.artbay.common.ArtBayVo">
 		insert into notice(serial, grp, title, doc, not_date)
-		values(getNtcSerial('i'), getNtcSerial(''), #{title}, #{doc}, #{not_date})
+		values(getNtcSerial('n'), getNtcSerial(''), #{title}, #{doc}, #{not_date})
 	</insert>
+	<select id="get_grp" resultType="Integer">
+		select getNtcSerial('') grp
+	</select>
 	<insert id='insertNtcAtt' parameterType='kr.artbay.common.ArtBayAtt'>
-		insert into noticeAtt(grp, attFile) 
+		insert into noticeAtt(grp, notFile) 
 		values (#{grp}, #{attFile} )
 	</insert>
 	<!-- 응찰내역 건수 조회-->

@@ -7,6 +7,7 @@ import java.util.Arrays;
 import java.util.List;
 
 import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -14,7 +15,6 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.servlet.ModelAndView;
 
-import jakarta.servlet.http.HttpServletResponse;
 import kr.artbay.common.ArtBayVo;
 import kr.artbay.common.Page;
 
@@ -25,6 +25,7 @@ public class NoticeController {
 	boolean b = false;
 	ArtBayVo vo = null;
 	PrintWriter out;
+	int grp = 0;
 	String msg;
 	String serial = "";
 	Page page = new Page();
@@ -33,7 +34,7 @@ public class NoticeController {
 	@RequestMapping(value="/noticeView", method= {RequestMethod.POST, RequestMethod.GET}) 
 	public ModelAndView view(String serial, Page page) {
 		ModelAndView mv = new ModelAndView();
-		vo = service.noticeView(serial, 'n');
+		vo = service.noticeView(serial);
 		
 		mv.addObject("vo", vo);
 		mv.addObject("Page", page);
@@ -54,16 +55,16 @@ public class NoticeController {
 		public void noticeSave(ArtBayVo vo, HttpServletResponse resp) {
 			try {
 				out = resp.getWriter();
-				
-				b = service.insertNtc(vo);
-				String temp = "{'flag':'%s'}";
+				this.b = service.insertNtc(vo);
+				this.grp = service.getGrp();
+				String temp = "{'flag':'%s', 'grp' : '%s'}";
 				String flag = "";
 				if(b) {
 					flag="OK";
 				}else {
 					flag="Fail";
 				}
-				String json = String.format(temp, flag);
+				String json = String.format(temp, flag, grp);
 				json = json.replaceAll("'", "\"");
 				out.print(json);
 			} catch (IOException e) {

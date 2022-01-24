@@ -34,6 +34,18 @@
 			</div>
 		
 		</div>
+		<div id='attList'>
+		<c:if test="${not empty vo.attList }">
+			<label>파일 첨부</label>
+			<div class='attZone'>
+				<ul>
+				<c:forEach var='att' items="${vo.attList }">
+					<li><a href='./upload/${att.attFile }' download='${att.attFile }'>${att.attFile }</a></li>
+				</c:forEach>
+				</ul>
+			</div>
+		</c:if>
+		</div>
 	</form>
 </body>
 <script src='./js/final_lsy.js'></script>

@@ -189,7 +189,8 @@ mBid.page = function(nowPage) {
 			$.post('noticeSave', $param, function(data){
 				var json = JSON.parse(data);
 				if(json.flag=='OK'){ //공지 vo가 저장 성공했을 때
-					var $fd = $('#frm_upload')[0];
+					var $fd = $('#frm_noticeUpload')[0];
+					$fd.grp.value = json.grp;
 					$fd.enctype = "multipart/form-data";
 					$fd.action = "ntcFileUp";
 					$fd.submit();

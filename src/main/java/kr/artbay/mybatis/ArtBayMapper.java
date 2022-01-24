@@ -33,11 +33,13 @@ public interface ArtBayMapper {
 	//공지사항 저장
 	public int insertNtc(ArtBayVo vo);
 	public int insertNtcAtt(ArtBayAtt att);
+	public Integer get_grp();
 	//공지사항 조회
-	public Integer noticeTotSize(String findStr);
-	public List<ArtBayVo> noticeSearch(Page page);
-	public void notice_hit_up(String serial);
-	public ArtBayVo noticeView(String serial);
+	public List<ArtBayVo> noticeSearch(Page page);//검색
+	public Integer noticeTotSize(String findStr);//페이징처리
+	public List<ArtBayAtt> ntcAttList(String serial);//첨파 로딩
+	public void notice_hit_up(String serial); //조회수
+	public ArtBayVo noticeView(String serial);//본문로딩
 	//공지사항 삭제
 	public Integer deleteNotice(List<String> delNoticeList);
 	public List<ArtBayVo> faqList(String ctgr);

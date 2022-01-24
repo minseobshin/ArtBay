@@ -22,7 +22,8 @@ public class ntcFileUploadController {
 		@Autowired NoticeService service;
 		
 		@RequestMapping (value="/ntcFileUp") //첨팦 저장 관련 컨트롤러
-		public ModelAndView upload(
+		public ModelAndView ntcUpload(
+				int grp,
 				@RequestParam("attFile") List<MultipartFile> mul,
 				@ModelAttribute ArtBayVo vo, @ModelAttribute Page page){//attFile은 jsp의 파일태그 name
 			
@@ -42,17 +43,18 @@ public class ntcFileUploadController {
 					File reName = new File(uploadPath + temp);
 					targetFile.renameTo(reName); //중간에 uuid추가해서 이름 재정의
 					ArtBayAtt att = new ArtBayAtt();
+					att.setGrp(grp);
 					att.setAttFile(temp);
 					attList.add(att);
 				}
 				vo.setAttList(attList);
 				b = service.insertNtcAtt(vo);
-			
 				if(b) {
 					msg = "처리 완료. 문제 없음";
 				}else {
 					msg = "파일 업로드 중 오류발생";
 				}
+				
 				mv.addObject("msg", msg);
 				mv.addObject("page", page);
 				mv.setViewName("customer.noticeList");

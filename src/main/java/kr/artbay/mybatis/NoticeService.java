@@ -32,6 +32,7 @@ public class NoticeService {
 	
 	TransactionStatus status;
 	Page page;
+	int grp;
 	
 	//검색어 입력 시 
 	public List<ArtBayVo> noticeSearch(Page p) {
@@ -47,14 +48,17 @@ public class NoticeService {
 		boolean b = false;
 		status = manager.getTransaction(new DefaultTransactionDefinition());
 		int c = mapper.insertNtc(vo);
+		
 		if(c>0) {
 			manager.commit(status);
+			this.grp = mapper.get_grp();
 			b=true;
 		}else {
 			manager.rollback(status);
 		}
 		return b;
 	} 
+
 	public boolean insertNtcAtt(ArtBayVo vo) {
 		boolean b=false;
 		status = manager.getTransaction(new DefaultTransactionDefinition());
@@ -64,7 +68,6 @@ public class NoticeService {
 			for(ArtBayAtt att : vo.getAttList()) {
 				c += mapper.insertNtcAtt(att);
 			}
-			
 			if(c == vo.getAttList().size()) {
 				manager.commit(status);
 				b=true;
@@ -78,17 +81,18 @@ public class NoticeService {
 		return b;
 		
 	}
-	public ArtBayVo noticeView(String serial, char mode) {
+	public ArtBayVo noticeView(String serial) {
 		status = manager.getTransaction(new DefaultTransactionDefinition());
 		ArtBayVo vo = null;
+		List<ArtBayAtt> ntcAttList = null;
 		try {
-			
-			if(mode == 'n') {
-				mapper.notice_hit_up(serial);
-				manager.commit(status);
-			}
-			
+
+			mapper.notice_hit_up(serial);
+			manager.commit(status);
+		
 			vo = mapper.noticeView(serial);	
+			ntcAttList = mapper.ntcAttList(serial);
+			vo.setAttList(ntcAttList);
 		
 		}catch(Exception ex) {
 			ex.printStackTrace();
@@ -116,6 +120,8 @@ public class NoticeService {
 			return b;
 			
 	}
+	public int getGrp() {return grp;}
+	public void setGrp(int grp) {this.grp = grp;}
 	public Page getPage() {return page;}
 	public void setPage(Page page) {this.page = page;}
 }

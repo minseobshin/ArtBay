@@ -27,7 +27,7 @@ $(function(){
 		<h1>공지사항 작성</h1>
 	<form name='frm_writeNotice' id='frm_writeNotice' method='post'>
 			<label>제목</label>
-			<input type='text' name='subject' size='50' value='공지사항입니다.'>
+			<input type='text' name='title' size='50' value='공지사항입니다.'>
 			<label>작성일</label>
 			<input type='date' name='not_date' readonly='readonly'/>
 			
@@ -35,12 +35,12 @@ $(function(){
 			
 		<br/>
 	</form>	
-	<form name='frm_noticeUpload' id='frm_upload' method='post'>
+	<form name='frm_noticeUpload' id='frm_noticeUpload' method='post'>
 		<label>파일 첨부 </label>
 		<input type='file' name='attFile' multiple="multiple"/> 
 		<input type='hidden' name='nowPage' value='${page.nowPage }'/>
 		<input type='hidden' name='findStr' value='${page.findStr }'/>
-		<input type='hidden' name='grp'/>
+		<input type='text' name='grp'/>
 		
 		<br/>
 	</form>
