@@ -49,10 +49,7 @@
 							<li><a href="bidApplication">경매신청</a></li>
 							<li><a href="customerConsultationList">작품문의내역</a></li>
 							<c:choose>
-								<c:when test="${ sessionScope.mid eq 'chicken' }">
-									<li><a href="memberManage">관리자 페이지</a></li>
-								</c:when>
-								<c:when test="${ sessionScope.mid eq 'admin' }">
+								<c:when test="${ sessionScope.injung eq 'super' }">
 									<li><a href="memberManage">관리자 페이지</a></li>
 								</c:when>
 								<c:otherwise>

@@ -62,26 +62,24 @@ public class MemberService {
 	}
 	
 	//로그인
-	public String memberLogin(ArtBaySessionVo sv) {
-		String c = "";
+	public ArtBaySessionVo memberLogin(ArtBaySessionVo sv) {
+		ArtBaySessionVo svv = null;
 		
 		try {
-			ArtBaySessionVo svv = mapper.memberLogin(sv);
-			if(sv.getMid().equals("admin") && sv.getPwd().equals("admin")) {
-				c = "login";
-			}else if(svv.getMid().equals(sv.getMid())) {
+			svv = mapper.memberLogin(sv);
+			if(svv.getMid().equals(sv.getMid())) {
 				if(svv.getPwd().equals(sv.getPwd())) {
-					c = "login";
+					svv.setOutEu7("login");
 				}else {
-					c = "failPwd";
+					svv.setOutEu7("failPwd");
 				}
 			}
 		}catch(Exception e) {
 			e.printStackTrace();
-			c = "failMid";
+			svv.setOutEu7("failMid");
 		}
 		
-		return c;
+		return svv;
 	}
 	
 	//회원정보수정화면 비밀번호체크 후 정보조회 출력

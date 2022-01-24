@@ -91,14 +91,19 @@ public class ArtBayController {
 	public String memberLogin(ArtBaySessionVo sv, HttpServletRequest req) {
 		HttpSession session = req.getSession();
 		session.setMaxInactiveInterval(10*360);
+		String injung = "";
 		this.d = sv.getMid();
-		this.c = memberService.memberLogin(sv);
-		if(c == "failMid" || c == "failPwd") {
+		this.sv = memberService.memberLogin(sv);
+		if(this.sv.getOutEu7() == "failMid" || this.sv.getOutEu7() == "failPwd") {
 			session.invalidate();
 		}else {
+			injung = this.sv.getInjung();
 			session.setAttribute("sv", sv);
 			session.setAttribute("mid", d);
+			session.setAttribute("injung", injung);
 		}
+		this.c = this.sv.getOutEu7();
+		System.out.println(this.sv.getInjung());
 		return c;
 	}
 	
