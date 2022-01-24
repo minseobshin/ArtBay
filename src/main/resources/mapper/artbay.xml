@@ -60,7 +60,7 @@
 	</select>
 	
 	<select id="viewBidHistoryAll" resultType="kr.artbay.common.ArtBayVo">
-		select * from bidding
+		select lot, mid, bid_price, date_format(bid_date, '%y-%m-%d') as bid_date from bidding
 	</select>
 	
 	

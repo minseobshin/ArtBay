@@ -130,17 +130,6 @@ function off(){
 	})
 	
 	//상세 조회 화면 : 작품의 전체 응찰 기록 조회
-	$.post({
-			data:{
-				lot: $("#lot").val()
-			},
-			cache: false,
-			async: false,
-			success: function(){
-				window.location.href = "/bidList?lot"+lot;
-			}
-		})
-	
 	if($(".btnSearchX")){
 	$.ajax({
 			url:"/bidList",

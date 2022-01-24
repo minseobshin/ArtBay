@@ -58,10 +58,6 @@ public class ListViewController {
 	ArtBayVo vo = null;
 	boolean b = false;
 	
-	public void getParam(HttpServletRequest req) {
-		req.getParameter("lot");
-	}
-	
 	@RequestMapping(value="/bidList", method= {RequestMethod.POST, RequestMethod.GET})
 	public ModelAndView bidList(@RequestParam(value="findStr", required=false) String findStr,
 			@RequestParam(value="cnt", required=false, defaultValue="10") int cnt,
@@ -92,6 +88,8 @@ public class ListViewController {
 			Page page){
 		ModelAndView mv = new ModelAndView();
 		vo = service.view(lot);
+		mv = viewBidHistory(lot);
+		
 		vo.setStr_start_price(NumberFormat.getInstance().format(vo.getStart_price()));
 		vo.setStr_current_price(NumberFormat.getInstance().format(vo.getCurrent_price()));
 		vo.setStr_bid_cnt(NumberFormat.getInstance().format(vo.getBid_cnt()));
@@ -133,25 +131,27 @@ public class ListViewController {
 	   }
 	
 	@RequestMapping(value="/bidViewHistory", method= {RequestMethod.POST, RequestMethod.GET})
-	public void viewBidHistory(@RequestParam(value="lot") int lot) {
-		doSomething(false);
-	}
-	
-	public ModelAndView doSomething(boolean flag) {
+	public ModelAndView viewBidHistory(int lot) {
 		ModelAndView mv = new ModelAndView();
 		List<ArtBayVo> list = new ArrayList<ArtBayVo>();
-		list = service.viewBids(Integer.parseInt(req.getParameter("lot")));
-		System.out.println(list.get(0).getMid());
-		mv.addObject("history", list);
+		List<ArtBayVo> realList = new ArrayList<ArtBayVo>();
+		list = scheduler();
+		for(ArtBayVo vo : list) {
+			if(vo.getLot()==lot) {
+				realList.add(vo);
+			}
+		}
+		
+		mv.addObject("history", realList);
 		mv.setViewName("bid.view");
 		return mv;
 	}
 	
 	@Scheduled(cron="*/5 * * * * *")
-	public ModelAndView scheduler() {
-		ModelAndView mv = new ModelAndView();
-		doSomething(true);
-		return mv;
+	public List<ArtBayVo> scheduler() {
+		List<ArtBayVo> list = new ArrayList<ArtBayVo>();
+		list = service.viewBidsAll();
+		return list;
 	}
 	
 }
