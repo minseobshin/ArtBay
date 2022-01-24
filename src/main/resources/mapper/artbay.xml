@@ -70,6 +70,10 @@
 		</if>
 	</update>
 	
+	<update id="updateBidCnt" parameterType="Integer">
+		update artwork set bic_cnt = bid_cnt+1 where lot = ${_parameter}
+	</update>
+	
 	
 	<!-- 경매신청 -->
 	<select id="memberview" parameterType="String" resultType="kr.artbay.common.ArtBayVo">
