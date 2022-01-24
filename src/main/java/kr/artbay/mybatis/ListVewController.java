@@ -57,6 +57,9 @@ public class ListVewController {
 			Page page){
 		ModelAndView mv = new ModelAndView();
 		vo = service.view(lot);
+		vo.setStr_start_price(NumberFormat.getInstance().format(vo.getStart_price()));
+		vo.setStr_current_price(NumberFormat.getInstance().format(vo.getCurrent_price()));
+		vo.setStr_bid_cnt(NumberFormat.getInstance().format(vo.getBid_cnt()));
 		page.setSort(sort);
 		mv.addObject("vo", vo);
 		List<ArtBayAtt> att = new ArrayList<ArtBayAtt>();
@@ -75,4 +78,13 @@ public class ListVewController {
 		mv.setViewName("bid.view");
 		return mv;
 	}
+	
+	@RequestMapping(value="/bidApplied", method= {RequestMethod.POST})
+	public ModelAndView bidApplied() {
+		ModelAndView mv = new ModelAndView();
+		
+		
+		return mv;
+	}
+	
 }

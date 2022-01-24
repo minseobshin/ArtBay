@@ -51,11 +51,11 @@ public class NoticeController {
 	
 	//공지 저장
 		@RequestMapping(value="/noticeSave", method= {RequestMethod.POST, RequestMethod.GET})
-		public void modifySave(ArtBayVo vo, Page page, HttpServletResponse resp) {
+		public void noticeSave(ArtBayVo vo, HttpServletResponse resp) {
 			try {
 				out = resp.getWriter();
 				
-				b = service.noticeSave(vo);
+				b = service.insertNtc(vo);
 				String temp = "{'flag':'%s'}";
 				String flag = "";
 				if(b) {

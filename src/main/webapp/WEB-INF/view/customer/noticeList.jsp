@@ -10,12 +10,12 @@
 <link rel='stylesheet' type='text/css' href="./css/basic.css">
 <link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Open+Sans:400,300,700,800">
 
-
 <title>공지사항</title>
 </head>
 <body>
 <div id='noticeList'>
 	<h1>공지사항</h1>
+	<input type='text' name='msg' value='${msg }'>
 	<form name='frm_notice' id='frm_notice' method='post'>
 		<div id='noticeSearch'>
 			<output>공지사항 ${page.totSize }건</output>
@@ -36,7 +36,9 @@
 				<span class='noticeDate'>등록일</span>
 				<span class='hit'>조회수</span>
 			</div>
+			<c:if test="${ sessionScope.sv.mid eq 'chicken' }">
 			<span class='chkDeleteNotice'>공지삭제</span>
+			</c:if>	
 			<br/>				
 	
 		</div>
@@ -50,7 +52,9 @@
 						<span class='noticeDate'>${vo.not_date }</span>
 						<span class='hit'>${vo.hit }</span>
 					</div>
-					<input type='checkbox' class='chkDeleteNotice' name='delNotice' value='${vo.serial }'>				
+					<c:if test="${ sessionScope.sv.mid eq 'chicken' }">
+					<input type='checkbox' class='chkDeleteNotice' name='delNotice' value='${vo.serial }'>	
+					</c:if>			
 				</div> 
 			</c:forEach>
 			
@@ -72,8 +76,12 @@
 		<br/>
 		
 		</div>
-		<input type='button' id='btnDeleteNotice' value='선택공지 삭제' >
-		<input type='button' id='btnWriteNotice' value='공지 작성'>
+
+			<c:if test="${ sessionScope.sv.mid eq 'chicken' }">
+				<input type='button' id='btnDeleteNotice' value='선택공지 삭제' >
+				<input type='button' id='btnWriteNotice' value='공지 작성'>
+			</c:if>
+			
 	<!--  선택 삭제 모달창 -->
 		<div id='deleteNotice_alert'>
 			<form name='frm_deleteNotice' id='frm_deleteNotice' method='post'>

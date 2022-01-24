@@ -10,8 +10,10 @@ import org.springframework.transaction.annotation.Transactional;
 import org.springframework.transaction.support.DefaultTransactionDefinition;
 
 import kr.artbay.common.AES;
+import kr.artbay.common.ArtBayAtt;
 import kr.artbay.common.ArtBayVo;
 import kr.artbay.common.Page;
+
 
 
 @Service
@@ -40,19 +42,41 @@ public class NoticeService {
 		list = mapper.noticeSearch(p);
 		return list;
 	}
-	
-	public boolean noticeSave(ArtBayVo vo) {
+	//공지 저장
+	public boolean insertNtc(ArtBayVo vo) {
 		boolean b = false;
 		status = manager.getTransaction(new DefaultTransactionDefinition());
-		int c = mapper.saveNotice(vo);
+		int c = mapper.insertNtc(vo);
 		if(c>0) {
 			manager.commit(status);
-			b = true;
+			b=true;
 		}else {
 			manager.rollback(status);
 		}
-		 
 		return b;
+	} 
+	public boolean insertNtcAtt(ArtBayVo vo) {
+		boolean b=false;
+		status = manager.getTransaction(new DefaultTransactionDefinition());
+		int c = 0;
+	 	try {
+			//첨부 파일 정보 저장
+			for(ArtBayAtt att : vo.getAttList()) {
+				c += mapper.insertNtcAtt(att);
+			}
+			
+			if(c == vo.getAttList().size()) {
+				manager.commit(status);
+				b=true;
+			}else {
+				manager.rollback(status);
+			}		
+			
+		}catch(Exception ex) {
+			ex.printStackTrace();
+		}
+		return b;
+		
 	}
 	public ArtBayVo noticeView(String serial, char mode) {
 		status = manager.getTransaction(new DefaultTransactionDefinition());

@@ -38,9 +38,10 @@ $(function(){
 	<form name='frm_noticeUpload' id='frm_upload' method='post'>
 		<label>파일 첨부 </label>
 		<input type='file' name='attFile' multiple="multiple"/> 
-		<input type='hidden' name='grp'/>
 		<input type='hidden' name='nowPage' value='${page.nowPage }'/>
 		<input type='hidden' name='findStr' value='${page.findStr }'/>
+		<input type='hidden' name='grp'/>
+		
 		<br/>
 	</form>
 	<div id='btnZone'>

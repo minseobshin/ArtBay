@@ -16,14 +16,13 @@ import org.springframework.web.multipart.MultipartFile;
 @Controller
 public class SummerUploadController {
 	
-	
-	@RequestMapping(value="/ntcSummerUp") //
+	@RequestMapping(value="/ntcSummerUp") 
 	public void upload(@RequestParam("file") List<MultipartFile> mul, 
 						HttpServletResponse resp){
 		resp.setContentType("text/html;charset=utf-8");
 		try {
 		
-			String path = FileUploadController.uploadPath;
+			String path = ntcFileUploadController.uploadPath;
 			UUID uuid = null;
 			PrintWriter out = resp.getWriter();
 			
@@ -44,7 +43,7 @@ public class SummerUploadController {
 		String target = req.getParameter("target");
 		
 		String[] temp = target.split("/");
-		File delFile = new File(FileUploadController.uploadPath + temp[temp.length-1]);
+		File delFile = new File(ntcFileUploadController.uploadPath + temp[temp.length-1]);
 		if(delFile.exists()) delFile.delete();
 	}
 }
