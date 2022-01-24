@@ -151,7 +151,7 @@
 	
 	<!-- QNA 조회 건수 -->
 	<select id="qnaTotSize" parameterType="kr.artbay.common.Page" resultType="Integer">
-		SELECT COUNT(QNA_NUM) FROM QNA
+		SELECT COUNT(QNA_NUM) FROM qna
 		<where>
 			<if test="findType != ''">
 				QNA_TYPE = #{findType}	
@@ -169,7 +169,7 @@
 			DATE_FORMAT(QNA_DATE, "%y-%m-%d") QNA_DATE,						 
 			CONCAT(LPAD(" ", DEEP*6, "&#160;"), QNA_TITLE) QNA_TITLE
 		FROM 
-			QNA q
+			qna q
 		<where>
 			<if test="findType != ''">
 				QNA_TYPE = #{findType}	
@@ -186,12 +186,12 @@
 	
 	<!-- QNA 상세조회 -->
 	<select id="qnaView" parameterType="String" resultType="kr.artbay.common.ArtBayVo">
-		SELECT * FROM QNA WHERE QNA_NUM = #{_parameter}
+		SELECT * FROM qna WHERE QNA_NUM = #{_parameter}
 	</select>
 	
 	<!-- QNA 저장 -->
 	<insert id="qnaInsert" parameterType="kr.artbay.common.ArtBayVo">
-		INSERT INTO QNA(QNA_NUM, GRP, SEQ, DEEP, MID, QNA_PWD, QNA_TITLE, QNA_DOC, QNA_DATE, QNA_STATUS, QNA_TYPE) 
+		INSERT INTO qna(QNA_NUM, GRP, SEQ, DEEP, MID, QNA_PWD, QNA_TITLE, QNA_DOC, QNA_DATE, QNA_STATUS, QNA_TYPE) 
 		VALUES(getQnaSerial('i'), getQnaSerial(''), 0, 0, #{mid}, #{qna_pwd}, #{qna_title}, #{qna_doc}, now(), #{qna_status}, #{qna_type})
 	</insert>
 	
@@ -202,18 +202,18 @@
 	
 	<!-- 첨부파일 정보 저장(수정) -->
 	<insert id="qnaAttSave" parameterType="kr.artbay.common.ArtBayAtt">
-		INSERT INTO QNAATT(GRP, ATTFILE) 
+		INSERT INTO qnaAtt(GRP, ATTFILE) 
 		VALUES(#{grp}, #{attFile})	
 	</insert>
 	
 	<!-- 첨부파일 정보 조회 -->
 	<select id="qnaAttList" parameterType="String" resultType="kr.artbay.common.ArtBayAtt">
-		SELECT * FROM QNAATT WHERE GRP = #{_parameter}
+		SELECT * FROM qnaAtt WHERE GRP = #{_parameter}
 	</select>
 	
 	<!-- 삭제 -->
 	<delete id="qnaDelete" parameterType="kr.artbay.common.ArtBayVo">
-		DELETE FROM QNA  
+		DELETE FROM qna  
 		<where>
 			QNA_NUM = #{qna_num} 
 			<if test="mid != 'admin'">
@@ -224,25 +224,25 @@
 	
 	<!-- 첨부파일 정보 삭제 -->
 	<delete id="qnaAttDelete" parameterType="String">
-		DELETE FROM QNAATT 
+		DELETE FROM qnaAtt  
 		WHERE GRP = #{_parameter}
 	</delete>
 	
 	<!-- SEQ 증가 -->
 	<update id="qnaSeqUp" parameterType="kr.artbay.common.ArtBayVo">
-		UPDATE QNA SET SEQ = SEQ + 1
+		UPDATE qna SET SEQ = SEQ + 1
 		WHERE GRP = ${grp} AND SEQ > ${seq}
 	</update>
 	
 	<!-- 댓글 작성 -->
 	<insert id="reply" parameterType="kr.artbay.common.ArtBayVo">
-		INSERT INTO QNA(QNA_NUM, GRP, SEQ, DEEP, MID, QNA_PWD, QNA_TITLE, QNA_DOC, QNA_DATE, QNA_STATUS, QNA_TYPE) 
+		INSERT INTO qna(QNA_NUM, GRP, SEQ, DEEP, MID, QNA_PWD, QNA_TITLE, QNA_DOC, QNA_DATE, QNA_STATUS, QNA_TYPE) 
 		VALUES(getQnaSerial('i'), #{grp}, ${seq+1}, ${deep+1}, #{mid}, #{qna_pwd}, #{qna_title}, #{qna_doc}, now(), #{qna_status}, #{qna_type})
 	</insert>
 	
 	<!-- 수정 -->
 	<update id="qnaUpdate" parameterType="kr.artbay.common.ArtBayVo">
-		UPDATE QNA SET QNA_TYPE = #{qna_type}, QNA_TITLE = #{qna_title}, QNA_DOC = #{qna_doc}, QNA_STATUS = #{qna_status} 
+		UPDATE qna SET QNA_TYPE = #{qna_type}, QNA_TITLE = #{qna_title}, QNA_DOC = #{qna_doc}, QNA_STATUS = #{qna_status} 
 		<where>
 			QNA_NUM = #{qna_num} 
 			<if test="mid != 'admin'">
@@ -253,7 +253,7 @@
 	
 	<!-- 선택한 첨부파일 정보 삭제 -->
 	<delete id="qnaChkAttDelete" parameterType="List">
-		DELETE FROM QNAATT  
+		DELETE FROM qnaAtt    
 		WHERE ATTFILE IN
 		<foreach collection="list" item="att" open="(" separator="," close=")">
 			#{att}
