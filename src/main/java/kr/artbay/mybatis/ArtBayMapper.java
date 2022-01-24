@@ -53,6 +53,8 @@ public interface ArtBayMapper {
 	
 	//경매결과 조회
 	public List<String> bidResult(Page page);
+	//경매종료 update
+	public int artwork_status(ArtBayVo vo);
 	
 	//경매신청
 	public ArtBayVo memberview(String mid);  //회원정보

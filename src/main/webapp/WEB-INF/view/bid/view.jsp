@@ -340,26 +340,26 @@
 							<strong>KRW ${vo.str_start_price }</strong><br/><br/>
 							<strong>KRW ${vo.str_current_price } </strong><br/><br/>
 							<strong>${vo.str_bid_cnt }</strong><br/><br/>
-							<select class="price_combo">
+							<select class="price_combo" name="price_combo">
 							<c:choose>
 								<c:when test="${vo.start_price lt 10001}">
 									<c:forEach var="i" begin="${vo.start_price}" end="${vo.start_price+5000}" step="500">
-										<option value="i">${i }</option>
+										<option value=${i }>${i }</option>
 									</c:forEach>
 								</c:when>
 								<c:when test="${vo.start_price lt 50001 }">
 									<c:forEach var="i" begin="${vo.start_price}" end="${vo.start_price+10000}" step="1000">
-										<option value="i">${i }</option>
+										<option value=${i }>${i }</option>
 									</c:forEach>
 								</c:when>
 								<c:when test="${vo.start_price lt 100001 }">
 									<c:forEach var="i" begin="${vo.start_price}" end="${vo.start_price+100000}" step="10000">
-										<option value="i">${i }</option>
+										<option value=${i }>${i }</option>
 									</c:forEach>
 								</c:when>
 								<c:otherwise>
 									<c:forEach var="i" begin="${vo.start_price}" end="${vo.start_price+100000}" step="20000">
-										<option value="i">${i }</option>
+										<option value=${i }>${i }</option>
 									</c:forEach>
 								</c:otherwise>
 							</c:choose>
