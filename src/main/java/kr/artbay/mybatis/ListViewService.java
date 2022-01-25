@@ -82,8 +82,7 @@ public class ListViewService {
 	
 	public List<ArtBayVo> viewBidsAll(){
 		List<ArtBayVo> list = new ArrayList<ArtBayVo>();
-		list = mapper.viewBidHistoryAll();
-			   
+		list = mapper.viewBidHistoryAll();  
 		return list;
 	}
 
