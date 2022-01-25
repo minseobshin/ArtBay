@@ -9,8 +9,8 @@
 <link rel='stylesheet' type='text/css' href="./css/application2.css">
 </head>
 <body>
-<div class = "howtoform">
-		<h1>응찰 안내</h1>
+<div class = "applyform">
+	<h1>응찰안내</h1>
 </div>
 <div class="container">
     <div id="Howto">        
