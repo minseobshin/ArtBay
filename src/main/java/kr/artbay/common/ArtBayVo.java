@@ -61,6 +61,7 @@ public class ArtBayVo {
 	String crnt_status;
 	String sort;
 	String bid_time;
+	String remaining_time;
 	
 	//공지사항
 	String title;
@@ -246,5 +247,8 @@ public class ArtBayVo {
 	public void setStr_bid_cnt(String str_bid_cnt) {this.str_bid_cnt = str_bid_cnt;}
 	public String getBid_time() {return bid_time;}
 	public void setBid_time(String bid_time) {this.bid_time = bid_time;}
+	public String getRemaining_time() {return remaining_time;}
+	public void setRemaining_time(String remaining_time) {this.remaining_time = remaining_time;}
+	
 	
 }
