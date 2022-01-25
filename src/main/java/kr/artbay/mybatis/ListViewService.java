@@ -90,7 +90,6 @@ public class ListViewService {
 		List<ArtBayVo> list = mapper.bidOnGoing();
 		if(list.size()>0) {
 			for(ArtBayVo vo : list) {
-				if(vo.getDue_date()<)
 				mapper.updateStatus(vo.getLot());
 			}
 		}
