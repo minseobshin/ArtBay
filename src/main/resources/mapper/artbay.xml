@@ -218,7 +218,7 @@
 					QNA_STATUS = 'Y' 
 				</when>
 				<when test="mid != 'admin' and mid != 'chicken'">
-					grp IN(SELECT qna_num FROM qna WHERE mid='test' AND qna_num = grp) 
+					grp IN(SELECT qna_num FROM qna WHERE mid=#{mid} AND qna_num = grp) 
 				</when>
 			</choose>
 
@@ -244,7 +244,7 @@
 					QNA_STATUS = 'Y' 
 				</when>
 				<when test="mid != 'admin' and mid != 'chicken'">
-					grp IN(SELECT qna_num FROM qna WHERE mid='test' AND qna_num = grp) 
+					grp IN(SELECT qna_num FROM qna WHERE mid=#{mid} AND qna_num = grp) 
 				</when>
 			</choose>
 			
