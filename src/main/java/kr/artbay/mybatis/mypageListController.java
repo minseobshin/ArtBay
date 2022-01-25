@@ -8,7 +8,6 @@ import javax.servlet.http.HttpSession;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.servlet.ModelAndView;
 
@@ -37,18 +36,20 @@ public class mypageListController {
 	}
 	*/
 	//응찰내역
-	@ResponseBody
 	@RequestMapping(value="/mypageBid")
-	public List<ArtBayVo> bidList(Page page, ArtBaySessionVo sv, HttpServletRequest req) { //req로 받지 않아도 변수들 다 세팅해서 가져옴
+	public ModelAndView bidList(Page page, ArtBaySessionVo sv, HttpServletRequest req) { //req로 받지 않아도 변수들 다 세팅해서 가져옴
+		ModelAndView mv = new ModelAndView();
 		HttpSession session = req.getSession();
-		sv = (ArtBaySessionVo)session.getAttribute("sv");
-		String mid = sv.getMid();
+		String mid = (String)session.getAttribute("mid");
 		
 		page.setMid(mid);
-		page = service.getPage();
 		List<ArtBayVo> list = service.mypageBidList(page); //service=>dao역할
+		page = service.getPage();
 		
-		return list;
+		mv.addObject("list", list);
+		mv.addObject("page", page);
+		mv.setViewName("mypage.Bid");
+		return mv;
 	}
 	//응찰작품 상세내역
 	@RequestMapping(value="/bidListView", method= {RequestMethod.POST, RequestMethod.GET}) //value=요청한 경로
