@@ -219,6 +219,7 @@ function off(){
 	
 	$(".btnBidCancel").click(function(){
 		$(".btnBidCancel").parent().parent().parent().hide();
+		location.reload();
 	})
 	
 	 if(matchMedia("screen and (max-width: 1300px)").matches){

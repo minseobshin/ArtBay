@@ -67,7 +67,7 @@ public class ListViewService {
 		int cnt = 0;
 		cnt = mapper.bidApply(vo);
 		cnt = mapper.updateCurrentPrice(vo.getLot());
-		cnt = mapper.updateBidCnt(cnt);
+		cnt = mapper.updateBidCnt(vo.getLot());
 		return cnt;
 	}
 	

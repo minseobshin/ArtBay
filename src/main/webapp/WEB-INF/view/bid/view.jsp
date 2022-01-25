@@ -77,14 +77,14 @@
 	<div class="view_right">
 		<div class="right_work_info">	
 			<div class="deadline_time">
-				<span>남은 시간</span>
-				<span class="remainTime"></span>
+				<span>남은 시간</span><br/>
+				<span class="remainTime">${vo.due_date }</span>
 			</div>	
 			<div class="view_detail">
-				<p class="painter"><span>작가 이름</span></p>
-				<p class="art_name">그림 제목</p>
-				<p class="material">재료</p>
-				<p class="paintSize">사이즈</p>
+				<p class="painter">${vo.artist }</p>
+				<p class="art_name">${vo.artwork_name }</p>
+				<p class="material">${vo.material }</p>
+				<p class="paintSize">${vo.artwork_size }</p>
 			</div>
 			<div class="view_price">
 				<p>
