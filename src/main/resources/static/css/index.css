@@ -248,6 +248,10 @@ header > * {
 .tab_container section .item .info {
 	display: none;
 }
+.tab_container section .item img {
+	width: 100%;
+	height: 100%;
+}
 .tab_container section .item:hover .info {
 	display: block;
 	position: absolute;

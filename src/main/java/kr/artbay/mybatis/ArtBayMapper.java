@@ -39,7 +39,8 @@ public interface ArtBayMapper {
 	public List<ArtBayVo> bidOnGoing();
 	public int updateStatus(int lot);
 
-	
+	//메인 list
+	public List<ArtBayVo> mainsearch();
 	//공지사항 저장
 	public int insertNtc(ArtBayVo vo);
 	public int insertNtcAtt(ArtBayAtt att);
