@@ -85,6 +85,13 @@ public class ListViewService {
 		list = mapper.viewBidHistoryAll();  
 		return list;
 	}
+	
+	public int updateStatus() {
+		int cnt;
+		
+		
+		return cnt;
+	}
 
 	
 	public Page getPage() {return page;}

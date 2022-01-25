@@ -74,6 +74,10 @@
 		update artwork set bid_cnt = bid_cnt+1 where lot = ${_parameter}
 	</update>
 	
+	<select id="bidOnGoing" resultType="kr.artbay.common.ArtBayVo">
+		select * from artwork where crnt_status="경매중";
+	</select>
+	
 	
 	<!-- 경매신청 -->
 	<select id="memberview" parameterType="String" resultType="kr.artbay.common.ArtBayVo">
