@@ -5,8 +5,19 @@ import java.io.IOException;
 import java.io.UnsupportedEncodingException;
 import java.security.Principal;
 import java.text.NumberFormat;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.time.Duration;
+import java.time.LocalDate;
+import java.time.LocalDateTime;
+import java.time.LocalTime;
+import java.time.Period;
+import java.time.format.DateTimeFormatter;
+import java.time.temporal.ChronoUnit;
+import java.time.temporal.Temporal;
 import java.util.ArrayList;
 import java.util.Collection;
+import java.util.Date;
 import java.util.Enumeration;
 import java.util.List;
 import java.util.Locale;
@@ -75,6 +86,7 @@ public class ListViewController {
 			if(vo.getCurrent_price()==null) vo.setCurrent_price(vo.getStart_price());
 			vo.setStr_current_price(NumberFormat.getInstance().format(vo.getCurrent_price()));
 			vo.setStr_bid_cnt(NumberFormat.getInstance().format(vo.getBid_cnt()));
+			if(vo.getDirect_price()!=null) vo.setStr_direct_price(NumberFormat.getInstance().format(vo.getDirect_price()));
 		}
 		page = service.getPage();
 		mv.addObject("page", page);
@@ -96,10 +108,63 @@ public class ListViewController {
 		//전체 응찰 내역 불러오기
 		mv = viewBidHistory(lot);
 		
+		//남은 시간 설정하기
+			String dueDate = vo.getDue_date();
+			int year = Integer.parseInt(dueDate.substring(0, 4));
+			int month = Integer.parseInt(dueDate.substring(5, 7));
+			int day = Integer.parseInt(dueDate.substring(8, 10));
+			
+			LocalDateTime dt = LocalDateTime.of(year, month, day, 00, 00, 00);
+			
+			//localDate 지금, 기한
+			LocalDate nowDate = LocalDate.now();
+			LocalDate dd = dt.toLocalDate();
+			
+			Period periodDate = Period.between(nowDate, dd);
+			int diffYear = periodDate.getYears();
+			int diffMonth = periodDate.getMonths();
+			int diffDay = periodDate.getDays();
+						
+			//localTime 지금, 기한
+			LocalDateTime nowTime = LocalDateTime.now();
+			LocalTime dueTime = dt.toLocalTime();
+			
+			diffYear = (int) ChronoUnit.YEARS.between(nowTime, dt);
+			diffMonth = (int) ChronoUnit.MONTHS.between(nowTime, dt);
+			diffDay = (int) ChronoUnit.DAYS.between(nowTime, dt);
+			
+			int diffHr = (int) ChronoUnit.HOURS.between(nowTime, dt);
+			if(diffHr>24) diffHr = diffHr/24;
+			int diffMin = (int) ChronoUnit.MINUTES.between(nowTime, dt);
+			if(diffMin>60) {
+				int min = diffMin/60;
+				diffMin = diffMin - 60*min;
+			}
+			
+			int diffSec = (int) ChronoUnit.SECONDS.between(nowTime, dt);
+			if(diffSec>60) {
+				int sec = diffSec/60;
+				diffSec = diffSec - 60*sec;
+			}
+			if((diffYear|diffMonth|diffDay|diffHr|diffMin|diffSec)<0) {
+				vo.setRemaining_year(-1);
+			}else {				
+				vo.setRemaining_year(diffYear);
+				vo.setRemaining_month(diffMonth);
+				vo.setRemaining_day(diffDay);
+				vo.setRemaining_hr(diffHr);
+				vo.setRemaining_min(diffMin);
+				vo.setRemaining_sec(diffSec);
+			}
+			
+			//System.out.println(diffYear + "년" + diffMonth + "개월" + diffDay+"일" + diffHr+" 시간 "+diffMin +" 분 "+diffSec+" 초");
+
+		//숫자 반점 표기
 		vo.setStr_start_price(NumberFormat.getInstance().format(vo.getStart_price()));
 		if(vo.getCurrent_price()==null) vo.setCurrent_price(vo.getStart_price());
 		vo.setStr_current_price(NumberFormat.getInstance().format(vo.getCurrent_price()));
 		vo.setStr_bid_cnt(NumberFormat.getInstance().format(vo.getBid_cnt()));
+		if(vo.getDirect_price()!=null) vo.setStr_direct_price(NumberFormat.getInstance().format(vo.getDirect_price()));
 		page.setSort(sort);
 		mv.addObject("vo", vo);
 		List<ArtBayAtt> att = new ArrayList<ArtBayAtt>();
@@ -190,6 +255,7 @@ public class ListViewController {
 	public List<ArtBayVo> scheduler() {
 		List<ArtBayVo> list = new ArrayList<ArtBayVo>();
 		list = service.viewBidsAll();
+		service.updateStatus();
 		return list;
 	}
 	

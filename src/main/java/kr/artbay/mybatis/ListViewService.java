@@ -85,6 +85,15 @@ public class ListViewService {
 		list = mapper.viewBidHistoryAll();  
 		return list;
 	}
+	
+	public void updateStatus() {
+		List<ArtBayVo> list = mapper.bidOnGoing();
+		if(list.size()>0) {
+			for(ArtBayVo vo : list) {
+				mapper.updateStatus(vo.getLot());
+			}
+		}
+	}
 
 	
 	public Page getPage() {return page;}

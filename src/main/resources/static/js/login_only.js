@@ -81,7 +81,58 @@ $(function(){
 		});	
 	});
 	
+	//아이디 찾기===================================================
+	//아이디 찾기 클릭
+	$("#btnFindId").click(function(){
+		$("#frm_memberLogin").css({"display" : "none"});
+		$("#frm_findId").css({"display" : "inline"});
+		$("#frm_findPwd").css({"display" : "none"});
+	})
+	$("#btnFindId2").click(function(){
+		$("#frm_memberLogin").css({"display" : "none"});
+		$("#frm_findId").css({"display" : "inline"});
+		$("#frm_findPwd").css({"display" : "none"});
+	})
 	
+	//비밀번호 찾기 클릭
+	$("#btnFindPwd").click(function(){
+		$("#frm_memberLogin").css({"display" : "none"});
+		$("#frm_findId").css({"display" : "none"});
+		$("#frm_findPwd").css({"display" : "inline"});
+	})
+	$("#btnFindPwd2").click(function(){
+		$("#frm_memberLogin").css({"display" : "none"});
+		$("#frm_findId").css({"display" : "none"});
+		$("#frm_findPwd").css({"display" : "inline"});
+	})
+	
+	//로그인 클릭
+	$("#btnLoginPage").click(function(){
+		$("#frm_memberLogin").css({"display" : "inline"});
+		$("#frm_findId").css({"display" : "none"});
+		$("#frm_findPwd").css({"display" : "none"});
+	})
+	$("#btnLoginPage2").click(function(){
+		$("#frm_memberLogin").css({"display" : "inline"});
+		$("#frm_findId").css({"display" : "none"});
+		$("#frm_findPwd").css({"display" : "none"});
+	})
+	
+	//취소버튼
+	$('#btnCancelLogin2').click(function(){
+		$(".modal-content").load("mypageMemberLogin").hide();
+		console.log(d);
+		d = 1;
+		console.log(d);
+	})
+	$('#btnCancelLogin3').click(function(){
+		$(".modal-content").load("mypageMemberLogin").hide();
+		console.log(d);
+		d = 1;
+		console.log(d);
+	})
+	
+	//비밀번호 찾기==================================================
 	
 	
 	

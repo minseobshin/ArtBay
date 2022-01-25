@@ -67,18 +67,22 @@
 				</div>
 			</div>
 		</div>
-		<div class="work_info">
-			<h3>작품 정보</h3>
-			<div class="cont">
-				<p> signed, titled and dated on the reverse<br/>Acrylic Frame </p>
-			</div>
-		</div>
 	</div>
 	<div class="view_right">
 		<div class="right_work_info">	
 			<div class="deadline_time">
-				<span>남은 시간</span><br/>
-				<span class="remainTime">${vo.due_date }</span>
+				<c:choose>
+					<c:when test="${vo.remaining_year eq -1}">
+						경매가 종료 되었습니다.
+					</c:when>
+					<c:otherwise>
+						<span>남은 시간</span><br/>
+						<c:if test="${vo.remaining_year gt 0 }">
+							<span>${vo.remaining_year }년</span>
+						</c:if>
+						<span class="remainTime">${vo.remaining_day }일 ${vo.remaining_hr }시간 ${vo.remaining_min }분 ${vo.remaining_sec }초</span>
+					</c:otherwise>
+				</c:choose>
 			</div>	
 			<div class="view_detail">
 				<p class="painter">${vo.artist }</p>
@@ -88,17 +92,19 @@
 			</div>
 			<div class="view_price">
 				<p>
-					<strong>추정가</strong>
-						KRW 6,000,000~8,000,000
-				</p>
-				<p>
 					<strong>시작가</strong>
-						KRW 4,000,000
+					<span class="str_start_price">KRW ${vo.str_start_price }</span>
 				</p>
 				<p>
 					<strong>현재가</strong>
-						KRW 9,000,000
+					<span class="str_current_price">KRW ${vo.str_current_price }</span>
 				</p>
+				<c:if test="${not empty vo.direct_price }">
+					<p>
+						<strong>즉시 판매가</strong>
+						<span class="str_direct_price">KRW ${vo.str_direct_price }</span>
+					</p>
+				</c:if>
 			</div>
 			<div class="closing_hour">
 				<span>마감 시간</span>
@@ -348,13 +354,14 @@
 						<div class="my_choice_left">
 							<strong>시작가</strong><br/><br/>
 							<strong>현재가</strong><br/><br/>
-							<strong>응찰횟수</strong><br/><br/>
 							<strong>응찰가</strong><br/><br/>
+							<c:if test="${not empty vo.str_direct_price }">
+								<strong>즉시 판매가</strong>
+							</c:if>
 						</div>
 						<div class="my_choice_right">
 							<strong>KRW ${vo.str_start_price }</strong><br/><br/>
 							<strong>KRW ${vo.str_current_price } </strong><br/><br/>
-							<strong>${vo.str_bid_cnt }</strong><br/><br/>
 							<select class="price_combo" name="price_combo">
 							<c:choose>
 								<c:when test="${vo.current_price>=vo.start_price }">
@@ -407,11 +414,25 @@
 								</c:otherwise>
 							</c:choose>
 							</select><br/><br/>
-							최고 응찰가를 선택하세요.<br/><br/>
+							<strong>
+							<c:if test="${not empty vo.str_direct_price }">
+								<strong>KRW ${vo.str_direct_price }</strong>
+							</c:if>
+							</strong>
 						</div>
 					</div>
 				</div>
-			<input type="button" class="btnBidApplyFinal" value="응찰하기"  onclick="modalOn($('.bid_caution'))"/>
+			<c:choose>
+				<c:when test="${empty vo.str_direct_price }">
+					<input type="button" class="btnBidApplyFinal" value="응찰하기"  onclick="modalOn($('.bid_caution'))"/>
+				</c:when>
+				<c:otherwise>
+					<div class="btnBidApplyFinalLeftBox">
+						<input type="button" class="btnBidApplyFinalLeft" value="응찰하기"  onclick="modalOn($('.bid_caution'))"/>
+						<input type="button" class="btnBidApplyFinalRight" value="즉시 구매" />
+					</div>
+				</c:otherwise>
+			</c:choose>
 			</div>
 		</div>
 		
@@ -428,6 +449,11 @@
 				</div>
 			</div>
 		</div>
+	</div>
+	
+	<div class="artworkInfo">
+		<h3>작품 정보</h3><br/>
+		<div>${vo.contents }</div>
 	</div>
 	
 	<div class="caution">

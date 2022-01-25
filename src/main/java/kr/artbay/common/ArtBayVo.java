@@ -1,5 +1,6 @@
 package kr.artbay.common;
 
+import java.sql.Date;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -54,14 +55,20 @@ public class ArtBayVo {
 	String str_start_price;
 	Integer current_price;
 	String str_current_price;
+	String str_direct_price;
 	String regist_date;
-	String due_date;
 	int bid_cnt;
 	String str_bid_cnt;
 	String crnt_status;
 	String sort;
 	String bid_time;
-	String remaining_time;
+	String due_date;
+	int remaining_year;
+	int remaining_month;
+	int remaining_day;
+	int remaining_hr;
+	int remaining_min;
+	int remaining_sec;
 	
 	//공지사항
 	String title;
@@ -186,8 +193,6 @@ public class ArtBayVo {
 	public void setCurrent_price(Integer current_price) {this.current_price = current_price;}
 	public String getRegist_date() {return regist_date;}
 	public void setRegist_date(String regist_date) {this.regist_date = regist_date;}
-	public String getDue_date() {return due_date;}
-	public void setDue_date(String due_date) {this.due_date = due_date;}
 	public String getTitle() {return title;}
 	public void setTitle(String title) {this.title = title;}
 	public int getQna_num() {return qna_num;}
@@ -247,8 +252,21 @@ public class ArtBayVo {
 	public void setStr_bid_cnt(String str_bid_cnt) {this.str_bid_cnt = str_bid_cnt;}
 	public String getBid_time() {return bid_time;}
 	public void setBid_time(String bid_time) {this.bid_time = bid_time;}
-	public String getRemaining_time() {return remaining_time;}
-	public void setRemaining_time(String remaining_time) {this.remaining_time = remaining_time;}
-	
+	public String getDue_date() {return due_date;}
+	public void setDue_date(String due_date) {this.due_date = due_date;}
+	public int getRemaining_year() {return remaining_year;}
+	public void setRemaining_year(int remaining_year) {this.remaining_year = remaining_year;}
+	public int getRemaining_month() {return remaining_month;}
+	public void setRemaining_month(int remaining_month) {this.remaining_month = remaining_month;}
+	public int getRemaining_day() {return remaining_day;}
+	public void setRemaining_day(int remaining_day) {this.remaining_day = remaining_day;}
+	public int getRemaining_hr() {return remaining_hr;}
+	public void setRemaining_hr(int remaining_hr) {this.remaining_hr = remaining_hr;}
+	public int getRemaining_min() {return remaining_min;}
+	public void setRemaining_min(int remaining_min) {this.remaining_min = remaining_min;}
+	public int getRemaining_sec() {return remaining_sec;}
+	public void setRemaining_sec(int remaining_sec) {this.remaining_sec = remaining_sec;}
+	public String getStr_direct_price() {return str_direct_price;}
+	public void setStr_direct_price(String str_direct_price) {this.str_direct_price = str_direct_price;}
 	
 }

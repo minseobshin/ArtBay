@@ -46,8 +46,7 @@
 						<ul>
 							<li><a href="mypageBid">응찰내역</a></li>
 							<li><a href="mypageSuccessBid">낙찰내역</a></li>
-							<li><a href="bidApplication">경매신청</a></li>
-							<li><a href="customerConsultationList">작품문의내역</a></li>
+							<li><a href="bidApplication">경매신청</a></li>							
 							<c:choose>
 								<c:when test="${ sessionScope.injung eq 'super' }">
 									<li><a href="memberManage">관리자 페이지</a></li>

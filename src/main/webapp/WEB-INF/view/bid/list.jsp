@@ -42,6 +42,8 @@
 					<option value="default">정렬</option>
 					<option value="init_price_asce">낮은 시작가 순</option>
 					<option value="init_price_desc">높은 시작가 순</option>
+					<option value="current_price_asce">낮은 현재가 순</option>
+					<option value="current_price_desc">높은 현재가 순</option>
 					<option value="bid_history_cnt_asce">응찰 낮은 순</option>
 					<option value="bid_history_cnt_desc">응찰 많은 순</option>
 				</select>
@@ -86,16 +88,31 @@
 						<div class="listInnerTextTitle">
 							<p>시작가</p>
 							<p class="currentPriceTitle">현재가</p>
+							<c:choose>
+								<c:when test="${not empty vo.direct_price }">
+									<p class="directPriceTitle">즉시 판매가</p>
+								</c:when>
+								<c:otherwise>
+									<p>　</p>
+								</c:otherwise>
+							</c:choose>
 						</div>
 						<div class="listInnerTextPrice">
 							<p class="minimumPrice">${vo.str_start_price }</p>
 							<p class="currentPrice">${vo.str_current_price }</p>
+							<c:choose>
+								<c:when test="${not empty vo.direct_price }">
+									<p class="directPrice">${vo.str_direct_price }</p>
+								</c:when>
+								<c:otherwise>
+								</c:otherwise>
+							</c:choose>
 						</div>
 						<div class="listInnerTextTail">
-							<p class="endDate">마감일</p>
-							<p class="bidCnt">응찰횟수</p>
-							<p class="endDate">${vo.due_date }</p>
-							<p class="bidCnt">${vo.str_bid_cnt }</p>
+							<p class="endDate">마감 ${vo.due_date }</p>
+							<c:if test="${vo.bid_cnt gt 0 }">
+								<p class="bidCnt">${vo.str_bid_cnt }회</p>
+							</c:if>
 						</div>
 					</div>
 				</div>

@@ -238,12 +238,13 @@ form[name=frm_list]{
 	text-align: left;
 	margin-left: 20px;
 }
+
 .listInner{
 	margin: 10px;
 	width: 17.5%;
 	border: 1px solid rgb(222, 222, 222);
 	display: inline-block;
-	height: 550px;
+	height: 500px;
 }
 
 
@@ -272,6 +273,10 @@ form[name=frm_list]{
 	box-sizing: border-box;
 	margin-left: 10px;
 	font-size: 1em;
+	height: 1.3em;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	white-space: nowrap;
 }
 
 .listInnerText p.painter{
@@ -309,6 +314,8 @@ form[name=frm_list]{
 	width: 60%;
 	font-weight: bolder;
 	float: left;
+	margin-top: 5px;
+	margin-bottom: 5px;
 }
 
 .listInnerTextPrice{
@@ -318,10 +325,10 @@ form[name=frm_list]{
 }
 
 .listInnerTextPrice p{
-	text-align: right !important;
+	float: right;
 }
 
-p.currentPriceTitle, p.currentPrice{
+p.currentPriceTitle, p.currentPrice, p.directPriceTitle, p.directPrice{
 	color: rgb(255, 93, 22);
 	font-weight: bolder;
 }
@@ -333,6 +340,7 @@ p.endDate{
 	float: left;
 	width: 60%;
 	text-align: left;
+	margin-top: 5px;
 }
 
 p.bidCnt{
@@ -342,6 +350,9 @@ p.bidCnt{
 	float: right;
 	width: 35%;
 	text-align: right;
+	color: rgb(255, 93, 22);
+	font-weight: bolder;
+	margin-top: 5px;
 }
 
 .listInnerTextTail{
@@ -476,6 +487,18 @@ form[name=frm_view]{
 	margin: 10px auto;
 	margin-left: 30px;
 	display: inline-block;
+}
+
+.artworkInfo h3{
+	width: 58%;
+	margin-left: 30px !important;
+	margin-bottom: 0 !important;
+}
+
+.artworkInfo div{
+	width: 58%;
+	margin-left: 30px;
+	line-height: 2em;
 }
 
 .caution{
@@ -639,7 +662,7 @@ form[name=frm_view]{
 	cursor:pointer;
 }
 
-.work_info, .view_sml_btn{
+.view_sml_btn{
 	width: 86.5%;
 	margin-left: 13.5%;
 }
@@ -699,10 +722,6 @@ form[name=frm_view] div.shareUrl>div{
 	border-bottom: 1px dotted grey;
 }
 
-.view_detail p, .view_detail h2{
-	border: 1px solid red;
-}
-
 .view_detail .painter{
 	display: block;
 	font-size: 1.5em;
@@ -728,11 +747,22 @@ form[name=frm_view] div.shareUrl>div{
 	box-sizing: border-box;
 }
 
+.view_price>p>span{
+	float: right;
+}
+
+.str_current_price{
+	color: rgb(255, 109, 45);
+}
+
 .deadline_time{
 	float: right;
 	clear: both;
 }
 
+.deadline_time{
+	text-align: right;
+}
 
 /*모달 영역 시작*/
 
@@ -816,6 +846,33 @@ form[name=frm_view]>ul li:nth-child(3){
 	width: 90%;
 }
 
+.btnBidApplyFinalLeftBox{
+	text-align: center;
+}
+
+.btnBidApplyFinalLeft{
+	font-size: 20px;
+	font-weight: bolder;
+	width: 35%;
+	height: 40px;
+	background-color: white;
+	border: 1px solid black;
+	color: black;
+	display: inline-block;
+}
+
+.btnBidApplyFinalRight{
+	font-size: 20px;
+	font-weight: bolder;
+	width: 35%;
+	height: 40px;
+	background-color: black;
+	border: none;
+	color: white;
+	display: inline-block;
+	margin-left: 30px;
+}
+
 .bidPriceChoose li{
 	float: left;
 	margin-left: 25%;
@@ -881,11 +938,11 @@ form[name=frm_view]>ul li:nth-child(3){
 }
 
 .my_choice_left{
-	width: 20%;
+	width: 25%;
 }
 
 .my_choice_right{
-	width: 80%;
+	width: 75%;
 	float: right;
 	text-align: right;
 }

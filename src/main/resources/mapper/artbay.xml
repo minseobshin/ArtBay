@@ -42,6 +42,8 @@
 			<when test="sort eq 'init_price_desc'"> a.start_price desc</when>
 			<when test="sort eq 'bid_history_cnt_asce'"> a.bid_cnt asc</when>
 			<when test="sort eq 'bid_history_cnt_desc'"> a.bid_cnt desc</when>
+			<when test="sort eq 'current_price_asce'"> a.current_price asc</when>
+			<when test="sort eq 'current_price_desc'"> a.current_price desc</when>
 			<otherwise> due_date asc</otherwise>
 		</choose>
 		limit ${startNo-1}, ${listSize}
@@ -70,6 +72,14 @@
 	
 	<update id="updateBidCnt" parameterType="Integer">
 		update artwork set bid_cnt = bid_cnt+1 where lot = ${_parameter}
+	</update>
+	
+	<select id="bidOnGoing" resultType="kr.artbay.common.ArtBayVo">
+		select * from artwork where crnt_status="경매중";
+	</select>
+	
+	<update id="updateStatus" parameterType="Integer">
+		update artwork set crnt_status="경매종료" where lot=${_parameter} and current_date > due_date;
 	</update>
 	
 	
@@ -231,6 +241,7 @@
 		limit ${startNo-1}, ${listSize}
 	</select>
 	
+<<<<<<< HEAD
 	
 	
 	<!--경매 종료 update-->
@@ -238,13 +249,31 @@
 		UPDATE artwork set crnt_status='경매종료' WHERE crnt_status='경매중' and #{current_price} = #{direct_price} or #{due_date} &lt; NOW();
 	</update>
 	
+=======
+	<!-- 경매결과 월별조회 -->
+	<select id='bidResult' parameterType='kr.artbay.common.Page' resultType="String">
+		select date_format(winbid_date, "%Y년 %m월") as winning_month 
+		from winning_bid 
+		group by winning_month 
+		order by winning_month 
+	</select>
+>>>>>>> branch 'master' of https://github.com/minseobshin/ArtBay.git
 	
 	<!-- QNA 조회 건수 -->
 	<select id="qnaTotSize" parameterType="kr.artbay.common.Page" resultType="Integer">
-		SELECT COUNT(QNA_NUM) FROM qna
+		SELECT COUNT(QNA_NUM) FROM qna 
 		<where>
+			<choose>
+				<when test="mid == null">
+					QNA_STATUS = 'Y' 
+				</when>
+				<when test="mid != 'admin' and mid != 'chicken'">
+					grp IN(SELECT qna_num FROM qna WHERE mid=#{mid} AND qna_num = grp) 
+				</when>
+			</choose>
+
 			<if test="findType != ''">
-				QNA_TYPE = #{findType}	
+				AND QNA_TYPE = #{findType}	
 			</if>
 			<if test="findCol != ''">
 				AND ${findCol} LIKE '%${findStr}%'
@@ -258,10 +287,19 @@
 			QNA_NUM, MID, QNA_DOC, GRP, SEQ, DEEP, QNA_PWD, QNA_TYPE, QNA_STATUS,
 			DATE_FORMAT(QNA_DATE, "%y-%m-%d") QNA_DATE, QNA_TITLE
 		FROM 
-			qna q
+			qna q 
 		<where>
+			<choose>
+				<when test="mid == null">
+					QNA_STATUS = 'Y' 
+				</when>
+				<when test="mid != 'admin' and mid != 'chicken'">
+					grp IN(SELECT qna_num FROM qna WHERE mid=#{mid} AND qna_num = grp) 
+				</when>
+			</choose>
+			
 			<if test="findType != ''">
-				QNA_TYPE = #{findType}	
+				AND QNA_TYPE = #{findType}	
 			</if>
 			<if test="findCol != ''">
 				AND ${findCol} LIKE '%${findStr}%'

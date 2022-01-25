@@ -5,6 +5,7 @@ import java.io.PrintWriter;
 import java.util.Arrays;
 import java.util.List;
 
+import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -31,8 +32,12 @@ public class QnaController {
 	
 	//QNA 조회
 	@RequestMapping(value = "/qnaList", method = {RequestMethod.POST, RequestMethod.GET})
-	public ModelAndView qnaSearch(Page page) {		
+	public ModelAndView qnaSearch(Page page, HttpServletRequest req) {		
 		ModelAndView mv = new ModelAndView();
+		//로그인한 아이디
+		String mid = (String) req.getSession().getAttribute("mid");
+		page.setMid(mid);
+		
 		List<ArtBayVo> list = service.search(page);
 		page = service.getPage();
 		
