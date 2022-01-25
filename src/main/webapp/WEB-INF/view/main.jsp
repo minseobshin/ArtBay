@@ -27,6 +27,7 @@
 	<!-- 이미지 슬라이드 end -->
 	
 	<!-- 주요 출품작 -->
+	<form action="frm_list" id=frm_list method="post">
 	<div class="tab_container">	
 		<input id="tab1" type="radio" name="tabs" checked>
 		<label for="tab1">전체</label>
@@ -35,15 +36,18 @@
 		<input id="tab3" type="radio" name="tabs">
 		<label for="tab3">도자기</label>		
 		<section id="content1">
-			<c:forEach var="i" begin="1" end="15">
-				<div class="item">
-					<img alt="" src="https://via.placeholder.com/250x250">
+			<c:forEach var="vo" items="${list}">
+				<div class="item" onclick = "artbay.view(${vo.lot})">
+					<img alt="" src="${vo.imgFile }">
 					<div class="info">
-						<div class="author">콰야 ${i}</div>
-						<div class="title">적막한 춤</div>
-						<div>현재가</div>
-						<div class="price">KRW<span>7,000,000</span></div>
-					</div>				
+						<div class="author">${vo.artist}</div>
+						<div class="title">${vo.artwork_name}</div>
+						<c:if test="${vo.current_price gt 0 }">
+							<div>현재가</div>
+							<div class="price">KRW<span>${vo.current_price }</span></div>
+						</c:if>
+						
+					</div>		
 				</div>			
 			</c:forEach>			
 		</section>
@@ -56,8 +60,8 @@
 						<div class="title">Epic Fight</div>
 						<div>현재가</div>
 						<div class="price">KRW<span>2,000,000</span></div>
-					</div>				
-				</div>			
+					</div>	
+				</div>
 			</c:forEach>
 		</section>
 		<section id="content3">
@@ -74,6 +78,7 @@
 			</c:forEach>
 		</section>
 	</div>
+	</form>
 	
 	<!-- How to 및 경매일정 start -->
 	<div class="howto_schedule_zone">		

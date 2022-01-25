@@ -24,12 +24,6 @@ public class IndexController {
 	TestService service;
 	
 
-	@RequestMapping(value="/main")
-	public ModelAndView main() {
-		ModelAndView mv = new ModelAndView();
-		mv.setViewName("main.main");
-		return mv;
-	}
 	
 	@RequestMapping(value="/bidResult")
 	public ModelAndView bidResult() {

@@ -55,6 +55,19 @@ public class ArtBayController {
 	PrintWriter out;
 	*/
 	
+	@RequestMapping(value="/main", method = {RequestMethod.POST, RequestMethod.GET})
+	public ModelAndView main() {
+		ModelAndView mv = new ModelAndView();
+		List<ArtBayVo> list = applicationService.mainsearch();
+
+		
+		
+		mv.addObject("list", list);
+		mv.setViewName("main.main");
+		return mv;
+	}
+	
+	
 	//회원가입
 	@RequestMapping(value="/insertMemberSave", method= {RequestMethod.POST})
 	public ModelAndView insertMemberSave(ArtBayVo vo) {

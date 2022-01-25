@@ -49,6 +49,11 @@
 		limit ${startNo-1}, ${listSize}
 	</select>
 	
+	<!-- main list -->
+	<select id="mainsearch" resultType="kr.artbay.common.ArtBayVo">
+		SELECT * FROM artwork ORDER BY hit DESC LIMIT 15;
+	</select>
+	
 	<insert id="bidApply" parameterType="kr.artbay.common.ArtBayVo">
 		insert into bidding(lot, mid, bid_price, bid_date) values(${lot}, #{mid}, #{bid_price}, now());
 	</insert>

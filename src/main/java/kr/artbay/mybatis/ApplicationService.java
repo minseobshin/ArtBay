@@ -1,6 +1,8 @@
 package kr.artbay.mybatis;
 
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.PlatformTransactionManager;
@@ -23,6 +25,13 @@ public class ApplicationService {
 	
 	TransactionStatus status;
 	int lot;
+	
+	public List<ArtBayVo> mainsearch(){
+		List<ArtBayVo> list = null;
+		list = mapper.mainsearch();
+		return list;
+	}
+	 
 	public boolean insertArtwork(ArtBayVo vo) {
 		boolean b = false;
 		status = manager.getTransaction(new DefaultTransactionDefinition());
