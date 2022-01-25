@@ -658,7 +658,7 @@ form[name=frm_view]{
 	cursor:pointer;
 }
 
-.work_info, .view_sml_btn{
+.view_sml_btn{
 	width: 86.5%;
 	margin-left: 13.5%;
 }

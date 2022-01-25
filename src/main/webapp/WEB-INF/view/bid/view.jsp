@@ -67,12 +67,6 @@
 				</div>
 			</div>
 		</div>
-		<div class="work_info">
-			<h3>작품 정보</h3>
-			<div class="cont">
-				<p> signed, titled and dated on the reverse<br/>Acrylic Frame </p>
-			</div>
-		</div>
 	</div>
 	<div class="view_right">
 		<div class="right_work_info">	
