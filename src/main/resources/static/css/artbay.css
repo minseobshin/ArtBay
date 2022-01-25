@@ -819,6 +819,10 @@ form[name=frm_view]>ul li:nth-child(3){
 	display: none;
 }
 
+.bidHistoryAll{
+	font-weight: bolder;
+}
+
 .bidHistoryAll:hover, .bidHistoryMy:hover{
 	cursor: pointer;
 }

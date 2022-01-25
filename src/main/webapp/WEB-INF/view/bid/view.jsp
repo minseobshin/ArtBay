@@ -118,7 +118,7 @@
 				</li>
 			<br/>
 			<c:choose>
-				<c:when test="${not empty sessionScope.mid}">
+				<c:when test="${not empty sessionScope.sv.mid}">
 					<input type="button" class="btnBidStart" value="응찰하기" onclick="modalOn($('.bid_price'))"/>
 				</c:when>
 				<c:otherwise>
