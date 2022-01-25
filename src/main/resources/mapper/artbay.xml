@@ -253,7 +253,7 @@
 	
 	<!--경매 종료 update-->
 	<update id="artwork_status" parameterType="kr.artbay.common.ArtBayVo">
-		UPDATE artwork set crnt_status='경매종료' WHERE crnt_status='경매중' and #{current_price} = #{direct_price} or #{due_date} &lt; NOW();
+		UPDATE artwork set crnt_status='경매종료' where #{current_price} = #{direct_price} or #{due_date} &lt; NOW();
 	</update>
 
 
