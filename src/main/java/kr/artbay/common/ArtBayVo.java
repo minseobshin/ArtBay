@@ -1,7 +1,7 @@
 package kr.artbay.common;
 
+import java.sql.Date;
 import java.util.ArrayList;
-import java.util.Date;
 import java.util.List;
 
 public class ArtBayVo { 
@@ -56,13 +56,13 @@ public class ArtBayVo {
 	Integer current_price;
 	String str_current_price;
 	String regist_date;
-	Date due_date;
 	int bid_cnt;
 	String str_bid_cnt;
 	String crnt_status;
 	String sort;
 	String bid_time;
 	String remaining_time;
+	String due_date;
 	
 	//공지사항
 	String title;
@@ -187,8 +187,6 @@ public class ArtBayVo {
 	public void setCurrent_price(Integer current_price) {this.current_price = current_price;}
 	public String getRegist_date() {return regist_date;}
 	public void setRegist_date(String regist_date) {this.regist_date = regist_date;}
-	public Date getDue_date() {return due_date;}
-	public void setDue_date(Date due_date) {this.due_date = due_date;}
 	public String getTitle() {return title;}
 	public void setTitle(String title) {this.title = title;}
 	public int getQna_num() {return qna_num;}
@@ -250,6 +248,8 @@ public class ArtBayVo {
 	public void setBid_time(String bid_time) {this.bid_time = bid_time;}
 	public String getRemaining_time() {return remaining_time;}
 	public void setRemaining_time(String remaining_time) {this.remaining_time = remaining_time;}
+	public String getDue_date() {return due_date;}
+	public void setDue_date(String due_date) {this.due_date = due_date;}
 	
 	
 }

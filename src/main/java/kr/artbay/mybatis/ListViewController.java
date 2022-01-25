@@ -109,6 +109,7 @@ public class ListViewController {
 		DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd");
 		Date dueDate = vo.getDue_date();
 		LocalDate now = LocalDate.now();
+		System.out.println(dueDate);
 		
 		
 		vo.setStr_start_price(NumberFormat.getInstance().format(vo.getStart_price()));
