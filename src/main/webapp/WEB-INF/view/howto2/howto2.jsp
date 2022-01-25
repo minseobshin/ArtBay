@@ -10,8 +10,8 @@
 </head>
 <body>
 	
-<div class = "howtoform">
-		<h1>경매 소개</h1>
+<div class = "applyform">
+	<h1>경매소개</h1>
 </div>
 
 <div class="container">

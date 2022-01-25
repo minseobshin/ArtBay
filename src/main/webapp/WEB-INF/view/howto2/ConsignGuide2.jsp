@@ -11,8 +11,8 @@
 <body>
 
 
-<div class = "howtoform">
-		<h1>위탁 안내</h1>
+<div class = "applyform">
+	<h1>위탁안내</h1>
 </div>
 <div class="container">
     <div id="Howto">

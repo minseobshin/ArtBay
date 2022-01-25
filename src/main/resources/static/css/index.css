@@ -11,6 +11,23 @@ body {
 	clear: both;
 	display: block;
 }
+.applyform {
+    position: relative;
+    height: 190px;
+    background-color: #1f2d4a;
+    margin-bottom: 60px;
+}
+.applyform > h1 {
+    margin-top: 10px;
+    position: absolute;
+    top: 40%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-size: 1.2em;
+    font-weight: bold;
+    color: #fff;
+    white-space: nowrap;
+}
 /******************************************************************************/
 /****************************** 메뉴 네비게이션 ***********************************/
 header { 
