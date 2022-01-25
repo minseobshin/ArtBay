@@ -69,7 +69,7 @@
 	</update>
 	
 	<update id="updateBidCnt" parameterType="Integer">
-		update artwork set bic_cnt = bid_cnt+1 where lot = ${_parameter}
+		update artwork set bid_cnt = bid_cnt+1 where lot = ${_parameter}
 	</update>
 	
 	
