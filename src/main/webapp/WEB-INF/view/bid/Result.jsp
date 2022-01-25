@@ -15,6 +15,10 @@
 
 </head>
 <body>
+<div class = "applyform">
+	<h1>경매결과</h1>
+</div>
+
 <div id='auction'>
 <h1>Online Auction 경매 결과</h1>	
 	<form name='frm_auction' id='frm_auction' method='post'>
