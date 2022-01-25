@@ -13,8 +13,11 @@
 <title>공지사항 상세</title>
 </head>
 <body>
-<div id='noticeView'>
+<div class = "applyform">
 	<h1>공지사항</h1>
+</div>
+<div id='noticeView'>
+
 	<div id='noticeView_sub'>
 		<div id='title'>${vo.title } <span>${vo.not_date }</span></div>
 	

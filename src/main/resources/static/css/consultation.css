@@ -422,9 +422,16 @@ form[name="frmBoard"] .clearfix:after{
     border-radius: 4px;
 }
 .pagination > .active > a{
-    z-index: 3;
+	z-index: 3;
+    color: #000;
+    cursor: pointer;
+    background-color: #fff;
+    border-color: #ddd;   
+}
+.pagination > .active > a.selectedPage {
+     z-index: 3;
     color: #fff;
-    cursor: default;
+    cursor: pointer;
     background-color: #222;
     border-color: #222;
 }

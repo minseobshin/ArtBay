@@ -13,8 +13,11 @@
 <title>공지사항</title>
 </head>
 <body>
-<div id='noticeList'>
+<div class = "applyform">
 	<h1>공지사항</h1>
+</div>
+
+<div id='noticeList'>
 
 	<form name='frm_notice' id='frm_notice' method='post'>
 		<div id='noticeSearch'>
