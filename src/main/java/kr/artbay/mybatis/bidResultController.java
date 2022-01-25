@@ -20,16 +20,16 @@ public class bidResultController {
 @Autowired
 bidResultService service;
 ArtBayVo vo = null;
-Page page = new Page();
+Page page;
 
 //bidResult
 @RequestMapping(value="/bidResult", method= {RequestMethod.POST, RequestMethod.GET})
 public ModelAndView bidResult(Page page, 
 		@RequestParam(value="rSort", required=false, defaultValue="default") String rSort ) { 
 	ModelAndView mv = new ModelAndView();
-	page = service.getPage();
 	
 	List<ArtBayVo> list = service.bidResult(page); //service=>dao역할
+	page = service.getPage();
 	mv.addObject("page", page);
 	mv.addObject("list", list);
 	mv.setViewName("bid.Result");

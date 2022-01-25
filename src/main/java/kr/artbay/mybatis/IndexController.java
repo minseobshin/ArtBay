@@ -132,12 +132,7 @@ public class IndexController {
 		return mv;
 	}
 	
-	@RequestMapping(value="/mypageBid")
-	public ModelAndView mypageBid() {
-		ModelAndView mv = new ModelAndView();
-		mv.setViewName("mypage.Bid");
-		return mv;
-	}
+
 	
 	@RequestMapping(value="/mypageSuccessfulBid")
 	public ModelAndView mypageSuccessfulBid() {

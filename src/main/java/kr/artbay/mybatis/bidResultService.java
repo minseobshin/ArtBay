@@ -27,6 +27,7 @@ public class bidResultService {
 		public List<ArtBayVo> bidResult(Page p) {
 			List<ArtBayVo> list = null;
 			int totSize = mapper.bidTotSize();	
+			System.out.println("여기"+totSize);
 			p.setTotSize(totSize);
 			this.page = p;
 			list = mapper.bidResult(p);	

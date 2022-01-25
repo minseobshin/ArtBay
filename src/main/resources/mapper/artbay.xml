@@ -174,6 +174,7 @@
 		select B.serial, B.lot, A.artwork_ctgr, A.artist, A.artwork_name, B.bid_price, date_format(B.bid_date, "%y-%m-%d") bid_date
 		from bidding B join artwork A
 		on B.lot = A.lot
+		where A.mid = #{mid}
 		ORDER BY bid_date 
 		limit ${startNo-1}, ${listSize}
 	</select>
@@ -202,16 +203,16 @@
 		from(
 			select month(due_date) as due
 			from artwork 
-			where crnt_status="경매중" and 
+			where crnt_status="경매종료" and 
 			(artwork_name like "%a%" or artwork_ctgr like "%a%" or artist like "%a%" or mid like "%a%")
 			group by month(due_date)
-		)as c;
+		)as c
 	</select>
-	<!-- 경매결과 월별조회 (이후에 마감으로 바꿔야함)-->
+	<!-- 경매결과 월별조회-->
 	<select id='bidResult' parameterType='kr.artbay.common.Page' resultType="kr.artbay.common.ArtBayVo">
 		select date_format(due_date, "%y-%m") due_date
 		from artwork 
-		where crnt_status="경매중" and 
+		where crnt_status="경매종료" and 
 		(artwork_name like "%${findStr}%" or artwork_ctgr like "%${findStr}%" or artist like "%${findStr}%" or mid like "%${findStr}%")
 		group by month(due_date)
 		ORDER BY month(due_date)
@@ -222,13 +223,15 @@
 		</choose>
 		limit ${startNo-1}, ${listSize}
 	</select>
+	<!-- 경매결과 첫날/마지막날 불러오기 -->
+	
 	<select id="bidResultsearch" parameterType="kr.artbay.common.Page" resultType="kr.artbay.common.ArtBayVo">
 		select a.lot, a.mid, a.artwork_name, a.artwork_ctgr, a.artist, a.material, a.artwork_size, a.contents, a.etc, a.start_price,
 		a.current_price, date_format(a.regist_date, '%y-%m-%d') as regist_date,
 		date_format(a.due_date, '%y-%m-%d') as due_date, a.hit, a.direct_price, a.bid_cnt, a.crnt_status,
 		b.serial, b.imgFile, b.thumbnail from artwork a join artimg b on a.lot=b.lot and b.thumbnail="Y" 
 		where a.mid like '%${findStr}%' or a.artist like '%${findStr}%' or a.artwork_name like '%${findStr}%' or a.artwork_ctgr like '%${findStr}%'
-		where crnt_status="경매중"
+		where crnt_status="경매종료"
 		order by 
 		<choose>
 			<when test="sort eq 'default'"> a.due_date asc</when>
