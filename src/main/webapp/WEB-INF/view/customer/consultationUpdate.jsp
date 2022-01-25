@@ -60,19 +60,6 @@
 							</div>	
 						</td>
 					</tr>
-					<!--  
-					<tr>
-						<th>물품번호</th>
-						<td>
-							<div class="form-inline">
-								<div class="form-group">
-									<input type="text" name="lot" id="lot" class="form-control width-md" value="" maxlength="11">
-									<span class="fcRed mt5m dpInblock">*물품번호를 입력하시면 보다 정확한 답변을 확인하실 수 있습니다. </span>
-								</div>	
-							</div>	
-						</td>
-					</tr>
-					-->
 					<tr>
 						<th>제목</th>
 						<td>
@@ -153,12 +140,15 @@
  			</form>
  			
 			<div class="btnWrap bwflex">
-				<c:if test="${ sessionScope.sv.mid == 'admin' }">
-					<a href="#none" id="btnQnaUpdateAdmin" class="btn btn-save">수정</a>				
-				</c:if>
-				<c:if test="${ sessionScope.sv.mid != 'admin' }">
-					<a href="#none" id="btnQnaUpdate" class="btn btn-save">수정</a>				
-				</c:if>
+				<c:choose>
+					<c:when test="${ sessionScope.sv.injung == 'super' }">
+						<a href="#none" id="btnQnaUpdateAdmin" class="btn btn-save">수정</a>
+					</c:when>
+					<c:otherwise>
+						<a href="#none" id="btnQnaUpdate" class="btn btn-save">수정</a>	
+					</c:otherwise>
+				</c:choose>
+				
 				<a href="#none" id="btnQnaList" class="btn btn-save">목록</a>
 			</div>
 

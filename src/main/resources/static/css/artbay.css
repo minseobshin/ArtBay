@@ -453,7 +453,7 @@ th, .deliv_th1, .deliv_th2{
     font-size: 20px;
 }
 
-.btnBidList .xBtn{
+.bidHistoryList .xBtn{
 	margin-left: 160px !important;
 }
 
@@ -699,6 +699,30 @@ form[name=frm_view] div.shareUrl>div{
 	border-bottom: 1px dotted grey;
 }
 
+.view_detail p, .view_detail h2{
+	border: 1px solid red;
+}
+
+.view_detail .painter{
+	display: block;
+	font-size: 1.5em;
+	margin-top: 0.83em;
+	margin-bottom: 0.83em;
+	margin-left: 0;
+	margin-right: 0;
+	font-weight: bold;
+}
+
+.view_detail .art_name{
+	display: block;
+	font-size: 1.17em;
+	margin-top: 1em;
+	margin-bottom: 1em;
+	margin-left: 0;
+	margin-right: 0;
+	font-weight: bold;
+}
+
 .view_detail>p, .view_price>p{
 	padding: 5px;
 	box-sizing: border-box;
@@ -817,6 +841,10 @@ form[name=frm_view]>ul li:nth-child(3){
 
 .bidMyHistory{
 	display: none;
+}
+
+.bidHistoryAll{
+	font-weight: bolder;
 }
 
 .bidHistoryAll:hover, .bidHistoryMy:hover{

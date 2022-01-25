@@ -132,10 +132,14 @@ function off(){
 	//응찰하기에서 전체를 누르면 전체 내역, 내 응찰을 누르면 내 응찰 내역 확인
 	$(".bidHistoryAll").on("click", function(){
 		$(".bidHistory").css("display", "block");
+		$(".bidHistoryAll").css("font-weight", "bolder");
+		$(".bidHistoryMy").css("font-weight", "normal");
 		$(".bidMyHistory").css("display", "none");
 	});
 	$(".bidHistoryMy").on("click", function(){
 		$(".bidHistory").css("display", "none");
+		$(".bidHistoryAll").css("font-weight", "normal");
+		$(".bidHistoryMy").css("font-weight", "bolder");
 		$(".bidMyHistory").css("display", "block");			
 
 	});
@@ -215,17 +219,18 @@ function off(){
 	
 	$(".btnBidCancel").click(function(){
 		$(".btnBidCancel").parent().parent().parent().hide();
+		location.reload();
 	})
 	
 	 if(matchMedia("screen and (max-width: 1300px)").matches){
-		$(".btnBidList ul").remove();
+		$(".bidHistoryList ul").remove();
 		$(".bidList .bidHistory").remove();
 	}
 	
 	//창의 width가 1300px 이상이 되면 특정 div들이 사라지도록
 	$(window).resize(function(){
 		if($(window).width()>=1300){
-			$(".btnBidList ul").remove();
+			$(".bidHistoryList ul").remove();
 			$(".bidList .bidHistory").remove();
 		}
 		location.reload();

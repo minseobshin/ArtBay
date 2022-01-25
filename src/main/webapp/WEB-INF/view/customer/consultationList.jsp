@@ -150,7 +150,8 @@
 
 			</div>
 			<div class="btnWrap view text-right clearFix mb0">
-				<c:if test="${ not empty sessionScope.sv }">
+				<!-- 일반유저만 로그인했을 때 글쓰기 -->
+				<c:if test="${ not empty sessionScope.sv && sessionScope.sv.injung != 'super'}">
 					<a id="btnInsertForm" class="btn btn-Insert">글쓰기</a>
 				</c:if>
 			</div>

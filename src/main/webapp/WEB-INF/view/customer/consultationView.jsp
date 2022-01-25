@@ -63,12 +63,12 @@
 				<!-- 내가 작성한 글만 수정/삭제/목록 가능 -->
 				<!-- 다른사람이 작성한 글은 댓글/목록만 가능 -->
 				<c:choose>
-					<c:when test="${ sessionScope.sv.mid == 'admin' }">
-						<c:if test="${ vo.mid == 'admin' }">
+					<c:when test="${ sessionScope.sv.injung == 'super' }">
+						<c:if test="${ sessionScope.sv.mid == vo.mid }">
 							<a href="#none" id="btnUpdateForm" class="btn btn-gray2 btn-lg fs15">수정</a>
 						</c:if>
 						<a href="#none" id="btnQnaDeleteAdmin" class="btn btn-gray2 btn-lg fs15">삭제</a>
-						<c:if test="${ vo.mid != 'admin' }">
+						<c:if test="${ sessionScope.sv.mid != vo.mid }">
 							<a href="#none" id="btnReplyForm" class="btn btn-gray2 btn-lg fs15">댓글</a>	
 						</c:if>
 						<a href="#none" id="btnQnaList" class="btn btn-gray2 btn-lg fs15">목록</a>
@@ -79,8 +79,10 @@
 						<a href="#none" id="btnQnaList" class="btn btn-gray2 btn-lg fs15">목록</a>
 					</c:when>
 					<c:otherwise>
-						<c:if test="${ not empty sessionScope.sv }">
-							<a href="#none" id="btnReplyForm" class="btn btn-gray2 btn-lg fs15">댓글</a>
+						<c:if test="${ sessionScope.sv.mid == vo.qna_top_mid }">
+							<c:if test="${ vo.mid == 'admin' || vo.mid == 'chicken' }">
+								<a href="#none" id="btnReplyForm" class="btn btn-gray2 btn-lg fs15">댓글</a>
+							</c:if>
 						</c:if>
 						<a href="#none" id="btnQnaList" class="btn btn-gray2 btn-lg fs15">목록</a>	
 					</c:otherwise>

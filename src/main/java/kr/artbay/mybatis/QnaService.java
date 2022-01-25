@@ -49,6 +49,8 @@ public class QnaService {
 		ArtBayVo vo = mapper.qnaView(qnaNum);
 		List<ArtBayAtt> attList = mapper.qnaAttList(qnaNum);
 		vo.setAttList(attList);	
+		String qna_top_mid = mapper.getQnaTopMid(vo.getGrp());
+		vo.setQna_top_mid(qna_top_mid);
 		return vo;
 	}
 	

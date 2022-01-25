@@ -105,7 +105,7 @@ public class ArtBayController {
 			session.invalidate();
 		}else {
 			injung = this.sv.getInjung();
-			session.setAttribute("sv", sv);
+			session.setAttribute("sv", this.sv);
 			session.setAttribute("mid", d);
 			session.setAttribute("injung", injung);
 		}

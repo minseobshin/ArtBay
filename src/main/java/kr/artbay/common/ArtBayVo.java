@@ -61,6 +61,7 @@ public class ArtBayVo {
 	String crnt_status;
 	String sort;
 	String bid_time;
+	String remaining_time;
 	
 	//공지사항
 	String title;
@@ -76,6 +77,7 @@ public class ArtBayVo {
 	String qna_status;
 	String qna_type;
 	String qna_pwd;
+	String qna_top_mid;
 	
 	int hit;
 	int grp;
@@ -202,6 +204,8 @@ public class ArtBayVo {
 	public void setQna_type(String qna_type) {this.qna_type = qna_type;}
 	public String getQna_pwd() {return qna_pwd;}
 	public void setQna_pwd(String qna_pwd) {this.qna_pwd = qna_pwd;}
+	public String getQna_top_mid() {return qna_top_mid;}
+	public void setQna_top_mid(String qna_top_mid) {this.qna_top_mid = qna_top_mid;}
 	public String getThumbnail() {return thumbnail;}
 	public void setThumbnail(String thumbnail) {this.thumbnail = thumbnail;}
 	public String getImgFile() {return imgFile;}
@@ -243,5 +247,8 @@ public class ArtBayVo {
 	public void setStr_bid_cnt(String str_bid_cnt) {this.str_bid_cnt = str_bid_cnt;}
 	public String getBid_time() {return bid_time;}
 	public void setBid_time(String bid_time) {this.bid_time = bid_time;}
+	public String getRemaining_time() {return remaining_time;}
+	public void setRemaining_time(String remaining_time) {this.remaining_time = remaining_time;}
+	
 	
 }

@@ -72,7 +72,7 @@ public class ListViewController {
 		
 		for(ArtBayVo vo : list) {
 			vo.setStr_start_price(NumberFormat.getInstance().format(vo.getStart_price()));
-			if(vo.getCurrent_price()==null) vo.setCurrent_price(0);
+			if(vo.getCurrent_price()==null) vo.setCurrent_price(vo.getStart_price());
 			vo.setStr_current_price(NumberFormat.getInstance().format(vo.getCurrent_price()));
 			vo.setStr_bid_cnt(NumberFormat.getInstance().format(vo.getBid_cnt()));
 		}
@@ -97,7 +97,7 @@ public class ListViewController {
 		mv = viewBidHistory(lot);
 		
 		vo.setStr_start_price(NumberFormat.getInstance().format(vo.getStart_price()));
-		if(vo.getCurrent_price()==null) vo.setCurrent_price(0);
+		if(vo.getCurrent_price()==null) vo.setCurrent_price(vo.getStart_price());
 		vo.setStr_current_price(NumberFormat.getInstance().format(vo.getCurrent_price()));
 		vo.setStr_bid_cnt(NumberFormat.getInstance().format(vo.getBid_cnt()));
 		page.setSort(sort);
