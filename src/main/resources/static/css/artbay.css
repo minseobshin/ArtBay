@@ -699,10 +699,6 @@ form[name=frm_view] div.shareUrl>div{
 	border-bottom: 1px dotted grey;
 }
 
-.view_detail p, .view_detail h2{
-	border: 1px solid red;
-}
-
 .view_detail .painter{
 	display: block;
 	font-size: 1.5em;
@@ -733,6 +729,9 @@ form[name=frm_view] div.shareUrl>div{
 	clear: both;
 }
 
+.deadline_time{
+	text-align: right;
+}
 
 /*모달 영역 시작*/
 

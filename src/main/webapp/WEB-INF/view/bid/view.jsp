@@ -78,7 +78,10 @@
 		<div class="right_work_info">	
 			<div class="deadline_time">
 				<span>남은 시간</span><br/>
-				<span class="remainTime">${vo.due_date }</span>
+				<c:if test="${vo.remaining_year gt 0 }">
+				<span>${vo.remaining_year }년</span>
+				</c:if>
+				<span class="remainTime">${vo.remaining_day }일 ${vo.remaining_hr }시간 ${vo.remaining_min }분 ${vo.remaining_sec }초</span>
 			</div>	
 			<div class="view_detail">
 				<p class="painter">${vo.artist }</p>

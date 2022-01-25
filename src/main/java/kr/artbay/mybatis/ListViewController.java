@@ -146,6 +146,13 @@ public class ListViewController {
 				diffSec = diffSec - 60*sec;
 			}
 			
+			vo.setRemaining_year(diffYear);
+			vo.setRemaining_month(diffMonth);
+			vo.setRemaining_day(diffDay);
+			vo.setRemaining_hr(diffHr);
+			vo.setRemaining_min(diffMin);
+			vo.setRemaining_sec(diffSec);
+			
 			//System.out.println(diffYear + "년" + diffMonth + "개월" + diffDay+"일" + diffHr+" 시간 "+diffMin +" 분 "+diffSec+" 초");
 
 		
