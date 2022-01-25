@@ -273,6 +273,10 @@ form[name=frm_list]{
 	box-sizing: border-box;
 	margin-left: 10px;
 	font-size: 1em;
+	height: 1.3em;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	white-space: nowrap;
 }
 
 .listInnerText p.painter{
