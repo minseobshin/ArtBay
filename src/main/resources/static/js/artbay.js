@@ -222,14 +222,14 @@ function off(){
 	})
 	
 	 if(matchMedia("screen and (max-width: 1300px)").matches){
-		$(".btnBidList ul").remove();
+		$(".bidHistoryList ul").remove();
 		$(".bidList .bidHistory").remove();
 	}
 	
 	//창의 width가 1300px 이상이 되면 특정 div들이 사라지도록
 	$(window).resize(function(){
 		if($(window).width()>=1300){
-			$(".btnBidList ul").remove();
+			$(".bidHistoryList ul").remove();
 			$(".bidList .bidHistory").remove();
 		}
 		location.reload();

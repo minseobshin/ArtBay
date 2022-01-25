@@ -317,7 +317,7 @@
 		<!-- 응찰 시작 모달-->
 		<div class="bid_price">
 			<h2>응찰내역</h2>
-			<div class="btnBidList">
+			<div class="bidHistoryList">
 				<input type="button" value="X" onclick="modalOff($(this))" class="xBtn"/>
 				<ul class="bidPriceChoose">
 					<li class="bidHistoryAll">전체</li>
@@ -357,25 +357,53 @@
 							<strong>${vo.str_bid_cnt }</strong><br/><br/>
 							<select class="price_combo" name="price_combo">
 							<c:choose>
-								<c:when test="${vo.current_price lt 10001}">
-									<c:forEach var="i" begin="${vo.current_price+500}" end="${vo.current_price+5000}" step="500">
-										<option value=${i }>${i }</option>
-									</c:forEach>
-								</c:when>
-								<c:when test="${vo.current_price lt 50001 }">
-									<c:forEach var="i" begin="${vo.current_price+1000}" end="${vo.current_price+10000}" step="1000">
-										<option value=${i }>${i }</option>
-									</c:forEach>
-								</c:when>
-								<c:when test="${vo.current_price lt 100001 }">
-									<c:forEach var="i" begin="${vo.current_price+10000}" end="${vo.current_price+100000}" step="10000">
-										<option value=${i }>${i }</option>
-									</c:forEach>
+								<c:when test="${vo.current_price>=vo.start_price }">
+									<c:choose>
+										<c:when test="${vo.current_price lt 10001}">
+											<c:forEach var="i" begin="${vo.current_price+500}" end="${vo.current_price+5000}" step="500">
+												<option value=${i }>${i }</option>
+											</c:forEach>
+										</c:when>
+										<c:when test="${vo.current_price lt 50001 }">
+											<c:forEach var="i" begin="${vo.current_price+1000}" end="${vo.current_price+10000}" step="1000">
+												<option value=${i }>${i }</option>
+											</c:forEach>
+										</c:when>
+										<c:when test="${vo.current_price lt 100001 }">
+											<c:forEach var="i" begin="${vo.current_price+10000}" end="${vo.current_price+100000}" step="10000">
+												<option value=${i }>${i }</option>
+											</c:forEach>
+										</c:when>
+										<c:otherwise>
+											<c:forEach var="i" begin="${vo.current_price+20000}" end="${vo.current_price+100000}" step="20000">
+												<option value=${i }>${i }</option>
+											</c:forEach>
+										</c:otherwise>
+									</c:choose>
 								</c:when>
 								<c:otherwise>
-									<c:forEach var="i" begin="${vo.current_price+20000}" end="${vo.current_price+100000}" step="20000">
-										<option value=${i }>${i }</option>
-									</c:forEach>
+									<c:choose>
+										<c:when test="${vo.start_price lt 10001}">
+											<c:forEach var="i" begin="${vo.start_price+500}" end="${vo.start_price+5000}" step="500">
+												<option value=${i }>${i }</option>
+											</c:forEach>
+										</c:when>
+										<c:when test="${vo.start_price lt 50001 }">
+											<c:forEach var="i" begin="${vo.start_price+1000}" end="${vo.start_price+10000}" step="1000">
+												<option value=${i }>${i }</option>
+											</c:forEach>
+										</c:when>
+										<c:when test="${vo.start_price lt 100001 }">
+											<c:forEach var="i" begin="${vo.start_price+10000}" end="${vo.start_price+100000}" step="10000">
+												<option value=${i }>${i }</option>
+											</c:forEach>
+										</c:when>
+										<c:otherwise>
+											<c:forEach var="i" begin="${vo.start_price+20000}" end="${vo.start_price+100000}" step="20000">
+												<option value=${i }>${i }</option>
+											</c:forEach>
+										</c:otherwise>
+									</c:choose>
 								</c:otherwise>
 							</c:choose>
 							</select><br/><br/>
