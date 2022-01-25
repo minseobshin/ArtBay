@@ -5,8 +5,14 @@ import java.io.IOException;
 import java.io.UnsupportedEncodingException;
 import java.security.Principal;
 import java.text.NumberFormat;
+import java.text.SimpleDateFormat;
+import java.time.Duration;
+import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
+import java.time.temporal.Temporal;
 import java.util.ArrayList;
 import java.util.Collection;
+import java.util.Date;
 import java.util.Enumeration;
 import java.util.List;
 import java.util.Locale;
@@ -95,6 +101,15 @@ public class ListViewController {
 		
 		//전체 응찰 내역 불러오기
 		mv = viewBidHistory(lot);
+		
+		//남은 시간 설정하기
+		SimpleDateFormat df = new SimpleDateFormat("yyyy-MM-dd 'at' HH:mm:ss");
+		Date date = new Date(System.currentTimeMillis());
+		System.out.println(df.format(date));
+		DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd");
+		Date dueDate = vo.getDue_date();
+		LocalDate now = LocalDate.now();
+		
 		
 		vo.setStr_start_price(NumberFormat.getInstance().format(vo.getStart_price()));
 		if(vo.getCurrent_price()==null) vo.setCurrent_price(vo.getStart_price());
