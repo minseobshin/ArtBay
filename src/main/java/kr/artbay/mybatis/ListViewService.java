@@ -86,16 +86,14 @@ public class ListViewService {
 		return list;
 	}
 	
-	public int updateStatus() {
-		int cnt = 0;
+	public void updateStatus() {
 		List<ArtBayVo> list = mapper.bidOnGoing();
 		if(list.size()>0) {
 			for(ArtBayVo vo : list) {
-				
+				if(vo.getDue_date()<)
+				mapper.updateStatus(vo.getLot());
 			}
 		}
-		
-		return cnt;
 	}
 
 	

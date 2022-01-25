@@ -255,6 +255,7 @@ public class ListViewController {
 	public List<ArtBayVo> scheduler() {
 		List<ArtBayVo> list = new ArrayList<ArtBayVo>();
 		list = service.viewBidsAll();
+		service.updateStatus();
 		return list;
 	}
 	

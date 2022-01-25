@@ -79,7 +79,7 @@
 	</select>
 	
 	<update id="updateStatus" parameterType="Integer">
-		update crnt_status set "경매종료" where lot=${_parameter} and now()>due_date;
+		update artwork set crnt_status="경매종료" where lot=${_parameter} and current_date > due_date;
 	</update>
 	
 	
