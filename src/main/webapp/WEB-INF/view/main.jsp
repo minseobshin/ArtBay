@@ -11,7 +11,7 @@
 		</div>
 		<div class="keyvisual_inner">
 			<ul>
-				<li class="mainvisual1"><a href="" title=""><img src="img/mainvisual_5.jpeg" alt=""></a></li>
+				<li class="mainvisual1"><a href="" title=""><img src="img/mainvisual_8.jpeg" alt=""></a></li>
 				<li class="mainvisual2"><a href="" title=""><img src="img/mainvisual_6.jpeg" alt=""></a></li>
 				<li class="mainvisual3"><a href="" title=""><img src="img/mainvisual_7.jpeg" alt=""></a></li>
 			</ul>
