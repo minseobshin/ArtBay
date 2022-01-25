@@ -84,7 +84,7 @@
 	</select>
 	
 	<update id="updateStatus" >
-		update artwork set crnt_status="경매종료" where lot=${_parameter};
+		update artwork set crnt_status="경매종료" where current_timestamp > due_date;
 	</update>
 	
 	

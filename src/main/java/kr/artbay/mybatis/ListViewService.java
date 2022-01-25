@@ -86,9 +86,9 @@ public class ListViewService {
 		return list;
 	}
 	
-	public int updateStatus(int lot) {
+	public int updateStatus() {
 		int cnt = 0;
-		cnt = mapper.updateStatus(lot);
+		cnt = mapper.updateStatus();
 		return cnt;
 	}
 

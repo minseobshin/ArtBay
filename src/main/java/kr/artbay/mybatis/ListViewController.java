@@ -148,7 +148,6 @@ public class ListViewController {
 			}
 			if((diffYear|diffMonth|diffDay|diffHr|diffMin|diffSec)<0) {
 				vo.setRemaining_year(-1);
-				int c = service.updateStatus(vo.getLot());
 			}else {				
 				vo.setRemaining_year(diffYear);
 				vo.setRemaining_month(diffMonth);
@@ -254,14 +253,11 @@ public class ListViewController {
 	@Scheduled(cron="*/5 * * * * *")
 	public List<ArtBayVo> scheduler() {
 		List<ArtBayVo> list = new ArrayList<ArtBayVo>();
+		//경매 내역 조회
 		list = service.viewBidsAll();
+		//경매 기한이 지나면 경매 종료로 변경
+		int cnt = service.updateStatus();
 		return list;
-	}
-	
-	@Scheduled(cron="0 0/1 * * * *")
-	public void scheduler2() {
-		//낙찰 기간이 지난 작품은 closed 표시를 위해
-		//int c = service.updateStatus();
 	}
 	
 }
