@@ -34,7 +34,7 @@
 		<div class="search">
 			<div class="search_box">
 				<input type="text" name="findStr" id="findStr" placeholder="작가 또는 작품명" value="${page.findStr }"/>
-				<input type="button" id="btnSearch" value="🔎" onclick="search()"/>
+				<input type="button" id="btnResultSearch" value="🔎" onclick="search()"/>
 			</div>
 			<div class="search_option_boxes">
 				<!-- sort -->

@@ -17,7 +17,7 @@ import kr.artbay.mybatis.NoticeService;
 
 @Controller
 public class ntcFileUploadController {
-		public static String uploadPath= "C:\\Users\\sunsh\\git\\ArtBay\\src\\main\\resources\\static\\ntcImg";
+		public static String uploadPath= "C:\\Users\\sunsh\\git\\ArtBay\\src\\main\\webapp\\WEB-INF\\ntcUpload";
 			
 		@Autowired NoticeService service;
 		
@@ -54,7 +54,6 @@ public class ntcFileUploadController {
 				}else {
 					msg = "파일 업로드 중 오류발생";
 				}
-				
 				mv.addObject("msg", msg);
 				mv.addObject("page", page);
 				mv.setViewName("customer.noticeList");

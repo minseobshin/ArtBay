@@ -36,7 +36,6 @@ public class NoticeController {
 	public ModelAndView view(int serial, Page page) {
 		ModelAndView mv = new ModelAndView();
 		vo = service.noticeView(serial);
-		System.out.println("첨부파일:"+ vo.getAttList());
 		mv.addObject("vo", vo);
 		mv.addObject("Page", page);
 		mv.setViewName("customer.noticeView"); //응답할 view이름. 경로. 뷰페이지 이동. value랑 관계없음

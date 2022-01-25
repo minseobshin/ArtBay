@@ -177,36 +177,49 @@
 	
 	<!-- 낙찰내역 건수 조회 -->	
 	<select id='mypageSuccessBidTotSize' resultType='Integer'>
-		select count(W.lot) from winning_bid W join artwork A on W.lot = A.lot; 
+		select count(W.lot) from artwork A join winning_bid W on A.lot = W.lot where A.crnt_status="마감" 
 	</select>
 	<!--낙찰내역 조회 -->
 	<select id='mypageSuccessBidList' resultType="kr.artbay.common.ArtBayVo">
 		select W.lot, A.artwork_ctgr, A.artist, A.artwork_name, W.winbid_price, date_format(W.winbid_date, "%y-%m-%d") winbid_date
 		from winning_bid W join artwork A
 		on W.lot = A.lot
+		where A.crnt_status="마감"
 	</select>
-	
-	<!-- 경매결과 월별조회 -->
-	<select id='bidResult' parameterType='kr.artbay.common.Page' resultType="String">
+	<!-- 경매결과 월별 건수-->
+	<select id='bidTotSize' resultType='Integer'>
+		select count(c.due) as 'result'
+		from(
+			select month(due_date) as due
+			from artwork 
+			where crnt_status="경매중" and 
+			(artwork_name like "%a%" or artwork_ctgr like "%a%" or artist like "%a%" or mid like "%a%")
+			group by month(due_date)
+		)as c;
+	</select>
+	<!-- 경매결과 월별조회 (이후에 마감으로 바꿔야함)-->
+	<select id='bidResult' parameterType='kr.artbay.common.Page' resultType="kr.artbay.common.ArtBayVo">
 		select date_format(due_date, "%y-%m") due_date
 		from artwork 
-		where crnt_status="경매중"
+		where crnt_status="경매중" and 
+		(artwork_name like "%${findStr}%" or artwork_ctgr like "%${findStr}%" or artist like "%${findStr}%" or mid like "%${findStr}%")
 		group by month(due_date)
-		ORDER BY due_date
+		ORDER BY month(due_date)
 		<choose>
-			<when test="rSort eq 'default'"> asc</when>
-			<when test="rSort eq 'asc'"> asc</when>
-			<otherwise> desc</otherwise>
+			<when test="rSort eq 'none'"> asc</when>
+			<when test="rSort eq 'asc'">asc</when>
+			<otherwise>desc</otherwise>
 		</choose>
 		limit ${startNo-1}, ${listSize}
 	</select>
-	<select id="search" parameterType="kr.artbay.common.Page" resultType="kr.artbay.common.ArtBayVo">
+	<select id="bidResultsearch" parameterType="kr.artbay.common.Page" resultType="kr.artbay.common.ArtBayVo">
 		select a.lot, a.mid, a.artwork_name, a.artwork_ctgr, a.artist, a.material, a.artwork_size, a.contents, a.etc, a.start_price,
 		a.current_price, date_format(a.regist_date, '%y-%m-%d') as regist_date,
 		date_format(a.due_date, '%y-%m-%d') as due_date, a.hit, a.direct_price, a.bid_cnt, a.crnt_status,
 		b.serial, b.imgFile, b.thumbnail from artwork a join artimg b on a.lot=b.lot and b.thumbnail="Y" 
 		where a.mid like '%${findStr}%' or a.artist like '%${findStr}%' or a.artwork_name like '%${findStr}%' or a.artwork_ctgr like '%${findStr}%'
-		order by
+		where crnt_status="경매중"
+		order by 
 		<choose>
 			<when test="sort eq 'default'"> a.due_date asc</when>
 			<when test="sort eq 'init_price_asce'"> a.start_price asc</when>
@@ -217,6 +230,9 @@
 		</choose>
 		limit ${startNo-1}, ${listSize}
 	</select>
+	
+	
+	
 	<!--경매 종료 update-->
 	<update id="artwork_status" parameterType="kr.artbay.common.ArtBayVo">
 		UPDATE artwork set crnt_status='경매종료' WHERE crnt_status='경매중' and #{current_price} = #{direct_price} or #{due_date} &lt; NOW();

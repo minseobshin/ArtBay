@@ -24,14 +24,13 @@ public class bidResultService {
 		Page page;
 		
 
-		public List<String> bidResult(Page p) {
-			List<String> list = null;
-			list = mapper.bidResult(p);	
-			int totSize = list.size();
-			
+		public List<ArtBayVo> bidResult(Page p) {
+			List<ArtBayVo> list = null;
+			int totSize = mapper.bidTotSize();	
 			p.setTotSize(totSize);
 			this.page = p;
-			
+			list = mapper.bidResult(p);	
+			System.out.println(p.getEndNo());
 			return list;
 		} 
 		

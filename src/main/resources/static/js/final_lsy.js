@@ -52,7 +52,13 @@ mBid.page = function(nowPage) {
 	$frm.action = 'mypageBid';
 	$frm.submit();
 }
-
+function rBid(){};
+rBid.page = function(nowPage){
+	$frm = $('#frm_auction')[0];
+	$frm.nowPage.value = nowPage;
+	$frm.action = 'bidResult';
+	$frm.submit();
+}
 	
  $(function(){
 	
@@ -207,33 +213,28 @@ mBid.page = function(nowPage) {
 		}
 	)
 	
+	//경매결과 창에서 검색
+	$('#btnWinFind').click(function(){	
+	$frm = $('#frm_auction')[0];
+	$param = $('#frm_auction').serialize();
+	alert($param);
+	$frm.action="/bidResult";
+	$frm.submit();	
+	})
+		
 })	
 
 //경매결과 정렬	
-function selectOrder(){
+function selectOrder(obj){
 	$frm = $('#frm_auction')[0];
 	$param = $('#frm_auction').serialize();
-	var rSort = $('#rSort').options[$('#rSort').selectedIndex].val();
-	$frm.rSort.value = val;
+	var rSort = $(obj).val();
 	$frm.nowPage.value=1;
-	$.post({
-		url:"bidResult",
-		date: $param,
-		type: "POST",
-		cache: false,
-		success: function(){
-			window.location.href="/bidResult?rSort="+rSort;
-		}
-		
-	})
-	$frm.action = "bidResult";
-	$frm.submit();
-	alert(val);	
+	$frm.action="/bidResult";
+	$frm.submit();	
+
 }
-	
-	
-	
-	
+
 	//FAQ 카테고리 선택하면 아래에 그 faq만 보이기	
 	/*$('.faq_desc ul').each(function(index, item){
 		$(item).hide();	
@@ -283,7 +284,6 @@ function summer() {
 			onImageUpload: function(files) {
 				loadInterval.length = files.length;
 				$('#writeNotice').addClass('spinner');
-				
 				for (var i = files.length-1; i >= 0; i--) {
 					sendFile(i, files[i]);
 				}
@@ -320,7 +320,7 @@ function sendFile(intervalPos, file) {
 		processData: false,
 		success: function(img) {
 			loadInterval[intervalPos] = 
-				setInterval(loadCheck.bind(null, intervalPos, img), 2000);
+				setInterval(loadCheck.bind(null, intervalPos, img), 1000);
 		}
 	})
 }

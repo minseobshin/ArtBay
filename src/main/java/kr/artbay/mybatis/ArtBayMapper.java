@@ -60,7 +60,8 @@ public interface ArtBayMapper {
 	public List<ArtBayVo> mypageSuccessBidList(Page page);
 	
 	//경매결과 조회
-	public List<String> bidResult(Page page);
+	public List<ArtBayVo> bidResult(Page page);
+	public Integer bidTotSize();
 	//경매종료 update
 	public int artwork_status(ArtBayVo vo);
 	

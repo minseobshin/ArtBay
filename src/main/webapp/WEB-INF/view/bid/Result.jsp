@@ -12,18 +12,18 @@
 <link rel="stylesheet" href="css/index.css">
 <meta charset="UTF-8">
 <title>경매결과</title>
-<script src='./js/final_lsy.js'></script>
+
 </head>
 <body>
 <div id='auction'>
-<h1>Online Action 경매 결과</h1>	
-	<form name='frm_auction' method='post'>
+<h1>Online Auction 경매 결과</h1>	
+	<form name='frm_auction' id='frm_auction' method='post'>
 		<div id='findZone'>
 			<input type='hidden' name='nowPage' value='${page.nowPage }'>
 			<input type='search'  placeholder='검색어를 입력해 주세요' name='findStr' value='${page.findStr }'>
-			<input type='button' name='btnFind' value='검색'>
-			<input type='hidden' name='rSort'>
-			<select id='rSort' style="width:90px;height:30px;" onchange="selectOrder()">
+			<input type='button' id='btnWinFind' value='검색'>
+			
+			<select class='rSort_order' name='rSort' style="width:90px;height:30px;" onchange="selectOrder(this)">
 				<option value='none'>경매 정렬</option>
 				<option value='asc'>경매일▲</option>
 				<option value='desc'>경매일▼</option>
@@ -47,22 +47,22 @@
 	
 		<div id='btnZone'>
 			<c:if test="${page.startPage>1 }">
-				<input type='button' value='맨첨' id='btnFirst' onclick='bid.page(1)'/>
-				<input type='button' value='이전' id='btnPrev'  onclick='bid.page(${page.startPage-1})'/>
+				<input type='button' value='맨첨' id='btnFirst' onclick='rBid.page(1)'/>
+				<input type='button' value='이전' id='btnPrev'  onclick='rBid.page(${page.startPage-1})'/>
 			</c:if>
 			
 			<c:forEach var='i' begin="${page.startPage }" end='${page.endPage }'>
-				<input type='button' value='${i }' class="${(i==page.nowPage)? 'here' :'' }"  onclick='bid.page(${i})'/>
+				<input type='button' value='${i }' class="${(i==page.nowPage)? 'here' :'' }"  onclick='rBid.page(${i})'/>
 			</c:forEach>
 
 			<c:if test="${page.endPage<page.totPage }">
-				<input type='button' value='다음' id='btnNext'  onclick='bid.page(${page.endPage+1})'/>
-				<input type='button' value='맨끝' id='btnLast'  onclick='bid.page(${page.totPage})'/>
+				<input type='button' value='다음' id='btnNext'  onclick='rBid.page(${page.endPage+1})'/>
+				<input type='button' value='맨끝' id='btnLast'  onclick='rBid.page(${page.totPage})'/>
 			</c:if> 			
 		
 		</div>
 	</form>
 </div>
 </body>
-
+<script src='./js/final_lsy.js'></script>
 </html>

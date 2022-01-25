@@ -1,6 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-<%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@taglib prefix="c" uri="http://java.sun.com/jstl/core_rt" %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -29,7 +29,8 @@
 			<div id='findZone'>
 				<input type='hidden' name='findStr' value='${page.findStr }' >
 				<input type='hidden' name='nowPage' value='${page.nowPage }'>
-				<input type='hidden' name='serial' value='${vo.serial}'>
+				<input type='text' name='serial' value='${vo.serial}'>
+				<input type='text' name='msg' value='${msg }'>
 				<input type='hidden' name='hiddenChk' id='hiddenChk'>
 			</div>
 		
@@ -41,7 +42,7 @@
 			<div class='attZone'>
 				<ul>
 				<c:forEach var='att' items="${vo.attList }">
-					<li><a href='C:/ntcImg/+' ${att.attFile } download='${att.attFile }'>${att.attFile }</a></li>
+					<li><a href='./ntcUpload/${att.attFile }' download='${att.attFile }'>${att.attFile }</a></li>
 				</c:forEach>
 				</ul>
 			</div>
