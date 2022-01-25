@@ -238,18 +238,19 @@ public class ListViewController {
 
 		return realList;
 	}
-
-	/*
-	@RequestMapping(value="/bidLoadMyHistory", method= {RequestMethod.POST, RequestMethod.GET})
-	public ModelAndView bidViewMyHistory(@RequestParam(value="lot", required=false) int lot,
-			HttpServletRequest req){
+	
+	
+	@RequestMapping(value="/bidDirect", method= {RequestMethod.POST, RequestMethod.GET})
+	public ModelAndView directPurchase(HttpServletRequest req) {
 		ModelAndView mv = new ModelAndView();
-		mv = viewBidMyHistory(lot, req);
-		
-		mv.setViewName("bid.view");
+		ArtBayVo vo = new ArtBayVo();
+		vo.setLot(Integer.parseInt(req.getParameter("int")));
+		vo.setCurrent_price(vo.getStart_price());
+		vo.setCrnt_status("경매종료");
 		return mv;
 	}
-	*/
+
+	//5초마다 실행되도록 스케줄러
 	@Scheduled(cron="*/5 * * * * *")
 	public List<ArtBayVo> scheduler() {
 		List<ArtBayVo> list = new ArrayList<ArtBayVo>();

@@ -87,6 +87,10 @@
 		update artwork set crnt_status="경매종료" where current_timestamp > due_date;
 	</update>
 	
+	<update id="directPurchase" parameterType="kr.artbay.common.ArtBayVo">
+		update artwork set current_price=#{current_price}, crnt_status="경매종료" where lot=${lot}
+	</update>
+	
 	
 	<!-- 경매신청 -->
 	<select id="memberview" parameterType="String" resultType="kr.artbay.common.ArtBayVo">

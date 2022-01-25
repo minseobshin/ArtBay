@@ -63,6 +63,7 @@ function category(ctgr){
 function directPurchase(){
 	$param = $("#frm_view").serialize();
 	$.ajax({
+		url: "/bidDirect",
 		type: "POST",
 		cache: false,
 		async: true,

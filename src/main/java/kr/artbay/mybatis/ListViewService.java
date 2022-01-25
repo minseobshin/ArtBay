@@ -91,6 +91,10 @@ public class ListViewService {
 		cnt = mapper.updateStatus();
 		return cnt;
 	}
+	
+	public void directPurchase(ArtBayVo vo) {
+		
+	}
 
 	
 	public Page getPage() {return page;}
