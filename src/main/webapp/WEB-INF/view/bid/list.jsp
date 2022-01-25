@@ -86,10 +86,16 @@
 						<div class="listInnerTextTitle">
 							<p>시작가</p>
 							<p class="currentPriceTitle">현재가</p>
+							<c:if test="${not empty vo.direct_price }">
+								<p class="directPriceTitle">즉시 판매가</p>
+							</c:if>
 						</div>
 						<div class="listInnerTextPrice">
 							<p class="minimumPrice">${vo.str_start_price }</p>
 							<p class="currentPrice">${vo.str_current_price }</p>
+							<c:if test="${not empty vo.direct_price }">
+								<p class="directPrice">${vo.str_direct_price }</p>
+							</c:if>
 						</div>
 						<div class="listInnerTextTail">
 							<p class="endDate">마감일</p>

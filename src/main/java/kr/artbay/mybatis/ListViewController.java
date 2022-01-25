@@ -86,6 +86,7 @@ public class ListViewController {
 			if(vo.getCurrent_price()==null) vo.setCurrent_price(vo.getStart_price());
 			vo.setStr_current_price(NumberFormat.getInstance().format(vo.getCurrent_price()));
 			vo.setStr_bid_cnt(NumberFormat.getInstance().format(vo.getBid_cnt()));
+			if(vo.getDirect_price()!=null) vo.setStr_direct_price(NumberFormat.getInstance().format(vo.getDirect_price()));
 		}
 		page = service.getPage();
 		mv.addObject("page", page);
@@ -158,11 +159,12 @@ public class ListViewController {
 			
 			//System.out.println(diffYear + "년" + diffMonth + "개월" + diffDay+"일" + diffHr+" 시간 "+diffMin +" 분 "+diffSec+" 초");
 
-		
+		//숫자 반점 표기
 		vo.setStr_start_price(NumberFormat.getInstance().format(vo.getStart_price()));
 		if(vo.getCurrent_price()==null) vo.setCurrent_price(vo.getStart_price());
 		vo.setStr_current_price(NumberFormat.getInstance().format(vo.getCurrent_price()));
 		vo.setStr_bid_cnt(NumberFormat.getInstance().format(vo.getBid_cnt()));
+		if(vo.getDirect_price()!=null) vo.setStr_direct_price(NumberFormat.getInstance().format(vo.getDirect_price()));
 		page.setSort(sort);
 		mv.addObject("vo", vo);
 		List<ArtBayAtt> att = new ArrayList<ArtBayAtt>();

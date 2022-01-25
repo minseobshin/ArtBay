@@ -108,7 +108,7 @@
 				<c:if test="${not empty vo.direct_price }">
 					<p>
 						<strong>즉시 판매가</strong>
-						<span class="str_direct_price">KRW ${vo.direct_price }</span>
+						<span class="str_direct_price">KRW ${vo.str_direct_price }</span>
 					</p>
 				</c:if>
 			</div>
