@@ -109,10 +109,10 @@
 							</c:choose>
 						</div>
 						<div class="listInnerTextTail">
-							<p class="endDate">마감일</p>
-							<p class="bidCnt">응찰횟수</p>
-							<p class="endDate">${vo.due_date }</p>
-							<p class="bidCnt">${vo.str_bid_cnt }</p>
+							<p class="endDate">마감 ${vo.due_date }</p>
+							<c:if test="${vo.bid_cnt gt 0 }">
+								<p class="bidCnt">${vo.str_bid_cnt }회</p>
+							</c:if>
 						</div>
 					</div>
 				</div>

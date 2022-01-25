@@ -238,12 +238,13 @@ form[name=frm_list]{
 	text-align: left;
 	margin-left: 20px;
 }
+
 .listInner{
 	margin: 10px;
 	width: 17.5%;
 	border: 1px solid rgb(222, 222, 222);
 	display: inline-block;
-	height: 550px;
+	height: 500px;
 }
 
 
@@ -309,6 +310,8 @@ form[name=frm_list]{
 	width: 60%;
 	font-weight: bolder;
 	float: left;
+	margin-top: 5px;
+	margin-bottom: 5px;
 }
 
 .listInnerTextPrice{
@@ -333,6 +336,7 @@ p.endDate{
 	float: left;
 	width: 60%;
 	text-align: left;
+	margin-top: 5px;
 }
 
 p.bidCnt{
@@ -342,6 +346,9 @@ p.bidCnt{
 	float: right;
 	width: 35%;
 	text-align: right;
+	color: rgb(255, 93, 22);
+	font-weight: bolder;
+	margin-top: 5px;
 }
 
 .listInnerTextTail{
