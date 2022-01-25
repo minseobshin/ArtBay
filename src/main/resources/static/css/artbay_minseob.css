@@ -357,3 +357,26 @@
 }
 
 /* 이메일인증 요청창 모달 꾸미기 끝 */
+
+/* 관리자 페이지 시작 */
+.manager{
+	width: 1280px;
+	text-align: center;
+	margin: 0 auto;
+}
+
+#money, #memberManage{
+	display: inline-block;
+	font-size: 1.5em;
+	margin: 0 20px;
+	cursor: pointer;
+}
+
+.memberManagePage{
+}
+
+.moneyPage{
+	display: none;
+}
+
+/* 관리자 페이지 끝 */
