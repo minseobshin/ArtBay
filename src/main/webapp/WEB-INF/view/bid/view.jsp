@@ -77,11 +77,18 @@
 	<div class="view_right">
 		<div class="right_work_info">	
 			<div class="deadline_time">
-				<span>남은 시간</span><br/>
-				<c:if test="${vo.remaining_year gt 0 }">
-				<span>${vo.remaining_year }년</span>
-				</c:if>
-				<span class="remainTime">${vo.remaining_day }일 ${vo.remaining_hr }시간 ${vo.remaining_min }분 ${vo.remaining_sec }초</span>
+				<c:choose>
+					<c:when test="${vo.remaining_year eq -1}">
+						경매가 종료 되었습니다.
+					</c:when>
+					<c:otherwise>
+						<span>남은 시간</span><br/>
+						<c:if test="${vo.remaining_year gt 0 }">
+							<span>${vo.remaining_year }년</span>
+						</c:if>
+						<span class="remainTime">${vo.remaining_day }일 ${vo.remaining_hr }시간 ${vo.remaining_min }분 ${vo.remaining_sec }초</span>
+					</c:otherwise>
+				</c:choose>
 			</div>	
 			<div class="view_detail">
 				<p class="painter">${vo.artist }</p>
