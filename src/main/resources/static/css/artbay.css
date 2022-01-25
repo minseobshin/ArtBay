@@ -318,10 +318,10 @@ form[name=frm_list]{
 }
 
 .listInnerTextPrice p{
-	text-align: right !important;
+	float: right;
 }
 
-p.currentPriceTitle, p.currentPrice{
+p.currentPriceTitle, p.currentPrice, p.directPriceTitle, p.directPrice{
 	color: rgb(255, 93, 22);
 	font-weight: bolder;
 }
