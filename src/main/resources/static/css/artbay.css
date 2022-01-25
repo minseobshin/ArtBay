@@ -724,6 +724,14 @@ form[name=frm_view] div.shareUrl>div{
 	box-sizing: border-box;
 }
 
+.view_price>p>span{
+	float: right;
+}
+
+.str_current_price{
+	color: rgb(255, 109, 45);
+}
+
 .deadline_time{
 	float: right;
 	clear: both;

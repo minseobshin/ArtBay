@@ -55,6 +55,7 @@ public class ArtBayVo {
 	String str_start_price;
 	Integer current_price;
 	String str_current_price;
+	String str_direct_price;
 	String regist_date;
 	int bid_cnt;
 	String str_bid_cnt;
@@ -265,4 +266,7 @@ public class ArtBayVo {
 	public void setRemaining_min(int remaining_min) {this.remaining_min = remaining_min;}
 	public int getRemaining_sec() {return remaining_sec;}
 	public void setRemaining_sec(int remaining_sec) {this.remaining_sec = remaining_sec;}
+	public String getStr_direct_price() {return str_direct_price;}
+	public void setStr_direct_price(String str_direct_price) {this.str_direct_price = str_direct_price;}
+	
 }

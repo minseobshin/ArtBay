@@ -98,17 +98,19 @@
 			</div>
 			<div class="view_price">
 				<p>
-					<strong>추정가</strong>
-						KRW 6,000,000~8,000,000
-				</p>
-				<p>
 					<strong>시작가</strong>
-						KRW 4,000,000
+					<span class="str_start_price">KRW ${vo.str_start_price }</span>
 				</p>
 				<p>
 					<strong>현재가</strong>
-						KRW 9,000,000
+					<span class="str_current_price">KRW ${vo.str_current_price }</span>
 				</p>
+				<c:if test="${not empty vo.direct_price }">
+					<p>
+						<strong>즉시 판매가</strong>
+						<span class="str_direct_price">KRW ${vo.direct_price }</span>
+					</p>
+				</c:if>
 			</div>
 			<div class="closing_hour">
 				<span>마감 시간</span>
