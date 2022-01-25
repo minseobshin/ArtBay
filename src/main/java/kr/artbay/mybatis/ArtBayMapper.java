@@ -30,7 +30,7 @@ public interface ArtBayMapper {
 	public List<ArtBayAtt> viewOthers(int lot);
 	public List<ArtBayAtt> attList(int lot);
 	public int bidApply(ArtBayVo vo);
-	public void hit_up(int lot);
+	public void hit_up(int lot);   //조회수
 	public List<ArtBayVo> viewBids(int lot);
 	public int countBids(int lot);
 	public List<ArtBayVo> viewBidHistoryAll();

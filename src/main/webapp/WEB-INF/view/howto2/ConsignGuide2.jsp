@@ -52,7 +52,7 @@
         </div>
         <div class="howto-desc" style="margin-top: 0px;">
             <div class="cos-guide">
-                <div class="cosguide-01">
+                <div class="cosguide-01" id="step1">
                     <h2>Why Artbay?</h2>
                     <p>소장하신 예술품의 가치를 아트베이에서 확인하세요! 온라인 취미/예술품 경매 회사 아트베이가 작품 위탁을 도와드리겠습니다.</p>
                     <div>
@@ -84,7 +84,7 @@
                     </div>
                     
                 </div>
-                <div class="cosguide-02">
+                <div class="cosguide-02" id="step2">
                     <h2>위탁절차</h2>
                     <div class="cosproce-btn">
                         <ul>
