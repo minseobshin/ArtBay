@@ -17,7 +17,7 @@ import kr.artbay.mybatis.NoticeService;
 
 @Controller
 public class ntcFileUploadController {
-		public static String uploadPath= "C:\\Users\\sunsh\\git\\ArtBay\\src\\main\\webapp\\WEB-INF\\ntcUpload";
+		public static String uploadPath= "C:\\Users\\sunsh\\git\\ArtBay\\src\\main\\webapp\\WEB-INF\\ntcUpload\\";
 			
 		@Autowired NoticeService service;
 		
