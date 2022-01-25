@@ -48,13 +48,6 @@ public class ArtBayController {
 	String midResult = "";
 	PrintWriter out;
 	int lot = 0;
-	/*gitSpring 컨트롤러 내용
-	String msg="";
-	int serial;
-	int grp = 0;
-	String pwd = "";
-	PrintWriter out;
-	*/
 	
 	@RequestMapping(value="/main", method = {RequestMethod.POST, RequestMethod.GET})
 	public ModelAndView main() {
@@ -104,7 +97,11 @@ public class ArtBayController {
 		session.setMaxInactiveInterval(10*360);
 		String injung = "";
 		this.d = sv.getMid();
-		this.b = memberService.checkId(this.d);
+		try {
+			this.b = memberService.checkId(this.d);
+		}catch(NullPointerException e) {
+			this.b = true;
+		}
 		if(this.b == false) { //id 중복체크를 먼저 돌려서 DB에 존재하는 ID인지 체크한 뒤 중복이면(DB에 있으면) 진행
 			this.sv = memberService.memberLogin(sv);
 			this.c = this.sv.getOutEu7();
@@ -120,7 +117,6 @@ public class ArtBayController {
 			session.setAttribute("mid", d);
 			session.setAttribute("injung", injung);
 		}
-		System.out.println(this.sv.getInjung());
 		return c;
 	}
 	
@@ -235,12 +231,27 @@ public class ArtBayController {
 		return mv;
 	}
 	
-	//관리자 페이지
+	//관리자 페이지 이동
 	@RequestMapping(value="/memberManage")
 	public ModelAndView memberManage() {
 		ModelAndView mv = new ModelAndView();
 		mv.setViewName("mypage.memberManage");
 		return mv;
+	}
+	
+	//아이디 찾기
+	@RequestMapping(value="/findMyId", method= {RequestMethod.POST})
+	public ArtBayVo findMyId(ArtBayVo vo) {
+		vo = memberService.findMyId(vo);
+		return vo;
+	}
+	
+	//비밀번호 찾기
+	@RequestMapping(value="/findMyPwd", method= {RequestMethod.POST})
+	public String findMyPwd(ArtBayVo vo) {
+		
+		
+		return c;
 	}
 	
 	//경매신청 페이지
