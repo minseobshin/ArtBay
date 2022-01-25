@@ -42,6 +42,8 @@
 					<option value="default">정렬</option>
 					<option value="init_price_asce">낮은 시작가 순</option>
 					<option value="init_price_desc">높은 시작가 순</option>
+					<option value="current_price_asce">낮은 현재가 순</option>
+					<option value="current_price_desc">높은 현재가 순</option>
 					<option value="bid_history_cnt_asce">응찰 낮은 순</option>
 					<option value="bid_history_cnt_desc">응찰 많은 순</option>
 				</select>

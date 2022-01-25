@@ -42,6 +42,8 @@
 			<when test="sort eq 'init_price_desc'"> a.start_price desc</when>
 			<when test="sort eq 'bid_history_cnt_asce'"> a.bid_cnt asc</when>
 			<when test="sort eq 'bid_history_cnt_desc'"> a.bid_cnt desc</when>
+			<when test="sort eq 'current_price_asce'"> a.current_price asc</when>
+			<when test="sort eq 'current_price_desc'"> a.current_pricer desc</when>
 			<otherwise> due_date asc</otherwise>
 		</choose>
 		limit ${startNo-1}, ${listSize}
