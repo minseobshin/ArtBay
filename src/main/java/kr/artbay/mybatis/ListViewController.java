@@ -5,10 +5,15 @@ import java.io.IOException;
 import java.io.UnsupportedEncodingException;
 import java.security.Principal;
 import java.text.NumberFormat;
+import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.time.Duration;
 import java.time.LocalDate;
+import java.time.LocalDateTime;
+import java.time.LocalTime;
+import java.time.Period;
 import java.time.format.DateTimeFormatter;
+import java.time.temporal.ChronoUnit;
 import java.time.temporal.Temporal;
 import java.util.ArrayList;
 import java.util.Collection;
@@ -103,14 +108,46 @@ public class ListViewController {
 		mv = viewBidHistory(lot);
 		
 		//남은 시간 설정하기
-		SimpleDateFormat df = new SimpleDateFormat("yyyy-MM-dd 'at' HH:mm:ss");
-		Date date = new Date(System.currentTimeMillis());
-		System.out.println(df.format(date));
-		DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd");
-		Date dueDate = vo.getDue_date();
-		LocalDate now = LocalDate.now();
-		System.out.println(dueDate);
-		
+			String dueDate = vo.getDue_date();
+			int year = Integer.parseInt(dueDate.substring(0, 4));
+			int month = Integer.parseInt(dueDate.substring(5, 7));
+			int day = Integer.parseInt(dueDate.substring(8, 10));
+			
+			LocalDateTime dt = LocalDateTime.of(year, month, day, 00, 00, 00);
+			
+			//localDate 지금, 기한
+			LocalDate nowDate = LocalDate.now();
+			LocalDate dd = dt.toLocalDate();
+			
+			Period periodDate = Period.between(nowDate, dd);
+			int diffYear = periodDate.getYears();
+			int diffMonth = periodDate.getMonths();
+			int diffDay = periodDate.getDays();
+						
+			//localTime 지금, 기한
+			LocalDateTime nowTime = LocalDateTime.now();
+			LocalTime dueTime = dt.toLocalTime();
+			
+			diffYear = (int) ChronoUnit.YEARS.between(nowTime, dt);
+			diffMonth = (int) ChronoUnit.MONTHS.between(nowTime, dt);
+			diffDay = (int) ChronoUnit.DAYS.between(nowTime, dt);
+			
+			int diffHr = (int) ChronoUnit.HOURS.between(nowTime, dt);
+			if(diffHr>24) diffHr = diffHr/24;
+			int diffMin = (int) ChronoUnit.MINUTES.between(nowTime, dt);
+			if(diffMin>60) {
+				int min = diffMin/60;
+				diffMin = diffMin - 60*min;
+			}
+			
+			int diffSec = (int) ChronoUnit.SECONDS.between(nowTime, dt);
+			if(diffSec>60) {
+				int sec = diffSec/60;
+				diffSec = diffSec - 60*sec;
+			}
+			
+			//System.out.println(diffYear + "년" + diffMonth + "개월" + diffDay+"일" + diffHr+" 시간 "+diffMin +" 분 "+diffSec+" 초");
+
 		
 		vo.setStr_start_price(NumberFormat.getInstance().format(vo.getStart_price()));
 		if(vo.getCurrent_price()==null) vo.setCurrent_price(vo.getStart_price());
