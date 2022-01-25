@@ -237,6 +237,7 @@ public class ListViewController {
 				realList.add(vo);
 			}
 		}
+
 		return realList;
 	}
 
@@ -255,8 +256,13 @@ public class ListViewController {
 	public List<ArtBayVo> scheduler() {
 		List<ArtBayVo> list = new ArrayList<ArtBayVo>();
 		list = service.viewBidsAll();
-		service.updateStatus();
 		return list;
+	}
+	
+	@Scheduled(cron="0 0 0/1 * * *")
+	public void scheduler2() {
+		//낙찰 기간이 지난 작품은 closed 표시를 위해
+		int c = service.updateStatus();
 	}
 	
 }

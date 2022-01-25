@@ -83,8 +83,8 @@
 		select * from artwork where crnt_status="경매중";
 	</select>
 	
-	<update id="updateStatus" parameterType="Integer">
-		update artwork set crnt_status="경매종료" where lot=${_parameter} and current_date > due_date;
+	<update id="updateStatus" >
+		update artwork set crnt_status="경매종료" where current_date > due_date;
 	</update>
 	
 	
