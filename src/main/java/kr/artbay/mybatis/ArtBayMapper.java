@@ -84,5 +84,6 @@ public interface ArtBayMapper {
 	public int reply(ArtBayVo vo);				//댓글 저장
 	public int qnaUpdate(ArtBayVo vo);			//수정
 	public void qnaChkAttDelete(List<String> delList); //선택한 첨부파일 정보 삭제
-
+	public String getQnaTopMid(Integer grp);	//글의 문의자 mid 조회
+	
 }

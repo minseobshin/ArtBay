@@ -87,7 +87,7 @@
 							<input type="hidden" name="qna_status" value="${ vo.qna_status }">
 						</td>
 					</tr>
-					<c:if test="${ sessionScope.sv.mid != 'admin'}">
+					<c:if test="${ sessionScope.sv.injung != 'super'}">
 						<tr>
 							<th>비밀번호</th>
 							<td>

@@ -60,19 +60,6 @@
 							</div>	
 						</td>
 					</tr>
-					<!--  
-					<tr>
-						<th>물품번호</th>
-						<td>
-							<div class="form-inline">
-								<div class="form-group">
-									<input type="text" name="lot" id="lot" class="form-control width-md" value="" maxlength="11">
-									<span class="fcRed mt5m dpInblock">*물품번호를 입력하시면 보다 정확한 답변을 확인하실 수 있습니다. </span>
-								</div>	
-							</div>	
-						</td>
-					</tr>
-					-->
 					<tr>
 						<th>제목</th>
 						<td>
@@ -106,49 +93,6 @@
 							</div>	
 						</td>
 					</tr>
-					<!--  
-					<tr>
-						<th>답변완료알림</th>
-						<td>
-							<div class="form-inline">
-								<div class="form-group clearfix">
-									<label class="checkbox-inline col-xs-4 mt7">
-										<input type="checkbox" name="resms" id="resms" value="Y">
-										SMS
-									</label>
-									<div class=" col-xs-8">
-										<input type="text" name="sms" id="sms" class="form-control" value="010-2228-7514">
-									</div>
-								</div>
-								<div class="form-group clearfix ml30 ml0m mt5m">
-									<label class="checkbox-inline col-xs-4 mt7">
-										<input type="checkbox" name="reemail" id="reemail" value="Y">
-										메일
-									</label>
-									<div class=" col-xs-8">
-										<input type="text" name="email" id="email" class="form-control" value="5411515@naver.com">
-									</div> 
-								 </div>
-							</div>
-						</td>
-					</tr>
-					<tr>
-						<th>개인정보 수집, <br>이용안내</th>
-						<td>
-							<p>
-								수집, 이용 목적 : 문의에 대한 답변 완료시 알림 SMS, 메일 발송
-								<br>수집, 이용 항목 : 휴대전화번호, 이메일 주소
-								<br>수집, 이용 기간 : 문의에 대한 답변 완료 알림 후 즉시 삭제
-							</p>
-							<p class="mt10">
-								<label class="checkbox-inline">
-									<input type="checkbox" name="agree" id="agree" value="Y">
-									위와 같이 개인정보 수집, 이용에 동의합니다.
-								</label>
-							</p>
-						</td>
-					</tr>
-					-->
 				</tbody></table>
 				<!-- 목록이동 시 페이지 정보 -->				
 				<input type="hidden" name="nowPage" value="${ page.nowPage }">

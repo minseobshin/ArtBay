@@ -239,6 +239,11 @@
 		SELECT * FROM qna WHERE QNA_NUM = #{_parameter}
 	</select>
 	
+	<!-- QNA 문의자 mid 조회 -->
+	<select id="getQnaTopMid" parameterType="Integer" resultType="String">
+		SELECT mid FROM qna WHERE QNA_NUM = #{grp}
+	</select>
+	
 	<!-- QNA 저장 -->
 	<insert id="qnaInsert" parameterType="kr.artbay.common.ArtBayVo">
 		INSERT INTO qna(QNA_NUM, GRP, SEQ, DEEP, MID, QNA_PWD, QNA_TITLE, QNA_DOC, QNA_DATE, QNA_STATUS, QNA_TYPE) 
