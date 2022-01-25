@@ -63,9 +63,12 @@ public class mypageListController {
 		return mv;
 	}
 	//낙찰내역
-	@RequestMapping(value="/mypageSuccessBid", method= {RequestMethod.POST, RequestMethod.GET})
-	public ModelAndView sBidList(Page page) { 
+	@RequestMapping(value="/mypageSuccessBid")
+	public ModelAndView sBidList(Page page, ArtBaySessionVo sv, HttpServletRequest req) { 
 		ModelAndView mv = new ModelAndView();
+		HttpSession session = req.getSession();
+		String mid = (String)session.getAttribute("mid");
+		page.setMid(mid);
 		List<ArtBayVo> list = service.mypageSuccessBidList(page); 
 		page = service.getPage();
 		
