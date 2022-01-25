@@ -2,6 +2,7 @@ package kr.artbay.common;
 
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.HashMap;
 import java.util.List;
@@ -59,9 +60,6 @@ public class ArtBayController {
 	public ModelAndView main() {
 		ModelAndView mv = new ModelAndView();
 		List<ArtBayVo> list = applicationService.mainsearch();
-
-		
-		
 		mv.addObject("list", list);
 		mv.setViewName("main.main");
 		return mv;

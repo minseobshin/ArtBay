@@ -51,7 +51,7 @@
 	
 	<!-- main list -->
 	<select id="mainsearch" resultType="kr.artbay.common.ArtBayVo">
-		SELECT * FROM artwork ORDER BY hit DESC LIMIT 15;
+		SELECT * FROM artwork a join artimg b on a.lot=b.lot and b.thumbnail="Y" ORDER BY hit DESC LIMIT 15;
 	</select>
 	
 	<insert id="bidApply" parameterType="kr.artbay.common.ArtBayVo">
