@@ -69,8 +69,10 @@ public class ListViewController {
 		page.setNowPage(nowPage);
 		page.setSort(sort);
 		List<ArtBayVo> list = service.search(page, findStr);
+		
 		for(ArtBayVo vo : list) {
 			vo.setStr_start_price(NumberFormat.getInstance().format(vo.getStart_price()));
+			if(vo.getCurrent_price()==null) vo.setCurrent_price(0);
 			vo.setStr_current_price(NumberFormat.getInstance().format(vo.getCurrent_price()));
 			vo.setStr_bid_cnt(NumberFormat.getInstance().format(vo.getBid_cnt()));
 		}
@@ -87,6 +89,7 @@ public class ListViewController {
 			@RequestParam(value="sort", required=false) String sort,
 			Page page, HttpServletRequest req){
 		ModelAndView mv = new ModelAndView();
+
 		//상세 조회 화면 불러오기
 		vo = service.view(lot);
 		
@@ -94,6 +97,7 @@ public class ListViewController {
 		mv = viewBidHistory(lot);
 		
 		vo.setStr_start_price(NumberFormat.getInstance().format(vo.getStart_price()));
+		if(vo.getCurrent_price()==null) vo.setCurrent_price(0);
 		vo.setStr_current_price(NumberFormat.getInstance().format(vo.getCurrent_price()));
 		vo.setStr_bid_cnt(NumberFormat.getInstance().format(vo.getBid_cnt()));
 		page.setSort(sort);

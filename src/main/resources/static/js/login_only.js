@@ -20,11 +20,11 @@ $(function(){
 	//로그인 모달창
 	$('#btnLogin').click(function(){
 		if(d>0){
-			console.log(d);
+			console.log("d>0 : " + d);
 			$(".modal-content").show();
 		}else{
 			$(".modal-content").load("mypageMemberLogin");
-			console.log(d);
+			console.log("else : " + d);
 			d = 1;
 		}
 	})

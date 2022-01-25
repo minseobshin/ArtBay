@@ -67,16 +67,13 @@ public class MemberService {
 		
 		try {
 			svv = mapper.memberLogin(sv);
-			if(svv.getMid().equals(sv.getMid())) {
-				if(svv.getPwd().equals(sv.getPwd())) {
-					svv.setOutEu7("login");
-				}else {
-					svv.setOutEu7("failPwd");
-				}
+			if(svv.getPwd().equals(sv.getPwd())) {
+				svv.setOutEu7("login");
+			}else {
+				svv.setOutEu7("failPwd");
 			}
 		}catch(Exception e) {
 			e.printStackTrace();
-			svv.setOutEu7("failMid");
 		}
 		
 		return svv;
