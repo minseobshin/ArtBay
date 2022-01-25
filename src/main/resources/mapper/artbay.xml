@@ -207,15 +207,23 @@
 		from winning_bid 
 		group by winning_month 
 		order by winning_month 
-		
-	
 	</select>
+	
 	<!-- QNA 조회 건수 -->
 	<select id="qnaTotSize" parameterType="kr.artbay.common.Page" resultType="Integer">
-		SELECT COUNT(QNA_NUM) FROM qna
+		SELECT COUNT(QNA_NUM) FROM qna 
 		<where>
+			<choose>
+				<when test="mid == null">
+					QNA_STATUS = 'Y' 
+				</when>
+				<when test="mid != 'admin' and mid != 'chicken'">
+					grp IN(SELECT qna_num FROM qna WHERE mid='test' AND qna_num = grp) 
+				</when>
+			</choose>
+
 			<if test="findType != ''">
-				QNA_TYPE = #{findType}	
+				AND QNA_TYPE = #{findType}	
 			</if>
 			<if test="findCol != ''">
 				AND ${findCol} LIKE '%${findStr}%'
@@ -229,10 +237,19 @@
 			QNA_NUM, MID, QNA_DOC, GRP, SEQ, DEEP, QNA_PWD, QNA_TYPE, QNA_STATUS,
 			DATE_FORMAT(QNA_DATE, "%y-%m-%d") QNA_DATE, QNA_TITLE
 		FROM 
-			qna q
+			qna q 
 		<where>
+			<choose>
+				<when test="mid == null">
+					QNA_STATUS = 'Y' 
+				</when>
+				<when test="mid != 'admin' and mid != 'chicken'">
+					grp IN(SELECT qna_num FROM qna WHERE mid='test' AND qna_num = grp) 
+				</when>
+			</choose>
+			
 			<if test="findType != ''">
-				QNA_TYPE = #{findType}	
+				AND QNA_TYPE = #{findType}	
 			</if>
 			<if test="findCol != ''">
 				AND ${findCol} LIKE '%${findStr}%'

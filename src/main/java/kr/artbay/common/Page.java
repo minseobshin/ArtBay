@@ -8,6 +8,7 @@ public class Page {
 	String findCol="";
 	String findType="";
 	String findStr="";
+	String mid = "";
 	String sort="";
 	String rSort="";
 	
@@ -55,7 +56,9 @@ public class Page {
 	public int getNowPage() {return nowPage;}
 	public void setNowPage(int nowPage) {this.nowPage = nowPage;}
 	public String getFindStr() {return findStr;}
-	public void setFindStr(String findStr) {this.findStr = findStr;}
+	public void setFindStr(String findStr) {this.findStr = findStr;}	
+	public String getMid() {return mid;}
+	public void setMid(String mid) {this.mid = mid;}
 	public String getFindCol() {return findCol;}
 	public void setFindCol(String findCol) {this.findCol = findCol;}
 	public String getFindType() {return findType;}

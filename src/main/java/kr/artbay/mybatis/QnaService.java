@@ -184,7 +184,7 @@ public class QnaService {
 		}
 		return result;
 	}
-	
+		
 	//페이지 반환
 	public Page getPage() {
 		return page;
