@@ -442,6 +442,11 @@
 		</div>
 	</div>
 	
+	<div class="artworkInfo">
+		<h3>작품 정보</h3><br/>
+		<div>${vo.contents }</div>
+	</div>
+	
 	<div class="caution">
 			<h3>Condition Report</h3>
 			<div class="caution_inquiry">
