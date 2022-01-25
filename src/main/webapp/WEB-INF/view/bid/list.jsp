@@ -18,6 +18,9 @@
 <script src="js/artbay.js" charset="UTF-8"></script>
 </head>
 <body>
+<div class = "applyform">
+	<h1>진행중인 경매</h1>
+</div>
 
 <form name="frm_list" id="frm_list" method="post">
 	<div class="div_list">
