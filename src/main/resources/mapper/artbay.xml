@@ -83,12 +83,12 @@
 		select * from artwork where crnt_status="경매중";
 	</select>
 	
-	<update id="updateStatus" >
-		update artwork set crnt_status="경매종료" where current_timestamp > due_date;
+	<update id="updateStatus" parameterType="Integer">
+		update artwork set crnt_status="경매종료" where lot=${_parameter};
 	</update>
 	
 	<update id="directPurchase" parameterType="kr.artbay.common.ArtBayVo">
-		update artwork set current_price=#{current_price}, crnt_status="경매종료" where lot=${lot}
+		update artwork set current_price=${current_price}, crnt_status="경매종료" where lot=${lot}
 	</update>
 	
 	

@@ -148,6 +148,8 @@ public class ListViewController {
 			}
 			if((diffYear|diffMonth|diffDay|diffHr|diffMin|diffSec)<0) {
 				vo.setRemaining_year(-1);
+				vo.setCrnt_status("경매종료");
+				service.updateStatus(vo.getLot());
 			}else {				
 				vo.setRemaining_year(diffYear);
 				vo.setRemaining_month(diffMonth);
@@ -244,9 +246,10 @@ public class ListViewController {
 	public ModelAndView directPurchase(HttpServletRequest req) {
 		ModelAndView mv = new ModelAndView();
 		ArtBayVo vo = new ArtBayVo();
-		vo.setLot(Integer.parseInt(req.getParameter("int")));
+		vo.setLot(Integer.parseInt(req.getParameter("lot")));
 		vo.setCurrent_price(vo.getStart_price());
 		vo.setCrnt_status("경매종료");
+		service.directPurchase(vo);
 		return mv;
 	}
 
@@ -257,7 +260,7 @@ public class ListViewController {
 		//경매 내역 조회
 		list = service.viewBidsAll();
 		//경매 기한이 지나면 경매 종료로 변경
-		int cnt = service.updateStatus();
+		//int c = service.updateStatus();
 		return list;
 	}
 	
