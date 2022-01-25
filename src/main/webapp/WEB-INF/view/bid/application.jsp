@@ -45,20 +45,20 @@
             <div class="consignguide-content">
                 <h4>
                     <img src="./img/precau-ico@1x.png" alt="Icon">
-                    소장품 위탁 전에 읽어주세요.
+                    작품 경매 신청 전에 읽어주세요.
                 </h4>
                 <ul>
                     <li>
                         <div class="ellipse">
                             <span>•</span>
                         </div>
-                        <p>경매 위탁시 주의사항 드드드드드드드드드드드드드드드드드드드드드드드드드드드드드드드드</p>
+                        <p>경매 신청 시 즉시 경매가 시작되오니 수정, 삭제가 불가합니다.</p>
                     </li>
                     <li>
                         <div class="ellipse">
                             <span>•</span>
                         </div>
-                        <p>여러가지 전달사항</p>
+                        <p>꼭 자세히 확인 후 신청해 주시기 바랍니다.</p>
                     </li>
                 </ul>
             </div>
