@@ -354,13 +354,14 @@
 						<div class="my_choice_left">
 							<strong>시작가</strong><br/><br/>
 							<strong>현재가</strong><br/><br/>
-							<strong>응찰횟수</strong><br/><br/>
 							<strong>응찰가</strong><br/><br/>
+							<c:if test="${not empty vo.str_direct_price }">
+								<strong>즉시 판매가</strong>
+							</c:if>
 						</div>
 						<div class="my_choice_right">
 							<strong>KRW ${vo.str_start_price }</strong><br/><br/>
 							<strong>KRW ${vo.str_current_price } </strong><br/><br/>
-							<strong>${vo.str_bid_cnt }</strong><br/><br/>
 							<select class="price_combo" name="price_combo">
 							<c:choose>
 								<c:when test="${vo.current_price>=vo.start_price }">
@@ -413,11 +414,25 @@
 								</c:otherwise>
 							</c:choose>
 							</select><br/><br/>
-							최고 응찰가를 선택하세요.<br/><br/>
+							<strong>
+							<c:if test="${not empty vo.str_direct_price }">
+								<strong>KRW ${vo.str_direct_price }</strong>
+							</c:if>
+							</strong>
 						</div>
 					</div>
 				</div>
-			<input type="button" class="btnBidApplyFinal" value="응찰하기"  onclick="modalOn($('.bid_caution'))"/>
+			<c:choose>
+				<c:when test="${empty vo.str_direct_price }">
+					<input type="button" class="btnBidApplyFinal" value="응찰하기"  onclick="modalOn($('.bid_caution'))"/>
+				</c:when>
+				<c:otherwise>
+					<div class="btnBidApplyFinalLeftBox">
+						<input type="button" class="btnBidApplyFinalLeft" value="응찰하기"  onclick="modalOn($('.bid_caution'))"/>
+						<input type="button" class="btnBidApplyFinalRight" value="즉시 구매" />
+					</div>
+				</c:otherwise>
+			</c:choose>
 			</div>
 		</div>
 		

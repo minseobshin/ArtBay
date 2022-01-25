@@ -842,6 +842,33 @@ form[name=frm_view]>ul li:nth-child(3){
 	width: 90%;
 }
 
+.btnBidApplyFinalLeftBox{
+	text-align: center;
+}
+
+.btnBidApplyFinalLeft{
+	font-size: 20px;
+	font-weight: bolder;
+	width: 35%;
+	height: 40px;
+	background-color: white;
+	border: 1px solid black;
+	color: black;
+	display: inline-block;
+}
+
+.btnBidApplyFinalRight{
+	font-size: 20px;
+	font-weight: bolder;
+	width: 35%;
+	height: 40px;
+	background-color: black;
+	border: none;
+	color: white;
+	display: inline-block;
+	margin-left: 30px;
+}
+
 .bidPriceChoose li{
 	float: left;
 	margin-left: 25%;
@@ -907,11 +934,11 @@ form[name=frm_view]>ul li:nth-child(3){
 }
 
 .my_choice_left{
-	width: 20%;
+	width: 25%;
 }
 
 .my_choice_right{
-	width: 80%;
+	width: 75%;
 	float: right;
 	text-align: right;
 }
