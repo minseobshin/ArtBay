@@ -44,16 +44,16 @@ public interface ArtBayMapper {
 	//공지사항 조회
 	public List<ArtBayVo> noticeSearch(Page page);//검색
 	public Integer noticeTotSize(String findStr);//페이징처리
-	public List<ArtBayAtt> ntcAttList(String serial);//첨파 로딩
-	public void notice_hit_up(String serial); //조회수
-	public ArtBayVo noticeView(String serial);//본문로딩
+	public List<ArtBayAtt> ntcAttList(int serial);//첨파 로딩
+	public void notice_hit_up(int serial); //조회수
+	public ArtBayVo noticeView(int serial);//본문로딩
 	//공지사항 삭제
 	public Integer deleteNotice(List<String> delNoticeList);
 	public List<ArtBayVo> faqList(String ctgr);
 	//응찰내역 조회
 	public Integer mypageBidTotSize(); 
 	public List<ArtBayVo> mypageBidList(Page page);
-	public ArtBayVo bidListView(Integer lot);
+	public ArtBayVo bidListView(int serial);
 	//낙찰내역 조회
 	public Integer mypageSuccessBidTotSize(); 
 	public List<ArtBayVo> mypageSuccessBidList(Page page);

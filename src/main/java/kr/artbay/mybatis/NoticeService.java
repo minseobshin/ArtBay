@@ -81,7 +81,7 @@ public class NoticeService {
 		return b;
 		
 	}
-	public ArtBayVo noticeView(String serial) {
+	public ArtBayVo noticeView(int serial) {
 		status = manager.getTransaction(new DefaultTransactionDefinition());
 		ArtBayVo vo = null;
 		List<ArtBayAtt> ntcAttList = null;

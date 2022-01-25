@@ -22,15 +22,15 @@ public class ntcFileUploadController {
 		@Autowired NoticeService service;
 		
 		@RequestMapping (value="/ntcFileUp") //첨팦 저장 관련 컨트롤러
-		public ModelAndView ntcUpload(
-				int grp,
-				@RequestParam("attFile") List<MultipartFile> mul,
-				@ModelAttribute ArtBayVo vo, @ModelAttribute Page page){//attFile은 jsp의 파일태그 name
+		public ModelAndView ntcUpload(int grp,
+									@RequestParam("attFile") List<MultipartFile> mul,
+									@ModelAttribute ArtBayVo vo, @ModelAttribute Page page){//attFile은 jsp의 파일태그 name
 			
 			ModelAndView mv= new ModelAndView();
 			String msg = "";
 			UUID uuid = null;
 			boolean b = true;
+			vo = new ArtBayVo();
 			List<ArtBayAtt> attList= new ArrayList<ArtBayAtt>();
 			try {
 				for(MultipartFile m : mul) {

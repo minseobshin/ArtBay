@@ -46,9 +46,10 @@ public class mypageListController {
 	}
 	//응찰작품 상세내역
 	@RequestMapping(value="/bidListView", method= {RequestMethod.POST, RequestMethod.GET}) //value=요청한 경로
-	public ModelAndView bidListview(int lot, Page page) {
+	public ModelAndView bidListview(int serial, int lot,  Page page) {
 		ModelAndView mv = new ModelAndView();
-		vo = service.bidListView(lot);
+	
+		vo = service.bidListView(serial, lot);
 		mv.addObject("vo", vo);
 		mv.addObject("Page", page);
 		mv.setViewName("mypage.ListView"); //응답할 view이름. 경로. 뷰페이지 이동. value랑 관계없음

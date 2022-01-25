@@ -8,7 +8,6 @@ import org.springframework.transaction.PlatformTransactionManager;
 import org.springframework.transaction.TransactionStatus;
 import org.springframework.transaction.annotation.Transactional;
 
-import kr.artbay.common.ArtBayVo;
 import kr.artbay.common.Page;
 @Service
 @Transactional
@@ -25,8 +24,9 @@ public class bidResultService {
 
 		public List<String> bidResult(Page p) {
 			List<String> list = null;
-			list = mapper.bidResult(p);		
+			list = mapper.bidResult(p);	
 			int totSize = list.size();
+			
 			p.setTotSize(totSize);
 			this.page = p;
 			

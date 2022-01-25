@@ -23,7 +23,7 @@
 			<input type='search'  placeholder='검색어를 입력해 주세요' name='findStr' value='${page.findStr }'>
 			<input type='button' name='btnFind' value='검색'>
 			<input type='hidden' name='rSort'>
-			<select id='rSort' style="width:90px;height:30px;" onchange="selectOrder(this.value);">
+			<select id='rSort' style="width:90px;height:30px;" onchange="selectOrder()">
 				<option value='none'>경매 정렬</option>
 				<option value='asc'>경매일▲</option>
 				<option value='desc'>경매일▼</option>
@@ -44,7 +44,7 @@
 			</div>
 		</c:forEach>	
 	</div>
-	</form>
+	
 		<div id='btnZone'>
 			<c:if test="${page.startPage>1 }">
 				<input type='button' value='맨첨' id='btnFirst' onclick='bid.page(1)'/>
@@ -61,7 +61,7 @@
 			</c:if> 			
 		
 		</div>
-
+	</form>
 </div>
 </body>
 

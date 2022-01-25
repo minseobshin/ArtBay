@@ -46,12 +46,12 @@ public class mypageListService {
 		return list;
 	
 	}
-	public ArtBayVo bidListView(int lot) {
+	public ArtBayVo bidListView(int serial, int lot) {
 		status = manager.getTransaction(new DefaultTransactionDefinition());
 		ArtBayVo vo = null;
 		List<ArtBayAtt> attList = null;
 		try {			
-			vo = mapper.bidListView(lot);
+			vo = mapper.bidListView(serial);
 			attList = mapper.attList(lot);
 			vo.setAttList(attList);
 			

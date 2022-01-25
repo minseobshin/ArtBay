@@ -101,6 +101,9 @@
 	<select id="attList" parameterType="Integer" resultType="kr.artbay.common.ArtBayAtt">
 		select * from artimg where lot = #{_parameter}
 	</select>
+	
+	
+	
 	<!-- faq 조회 -->
 	<select id='faqList' parameterType="String" resultType="kr.artbay.common.ArtBayVo">
 		select * from faq where ctgr = #{_parameter}
@@ -120,13 +123,13 @@
 	</select>
 	
 	<!-- 공지 클릭 시 -->
-	<update id="notice_hit_up" parameterType="String">
+	<update id="notice_hit_up" parameterType="integer">
 		update notice set hit = hit+1 where serial = #{_parameter}
 	</update>
-	<select id="noticeView" parameterType="String" resultType="kr.artbay.common.ArtBayVo">
-		select serial, title, hit, doc, date_format(not_date, "%y-%m-%d") not_date, grp from notice where serial = #{serial} 
+	<select id="noticeView" parameterType="integer" resultType="kr.artbay.common.ArtBayVo">
+		select serial, title, hit, doc, date_format(not_date, "%y-%m-%d") not_date, grp from notice where serial = #{_parameter}
 	</select>
-	<select id="ntcAttList" parameterType="String" resultType="kr.artbay.common.ArtBayAtt">
+	<select id="ntcAttList" parameterType="integer" resultType="kr.artbay.common.ArtBayAtt">
 		select * from noticeAtt where grp = #{serial}
 	</select>
 	<!-- 선택된 공지 삭제 -->
@@ -154,17 +157,18 @@
 	</select>
 	<!-- 응찰내역 조회  -->
 	<select id='mypageBidList' parameterType="kr.artbay.common.Page" resultType="kr.artbay.common.ArtBayVo">
-		select B.lot, A.artwork_ctgr, A.artist, A.artwork_name, B.bid_price, date_format(B.bid_date, "%y-%m-%d") bid_date
+		select B.serial, B.lot, A.artwork_ctgr, A.artist, A.artwork_name, B.bid_price, date_format(B.bid_date, "%y-%m-%d") bid_date
 		from bidding B join artwork A
 		on B.lot = A.lot
 		ORDER BY bid_date desc
 		LIMIT ${startNo-1}, ${listSize}
 	</select>
 	<!-- 응찰 상세 -->
-	<select id='bidListView' parameterType='integer' resultType="kr.artbay.common.ArtBayVo">
+	<select id='bidListView' parameterType='Integer' resultType="kr.artbay.common.ArtBayVo">
 		select B.*, A.artwork_ctgr, A.artist, A.artwork_name
 		from bidding B join artwork A
 		on B.lot = A.lot
+		where B.serial=#{_parameter}
 	</select>
 	
 	<!--경매 종료 update-->
@@ -189,12 +193,9 @@
 		from winning_bid 
 		group by winning_month 
 		order by winning_month 
-		<where>
-			<if test="rSort eq 'asc'">asc</if>
-			<if test="rSort eq 'desc'">desc</if>
-		</where>
-	</select>
+		
 	
+	</select>
 	<!-- QNA 조회 건수 -->
 	<select id="qnaTotSize" parameterType="kr.artbay.common.Page" resultType="Integer">
 		SELECT COUNT(QNA_NUM) FROM qna

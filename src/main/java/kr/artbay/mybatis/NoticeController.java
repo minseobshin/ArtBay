@@ -32,10 +32,9 @@ public class NoticeController {
 	List<String> delNoticeList;
 	
 	@RequestMapping(value="/noticeView", method= {RequestMethod.POST, RequestMethod.GET}) 
-	public ModelAndView view(String serial, Page page) {
+	public ModelAndView view(int serial, Page page) {
 		ModelAndView mv = new ModelAndView();
 		vo = service.noticeView(serial);
-		
 		mv.addObject("vo", vo);
 		mv.addObject("Page", page);
 		mv.setViewName("customer.noticeView"); //응답할 view이름. 경로. 뷰페이지 이동. value랑 관계없음

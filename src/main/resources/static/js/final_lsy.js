@@ -32,9 +32,9 @@ ntc.noticeView = function(serial){
 }
 /*bidView 응찰내역 상세보기*/
 function mBid(){};
-mBid.view = function(lot){
+mBid.view = function(serial){
 	$frm = $('#frm_page')[0];
-	$frm.lot.value = lot;
+	$frm.serial.value = serial;
 	$frm.action = 'bidListView'; 
 	$frm.submit();
 }
@@ -205,11 +205,22 @@ mBid.page = function(nowPage) {
 })	
 
 //경매결과 정렬	
-var selectOrder = function(val){
-	//var value = $('#rSort').options[$('#rSort').selectedIndex].val();
+function selectOrder(){
 	$frm = $('#frm_auction')[0];
+	$param = $('#frm_auction')[0].serialize();
+	var rSort = $('#rSort').options[$('#rSort').selectedIndex].val();
 	$frm.rSort.value = val;
 	$frm.nowPage.value=1;
+	$.post({
+		url:"bidResult",
+		date: $param,
+		type: "POST",
+		cache: false,
+		success: function(){
+			window.location.href="/bidResult?rSort="+rSort;
+		}
+		
+	})
 	$frm.action = "bidResult";
 	$frm.submit();
 	alert(val);	
@@ -266,7 +277,7 @@ function summer() {
 		callbacks: { //이미지를 첨부하는 부분
 			onImageUpload: function(files) {
 				loadInterval.length = files.length;
-				$('#writeNotice').addClass('spinner');
+				$('#frm_writeNotice').addClass('spinner');
 				
 				for (var i = files.length-1; i >= 0; i--) {
 					sendFile(i, files[i]);
