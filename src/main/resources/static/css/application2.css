@@ -1033,6 +1033,8 @@ element.style {
     line-height: 1.8em;
     color: #666666;
 }
+
+/* 
 .preview-img {
     width: 100%;
     display: flex;
@@ -1053,8 +1055,9 @@ element.style {
     height: 260px;
     overflow: hidden;
     position: relative;
-}
-.bid-guide > div:nth-child(3) > div > h4 {
+} */
+
+.bid-guide > div:nth-child(2) > div > h4 {
     position: relative;
     font-size: 16px;
     padding-left: 28px;
@@ -1062,7 +1065,7 @@ element.style {
     font-weight: 500;
     margin-bottom: 5px;
 }
-.bid-guide > div:nth-child(3) > div > h4::before {
+.bid-guide > div:nth-child(2) > div > h4::before {
     position: absolute;
     content: '01';
     top: 50%;
@@ -1076,12 +1079,13 @@ element.style {
     text-align: center;
     line-height: 20px;
 }
-.bid-guide > div:nth-child(3) > div > p {
+.bid-guide > div:nth-child(2) > div > p {
     font-size: 16px;
     line-height: 1.75em;
     color: #666666;
 }
-.liveauc-guide {
+
+/* .liveauc-guide {
     font-size: 0;
     margin: 20px 0 30px 0;
 }
@@ -1121,7 +1125,8 @@ element.style {
 .liveauc-guide > div:nth-child(2), .liveauc-guide > div:last-child {
     margin-right: 0;
 }
-.bid-guide > div:nth-child(3) > div:last-child > h4::before {
+ */
+.bid-guide > div:nth-child(2) > div:last-child > h4::before {
     content: '02';
 }
 .sub-box {
@@ -1154,13 +1159,13 @@ element.style {
 .bid-01 {
     margin-bottom: 80px;
 }
-.bid-guide > div:nth-child(4) > div > h4 {
+.bid-guide > div:nth-child(3) > div > h4 {
     position: relative;
     font-size: 16px;
     padding-left: 28px;
     font-weight: 500;
 }
-.bid-guide > div:nth-child(4) > div > h4::before {
+.bid-guide > div:nth-child(3) > div > h4::before {
     position: absolute;
     content: '01';
     top: 50%;
@@ -1174,19 +1179,19 @@ element.style {
     text-align: center;
     line-height: 20px;
 }
-.bid-guide > div:nth-child(4) > div > p {
+.bid-guide > div:nth-child(3) > div > p {
     font-size: 16px;
     line-height: 1.75em;
     margin-bottom: 20px;
     color: #666666;
 }
 
-.bid-guide > div:nth-child(4) > div > .sub-box > p {
+.bid-guide > div:nth-child(3) > div > .sub-box > p {
     font-size: 14px;
     font-weight: 500;
     margin-bottom: 5px;
 }
-.bid-guide > div:nth-child(4) > div > .sub-box > ul > p {
+.bid-guide > div:nth-child(3) > div > .sub-box > ul > p {
     font-size: 14px;
     padding-left: 21px;
     color: #f44e05;
@@ -1227,26 +1232,26 @@ element.style {
 .bidtableb2 tbody tr td:last-child {
     border-right: none;
 }
-.bid-guide > div:nth-child(4) > div > .sub-box > p.exam {
+.bid-guide > div:nth-child(3) > div > .sub-box > p.exam {
     font-weight: 400;
     margin-bottom: 0;
 }
-.bid-guide > div:nth-child(4) > div:last-child > h4::before {
+.bid-guide > div:nth-child(3) > div:last-child > h4::before {
     content: '02';
 }
 .bid-guide > div:last-child {
     margin-bottom: 0;
 }
-.bid-guide > div:nth-child(5) > div {
+.bid-guide > div:nth-child(4) > div {
     margin-bottom: 60px;
 }
-.bid-guide > div:nth-child(5) > div > h4 {
+.bid-guide > div:nth-child(4) > div > h4 {
     font-size: 16px;
     font-weight: 500;
     padding-left: 28px;
     position: relative;
 }
-.bid-guide > div:nth-child(5) > div > h4::before {
+.bid-guide > div:nth-child(4) > div > h4::before {
     position: absolute;
     content: '01';
     top: 50%;
@@ -1260,7 +1265,7 @@ element.style {
     text-align: center;
     line-height: 20px;
 }
-.bid-guide > div:nth-child(5) > div > p {
+.bid-guide > div:nth-child(4) > div > p {
     font-size: 16px;
     line-height: 1.75em;
     color: #666666;
@@ -1298,12 +1303,12 @@ element.style {
 .bidtableb3 tr td:nth-child(3) {
     background-color: #dfdede;
 }
-.bid-guide > div:nth-child(5) > div > ul > li {
+.bid-guide > div:nth-child(4) > div > ul > li {
     display: flex;
     align-items: flex-start;
     padding-left: 0;
 }
-.bid-guide > div:nth-child(5) > div > ul > li > div {
+.bid-guide > div:nth-child(4) > div > ul > li > div {
     width: 20px;
     height: 28px;
     min-width: 20px;
@@ -1311,12 +1316,12 @@ element.style {
     align-items: center;
     justify-content: center;
 }
-.bid-guide > div:nth-child(5) > div > ul > li > p {
+.bid-guide > div:nth-child(4) > div > ul > li > p {
     font-size: 16px;
     line-height: 1.75em;
     color: #666666;
 }
-.bid-guide > div:nth-child(5) > div:nth-of-type(2) > h4::before {
+.bid-guide > div:nth-child(4) > div:nth-of-type(2) > h4::before {
     content: '02';
 }
 .dilivery-02 > .sub-box > p {
@@ -1329,7 +1334,7 @@ element.style {
 .dilivery-02 > .sub-box > p > img {
     margin-right: 5px;
 }
-.bid-guide > div:nth-child(5) > div:last-child > h4::before {
+.bid-guide > div:nth-child(4) > div:last-child > h4::before {
     content: '03';
 }
 
