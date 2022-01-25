@@ -37,6 +37,7 @@ public interface ArtBayMapper {
 	public int updateCurrentPrice(int lot);
 	public int updateBidCnt(int lot);
 	public List<ArtBayVo> bidOnGoing();
+	public int updateStatus(int lot);
 
 	
 	//공지사항 저장

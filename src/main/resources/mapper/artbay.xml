@@ -78,6 +78,10 @@
 		select * from artwork where crnt_status="경매중";
 	</select>
 	
+	<update id="updateStatus" parameterType="Integer">
+		update crnt_status set "경매종료" where lot=${_parameter} and now()>due_date;
+	</update>
+	
 	
 	<!-- 경매신청 -->
 	<select id="memberview" parameterType="String" resultType="kr.artbay.common.ArtBayVo">

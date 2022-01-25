@@ -87,8 +87,13 @@ public class ListViewService {
 	}
 	
 	public int updateStatus() {
-		int cnt;
-		
+		int cnt = 0;
+		List<ArtBayVo> list = mapper.bidOnGoing();
+		if(list.size()>0) {
+			for(ArtBayVo vo : list) {
+				
+			}
+		}
 		
 		return cnt;
 	}
