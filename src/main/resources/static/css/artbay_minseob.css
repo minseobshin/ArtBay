@@ -247,7 +247,7 @@
 	color: white;
 }
 
-#btnCancelLogin{
+#btnCancelLogin, #btnCancelLogin2, #btnCancelLogin3{
 	width: 100px;
 	height: 44px;
 	background-color: #f60;
@@ -256,19 +256,44 @@
 	color: white;
 }
 
-.btnGoLogin:hover, #btnCancelLogin:hover{
+.btnGoLogin:hover, #btnCancelLogin:hover, #btnCancelLogin2:hover, #btnCancelLogin3:hover{
 	background-color: white;
 	color: #f60;
 	border: 1px solid #f60;
 	cursor: pointer;
 }
 
-.btnGoLogin:active, #btnCancelLogin:active{
+.btnGoLogin:active, #btnCancelLogin:active, #btnCancelLogin2:active, #btnCancelLogin3:active{
 	background-color: #f60;
 	color: white;
 }
 
+.btnFindId{
+	display: inline-block;
+	float: right;
+	background-color: transparent;
+	border: 0;
+	cursor: pointer;
+	font-size: 0.8em;
+}
+.btnFindPwd, .btnFindPwd2{
+	display: inline-block;
+	float: right;
+	background-color: transparent;
+	border: 0;
+	margin-right: 15px;
+	cursor: pointer;
+	font-size: 0.8em;
+}
+
 /* 로그인화면 모달창 꾸미기 끝 */
+/* 로그인화면 모달창 아이디찾기 제어 시작 */
+
+#frm_findId, #frm_findPwd{
+	display: none;
+}
+
+/* 로그인화면 모달창 아이디찾기 제어 끝 */
 
 /* 이메일인증 요청창 모달 배경 시작 */
 
