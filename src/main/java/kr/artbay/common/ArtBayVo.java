@@ -61,7 +61,6 @@ public class ArtBayVo {
 	String crnt_status;
 	String sort;
 	String bid_time;
-	String whole_datetime;
 	
 	//공지사항
 	String title;
@@ -247,8 +246,5 @@ public class ArtBayVo {
 	public void setStr_bid_cnt(String str_bid_cnt) {this.str_bid_cnt = str_bid_cnt;}
 	public String getBid_time() {return bid_time;}
 	public void setBid_time(String bid_time) {this.bid_time = bid_time;}
-	public String getWhole_datetime() {return whole_datetime;}
-	public void setWhole_datetime(String whole_datetime) {this.whole_datetime = whole_datetime;}
-	
 	
 }
