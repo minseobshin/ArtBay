@@ -16,6 +16,14 @@ bid.category = function(ctgr){
 	$frm_faq.action='faqList';
 	$frm_faq.submit();
 } 
+bid.viewDetail = function(winMonth){
+	$frm = $('#frm_auction')[0];
+	$frm.winMonth.value=winMonth;
+}
+//result창에서 상세보기
+	$('.detail').click(function(){
+		location.href='/bidList';
+	})
 /*notice*/
 function ntc(){};
 ntc.noticePage = function(nowPage){
@@ -48,10 +56,7 @@ mBid.page = function(nowPage) {
 	
  $(function(){
 	
-	//result창에서 상세보기
-	$('.detail').click(function(){
-		location.href='/bidList';
-	})
+	
 	//customer 위탁안내 부분 
 	$('.desc01').show();
 	$('.desc02').hide();
@@ -185,12 +190,12 @@ mBid.page = function(nowPage) {
 		//공지 저장 버튼
 	$('#btnSaveNotice').click(function(){
 		
-			$param = $('#frm_writeNotice').serialize();
+			$param = $('#frm_notice').serialize();
 			$.post('noticeSave', $param, function(data){
+				alert($param);
 				var json = JSON.parse(data);
 				if(json.flag=='OK'){ //공지 vo가 저장 성공했을 때
 					var $fd = $('#frm_noticeUpload')[0];
-					alert($fd);
 					$fd.grp.value = json.grp;
 					$fd.enctype = "multipart/form-data";
 					$fd.action = "ntcFileUp";
@@ -207,7 +212,7 @@ mBid.page = function(nowPage) {
 //경매결과 정렬	
 function selectOrder(){
 	$frm = $('#frm_auction')[0];
-	$param = $('#frm_auction')[0].serialize();
+	$param = $('#frm_auction').serialize();
 	var rSort = $('#rSort').options[$('#rSort').selectedIndex].val();
 	$frm.rSort.value = val;
 	$frm.nowPage.value=1;
@@ -277,7 +282,7 @@ function summer() {
 		callbacks: { //이미지를 첨부하는 부분
 			onImageUpload: function(files) {
 				loadInterval.length = files.length;
-				$('#frm_writeNotice').addClass('spinner');
+				$('#writeNotice').addClass('spinner');
 				
 				for (var i = files.length-1; i >= 0; i--) {
 					sendFile(i, files[i]);

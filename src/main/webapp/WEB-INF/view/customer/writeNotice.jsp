@@ -25,7 +25,7 @@ $(function(){
 <body>
 <div id='writeNotice'>
 		<h1>공지사항 작성</h1>
-	<form name='frm_writeNotice' id='frm_writeNotice' method='post'>
+	<form name='frm_notice' id='frm_notice' method='post'>
 			<label>제목</label>
 			<input type='text' name='title' size='50' value='공지사항입니다.'>
 			<label>작성일</label>
@@ -51,7 +51,7 @@ $(function(){
 
 </div>
 	<script>
-		document.frm_writeNotice.not_date.valueAsDate = new Date();
+		document.frm_notice.not_date.valueAsDate = new Date();
 	</script>
 
 </body>

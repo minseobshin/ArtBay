@@ -93,7 +93,7 @@ public class NoticeService {
 			vo = mapper.noticeView(serial);	
 			ntcAttList = mapper.ntcAttList(serial);
 			vo.setAttList(ntcAttList);
-		
+			
 		}catch(Exception ex) {
 			ex.printStackTrace();
 		}

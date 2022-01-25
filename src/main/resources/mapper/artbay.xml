@@ -166,8 +166,8 @@
 		select B.serial, B.lot, A.artwork_ctgr, A.artist, A.artwork_name, B.bid_price, date_format(B.bid_date, "%y-%m-%d") bid_date
 		from bidding B join artwork A
 		on B.lot = A.lot
-		ORDER BY bid_date desc
-		LIMIT ${startNo-1}, ${listSize}
+		ORDER BY bid_date 
+		limit ${startNo-1}, ${listSize}
 	</select>
 	<!-- 응찰 상세 -->
 	<select id='bidListView' parameterType='Integer' resultType="kr.artbay.common.ArtBayVo">
@@ -176,11 +176,6 @@
 		on B.lot = A.lot
 		where B.serial=#{_parameter}
 	</select>
-	
-	<!--경매 종료 update-->
-	<update id="artwork_status" parameterType="kr.artbay.common.ArtBayVo">
-		UPDATE artwork set crnt_status='경매종료' WHERE crnt_status='경매중' and #{current_price} = #{direct_price} or #{due_date} &lt; NOW();
-	</update>
 	
 	<!-- 낙찰내역 건수 조회 -->	
 	<select id='mypageSuccessBidTotSize' resultType='Integer'>
@@ -195,13 +190,41 @@
 	
 	<!-- 경매결과 월별조회 -->
 	<select id='bidResult' parameterType='kr.artbay.common.Page' resultType="String">
-		select date_format(winbid_date, "%Y년 %m월") as winning_month 
-		from winning_bid 
-		group by winning_month 
-		order by winning_month 
-		
-	
+		select date_format(due_date, "%y-%m") due_date
+		from artwork 
+		where crnt_status="경매중"
+		group by month(due_date)
+		ORDER BY due_date
+		<choose>
+			<when test="rSort eq 'default'"> asc</when>
+			<when test="rSort eq 'asc'"> asc</when>
+			<otherwise> desc</otherwise>
+		</choose>
+		limit ${startNo-1}, ${listSize}
 	</select>
+	<select id="search" parameterType="kr.artbay.common.Page" resultType="kr.artbay.common.ArtBayVo">
+		select a.lot, a.mid, a.artwork_name, a.artwork_ctgr, a.artist, a.material, a.artwork_size, a.contents, a.etc, a.start_price,
+		a.current_price, date_format(a.regist_date, '%y-%m-%d') as regist_date,
+		date_format(a.due_date, '%y-%m-%d') as due_date, a.hit, a.direct_price, a.bid_cnt, a.crnt_status,
+		b.serial, b.imgFile, b.thumbnail from artwork a join artimg b on a.lot=b.lot and b.thumbnail="Y" 
+		where a.mid like '%${findStr}%' or a.artist like '%${findStr}%' or a.artwork_name like '%${findStr}%' or a.artwork_ctgr like '%${findStr}%'
+		order by
+		<choose>
+			<when test="sort eq 'default'"> a.due_date asc</when>
+			<when test="sort eq 'init_price_asce'"> a.start_price asc</when>
+			<when test="sort eq 'init_price_desc'"> a.start_price desc</when>
+			<when test="sort eq 'bid_history_cnt_asce'"> a.bid_cnt asc</when>
+			<when test="sort eq 'bid_history_cnt_desc'"> a.bid_cnt desc</when>
+			<otherwise> due_date asc</otherwise>
+		</choose>
+		limit ${startNo-1}, ${listSize}
+	</select>
+	<!--경매 종료 update-->
+	<update id="artwork_status" parameterType="kr.artbay.common.ArtBayVo">
+		UPDATE artwork set crnt_status='경매종료' WHERE crnt_status='경매중' and #{current_price} = #{direct_price} or #{due_date} &lt; NOW();
+	</update>
+	
+	
 	<!-- QNA 조회 건수 -->
 	<select id="qnaTotSize" parameterType="kr.artbay.common.Page" resultType="Integer">
 		SELECT COUNT(QNA_NUM) FROM qna

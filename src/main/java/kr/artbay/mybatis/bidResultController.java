@@ -18,8 +18,7 @@ import kr.artbay.common.Page;
 public class bidResultController {
 	
 @Autowired
-bidResultService rService;
-ListViewService service;
+bidResultService service;
 ArtBayVo vo = null;
 Page page;
 
@@ -29,7 +28,7 @@ public ModelAndView bidResult(Page page,
 		@RequestParam(value="rSort", required=false, defaultValue="asc") String rSort ) { 
 	ModelAndView mv = new ModelAndView();
 	page.setrSort(rSort);
-	List<String> list = rService.bidResult(page); //service=>dao역할
+	List<String> list = service.bidResult(page); //service=>dao역할
 	mv.addObject("page", page);
 	mv.addObject("list", list);
 	mv.setViewName("bid.Result");
@@ -45,7 +44,7 @@ public ModelAndView bidList(@RequestParam(value="findStr", required=false) Strin
 	page.setFindStr(findStr);
 	page.setNowPage(nowPage);
 	page.setSort(sort);
-	List<ArtBayVo> list = service.search(page, findStr);
+	List<ArtBayVo> list = service.winSearch(page, findStr);
 	for(ArtBayVo vo : list) {
 		vo.setStr_start_price(NumberFormat.getInstance().format(vo.getStart_price()));
 		vo.setStr_current_price(NumberFormat.getInstance().format(vo.getCurrent_price()));

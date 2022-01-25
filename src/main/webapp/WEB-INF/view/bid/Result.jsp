@@ -31,16 +31,16 @@
 		</div>
 	
 	<div id='list'>
-		<c:forEach var='item' items='${list }'>
+		<c:forEach var='vo' items='${list }'>
 			<div id='item'>
-				<span class='weekly_value'  >${item}</span>
+				<span class='weekly_value'  >${vo.due_date}</span>
 				<span class='weekly_title'>  온라인 경매</span><br/>
 				<span class='startDate_title'>경매시작일</span>
 				<span class='startDate_value'>2021-12-12</span><br/>
 				<span class='endDate_title' >경매종료일</span>	
 				<span class='endDate_value' >2021-12-22</span>	<br/>
 				<img src = 'http://placehold.it/120x160'/>
-				<input type='button' class='detail' name='btnDetail' value='상세보기' >
+				<input type='button' class='detail' name='btnDetail' value='상세보기' onclick='bid.viewDetail(${item})' >
 			</div>
 		</c:forEach>	
 	</div>

@@ -17,7 +17,7 @@ import kr.artbay.mybatis.NoticeService;
 
 @Controller
 public class ntcFileUploadController {
-		public static String uploadPath= "C:/upload/";
+		public static String uploadPath= "C:\\Users\\sunsh\\git\\ArtBay\\src\\main\\resources\\static\\ntcImg";
 			
 		@Autowired NoticeService service;
 		
@@ -35,7 +35,7 @@ public class ntcFileUploadController {
 			try {
 				for(MultipartFile m : mul) {
 					if(m.getOriginalFilename().equals("")) continue;
-					
+			
 					File targetFile = new File(uploadPath + m.getOriginalFilename());
 					m.transferTo(targetFile); //업로드한 파일을 해당 targetFile 위치에 보내기
 					uuid = UUID.randomUUID();

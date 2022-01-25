@@ -46,6 +46,7 @@ public class mypageListService {
 		return list;
 	
 	}
+	
 	public ArtBayVo bidListView(int serial, int lot) {
 		status = manager.getTransaction(new DefaultTransactionDefinition());
 		ArtBayVo vo = null;
