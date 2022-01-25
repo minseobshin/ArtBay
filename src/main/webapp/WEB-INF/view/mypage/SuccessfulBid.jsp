@@ -29,7 +29,7 @@
 		
 		<div id='rows'>
 			<c:forEach var='vo' items='${list }'>
-				<div id='item' onclick ='bid.view(${vo.lot})'>
+				<div id='item' onclick ='mBid.view(${vo.lot})'>
 					<span class='num'>${vo.lot }</span>
 					<span class='name'>${vo.artwork_ctgr }</span>
 					<span class='artist'>${vo.artist }</span>

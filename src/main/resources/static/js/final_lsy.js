@@ -40,18 +40,28 @@ ntc.noticeView = function(serial){
 }
 /*bidView 응찰내역 상세보기*/
 function mBid(){};
-mBid.view = function(serial){
-	$frm = $('#frm_page')[0];
-	$frm.serial.value = serial;
-	$frm.action = 'bidListView'; 
-	$frm.submit();
+
+mBid.view = function(lot){
+	$frm = $("#frm_page")[0];
+	$frm.lot.value = lot;
+	$param = $("#frm_page").serialize();
+	$.ajax({
+		url: "/bidView",
+		cache: false,
+		type: "POST",
+		data: $param,
+		success: function(){
+			window.location.href = "bidView?lot="+lot+"&nowPage="+$frm.nowPage.value;
+		}
+	})
 }
+
 mBid.page = function(nowPage) {
 	$frm = $('#frm_page')[0];
-	$frm.nowPage.value = nowPage;
 	$frm.action = 'mypageBid';
 	$frm.submit();
 }
+
 function rBid(){};
 rBid.page = function(nowPage){
 	$frm = $('#frm_auction')[0];

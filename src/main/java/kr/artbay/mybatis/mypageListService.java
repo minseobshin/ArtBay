@@ -39,7 +39,7 @@ public class mypageListService {
 	}*/
 	public List<ArtBayVo> mypageBidList(Page p){
 		List<ArtBayVo> list = null;
-		int totSize = mapper.mypageBidTotSize();
+		int totSize = mapper.mypageBidTotSize(p);
 		p.setTotSize(totSize);
 		this.page = p;
 		list = mapper.mypageBidList(p);		
@@ -63,7 +63,7 @@ public class mypageListService {
 	}
 	public List<ArtBayVo> mypageSuccessBidList(Page p){
 		List<ArtBayVo> list = null;
-		int totSize = mapper.mypageSuccessBidTotSize();
+		int totSize = mapper.mypageSuccessBidTotSize(p);
 		p.setTotSize(totSize);
 		this.page = p;
 		list = mapper.mypageSuccessBidList(p);		

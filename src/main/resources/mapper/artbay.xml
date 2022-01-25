@@ -170,33 +170,33 @@
 		insert into noticeAtt(grp, notFile) 
 		values (#{grp}, #{attFile} )
 	</insert>
+	
 	<!-- 응찰내역 건수 조회-->
-	<select id='mypageBidTotSize'  resultType='Integer'>
-		select count(B.lot) from bidding B join artwork A on B.lot = A.lot
+	<select id='mypageBidTotSize' parameterType="kr.artbay.common.Page" resultType='Integer'>
+		select count(B.serial)
+		from bidding B join artwork A
+		on B.lot = A.lot
+		where A.mid =#{mid}
 	</select>
 	<!-- 응찰내역 조회  -->
 	<select id='mypageBidList' parameterType="kr.artbay.common.Page" resultType="kr.artbay.common.ArtBayVo">
-		select B.serial, B.lot, A.artwork_ctgr, A.artist, A.artwork_name, B.bid_price, date_format(B.bid_date, "%y-%m-%d") bid_date
+		select A.lot, A.artwork_ctgr, A.artist, A.artwork_name, B.bid_price, date_format(B.bid_date, "%y-%m-%d") bid_date
 		from bidding B join artwork A
 		on B.lot = A.lot
 		where A.mid = #{mid}
 		ORDER BY bid_date 
 		limit ${startNo-1}, ${listSize}
 	</select>
-	<!-- 응찰 상세 -->
-	<select id='bidListView' parameterType='Integer' resultType="kr.artbay.common.ArtBayVo">
-		select B.*, A.artwork_ctgr, A.artist, A.artwork_name
-		from bidding B join artwork A
-		on B.lot = A.lot
-		where B.serial=#{_parameter}
-	</select>
-	
+
 	<!-- 낙찰내역 건수 조회 -->	
-	<select id='mypageSuccessBidTotSize' resultType='Integer'>
-		select count(W.lot) from artwork A join winning_bid W on A.lot = W.lot where A.crnt_status="마감" 
+	<select id='mypageSuccessBidTotSize' parameterType="kr.artbay.common.Page" resultType='Integer'>
+		select count(*)
+		from winning_bid W join artwork A
+		on W.lot = A.lot
+		where A.crnt_status="경매종료" and A.mid=#{mid}
 	</select>
 	<!--낙찰내역 조회 -->
-	<select id='mypageSuccessBidList' resultType="kr.artbay.common.ArtBayVo">
+	<select id='mypageSuccessBidList' parameterType="kr.artbay.common.Page" resultType="kr.artbay.common.ArtBayVo">
 		select W.lot, A.artwork_ctgr, A.artist, A.artwork_name, W.winbid_price, date_format(W.winbid_date, "%y-%m-%d") winbid_date
 		from winning_bid W join artwork A
 		on W.lot = A.lot

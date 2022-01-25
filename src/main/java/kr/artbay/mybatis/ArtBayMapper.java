@@ -55,11 +55,11 @@ public interface ArtBayMapper {
 	public Integer deleteNotice(List<String> delNoticeList);
 	public List<ArtBayVo> faqList(String ctgr);
 	//응찰내역 조회
-	public Integer mypageBidTotSize(); 
+	public Integer mypageBidTotSize(Page page); 
 	public List<ArtBayVo> mypageBidList(Page page);
 	public ArtBayVo bidListView(int serial);
 	//낙찰내역 조회
-	public Integer mypageSuccessBidTotSize(); 
+	public Integer mypageSuccessBidTotSize(Page page); 
 	public List<ArtBayVo> mypageSuccessBidList(Page page);
 	
 	//경매결과 조회
