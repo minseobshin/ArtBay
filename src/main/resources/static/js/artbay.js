@@ -231,10 +231,10 @@ function off(){
 	$(window).scroll(function(){
    		$(".view_right").css("top", Math.max(150, 300 - $(this).scrollTop()));
 
-   		if ($(window).scrollTop() > 1200) {
+   		if ($(window).scrollTop() > 900) {
             $(".view_right").css({
                 position: 'fixed',
-                top: Math.max(1200-$(this).scrollTop())
+                top: Math.max(900-$(this).scrollTop())
             });
         } else {
 		if($(window).width()<1300){
