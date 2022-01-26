@@ -50,7 +50,7 @@
 					<option value="bid_history_cnt_asce">응찰 낮은 순</option>
 					<option value="bid_history_cnt_desc">응찰 많은 순</option>
 				</select>
-				<select class="page_combo2" name="page_combo2" id="page_combo2" onchange="search()">
+				<select class="page_combo2" name="cnt" id="page_combo2" onchange="search()">
 					<option value="10">개수</option>
 					<option value="10">10건씩</option>
 					<option value="20">20건씩</option>
