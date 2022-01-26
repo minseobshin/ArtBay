@@ -44,7 +44,14 @@
 				<span class='startDate_value'>2021-12-12</span><br/>
 				<span class='endDate_title' >경매종료일</span>	
 				<span class='endDate_value' >2021-12-22</span>	<br/>
+				<c:choose>
+				<c:when test="${ not empty vo.imgFile }">
 				<img src = 'http://placehold.it/120x160'/>
+				</c:when>
+				<c:otherwise>
+				<img src="">
+				</c:otherwise>
+				</c:choose>
 				<input type='button' class='detail' name='btnDetail' value='상세보기' onclick="viewDetail('${vo.due_date}')">
 			</div>
 		</c:forEach>	
