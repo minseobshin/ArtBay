@@ -368,7 +368,7 @@
 					<c:forEach var="i" items="${history }">				
 						<ul>
 							<li>${i.bid_date }<br/>${i.bid_time }</li>
-							<li>${i.mid }</li>
+							<li>${i.masked_mid }</li>
 							<li>${i.bid_price }</li>
 						</ul>
 					</c:forEach>
