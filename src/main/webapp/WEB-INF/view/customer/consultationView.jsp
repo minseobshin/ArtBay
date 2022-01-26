@@ -50,7 +50,7 @@
 							<td class="left" colspan="3">
 								<ul>
 									<c:forEach var="att" items="${ vo.attList }">
-										<li><a href="C:/upload/${ att.attFile }" download="${ att.attFile }">${ att.attFile }</a></li>
+										<li><a href="./upload/${ att.attFile }" download="${ att.attFile }">${ att.attFile }</a></li>
 									</c:forEach>
 								</ul>								
 							</td>

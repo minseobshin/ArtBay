@@ -248,6 +248,7 @@ public class ListViewController {
 		ModelAndView mv = new ModelAndView();
 		ArtBayVo vo = new ArtBayVo();
 		vo.setLot(Integer.parseInt(req.getParameter("lot")));
+		vo = service.getDirectInfo(vo.getLot());
 		vo.setCurrent_price(vo.getDirect_price());
 		vo.setCrnt_status("경매종료");
 		//낙찰자 아이디 가져오기
@@ -257,8 +258,10 @@ public class ListViewController {
 		vo.setWinbid_price(vo.getDirect_price());
 		GetTime date = new GetTime();
 		vo.setWinbid_date(date.getDate()+"");
-		
+		vo.setBid_type("direct");
 		service.directPurchase(vo);
+		mv.addObject("vo", vo);
+		mv.setViewName("bid.view");
 		return mv;
 	}
 
