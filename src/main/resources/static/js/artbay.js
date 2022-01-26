@@ -76,6 +76,7 @@ function directPurchase(){
 			success: function(){
 				$(".bid_caution").css("display", "none");
 				$(".applyResult").css("display", "block");
+				location.reload();
 			}
 		})
 	})
