@@ -229,7 +229,7 @@ function off(){
 	//오른쪽 응찰내역 div 위치가 일정 위치에 다다르면 scroll을 멈추도록
 	if($(window).width()>1300){
 	$(window).scroll(function(){
-   		$(".view_right").css("top", Math.max(150, 300 - $(this).scrollTop()));
+   		$(".view_right").css("top", Math.max(0, 150 - $(this).scrollTop()));
 
    		if ($(window).scrollTop() > 900) {
             $(".view_right").css({
