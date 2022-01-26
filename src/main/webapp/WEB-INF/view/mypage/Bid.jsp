@@ -32,7 +32,7 @@
 	
 		<div id='rows'>
 			<c:forEach var='vo' items='${list }'>
-				<div id='item' onclick ='mBid.view(${vo.serial})'>
+				<div id='item' onclick ='mBid.view(${vo.lot})'>
 					<span class='num'>${vo.lot }</span>
 					<span class='name'>${vo.artwork_ctgr }</span>
 					<span class='artist'>${vo.artist }</span>
@@ -62,7 +62,7 @@
 		</div>		
 	</form>
 		<form name='frm_page' id='frm_page' method='post'>
-			<input type='hidden' name='nowPage'>
+			<input type='hidden' name='nowPage' value='${page.nowPage }'>
 			<input type='hidden' name='lot' >
 			<input type='hidden' name='serial'>
 		</form>

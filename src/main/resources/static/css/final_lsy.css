@@ -361,7 +361,7 @@
 #noticeView{
 	width:1280px;
 	margin:10px auto;
-	min-height:900px;
+	min-height:600px;
 }
 
 #noticeView h1{
@@ -411,6 +411,15 @@
 	cursor:pointer;
 	background-color:#f60;
 	color:#fff;
+}
+
+#frm_notice #attList{
+	border:1px solid #000;
+	width:800px;
+	height:100px;
+	overflow:scroll;	
+	text-align:left;
+	margin-left:350px;
 }
 /* customerWriteNotice*/
 #writeNotice{
