@@ -162,7 +162,6 @@ function off(){
 				$(".idle_selected_option_area").show();
 			}
 		})
-		$("#findStr").val("");
 		break;
 		
 		

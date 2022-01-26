@@ -128,7 +128,6 @@ public class ListViewController {
 		page.setFindStr(findStr);
 		page.setNowPage(nowPage);
 		page.setSort(sort);
-		System.out.println(page.getTotSize());
 		List<ArtBayVo> list = service.search(page, findStr);
 		
 		for(ArtBayVo vo : list) {
