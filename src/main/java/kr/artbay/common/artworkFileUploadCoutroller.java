@@ -17,7 +17,7 @@ import kr.artbay.mybatis.ApplicationService;
 
 @Controller
 public class artworkFileUploadCoutroller {
-	public static String uploadPath = "C:\\Users\\elzle\\git\\ArtBay-project\\src\\main\\resources\\static\\upload\\";
+	public static String uploadPath = "C:\\Artbay\\ArtBay\\src\\main\\resources\\static\\upload\\";
 	
 	@Autowired 
 	ApplicationService applicationService;
