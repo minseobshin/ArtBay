@@ -18,6 +18,7 @@
 <body>
 <div class = "applyform">
 	<h1>자주 하시는 질문</h1>
+	<div class="bgImgCustomer"></div>
 </div>
 		
 <div id='auction_faq'>

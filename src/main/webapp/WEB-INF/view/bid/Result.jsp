@@ -17,6 +17,7 @@
 <body>
 <div class = "applyform">
 	<h1>경매결과</h1>
+	<div class="bgImgAuction"></div>
 </div>
 
 <div id='auction'>
