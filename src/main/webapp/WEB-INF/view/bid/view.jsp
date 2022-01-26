@@ -72,7 +72,7 @@
 		<div class="right_work_info">	
 			<div class="deadline_time">
 				<c:choose>
-					<c:when test="${vo.remaining_year eq -1}">
+					<c:when test="${vo.remaining_year eq -1 || vo.crnt_status eq '경매종료' || vo.bid_type eq 'direct'}">
 						경매가 종료 되었습니다.
 					</c:when>
 					<c:otherwise>
@@ -425,6 +425,9 @@
 			<c:choose>
 				<c:when test="${empty vo.str_direct_price }">
 					<input type="button" class="btnBidApplyFinal" value="응찰하기"  onclick="modalOn($('.bid_caution'))"/>
+				</c:when>
+				<c:when test="${vo.crnt_status eq '경매종료' }">
+					<input type="button" class="btnBidApplyFinal" value="경매 기간이 종료되었습니다."/>
 				</c:when>
 				<c:otherwise>
 					<div class="btnBidApplyFinalLeftBox">

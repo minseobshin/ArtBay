@@ -260,6 +260,8 @@ public class ListViewController {
 		vo.setWinbid_date(date.getDate()+"");
 		vo.setBid_type("direct");
 		service.directPurchase(vo);
+		mv.addObject("vo", vo);
+		mv.setViewName("bid.view");
 		return mv;
 	}
 
