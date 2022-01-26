@@ -81,7 +81,7 @@
 		
 		</div>
 
-			<c:if test="${ sessionScope.sv.mid eq 'chicken' }">
+			<c:if test="${ sessionScope.sv.mid eq 'chicken' or 'admin' }">
 				<input type='button' id='btnDeleteNotice' value='선택공지 삭제' >
 				<input type='button' id='btnWriteNotice' value='공지 작성'>
 			</c:if>
@@ -96,6 +96,7 @@
 				<input type='button' id='btnConfirmCancel' value='취소'>
 			</form>	
 		</div>
+		
 	</div>	
 	
 </div>

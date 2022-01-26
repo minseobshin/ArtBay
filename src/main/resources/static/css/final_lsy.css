@@ -426,6 +426,13 @@
 	text-align:left;
 	margin-left:350px;
 }
+#frm_notice #btnNoticeList{
+	display:inline-block;
+	width:80px;
+	height:40px;
+	text-align:center;
+	
+}
 /* customerWriteNotice*/
 #writeNotice{
 	width:1280px;

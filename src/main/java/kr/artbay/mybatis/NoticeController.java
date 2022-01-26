@@ -96,8 +96,8 @@ public class NoticeController {
 			}else {
 				msg="공지 삭제 중 오류 발생.";
 			}
-			List<ArtBayVo> list = service.noticeSearch(page);
 			page = service.getPage();
+			List<ArtBayVo> list = service.noticeSearch(page);
 			mv.addObject("msg", msg);
 			mv.addObject("Page", page);
 			mv.addObject("list", list);

@@ -195,7 +195,10 @@ rBid.winPage = function(nowPage){
 	$('#close-area').click(function(){
 		$('#deleteNotice_alert').hide();
 	})
-
+	//저장확인 메시지 모달창 확인
+	$('#btnConfirmInsert').click(function(){
+		$('#insertNotice_alert').hide();
+	})
 	
 	
 	//응찰내역에서 응찰신청=============================================================
@@ -215,6 +218,7 @@ rBid.winPage = function(nowPage){
 					$fd.enctype = "multipart/form-data";
 					$fd.action = "ntcFileUp";
 					$fd.submit();
+					alert("공지가 저장되었습니다.");
 				}else{
 					alert("공지 저장 중 오류 발생");
 				}
@@ -226,7 +230,6 @@ rBid.winPage = function(nowPage){
 	$('#btnWinFind').click(function(){	
 	$frm = $('#frm_auction')[0];
 	$param = $('#frm_auction').serialize();
-	alert($param);
 	$frm.action="/bidResult";
 	$frm.submit();	
 	})

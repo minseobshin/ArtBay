@@ -109,9 +109,15 @@
 }
 
 #noticeList #btnZone input {
-	cursor: pointer;
-	background: #fff;
-	border: 1px solid #ddd;
+   margin-top: 30px !important;
+   width: 30px;
+   height: 30px;
+   margin: 3px;
+   background-color: transparent;
+   border: 1px solid rgb(150, 150, 150);
+   border-radius: 3px;
+   font-size: 1em;
+
 }
 
 #noticeList #btnDeleteNotice {
@@ -135,7 +141,7 @@
 	border: 2px solid #f60;
 }
 
-#noticeList #deleteNotice_alert {
+#noticeList #deleteNotice_alert, #insertNotice_alert {
 	display: none;
 	z-index: 1;
 	background-color: rgba(0, 0, 0, 0.5);
