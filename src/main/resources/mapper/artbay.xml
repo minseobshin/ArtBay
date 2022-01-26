@@ -99,6 +99,10 @@
 		update artwork set current_price=${direct_price}, crnt_status="경매종료" where lot=${lot}
 	</update>
 	
+	<insert id="directPurchaseHistory" parameterType="kr.artbay.common.ArtBayVo">
+		insert into bidding(lot, mid, bid_price, bid_date) values (${lot}, #{mid}, ${direct_price}, #{winbid_date});
+	</insert>
+	
 	<insert id="directPurchaseInsert" parameterType="kr.artbay.common.ArtBayVo">
 		insert into winning_bid values(${lot}, #{mid}, ${direct_price}, #{winbid_date}, 'direct');
 	</insert>
