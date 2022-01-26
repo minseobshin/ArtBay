@@ -136,6 +136,7 @@ public class ListViewController {
 			vo.setStr_current_price(NumberFormat.getInstance().format(vo.getCurrent_price()));
 			vo.setStr_bid_cnt(NumberFormat.getInstance().format(vo.getBid_cnt()));
 			if(vo.getDirect_price()!=null) vo.setStr_direct_price(NumberFormat.getInstance().format(vo.getDirect_price()));
+			vo.setStr_bid_price(NumberFormat.getInstance().format(vo.getBid_price()));
 		}
 		page = service.getPage();
 		mv.addObject("page", page);
@@ -211,10 +212,18 @@ public class ListViewController {
 			
 		//숫자 반점 표기
 		vo.setStr_start_price(NumberFormat.getInstance().format(vo.getStart_price()));
+		
+			//응찰이 없을 경우 시작가를 가져와서 현재가로 표시
 		if(vo.getCurrent_price()==null) vo.setCurrent_price(vo.getStart_price());
 		vo.setStr_current_price(NumberFormat.getInstance().format(vo.getCurrent_price()));
+		
 		vo.setStr_bid_cnt(NumberFormat.getInstance().format(vo.getBid_cnt()));
+		
+			//즉시 판매일 경우
 		if(vo.getDirect_price()!=null) vo.setStr_direct_price(NumberFormat.getInstance().format(vo.getDirect_price()));
+		
+		vo.setStr_bid_price(NumberFormat.getInstance().format(vo.getBid_price()));
+		
 		page.setSort(sort);
 		mv.addObject("vo", vo);
 		List<ArtBayAtt> att = new ArrayList<ArtBayAtt>();
@@ -265,6 +274,7 @@ public class ListViewController {
 		list = scheduler();
 		for(ArtBayVo vo : list) {
 			if(vo.getLot()==lot) {
+				vo.setStr_bid_price(NumberFormat.getInstance().format(vo.getBid_price()));
 				realList.add(vo);
 			}
 		}
@@ -284,6 +294,7 @@ public class ListViewController {
 		String mid = (String) session.getAttribute("mid");
 		for(ArtBayVo vo : list) {
 			if(vo.getLot()==lot && vo.getMid().equals(mid)) {
+				vo.setStr_bid_price(NumberFormat.getInstance().format(vo.getBid_price()));
 				realList.add(vo);
 			}
 		}
