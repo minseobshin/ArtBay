@@ -40,8 +40,8 @@ public class mypageListController {
 	public ModelAndView bidList(Page page, ArtBaySessionVo sv, HttpServletRequest req) { //req로 받지 않아도 변수들 다 세팅해서 가져옴
 		ModelAndView mv = new ModelAndView();
 		HttpSession session = req.getSession();
+		try {
 		String mid = (String)session.getAttribute("mid");
-		
 		page.setMid(mid);
 		List<ArtBayVo> list = service.mypageBidList(page); //service=>dao역할
 		page = service.getPage();
@@ -49,6 +49,9 @@ public class mypageListController {
 		mv.addObject("list", list);
 		mv.addObject("page", page);
 		mv.setViewName("mypage.Bid");
+		}catch(Exception e) {
+			e.printStackTrace();
+		}
 		return mv;
 	}
 	//응찰작품 상세내역
