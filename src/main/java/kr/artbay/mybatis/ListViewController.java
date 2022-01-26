@@ -248,8 +248,16 @@ public class ListViewController {
 		ModelAndView mv = new ModelAndView();
 		ArtBayVo vo = new ArtBayVo();
 		vo.setLot(Integer.parseInt(req.getParameter("lot")));
-		vo.setCurrent_price(vo.getStart_price());
+		vo.setCurrent_price(vo.getDirect_price());
 		vo.setCrnt_status("경매종료");
+		//낙찰자 아이디 가져오기
+		HttpSession session = req.getSession();
+		String mid = (String) session.getAttribute("mid");
+		vo.setMid(mid);
+		vo.setWinbid_price(vo.getDirect_price());
+		GetTime date = new GetTime();
+		vo.setWinbid_date(date.getDate()+"");
+		
 		service.directPurchase(vo);
 		return mv;
 	}
