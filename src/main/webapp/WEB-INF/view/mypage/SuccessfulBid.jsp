@@ -14,8 +14,12 @@
 <title>낙찰내역</title>
 </head>
 <body>
-<div id='auction'>
+<div class = "applyform">
 	<h1>낙찰내역</h1>
+	<div class="bgImgAuction"></div>
+</div>
+<div id='auction'>
+	
 	<form name='frm_auction' method='post'>
 	<div id='items'>
 		<div id='title'>

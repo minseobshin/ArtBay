@@ -125,7 +125,7 @@
 						<div class="listInnerTextTail">
 							<p class="endDate">마감 ${vo.due_date }</p>
 							<c:if test="${vo.bid_cnt gt 0 }">
-								<p class="bidCnt">${vo.str_bid_cnt }회</p>
+								<p class="bidCnt">${vo.bid_cnt }회</p>
 							</c:if>
 						</div>
 					</div>
@@ -140,7 +140,7 @@
 			<c:forEach var="i" begin="${page.startPage }" end="${page.endPage }">
 				<input type="button" value="${i }" onclick="artbay.page(${i})" />			
 			</c:forEach>
-			<c:if test="${page.endPage lt page.totPage }">
+			<c:if test="${page.endPage < page.totPage }">
 				<input type="button" value="&gt" onclick = "artbay.page(${page.endPage + 1})" />
 				<input type="button" value="끝으로" onclick="artbay.page(${page.totPage})" class="btnToLast"/>
 			</c:if>

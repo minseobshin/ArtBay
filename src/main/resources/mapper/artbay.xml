@@ -46,7 +46,7 @@
 
 	<select id="totSize" parameterType="String" resultType="Integer">
 		select count(lot) totSize from artwork
-		where mid like '%${_parameter}%' or artwork_name like '%${_parameter}%'
+		where mid like '%${_parameter}%' or artwork_name like '%${_parameter}%' or artwork_ctgr like '%${_parameter}%'
 	</select>
 	
 	<select id="search" parameterType="kr.artbay.common.Page" resultType="kr.artbay.common.ArtBayVo">
@@ -57,7 +57,7 @@
 		where a.mid like '%${findStr}%' or a.artist like '%${findStr}%' or a.artwork_name like '%${findStr}%' or a.artwork_ctgr like '%${findStr}%'
 		order by
 		<choose>
-			<when test="sort eq 'default'"> a.due_date desc</when>
+			<when test="sort eq 'default'"> a. crnt_status desc, a.due_date desc</when>
 			<when test="sort eq 'init_price_asce'"> a.start_price asc</when>
 			<when test="sort eq 'init_price_desc'"> a.start_price desc</when>
 			<when test="sort eq 'bid_history_cnt_asce'"> a.bid_cnt asc</when>
@@ -71,7 +71,7 @@
 	
 	<!-- main list -->
 	<select id="mainsearch" resultType="kr.artbay.common.ArtBayVo">
-		SELECT * FROM artwork a join artimg b on a.lot=b.lot and b.thumbnail="Y" ORDER BY hit DESC LIMIT 30;
+		SELECT * FROM artwork a join artimg b on a.lot=b.lot and b.thumbnail="Y" ORDER BY hit DESC;
 	</select>
 	
 	<insert id="bidApply" parameterType="kr.artbay.common.ArtBayVo">
@@ -126,6 +126,14 @@
 	<select id="getDirectInfo" parameterType="Integer" resultType="kr.artbay.common.ArtBayVo">
 		select * from artwork where lot=${_parameter};
 	</select>
+	
+	<select id="getBidCounts" parameterType="Integer" resultType="Integer">
+		select count(serial) bid_cnt from bidding where lot=${_parameter};
+	</select>
+	
+	<update id="updateBidCounts" parameterType="kr.artbay.common.ArtBayVo">
+		update artwork set bid_cnt = ${bid_cnt} where lot=${lot};
+	</update>
 	
 	
 	<!-- 경매신청 -->

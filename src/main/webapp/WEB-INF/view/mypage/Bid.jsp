@@ -16,8 +16,12 @@
 <title>응찰내역</title>
 </head>
 <body>
-<div id='auction'> 
+<div class = "applyform">
 	<h1>응찰내역</h1>
+	<div class="bgImgAuction"></div>
+</div>
+<div id='auction'> 
+	
 	<input type='button' id='btnRequestApplication' value='경매신청'>
 	<form name='frm_auction' method='post'>
 	<div id='items'>
