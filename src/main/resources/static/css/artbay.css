@@ -459,17 +459,18 @@ th, .deliv_th1, .deliv_th2{
 
 .modal_title p{
 	line-height: 50px;
+	margin-left: 10px;
 }
 
 .modal_body{
 	padding: 10px !important;
+	font-size: 20px;
 }
 
 .xBtn{
 	z-index: 1;
 	position: absolute;
 	margin: -20px;
-	margin-left: 240px;
 	width: 100%;
     background-color: transparent;
     background-repeat: no-repeat;
@@ -478,6 +479,12 @@ th, .deliv_th1, .deliv_th2{
     overflow: hidden;
     outline: none;
     font-size: 20px;
+    color: white;
+    font-weight: bolder;
+    font-size: 40px;
+    position: absolute;
+    top: -30px;
+    left: 250px;
 }
 
 .bidHistoryList .xBtn{
@@ -618,7 +625,7 @@ form[name=frm_view]{
 	background-color: white;
 	min-width: 400px;
 	width: 100%;
-	min-height: 100%;
+	height: 130%;
 	box-shadow: 0 0 5px 5px rgb(150, 150, 150);
 	box-sizing: border-box;
 }
