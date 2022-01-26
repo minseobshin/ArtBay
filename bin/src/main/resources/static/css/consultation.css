@@ -1,9 +1,7 @@
 @charset "UTF-8";
-*{
-	box-sizing:border-box; 
-}
+
 div{
-	display: block; 
+	/* display: block;  */
 }
 h2{
     font-size: 30px;
@@ -15,7 +13,9 @@ form[name="frmBoard"] strong{
 #subContentsWrap{
 	min-height: 850px;
 }
-
+#subContentsWrap * {
+	box-sizing:border-box;
+}
 p {
     margin: 0;
 }
@@ -23,7 +23,7 @@ table {
     border-spacing: 0;
     border-collapse: collapse;
 }
- 
+ /*
 .applyform {
     position: relative;
     height: 190px;
@@ -41,6 +41,7 @@ table {
     color: #fff;
     white-space: nowrap;
 }
+*/
 #subContentsWrap {
     margin-bottom: 50px;
 }
@@ -96,6 +97,9 @@ table {
     border-bottom: 1px solid #ddd;
     border-left: 1px solid #ddd;
     height: 45px;
+}
+.tableDefault ul li {
+	padding: 5px 0;
 }
 .form-control {
     display: block;
@@ -419,9 +423,16 @@ form[name="frmBoard"] .clearfix:after{
     border-radius: 4px;
 }
 .pagination > .active > a{
-    z-index: 3;
+	z-index: 3;
+    color: #000;
+    cursor: pointer;
+    background-color: #fff;
+    border-color: #ddd;   
+}
+.pagination > .active > a.selectedPage {
+     z-index: 3;
     color: #fff;
-    cursor: default;
+    cursor: pointer;
     background-color: #222;
     border-color: #222;
 }

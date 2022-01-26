@@ -331,7 +331,7 @@ $(function(){
 		if(mid&&irum&&birth&&gender&&phone&&pwd&&pwdChk === 1 && $("#zip").val() !== "" && $("#address2").val() !== ""){
 			$param = $('#frm_join').serialize();
 			$.post('insertMemberSave', $param, function(){
-				window.open('mypageMemberResult', 'result', 'width=750, height=445, top=200, left=300');
+				location.href = "updateMemberInfoResult";
 			});
 		}else{
 			$("#btnCertification").val('모든 정보를 입력해주세요.');

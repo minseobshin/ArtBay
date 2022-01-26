@@ -171,23 +171,23 @@ function setMainBanner() {
 //가이드 및 How To 버튼
 function setHowToBtn() {
 	$("#btnOnlineAuction").click(function() {
-		location.href = "howto";
+		location.href = "howtoHowtotest#bottom";
 	});
 	
 	$("#btnMemberJoin").click(function() {
-		location.href = "mypageMemberJoin";
+		location.href = "howtoBidIntrotest#step1";
 	});
 	
 	$("#btnBidIntro").click(function() {
-		location.href = "bidIntro#b3";
+		location.href = "howtoBidIntrotest#step2";
 	});
 	
 	$("#btnWhyArtbay").click(function() {
-		location.href = "ConsignGuide#consignGuide";
+		location.href = "howtoConsignGuidetest#step1";
 	});
 	
 	$("#btnConsign").click(function() {
-		location.href = "ConsignGuide#consign_steps";
+		location.href = "howtoConsignGuidetest#step2";
 	}); 
 }
 

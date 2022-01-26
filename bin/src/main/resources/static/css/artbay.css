@@ -9,6 +9,111 @@ html, body{
 	zoom: 1.0;
 }
 
+	/*reset으로 틀어진 elements들 속성 되돌려놓기*/
+
+.caution li{
+	margin-top: 10px;
+}
+
+form[name=frm_bidIntro] h4, form[name=frm_view] h4, form[name=frm_list] h4{
+	display: block;
+	margin-top: 1.33em;
+	margin-bottom: 1.33em;
+	margin-left: 0;
+	margin-right: 0;
+	font-weight: bold;
+}
+
+form[name=frm_bidIntro] h3, form[name=frm_view] h3, form[name=frm_list] h3{
+	display: block;
+	font-size: 1.17em;
+	margin-top: 1em;
+	margin-bottom: 1em;
+	margin-left: 0;
+	margin-right: 0;
+	font-weight: bold;
+}
+
+form[name=frm_bidIntro] h2, form[name=frm_view] h2, form[name=frm_list] h2{
+	display: block;
+	font-size: 1.5em;
+	margin-top: 0.83em;
+	margin-bottom: 0.83em;
+	margin-left: 0;
+	margin-right: 0;
+	font-weight: bold;
+}
+
+form[name=frm_bidIntro] h1, form[name=frm_view] h1, form[name=frm_list] h1{
+	display: block;
+	font-size: 2em;
+	margin-top: 0.67em;
+	margin-bottom: 0.67em;
+	margin-left: 0;
+	margin-right: 0;
+	font-weight: bold;
+}
+
+
+.bidIntroRight div{
+	display: block;
+}
+.bidIntroRight ul{
+	display: block;
+	list-style-type: none;
+	margin-top: 1em;
+	margin-bottom: 1 em;
+	margin-left: 0;
+	margin-right: 0;
+	padding-left: 40px;
+}
+.bidIntroRight li{
+	display: list-item;
+}
+.bidIntroRight table{
+	display: table;
+	border: 1px solid rgb(249, 249, 249);
+	border-collapse: collapse;
+	border-color: gray;
+	margin-left: 3%;
+	width: 80%;
+}
+.bidIntroRight p{
+	display: block;
+	margin-top: 1em;
+	margin-bottom: 1em;
+	margin-left: 0;
+	margin-right: 0;
+}
+
+.bidIntroRight th{
+	display: table-cell;
+	vertical-align: middle;
+	font-weight: bold;
+	text-align: center;
+	height: 50px;
+	border: 1px solid rgb(249, 249, 249);
+	padding: 5px;
+}
+
+.bidIntroRight td{
+	height: 30px;
+	display: table-cell;
+	vertical-align: middle;
+	border: 1px solid rgb(220, 220, 220);
+	padding: 5px;
+}
+
+.bidIntroRight strong{
+	font-weight: bold;
+	margin-top: 10px;
+	margin-bottom: 10px;
+	color: rgb(244, 78, 37);
+}
+	
+	/*reset으로 틀어진 elements들 속성 되돌려놓기 끝*/
+
+
 #hiddenZone{
 	display: none;
 }
@@ -133,14 +238,26 @@ form[name=frm_list]{
 	text-align: left;
 	margin-left: 20px;
 }
+
 .listInner{
 	margin: 10px;
 	width: 17.5%;
 	border: 1px solid rgb(222, 222, 222);
 	display: inline-block;
-	height: 550px;
+	height: 500px;
+	position: relative;
 }
 
+.closedArtwork{
+	position: absolute;
+	width: 100%;
+	line-height: 30px;
+	color: white;
+	text-align: center;
+	font-weight: bolder;
+	background-color: rgba(222, 222, 222, 0.9);
+	top: 44%;
+}
 
 .listInner p.img{
 	width: 100%;
@@ -150,9 +267,9 @@ form[name=frm_list]{
 }
 
 .listInner p.img img{
-	width: 90%;
-	height: 90%;
-	margin: 10px auto;
+	width: 100%;
+	height: 100%;
+	/* margin: 10px auto; */
 }
 
 .listInnerText{
@@ -167,6 +284,10 @@ form[name=frm_list]{
 	box-sizing: border-box;
 	margin-left: 10px;
 	font-size: 1em;
+	height: 1.3em;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	white-space: nowrap;
 }
 
 .listInnerText p.painter{
@@ -196,24 +317,29 @@ form[name=frm_list]{
 	display: inline-block;
 }
 
+.listInnerTextTitle p, .listInnerTextPrice p{
+	font-size: 1em;
+}
+
 .listInnerTextTitle{
-	font-size: 0.9em;
+	width: 60%;
 	font-weight: bolder;
 	float: left;
+	margin-top: 5px;
+	margin-bottom: 5px;
 }
 
 .listInnerTextPrice{
-	font-size: 0.9em;
 	float: right;
-	width: 70%;
-	height: 80px;
+	width: 35%;
+	height: 60px;
 }
 
 .listInnerTextPrice p{
-	text-align: right !important;
+	float: right;
 }
 
-p.currentPriceTitle, p.currentPrice{
+p.currentPriceTitle, p.currentPrice, p.directPriceTitle, p.directPrice{
 	color: rgb(255, 93, 22);
 	font-weight: bolder;
 }
@@ -223,8 +349,9 @@ p.endDate{
 	margin-left: 5px;
 	margin-right: 0;
 	float: left;
-	width: 75%;
+	width: 60%;
 	text-align: left;
+	margin-top: 5px;
 }
 
 p.bidCnt{
@@ -232,8 +359,11 @@ p.bidCnt{
 	margin-left: 0;
 	margin-right: 0;
 	float: right;
-	width: 20%;
+	width: 35%;
 	text-align: right;
+	color: rgb(255, 93, 22);
+	font-weight: bolder;
+	margin-top: 5px;
 }
 
 .listInnerTextTail{
@@ -245,22 +375,52 @@ p.bidCnt{
 	border-top: 1px solid rgb(102, 102, 102);
 }
 
+#pageZone input{
+	margin-top: 30px !important;
+	width: 30px;
+	height: 30px;
+	margin: 3px;
+	background-color: transparent;
+	border: 1px solid rgb(150, 150, 150);
+	border-radius: 3px;
+	font-size: 1em;
+}
 
+#pageZone input:hover{
+	border: 1px solid rgb(50, 50, 50s);
+}
+
+.btnToFirst, .btnToLast{
+	width: 100px !important;
+}
 
 /*리스트 페이지 끝*/
 
-.rightmodal_m1, .rightmodal_m2, .rightmodal_m3, .rightmodal_m4, .login, .bid_caution, .shareUrl, .thumbnailHidden{
-	display: none;
-	z-index : 1 !important;
-	background-color: rgba(0,0,0,.3);
-	position:fixed;
-	left: 0;
-	top: 0;
-	width:100%;
-	height:100%;
-	font-size: 13px;
-}
-
+	/*모달창 기본 설정(리스트, 뷰 같이 있음)*/
+	.rightmodal_m1, .rightmodal_m2, .rightmodal_m3, .rightmodal_m4, .login, .bid_caution, .shareUrl, .thumbnailHidden, .applyResult, .direct_caution{
+		display: none;
+		z-index : 1 !important;
+		background-color: rgba(0,0,0,.3);
+		position:fixed;
+		left: 0;
+		top: 0;
+		width:100%;
+		height:100%;
+		font-size: 13px;
+	}
+	
+	.modal1, .modal2, .modal3, .modal4, .modal_login, .bid_caution_modal, .applyResultInner, .direct_caution_modal{
+		width:500px;
+		z-index: 2;
+		margin:100px auto;
+		position: relative;
+		background-color:#fff;
+		padding: 0;
+		min-height: 400px;
+		box-sizing: border-box;
+	}
+	/*모달 기본 설정 끝*/
+	
 .thumbnailHidden{
 	background-color: rgba(0,0,0,.8);
 }
@@ -320,7 +480,7 @@ th, .deliv_th1, .deliv_th2{
     font-size: 20px;
 }
 
-.btnBidList .xBtn{
+.bidHistoryList .xBtn{
 	margin-left: 160px !important;
 }
 
@@ -332,6 +492,7 @@ form[name=frm_view]{
 	overflow-x: auto;
 	min-height: 1600px;
 }
+
 .caution h3, .caution div{
 	width: 800px;
 	margin: 10px auto;
@@ -342,6 +503,18 @@ form[name=frm_view]{
 	margin: 10px auto;
 	margin-left: 30px;
 	display: inline-block;
+}
+
+.artworkInfo h3{
+	width: 58%;
+	margin-left: 30px !important;
+	margin-bottom: 0 !important;
+}
+
+.artworkInfo div{
+	width: 58%;
+	margin-left: 30px;
+	line-height: 2em;
 }
 
 .caution{
@@ -371,7 +544,7 @@ form[name=frm_view]{
 }
 
 #otherWorksImg{
-	width: 100%;
+	height: 100%;
 }
 
 .arrPrev, .arrPrev>span, .arrNext, .arrNext>span{
@@ -445,7 +618,7 @@ form[name=frm_view]{
 	background-color: white;
 	min-width: 400px;
 	width: 100%;
-	height: 140%;
+	min-height: 140%;
 	box-shadow: 0 0 5px 5px rgb(150, 150, 150);
 	box-sizing: border-box;
 }
@@ -466,6 +639,7 @@ form[name=frm_view]{
 	width: 15%;
 }
 
+/* 왼쪽 작은 이미지 css*/
 .view_top>.img>img{
 	width: 90%;
 	border: 1px solid rgb(239, 239, 239);
@@ -505,7 +679,7 @@ form[name=frm_view]{
 	cursor:pointer;
 }
 
-.work_info, .view_sml_btn{
+.view_sml_btn{
 	width: 86.5%;
 	margin-left: 13.5%;
 }
@@ -527,7 +701,6 @@ form[name=frm_view] div.view_sml_btn p{
 form[name=frm_view] div.shareUrl>div{
 	background-color: white;
 	width: 30%;
-	height: 40%;
 	padding: 10px;
 	box-sizing: border-box;
 	position: relative;
@@ -566,9 +739,37 @@ form[name=frm_view] div.shareUrl>div{
 	border-bottom: 1px dotted grey;
 }
 
+.view_detail .painter{
+	display: block;
+	font-size: 1.5em;
+	margin-top: 0.83em;
+	margin-bottom: 0.83em;
+	margin-left: 0;
+	margin-right: 0;
+	font-weight: bold;
+}
+
+.view_detail .art_name{
+	display: block;
+	font-size: 1.17em;
+	margin-top: 1em;
+	margin-bottom: 1em;
+	margin-left: 0;
+	margin-right: 0;
+	font-weight: bold;
+}
+
 .view_detail>p, .view_price>p{
 	padding: 5px;
 	box-sizing: border-box;
+}
+
+.view_price>p>span{
+	float: right;
+}
+
+.str_current_price{
+	color: rgb(255, 109, 45);
 }
 
 .deadline_time{
@@ -576,25 +777,17 @@ form[name=frm_view] div.shareUrl>div{
 	clear: both;
 }
 
+.deadline_time{
+	text-align: right;
+}
 
 /*모달 영역 시작*/
-.modal1, .modal2, .modal3, .modal4, .modal_login, .bid_caution_modal{
-	width:500px;
-	z-index: 2;
-	margin:100px auto;
-	position: relative;
-	background-color:#fff;
-	padding: 0;
-	min-height: 400px;
-	box-sizing: border-box;
-}
 
 .commission_rate{
 	width: 450px;
 	margin: 0px auto;
 	height: 100px;
 }
-
 
 th.bid{
 	width: 150px;
@@ -670,7 +863,34 @@ form[name=frm_view]>ul li:nth-child(3){
 	width: 90%;
 }
 
-.bid_price_choose li{
+.btnBidApplyFinalLeftBox{
+	text-align: center;
+}
+
+.btnBidApplyFinalLeft{
+	font-size: 20px;
+	font-weight: bolder;
+	width: 35%;
+	height: 40px;
+	background-color: white;
+	border: 1px solid black;
+	color: black;
+	display: inline-block;
+}
+
+.btnBidApplyFinalRight{
+	font-size: 20px;
+	font-weight: bolder;
+	width: 35%;
+	height: 40px;
+	background-color: black;
+	border: none;
+	color: white;
+	display: inline-block;
+	margin-left: 30px;
+}
+
+.bidPriceChoose li{
 	float: left;
 	margin-left: 25%;
 	margin-top: 20px;
@@ -683,26 +903,45 @@ form[name=frm_view]>ul li:nth-child(3){
 	text-align: left;
 }
 
-.bidHistory, .current_bid_price{
+.bidHistory, .current_bid_price, .bidMyHistory{
 	width: 90%;
 	margin: 0 auto;
 }
 
-.bidHistory ul{
+.bidHistory, .bidMyHistory{
+	height: 100px;
+	overflow-y: scroll;
+}
+
+.bidMyHistory{
+	display: none;
+}
+
+.bidHistoryAll{
+	font-weight: bolder;
+}
+
+.bidHistoryAll:hover, .bidHistoryMy:hover{
+	cursor: pointer;
+}
+
+.bidHistory ul, .bidMyHistory ul{
 	clear: both;
 	width: 100%;
-	margin-top: 20px;
 	border-bottom: 0.5px solid grey;
 	padding: 10px;
 	box-sizing: border-box;
+	font-size: 0.8em;
 }
 
-.bidHistory ul li{
+.bidHistory ul li, .bidMyHistory ul li{
 	display: inline-block;
+	width: 30%;
 }
 
-.bidHistory ul li:nth-child(4){
-	float: right;
+.bidHistory ul li:nth-child(3), .bidMyHistory ul li:nth-child(3){
+	width: 35%;
+	text-align: right;
 }
 
 .my_choice{
@@ -716,11 +955,11 @@ form[name=frm_view]>ul li:nth-child(3){
 }
 
 .my_choice_left{
-	width: 20%;
+	width: 25%;
 }
 
 .my_choice_right{
-	width: 80%;
+	width: 75%;
 	float: right;
 	text-align: right;
 }
@@ -747,7 +986,7 @@ form[name=frm_view]>ul li:nth-child(3){
 	font-weight: bolder;
 }
 
-.bid_caution_modal ul{
+.bid_caution_modal ul, .direct_caution_modal ul{
 	width: 95%;
 	text-align: left;
 	border-top: 1px solid grey;
@@ -755,16 +994,16 @@ form[name=frm_view]>ul li:nth-child(3){
 	margin: 0 auto;
 }
 
-.bid_caution_modal ul li{
+.bid_caution_modal ul li, .direct_caution_modal ul li{
 	line-height: 25px;
 }
 
-.bid_caution_modal ul, .bid_caution_modal ul~p{
+.bid_caution_modal ul, .bid_caution_modal ul~p, .direct_caution_modal ul, .direct_caution_modal ul~p{
 	margin-top: 10px;
 	margin-bottom: 10px;
 }
 
-.bid_caution_modal{
+.bid_caution_modal, .direct_caution_modal{
 	padding: 10px !important;
 	box-sizing: border-box;
 }
@@ -778,7 +1017,34 @@ form[name=frm_view]>ul li:nth-child(3){
 	margin: 10px;
 }
 
-.btnBidApply{
+.applyResultInner{
+	text-align: center;
+}
+
+.applyResultInner p{
+	padding: 30px;
+	box-sizing: border-box;
+	font-size: 1.2em !important;
+	text-align: left;
+	color: rgb(102, 102, 102);
+}
+
+.applyResultInner img, .shareUrlInner img{
+	width: 50px;
+	margin-top: 50px;
+}
+.shareUrlInner img{
+	margin-top: 30px;
+}
+
+.applyResultInner input{
+	font-size: 1.3em !important;
+	color: white;
+	background-color: black;
+	font-weight: bold;
+}
+
+.btnBidApply, .btnDirectApply{
 	display: inline-block;
 	width: 150px;
 	height: 50px;
@@ -885,98 +1151,6 @@ ul{
 */
 
 
-	/*reset으로 틀어진 elements들 속성 되돌려놓기*/
-
-.caution li{
-	margin-top: 10px;
-}
-
-form[name=frm_bidIntro] h4, form[name=frm_view] h4, form[name=frm_list] h4{
-	display: block;
-	margin-top: 1.33em;
-	margin-bottom: 1.33em;
-	margin-left: 0;
-	margin-right: 0;
-	font-weight: bold;
-}
-
-form[name=frm_bidIntro] h3, form[name=frm_view] h3, form[name=frm_list] h3{
-	display: block;
-	font-size: 1.17em;
-	margin-top: 1em;
-	margin-bottom: 1em;
-	margin-left: 0;
-	margin-right: 0;
-	font-weight: bold;
-}
-
-form[name=frm_bidIntro] h2, form[name=frm_view] h2, form[name=frm_list] h2{
-	display: block;
-	font-size: 1.5em;
-	margin-top: 0.83em;
-	margin-bottom: 0.83em;
-	margin-left: 0;
-	margin-right: 0;
-	font-weight: bold;
-}
-
-.bidIntroRight div{
-	display: block;
-}
-.bidIntroRight ul{
-	display: block;
-	list-style-type: none;
-	margin-top: 1em;
-	margin-bottom: 1 em;
-	margin-left: 0;
-	margin-right: 0;
-	padding-left: 40px;
-}
-.bidIntroRight li{
-	display: list-item;
-}
-.bidIntroRight table{
-	display: table;
-	border: 1px solid rgb(249, 249, 249);
-	border-collapse: collapse;
-	border-color: gray;
-	margin-left: 3%;
-	width: 80%;
-}
-.bidIntroRight p{
-	display: block;
-	margin-top: 1em;
-	margin-bottom: 1em;
-	margin-left: 0;
-	margin-right: 0;
-}
-
-.bidIntroRight th{
-	display: table-cell;
-	vertical-align: middle;
-	font-weight: bold;
-	text-align: center;
-	height: 50px;
-	border: 1px solid rgb(249, 249, 249);
-	padding: 5px;
-}
-
-.bidIntroRight td{
-	height: 30px;
-	display: table-cell;
-	vertical-align: middle;
-	border: 1px solid rgb(220, 220, 220);
-	padding: 5px;
-}
-
-.bidIntroRight strong{
-	font-weight: bold;
-	margin-top: 10px;
-	margin-bottom: 10px;
-	color: rgb(244, 78, 37);
-}
-	
-	/*reset으로 틀어진 elements들 속성 되돌려놓기 끝*/
 
 
 .bidIntroTitle{

@@ -13,7 +13,7 @@
 <div id='memberResult'>
 <div id='joLoMo' class='h1'>${midResult }${c }</div>
 	<div id='joLoMo2' class='join4'>${msg }</div>
-	<div class='join3'><input type='button' value='확인' id='btnOk' onclick='self.close()'></div>
+	<div class='join3'><input type='button' value='확인' id='btnOk'></div>
 </div>
 </body>
 </html>

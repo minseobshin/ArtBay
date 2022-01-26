@@ -116,6 +116,7 @@ public class ListViewService {
 	//즉시 구매 신청
 	public void directPurchase(ArtBayVo vo) {
 		mapper.directPurchase(vo);
+		mapper.directPurchaseHistory(vo);
 		mapper.directPurchaseInsert(vo);
 	}
 

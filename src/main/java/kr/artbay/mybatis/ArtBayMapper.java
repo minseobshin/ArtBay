@@ -25,6 +25,9 @@ public interface ArtBayMapper {
 	public int updateMemberInfo(ArtBayVo vo); //회원정보수정 update
 	public int memberOut(ArtBaySessionVo sv); //회원탈퇴
 	public ArtBayVo findMyId(ArtBayVo vo); //아이디 찾기
+	public ArtBayVo findMyPwd(ArtBayVo vo); //비밀번호 찾기
+	public int updateRanPwd(ArtBayVo vo); //랜덤비번 저장
+	public int changePassword(ArtBaySessionVo sv); //비밀번호 수정
 	
 	//List, view 화면
 	public Integer totSize(String findStr);
@@ -45,6 +48,7 @@ public interface ArtBayMapper {
 	public int updateStatusAll(LocalDateTime time);
 	public int directPurchaseInsert(ArtBayVo vo);
 	public ArtBayVo getDirectInfo(int lot);
+	public int directPurchaseHistory(ArtBayVo vo);
 
 	//메인 list
 	public List<ArtBayVo> mainsearch();

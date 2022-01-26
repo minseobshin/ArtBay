@@ -61,19 +61,10 @@ public class ArtBayController {
 	
 	//회원가입
 	@RequestMapping(value="/insertMemberSave", method= {RequestMethod.POST})
-	public ModelAndView insertMemberSave(ArtBayVo vo) {
-		ModelAndView mv = new ModelAndView();
-		//System.out.println("ArtBayController : " + vo.getMemberJoinEmail());
+	public void insertMemberSave(ArtBayVo vo) {
 		this.b = memberService.insertMember(vo);
-		String msgSuccess = "님의 회원가입이 완료되었습니다.";
-		String msgSuccess2 = "계속하시려면 확인 버튼을 눌러주세요.";
-		
-		mv.addObject("vo", vo);
-		mv.addObject("msg", msgSuccess);
-		mv.addObject("msg2", msgSuccess2);
-		mv.setViewName("main");
-		
-		return mv;
+		this.d = "join";
+		this.voMid = vo;
 	}
 	
 	//아이디중복체크
@@ -109,7 +100,9 @@ public class ArtBayController {
 			this.c = "failMid";
 		}
 		
-		if(this.c == "failMid" || this.c == "failPwd") {
+		if(this.c == "failMid" || this.c == "failPwd" || 
+			this.c == "stopMember" || this.c == "lostPwdMember" ||
+			this.c == "outMember") {
 			session.invalidate();
 		}else {
 			injung = this.sv.getInjung();
@@ -199,12 +192,19 @@ public class ArtBayController {
 	public ModelAndView updateMemberInfoResult() {
 		ModelAndView mv = new ModelAndView();
 		
+		//회원가입 결과페이지 출력
+		if(this.d == "join") {
+			this.midResult = voMid.getMid();
+			this.c = "님의 회원가입이 완료되었습니다.";
+			this.msg = "ArtBay 가입을 축하합니다! 계속하시려면 확인 버튼을 클릭해주세요.";
+		}
+		
 		//회원정보수정 결과페이지 출력
 		if(this.d == "update") {
 			this.midResult = voMid.getMid();
 			if(this.c == "passUpdate") {
 				this.c = "님의 회원정보가 수정되었습니다.";
-				this.msg = "ArtBay 가입을 축하합니다! 계속하시려면 확인 버튼을 클릭해주세요.";
+				this.msg = "계속하시려면 확인 버튼을 클릭해주세요.";
 			}else if(this.c == "failUpdate"){
 				this.c = "님의 회원정보 수정 중 오류가 발생했습니다.";
 				this.msg = "관리자에게 문의해주세요.";
@@ -248,10 +248,16 @@ public class ArtBayController {
 	
 	//비밀번호 찾기
 	@RequestMapping(value="/findMyPwd", method= {RequestMethod.POST})
-	public String findMyPwd(ArtBayVo vo) {
-		
-		
-		return c;
+	public ArtBayVo findMyPwd(ArtBayVo vo) {
+		vo = memberService.findMyPwd(vo);
+		return vo;
+	}
+	
+	//비밀번호 수정
+	@RequestMapping(value="/changePassword", method= {RequestMethod.POST})
+	public boolean changePassword(ArtBaySessionVo sv) {
+		this.b = memberService.changePassword(sv);
+		return b;
 	}
 	
 	//경매신청 페이지

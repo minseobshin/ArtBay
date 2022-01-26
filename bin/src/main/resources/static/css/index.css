@@ -11,6 +11,23 @@ body {
 	clear: both;
 	display: block;
 }
+.applyform {
+    position: relative;
+    height: 190px;
+    background-color: #1f2d4a;
+    margin-bottom: 60px;
+}
+.applyform > h1 {
+    margin-top: 10px;
+    position: absolute;
+    top: 40%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-size: 1.2em;
+    font-weight: bold;
+    color: #fff;
+    white-space: nowrap;
+}
 /******************************************************************************/
 /****************************** 메뉴 네비게이션 ***********************************/
 header { 
@@ -70,7 +87,7 @@ header > * {
 	opacity: 0;
 	transition: all 0.3s;
 	-webkit-transition: all 0.3s;
-}
+} 
 .navi li:hover ul li {	/* 1단 메뉴에 마우스 올라갔을때 2단 메뉴항목들 트랜지션 */
 	padding: 5px 0;
 	height: 40px;
@@ -138,7 +155,8 @@ header > * {
 /**************************** 메인화면 이미지 슬라이드 *******************************/
 .keyvisual {
 	position: relative;
-	width: 100%; 
+	width: 1950px;
+	margin: 0 auto;
 	overflow: hidden;
 }
 .keyvisual .control_btn button {
@@ -161,18 +179,20 @@ header > * {
 }
 .keyvisual ul {
 	width: 300%;
-						/*overflow: hidden;	*/
+	overflow: hidden;
 }
 .keyvisual li {
 	float: left;
 	width: 33.333%;
-						overflow: hidden;  /* 위? 아래? */
+	overflow: hidden;  /* 위? 아래? */
 }
 .keyvisual a {
 	cursor: default;
 }
 .key_control {
 	text-align: center;
+	width: 1950px;
+	margin: 0 auto;
 }
 .key_control ul {
 	height: 24px;
@@ -247,6 +267,10 @@ header > * {
 }
 .tab_container section .item .info {
 	display: none;
+}
+.tab_container section .item img {
+	width: 100%;
+	height: 100%;
 }
 .tab_container section .item:hover .info {
 	display: block;

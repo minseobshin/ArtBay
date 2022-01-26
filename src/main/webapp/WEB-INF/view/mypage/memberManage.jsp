@@ -21,7 +21,7 @@
 		<li id="money">입출금</li>
 	</ul>
 	<div class="memberManagePage">
-		회원관리 페이지
+		회원관리 페이지, 탈퇴사유보기 기능 추가할것
 	</div>
 	<div class="moneyPage">
 		돈관리 페이지

@@ -1,5 +1,7 @@
 package kr.artbay.mybatis;
 
+import java.util.Random;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.PlatformTransactionManager;
@@ -62,10 +64,30 @@ public class MemberService {
 		
 		try {
 			svv = mapper.memberLogin(sv);
-			if(svv.getPwd().equals(sv.getPwd())) {
-				svv.setOutEu7("login");
+			if(svv.getM_status().equals("Y")) { //탈퇴계정인지
+				if(svv.getInjung().equals("true")) { //계정정지상태인지
+					if(svv.getPwd().equals(sv.getPwd())) { //비밀번호맞는지
+						svv.setOutEu7("login");
+					}else {
+						svv.setOutEu7("failPwd");
+					}
+				}else if(svv.getInjung().equals("false")) { //임시비밀번호발급상태
+					if(svv.getPwd().equals(sv.getPwd())) { //비밀번호맞는지
+						svv.setOutEu7("lostPwdMember");
+					}else {
+						svv.setOutEu7("failPwd");
+					}
+				}else if(svv.getInjung().equals("stop")) { //계정정지상태
+					svv.setOutEu7("stopMember");
+				}else if(svv.getInjung().equals("super")) {
+					if(svv.getPwd().equals(sv.getPwd())) { //비밀번호맞는지
+						svv.setOutEu7("login");
+					}else {
+						svv.setOutEu7("failPwd");
+					}
+				}
 			}else {
-				svv.setOutEu7("failPwd");
+				svv.setOutEu7("outMember");
 			}
 		}catch(Exception e) {
 			e.printStackTrace();
@@ -150,6 +172,61 @@ public class MemberService {
 	}
 	
 	//비밀번호 찾기
+	public ArtBayVo findMyPwd(ArtBayVo vo) {
+		status = manager.getTransaction(new DefaultTransactionDefinition());
+		Random random = new Random();
+		ArtBayVo vvo = null;
+		int leftLimit = 0;
+		int rightLimit = 0;
+		int targetStringLength = 0;
+		int c = 0;
+		
+		try {
+			vvo = mapper.findMyPwd(vo);
+			vvo.setInjung("failFindPwd");
+			if(vo.getIrum().equals(vvo.getIrum())) {
+				if(vo.getMid().equals(vvo.getMid())) {
+					vvo.setInjung("passFindPwd");
+					leftLimit = 48; //numeral '0'
+					rightLimit = 122; //letter 'z'
+					targetStringLength = 6;
+
+					String generatedString = random.ints(leftLimit, rightLimit + 1)
+					  .filter(i -> (i <= 57 || i >= 65) && (i <= 90 || i >= 97))
+					  .limit(targetStringLength)
+					  .collect(StringBuilder::new, StringBuilder::appendCodePoint, StringBuilder::append)
+					  .toString();
+					vvo.setAddress(generatedString);
+					
+					try {
+						c = mapper.updateRanPwd(vvo);
+						if(c>0) {
+							manager.commit(status);
+							vvo.setAddress2("passCommit");
+						}
+					}catch(Exception e) {
+						manager.rollback(status);
+						vvo.setAddress2("failCommit");
+					}
+				}
+			}
+		}catch(NullPointerException e) {}
+		return vvo;
+	}
+	
+	//비밀번호 수정
+	public boolean changePassword(ArtBaySessionVo sv) {
+		status = manager.getTransaction(new DefaultTransactionDefinition());
+		boolean b = false;
+		int c = 0;
+		
+		try {
+			c = mapper.changePassword(sv);
+			if(c>0) { manager.commit(status); b = true; }
+		}catch(NullPointerException e) { manager.rollback(status); }
+		
+		return b;
+	}
 	
 }
 

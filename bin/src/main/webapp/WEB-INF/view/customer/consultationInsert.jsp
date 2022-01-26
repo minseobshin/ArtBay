@@ -15,7 +15,7 @@
 
 
 <div class = "applyform">
-		<h1>1:1상담문의</h1>
+		<h1>1:1 상담문의</h1>
 </div>
 <div id="subContentsWrap">
 		<div class="container mt40">
@@ -24,7 +24,7 @@
 				<ul class="list-default list-bul-blue">
 					<li>FAQ 검색에서 원하는 내용을 검색하시면 즉시 답변을 얻으실 수 있습니다.</li>
 					<li>물품문의는 판매자에게 해주시기바랍니다.</li>
-					<li>답변은 마이페이지 &gt; 나의활동내역 &gt; 1:1문의에서 확인 가능합니다.</li>
+					<li>비공개글은 마이페이지 작품문의내역에서 확인 가능합니다.</li>
 				</ul>
 			</div>
 			
@@ -32,13 +32,23 @@
 			<!-- 게시판 쓰기 -->
 			<div class="tableDefault mt40">
 				<table>
-					<tbody><tr>
+					<tbody>
+					<tr>
+						<th>작성자</th>
+						<td>
+							<div class="form-group">
+								${ sessionScope.sv.mid }
+								<input type="hidden" name="mid" value="${ sessionScope.sv.mid }">
+							</div>
+						</td>
+					</tr>
+					<tr>
 						<th>분류</th>
 						<td>
 							<div class="form-inline">
 								<div class="form-group">
 								<select id="qna_type" name="qna_type" class="w130 form-control material-ch" style="width: 130px;">
-												<option value="00">선택하세요</option>
+												<option value="">선택하세요</option>
 												<option value="10">회원가입/탈퇴</option>
 												<option value="20">물품문의</option>
 												<option value="30">입금/결제문의</option>
@@ -50,19 +60,6 @@
 							</div>	
 						</td>
 					</tr>
-					<!--  
-					<tr>
-						<th>물품번호</th>
-						<td>
-							<div class="form-inline">
-								<div class="form-group">
-									<input type="text" name="lot" id="lot" class="form-control width-md" value="" maxlength="11">
-									<span class="fcRed mt5m dpInblock">*물품번호를 입력하시면 보다 정확한 답변을 확인하실 수 있습니다. </span>
-								</div>	
-							</div>	
-						</td>
-					</tr>
-					-->
 					<tr>
 						<th>제목</th>
 						<td>
@@ -70,17 +67,9 @@
 								<input type="text" name="qna_title" id="qna_title" class="form-control width-md" value="">
 							</div>	
 						</td>
-					</tr>
+					</tr>					
 					<tr>
-						<th>작성자</th>
-						<td>
-							<div class="form-group">
-								<input type="text" name="mid" class="form-control width-md" value="${ sessionScope.sv.mid }" readonly>
-							</div>
-						</td>
-					</tr>
-					<tr>
-						<th>내용</th>
+						<th>문의내용</th>
 						<td>
 							<div class="form-group">
 								<textarea name="qna_doc" id="qna_doc" class="form-control" rows="10"></textarea>
@@ -104,48 +93,12 @@
 							</div>	
 						</td>
 					</tr>
-					<tr>
-						<th>답변완료알림</th>
-						<td>
-							<div class="form-inline">
-								<div class="form-group clearfix">
-									<label class="checkbox-inline col-xs-4 mt7">
-										<input type="checkbox" name="resms" id="resms" value="Y">
-										SMS
-									</label>
-									<div class=" col-xs-8">
-										<input type="text" name="sms" id="sms" class="form-control" value="010-2228-7514">
-									</div>
-								</div>
-								<div class="form-group clearfix ml30 ml0m mt5m">
-									<label class="checkbox-inline col-xs-4 mt7">
-										<input type="checkbox" name="reemail" id="reemail" value="Y">
-										메일
-									</label>
-									<div class=" col-xs-8">
-										<input type="text" name="email" id="email" class="form-control" value="5411515@naver.com">
-									</div> 
-								 </div>
-							</div>
-						</td>
-					</tr>
-					<tr>
-						<th>개인정보 수집, <br>이용안내</th>
-						<td>
-							<p>
-								수집, 이용 목적 : 문의에 대한 답변 완료시 알림 SMS, 메일 발송
-								<br>수집, 이용 항목 : 휴대전화번호, 이메일 주소
-								<br>수집, 이용 기간 : 문의에 대한 답변 완료 알림 후 즉시 삭제
-							</p>
-							<p class="mt10">
-								<label class="checkbox-inline">
-									<input type="checkbox" name="agree" id="agree" value="Y">
-									위와 같이 개인정보 수집, 이용에 동의합니다.
-								</label>
-							</p>
-						</td>
-					</tr>
 				</tbody></table>
+				<!-- 목록이동 시 페이지 정보 -->				
+				<input type="hidden" name="nowPage" value="${ page.nowPage }">
+				<input type="hidden" name="findStr" value="${ page.findStr }">	
+				<input type="hidden" name="findCol" value="${ page.findCol }">	
+				<input type="hidden" name="findType" value="${ page.findType }">
 			</div>
 			</form>
 			
@@ -166,8 +119,10 @@
 	                                    <input type="file" name="attFile" multiple="multiple" class="tui-input-file">
 	                                    <input type="hidden" name="serial">	<!-- 시리얼 번호 -->
 	                                </label>
-										<input type="text" name="nowPage" value="${ page.nowPage }">
-										<input type="text" name="findStr" value="${ page.findStr }">	
+										<input type="hidden" name="nowPage" value="${ page.nowPage }">
+										<input type="hidden" name="findStr" value="${ page.findStr }">	
+										<input type="hidden" name="findCol" value="${ page.findCol }">	
+										<input type="hidden" name="findType" value="${ page.findType }">	
 	                            </div>
 	                  		 </td>
 	            	   </tr>
@@ -177,8 +132,8 @@
  			</form>
  			
 			<div class="btnWrap bwflex">
-				<a href="#none" id="btnQnaInsert" class="btn btn-save">등록</a>
-				<a href="#none" id="btnQnaCancle" class="btn btn-cancel">취소</a>
+				<a href="#none" id="btnQnaInsert" class="btn btn-save">저장</a>
+				<a href="#none" id="btnQnaList" class="btn btn-save">목록</a>
 			</div>
 
 

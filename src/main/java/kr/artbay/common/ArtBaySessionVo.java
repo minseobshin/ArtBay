@@ -21,9 +21,12 @@ public class ArtBaySessionVo {
 	String outEu5;
 	String outEu6;
 	String outEu7;
+	String m_status;
 	
 	
 	
+	public String getM_status() {return m_status;}
+	public void setM_status(String m_status) {this.m_status = m_status;}
 	public String getMidLogin() {return midLogin;}
 	public void setMidLogin(String midLogin) {this.midLogin = midLogin;}
 	public String getPwdLogin() {return pwdLogin;}

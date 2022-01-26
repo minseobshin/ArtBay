@@ -27,7 +27,6 @@
 	<!-- 이미지 슬라이드 end -->
 	
 	<!-- 주요 출품작 -->
-	<form action="frm_list" id=frm_list method="post">
 	<div class="tab_container">	
 		<input id="tab1" type="radio" name="tabs" checked>
 		<label for="tab1">전체</label>
@@ -36,7 +35,7 @@
 		<input id="tab3" type="radio" name="tabs">
 		<label for="tab3">도자기</label>		
 		<section id="content1">
-			<c:forEach var="vo" items="${list}">
+			<c:forEach var="vo" items="${list}" end="14">
 				<div class="item" onclick = "artbay.view(${vo.lot})">
 					<img alt="" src="${vo.imgFile }">
 					<div class="info">
@@ -52,39 +51,56 @@
 			</c:forEach>			
 		</section>
 		<section id="content2">
-			<c:forEach var="vo" items="${list}" end="5">
-				<div class="item" onclick = "artbay.view(${vo.lot})">
-					<img alt="" src="${vo.imgFile }">
-					<div class="info">
-						<div class="author">${vo.artist}</div>
-						<div class="title">${vo.artwork_name}</div>
-						<c:if test="${vo.current_price gt 0 }">
-							<div>현재가</div>
-							<div class="price">KRW<span>${vo.current_price }</span></div>
+			<c:set var="doneLoop" value="false"/>
+			<c:set var="count" value= "0" />
+			<c:forEach var="vo" items="${list}" varStatus="status">
+				<c:if test="${vo.artwork_ctgr eq 'paint' }">
+					<c:if test="${not doneLoop}">
+						<c:set var="count" value= "${count+1}" />
+						<div class="item" onclick = "artbay.view(${vo.lot})">
+							<img alt="" src="${vo.imgFile }">
+							<div class="info">
+								<div class="author">${vo.artist}</div>
+								<div class="title">${vo.artwork_name}</div>
+								<c:if test="${vo.current_price gt 0 }">
+									<div>현재가</div>
+									<div class="price">KRW<span>${vo.current_price }</span></div>
+								</c:if>
+							</div>		
+						</div>			
+						<c:if test="${count eq 10}">
+							<c:set var="doneLoop" value="true"/>
 						</c:if>
-						
-					</div>		
-				</div>			
-			</c:forEach>	
+					</c:if>
+				</c:if>
+			</c:forEach>
 		</section>
 		<section id="content3">
-			<c:forEach var="vo" items="${list}" end="4">
-				<div class="item" onclick = "artbay.view(${vo.lot})">
-					<img alt="" src="${vo.imgFile }">
-					<div class="info">
-						<div class="author">${vo.artist}</div>
-						<div class="title">${vo.artwork_name}</div>
-						<c:if test="${vo.current_price gt 0 }">
-							<div>현재가</div>
-							<div class="price">KRW<span>${vo.current_price }</span></div>
+			<c:set var="doneLoop" value="false"/>
+			<c:set var="count" value= "0" />
+			<c:forEach var="vo" items="${list}" varStatus="status">
+				<c:if test="${vo.artwork_ctgr eq 'pottery' }">
+					<c:if test="${not doneLoop}">
+						<c:set var="count" value= "${count+1}" />
+						<div class="item" onclick = "artbay.view(${vo.lot})">
+							<img alt="" src="${vo.imgFile }">
+							<div class="info">
+								<div class="author">${vo.artist}</div>
+								<div class="title">${vo.artwork_name}</div>
+								<c:if test="${vo.current_price gt 0 }">
+									<div>현재가</div>
+									<div class="price">KRW<span>${vo.current_price }</span></div>
+								</c:if>
+							</div>		
+						</div>			
+						<c:if test="${count eq 10}">
+							<c:set var="doneLoop" value="true"/>
 						</c:if>
-						
-					</div>		
-				</div>			
+					</c:if>
+				</c:if>
 			</c:forEach>	
 		</section>
 	</div>
-	</form>
 	
 	<!-- How to 및 경매일정 start -->
 	<div class="howto_schedule_zone">		

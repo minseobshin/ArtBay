@@ -13,7 +13,7 @@
 	</select>
 	<!-- 로그인 -->
 	<select id="memberLogin" parameterType="kr.artbay.common.ArtBaySessionVo" resultType="kr.artbay.common.ArtBaySessionVo">
-		select mid, pwd, injung from artbay_member where mid = #{mid}
+		select mid, pwd, injung, m_status from artbay_member where mid = #{mid}
 	</select>
 	<!-- 회원정보 수정시 비밀번호 입력 후 내용출력 -->
 	<select id="pwdChkForModi" parameterType="String" resultType="kr.artbay.common.ArtBayVo">
@@ -23,10 +23,26 @@
 	<update id="updateMemberInfo" parameterType="kr.artbay.common.ArtBayVo">
 		update artbay_member set pwd=#{oldPwd}, phone=#{phone}, email=#{memberJoinEmail}, zip=#{zip}, address=#{address}, address2=#{address2} where mid=#{mid}
 	</update>
+	<!-- 회원탈퇴 -->
+	<update id="memberOut" parameterType="kr.artbay.common.ArtBaySessionVo">
+		update artbay_member set m_status="N", outEu1=#{outEu1}, outEu2=#{outEu2}, outEu3=#{outEu3}, outEu4=#{outEu4}, outEu5=#{outEu5}, outEu6=#{outEu6}, outEu7=#{outEu7} where mid=#{midOut}
+	</update>
 	<!-- 아이디 찾기 -->
 	<select id="findMyId" parameterType="kr.artbay.common.ArtBayVo" resultType="kr.artbay.common.ArtBayVo">
 		select mid, irum, email from artbay_member where irum=#{irum} and email=#{memberJoinEmail}
 	</select>
+	<!-- 비밀번호 찾기 -->
+	<select id="findMyPwd" parameterType="kr.artbay.common.ArtBayVo" resultType="kr.artbay.common.ArtBayVo">
+		select mid, irum, email from artbay_member where irum=#{irum} and mid=#{mid}
+	</select>
+	<!-- 랜덤비번 저장 및 injung 값 false로 변경 -->
+	<update id="updateRanPwd" parameterType="kr.artbay.common.ArtBayVo">
+		update artbay_member set pwd=#{address}, injung="false" where mid=#{mid}
+	</update>
+	<!-- 비밀번호 수정 -->
+	<update id="changePassword" parameterType="kr.artbay.common.ArtBaySessionVo">
+		update artbay_member set pwd=#{newPwd}, injung="true" where mid=#{mid}
+	</update>
 
 	<select id="totSize" parameterType="String" resultType="Integer">
 		select count(lot) totSize from artwork
@@ -41,21 +57,21 @@
 		where a.mid like '%${findStr}%' or a.artist like '%${findStr}%' or a.artwork_name like '%${findStr}%' or a.artwork_ctgr like '%${findStr}%'
 		order by
 		<choose>
-			<when test="sort eq 'default'"> a.due_date asc</when>
+			<when test="sort eq 'default'"> a.due_date desc</when>
 			<when test="sort eq 'init_price_asce'"> a.start_price asc</when>
 			<when test="sort eq 'init_price_desc'"> a.start_price desc</when>
 			<when test="sort eq 'bid_history_cnt_asce'"> a.bid_cnt asc</when>
 			<when test="sort eq 'bid_history_cnt_desc'"> a.bid_cnt desc</when>
 			<when test="sort eq 'current_price_asce'"> a.current_price asc</when>
 			<when test="sort eq 'current_price_desc'"> a.current_price desc</when>
-			<otherwise> due_date asc</otherwise>
+			<otherwise> due_date desc</otherwise>
 		</choose>
 		limit ${startNo-1}, ${listSize}
 	</select>
 	
 	<!-- main list -->
 	<select id="mainsearch" resultType="kr.artbay.common.ArtBayVo">
-		SELECT * FROM artwork a join artimg b on a.lot=b.lot and b.thumbnail="Y" ORDER BY hit DESC LIMIT 15;
+		SELECT * FROM artwork a join artimg b on a.lot=b.lot and b.thumbnail="Y" ORDER BY hit DESC LIMIT 30;
 	</select>
 	
 	<insert id="bidApply" parameterType="kr.artbay.common.ArtBayVo">
@@ -98,6 +114,10 @@
 	<update id="directPurchase" parameterType="kr.artbay.common.ArtBayVo">
 		update artwork set current_price=${direct_price}, crnt_status="경매종료" where lot=${lot}
 	</update>
+	
+	<insert id="directPurchaseHistory" parameterType="kr.artbay.common.ArtBayVo">
+		insert into bidding(lot, mid, bid_price, bid_date) values (${lot}, #{mid}, ${direct_price}, #{winbid_date});
+	</insert>
 	
 	<insert id="directPurchaseInsert" parameterType="kr.artbay.common.ArtBayVo">
 		insert into winning_bid values(${lot}, #{mid}, ${direct_price}, #{winbid_date}, 'direct');

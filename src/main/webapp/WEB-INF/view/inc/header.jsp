@@ -84,9 +84,11 @@
 	</form>
 	<!-- 비밀번호찾기 -->
 	<form name='frm_findPwd9' id='frm_findPwd9' method='post'>
-		<input type='hidden' name='irum8' id='irumFind8' class='midLogin' placeholder="이름">
+		<input type='hidden' name='irum9' id='irumFind8' class='midLogin' placeholder="이름">
 		<input type='hidden' name='mid9' id='idFind9' class='midLogin' placeholder="아이디">
-		<input type='hidden' name='findedPwd9' id='findedPwd9'>
+		<input type='hidden' name='findedMid9' id='findedPwd9'>
+		<input type='hidden' name='memberJoinEmail9' id='emailFind8' class='midLogin' placeholder="이메일주소">
+		<input type='submit' name='btnGoPwdFind9' id='btnGoPwdFind9' class='btnGoLogin9' style='display : none;'>
 		<script type="text/javascript">emailjs.init('user_Bmru9OgJfTWiBNKpR24gp')</script>
 	</form>
 </header>
