@@ -8,7 +8,7 @@ public class GetTime {
 	public GetTime() {
 		date = LocalDateTime.now();
 	}
-
+	
 	public LocalDateTime getDate() {return date;}
 	public void setDate(LocalDateTime date) {this.date = date;}
 }

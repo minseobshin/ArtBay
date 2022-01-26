@@ -1,5 +1,6 @@
 package kr.artbay.mybatis;
 
+import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -94,8 +95,8 @@ public class ListViewService {
 		return cnt;
 	}
 	
-	public void updateAllStatus(GetTime date) {
-		
+	public void updateStatusAll(LocalDateTime date) {
+		mapper.updateStatusAll(date);
 	}
 	
 	public void directPurchase(ArtBayVo vo) {

@@ -1,6 +1,7 @@
 package kr.artbay.mybatis;
 
 
+import java.time.LocalDateTime;
 import java.util.List;
 
 import org.apache.ibatis.annotations.Mapper;
@@ -41,7 +42,7 @@ public interface ArtBayMapper {
 	public List<ArtBayVo> bidOnGoing();
 	public int updateStatus(int lot);
 	public int directPurchase(ArtBayVo vo);
-	public int updateStatusAll(GetTime date);
+	public int updateStatusAll(LocalDateTime time);
 
 	//메인 list
 	public List<ArtBayVo> mainsearch();

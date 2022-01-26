@@ -260,8 +260,10 @@ public class ListViewController {
 		List<ArtBayVo> list = new ArrayList<ArtBayVo>();
 		//경매 내역 조회
 		list = service.viewBidsAll();
+		
 		//경매 기한이 지나면 경매 종료로 변경
-		//int c = service.updateStatus();
+		GetTime date = new GetTime();
+		service.updateStatusAll(date.getDate());
 		return list;
 	}
 	
