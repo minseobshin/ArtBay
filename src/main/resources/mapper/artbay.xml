@@ -196,7 +196,7 @@
 		from bidding B join artwork A
 		on B.lot = A.lot
 		where B.mid = #{mid}
-		ORDER BY bid_date 
+		ORDER BY bid_date desc
 		limit ${startNo-1}, ${listSize}
 	</select>
 
@@ -213,7 +213,7 @@
 		from winning_bid W join artwork A
 		on W.lot = A.lot
 		where A.crnt_status="경매종료" and W.mid=#{mid}
-		ORDER BY winbid_date
+		ORDER BY winbid_date desc
 		limit ${startNo-1}, ${listSize}
 	</select>
 	<!-- 경매결과 월별 건수-->
