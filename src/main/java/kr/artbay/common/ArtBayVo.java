@@ -70,6 +70,7 @@ public class ArtBayVo {
 	int remaining_hr;
 	int remaining_min;
 	int remaining_sec;
+	String masked_mid;
 	
 	//공지사항
 	String title;

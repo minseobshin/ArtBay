@@ -376,6 +376,7 @@ p.bidCnt{
 }
 
 #pageZone input{
+	margin-top: 30px !important;
 	width: 30px;
 	height: 30px;
 	margin: 3px;
@@ -389,10 +390,14 @@ p.bidCnt{
 	border: 1px solid rgb(50, 50, 50s);
 }
 
+.btnToFirst, .btnToLast{
+	width: 100px !important;
+}
+
 /*리스트 페이지 끝*/
 
 	/*모달창 기본 설정(리스트, 뷰 같이 있음)*/
-	.rightmodal_m1, .rightmodal_m2, .rightmodal_m3, .rightmodal_m4, .login, .bid_caution, .shareUrl, .thumbnailHidden, .applyResult{
+	.rightmodal_m1, .rightmodal_m2, .rightmodal_m3, .rightmodal_m4, .login, .bid_caution, .shareUrl, .thumbnailHidden, .applyResult, .direct_caution{
 		display: none;
 		z-index : 1 !important;
 		background-color: rgba(0,0,0,.3);
@@ -404,7 +409,7 @@ p.bidCnt{
 		font-size: 13px;
 	}
 	
-	.modal1, .modal2, .modal3, .modal4, .modal_login, .bid_caution_modal, .applyResultInner{
+	.modal1, .modal2, .modal3, .modal4, .modal_login, .bid_caution_modal, .applyResultInner, .direct_caution_modal{
 		width:500px;
 		z-index: 2;
 		margin:100px auto;
@@ -981,7 +986,7 @@ form[name=frm_view]>ul li:nth-child(3){
 	font-weight: bolder;
 }
 
-.bid_caution_modal ul{
+.bid_caution_modal ul, .direct_caution_modal ul{
 	width: 95%;
 	text-align: left;
 	border-top: 1px solid grey;
@@ -989,16 +994,16 @@ form[name=frm_view]>ul li:nth-child(3){
 	margin: 0 auto;
 }
 
-.bid_caution_modal ul li{
+.bid_caution_modal ul li, .direct_caution_modal ul li{
 	line-height: 25px;
 }
 
-.bid_caution_modal ul, .bid_caution_modal ul~p{
+.bid_caution_modal ul, .bid_caution_modal ul~p, .direct_caution_modal ul, .direct_caution_modal ul~p{
 	margin-top: 10px;
 	margin-bottom: 10px;
 }
 
-.bid_caution_modal{
+.bid_caution_modal, .direct_caution_modal{
 	padding: 10px !important;
 	box-sizing: border-box;
 }
@@ -1039,7 +1044,7 @@ form[name=frm_view]>ul li:nth-child(3){
 	font-weight: bold;
 }
 
-.btnBidApply{
+.btnBidApply, .btnDirectApply{
 	display: inline-block;
 	width: 150px;
 	height: 50px;

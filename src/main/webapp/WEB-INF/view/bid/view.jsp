@@ -334,6 +334,25 @@
 				</div>
 			</div>
 		</div>
+		
+		<!-- 즉시 구매 유의 사항 -->
+		<div class="direct_caution">
+			<div class="direct_caution_modal" id="modal">
+			<h2>&nbsp;즉시 구매 유의사항</h2>
+				<ul>
+					<li style="color: red;">즉시 판매가로 자동 낙찰 됩니다. 낙찰 후 취소하고자 하는 경우, 낙찰자는 낙찰철회비로 낙찰가의 30%에 해당하는 금액을 납부하여야 하므로 신중하게 응찰하시기 바랍니다.</li>
+					<li>낙찰 시 낙찰대금 외 구매 수수료(부가세 별도) 및 낙찰자 비용(있을 경우)이 부과됩니다.</li>
+					<li>모든 응찰은 응찰자가 실물을 확인한 것을 전제로 하며, 액자나 작품 컨디션을 이유로 응찰 또는 낙찰을 취소할 수 없습니다.</li>
+					<li>마감 전 30초 내의 응찰이 있을 경우, 자동으로 30초 연장됩니다.</li>
+				</ul>
+				
+				<p>위 응찰 유의사항을 확인하였으며. 동의하므로 응찰을 신청합니다.</p>
+				<div class="bidApplyBtn">
+					<input type="button" class="btnBidCancel" value="취소" />
+					<input type="button" class="btnDirectApply" value="동의 및 응찰"/>
+				</div>
+			</div>
+		</div>
 		<!-- 응찰 시작 모달-->
 		<div class="bid_price">
 			<h2>응찰내역</h2>

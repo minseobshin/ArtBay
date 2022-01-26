@@ -19,6 +19,15 @@ artbay.view = function(lot){
 	})
 }
 
+
+//목록에서 페이지 전환
+artbay.page = function(nowPage){
+	$frm = $("#frm_list")[0];
+	$frm.nowPage.value = nowPage;
+	$frm.action = "bidList";
+	$frm.submit();
+}
+
 //작품 상세 조회 하단에서 작가의 다른 작품 이미지 클릭 시 클릭한 작품 상세 조회 화면으로 페이지 전환
 artbay.othersView = function(lot){
 	$frm = $("#frm_view")[0];
@@ -34,13 +43,6 @@ artbay.othersView = function(lot){
 	})
 }
 
-//목록에서 페이지 전환
-artbay.page = function(nowPage){
-	$frm = $("#frm_list")[0];
-	$frm.nowPage.value = nowPage;
-	$frm.action = "bidList";
-	$frm.submit();
-}
 
 //목록에서 카테고리별 작품 조회
 function category(ctgr){	
@@ -62,17 +64,22 @@ function category(ctgr){
 
 //즉시 구매
 function directPurchase(){
+	modalOn($('.direct_caution'));
 	$param = $("#frm_view").serialize();
-	$.ajax({
-		url: "/bidDirect",
-		type: "POST",
-		cache: false,
-		async: true,
-		data: $param,
-		success: function(){
-			alert("완료")
-		}
+	$(".btnDirectApply").on("click", function(){
+		$.ajax({
+			url: "/bidDirect",
+			type: "POST",
+			cache: false,
+			async: true,
+			data: $param,
+			success: function(){
+				$(".bid_caution").css("display", "none");
+				$(".applyResult").css("display", "block");
+			}
+		})
 	})
+
 }
 
 //목록에서 작품명 또는 작가명으로 작품 검색

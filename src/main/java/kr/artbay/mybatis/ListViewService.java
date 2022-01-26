@@ -86,7 +86,10 @@ public class ListViewService {
 	//상세 조회 화면에서 전체 응찰 내역 조회 기능
 	public List<ArtBayVo> viewBidsAll(){
 		List<ArtBayVo> list = new ArrayList<ArtBayVo>();
-		list = mapper.viewBidHistoryAll();  
+		list = mapper.viewBidHistoryAll();
+		for(ArtBayVo vo : list) {
+			vo.setMid(vo.getMid().replaceAll("(?<=.{2}).", "*"));
+		}
 		return list;
 	}
 	

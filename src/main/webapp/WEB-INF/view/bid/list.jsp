@@ -93,7 +93,14 @@
 						<p class="paintSize">${vo.artwork_size }</p>
 						<div class="listInnerTextTitle">
 							<p>시작가</p>
-							<p class="currentPriceTitle">현재가</p>
+							<c:choose>
+								<c:when test="${vo.crnt_status eq '경매종료' }">
+									<p class="currentPriceTitle">낙찰가</p>
+								</c:when>
+								<c:otherwise>
+									<p class="currentPriceTitle">현재가</p>
+								</c:otherwise>
+							</c:choose>
 							<c:choose>
 								<c:when test="${not empty vo.direct_price }">
 									<p class="directPriceTitle">즉시 판매가</p>
@@ -126,7 +133,7 @@
 		</div>
 		<div id="pageZone">
 			<c:if test="${page.startPage gt 1 }">
-				<input type="button" value="처음으로" onclick="artbay.page(1)"/>
+				<input type="button" value="처음으로" onclick="artbay.page(1)" class="btnToFirst"/>
 				<input type="button" value="&lt" onclick="artbay.page(${page.startPage - 1})"/>			
 			</c:if>
 			<c:forEach var="i" begin="${page.startPage }" end="${page.endPage }">
@@ -134,7 +141,7 @@
 			</c:forEach>
 			<c:if test="${page.endPage lt page.totPage }">
 				<input type="button" value="&gt" onclick = "artbay.page(${page.endPage + 1})" />
-				<input type="button" value="끝으로" onclick="artbay.page(${page.totPage})" />
+				<input type="button" value="끝으로" onclick="artbay.page(${page.totPage})" class="btnToLast"/>
 			</c:if>
 		</div>
 		<div id="hiddenZone">
