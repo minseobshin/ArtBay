@@ -464,7 +464,12 @@ th, .deliv_th1, .deliv_th2{
 
 .modal_body{
 	padding: 10px !important;
-	font-size: 20px;
+	font-size: 15px;
+	line-height: 30px !important;
+}
+
+.modal_body table{
+	margin-bottom: 20px;
 }
 
 .xBtn{

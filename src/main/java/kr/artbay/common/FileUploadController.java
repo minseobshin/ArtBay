@@ -17,7 +17,9 @@ import kr.artbay.mybatis.QnaService;
 
 @Controller
 public class FileUploadController {
+
 	public static String uploadPath = "C:\\ArtBay\\ArtBay\\src\\main\\resources\\static\\upload\\";
+
 
 	@Autowired
 	QnaService qnaService;
