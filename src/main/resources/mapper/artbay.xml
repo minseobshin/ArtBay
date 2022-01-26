@@ -23,6 +23,10 @@
 	<update id="updateMemberInfo" parameterType="kr.artbay.common.ArtBayVo">
 		update artbay_member set pwd=#{oldPwd}, phone=#{phone}, email=#{memberJoinEmail}, zip=#{zip}, address=#{address}, address2=#{address2} where mid=#{mid}
 	</update>
+	<!-- 회원탈퇴 -->
+	<update id="memberOut" parameterType="kr.artbay.common.ArtBaySessionVo">
+		update artbay_member set m_status="N" where mid=#{midOut}
+	</update>
 	<!-- 아이디 찾기 -->
 	<select id="findMyId" parameterType="kr.artbay.common.ArtBayVo" resultType="kr.artbay.common.ArtBayVo">
 		select mid, irum, email from artbay_member where irum=#{irum} and email=#{memberJoinEmail}
