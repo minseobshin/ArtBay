@@ -92,7 +92,7 @@
 	</update>
 	
 	<update id="updateStatusAll" parameterType="kr.artbay.scheduler.GetTime">
-		update artwork set crnt_status="경매종료" where due_date < #{_parameter}
+		update artwork set crnt_status="경매종료" where  <![CDATA[due_date < #{_parameter}]]>
 	</update>
 	
 	<update id="directPurchase" parameterType="kr.artbay.common.ArtBayVo">
