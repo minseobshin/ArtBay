@@ -83,6 +83,9 @@
 			<c:forEach var="vo" items="${list }">
 				<div class="listInner" onclick="artbay.view(${vo.lot })">
 					<p class="img"><img src="${vo.imgFile }" /></p>
+					<c:if test="${vo.crnt_status eq '경매종료' }">
+						<div class="closedArtwork">c l o s e d</div>
+					</c:if>
 					<div class="listInnerText">
 						<p class="painter">${vo.artist }</p>
 						<p class="art_name">${vo.artwork_name }</p>

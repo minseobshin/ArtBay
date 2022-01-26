@@ -115,7 +115,7 @@
 			</div>
 			<div class="closing_hour">
 				<span>마감 시간</span>
-				<span>01/04 - 04:00 PM</span>
+				<span>${vo.due_date }</span>
 			</div>
 				<li class="right_modal_btn" id="right_modal_btn1" onclick="modalOn($('.rightmodal_m1'))">				
 					<p><span>낙찰 수수료</span></p>
@@ -455,7 +455,7 @@
 					<input type="button" class="btnBidApplyFinal" value="응찰하기"  onclick="modalOn($('.bid_caution'))"/>
 				</c:when>
 				<c:when test="${vo.crnt_status eq '경매종료' }">
-					<input type="text" class="btnBidApplyFinal" value="경매 기간이 종료되었습니다."  readonly="readonly" style="text-align: center;"/>
+					<input type="text" class="btnBidApplyFinal" value="경매 기간이 종료되었습니다." readonly="readonly" style="text-align: center;"/>
 				</c:when>
 				<c:otherwise>
 					<div class="btnBidApplyFinalLeftBox">
