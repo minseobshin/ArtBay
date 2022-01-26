@@ -399,7 +399,7 @@ p.bidCnt{
 	/*모달창 기본 설정(리스트, 뷰 같이 있음)*/
 	.rightmodal_m1, .rightmodal_m2, .rightmodal_m3, .rightmodal_m4, .login, .bid_caution, .shareUrl, .thumbnailHidden, .applyResult, .direct_caution{
 		display: none;
-		z-index : 5 !important;
+		z-index : 1 !important;
 		background-color: rgba(0,0,0,.3);
 		position:fixed;
 		left: 0;
@@ -411,7 +411,7 @@ p.bidCnt{
 	
 	.modal1, .modal2, .modal3, .modal4, .modal_login, .bid_caution_modal, .applyResultInner, .direct_caution_modal{
 		width:500px;
-		z-index: 6;
+		z-index: 2;
 		margin:100px auto;
 		position: relative;
 		background-color:#fff;
@@ -473,7 +473,7 @@ th, .deliv_th1, .deliv_th2{
 }
 
 .xBtn{
-	z-index: 5;
+	z-index: 1;
 	position: absolute;
 	margin: -20px;
 	width: 100%;
@@ -661,30 +661,30 @@ form[name=frm_view]{
 
 .thumbnailHidden{
 	height: 100%;
-	z-index: 5 !important;
+	z-index: 1 !important;
 }
 
 .thumbnailHiddenDiv{
 	height: 100% !important;
 	width: 50%;
 	margin: 0 auto;
-	z-index: 6 !important;
+	z-index: 2 !important;
 }
 
 .thumbnailHiddenImg{
 	height: 80% !important;
-	z-index: 7 !important;
+	z-index: 3 !important;
 }
 
 .smlImgList{
 	height: 15%;
 	display: inline-block !important;
-	z-index: 8 !important;
+	z-index: 4 !important;
 }
 
 #hiddenSmlImg{
 	height: 90% !important;
-	z-index: 9 !important;
+	z-index: 5 !important;
 }
 
 #hiddenSmlImg:hover{
@@ -1316,7 +1316,7 @@ ul{
 	top: 0;
 	width: 100%;
 	height: 100%;
-	z-index: 6;
+	z-index: 2;
 	background-image: url("../img/background-img-auction.jpg");
 	background-size: cover;
 }
