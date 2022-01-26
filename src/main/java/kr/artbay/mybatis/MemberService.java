@@ -33,9 +33,7 @@ public class MemberService {
 	public boolean insertMember(ArtBayVo vo) {
 		boolean b = false;
 		status = manager.getTransaction(new DefaultTransactionDefinition());
-		//vo.setPwd(aes.encrypt(vo.getPwd())); //암호화는 나중에..
-		
-		//System.out.println("MemberService : " + vo.getMid());
+		vo.setPwd(aes.encrypt(vo.getPwd())); //암호화
 		
 		int c = mapper.insertMember(vo);
 		if(c>0) {
@@ -64,6 +62,7 @@ public class MemberService {
 		
 		try {
 			svv = mapper.memberLogin(sv);
+			svv.setPwd(aes.decrypt(svv.getPwd()));
 			if(svv.getM_status().equals("Y")) { //탈퇴계정인지
 				if(svv.getInjung().equals("true")) { //계정정지상태인지
 					if(svv.getPwd().equals(sv.getPwd())) { //비밀번호맞는지
@@ -102,6 +101,7 @@ public class MemberService {
 		
 		try {
 			vo = mapper.pwdChkForModi(mid);
+			vo.setPwd(aes.decrypt(vo.getPwd()));
 			if(vo.getPwd().equals(npwd)) {
 				vo.setOldPwd("passPwd");
 			}else {
@@ -219,7 +219,7 @@ public class MemberService {
 		status = manager.getTransaction(new DefaultTransactionDefinition());
 		boolean b = false;
 		int c = 0;
-		
+		sv.setNewPwd(aes.encrypt(sv.getNewPwd()));
 		try {
 			c = mapper.changePassword(sv);
 			if(c>0) { manager.commit(status); b = true; }
