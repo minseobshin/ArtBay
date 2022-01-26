@@ -198,6 +198,8 @@ public class MemberService {
 					  .toString();
 					vvo.setAddress(generatedString);
 					
+					vvo.setAddress(aes.encrypt(vvo.getAddress()));
+					
 					try {
 						c = mapper.updateRanPwd(vvo);
 						if(c>0) {
