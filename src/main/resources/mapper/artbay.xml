@@ -169,7 +169,7 @@
 		select serial, title, hit, doc, date_format(not_date, "%y-%m-%d") not_date, grp from notice where serial = #{_parameter}
 	</select>
 	<select id="ntcAttList" parameterType="integer" resultType="kr.artbay.common.ArtBayAtt">
-		select * from noticeAtt where grp = #{serial}
+		select serial, grp, notFile as attFile from noticeAtt where grp = #{serial}
 	</select>
 	<!-- 선택된 공지 삭제 -->
 	<delete id='deleteNotice' parameterType='list'> 

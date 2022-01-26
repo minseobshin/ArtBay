@@ -45,7 +45,7 @@
 			<div class='attZone'>
 				<ul>
 				<c:forEach var='att' items="${vo.attList }">
-					<li><a href='./ntcUpload/${att.attFile }' download='${att.attFile }'>${att.attFile }</a></li>
+					<li><a href='./upload/${att.attFile }' download='${att.attFile }'>${att.attFile }</a></li>
 				</c:forEach>
 				</ul>
 			</div>
