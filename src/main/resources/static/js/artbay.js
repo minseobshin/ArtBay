@@ -55,6 +55,7 @@ function category(ctgr){
 		async: true,
 		data: $param,
 		success: function(){
+			search();
 		}
 	})
 }
@@ -80,6 +81,17 @@ function search(){
 	$param = $("#frm_list").serialize();
 	const sort = $(".page_combo1").val();
 	const cnt = $(".page_combo2").val();
+	const findStr = $("#findStr").val();
+	$frm.action="/bidList";
+	$frm.submit();
+}
+
+/* 원본 지킴이
+function search(){
+	$frm = $("#frm_list")[0];
+	$param = $("#frm_list").serialize();
+	const sort = $(".page_combo1").val();
+	const cnt = $(".page_combo2").val();
 	const findStr = $("#findStr").val()
 	$.post({
 		url: "/bidList",
@@ -98,22 +110,8 @@ function search(){
 			$("#selected_findStr").html(findStrAttach);
 		}
 	})
-	
-	/*
-	$frm = $("#frm_list")[0];
-	$frm.nowPage.value = 1;
-	const cnt = $(".page_combo2").val();
-	$frm.action="/bidList?cnt="+cnt;
-	$frm.submit();
-	if($("#findStr").val() !="" ){
-		var findStr = $("#findStr").val()
-		var findStrAttach = $(`<div><span style="margin: 0;"> ${findStr} </span> <input type="button" value="X" style="border: none; background-color: transparent;" onclick="$(this).parent().remove()"/></div>`);
-		$("#selected_findStr").html(findStrAttach);
-	}else{
-		$("#selected_findStr").html("");
-	}
-	*/
 }
+*/
 
 /*
 function off(){
@@ -128,8 +126,50 @@ function off(){
 */
 
  $(function(){
+	switch($("#findStr").val()){
+		case "":
+		$.ajax({
+			success:function(){
+				$("#navAll").addClass("orangeLi");
+				$("#navPaint").removeClass("orangeLi");
+				$("#navPottery").removeClass("orangeLi");
+				$(".selected_option_area").hide();
+				$(".idle_selected_option_area").show();
+			}
+		})
+		break;
+		
+		case "paint":
+		$.ajax({
+			success: function(){
+				$("#navAll").removeClass("orangeLi");
+				$("#navPaint").addClass("orangeLi");
+				$("#navPottery").removeClass("orangeLi");
+				$(".selected_option_area").hide();
+				$(".idle_selected_option_area").show();
+			}
+		})
+		$("#findStr").val("");
+		break;
+		
+		
+		case "pottery":
+		$.ajax({
+			success: function(){
+				$("#navAll").removeClass("orangeLi");
+				$("#navPaint").removeClass("orangeLi");
+				$("#navPottery").addClass("orangeLi");
+				$(".selected_option_area").hide();
+				$(".idle_selected_option_area").show();
+			}
+		})
+		$("#findStr").val("");
+		break;	
+	}
+	
 	//상세 조회 화면에서 최종 동의 및 응찰 버튼 클릭하면 응찰하도록
 	$(".btnBidApply").on("click", function(){
+		$frm = $("#frm_view")[0];
 		$param = $("#frm_view").serialize();
 		$.post({
 		url: "/bidApplied",
@@ -143,6 +183,7 @@ function off(){
 			}
 		})	
 	})
+	
 	
 	//응찰하기에서 전체를 누르면 전체 내역, 내 응찰을 누르면 내 응찰 내역 확인
 	$(".bidHistoryAll").on("click", function(){
@@ -196,10 +237,8 @@ function off(){
 
 	$frm = $("#frm_list")[0];
 
-	
+	/*원본 지킴이
 	$("#navAll").on("click", function(){
-		$("#findStr").val("");
-		search();
 		$("#navAll").addClass("orangeLi");
 		$("#navPaint").removeClass("orangeLi");
 		$("#navPottery").removeClass("orangeLi");
@@ -208,8 +247,6 @@ function off(){
 	})
 	
 	$("#navPaint").on("click", function(){
-		search();
-		$("#findStr").val("");
 		$("#navAll").removeClass("orangeLi");
 		$("#navPaint").addClass("orangeLi");
 		$("#navPottery").removeClass("orangeLi");
@@ -218,14 +255,13 @@ function off(){
 	})
 	
 	$("#navPottery").on("click", function(){
-		search();
-		$("#findStr").val("");
 		$("#navAll").removeClass("orangeLi");
 		$("#navPaint").removeClass("orangeLi");
 		$("#navPottery").addClass("orangeLi");
 		$(".selected_option_area").hide();
 		$(".idle_selected_option_area").show();
 	})
+	*/
 	
 	
 	$("#modalOffBtn").click(function(){

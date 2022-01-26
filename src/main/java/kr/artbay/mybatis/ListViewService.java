@@ -32,7 +32,7 @@ public class ListViewService {
 	Page page;
 	
 	
-	public List<ArtBayVo> search(Page page, @RequestParam(value="findStr", required=false) String findStr){
+	public List<ArtBayVo> search(Page page, String findStr){
 		List<ArtBayVo> list = null;
 		page.setFindStr(findStr);
 		int totSize = mapper.totSize(findStr);
