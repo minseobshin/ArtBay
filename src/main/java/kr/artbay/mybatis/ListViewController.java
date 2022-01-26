@@ -70,6 +70,54 @@ public class ListViewController {
 	ArtBayVo vo = null;
 	boolean b = false;
 	
+	/* 원본 지킴이
+	@RequestMapping(value="/bidList", method= {RequestMethod.POST, RequestMethod.GET})
+	public ModelAndView bidList(HttpServletRequest req) {
+		ModelAndView mv = new ModelAndView();
+		List<ArtBayVo> list = new ArrayList<ArtBayVo>();
+		
+		int cnt=1;
+		String findStr="";
+		int nowPage=1;
+		String sort="default";
+		try {
+			if(req.getParameter("cnt") == null) cnt=1;
+			else cnt = Integer.parseInt(req.getParameter("cnt"));
+			
+			if(req.getParameter("findStr") == null) findStr="";
+			else findStr = req.getParameter("findStr");
+			
+			if(req.getParameter("nowPage") == null) nowPage=1;
+			else nowPage = Integer.parseInt(req.getParameter("nowPage"));
+			
+			if (req.getParameter("sort") == null) sort="default";
+			else sort = req.getParameter("sort");
+			
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		page.setListSize(cnt);
+		page.setFindStr(findStr);
+		page.setNowPage(nowPage);
+		page.setSort(sort);
+		list = service.search(page, findStr);
+		
+		for(ArtBayVo vo : list) {
+			vo.setStr_start_price(NumberFormat.getInstance().format(vo.getStart_price()));
+			if(vo.getCurrent_price()==null) vo.setCurrent_price(vo.getStart_price());
+			vo.setStr_current_price(NumberFormat.getInstance().format(vo.getCurrent_price()));
+			vo.setStr_bid_cnt(NumberFormat.getInstance().format(vo.getBid_cnt()));
+			if(vo.getDirect_price()!=null) vo.setStr_direct_price(NumberFormat.getInstance().format(vo.getDirect_price()));
+		}
+		
+		page = service.getPage();
+		mv.addObject("page", page);
+		mv.addObject("list", list);
+		mv.setViewName("bid.list");
+		return mv;
+	}
+	 */
+	
 	@RequestMapping(value="/bidList", method= {RequestMethod.POST, RequestMethod.GET})
 	public ModelAndView bidList(@RequestParam(value="findStr", required=false) String findStr,
 			@RequestParam(value="cnt", required=false, defaultValue="10") int cnt,
@@ -95,7 +143,8 @@ public class ListViewController {
 		mv.setViewName("bid.list");
 		return mv;
 	}
-
+	
+	
 	@RequestMapping(value="/bidView", method= {RequestMethod.POST, RequestMethod.GET})
 	public ModelAndView bidView(@RequestParam(value="lot", required=false) int lot,
 			@RequestParam(value="nowPage", required=false) int nowPage,

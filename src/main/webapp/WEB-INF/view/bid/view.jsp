@@ -96,7 +96,14 @@
 					<span class="str_start_price">KRW ${vo.str_start_price }</span>
 				</p>
 				<p>
-					<strong>현재가</strong>
+					<c:choose>
+						<c:when test="${vo.crnt_status eq '경매종료' }">
+							<strong>낙찰가</strong>
+						</c:when>
+						<c:otherwise>
+							<strong>현재가</strong>
+						</c:otherwise>
+					</c:choose>
 					<span class="str_current_price">KRW ${vo.str_current_price }</span>
 				</p>
 				<c:if test="${not empty vo.direct_price }">
@@ -108,7 +115,7 @@
 			</div>
 			<div class="closing_hour">
 				<span>마감 시간</span>
-				<span>01/04 - 04:00 PM</span>
+				<span>${vo.due_date }</span>
 			</div>
 				<li class="right_modal_btn" id="right_modal_btn1" onclick="modalOn($('.rightmodal_m1'))">				
 					<p><span>낙찰 수수료</span></p>
@@ -125,7 +132,14 @@
 			<br/>
 			<c:choose>
 				<c:when test="${not empty sessionScope.sv.mid}">
-					<input type="button" class="btnBidStart" value="응찰하기" onclick="modalOn($('.bid_price'))"/>
+					<c:choose>
+						<c:when test="${vo.crnt_status eq '경매종료' }">
+							<input type="text" class="btnBidStart" value="경매 기간이 종료되었습니다." readonly="readonly" style="text-align: center;"/>
+						</c:when>
+						<c:otherwise>
+							<input type="button" class="btnBidStart" value="응찰하기" onclick="modalOn($('.bid_price'))"/>
+						</c:otherwise>
+					</c:choose>
 				</c:when>
 				<c:otherwise>
 					<input type="button" class="btnBidStart" id="needLogin" style="background-color: rgb(255, 109, 45); border: 1px solid rgb(255, 109, 45);"value="로그인하시면 응찰이 가능합니다."/>
@@ -320,6 +334,25 @@
 				</div>
 			</div>
 		</div>
+		
+		<!-- 즉시 구매 유의 사항 -->
+		<div class="direct_caution">
+			<div class="direct_caution_modal" id="modal">
+			<h2>&nbsp;즉시 구매 유의사항</h2>
+				<ul>
+					<li style="color: red;">즉시 판매가로 자동 낙찰 됩니다. 낙찰 후 취소하고자 하는 경우, 낙찰자는 낙찰철회비로 낙찰가의 30%에 해당하는 금액을 납부하여야 하므로 신중하게 응찰하시기 바랍니다.</li>
+					<li>낙찰 시 낙찰대금 외 구매 수수료(부가세 별도) 및 낙찰자 비용(있을 경우)이 부과됩니다.</li>
+					<li>모든 응찰은 응찰자가 실물을 확인한 것을 전제로 하며, 액자나 작품 컨디션을 이유로 응찰 또는 낙찰을 취소할 수 없습니다.</li>
+					<li>마감 전 30초 내의 응찰이 있을 경우, 자동으로 30초 연장됩니다.</li>
+				</ul>
+				
+				<p>위 응찰 유의사항을 확인하였으며. 동의하므로 응찰을 신청합니다.</p>
+				<div class="bidApplyBtn">
+					<input type="button" class="btnBidCancel" value="취소" />
+					<input type="button" class="btnDirectApply" value="동의 및 응찰"/>
+				</div>
+			</div>
+		</div>
 		<!-- 응찰 시작 모달-->
 		<div class="bid_price">
 			<h2>응찰내역</h2>
@@ -335,7 +368,7 @@
 					<c:forEach var="i" items="${history }">				
 						<ul>
 							<li>${i.bid_date }<br/>${i.bid_time }</li>
-							<li>${i.mid }</li>
+							<li>${i.masked_mid }</li>
 							<li>${i.bid_price }</li>
 						</ul>
 					</c:forEach>
@@ -353,73 +386,87 @@
 					<div class="my_choice">
 						<div class="my_choice_left">
 							<strong>시작가</strong><br/><br/>
-							<strong>현재가</strong><br/><br/>
+							<c:choose>
+								<c:when test="${vo.crnt_status eq '경매종료' }">
+									<strong>낙찰가</strong><br/><br/>
+								</c:when>
+								<c:otherwise>
+									<strong>현재가</strong><br/><br/>
+								</c:otherwise>
+							</c:choose>
 							<strong>응찰가</strong><br/><br/>
 							<c:if test="${not empty vo.str_direct_price }">
 								<strong>즉시 판매가</strong>
 							</c:if>
 						</div>
-						<div class="my_choice_right">
-							<strong>KRW ${vo.str_start_price }</strong><br/><br/>
-							<strong>KRW ${vo.str_current_price } </strong><br/><br/>
-							<select class="price_combo" name="price_combo">
-							<c:choose>
-								<c:when test="${vo.current_price>=vo.start_price }">
+						<c:choose>
+							<c:when test="${vo.crnt_status eq '경매종료' }">
+								<div></div>
+							</c:when>
+							<c:otherwise>
+								<div class="my_choice_right">
+									<strong>KRW ${vo.str_start_price }</strong><br/><br/>
+									<strong>KRW ${vo.str_current_price } </strong><br/><br/>
+									<select class="price_combo" name="price_combo">
 									<c:choose>
-										<c:when test="${vo.current_price lt 10001}">
-											<c:forEach var="i" begin="${vo.current_price+500}" end="${vo.current_price+5000}" step="500">
-												<option value=${i }>${i }</option>
-											</c:forEach>
-										</c:when>
-										<c:when test="${vo.current_price lt 50001 }">
-											<c:forEach var="i" begin="${vo.current_price+1000}" end="${vo.current_price+10000}" step="1000">
-												<option value=${i }>${i }</option>
-											</c:forEach>
-										</c:when>
-										<c:when test="${vo.current_price lt 100001 }">
-											<c:forEach var="i" begin="${vo.current_price+10000}" end="${vo.current_price+100000}" step="10000">
-												<option value=${i }>${i }</option>
-											</c:forEach>
+										<c:when test="${vo.current_price>=vo.start_price }">
+											<c:choose>
+												<c:when test="${vo.current_price lt 10001}">
+													<c:forEach var="i" begin="${vo.current_price+500}" end="${vo.current_price+5000}" step="500">
+														<option value=${i }>${i }</option>
+													</c:forEach>
+												</c:when>
+												<c:when test="${vo.current_price lt 50001 }">
+													<c:forEach var="i" begin="${vo.current_price+1000}" end="${vo.current_price+10000}" step="1000">
+														<option value=${i }>${i }</option>
+													</c:forEach>
+												</c:when>
+												<c:when test="${vo.current_price lt 100001 }">
+													<c:forEach var="i" begin="${vo.current_price+10000}" end="${vo.current_price+100000}" step="10000">
+														<option value=${i }>${i }</option>
+													</c:forEach>
+												</c:when>
+												<c:otherwise>
+													<c:forEach var="i" begin="${vo.current_price+20000}" end="${vo.current_price+100000}" step="20000">
+														<option value=${i }>${i }</option>
+													</c:forEach>
+												</c:otherwise>
+											</c:choose>
 										</c:when>
 										<c:otherwise>
-											<c:forEach var="i" begin="${vo.current_price+20000}" end="${vo.current_price+100000}" step="20000">
-												<option value=${i }>${i }</option>
-											</c:forEach>
+											<c:choose>
+												<c:when test="${vo.start_price lt 10001}">
+													<c:forEach var="i" begin="${vo.start_price+500}" end="${vo.start_price+5000}" step="500">
+														<option value=${i }>${i }</option>
+													</c:forEach>
+												</c:when>
+												<c:when test="${vo.start_price lt 50001 }">
+													<c:forEach var="i" begin="${vo.start_price+1000}" end="${vo.start_price+10000}" step="1000">
+														<option value=${i }>${i }</option>
+													</c:forEach>
+												</c:when>
+												<c:when test="${vo.start_price lt 100001 }">
+													<c:forEach var="i" begin="${vo.start_price+10000}" end="${vo.start_price+100000}" step="10000">
+														<option value=${i }>${i }</option>
+													</c:forEach>
+												</c:when>
+												<c:otherwise>
+													<c:forEach var="i" begin="${vo.start_price+20000}" end="${vo.start_price+100000}" step="20000">
+														<option value=${i }>${i }</option>
+													</c:forEach>
+												</c:otherwise>
+											</c:choose>
 										</c:otherwise>
 									</c:choose>
-								</c:when>
-								<c:otherwise>
-									<c:choose>
-										<c:when test="${vo.start_price lt 10001}">
-											<c:forEach var="i" begin="${vo.start_price+500}" end="${vo.start_price+5000}" step="500">
-												<option value=${i }>${i }</option>
-											</c:forEach>
-										</c:when>
-										<c:when test="${vo.start_price lt 50001 }">
-											<c:forEach var="i" begin="${vo.start_price+1000}" end="${vo.start_price+10000}" step="1000">
-												<option value=${i }>${i }</option>
-											</c:forEach>
-										</c:when>
-										<c:when test="${vo.start_price lt 100001 }">
-											<c:forEach var="i" begin="${vo.start_price+10000}" end="${vo.start_price+100000}" step="10000">
-												<option value=${i }>${i }</option>
-											</c:forEach>
-										</c:when>
-										<c:otherwise>
-											<c:forEach var="i" begin="${vo.start_price+20000}" end="${vo.start_price+100000}" step="20000">
-												<option value=${i }>${i }</option>
-											</c:forEach>
-										</c:otherwise>
-									</c:choose>
-								</c:otherwise>
-							</c:choose>
-							</select><br/><br/>
-							<strong>
-							<c:if test="${not empty vo.str_direct_price }">
-								<strong>KRW ${vo.str_direct_price }</strong>
-							</c:if>
-							</strong>
-						</div>
+									</select><br/><br/>
+									<strong>
+									<c:if test="${not empty vo.str_direct_price }">
+										<strong>KRW ${vo.str_direct_price }</strong>
+									</c:if>
+									</strong>
+								</div>
+							</c:otherwise>
+						</c:choose>
 					</div>
 				</div>
 			<c:choose>
@@ -427,7 +474,7 @@
 					<input type="button" class="btnBidApplyFinal" value="응찰하기"  onclick="modalOn($('.bid_caution'))"/>
 				</c:when>
 				<c:when test="${vo.crnt_status eq '경매종료' }">
-					<input type="button" class="btnBidApplyFinal" value="경매 기간이 종료되었습니다."/>
+					<input type="text" class="btnBidApplyFinal" value="경매 기간이 종료되었습니다." readonly="readonly" style="text-align: center;"/>
 				</c:when>
 				<c:otherwise>
 					<div class="btnBidApplyFinalLeftBox">

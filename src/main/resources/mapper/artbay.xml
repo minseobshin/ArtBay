@@ -169,7 +169,7 @@
 		select serial, title, hit, doc, date_format(not_date, "%y-%m-%d") not_date, grp from notice where serial = #{_parameter}
 	</select>
 	<select id="ntcAttList" parameterType="integer" resultType="kr.artbay.common.ArtBayAtt">
-		select * from noticeAtt where grp = #{serial}
+		select serial, grp, notFile as attFile from noticeAtt where grp = #{serial}
 	</select>
 	<!-- 선택된 공지 삭제 -->
 	<delete id='deleteNotice' parameterType='list'> 
@@ -367,7 +367,7 @@
 		DELETE FROM qna  
 		<where>
 			QNA_NUM = #{qna_num} 
-			<if test="mid != 'admin'">
+			<if test="mid != 'admin' and mid != 'chicken'">
 				AND QNA_PWD = #{qna_pwd}
 			</if>
 		</where>
@@ -396,7 +396,7 @@
 		UPDATE qna SET QNA_TYPE = #{qna_type}, QNA_TITLE = #{qna_title}, QNA_DOC = #{qna_doc}, QNA_STATUS = #{qna_status} 
 		<where>
 			QNA_NUM = #{qna_num} 
-			<if test="mid != 'admin'">
+			<if test="mid != 'admin' and mid != 'chicken'">
 				AND QNA_PWD = #{qna_pwd}
 			</if>
 		</where>

@@ -19,6 +19,15 @@ artbay.view = function(lot){
 	})
 }
 
+
+//목록에서 페이지 전환
+artbay.page = function(nowPage){
+	$frm = $("#frm_list")[0];
+	$frm.nowPage.value = nowPage;
+	$frm.action = "bidList";
+	$frm.submit();
+}
+
 //작품 상세 조회 하단에서 작가의 다른 작품 이미지 클릭 시 클릭한 작품 상세 조회 화면으로 페이지 전환
 artbay.othersView = function(lot){
 	$frm = $("#frm_view")[0];
@@ -34,13 +43,6 @@ artbay.othersView = function(lot){
 	})
 }
 
-//목록에서 페이지 전환
-artbay.page = function(nowPage){
-	$frm = $("#frm_list")[0];
-	$frm.nowPage.value = nowPage;
-	$frm.action = "bidList";
-	$frm.submit();
-}
 
 //목록에서 카테고리별 작품 조회
 function category(ctgr){	
@@ -55,26 +57,43 @@ function category(ctgr){
 		async: true,
 		data: $param,
 		success: function(){
+			search();
 		}
 	})
 }
 
 //즉시 구매
 function directPurchase(){
+	modalOn($('.direct_caution'));
 	$param = $("#frm_view").serialize();
-	$.ajax({
-		url: "/bidDirect",
-		type: "POST",
-		cache: false,
-		async: true,
-		data: $param,
-		success: function(){
-			alert("완료")
-		}
+	$(".btnDirectApply").on("click", function(){
+		$.ajax({
+			url: "/bidDirect",
+			type: "POST",
+			cache: false,
+			async: true,
+			data: $param,
+			success: function(){
+				$(".bid_caution").css("display", "none");
+				$(".applyResult").css("display", "block");
+			}
+		})
 	})
+
 }
 
 //목록에서 작품명 또는 작가명으로 작품 검색
+function search(){
+	$frm = $("#frm_list")[0];
+	$param = $("#frm_list").serialize();
+	const sort = $(".page_combo1").val();
+	const cnt = $(".page_combo2").val();
+	const findStr = $("#findStr").val();
+	$frm.action="/bidList";
+	$frm.submit();
+}
+
+/* 원본 지킴이
 function search(){
 	$frm = $("#frm_list")[0];
 	$param = $("#frm_list").serialize();
@@ -98,22 +117,8 @@ function search(){
 			$("#selected_findStr").html(findStrAttach);
 		}
 	})
-	
-	/*
-	$frm = $("#frm_list")[0];
-	$frm.nowPage.value = 1;
-	const cnt = $(".page_combo2").val();
-	$frm.action="/bidList?cnt="+cnt;
-	$frm.submit();
-	if($("#findStr").val() !="" ){
-		var findStr = $("#findStr").val()
-		var findStrAttach = $(`<div><span style="margin: 0;"> ${findStr} </span> <input type="button" value="X" style="border: none; background-color: transparent;" onclick="$(this).parent().remove()"/></div>`);
-		$("#selected_findStr").html(findStrAttach);
-	}else{
-		$("#selected_findStr").html("");
-	}
-	*/
 }
+*/
 
 /*
 function off(){
@@ -128,8 +133,50 @@ function off(){
 */
 
  $(function(){
+	switch($("#findStr").val()){
+		case "":
+		$.ajax({
+			success:function(){
+				$("#navAll").addClass("orangeLi");
+				$("#navPaint").removeClass("orangeLi");
+				$("#navPottery").removeClass("orangeLi");
+				$(".selected_option_area").hide();
+				$(".idle_selected_option_area").show();
+			}
+		})
+		break;
+		
+		case "paint":
+		$.ajax({
+			success: function(){
+				$("#navAll").removeClass("orangeLi");
+				$("#navPaint").addClass("orangeLi");
+				$("#navPottery").removeClass("orangeLi");
+				$(".selected_option_area").hide();
+				$(".idle_selected_option_area").show();
+			}
+		})
+		$("#findStr").val("");
+		break;
+		
+		
+		case "pottery":
+		$.ajax({
+			success: function(){
+				$("#navAll").removeClass("orangeLi");
+				$("#navPaint").removeClass("orangeLi");
+				$("#navPottery").addClass("orangeLi");
+				$(".selected_option_area").hide();
+				$(".idle_selected_option_area").show();
+			}
+		})
+		$("#findStr").val("");
+		break;	
+	}
+	
 	//상세 조회 화면에서 최종 동의 및 응찰 버튼 클릭하면 응찰하도록
 	$(".btnBidApply").on("click", function(){
+		$frm = $("#frm_view")[0];
 		$param = $("#frm_view").serialize();
 		$.post({
 		url: "/bidApplied",
@@ -143,6 +190,7 @@ function off(){
 			}
 		})	
 	})
+	
 	
 	//응찰하기에서 전체를 누르면 전체 내역, 내 응찰을 누르면 내 응찰 내역 확인
 	$(".bidHistoryAll").on("click", function(){
@@ -196,10 +244,8 @@ function off(){
 
 	$frm = $("#frm_list")[0];
 
-	
+	/*원본 지킴이
 	$("#navAll").on("click", function(){
-		$("#findStr").val("");
-		search();
 		$("#navAll").addClass("orangeLi");
 		$("#navPaint").removeClass("orangeLi");
 		$("#navPottery").removeClass("orangeLi");
@@ -208,8 +254,6 @@ function off(){
 	})
 	
 	$("#navPaint").on("click", function(){
-		search();
-		$("#findStr").val("");
 		$("#navAll").removeClass("orangeLi");
 		$("#navPaint").addClass("orangeLi");
 		$("#navPottery").removeClass("orangeLi");
@@ -218,14 +262,13 @@ function off(){
 	})
 	
 	$("#navPottery").on("click", function(){
-		search();
-		$("#findStr").val("");
 		$("#navAll").removeClass("orangeLi");
 		$("#navPaint").removeClass("orangeLi");
 		$("#navPottery").addClass("orangeLi");
 		$(".selected_option_area").hide();
 		$(".idle_selected_option_area").show();
 	})
+	*/
 	
 	
 	$("#modalOffBtn").click(function(){

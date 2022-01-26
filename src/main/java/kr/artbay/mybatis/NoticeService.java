@@ -91,7 +91,7 @@ public class NoticeService {
 			manager.commit(status);
 		
 			vo = mapper.noticeView(serial);	
-			ntcAttList = mapper.ntcAttList(serial);
+			ntcAttList = mapper.ntcAttList(serial);			
 			vo.setAttList(ntcAttList);
 			
 		}catch(Exception ex) {
