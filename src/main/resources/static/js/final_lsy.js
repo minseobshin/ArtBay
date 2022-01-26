@@ -64,7 +64,12 @@ rBid.page = function(nowPage){
 	$frm.action = 'bidResult';
 	$frm.submit();
 }
-
+rBid.winPage = function(nowPage){
+	$frm = $("#frm_list")[0];
+	$frm.nowPage.value = nowPage;
+	$frm.action = 'bidResultList';
+	$frm.submit();
+}
  $(function(){
 	
 	
@@ -241,20 +246,37 @@ function selectOrder(obj){
 /*경매결과 상세보기*/
 function viewDetail(r_date){	
 	$frm = $('#frm_auction')[0];
-	$frm.r_date.value = r_date;
 	$param = $("#frm_auction").serialize();
+	$frm.r_date.value = r_date;
+	$frm.action="/bidResultList";
+	$frm.submit();
+}
+/*경매결과 상세보기 카테고리 검색(은정씨 코드에서 가져옴)*/
+function category(ctgr){	
+	$frm = $("#frm_list")[0];
+	$frm.findStr.value=ctgr;
+	$param = $("#frm_list").serialize();
+	const cnt = $(".page_combo2").val();
 	$.ajax({
-		url: "/bidResultList",
+		url: "/bidResultList?cnt="+cnt,
 		type: "POST",
 		cache: false,
 		async: true,
 		data: $param,
 		success: function(){
-			
+			search();
 		}
 	})
 }
-
+function search(){
+	$frm = $("#frm_list")[0];
+	$param = $("#frm_list").serialize();
+	const sort = $(".page_combo1").val();
+	const cnt = $(".page_combo2").val();
+	const findStr = $("#findStr").val();
+	$frm.action="/bidResultList";
+	$frm.submit();
+}
 	//FAQ 카테고리 선택하면 아래에 그 faq만 보이기	
 	/*$('.faq_desc ul').each(function(index, item){
 		$(item).hide();	

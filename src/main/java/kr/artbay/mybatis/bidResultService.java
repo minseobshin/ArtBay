@@ -37,7 +37,6 @@ public class bidResultService {
 		public List<ArtBayVo> bidResultsearch(Page page){
 			List<ArtBayVo> list = null;
 			int totSize = mapper.resultTotSize(page);
-			System.out.println("안녕:"+ totSize);
 			page.setTotSize(totSize);
 			this.page = page;
 			list = mapper.bidResultsearch(page);

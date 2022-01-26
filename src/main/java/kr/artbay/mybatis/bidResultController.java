@@ -36,21 +36,26 @@ public ModelAndView bidResult(Page page,
 }
 //월별 낙찰 상세보기
 @RequestMapping(value="/bidResultList", method= {RequestMethod.POST, RequestMethod.GET})
-public ModelAndView bidResultList(Page page) {
+public ModelAndView bidResultList(Page page,
+		@RequestParam(value="cnt", required=false, defaultValue="10") int cnt){
 	ModelAndView mv = new ModelAndView();
-	System.out.println("안녕하세요:"+page.getR_date());
+	page.setListSize(cnt);
 	List<ArtBayVo> list = service.bidResultsearch(page);
-	page = service.getPage();
-	for(ArtBayVo v : list) {
-		vo.setStr_start_price(NumberFormat.getInstance().format(v.getStart_price()));
-		vo.setStr_current_price(NumberFormat.getInstance().format(v.getCurrent_price()));
-		vo.setStr_bid_cnt(NumberFormat.getInstance().format(v.getBid_cnt()));
+	for(ArtBayVo vo : list) {
+		
+		vo.setStr_start_price(NumberFormat.getInstance().format(vo.getStart_price()));
+		if(vo.getCurrent_price()==null) vo.setCurrent_price(vo.getStart_price());
+		vo.setStr_current_price(NumberFormat.getInstance().format(vo.getCurrent_price()));
+		vo.setStr_bid_cnt(NumberFormat.getInstance().format(vo.getBid_cnt()));
+		if(vo.getDirect_price()!=null) vo.setStr_direct_price(NumberFormat.getInstance().format(vo.getDirect_price()));
+		vo.setStr_bid_price(NumberFormat.getInstance().format(vo.getBid_price()));
+		
 	}
-	mv.addObject("vo", vo);
+
+	page = service.getPage();
 	mv.addObject("page", page);
 	mv.addObject("list", list);
-	mv.setViewName("bid.list");
-
+	mv.setViewName("bid.win_list");
 	return mv;
 }	
 }

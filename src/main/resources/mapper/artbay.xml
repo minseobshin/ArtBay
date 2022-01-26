@@ -279,8 +279,19 @@
 		date_format(a.due_date, '%y-%m-%d') as due_date, a.hit, a.direct_price, a.bid_cnt, a.crnt_status,
 		b.serial, b.imgFile, b.thumbnail 
 		from artwork a join artimg b on a.lot=b.lot and b.thumbnail="Y" 
-		where crnt_status="경매종료" and due_date like "%${r_date}%"
-		order by due_date desc
+		where (a.mid like '%${findStr}%' or a.artist like '%${findStr}%' or a.artwork_name like '%${findStr}%' or a.artwork_ctgr like '%${findStr}%')
+		and crnt_status="경매종료" and due_date like "%${r_date}%"
+		order by
+		<choose>
+			<when test="sort eq 'default'"> a.due_date desc</when>
+			<when test="sort eq 'init_price_asce'"> a.start_price asc</when>
+			<when test="sort eq 'init_price_desc'"> a.start_price desc</when>
+			<when test="sort eq 'bid_history_cnt_asce'"> a.bid_cnt asc</when>
+			<when test="sort eq 'bid_history_cnt_desc'"> a.bid_cnt desc</when>
+			<when test="sort eq 'current_price_asce'"> a.current_price asc</when>
+			<when test="sort eq 'current_price_desc'"> a.current_price desc</when>
+			<otherwise> due_date desc</otherwise>
+		</choose>
 		limit ${startNo-1}, ${listSize}
 	</select>
 	
