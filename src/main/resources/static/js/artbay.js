@@ -134,6 +134,8 @@ function off(){
 */
 
  $(function(){
+	
+	//작품 카테고리 (전체, 그림, 도자기) 별로 css 적용
 	switch($("#findStr").val()){
 		case "":
 		$.ajax({
@@ -314,13 +316,23 @@ function off(){
 		search();
 	})
 	
-	
+	//엔터키로 실행
+	$("#findStr").keyup(function(e){
+		if(e.keyCode==13){
+			$("#btnSearch").click();
+		}
+	})
 })
-//버튼을 누르면 url 복사. 아직 완벽히 구현되지 않음.
+//버튼을 누르면 url 복사
 function clip(modal){
+	modal.show();
 	var url = window.document.location.href;
 	$(".pastedUrl").val(url);
-	modal.show();
+	$(".pastedUrl").select();
+	document.execCommand("copy");
+	//선택된 부분 해제
+	const sel = document.getSelection();
+	sel.removeAllRanges();
 }
 
 /*howto화면 버튼 누르면 하위 메뉴 등장*/
