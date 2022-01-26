@@ -56,7 +56,7 @@ mBid.page = function(nowPage) {
 	$frm.action = 'mypageBid';
 	$frm.submit();
 }
-
+/*result 경매결과*/
 function rBid(){};
 rBid.page = function(nowPage){
 	$frm = $('#frm_auction')[0];
@@ -64,12 +64,6 @@ rBid.page = function(nowPage){
 	$frm.action = 'bidResult';
 	$frm.submit();
 }
-rBid.viewDetail = function(due_date){
-	$frm = $('#frm_auction')[0];
-	$frm.due_date.value=due_date;
-	$frm.action = 'bidResultList';
-	$frm.submit();
-}	
 
  $(function(){
 	
@@ -209,7 +203,6 @@ rBid.viewDetail = function(due_date){
 		
 			$param = $('#frm_notice').serialize();
 			$.post('noticeSave', $param, function(data){
-				alert($param);
 				var json = JSON.parse(data);
 				if(json.flag=='OK'){ //공지 vo가 저장 성공했을 때
 					var $fd = $('#frm_noticeUpload')[0];
@@ -244,6 +237,22 @@ function selectOrder(obj){
 	$frm.action="/bidResult";
 	$frm.submit();	
 
+}
+/*경매결과 상세보기*/
+function viewDetail(r_date){	
+	$frm = $('#frm_auction')[0];
+	$frm.r_date.value = r_date;
+	$param = $("#frm_auction").serialize();
+	$.ajax({
+		url: "/bidResultList",
+		type: "POST",
+		cache: false,
+		async: true,
+		data: $param,
+		success: function(){
+			
+		}
+	})
 }
 
 	//FAQ 카테고리 선택하면 아래에 그 faq만 보이기	

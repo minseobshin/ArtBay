@@ -260,7 +260,7 @@
 		b.serial, b.imgFile, b.thumbnail 
 		from artwork a join artimg b on a.lot=b.lot and b.thumbnail="Y" 
 		where crnt_status="경매종료" and due_date like "%${r_date}%"
-		order by due_date desc;
+		order by due_date desc
 		limit ${startNo-1}, ${listSize}
 	</select>
 	

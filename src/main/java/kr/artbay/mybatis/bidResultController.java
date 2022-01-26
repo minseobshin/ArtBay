@@ -36,16 +36,17 @@ public ModelAndView bidResult(Page page,
 }
 //월별 낙찰 상세보기
 @RequestMapping(value="/bidResultList", method= {RequestMethod.POST, RequestMethod.GET})
-public ModelAndView bidWinList(Page page, ArtBayVo vo) {
+public ModelAndView bidResultList(Page page) {
 	ModelAndView mv = new ModelAndView();
-	page.setR_date(vo.getDue_date());
-	page = service.getPage();
+	System.out.println("안녕하세요:"+page.getR_date());
 	List<ArtBayVo> list = service.bidResultsearch(page);
+	page = service.getPage();
 	for(ArtBayVo v : list) {
-		v.setStr_start_price(NumberFormat.getInstance().format(vo.getStart_price()));
-		v.setStr_current_price(NumberFormat.getInstance().format(vo.getCurrent_price()));
-		v.setStr_bid_cnt(NumberFormat.getInstance().format(vo.getBid_cnt()));
+		vo.setStr_start_price(NumberFormat.getInstance().format(v.getStart_price()));
+		vo.setStr_current_price(NumberFormat.getInstance().format(v.getCurrent_price()));
+		vo.setStr_bid_cnt(NumberFormat.getInstance().format(v.getBid_cnt()));
 	}
+	mv.addObject("vo", vo);
 	mv.addObject("page", page);
 	mv.addObject("list", list);
 	mv.setViewName("bid.list");
