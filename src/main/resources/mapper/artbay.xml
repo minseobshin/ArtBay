@@ -369,7 +369,7 @@
 		DELETE FROM qna  
 		<where>
 			QNA_NUM = #{qna_num} 
-			<if test="mid != 'admin'">
+			<if test="mid != 'admin' and mid != 'chicken'">
 				AND QNA_PWD = #{qna_pwd}
 			</if>
 		</where>
@@ -398,7 +398,7 @@
 		UPDATE qna SET QNA_TYPE = #{qna_type}, QNA_TITLE = #{qna_title}, QNA_DOC = #{qna_doc}, QNA_STATUS = #{qna_status} 
 		<where>
 			QNA_NUM = #{qna_num} 
-			<if test="mid != 'admin'">
+			<if test="mid != 'admin' and mid != 'chicken'">
 				AND QNA_PWD = #{qna_pwd}
 			</if>
 		</where>
