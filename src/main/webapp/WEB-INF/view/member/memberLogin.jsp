@@ -44,6 +44,7 @@
 			<h1>비밀번호 찾기</h1>
 			<input type='text' name='irum' id='irumFind2' class='midLogin' placeholder="이름">
 			<input type='text' name='mid' id='idFind' class='midLogin' placeholder="아이디">
+			<input type='hidden' name='memberJoinEmail' id='emailFind2' class='midLogin' placeholder="이메일주소">
 			
 			<input type='button' name='btnFindPwd2' id='btnFindId2' class='btnFindPwd' value='아이디찾기'>
 			<input type='button' name='btnLoginPage2' id='btnLoginPage2' class='btnFindId' value='로그인   |'>
