@@ -16,14 +16,8 @@ bid.category = function(ctgr){
 	$frm_faq.action='faqList';
 	$frm_faq.submit();
 } 
-bid.viewDetail = function(winMonth){
-	$frm = $('#frm_auction')[0];
-	$frm.winMonth.value=winMonth;
-}
-//result창에서 상세보기
-	$('.detail').click(function(){
-		location.href='/bidList';
-	})
+
+
 /*notice*/
 function ntc(){};
 ntc.noticePage = function(nowPage){
@@ -58,6 +52,7 @@ mBid.view = function(lot){
 
 mBid.page = function(nowPage) {
 	$frm = $('#frm_page')[0];
+	$frm.nowPage.value = nowPage;
 	$frm.action = 'mypageBid';
 	$frm.submit();
 }
@@ -69,7 +64,13 @@ rBid.page = function(nowPage){
 	$frm.action = 'bidResult';
 	$frm.submit();
 }
-	
+rBid.viewDetail = function(due_date){
+	$frm = $('#frm_auction')[0];
+	$frm.due_date.value=due_date;
+	$frm.action = 'bidResultList';
+	$frm.submit();
+}	
+
  $(function(){
 	
 	

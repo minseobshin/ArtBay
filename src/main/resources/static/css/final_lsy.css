@@ -141,8 +141,13 @@
 #auction form #findZone{
 	margin: 20px 7px;
 	position:relative;
-	
 }
+#auction #frm_auction #list{
+	text-align:left;
+	padding-left:150px;
+	min-height:500px;
+}	
+
 #auction form #findZone input[type='search']{
 	width:380px;
 	height:28px;

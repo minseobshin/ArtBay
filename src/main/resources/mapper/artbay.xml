@@ -224,14 +224,14 @@
 		ORDER BY winbid_date desc
 		limit ${startNo-1}, ${listSize}
 	</select>
-	<!-- 경매결과 월별 건수-->
-	<select id='bidTotSize' resultType='Integer'>
+	<!-- 경매결과 월별 건수(파라미터 불러와야함)-->
+	<select id='bidTotSize' parameterType='kr.artbay.common.Page' resultType='Integer'>
 		select count(c.due) as 'result'
 		from(
 			select month(due_date) as due
 			from artwork 
 			where crnt_status="경매종료" and 
-			(artwork_name like "%a%" or artwork_ctgr like "%a%" or artist like "%a%" or mid like "%a%")
+			(artwork_name like "%${findStr}%" or artwork_ctgr like "%${findStr}%" or artist like "%${findStr}%" or mid like "%${findStr}%")
 			group by month(due_date)
 		)as c
 	</select>
@@ -242,7 +242,7 @@
 		where crnt_status="경매종료" and 
 		(artwork_name like "%${findStr}%" or artwork_ctgr like "%${findStr}%" or artist like "%${findStr}%" or mid like "%${findStr}%")
 		group by month(due_date)
-		ORDER BY month(due_date)
+		ORDER BY due_date
 		<choose>
 			<when test="rSort eq 'none'"> asc</when>
 			<when test="rSort eq 'asc'">asc</when>
@@ -251,27 +251,25 @@
 		limit ${startNo-1}, ${listSize}
 	</select>
 	<!-- 경매결과 첫날/마지막날 불러오기 -->
-	
+	<!-- 월별 낙찰된 경매 결과 페이징 -->
+	<!-- 월별 낙찰된 경매 결과 보기 -->
 	<select id="bidResultsearch" parameterType="kr.artbay.common.Page" resultType="kr.artbay.common.ArtBayVo">
 		select a.lot, a.mid, a.artwork_name, a.artwork_ctgr, a.artist, a.material, a.artwork_size, a.contents, a.etc, a.start_price,
 		a.current_price, date_format(a.regist_date, '%y-%m-%d') as regist_date,
 		date_format(a.due_date, '%y-%m-%d') as due_date, a.hit, a.direct_price, a.bid_cnt, a.crnt_status,
-		b.serial, b.imgFile, b.thumbnail from artwork a join artimg b on a.lot=b.lot and b.thumbnail="Y" 
-		where a.mid like '%${findStr}%' or a.artist like '%${findStr}%' or a.artwork_name like '%${findStr}%' or a.artwork_ctgr like '%${findStr}%'
-		where crnt_status="경매종료"
-		order by 
-		<choose>
-			<when test="sort eq 'default'"> a.due_date asc</when>
-			<when test="sort eq 'init_price_asce'"> a.start_price asc</when>
-			<when test="sort eq 'init_price_desc'"> a.start_price desc</when>
-			<when test="sort eq 'bid_history_cnt_asce'"> a.bid_cnt asc</when>
-			<when test="sort eq 'bid_history_cnt_desc'"> a.bid_cnt desc</when>
-			<otherwise> due_date asc</otherwise>
-		</choose>
+		b.serial, b.imgFile, b.thumbnail 
+		from artwork a join artimg b on a.lot=b.lot and b.thumbnail="Y" 
+		where crnt_status="경매종료" and due_date like "%${r_date}%"
+		order by due_date desc;
 		limit ${startNo-1}, ${listSize}
 	</select>
 	
-	
+	<select id='resultTotSize' parameterType='kr.artbay.common.Page' resultType='Integer'>
+		select count(a.lot)
+		from artwork a join artimg b on a.lot=b.lot and b.thumbnail="Y" 
+		where crnt_status="경매종료" and due_date like "%${r_date}%"
+		order by due_date desc;
+	</select>
 	
 	<!--경매 종료 update-->
 	<update id="artwork_status" parameterType="kr.artbay.common.ArtBayVo">

@@ -23,25 +23,24 @@ public class bidResultService {
 		TransactionStatus status;
 		Page page;
 		
-
+		//월별 낙찰조회
 		public List<ArtBayVo> bidResult(Page p) {
 			List<ArtBayVo> list = null;
-			int totSize = mapper.bidTotSize();	
-			System.out.println("여기"+totSize);
+			int totSize = mapper.bidTotSize(p);	
 			p.setTotSize(totSize);
 			this.page = p;
 			list = mapper.bidResult(p);	
 			System.out.println(p.getEndNo());
 			return list;
 		} 
-		
-		public List<ArtBayVo> winSearch(Page page, @RequestParam(value="findStr", required=false) String findStr){
+		//상세조회
+		public List<ArtBayVo> bidResultsearch(Page page){
 			List<ArtBayVo> list = null;
-			page.setFindStr(findStr);
-			int totSize = mapper.totSize(findStr);
+			int totSize = mapper.resultTotSize(page);
+			System.out.println("안녕:"+ totSize);
 			page.setTotSize(totSize);
 			this.page = page;
-			list = mapper.search(page);
+			list = mapper.bidResultsearch(page);
 			return list;
 		} 
 		public Page getPage() {return page;}
