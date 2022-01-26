@@ -176,14 +176,14 @@
 		select count(B.serial)
 		from bidding B join artwork A
 		on B.lot = A.lot
-		where A.mid =#{mid}
+		where B.mid =#{mid}
 	</select>
 	<!-- 응찰내역 조회  -->
 	<select id='mypageBidList' parameterType="kr.artbay.common.Page" resultType="kr.artbay.common.ArtBayVo">
 		select A.lot, A.artwork_ctgr, A.artist, A.artwork_name, B.bid_price, date_format(B.bid_date, "%y-%m-%d") bid_date
 		from bidding B join artwork A
 		on B.lot = A.lot
-		where A.mid = #{mid}
+		where B.mid = #{mid}
 		ORDER BY bid_date 
 		limit ${startNo-1}, ${listSize}
 	</select>
@@ -193,14 +193,14 @@
 		select count(*)
 		from winning_bid W join artwork A
 		on W.lot = A.lot
-		where A.crnt_status="경매종료" and A.mid=#{mid}
+		where A.crnt_status="경매종료" and W.mid=#{mid}
 	</select>
 	<!--낙찰내역 조회 -->
 	<select id='mypageSuccessBidList' parameterType="kr.artbay.common.Page" resultType="kr.artbay.common.ArtBayVo">
 		select W.lot, A.artwork_ctgr, A.artist, A.artwork_name, W.winbid_price, date_format(W.winbid_date, "%y-%m-%d") winbid_date
 		from winning_bid W join artwork A
 		on W.lot = A.lot
-		where A.crnt_status="경매종료" and A.mid=#{mid}
+		where A.crnt_status="경매종료" and W.mid=#{mid}
 		ORDER BY winbid_date
 		limit ${startNo-1}, ${listSize}
 	</select>
