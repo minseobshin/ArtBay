@@ -83,24 +83,28 @@ public class ListViewService {
 		return list;
 	}
 	
+	//상세 조회 화면에서 전체 응찰 내역 조회 기능
 	public List<ArtBayVo> viewBidsAll(){
 		List<ArtBayVo> list = new ArrayList<ArtBayVo>();
 		list = mapper.viewBidHistoryAll();  
 		return list;
 	}
 	
+	//목록에서 한 작품 상세 조회 클릭 -> 해당 작품의 낙찰 기한이 도래했을 경우 -> 경매종료 상태 업데이트
+	//아래 클래스 추가하며 없어도 되는 기능이 됨.
 	public int updateStatus(int lot) {
 		int cnt = 0;
 		cnt = mapper.updateStatus(lot);
 		return cnt;
 	}
 	
+	//모든 작품 조회 -> 경매작품의 낙찰 기한 도래 -> 경매종료 상태 업데이트
 	public void updateStatusAll(LocalDateTime date) {
 		mapper.updateStatusAll(date);
 	}
 	
 	public void directPurchase(ArtBayVo vo) {
-		
+		mapper.directPurchase(vo);
 	}
 
 	

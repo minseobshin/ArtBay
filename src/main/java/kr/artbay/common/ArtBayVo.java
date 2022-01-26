@@ -19,6 +19,7 @@ public class ArtBayVo {
 	//낙찰 
 	int winbid_price;
 	String winbid_date;
+	String bid_type;
 	
 	//member
 	String mid;
@@ -268,5 +269,7 @@ public class ArtBayVo {
 	public void setRemaining_sec(int remaining_sec) {this.remaining_sec = remaining_sec;}
 	public String getStr_direct_price() {return str_direct_price;}
 	public void setStr_direct_price(String str_direct_price) {this.str_direct_price = str_direct_price;}
+	public String getBid_type() {return bid_type;}
+	public void setBid_type(String bid_type) {this.bid_type = bid_type;}
 	
 }
