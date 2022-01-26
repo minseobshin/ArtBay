@@ -323,13 +323,14 @@ function off(){
 		}
 	})
 })
-//버튼을 누르면 url 복사. 아직 완벽히 구현되지 않음.
+//버튼을 누르면 url 복사
 function clip(modal){
 	modal.show();
 	var url = window.document.location.href;
 	$(".pastedUrl").val(url);
 	$(".pastedUrl").select();
 	document.execCommand("copy");
+	//선택된 부분 해제
 	const sel = document.getSelection();
 	sel.removeAllRanges();
 }
