@@ -43,6 +43,7 @@ public interface ArtBayMapper {
 	public int updateStatus(int lot);
 	public int directPurchase(ArtBayVo vo);
 	public int updateStatusAll(LocalDateTime time);
+	public int directPurchaseInsert(ArtBayVo vo);
 
 	//메인 list
 	public List<ArtBayVo> mainsearch();

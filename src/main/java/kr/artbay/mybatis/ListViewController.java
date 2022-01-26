@@ -257,7 +257,7 @@ public class ListViewController {
 		vo.setWinbid_price(vo.getDirect_price());
 		GetTime date = new GetTime();
 		vo.setWinbid_date(date.getDate()+"");
-		
+		vo.setBid_type("direct");
 		service.directPurchase(vo);
 		return mv;
 	}

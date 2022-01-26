@@ -96,8 +96,12 @@
 	</update>
 	
 	<update id="directPurchase" parameterType="kr.artbay.common.ArtBayVo">
-		update artwork set current_price=${current_price}, crnt_status="경매종료" where lot=${lot}
+		update artwork set current_price=${direct_price}, crnt_status="경매종료" where lot=${lot}
 	</update>
+	
+	<insert id="directPurchaseInsert" parameterType="kr.artbay.common.ArtBayVo">
+		insert into winning_bid values(${lot}, #{mid}, ${direct_price}, #{winbid_date}, 'direct');
+	</insert>
 	
 	
 	<!-- 경매신청 -->
