@@ -429,7 +429,7 @@
 				<c:otherwise>
 					<div class="btnBidApplyFinalLeftBox">
 						<input type="button" class="btnBidApplyFinalLeft" value="응찰하기"  onclick="modalOn($('.bid_caution'))"/>
-						<input type="button" class="btnBidApplyFinalRight" value="즉시 구매" />
+						<input type="button" class="btnBidApplyFinalRight" value="즉시 구매" onclick="directPurchase()" />
 					</div>
 				</c:otherwise>
 			</c:choose>

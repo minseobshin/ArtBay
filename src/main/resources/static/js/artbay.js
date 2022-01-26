@@ -69,6 +69,7 @@ function directPurchase(){
 		async: true,
 		data: $param,
 		success: function(){
+			alert("완료")
 		}
 	})
 }

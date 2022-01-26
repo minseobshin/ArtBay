@@ -103,6 +103,10 @@
 		insert into winning_bid values(${lot}, #{mid}, ${direct_price}, #{winbid_date}, 'direct');
 	</insert>
 	
+	<select id="getDirectInfo" parameterType="Integer">
+		select * from artwork;
+	</select>
+	
 	
 	<!-- 경매신청 -->
 	<select id="memberview" parameterType="String" resultType="kr.artbay.common.ArtBayVo">

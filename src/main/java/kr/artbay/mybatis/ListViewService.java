@@ -105,6 +105,7 @@ public class ListViewService {
 	
 	public void directPurchase(ArtBayVo vo) {
 		mapper.directPurchase(vo);
+		mapper.directPurchaseInsert(vo);
 	}
 
 	

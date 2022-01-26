@@ -248,6 +248,7 @@ public class ListViewController {
 		ModelAndView mv = new ModelAndView();
 		ArtBayVo vo = new ArtBayVo();
 		vo.setLot(Integer.parseInt(req.getParameter("lot")));
+		System.out.println(vo.getDirect_price());
 		vo.setCurrent_price(vo.getDirect_price());
 		vo.setCrnt_status("경매종료");
 		//낙찰자 아이디 가져오기
