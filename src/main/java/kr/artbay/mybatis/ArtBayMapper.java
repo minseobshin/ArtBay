@@ -1,6 +1,7 @@
 package kr.artbay.mybatis;
 
 
+import java.time.LocalDateTime;
 import java.util.List;
 
 import org.apache.ibatis.annotations.Mapper;
@@ -10,6 +11,7 @@ import kr.artbay.common.ArtBayAtt;
 import kr.artbay.common.ArtBaySessionVo;
 import kr.artbay.common.ArtBayVo;
 import kr.artbay.common.Page;
+import kr.artbay.scheduler.GetTime;
 
 
 @Repository
@@ -22,6 +24,7 @@ public interface ArtBayMapper {
 	public ArtBayVo pwdChkForModi(String mid); //회원정보 수정시 비밀번호 입력 후 내용출력
 	public int updateMemberInfo(ArtBayVo vo); //회원정보수정 update
 	public int memberOut(ArtBaySessionVo sv); //회원탈퇴
+	public ArtBayVo findMyId(ArtBayVo vo); //아이디 찾기
 	
 	//List, view 화면
 	public Integer totSize(String findStr);
@@ -30,14 +33,16 @@ public interface ArtBayMapper {
 	public List<ArtBayAtt> viewOthers(int lot);
 	public List<ArtBayAtt> attList(int lot);
 	public int bidApply(ArtBayVo vo);
-	public void hit_up(int lot);
+	public void hit_up(int lot);   //조회수
 	public List<ArtBayVo> viewBids(int lot);
 	public int countBids(int lot);
 	public List<ArtBayVo> viewBidHistoryAll();
 	public int updateCurrentPrice(int lot);
 	public int updateBidCnt(int lot);
 	public List<ArtBayVo> bidOnGoing();
-	public int updateStatus();
+	public int updateStatus(int lot);
+	public int directPurchase(ArtBayVo vo);
+	public int updateStatusAll(LocalDateTime time);
 
 	//메인 list
 	public List<ArtBayVo> mainsearch();

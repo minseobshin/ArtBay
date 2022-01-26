@@ -52,30 +52,36 @@
 			</c:forEach>			
 		</section>
 		<section id="content2">
-			<c:forEach var="i" begin="1" end="8">
-				<div class="item">
-					<img alt="" src="https://via.placeholder.com/250x250">
+			<c:forEach var="vo" items="${list}" end="5">
+				<div class="item" onclick = "artbay.view(${vo.lot})">
+					<img alt="" src="${vo.imgFile }">
 					<div class="info">
-						<div class="author">로비 드위 안토노 ${i}</div>
-						<div class="title">Epic Fight</div>
-						<div>현재가</div>
-						<div class="price">KRW<span>2,000,000</span></div>
-					</div>	
-				</div>
-			</c:forEach>
+						<div class="author">${vo.artist}</div>
+						<div class="title">${vo.artwork_name}</div>
+						<c:if test="${vo.current_price gt 0 }">
+							<div>현재가</div>
+							<div class="price">KRW<span>${vo.current_price }</span></div>
+						</c:if>
+						
+					</div>		
+				</div>			
+			</c:forEach>	
 		</section>
 		<section id="content3">
-			<c:forEach var="i" begin="1" end="10">
-				<div class="item">
-					<img alt="" src="https://via.placeholder.com/250x250">
+			<c:forEach var="vo" items="${list}" end="4">
+				<div class="item" onclick = "artbay.view(${vo.lot})">
+					<img alt="" src="${vo.imgFile }">
 					<div class="info">
-						<div class="author">목불 장운상 ${i}</div>
-						<div class="title">널뛰기</div>
-						<div>현재가</div>
-						<div class="price">KRW<span>500,000</span></div>
-					</div>				
+						<div class="author">${vo.artist}</div>
+						<div class="title">${vo.artwork_name}</div>
+						<c:if test="${vo.current_price gt 0 }">
+							<div>현재가</div>
+							<div class="price">KRW<span>${vo.current_price }</span></div>
+						</c:if>
+						
+					</div>		
 				</div>			
-			</c:forEach>
+			</c:forEach>	
 		</section>
 	</div>
 	</form>
@@ -84,7 +90,7 @@
 	<div class="howto_schedule_zone">		
 		<div class="howto_zone">
 			<div>
-				<div class="title">Aucton Guide</div>
+				<div class="title">ArtBay Guide</div>
 				<div class="info">아트베이 경매에대해 알려드립니다.</div>
 				<div class="btn" id="btnOnlineAuction">온라인 경매</div>
 			</div>

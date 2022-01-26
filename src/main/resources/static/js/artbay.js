@@ -59,6 +59,20 @@ function category(ctgr){
 	})
 }
 
+//즉시 구매
+function directPurchase(){
+	$param = $("#frm_view").serialize();
+	$.ajax({
+		url: "/bidDirect",
+		type: "POST",
+		cache: false,
+		async: true,
+		data: $param,
+		success: function(){
+		}
+	})
+}
+
 //목록에서 작품명 또는 작가명으로 작품 검색
 function search(){
 	$frm = $("#frm_list")[0];

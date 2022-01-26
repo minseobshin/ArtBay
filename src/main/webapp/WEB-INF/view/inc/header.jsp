@@ -3,6 +3,10 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%> 
 <header>	
 <script src = '/js/login_only.js'></script><!-- 로그인 전용 페이지(모달창 제어용) -->
+<!-- ID/PW 찾기 이메일 전송 API용 -->
+<script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
+<script src = '/js/api_only2.js'></script>
+
 	<!-- 메인 로고 -->	
 	<ul class="logo clearfix">
 		<li><img src="img/greatTasty_resize.png"><a href="main">칰BAY</a></li>
@@ -69,5 +73,20 @@
 			<div class="modal-content"></div>
 		</div>
 	</div>
-	
+	<!-- ID/PW 찾기 이메일 전송용 -->
+	<!-- 아이디찾기 -->
+	<form name='frm_findId9' id='frm_findId9' method='post'>
+		<input type='hidden' name='irum9' id='irumFind9' class='midLogin' placeholder="이름">
+		<input type='hidden' name='memberJoinEmail9' id='emailFind9' class='midLogin' placeholder="이메일주소">
+		<input type='hidden' name='findedMid9' id='findedMid9'>
+		<input type='submit' name='btnGoIdFind9' id='btnGoIdFind9' class='btnGoLogin9' style='display : none;'>
+		<script type="text/javascript">emailjs.init('user_Bmru9OgJfTWiBNKpR24gp')</script>
+	</form>
+	<!-- 비밀번호찾기 -->
+	<form name='frm_findPwd9' id='frm_findPwd9' method='post'>
+		<input type='hidden' name='irum8' id='irumFind8' class='midLogin' placeholder="이름">
+		<input type='hidden' name='mid9' id='idFind9' class='midLogin' placeholder="아이디">
+		<input type='hidden' name='findedPwd9' id='findedPwd9'>
+		<script type="text/javascript">emailjs.init('user_Bmru9OgJfTWiBNKpR24gp')</script>
+	</form>
 </header>

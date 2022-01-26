@@ -49,15 +49,10 @@ public class MemberService {
 	//아이디 중복체크
 	public boolean checkId(String c) {
 		boolean b = true;
-		
 		try {
 			String d = mapper.checkId(c);
 			if(d.equals(c)) b = false;
-			
-		}catch(Exception e) {
-			e.printStackTrace();
-		}
-		
+		}catch(NullPointerException e) {}
 		return b;
 	}
 	
@@ -137,6 +132,24 @@ public class MemberService {
 		
 		return b;
 	}
+	
+	//아이디 찾기
+	public ArtBayVo findMyId(ArtBayVo vo) {
+		ArtBayVo vvo = null;
+		
+		try {
+			vvo = mapper.findMyId(vo);
+			vvo.setInjung("failFindId");
+			if(vo.getIrum().equals(vvo.getIrum())) {
+				if(vo.getEmail().equals(vvo.getEmail())) {
+					vvo.setInjung("passFindId");
+				}
+			}
+		}catch(NullPointerException e) {}
+		return vvo;
+	}
+	
+	//비밀번호 찾기
 	
 }
 

@@ -55,6 +55,7 @@ import kr.artbay.common.ArtBayAtt;
 import kr.artbay.common.ArtBaySessionVo;
 import kr.artbay.common.ArtBayVo;
 import kr.artbay.common.Page;
+import kr.artbay.scheduler.GetTime;
 import lombok.RequiredArgsConstructor;
 
 @Controller
@@ -148,6 +149,8 @@ public class ListViewController {
 			}
 			if((diffYear|diffMonth|diffDay|diffHr|diffMin|diffSec)<0) {
 				vo.setRemaining_year(-1);
+				vo.setCrnt_status("경매종료");
+				service.updateStatus(vo.getLot());
 			}else {				
 				vo.setRemaining_year(diffYear);
 				vo.setRemaining_month(diffMonth);
@@ -157,8 +160,6 @@ public class ListViewController {
 				vo.setRemaining_sec(diffSec);
 			}
 			
-			//System.out.println(diffYear + "년" + diffMonth + "개월" + diffDay+"일" + diffHr+" 시간 "+diffMin +" 분 "+diffSec+" 초");
-
 		//숫자 반점 표기
 		vo.setStr_start_price(NumberFormat.getInstance().format(vo.getStart_price()));
 		if(vo.getCurrent_price()==null) vo.setCurrent_price(vo.getStart_price());
@@ -240,29 +241,30 @@ public class ListViewController {
 
 		return realList;
 	}
-
-	/*
-	@RequestMapping(value="/bidLoadMyHistory", method= {RequestMethod.POST, RequestMethod.GET})
-	public ModelAndView bidViewMyHistory(@RequestParam(value="lot", required=false) int lot,
-			HttpServletRequest req){
+	
+	
+	@RequestMapping(value="/bidDirect", method= {RequestMethod.POST, RequestMethod.GET})
+	public ModelAndView directPurchase(HttpServletRequest req) {
 		ModelAndView mv = new ModelAndView();
-		mv = viewBidMyHistory(lot, req);
-		
-		mv.setViewName("bid.view");
+		ArtBayVo vo = new ArtBayVo();
+		vo.setLot(Integer.parseInt(req.getParameter("lot")));
+		vo.setCurrent_price(vo.getStart_price());
+		vo.setCrnt_status("경매종료");
+		service.directPurchase(vo);
 		return mv;
 	}
-	*/
+
+	//5초마다 실행되도록 스케줄러
 	@Scheduled(cron="*/5 * * * * *")
 	public List<ArtBayVo> scheduler() {
 		List<ArtBayVo> list = new ArrayList<ArtBayVo>();
+		//경매 내역 조회
 		list = service.viewBidsAll();
+		
+		//경매 기한이 지나면 경매 종료로 변경
+		GetTime date = new GetTime();
+		service.updateStatusAll(date.getDate());
 		return list;
-	}
-	
-	@Scheduled(cron="0 0 0/1 * * *")
-	public void scheduler2() {
-		//낙찰 기간이 지난 작품은 closed 표시를 위해
-		int c = service.updateStatus();
 	}
 	
 }

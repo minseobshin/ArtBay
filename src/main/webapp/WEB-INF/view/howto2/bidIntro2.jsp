@@ -50,7 +50,7 @@
         </div>
         <div class="howto-desc" style="margin-top: 0px;">
             <div class="bid-guide">
-                <div>
+                <div id="step1">
                     <strong>Step.1</strong>
                     <h2>회원 가입</h2>
                     <p>
@@ -107,7 +107,7 @@
                         </div>
                     </div>
                 </div> -->
-                <div>
+                <div id="step2">
                     <strong>Step.2</strong>
                     <h2>응찰</h2>
                     
@@ -188,7 +188,7 @@
                         </div>
                     </div>
                 </div>
-                <div>
+                <div id="step3">
                     <strong>Step.3</strong>
                     <h2>낙찰 결과 확인 및 결제</h2>
                     <div class="bid-01">
@@ -262,7 +262,7 @@
                         </div>
                     </div>
                 </div>
-                <div>
+                <div id="step4">
                     <strong>Step.4</strong>
                     <h2>배송, 설치 및 보관</h2>
                 <div class="dilivery-01">

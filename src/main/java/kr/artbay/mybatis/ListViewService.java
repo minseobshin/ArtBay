@@ -1,5 +1,6 @@
 package kr.artbay.mybatis;
 
+import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -14,6 +15,7 @@ import kr.artbay.common.AES;
 import kr.artbay.common.ArtBayAtt;
 import kr.artbay.common.ArtBayVo;
 import kr.artbay.common.Page;
+import kr.artbay.scheduler.GetTime;
 
 @Service
 @Transactional
@@ -44,6 +46,7 @@ public class ListViewService {
 		ArtBayVo vo = new ArtBayVo();
 		vo.setLot(lot);
 		List<ArtBayAtt> list = new ArrayList<ArtBayAtt>();
+		mapper.hit_up(lot);
 		vo = mapper.view(lot);
 		list = mapper.attList(lot);
 		vo.setAttList(list);
@@ -86,15 +89,18 @@ public class ListViewService {
 		return list;
 	}
 	
-	public int updateStatus() {
+	public int updateStatus(int lot) {
 		int cnt = 0;
-		List<ArtBayVo> list = mapper.bidOnGoing();
-		if(list.size()>0) {
-			for(ArtBayVo vo : list) {
-				cnt=mapper.updateStatus();
-			}
-		}
+		cnt = mapper.updateStatus(lot);
 		return cnt;
+	}
+	
+	public void updateStatusAll(LocalDateTime date) {
+		mapper.updateStatusAll(date);
+	}
+	
+	public void directPurchase(ArtBayVo vo) {
+		
 	}
 
 	

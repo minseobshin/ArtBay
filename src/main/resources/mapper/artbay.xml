@@ -23,6 +23,10 @@
 	<update id="updateMemberInfo" parameterType="kr.artbay.common.ArtBayVo">
 		update artbay_member set pwd=#{oldPwd}, phone=#{phone}, email=#{memberJoinEmail}, zip=#{zip}, address=#{address}, address2=#{address2} where mid=#{mid}
 	</update>
+	<!-- 아이디 찾기 -->
+	<select id="findMyId" parameterType="kr.artbay.common.ArtBayVo" resultType="kr.artbay.common.ArtBayVo">
+		select mid, irum, email from artbay_member where irum=#{irum} and email=#{memberJoinEmail}
+	</select>
 
 	<select id="totSize" parameterType="String" resultType="Integer">
 		select count(lot) totSize from artwork
@@ -83,8 +87,16 @@
 		select * from artwork where crnt_status="경매중";
 	</select>
 	
-	<update id="updateStatus" >
-		update artwork set crnt_status="경매종료" where current_date > due_date;
+	<update id="updateStatus" parameterType="Integer">
+		update artwork set crnt_status="경매종료" where lot=${_parameter};
+	</update>
+	
+	<update id="updateStatusAll" parameterType="kr.artbay.scheduler.GetTime">
+		update artwork set crnt_status="경매종료" where  <![CDATA[due_date < #{_parameter}]]>
+	</update>
+	
+	<update id="directPurchase" parameterType="kr.artbay.common.ArtBayVo">
+		update artwork set current_price=${current_price}, crnt_status="경매종료" where lot=${lot}
 	</update>
 	
 	
