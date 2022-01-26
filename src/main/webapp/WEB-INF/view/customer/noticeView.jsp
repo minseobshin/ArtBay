@@ -26,15 +26,15 @@
 				${vo.doc }
 			</p>
 	</div>
-	<input type='button' id='btnNoticeList' value='목록'>
+	
 </div>
 <form name='frm_notice' id='frm_notice' method='post'>
 		<div id='noticeSearch'>
 			<div id='findZone'>
 				<input type='hidden' name='findStr' value='${page.findStr }' >
 				<input type='hidden' name='nowPage' value='${page.nowPage }'>
-				<input type='text' name='serial' value='${vo.serial}'>
-				<input type='text' name='msg' value='${msg }'>
+				<input type='hidden' name='serial' value='${vo.serial}'>
+				<input type='hidden' name='msg' value='${msg }'>
 				<input type='hidden' name='hiddenChk' id='hiddenChk'>
 			</div>
 		
@@ -51,7 +51,9 @@
 				</ul>
 			</div>
 		</c:if>
+		
 		</div>
+		<input type='button' id='btnNoticeList' value='목록'>
 	</form>
 </body>
 <script src='./js/final_lsy.js'></script>
