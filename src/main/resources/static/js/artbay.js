@@ -50,6 +50,7 @@ function category(ctgr){
 	$frm.findStr.value=ctgr;
 	$param = $("#frm_list").serialize();
 	const cnt = $(".page_combo2").val();
+	$("#nowPage").val(1);
 	$.ajax({
 		url: "/bidList?cnt="+cnt,
 		type: "POST",
@@ -76,7 +77,9 @@ function directPurchase(){
 			success: function(){
 				$(".bid_caution").css("display", "none");
 				$(".applyResult").css("display", "block");
-				location.reload();
+				$(".btnBidCancel").on("click", function(){
+					location.reload();				
+				})
 			}
 		})
 	})
