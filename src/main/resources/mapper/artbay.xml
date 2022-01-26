@@ -104,7 +104,7 @@
 	</insert>
 	
 	<select id="getDirectInfo" parameterType="Integer" resultType="kr.artbay.common.ArtBayVo">
-		select * from artwork;
+		select * from artwork where lot=${_parameter};
 	</select>
 	
 	
