@@ -103,6 +103,14 @@ public class ListViewService {
 		mapper.updateStatusAll(date);
 	}
 	
+	//즉시 구매 신청 전 해당 작품의 direct_price 가져오기
+	public ArtBayVo getDirectInfo(int lot) {
+		ArtBayVo vo = new ArtBayVo();
+		vo = mapper.getDirectInfo(lot);		
+		return vo;
+	}
+	
+	//즉시 구매 신청
 	public void directPurchase(ArtBayVo vo) {
 		mapper.directPurchase(vo);
 		mapper.directPurchaseInsert(vo);
