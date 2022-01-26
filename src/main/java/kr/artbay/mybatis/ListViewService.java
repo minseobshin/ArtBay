@@ -88,7 +88,7 @@ public class ListViewService {
 		List<ArtBayVo> list = new ArrayList<ArtBayVo>();
 		list = mapper.viewBidHistoryAll();
 		for(ArtBayVo vo : list) {
-			vo.setMid(vo.getMid().replaceAll("(?<=.{2}).", "*"));
+			vo.setMasked_mid(vo.getMid().replaceAll("(?<=.{2}).", "*"));
 		}
 		return list;
 	}

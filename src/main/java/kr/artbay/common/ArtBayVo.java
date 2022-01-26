@@ -272,5 +272,7 @@ public class ArtBayVo {
 	public void setStr_direct_price(String str_direct_price) {this.str_direct_price = str_direct_price;}
 	public String getBid_type() {return bid_type;}
 	public void setBid_type(String bid_type) {this.bid_type = bid_type;}
+	public String getMasked_mid() {return masked_mid;}
+	public void setMasked_mid(String masked_mid) {this.masked_mid = masked_mid;}
 	
 }
