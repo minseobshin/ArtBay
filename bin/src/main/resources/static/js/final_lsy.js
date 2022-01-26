@@ -16,6 +16,14 @@ bid.category = function(ctgr){
 	$frm_faq.action='faqList';
 	$frm_faq.submit();
 } 
+bid.viewDetail = function(winMonth){
+	$frm = $('#frm_auction')[0];
+	$frm.winMonth.value=winMonth;
+}
+//result창에서 상세보기
+	$('.detail').click(function(){
+		location.href='/bidList';
+	})
 /*notice*/
 function ntc(){};
 ntc.noticePage = function(nowPage){
@@ -32,26 +40,39 @@ ntc.noticeView = function(serial){
 }
 /*bidView 응찰내역 상세보기*/
 function mBid(){};
+
 mBid.view = function(lot){
-	$frm = $('#frm_page')[0];
+	$frm = $("#frm_page")[0];
 	$frm.lot.value = lot;
-	$frm.action = 'bidListView'; 
-	$frm.submit();
+	$param = $("#frm_page").serialize();
+	$.ajax({
+		url: "/bidView",
+		cache: false,
+		type: "POST",
+		data: $param,
+		success: function(){
+			window.location.href = "bidView?lot="+lot+"&nowPage="+$frm.nowPage.value;
+		}
+	})
 }
+
 mBid.page = function(nowPage) {
 	$frm = $('#frm_page')[0];
-	$frm.nowPage.value = nowPage;
 	$frm.action = 'mypageBid';
 	$frm.submit();
 }
 
+function rBid(){};
+rBid.page = function(nowPage){
+	$frm = $('#frm_auction')[0];
+	$frm.nowPage.value = nowPage;
+	$frm.action = 'bidResult';
+	$frm.submit();
+}
 	
  $(function(){
 	
-	//result창에서 상세보기
-	$('.detail').click(function(){
-		location.href='/bidList';
-	})
+	
 	//customer 위탁안내 부분 
 	$('.desc01').show();
 	$('.desc02').hide();
@@ -115,7 +136,7 @@ mBid.page = function(nowPage) {
 	
 	//공지작성->공지사항 목록으로 돌아가기===============================writeNotice==================
 	$('#btnNoticeList').click(function(){
-		$frm = $('#frm_writeNotice')[0];
+		$frm = $('#frm_notice')[0];
 		$frm.action = "customerNoticeList";
 		$frm.submit();
 	})
@@ -126,26 +147,7 @@ mBid.page = function(nowPage) {
 		$frm.action = "noticeInsert";
 		$frm.submit();
 	})
-	
-	$('#btnSaveNotice').click(function(){
-		
-			$param = $('#frm_writeNotice').serialize();
-			System.out.println($param);
-			$.post('noticeSave', $param, function(data){
-				var json = JSON.parse(data);
-				
-				if(json.flag=='OK'){
-					var $fd = $('#frm_upload')[0];
-					$fd.enctype = "multipart/form-data";
-					$fd.action = "fileUp?job=n";
-					$fd.submit();
-				}else{
-					alert("공지 저장 중 오류 발생");
-				}
-			})
-		}
-	)
-	
+
 
 	//공지 검색====================================noticeList===================
 	$('#btnNoticeSearch').click(function(){
@@ -200,22 +202,49 @@ mBid.page = function(nowPage) {
 	$('#btnRequestApplication').click(function(){
 		location.href='./bidApplication';
 	})
+	
+		//공지 저장 버튼
+	$('#btnSaveNotice').click(function(){
+		
+			$param = $('#frm_notice').serialize();
+			$.post('noticeSave', $param, function(data){
+				alert($param);
+				var json = JSON.parse(data);
+				if(json.flag=='OK'){ //공지 vo가 저장 성공했을 때
+					var $fd = $('#frm_noticeUpload')[0];
+					$fd.grp.value = json.grp;
+					$fd.enctype = "multipart/form-data";
+					$fd.action = "ntcFileUp";
+					$fd.submit();
+				}else{
+					alert("공지 저장 중 오류 발생");
+				}
+			})
+		}
+	)
+	
+	//경매결과 창에서 검색
+	$('#btnWinFind').click(function(){	
+	$frm = $('#frm_auction')[0];
+	$param = $('#frm_auction').serialize();
+	alert($param);
+	$frm.action="/bidResult";
+	$frm.submit();	
+	})
+		
 })	
 
 //경매결과 정렬	
-var selectOrder = function(val){
-	//var value = $('#rSort').options[$('#rSort').selectedIndex].val();
+function selectOrder(obj){
 	$frm = $('#frm_auction')[0];
-	$frm.rSort.value = val;
+	$param = $('#frm_auction').serialize();
+	var rSort = $(obj).val();
 	$frm.nowPage.value=1;
-	$frm.action = "bidResult";
-	$frm.submit();
-	alert(val);	
+	$frm.action="/bidResult";
+	$frm.submit();	
+
 }
-	
-	
-	
-	
+
 	//FAQ 카테고리 선택하면 아래에 그 faq만 보이기	
 	/*$('.faq_desc ul').each(function(index, item){
 		$(item).hide();	
@@ -265,7 +294,6 @@ function summer() {
 			onImageUpload: function(files) {
 				loadInterval.length = files.length;
 				$('#writeNotice').addClass('spinner');
-				
 				for (var i = files.length-1; i >= 0; i--) {
 					sendFile(i, files[i]);
 				}
@@ -280,7 +308,7 @@ function summer() {
 					url  : 'ntcSummerDelete', //summerUploadController와 연결 summerUp?flag=delete
 					cache : false,
 					success : function(msg){
-						console.log("delete ok....")
+						console.log(msg);
 					}
 				})
 			}

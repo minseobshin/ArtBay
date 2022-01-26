@@ -45,14 +45,14 @@
 								<th>질문유형</th>
 								<td>
 									<div class="form-inline">
-										 <select name="qna_type" id="qna_type" class="form-control material-ch" style="width: 130px;">
-										 	<option value="" <c:if test="${ page.qna_type == '' }">selected</c:if>>선택하세요</option>
-										 	<option value="10" <c:if test="${ page.qna_type == '10' }">selected</c:if>>회원가입/탈퇴</option>
-											<option value="20" <c:if test="${ page.qna_type == '20' }">selected</c:if>>물품문의</option>
-											<option value="30" <c:if test="${ page.qna_type == '30' }">selected</c:if>>입금/결제문의</option>
-											<option value="40" <c:if test="${ page.qna_type == '40' }">selected</c:if>>배송문의</option>
-											<option value="50" <c:if test="${ page.qna_type == '50' }">selected</c:if>>반품/취소/환불</option>
-											<option value="80" <c:if test="${ page.qna_type == '80' }">selected</c:if>>기타문의</option> 
+										 <select name="findType" id="findType" class="form-control material-ch" style="width: 130px;">
+										 	<option value="" <c:if test="${ page.findType == '' }">selected</c:if>>선택하세요</option>
+										 	<option value="10" <c:if test="${ page.findType == '10' }">selected</c:if>>회원가입/탈퇴</option>
+											<option value="20" <c:if test="${ page.findType == '20' }">selected</c:if>>물품문의</option>
+											<option value="30" <c:if test="${ page.findType == '30' }">selected</c:if>>입금/결제문의</option>
+											<option value="40" <c:if test="${ page.findType == '40' }">selected</c:if>>배송문의</option>
+											<option value="50" <c:if test="${ page.findType == '50' }">selected</c:if>>반품/취소/환불</option>
+											<option value="80" <c:if test="${ page.findType == '80' }">selected</c:if>>기타문의</option> 
 										</select>
 									</div>
 								</td>
@@ -70,10 +70,9 @@
 											</select>
 										</div>
 										<div class="form-group mt5m">
-											<!-- <input type="text" id="qry" name="qry" class="form-control" value="" onkeyup="">  -->
 											<input type="text" name="findStr" id="findStr" class="form-control" value="${ page.findStr }" onkeyup="">
-											<input type="text" name="nowPage" class="form-control" value="${ page.nowPage }" onkeyup="">
-											<input type="text" name="qnaNum" class="form-control">	<!-- 상세조회 위한 키 -->
+											<input type="hidden" name="nowPage" class="form-control" value="${ page.nowPage }" onkeyup="">
+											<input type="hidden" name="qnaNum" class="form-control">	<!-- 상세조회 위한 키 -->
 										</div>
 									</div>
 								</td>
@@ -117,7 +116,15 @@
 										</c:choose>
 									</li>
 									<li class="text-left qnaTitle">
-										<div onclick="qna.view(${ vo.qna_num })">${ vo.qna_title }</div>
+										<div onclick="qna.view(${ vo.qna_num })">
+											<c:if test="${ vo.qna_num == vo.grp }">
+												${ vo.qna_title }
+											</c:if>
+											<c:if test="${ vo.qna_num != vo.grp }">
+												<c:forEach begin="0" end="${ vo.deep*6 }">&nbsp;</c:forEach>
+												<img src="img/reply_arrow.png" width="20px" height="20px" style="vertical-align: middle"> ${ vo.qna_title }
+											</c:if>
+										</div>
 									</li>
 									<li class="status mobileNone">
 										<c:if test="${ vo.qna_status == 'N'}">
@@ -143,7 +150,10 @@
 
 			</div>
 			<div class="btnWrap view text-right clearFix mb0">
+				<!-- 일반유저만 로그인했을 때 글쓰기 -->
+				<c:if test="${ not empty sessionScope.sv && sessionScope.sv.injung != 'super'}">
 					<a id="btnInsertForm" class="btn btn-Insert">글쓰기</a>
+				</c:if>
 			</div>
 		</div>
  

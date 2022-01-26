@@ -13,7 +13,7 @@
 	</select>
 	<!-- 로그인 -->
 	<select id="memberLogin" parameterType="kr.artbay.common.ArtBaySessionVo" resultType="kr.artbay.common.ArtBaySessionVo">
-		select mid, pwd from artbay_member where mid = #{mid}
+		select mid, pwd, injung from artbay_member where mid = #{mid}
 	</select>
 	<!-- 회원정보 수정시 비밀번호 입력 후 내용출력 -->
 	<select id="pwdChkForModi" parameterType="String" resultType="kr.artbay.common.ArtBayVo">
@@ -23,6 +23,10 @@
 	<update id="updateMemberInfo" parameterType="kr.artbay.common.ArtBayVo">
 		update artbay_member set pwd=#{oldPwd}, phone=#{phone}, email=#{memberJoinEmail}, zip=#{zip}, address=#{address}, address2=#{address2} where mid=#{mid}
 	</update>
+	<!-- 아이디 찾기 -->
+	<select id="findMyId" parameterType="kr.artbay.common.ArtBayVo" resultType="kr.artbay.common.ArtBayVo">
+		select mid, irum, email from artbay_member where irum=#{irum} and email=#{memberJoinEmail}
+	</select>
 
 	<select id="totSize" parameterType="String" resultType="Integer">
 		select count(lot) totSize from artwork
@@ -30,25 +34,84 @@
 	</select>
 	
 	<select id="search" parameterType="kr.artbay.common.Page" resultType="kr.artbay.common.ArtBayVo">
-		select lot, mid, artwork_name, artwork_ctgr, artist, material, artwork_size, start_price, current_price,
-				regist_date, due_date, hit, direct_price, bid_cnt, crnt_status from artwork
-		where mid like '%${findStr}%' or artist like '%${findStr}%' or artwork_ctgr like '%${findStr}%'
+		select a.lot, a.mid, a.artwork_name, a.artwork_ctgr, a.artist, a.material, a.artwork_size, a.contents, a.etc, a.start_price,
+		a.current_price, date_format(a.regist_date, '%y-%m-%d') as regist_date,
+		date_format(a.due_date, '%y-%m-%d') as due_date, a.hit, a.direct_price, a.bid_cnt, a.crnt_status,
+		b.serial, b.imgFile, b.thumbnail from artwork a join artimg b on a.lot=b.lot and b.thumbnail="Y" 
+		where a.mid like '%${findStr}%' or a.artist like '%${findStr}%' or a.artwork_name like '%${findStr}%' or a.artwork_ctgr like '%${findStr}%'
 		order by
 		<choose>
-			<when test="sort eq 'default'"> due_date asc</when>
-			<when test="sort eq 'init_price_asce'"> start_price asc</when>
-			<when test="sort eq 'init_price_desc'"> start_price desc</when>
-			<when test="sort eq 'bid_history_cnt_asce'"> bid_cnt asc</when>
-			<when test="sort eq 'bid_history_cnt_desc'"> bid_cnt desc</when>
-			<otherwise> due_date asc</otherwise>
+			<when test="sort eq 'default'"> a.due_date desc</when>
+			<when test="sort eq 'init_price_asce'"> a.start_price asc</when>
+			<when test="sort eq 'init_price_desc'"> a.start_price desc</when>
+			<when test="sort eq 'bid_history_cnt_asce'"> a.bid_cnt asc</when>
+			<when test="sort eq 'bid_history_cnt_desc'"> a.bid_cnt desc</when>
+			<when test="sort eq 'current_price_asce'"> a.current_price asc</when>
+			<when test="sort eq 'current_price_desc'"> a.current_price desc</when>
+			<otherwise> due_date desc</otherwise>
 		</choose>
 		limit ${startNo-1}, ${listSize}
 	</select>
 	
-	<select id='noticeSave' parameterType="kr.artbay.common.ArtBayVo">
-		insert into(title, doc, not_date) 
-		values (#{title}, #{doc}, ${not_date})
+	<!-- main list -->
+	<select id="mainsearch" resultType="kr.artbay.common.ArtBayVo">
+		SELECT * FROM artwork a join artimg b on a.lot=b.lot and b.thumbnail="Y" ORDER BY hit DESC LIMIT 15;
 	</select>
+	
+	<insert id="bidApply" parameterType="kr.artbay.common.ArtBayVo">
+		insert into bidding(lot, mid, bid_price, bid_date) values(${lot}, #{mid}, #{bid_price}, now());
+	</insert>
+	
+	<select id="viewBids" parameterType="Integer" resultType="kr.artbay.common.ArtBayVo">
+		select mid, bid_price, bid_date from bidding where lot=${_parameter};
+	</select>
+	
+	<select id="countBids" parameterType="Integer" resultType="Integer">
+		select count(*) from bidding where lot=${_parameter};
+	</select>
+	
+	<select id="viewBidHistoryAll" resultType="kr.artbay.common.ArtBayVo">
+		select lot, mid, bid_price, date_format(bid_date, '%y-%m-%d') as bid_date, date_format(bid_date,'%H:%i:%s') as bid_time from bidding
+		order by bid_price desc
+	</select>
+	
+	<update id="updateCurrentPrice" parameterType="Integer">
+		update artwork set current_price =(select max(bid_price) from bidding where lot=${_parameter}) where lot=${_parameter};
+	</update>
+	
+	<update id="updateBidCnt" parameterType="Integer">
+		update artwork set bid_cnt = bid_cnt+1 where lot = ${_parameter}
+	</update>
+	
+	<select id="bidOnGoing" resultType="kr.artbay.common.ArtBayVo">
+		select * from artwork where crnt_status="경매중";
+	</select>
+	
+	<update id="updateStatus" parameterType="Integer">
+		update artwork set crnt_status="경매종료" where lot=${_parameter};
+	</update>
+	
+	<update id="updateStatusAll" parameterType="kr.artbay.scheduler.GetTime">
+		update artwork set crnt_status="경매종료" where  <![CDATA[due_date < #{_parameter}]]>
+	</update>
+	
+	<update id="directPurchase" parameterType="kr.artbay.common.ArtBayVo">
+		update artwork set current_price=${direct_price}, crnt_status="경매종료" where lot=${lot}
+	</update>
+	
+	<insert id="directPurchaseHistory" parameterType="kr.artbay.common.ArtBayVo">
+		insert into bidding(lot, mid, bid_price, bid_date) values (${lot}, #{mid}, ${direct_price}, #{winbid_date});
+	</insert>
+	
+	<insert id="directPurchaseInsert" parameterType="kr.artbay.common.ArtBayVo">
+		insert into winning_bid values(${lot}, #{mid}, ${direct_price}, #{winbid_date}, 'direct');
+	</insert>
+	
+	<select id="getDirectInfo" parameterType="Integer" resultType="kr.artbay.common.ArtBayVo">
+		select * from artwork where lot=${_parameter};
+	</select>
+	
+	
 	<!-- 경매신청 -->
 	<select id="memberview" parameterType="String" resultType="kr.artbay.common.ArtBayVo">
 		select * from artbay_member where mid = #{mid}
@@ -70,6 +133,9 @@
 	<select id="view" parameterType="Integer" resultType="kr.artbay.common.ArtBayVo">
 		select * from artwork where lot = ${_parameter}
 	</select>
+	<update id="hit_up" parameterType="Integer">
+		update artwork set hit = hit+1 where lot = #{_parameter}
+	</update>
 	
 	<select id="viewOthers" parameterType="Integer" resultType="kr.artbay.common.ArtBayAtt">
 		select * from artimg where thumbnail='Y' and lot in (select lot from artwork where artist=(select artist from artwork where lot=${_parameter}))
@@ -78,14 +144,14 @@
 	<select id="attList" parameterType="Integer" resultType="kr.artbay.common.ArtBayAtt">
 		select * from artimg where lot = #{_parameter}
 	</select>
+	
+	
+	
 	<!-- faq 조회 -->
 	<select id='faqList' parameterType="String" resultType="kr.artbay.common.ArtBayVo">
 		select * from faq where ctgr = #{_parameter}
 	</select>
-	<!-- 공지 저장 -->
-	<insert id='saveNotice' parameterType="kr.artbay.common.ArtBayVo">
-		insert into notice(title, doc, not_date) values(#{title}, #{doc}, #{not_date})
-	</insert>
+	
 	<!-- 공지 리스트 조회 건수 -->
 	<select id="noticeTotSize" parameterType="String" resultType="Integer">
 		SELECT COUNT(serial) FROM notice WHERE title LIKE '%${_parameter}%'
@@ -100,11 +166,14 @@
 	</select>
 	
 	<!-- 공지 클릭 시 -->
-	<update id="notice_hit_up" parameterType="String">
+	<update id="notice_hit_up" parameterType="integer">
 		update notice set hit = hit+1 where serial = #{_parameter}
 	</update>
-	<select id="noticeView" parameterType="String" resultType="kr.artbay.common.ArtBayVo">
-		select * from notice where serial = #{serial} 
+	<select id="noticeView" parameterType="integer" resultType="kr.artbay.common.ArtBayVo">
+		select serial, title, hit, doc, date_format(not_date, "%y-%m-%d") not_date, grp from notice where serial = #{_parameter}
+	</select>
+	<select id="ntcAttList" parameterType="integer" resultType="kr.artbay.common.ArtBayAtt">
+		select serial, grp, notFile as attFile from noticeAtt where grp = #{serial}
 	</select>
 	<!-- 선택된 공지 삭제 -->
 	<delete id='deleteNotice' parameterType='list'> 
@@ -113,46 +182,123 @@
 				${item}
 			</foreach>
 	</delete>
+	<!-- 공지 작성 -->
+	<insert id="insertNtc" parameterType="kr.artbay.common.ArtBayVo">
+		insert into notice(serial, grp, title, doc, not_date)
+		values(getNtcSerial('n'), getNtcSerial(''), #{title}, #{doc}, #{not_date})
+	</insert>
+	<select id="get_grp" resultType="Integer">
+		select getNtcSerial('') grp
+	</select>
+	<insert id='insertNtcAtt' parameterType='kr.artbay.common.ArtBayAtt'>
+		insert into noticeAtt(grp, notFile) 
+		values (#{grp}, #{attFile} )
+	</insert>
 	
 	<!-- 응찰내역 건수 조회-->
-	<select id='mypageBidTotSize' resultType='Integer'>
-		select count(B.lot) from bidding B join artwork A on B.lot = A.lot
-	</select>
-	<!-- 응찰내역 조회  -->
-	<select id='mypageBidList' resultType="kr.artbay.common.ArtBayVo">
-		select B.lot, A.artwork_ctgr, A.artist, A.artwork_name, B.bid_price, date_format(B.bid_date, "%y-%m-%d") bid_date
+	<select id='mypageBidTotSize' parameterType="kr.artbay.common.Page" resultType='Integer'>
+		select count(B.serial)
 		from bidding B join artwork A
 		on B.lot = A.lot
+		where B.mid =#{mid}
 	</select>
+	<!-- 응찰내역 조회  -->
+	<select id='mypageBidList' parameterType="kr.artbay.common.Page" resultType="kr.artbay.common.ArtBayVo">
+		select A.lot, A.artwork_ctgr, A.artist, A.artwork_name, B.bid_price, date_format(B.bid_date, "%y-%m-%d") bid_date
+		from bidding B join artwork A
+		on B.lot = A.lot
+		where B.mid = #{mid}
+		ORDER BY bid_date desc
+		limit ${startNo-1}, ${listSize}
+	</select>
+
 	<!-- 낙찰내역 건수 조회 -->	
-	<select id='mypageSuccessBidTotSize' resultType='Integer'>
-		select count(W.lot) from winning_bid W join artwork A on W.lot = A.lot; 
+	<select id='mypageSuccessBidTotSize' parameterType="kr.artbay.common.Page" resultType='Integer'>
+		select count(*)
+		from winning_bid W join artwork A
+		on W.lot = A.lot
+		where A.crnt_status="경매종료" and W.mid=#{mid}
 	</select>
 	<!--낙찰내역 조회 -->
-	<select id='mypageSuccessBidList' resultType="kr.artbay.common.ArtBayVo">
+	<select id='mypageSuccessBidList' parameterType="kr.artbay.common.Page" resultType="kr.artbay.common.ArtBayVo">
 		select W.lot, A.artwork_ctgr, A.artist, A.artwork_name, W.winbid_price, date_format(W.winbid_date, "%y-%m-%d") winbid_date
 		from winning_bid W join artwork A
 		on W.lot = A.lot
+		where A.crnt_status="경매종료" and W.mid=#{mid}
+		ORDER BY winbid_date desc
+		limit ${startNo-1}, ${listSize}
+	</select>
+	<!-- 경매결과 월별 건수-->
+	<select id='bidTotSize' resultType='Integer'>
+		select count(c.due) as 'result'
+		from(
+			select month(due_date) as due
+			from artwork 
+			where crnt_status="경매종료" and 
+			(artwork_name like "%a%" or artwork_ctgr like "%a%" or artist like "%a%" or mid like "%a%")
+			group by month(due_date)
+		)as c
+	</select>
+	<!-- 경매결과 월별조회-->
+	<select id='bidResult' parameterType='kr.artbay.common.Page' resultType="kr.artbay.common.ArtBayVo">
+		select date_format(due_date, "%y-%m") due_date
+		from artwork 
+		where crnt_status="경매종료" and 
+		(artwork_name like "%${findStr}%" or artwork_ctgr like "%${findStr}%" or artist like "%${findStr}%" or mid like "%${findStr}%")
+		group by month(due_date)
+		ORDER BY month(due_date)
+		<choose>
+			<when test="rSort eq 'none'"> asc</when>
+			<when test="rSort eq 'asc'">asc</when>
+			<otherwise>desc</otherwise>
+		</choose>
+		limit ${startNo-1}, ${listSize}
+	</select>
+	<!-- 경매결과 첫날/마지막날 불러오기 -->
+	
+	<select id="bidResultsearch" parameterType="kr.artbay.common.Page" resultType="kr.artbay.common.ArtBayVo">
+		select a.lot, a.mid, a.artwork_name, a.artwork_ctgr, a.artist, a.material, a.artwork_size, a.contents, a.etc, a.start_price,
+		a.current_price, date_format(a.regist_date, '%y-%m-%d') as regist_date,
+		date_format(a.due_date, '%y-%m-%d') as due_date, a.hit, a.direct_price, a.bid_cnt, a.crnt_status,
+		b.serial, b.imgFile, b.thumbnail from artwork a join artimg b on a.lot=b.lot and b.thumbnail="Y" 
+		where a.mid like '%${findStr}%' or a.artist like '%${findStr}%' or a.artwork_name like '%${findStr}%' or a.artwork_ctgr like '%${findStr}%'
+		where crnt_status="경매종료"
+		order by 
+		<choose>
+			<when test="sort eq 'default'"> a.due_date asc</when>
+			<when test="sort eq 'init_price_asce'"> a.start_price asc</when>
+			<when test="sort eq 'init_price_desc'"> a.start_price desc</when>
+			<when test="sort eq 'bid_history_cnt_asce'"> a.bid_cnt asc</when>
+			<when test="sort eq 'bid_history_cnt_desc'"> a.bid_cnt desc</when>
+			<otherwise> due_date asc</otherwise>
+		</choose>
+		limit ${startNo-1}, ${listSize}
 	</select>
 	
-	<!-- 경매결과 월별조회 -->
-	<select id='bidResult' parameterType='kr.artbay.common.Page' resultType="String">
-		select date_format(winbid_date, "%Y년 %m월") as winning_month 
-		from winning_bid 
-		group by winning_month 
-		order by winning_month 
-		<where>
-			<if test="rSort eq 'asc'">asc</if>
-			<if test="rSort eq 'desc'">desc</if>
-		</where>
-	</select>
+	
+	
+	<!--경매 종료 update-->
+	<update id="artwork_status" parameterType="kr.artbay.common.ArtBayVo">
+		UPDATE artwork set crnt_status='경매종료' where #{current_price} = #{direct_price} or #{due_date} &lt; NOW();
+	</update>
+
+
 	
 	<!-- QNA 조회 건수 -->
 	<select id="qnaTotSize" parameterType="kr.artbay.common.Page" resultType="Integer">
-		SELECT COUNT(QNA_NUM) FROM QNA
+		SELECT COUNT(QNA_NUM) FROM qna 
 		<where>
-			<if test="qna_type != ''">
-				QNA_TYPE = #{qna_type}	
+			<choose>
+				<when test="mid == null">
+					QNA_STATUS = 'Y' 
+				</when>
+				<when test="mid != 'admin' and mid != 'chicken'">
+					grp IN(SELECT qna_num FROM qna WHERE mid=#{mid} AND qna_num = grp) 
+				</when>
+			</choose>
+
+			<if test="findType != ''">
+				AND QNA_TYPE = #{findType}	
 			</if>
 			<if test="findCol != ''">
 				AND ${findCol} LIKE '%${findStr}%'
@@ -164,13 +310,21 @@
 	<select id="qnaSearch" parameterType="kr.artbay.common.Page" resultType="kr.artbay.common.ArtBayVo">
 		SELECT 
 			QNA_NUM, MID, QNA_DOC, GRP, SEQ, DEEP, QNA_PWD, QNA_TYPE, QNA_STATUS,
-			DATE_FORMAT(QNA_DATE, "%y-%m-%d") QNA_DATE,						 
-			CONCAT(LPAD(" ", DEEP*6, "&#160;"), QNA_TITLE) QNA_TITLE
+			DATE_FORMAT(QNA_DATE, "%y-%m-%d") QNA_DATE, QNA_TITLE
 		FROM 
-			QNA q
+			qna q 
 		<where>
-			<if test="qna_type != ''">
-				QNA_TYPE = #{qna_type}	
+			<choose>
+				<when test="mid == null">
+					QNA_STATUS = 'Y' 
+				</when>
+				<when test="mid != 'admin' and mid != 'chicken'">
+					grp IN(SELECT qna_num FROM qna WHERE mid=#{mid} AND qna_num = grp) 
+				</when>
+			</choose>
+			
+			<if test="findType != ''">
+				AND QNA_TYPE = #{findType}	
 			</if>
 			<if test="findCol != ''">
 				AND ${findCol} LIKE '%${findStr}%'
@@ -184,12 +338,17 @@
 	
 	<!-- QNA 상세조회 -->
 	<select id="qnaView" parameterType="String" resultType="kr.artbay.common.ArtBayVo">
-		SELECT * FROM QNA WHERE QNA_NUM = #{_parameter}
+		SELECT * FROM qna WHERE QNA_NUM = #{_parameter}
+	</select>
+	
+	<!-- QNA 문의자 mid 조회 -->
+	<select id="getQnaTopMid" parameterType="Integer" resultType="String">
+		SELECT mid FROM qna WHERE QNA_NUM = #{grp}
 	</select>
 	
 	<!-- QNA 저장 -->
 	<insert id="qnaInsert" parameterType="kr.artbay.common.ArtBayVo">
-		INSERT INTO QNA(QNA_NUM, GRP, SEQ, DEEP, MID, QNA_PWD, QNA_TITLE, QNA_DOC, QNA_DATE, QNA_STATUS, QNA_TYPE) 
+		INSERT INTO qna(QNA_NUM, GRP, SEQ, DEEP, MID, QNA_PWD, QNA_TITLE, QNA_DOC, QNA_DATE, QNA_STATUS, QNA_TYPE) 
 		VALUES(getQnaSerial('i'), getQnaSerial(''), 0, 0, #{mid}, #{qna_pwd}, #{qna_title}, #{qna_doc}, now(), #{qna_status}, #{qna_type})
 	</insert>
 	
@@ -200,25 +359,62 @@
 	
 	<!-- 첨부파일 정보 저장(수정) -->
 	<insert id="qnaAttSave" parameterType="kr.artbay.common.ArtBayAtt">
-		INSERT INTO QNAATT(GRP, ATTFILE) 
+		INSERT INTO qnaAtt(GRP, ATTFILE) 
 		VALUES(#{grp}, #{attFile})	
 	</insert>
 	
 	<!-- 첨부파일 정보 조회 -->
 	<select id="qnaAttList" parameterType="String" resultType="kr.artbay.common.ArtBayAtt">
-		SELECT * FROM QNAATT WHERE GRP = #{_parameter}
+		SELECT * FROM qnaAtt WHERE GRP = #{_parameter}
 	</select>
 	
 	<!-- 삭제 -->
 	<delete id="qnaDelete" parameterType="kr.artbay.common.ArtBayVo">
-		DELETE FROM QNA  
-		WHERE QNA_NUM = #{qna_num} AND QNA_PWD = #{qna_pwd}
+		DELETE FROM qna  
+		<where>
+			QNA_NUM = #{qna_num} 
+			<if test="mid != 'admin' and mid != 'chicken'">
+				AND QNA_PWD = #{qna_pwd}
+			</if>
+		</where>
 	</delete>
 	
 	<!-- 첨부파일 정보 삭제 -->
 	<delete id="qnaAttDelete" parameterType="String">
-		DELETE FROM QNAATT 
+		DELETE FROM qnaAtt  
 		WHERE GRP = #{_parameter}
+	</delete>
+	
+	<!-- SEQ 증가 -->
+	<update id="qnaSeqUp" parameterType="kr.artbay.common.ArtBayVo">
+		UPDATE qna SET SEQ = SEQ + 1
+		WHERE GRP = ${grp} AND SEQ > ${seq}
+	</update>
+	
+	<!-- 댓글 작성 -->
+	<insert id="reply" parameterType="kr.artbay.common.ArtBayVo">
+		INSERT INTO qna(QNA_NUM, GRP, SEQ, DEEP, MID, QNA_PWD, QNA_TITLE, QNA_DOC, QNA_DATE, QNA_STATUS, QNA_TYPE) 
+		VALUES(getQnaSerial('i'), #{grp}, ${seq+1}, ${deep+1}, #{mid}, #{qna_pwd}, #{qna_title}, #{qna_doc}, now(), #{qna_status}, #{qna_type})
+	</insert>
+	
+	<!-- 수정 -->
+	<update id="qnaUpdate" parameterType="kr.artbay.common.ArtBayVo">
+		UPDATE qna SET QNA_TYPE = #{qna_type}, QNA_TITLE = #{qna_title}, QNA_DOC = #{qna_doc}, QNA_STATUS = #{qna_status} 
+		<where>
+			QNA_NUM = #{qna_num} 
+			<if test="mid != 'admin' and mid != 'chicken'">
+				AND QNA_PWD = #{qna_pwd}
+			</if>
+		</where>
+	</update>
+	
+	<!-- 선택한 첨부파일 정보 삭제 -->
+	<delete id="qnaChkAttDelete" parameterType="List">
+		DELETE FROM qnaAtt    
+		WHERE ATTFILE IN
+		<foreach collection="list" item="att" open="(" separator="," close=")">
+			#{att}
+		</foreach>
 	</delete>
 	
 </mapper>

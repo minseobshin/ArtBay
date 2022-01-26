@@ -27,6 +27,7 @@ public class ArtBayVo {
 	String irum;
 	String birth;
 	String phone;
+	String email;
 	String memberJoinEmail;
 	String gender;
 	int age;

@@ -45,20 +45,20 @@
             <div class="consignguide-content">
                 <h4>
                     <img src="./img/precau-ico@1x.png" alt="Icon">
-                    소장품 위탁 전에 읽어주세요.
+                    작품 경매 신청 전에 읽어주세요.
                 </h4>
                 <ul>
                     <li>
                         <div class="ellipse">
                             <span>•</span>
                         </div>
-                        <p>경매 위탁시 주의사항 드드드드드드드드드드드드드드드드드드드드드드드드드드드드드드드드</p>
+                        <p>경매 신청 시 즉시 경매가 시작되오니 수정, 삭제가 불가합니다.</p>
                     </li>
                     <li>
                         <div class="ellipse">
                             <span>•</span>
                         </div>
-                        <p>여러가지 전달사항</p>
+                        <p>꼭 자세히 확인 후 신청해 주시기 바랍니다.</p>
                     </li>
                 </ul>
             </div>
@@ -202,18 +202,29 @@
 	         <td>
 	             <div>
 	                 <div id="uploader" class="tui-file-uploader uploader-box">
-	                     <div class="tui-file-uploader-area" style="min-height: 100px; width: 100%;">
+	                     <div class="tui-file-uploader-area" id="file-div" style="min-height: 100px; width: 100%;">
+	                     	 <ul class="tui-upload-lst tui-js-file-uploader-list-items" id="file-ul">
+	                     	 <!--
+	                     		<li class="tui-upload-item">
+	                     			<span class="tui-filename-area">
+	                     				<span class="tui-file-name">img3.jpg</span>
+	                     			</span>
+	                     			<button type="button" class="tui-btn-delete">Remove</button>
+                     			</li>-->
+                   			</ul> 
+                   			
+                   			
 	                     </div>
 	                     <div class="thumbnail">
 	                      <label class="tui-btn tui-btn-upload m-t-5" style="background-color: rgb(102, 102, 102); color: rgb(255, 255, 255); border: 1px solid gray; height: 28px; line-height: 28px; text-align: center; padding: 0px; width: 100%; display: flex; align-items: center; justify-content: center;">
 	                          <span class="tui-btn-txt" style="line-height: initial;">대표 이미지 추가</span>
-	                          <input type="file" name="thumbnailFile" class="tui-input-file" >
+	                          <input type="file" name="thumbnailFile" id="thumbnailFile" class="tui-input-file" >
 	                      </label>
 	                     </div>
 	                     <div class="viewimg">
 	                      <label class="tui-btn tui-btn-upload m-t-5" style="background-color: rgb(102, 102, 102); color: rgb(255, 255, 255); border: 1px solid gray; height: 28px; line-height: 28px; text-align: center; padding: 0px; width: 100%; display: flex; align-items: center; justify-content: center;">
 	                          <span class="tui-btn-txt" style="line-height: initial;">상세 이미지 추가</span>
-	                          <input type="file" name="addFile" class="tui-input-file" multiple="multiple">
+	                          <input type="file" name="addFile" id="addFile" class="tui-input-file" multiple="multiple">
 	                      </label>
 	                     </div>
                          <input type="hidden" name="lot">	
@@ -278,6 +289,34 @@
 				<a href="#" class="btn-ok" onclick="modalOff($('#modal-price'))">확인</a>
 			</div>
 			<img src="./img/popup-close@1x.png" class="modal-close" onclick="modalOff($('#modal-price'))">
+		</div>
+	</div>
+</div>
+<!--알림 모달창 -->
+<div class="modals fade show" id="modal-startprice" >
+	<div>
+		<div>
+			<div>
+			    <img src="./img/warning-icon@1x.png" id="img-warning">
+			    <h2>알림</h2>
+				<span id="modal-message">시작가를 입력해 주세요.</span>
+				<a href="#" class="btn-ok" onclick="modalOff($('#modal-startprice'))">확인</a>
+			</div>
+			<img src="./img/popup-close@1x.png" class="modal-close" onclick="modalOff($('#modal-startprice'))">
+		</div>
+	</div>
+</div>
+<!--알림 모달창 -->
+<div class="modals fade show" id="modal-size" >
+	<div>
+		<div>
+			<div>
+			    <img src="./img/warning-icon@1x.png" id="img-warning">
+			    <h2>알림</h2>
+				<span id="modal-message">작품의 크기를 모두 입력해 주세요.</span>
+				<a href="#" class="btn-ok" onclick="modalOff($('#modal-size'))">확인</a>
+			</div>
+			<img src="./img/popup-close@1x.png" class="modal-close" onclick="modalOff($('#modal-size'))">
 		</div>
 	</div>
 </div>

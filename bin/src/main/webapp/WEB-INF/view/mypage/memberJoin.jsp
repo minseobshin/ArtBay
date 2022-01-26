@@ -10,7 +10,9 @@
 <script src = '/js/api_only.js'></script>
 <script src="//t1.daumcdn.net/mapjsapi/bundle/postcode/prod/postcode.v2.js"></script>
 <link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Open+Sans:400,300,700,800">
+<!-- 
 <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
+ -->
 <link rel="stylesheet" href="css/reset.css">
 <link rel="stylesheet" href="css/index.css">
 <link rel='stylesheet' type='text/css' href='./css/artbay_minseob.css'>

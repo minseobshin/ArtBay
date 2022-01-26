@@ -1,6 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jstl/core_rt" prefix="c" %>
+<%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -55,50 +56,66 @@
 				<p class="magnifier" onclick="thumbnailMagnify($('#thumbnail_img').attr('src'), $('.thumbnailHidden'))">🔎</p>
 			</div>
 			<div class="shareUrl">
-				<div>
-					<h2>알림</h2>
+				<div class="shareUrlInner">
+					<img src="../img/checked.png" /><br/>
+					<h1>알림</h1>
 					<span>아래 주소가 복사되었습니다. 공유를 원하는 곳에 붙여넣기(ctrl+V) 하세요.</span><br/><br/>
 					<input type="text" class="pastedUrl" value=""><br/><br/>
-					<input type="button" class="pastedUrlClose" value="확 인" onclick="modalOff($(this))">
+					<div>
+						<input type="button" class="btnBidCancel" value="확 인"/>
+					</div>
 				</div>
-			</div>
-		</div>
-		<div class="work_info">
-			<h3>작품 정보</h3>
-			<div class="cont">
-				<p> signed, titled and dated on the reverse<br/>Acrylic Frame </p>
 			</div>
 		</div>
 	</div>
 	<div class="view_right">
 		<div class="right_work_info">	
 			<div class="deadline_time">
-				<span>남은 시간</span>
-				<span class="remainTime"></span>
+				<c:choose>
+					<c:when test="${vo.remaining_year eq -1 || vo.crnt_status eq '경매종료' || vo.bid_type eq 'direct'}">
+						경매가 종료 되었습니다.
+					</c:when>
+					<c:otherwise>
+						<span>남은 시간</span><br/>
+						<c:if test="${vo.remaining_year gt 0 }">
+							<span>${vo.remaining_year }년</span>
+						</c:if>
+						<span class="remainTime">${vo.remaining_day }일 ${vo.remaining_hr }시간 ${vo.remaining_min }분 ${vo.remaining_sec }초</span>
+					</c:otherwise>
+				</c:choose>
 			</div>	
 			<div class="view_detail">
-				<p class="painter"><span>작가 이름</span></p>
-				<p class="art_name">그림 제목</p>
-				<p class="material">재료</p>
-				<p class="paintSize">사이즈</p>
+				<p class="painter">${vo.artist }</p>
+				<p class="art_name">${vo.artwork_name }</p>
+				<p class="material">${vo.material }</p>
+				<p class="paintSize">${vo.artwork_size }</p>
 			</div>
 			<div class="view_price">
 				<p>
-					<strong>추정가</strong>
-						KRW 6,000,000~8,000,000
-				</p>
-				<p>
 					<strong>시작가</strong>
-						KRW 4,000,000
+					<span class="str_start_price">KRW ${vo.str_start_price }</span>
 				</p>
 				<p>
-					<strong>현재가</strong>
-						KRW 9,000,000
+					<c:choose>
+						<c:when test="${vo.crnt_status eq '경매종료' }">
+							<strong>낙찰가</strong>
+						</c:when>
+						<c:otherwise>
+							<strong>현재가</strong>
+						</c:otherwise>
+					</c:choose>
+					<span class="str_current_price">KRW ${vo.str_current_price }</span>
 				</p>
+				<c:if test="${not empty vo.direct_price }">
+					<p>
+						<strong>즉시 판매가</strong>
+						<span class="str_direct_price">KRW ${vo.str_direct_price }</span>
+					</p>
+				</c:if>
 			</div>
 			<div class="closing_hour">
 				<span>마감 시간</span>
-				<span>01/04 - 04:00 PM</span>
+				<span>${vo.due_date }</span>
 			</div>
 				<li class="right_modal_btn" id="right_modal_btn1" onclick="modalOn($('.rightmodal_m1'))">				
 					<p><span>낙찰 수수료</span></p>
@@ -113,7 +130,21 @@
 					<p><span>설치 및 보관</span></p>
 				</li>
 			<br/>
-			<input type="button" class="btnBidStart" value="응찰하기" onclick="modalOn($('.bid_price'))"/>
+			<c:choose>
+				<c:when test="${not empty sessionScope.sv.mid}">
+					<c:choose>
+						<c:when test="${vo.crnt_status eq '경매종료' }">
+							<input type="text" class="btnBidStart" value="경매 기간이 종료되었습니다." readonly="readonly" style="text-align: center;"/>
+						</c:when>
+						<c:otherwise>
+							<input type="button" class="btnBidStart" value="응찰하기" onclick="modalOn($('.bid_price'))"/>
+						</c:otherwise>
+					</c:choose>
+				</c:when>
+				<c:otherwise>
+					<input type="button" class="btnBidStart" id="needLogin" style="background-color: rgb(255, 109, 45); border: 1px solid rgb(255, 109, 45);"value="로그인하시면 응찰이 가능합니다."/>
+				</c:otherwise>
+			</c:choose>
 		</div>
 	<!-- 낙찰 수수료 모달 -->
 		<div class="rightmodal_m1" style="border:1px solid grey;">
@@ -303,70 +334,176 @@
 				</div>
 			</div>
 		</div>
+		
+		<!-- 즉시 구매 유의 사항 -->
+		<div class="direct_caution">
+			<div class="direct_caution_modal" id="modal">
+			<h2>&nbsp;즉시 구매 유의사항</h2>
+				<ul>
+					<li style="color: red;">즉시 판매가로 자동 낙찰 됩니다. 낙찰 후 취소하고자 하는 경우, 낙찰자는 낙찰철회비로 낙찰가의 30%에 해당하는 금액을 납부하여야 하므로 신중하게 응찰하시기 바랍니다.</li>
+					<li>낙찰 시 낙찰대금 외 구매 수수료(부가세 별도) 및 낙찰자 비용(있을 경우)이 부과됩니다.</li>
+					<li>모든 응찰은 응찰자가 실물을 확인한 것을 전제로 하며, 액자나 작품 컨디션을 이유로 응찰 또는 낙찰을 취소할 수 없습니다.</li>
+					<li>마감 전 30초 내의 응찰이 있을 경우, 자동으로 30초 연장됩니다.</li>
+				</ul>
+				
+				<p>위 응찰 유의사항을 확인하였으며. 동의하므로 응찰을 신청합니다.</p>
+				<div class="bidApplyBtn">
+					<input type="button" class="btnBidCancel" value="취소" />
+					<input type="button" class="btnDirectApply" value="동의 및 응찰"/>
+				</div>
+			</div>
+		</div>
 		<!-- 응찰 시작 모달-->
 		<div class="bid_price">
 			<h2>응찰내역</h2>
-			<div class="btnBidList">
+			<div class="bidHistoryList">
 				<input type="button" value="X" onclick="modalOff($(this))" class="xBtn"/>
-				<ul class="bid_price_choose">
-					<li>전체</li>
-					<li>내 응찰</li>
+				<ul class="bidPriceChoose">
+					<li class="bidHistoryAll">전체</li>
+					<li class="bidHistoryMy">내 응찰</li>
 				</ul>
 			</div>
 			<div class="bidList">
 				<div class="bidHistory">
-					<ul>
-						<li>2021-12-25</li>
-						<br/>
-						<li>10:23:00</li>
-						<li>4,400,000</li>
-					</ul>
+					<c:forEach var="i" items="${history }">				
+						<ul>
+							<li>${i.bid_date }<br/>${i.bid_time }</li>
+							<li>${i.masked_mid }</li>
+							<li>${i.bid_price }</li>
+						</ul>
+					</c:forEach>
+				</div>
+				<div class="bidMyHistory">
+					<c:forEach var="i" items="${myHistory }">				
+						<ul>
+							<li>${i.bid_date }<br/>${i.bid_time }</li>
+							<li>${i.mid }</li>
+							<li>${i.bid_price }</li>
+						</ul>
+					</c:forEach>
 				</div>
 				<div class="current_bid_price">
 					<div class="my_choice">
 						<div class="my_choice_left">
 							<strong>시작가</strong><br/><br/>
-							<strong>현재가</strong><br/><br/><br/>
+							<c:choose>
+								<c:when test="${vo.crnt_status eq '경매종료' }">
+									<strong>낙찰가</strong><br/><br/>
+								</c:when>
+								<c:otherwise>
+									<strong>현재가</strong><br/><br/>
+								</c:otherwise>
+							</c:choose>
 							<strong>응찰가</strong><br/><br/>
+							<c:if test="${not empty vo.str_direct_price }">
+								<strong>즉시 판매가</strong>
+							</c:if>
 						</div>
-						<div class="my_choice_right">
-							<strong>KRW 4,000,000</strong><br/><br/>
-							<strong>KRW 11,000,000 <br/> (응찰횟수 20회)</strong><br/><br/>
-							<select class="price_combo">
-								<option value="10000">10,000</option>
-								<option value="20000">20,000</option>
-							</select><br/><br/>
-							최고 응찰가를 선택하세요.<br/><br/>
-						</div>
-						<!-- 
-						<div>
-							<strong>시작가</strong>
-							<div>
-								<strong>KRW 4,000,000</strong>
-							</div>
-						</div>
-						<div>
-							<strong>현재가</strong>
-							<div>
-								<strong>KRW 11,000,000 (응찰횟수 20회)</strong>
-							</div>
-						</div>
-						<div>
-							<strong>응찰가</strong>
-							<select class="price_combo">
-								<option value="10000">10,000</option>
-								<option value="20000">20,000</option>
-							</select>
-							<br/>
-							<strong>　</strong>
-							최고 응찰가를 선택하세요.
-						</div>
-						 -->
+						<c:choose>
+							<c:when test="${vo.crnt_status eq '경매종료' }">
+								<div></div>
+							</c:when>
+							<c:otherwise>
+								<div class="my_choice_right">
+									<strong>KRW ${vo.str_start_price }</strong><br/><br/>
+									<strong>KRW ${vo.str_current_price } </strong><br/><br/>
+									<select class="price_combo" name="price_combo">
+									<c:choose>
+										<c:when test="${vo.current_price>=vo.start_price }">
+											<c:choose>
+												<c:when test="${vo.current_price lt 10001}">
+													<c:forEach var="i" begin="${vo.current_price+500}" end="${vo.current_price+5000}" step="500">
+														<option value=${i }>${i }</option>
+													</c:forEach>
+												</c:when>
+												<c:when test="${vo.current_price lt 50001 }">
+													<c:forEach var="i" begin="${vo.current_price+1000}" end="${vo.current_price+10000}" step="1000">
+														<option value=${i }>${i }</option>
+													</c:forEach>
+												</c:when>
+												<c:when test="${vo.current_price lt 100001 }">
+													<c:forEach var="i" begin="${vo.current_price+10000}" end="${vo.current_price+100000}" step="10000">
+														<option value=${i }>${i }</option>
+													</c:forEach>
+												</c:when>
+												<c:otherwise>
+													<c:forEach var="i" begin="${vo.current_price+20000}" end="${vo.current_price+100000}" step="20000">
+														<option value=${i }>${i }</option>
+													</c:forEach>
+												</c:otherwise>
+											</c:choose>
+										</c:when>
+										<c:otherwise>
+											<c:choose>
+												<c:when test="${vo.start_price lt 10001}">
+													<c:forEach var="i" begin="${vo.start_price+500}" end="${vo.start_price+5000}" step="500">
+														<option value=${i }>${i }</option>
+													</c:forEach>
+												</c:when>
+												<c:when test="${vo.start_price lt 50001 }">
+													<c:forEach var="i" begin="${vo.start_price+1000}" end="${vo.start_price+10000}" step="1000">
+														<option value=${i }>${i }</option>
+													</c:forEach>
+												</c:when>
+												<c:when test="${vo.start_price lt 100001 }">
+													<c:forEach var="i" begin="${vo.start_price+10000}" end="${vo.start_price+100000}" step="10000">
+														<option value=${i }>${i }</option>
+													</c:forEach>
+												</c:when>
+												<c:otherwise>
+													<c:forEach var="i" begin="${vo.start_price+20000}" end="${vo.start_price+100000}" step="20000">
+														<option value=${i }>${i }</option>
+													</c:forEach>
+												</c:otherwise>
+											</c:choose>
+										</c:otherwise>
+									</c:choose>
+									</select><br/><br/>
+									<strong>
+									<c:if test="${not empty vo.str_direct_price }">
+										<strong>KRW ${vo.str_direct_price }</strong>
+									</c:if>
+									</strong>
+								</div>
+							</c:otherwise>
+						</c:choose>
 					</div>
 				</div>
-			<input type="button" class="btnBidApplyFinal" value="응찰하기"  onclick="modalOn($('.bid_caution'))"/>
+			<c:choose>
+				<c:when test="${empty vo.str_direct_price }">
+					<input type="button" class="btnBidApplyFinal" value="응찰하기"  onclick="modalOn($('.bid_caution'))"/>
+				</c:when>
+				<c:when test="${vo.crnt_status eq '경매종료' }">
+					<input type="text" class="btnBidApplyFinal" value="경매 기간이 종료되었습니다." readonly="readonly" style="text-align: center;"/>
+				</c:when>
+				<c:otherwise>
+					<div class="btnBidApplyFinalLeftBox">
+						<input type="button" class="btnBidApplyFinalLeft" value="응찰하기"  onclick="modalOn($('.bid_caution'))"/>
+						<input type="button" class="btnBidApplyFinalRight" value="즉시 구매" onclick="directPurchase()" />
+					</div>
+				</c:otherwise>
+			</c:choose>
 			</div>
 		</div>
+		
+		<div class="applyResult">
+			<div class="applyResultInner">
+				<img src="../img/checked.png" /><br/>
+				<h1>응찰 완료</h1>
+				<p>
+				'${vo.artwork_name} (작가명 : ${vo.artist})'에 성공적으로 응찰하였습니다.<br/><br/>
+				상세 내용은 MyPage의 응찰내역에서 확인하시기 바랍니다.
+				</p>
+				<div>
+					<input type="button" class="btnBidCancel" value="확 인"/>
+				</div>
+			</div>
+		</div>
+	</div>
+	
+	<div class="artworkInfo">
+		<h3>작품 정보</h3><br/>
+		<div>${vo.contents }</div>
 	</div>
 	
 	<div class="caution">
@@ -380,10 +517,14 @@
 	<h3>작가의 다른 작품</h3>
 	<div class="otherWorks" style="display:inline-block; height:200px;">
 		<c:forEach var="atts" items="${others }" varStatus="status">
-			<div style=" height:200px;">
-				<img name="otherWorksImg" id="otherWorksImg" src="${atts.imgFile }"
-					onclick="artbay.othersView(${atts.lot})"/>
-			</div>
+			<c:if test="${status.count gt 0}">
+				<c:if test="${atts.thumbnail eq 'Y' && atts.lot ne vo.lot}">
+					<div style=" height:200px;">
+						<img name="otherWorksImg" id="otherWorksImg" src="${atts.imgFile }"
+							onclick="artbay.othersView(${atts.lot})"/>
+					</div>
+				</c:if>
+			</c:if>
 		</c:forEach>
 	</div>
 	<div id="hiddenZone">

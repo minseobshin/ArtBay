@@ -3,6 +3,11 @@
  *  헤더에 artbay_minseob.js 연결 => login_only.js 변경
  */
 
+function isPwd(asValue) { //비밀번호 영문/숫자/특수문자 최소 한가지 조합 8~16자
+	let regExp = /^(?=.*[a-zA-z])(?=.*[0-9])(?=.*[$`~!@$!%*#^?&\\(\\)\-_=+]).{8,16}$/;
+	return regExp.test(asValue);
+}
+
 $(function(){
 	var c = 1; //mypage 토글용
 	var d = 0;
@@ -36,6 +41,8 @@ $(function(){
 	$("#irumFind2").keyup(function(e){if(e.keyCode==13){$("#btnGoPwdFind").click();}})
 	$("#emailFind").keyup(function(e){if(e.keyCode==13){$("#btnGoIdFind").click();}})
 	$("#idFind").keyup(function(e){if(e.keyCode==13){$("#btnGoPwdFind").click();}})
+	$("#changePwd").keyup(function(e){if(e.keyCode==13){$("#btnGoChangePwd").click();}})
+	$("#changePwdChk").keyup(function(e){if(e.keyCode==13){$("#btnGoChangePwd").click();}})
 	
 	//마이 페이지
 	$("#btnMyPage").click(function() {
@@ -71,7 +78,36 @@ $(function(){
 			}else if(data === "failPwd"){
 				alert("비밀번호를 확인해주세요.");
 				console.log(data);
-			}else{
+			}else if(data === "stopMember"){
+				alert("부정한 행위로 인해 계정 정지상태입니다. 관리자에게 문의하세요.");
+			}else if(data === "lostPwdMember"){
+				$("#midmidmid").val($("#midLogin").val());
+				$("#frm_memberLogin").css({"display" : "none"});
+				$("#frm_findId").css({"display" : "none"});
+				$("#frm_findPwd").css({"display" : "none"});
+				$("#frm_changePwd").css({"display" : "inline"});
+				$("#btnGoChangePwd").click(function(){
+					if(isPwd($("#changePwd").val()) == true){
+						if($("#changePwd").val() === $("#changePwdChk").val()){
+							$param = $("#frm_changePwd").serialize();
+							$.post("changePassword", $param, function(data){
+								if(data == true){
+									alert("비밀번호가 변경되었습니다. 다시 로그인해 주세요.");
+									location.href = "main";
+								}else if(data == false){
+									alert("비밀번호 변경 중 에러가 발생했습니다. 관리자에게 문의해 주세요.");
+								}
+							})
+						}else{
+							alert("비밀번호가 서로 다릅니다. 다시 확인해주세요.");
+						}
+					}else{
+						alert("비밀번호를 다시 확인해주세요.\n영문/숫자/특수문자 최소 한가지 조합 8~16자");
+					}
+				})
+			}else if(data === "outMember"){
+				alert("탈퇴한 계정입니다. 다시 사용하시려면 관라자에게 문의하세요.");
+			}else if(data === "login"){
 				console.log(data);
 				location.reload();
 				d = 0;
@@ -101,7 +137,17 @@ $(function(){
 	$("#btnGoPwdFind").click(function(){
 		$param = $("#frm_findPwd").serialize();
 		$.post("findMyPwd", $param, function(data){
-			
+			if(data.injung === "passFindPwd" && data.address2 === "passCommit"){
+				$("#irumFind8").val($("#irumFind2").val());
+				$("#idFind9").val($("#idFind").val());
+				$("#findedPwd9").val(data.address); //랜덤비번을 service에서 address에 담았음
+				$("#memberJoinEmail9").val(data.email);
+				$('#btnCancelLogin3').click();
+				$("#btnGoPwdFind9").click();
+				alert("고객님의 임시비밀번호가 이메일로 발송되었습니다. 이메일을 확인해주세요.");
+			}else{
+				alert("이름 또는 아이디를 다시 확인해주세요.");
+			}
 		})
 	})
 	
@@ -156,6 +202,12 @@ $(function(){
 		console.log(d);
 	})
 	$('#btnCancelLogin3').click(function(){
+		$(".modal-content").load("mypageMemberLogin").hide();
+		console.log(d);
+		d = 1;
+		console.log(d);
+	})
+	$('#btnCancelLogin4').click(function(){
 		$(".modal-content").load("mypageMemberLogin").hide();
 		console.log(d);
 		d = 1;

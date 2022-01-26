@@ -14,7 +14,7 @@
 <link href="https://cdn.jsdelivr.net/npm/summernote@0.8.18/dist/summernote.min.css" rel="stylesheet">
 <script src="https://cdn.jsdelivr.net/npm/summernote@0.8.18/dist/summernote.min.js"></script>
 <link rel='stylesheet' type='text/css' href='../css/final_lsy.css'>
-
+<script src='./js/final_lsy.js'></script>
 <script>
 $(function(){
 	summer();
@@ -23,11 +23,15 @@ $(function(){
 
 </head>
 <body>
+<div class = "applyform">
+	<h1>공지사항</h1>
+</div>
+
 <div id='writeNotice'>
-		<h1>공지사항 작성</h1>
-	<form name='frm_writeNotice' id='frm_writeNotice' method='post'>
+
+	<form name='frm_notice' id='frm_notice' method='post'>
 			<label>제목</label>
-			<input type='text' name='subject' size='50' value='공지사항입니다.'>
+			<input type='text' name='title' size='50' value='공지사항입니다.'>
 			<label>작성일</label>
 			<input type='date' name='not_date' readonly='readonly'/>
 			
@@ -35,12 +39,13 @@ $(function(){
 			
 		<br/>
 	</form>	
-	<form name='frm_noticeUpload' id='frm_upload' method='post'>
+	<form name='frm_noticeUpload' id='frm_noticeUpload' method='post'>
 		<label>파일 첨부 </label>
 		<input type='file' name='attFile' multiple="multiple"/> 
-		<input type='hidden' name='grp'/>
 		<input type='hidden' name='nowPage' value='${page.nowPage }'/>
 		<input type='hidden' name='findStr' value='${page.findStr }'/>
+		<input type='text' name='grp'/>
+		
 		<br/>
 	</form>
 	<div id='btnZone'>
@@ -50,8 +55,8 @@ $(function(){
 
 </div>
 	<script>
-		document.frm_writeNotice.not_date.valueAsDate = new Date();
+		document.frm_notice.not_date.valueAsDate = new Date();
 	</script>
-<script src='./js/final_lsy.js'></script>
+
 </body>
 </html>

@@ -2,7 +2,8 @@
  * 
  */
 $(function(){
-	
+	var storedFiles = [];
+	var formData = new FormData($("#frm_upload")[0]);
 	/*$("btnCancle").click(function(){ //취소 클릭시 전페이지 이동
 	})*/
 	
@@ -16,7 +17,8 @@ $(function(){
 				$frm = $("#frm_upload")[0];
 				$frm.lot.value = json.lot;	//lot 번호
 				$frm.enctype = "multipart/form-data";
-				$frm.action = "fileUp?job=i"; 
+				console.log($frm.enctype)
+				$frm.action = "artworkfileUp?job=i";
 				$frm.submit();
 			}
 			else {
@@ -25,8 +27,79 @@ $(function(){
 		})
 	})
 	
-})
+	//경매 리스트로 이동
+	$("#btnArtworkList").click(function() {
+		$frm = $("#frmArtwork")[0];
+		$frm.action = "bidList";	
+		$frm.submit();
+	});
+	
 
+	thumbnailFile.addEventListener('change', function () {
+		$file = $("#thumbnailFile")[0];
+			var fileList;
+	for(var i = 0; i < this.files.length; i++){
+			fileList = $file.files[i]; 
+			console.log(formData);
+			var li = document.createElement('li');
+			li.className = 'tui-upload-item';
+			var span = document.createElement('span');
+			span.className = 'tui-file-name';
+			var Content = document.createTextNode(fileList.name + '(' + fileList.size + 'byte)');
+			var Remove = document.createTextNode('Remove');
+			var fileul =  document.querySelector('#file-ul');
+			var btn= document.createElement("input");
+			btn.type = "button";
+			btn.id = "btnRemove";
+			btn.className = 'tui-btn-delete'
+ 
+		    storedFiles.push(fileList[i]);
+		    fileul.appendChild(li);
+			li.appendChild(span);
+			li.appendChild(btn);
+			span.appendChild(Content);
+			btn.appendChild(Remove);
+		}
+		console.log(storedFiles)
+	})
+	addFile.addEventListener('change', function () {
+		$file = $("#addFile")[0];
+			var fileList;
+	for(var i = 0; i < this.files.length; i++){
+			fileList = $file.files[i]; 
+			console.log(formData);
+			var li = document.createElement('li');
+			li.className = 'tui-upload-item';
+			var span = document.createElement('span');
+			span.className = 'tui-file-name';
+			var Content = document.createTextNode(fileList.name + '(' + fileList.size + 'byte)');
+			var Remove = document.createTextNode('Remove');
+			var fileul =  document.querySelector('#file-ul');
+			var btn= document.createElement("input");
+			btn.type = "button";
+			btn.id = "btnRemove";
+			btn.className = 'tui-btn-delete'
+ 
+		    storedFiles.push(fileList[i]);
+		    fileul.appendChild(li);
+			li.appendChild(span);
+			li.appendChild(btn);
+			span.appendChild(Content);
+			btn.appendChild(Remove);
+		}
+		console.log(storedFiles)
+		
+	})
+	
+		/*btnRemove.addEventListener('click', function () {
+		  var index	 = li.index();
+		console.log(index);
+		  removeEventListener(index);
+	
+		  // 해당 li 태그 제거
+		});*/
+	
+})
 
 
 //숫자만 입력 가능
@@ -43,25 +116,24 @@ function removeCommas(x) {
     else return x.split(",").join("");
 }
 function Commas(){
-		if($('#start_price').val()!==''){
-			$('#frm_bay_insert')[0].start_price.value = removeCommas($('#start_price').val());
-		}if($('#direct_price').val()!==''){
+		if($('#direct_price').val()!==''){
 			$('#frm_bay_insert')[0].direct_price.value = parseInt(removeCommas($('#direct_price').val()));
-		}if($('#s_size01').val()!==''){
-			$('#frm_bay_insert')[0].s_size01.value = removeCommas($('#s_size01').val());
-		}if($('#s_size02').val()!==''){
-			$('#frm_bay_insert')[0].s_size02.value = removeCommas($('#s_size02').val());
-		}if($('#s_size03').val()!==''){
-			$('#frm_bay_insert')[0].s_size03.value = removeCommas($('#s_size03').val());
-		}if($('#ho').val()!==''){
-			$('#frm_bay_insert')[0].ho.value = removeCommas($('#ho').val());
 		}
+			$('#frm_bay_insert')[0].start_price.value = removeCommas($('#start_price').val());
+			$('#frm_bay_insert')[0].s_size01.value = removeCommas($('#s_size01').val());
+			$('#frm_bay_insert')[0].s_size02.value = removeCommas($('#s_size02').val());
+			$('#frm_bay_insert')[0].s_size03.value = removeCommas($('#s_size03').val());
+			$('#frm_bay_insert')[0].ho.value = removeCommas($('#ho').val());
 }
 function validate(){
 	if(artwork_name.value==''){
 		$("#modal-common").show();
 	}else if($('#artwork_ctgr').val()==""){
 		$("#modal-ctgr").show();
+	}else if($('#start_price').val()==""){
+		$("#modal-startprice").show();
+	}else if($('#s_size01').val()=="" || $('#s_size02').val()=="" || $('#s_size03').val()=="" || $('#ho').val()=="" ){
+		$("#modal-size").show();
 	}else if($('#direct_price').val()!==""){
 		var start_p = parseInt(removeCommas($('#start_price').val()))
 		var diect_p = parseInt(removeCommas($('#direct_price').val()))

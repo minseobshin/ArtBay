@@ -48,9 +48,23 @@
 			<input type='button' name='btnFindPwd2' id='btnFindId2' class='btnFindPwd' value='아이디찾기'>
 			<input type='button' name='btnLoginPage2' id='btnLoginPage2' class='btnFindId' value='로그인   |'>
 			
-			<input type='button' name='btnGoPwdFind' id='btnGoPwdFind' class='btnGoLogin' value='임시비밀번호발급(Email을 확인해주세요.)'>
+			<input type='button' name='btnGoPwdFind' id='btnGoPwdFind' class='btnGoLogin' value='임시비밀번호발급'>
 			<input type='button' name='btnCancelLogin3' id='btnCancelLogin3' value='취소'>
 			<input type='hidden' name='findedPwd' id='findedPwd'>
+			<h5>아직 ArtBay 회원이 아니세요?</h5>
+			<a href='mypageMemberJoin'>회원가입</a>
+		</form>
+		<form name='frm_changePwd' id='frm_changePwd' method='post'>
+			<h1>비밀번호 변경</h1>
+			<input type='hidden' name='mid' id='midmidmid' placeholder="아이디">
+			<input type='password' name='newPwd' id='changePwd' class='midLogin' placeholder="새 비밀번호　　　영문/숫자/특수문자 최소 한가지 조합 8~16자">
+			<input type='password' name='newPwdChk' id='changePwdChk' class='midLogin' placeholder="새 비밀번호 확인">
+			
+			<input type='button' name='abc' id='abc' class='btnFindPwd3' value='　　　　　　'>
+			<input type='button' name='def' id='def' class='btnFindId2' value='　　　　　　'>
+			
+			<input type='button' name='btnGoChangePwd' id='btnGoChangePwd' class='btnGoLogin' value='비밀번호 변경'>
+			<input type='button' name='btnCancelLogin4' id='btnCancelLogin4' value='취소'>
 			<h5>아직 ArtBay 회원이 아니세요?</h5>
 			<a href='mypageMemberJoin'>회원가입</a>
 		</form>
