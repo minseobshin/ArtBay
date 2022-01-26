@@ -155,7 +155,8 @@ header > * {
 /**************************** 메인화면 이미지 슬라이드 *******************************/
 .keyvisual {
 	position: relative;
-	width: 100%; 
+	width: 1950px;
+	margin: 0 auto;
 	overflow: hidden;
 }
 .keyvisual .control_btn button {
@@ -178,18 +179,20 @@ header > * {
 }
 .keyvisual ul {
 	width: 300%;
-						/*overflow: hidden;	*/
+	overflow: hidden;
 }
 .keyvisual li {
 	float: left;
 	width: 33.333%;
-						overflow: hidden;  /* 위? 아래? */
+	overflow: hidden;  /* 위? 아래? */
 }
 .keyvisual a {
 	cursor: default;
 }
 .key_control {
 	text-align: center;
+	width: 1950px;
+	margin: 0 auto;
 }
 .key_control ul {
 	height: 24px;
