@@ -125,7 +125,7 @@
 						<div class="listInnerTextTail">
 							<p class="endDate">마감 ${vo.due_date }</p>
 							<c:if test="${vo.bid_cnt gt 0 }">
-								<p class="bidCnt">${vo.str_bid_cnt }회</p>
+								<p class="bidCnt">${vo.bid_cnt }회</p>
 							</c:if>
 						</div>
 					</div>

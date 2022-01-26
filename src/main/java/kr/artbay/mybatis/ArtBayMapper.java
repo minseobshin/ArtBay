@@ -49,6 +49,8 @@ public interface ArtBayMapper {
 	public int directPurchaseInsert(ArtBayVo vo);
 	public ArtBayVo getDirectInfo(int lot);
 	public int directPurchaseHistory(ArtBayVo vo);
+	public int getBidCounts(int lot);
+	public int updateBidCounts(ArtBayVo vo);
 
 	//메인 list
 	public List<ArtBayVo> mainsearch();

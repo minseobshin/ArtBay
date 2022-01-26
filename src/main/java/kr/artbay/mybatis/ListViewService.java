@@ -70,7 +70,6 @@ public class ListViewService {
 		int cnt = 0;
 		cnt = mapper.bidApply(vo);
 		cnt = mapper.updateCurrentPrice(vo.getLot());
-		cnt = mapper.updateBidCnt(vo.getLot());
 		return cnt;
 	}
 	
@@ -89,6 +88,8 @@ public class ListViewService {
 		list = mapper.viewBidHistoryAll();
 		for(ArtBayVo vo : list) {
 			vo.setMasked_mid(vo.getMid().replaceAll("(?<=.{2}).", "*"));
+			vo.setBid_cnt(mapper.getBidCounts(vo.getLot()));
+			mapper.updateBidCounts(vo);
 		}
 		return list;
 	}
