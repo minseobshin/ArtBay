@@ -909,9 +909,20 @@ form[name=frm_view]>ul li:nth-child(3){
 }
 
 .bidHistory, .bidMyHistory{
-	height: 100px;
 	overflow-y: scroll;
+	height: 120px;
 }
+
+.bidHistory::-webkit-scrollbar, .bidMyHistory::-webkit-scrollbar{
+	width: 10px; 
+}
+
+.bidHistory::-webkit-scrollbar-track, .bidMyHistory::-webkit-scrollbar-track {
+	background-color: darkgrey;
+	border-radius: 5px;
+	
+}
+
 
 .bidMyHistory{
 	display: none;

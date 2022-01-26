@@ -71,6 +71,7 @@ public class ArtBayVo {
 	int remaining_min;
 	int remaining_sec;
 	String masked_mid;
+	String str_bid_price;
 	
 	//공지사항
 	String title;
@@ -274,5 +275,7 @@ public class ArtBayVo {
 	public void setBid_type(String bid_type) {this.bid_type = bid_type;}
 	public String getMasked_mid() {return masked_mid;}
 	public void setMasked_mid(String masked_mid) {this.masked_mid = masked_mid;}
+	public String getStr_bid_price() {return str_bid_price;}
+	public void setStr_bid_price(String str_bid_price) {this.str_bid_price = str_bid_price;}
 	
 }
