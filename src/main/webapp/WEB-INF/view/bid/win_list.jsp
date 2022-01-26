@@ -20,6 +20,7 @@
 <body>
 <div class = "applyform">
 	<h1>종료된 경매</h1>
+	<div class="bgImgAuction"></div>
 </div>
 
 <form name="frm_list" id="frm_list" method="post">
