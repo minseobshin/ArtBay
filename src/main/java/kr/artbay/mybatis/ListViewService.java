@@ -14,6 +14,7 @@ import kr.artbay.common.AES;
 import kr.artbay.common.ArtBayAtt;
 import kr.artbay.common.ArtBayVo;
 import kr.artbay.common.Page;
+import kr.artbay.scheduler.GetTime;
 
 @Service
 @Transactional
@@ -91,6 +92,10 @@ public class ListViewService {
 		int cnt = 0;
 		cnt = mapper.updateStatus(lot);
 		return cnt;
+	}
+	
+	public void updateAllStatus(GetTime date) {
+		
 	}
 	
 	public void directPurchase(ArtBayVo vo) {

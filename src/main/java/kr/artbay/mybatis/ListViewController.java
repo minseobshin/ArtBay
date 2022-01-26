@@ -55,6 +55,7 @@ import kr.artbay.common.ArtBayAtt;
 import kr.artbay.common.ArtBaySessionVo;
 import kr.artbay.common.ArtBayVo;
 import kr.artbay.common.Page;
+import kr.artbay.scheduler.GetTime;
 import lombok.RequiredArgsConstructor;
 
 @Controller

@@ -10,6 +10,7 @@ import kr.artbay.common.ArtBayAtt;
 import kr.artbay.common.ArtBaySessionVo;
 import kr.artbay.common.ArtBayVo;
 import kr.artbay.common.Page;
+import kr.artbay.scheduler.GetTime;
 
 
 @Repository
@@ -40,6 +41,7 @@ public interface ArtBayMapper {
 	public List<ArtBayVo> bidOnGoing();
 	public int updateStatus(int lot);
 	public int directPurchase(ArtBayVo vo);
+	public int updateStatusAll(GetTime date);
 
 	//메인 list
 	public List<ArtBayVo> mainsearch();
