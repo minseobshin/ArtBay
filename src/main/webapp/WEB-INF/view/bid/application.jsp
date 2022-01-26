@@ -38,6 +38,7 @@
 </style>
 <div class = "applyform">
 		<h1>미술품 경매 신청서</h1>
+		<div class="bgImgAuction"></div>
 </div>
 <div class="container">
     <div id="consign-request-guide">

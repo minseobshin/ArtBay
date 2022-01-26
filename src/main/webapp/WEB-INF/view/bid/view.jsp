@@ -21,6 +21,11 @@
 				
 
 <body>
+<div class = "applyform">
+	<h1>제품상세</h1>
+	<div class="bgImgAuction"></div>
+</div>
+
 <form name="frm_view" id="frm_view" method="post">
 	<div class="view_left">
 		<div class="view_top">
