@@ -25,7 +25,7 @@
 	</update>
 	<!-- 회원탈퇴 -->
 	<update id="memberOut" parameterType="kr.artbay.common.ArtBaySessionVo">
-		update artbay_member set m_status="N" where mid=#{midOut}
+		update artbay_member set m_status="N", outEu1=#{outEu1}, outEu2=#{outEu2}, outEu3=#{outEu3}, outEu4=#{outEu4}, outEu5=#{outEu5}, outEu6=#{outEu6}, outEu7=#{outEu7} where mid=#{midOut}
 	</update>
 	<!-- 아이디 찾기 -->
 	<select id="findMyId" parameterType="kr.artbay.common.ArtBayVo" resultType="kr.artbay.common.ArtBayVo">
