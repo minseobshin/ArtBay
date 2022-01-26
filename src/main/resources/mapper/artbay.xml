@@ -46,7 +46,7 @@
 
 	<select id="totSize" parameterType="String" resultType="Integer">
 		select count(lot) totSize from artwork
-		where mid like '%${_parameter}%' or artwork_name like '%${_parameter}%'
+		where mid like '%${_parameter}%' or artwork_name like '%${_parameter}%' or artwork_ctgr like '%${_parameter}%'
 	</select>
 	
 	<select id="search" parameterType="kr.artbay.common.Page" resultType="kr.artbay.common.ArtBayVo">

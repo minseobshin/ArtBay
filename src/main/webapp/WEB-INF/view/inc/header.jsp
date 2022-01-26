@@ -9,7 +9,7 @@
 
 	<!-- 메인 로고 -->	
 	<ul class="logo clearfix">
-		<li><img src="img/greatTasty_resize.png"><a href="main">칰BAY</a></li>
+		<li><!-- <img src="img/greatTasty_resize.png"> --><a href="main">ARTBAY</a></li>
 	</ul>
 	
 	<!-- 메인 메뉴 -->
