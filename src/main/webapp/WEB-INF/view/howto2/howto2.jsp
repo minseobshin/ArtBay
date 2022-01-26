@@ -12,6 +12,7 @@
 	
 <div class = "applyform">
 	<h1>경매소개</h1>
+	<div class="bgImgHowto"></div>
 </div>
 
 <div class="container">

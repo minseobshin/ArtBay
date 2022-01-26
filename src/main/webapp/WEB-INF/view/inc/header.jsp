@@ -80,7 +80,7 @@
 		<input type='hidden' name='memberJoinEmail9' id='emailFind9' class='midLogin' placeholder="이메일주소">
 		<input type='hidden' name='findedMid9' id='findedMid9'>
 		<input type='submit' name='btnGoIdFind9' id='btnGoIdFind9' class='btnGoLogin9' style='display : none;'>
-		<script type="text/javascript">emailjs.init('user_Bmru9OgJfTWiBNKpR24gp')</script>
+		<script type="text/javascript">emailjs.init('user_ufZewS7yUXgBnIZvq9AT3')</script>
 	</form>
 	<!-- 비밀번호찾기 -->
 	<form name='frm_findPwd9' id='frm_findPwd9' method='post'>
@@ -89,6 +89,6 @@
 		<input type='hidden' name='findedMid9' id='findedPwd9'>
 		<input type='hidden' name='memberJoinEmail9' id='emailFind8' class='midLogin' placeholder="이메일주소">
 		<input type='submit' name='btnGoPwdFind9' id='btnGoPwdFind9' class='btnGoLogin9' style='display : none;'>
-		<script type="text/javascript">emailjs.init('user_Bmru9OgJfTWiBNKpR24gp')</script>
+		<script type="text/javascript">emailjs.init('user_ufZewS7yUXgBnIZvq9AT3')</script>
 	</form>
 </header>

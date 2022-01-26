@@ -16,6 +16,7 @@
 
 <div class = "applyform">
 		<h1>1:1 상담문의</h1>
+		<div class="bgImgCustomer"></div>
 </div>
 <div id="subContentsWrap">
 		<div class="container mt40">

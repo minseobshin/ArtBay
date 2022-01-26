@@ -25,6 +25,7 @@ $(function(){
 <body>
 <div class = "applyform">
 	<h1>공지사항</h1>
+	<div class="bgImgCustomer"></div>
 </div>
 
 <div id='writeNotice'>
