@@ -365,22 +365,40 @@
 			</div>
 			<div class="bidList">
 				<div class="bidHistory">
-					<c:forEach var="i" items="${history }">				
-						<ul>
-							<li>${i.bid_date }<br/>${i.bid_time }</li>
-							<li>${i.masked_mid }</li>
-							<li>${i.bid_price }</li>
-						</ul>
-					</c:forEach>
+					<c:choose>
+						<c:when test="${not empty history }">
+							<c:forEach var="i" items="${history }">				
+								<ul>
+									<li>${i.bid_date }<br/>${i.bid_time }</li>
+									<li>${i.masked_mid }</li>
+									<li>${i.bid_price }</li>
+								</ul>
+							</c:forEach>
+						</c:when>
+						<c:otherwise>
+							<div style="text-align: center; margin-top: 10px;">
+							<img src="../img/google-docs.png" style="width: 10%;"><br/><br/>
+							응찰 내역이 없습니다.</div>
+						</c:otherwise>
+					</c:choose>
 				</div>
 				<div class="bidMyHistory">
-					<c:forEach var="i" items="${myHistory }">				
-						<ul>
-							<li>${i.bid_date }<br/>${i.bid_time }</li>
-							<li>${i.mid }</li>
-							<li>${i.bid_price }</li>
-						</ul>
-					</c:forEach>
+					<c:choose>
+						<c:when test="${not empty myHistory }">
+							<c:forEach var="i" items="${myHistory }">				
+								<ul>
+									<li>${i.bid_date }<br/>${i.bid_time }</li>
+									<li>${i.mid }</li>
+									<li>${i.bid_price }</li>
+								</ul>
+							</c:forEach>
+						</c:when>
+						<c:otherwise>
+							<div style="text-align: center; margin-top: 10px;">
+							<img src="../img/google-docs.png" style="width: 10%;"><br/><br/>
+							응찰 내역이 없습니다.</div>
+						</c:otherwise>
+					</c:choose>
 				</div>
 				<div class="current_bid_price">
 					<div class="my_choice">
