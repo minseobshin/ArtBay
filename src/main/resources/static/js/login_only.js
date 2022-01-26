@@ -141,7 +141,7 @@ $(function(){
 				$("#irumFind8").val($("#irumFind2").val());
 				$("#idFind9").val($("#idFind").val());
 				$("#findedPwd9").val(data.address); //랜덤비번을 service에서 address에 담았음
-				$("#memberJoinEmail9").val(data.email);
+				$("#emailFind8").val(data.email);
 				$('#btnCancelLogin3').click();
 				$("#btnGoPwdFind9").click();
 				alert("고객님의 임시비밀번호가 이메일로 발송되었습니다. 이메일을 확인해주세요.");

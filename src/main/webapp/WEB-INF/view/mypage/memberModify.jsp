@@ -95,7 +95,7 @@
 			<input type='submit' name='btnEmailCheck2' id='btnEmailCheck2' class='btnEmailCheck' value='보내기'>
 			<input type='hidden' name='btnEmailCheck' id='btnEmailCheck' class='btnEmailCheck' value='보내기'>
 			<input type='button' name='btnEmailCheckCancel' class='btnEmailCheckCancel' value='취소'>
-			<script type="text/javascript">emailjs.init('user_Bmru9OgJfTWiBNKpR24gp')</script>
+			<script type="text/javascript">emailjs.init('user_ufZewS7yUXgBnIZvq9AT3')</script>
 			<input type='hidden' name='certificationNum' id='certificationNum'>
 			<br/>
 			<br/>

@@ -14,7 +14,7 @@ body {
 .applyform {
     position: relative;
     height: 190px;
-    background-color: #1f2d4a;
+    /* background-color: #1f2d4a; */
     margin-bottom: 60px;
 }
 .applyform > h1 {
@@ -27,6 +27,7 @@ body {
     font-weight: bold;
     color: #fff;
     white-space: nowrap;
+    z-index: 3;
 }
 /******************************************************************************/
 /****************************** 메뉴 네비게이션 ***********************************/

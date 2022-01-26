@@ -11,6 +11,7 @@
 <body>
 <div class = "applyform">
 	<h1>응찰안내</h1>
+	<div class="bgImgHowto"></div>
 </div>
 <div class="container">
     <div id="Howto">        

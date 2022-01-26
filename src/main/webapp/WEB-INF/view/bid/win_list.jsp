@@ -15,9 +15,12 @@
 <link rel="stylesheet" type="text/css" href="../css/artbay.css">
 <link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Open+Sans:400,300,700,800">
 <script src="js/index.js"></script>
-<script src="js/artbay.js" charset="UTF-8"></script>
+<script src="js/final_lsy.js" charset="UTF-8"></script>
 </head>
 <body>
+<div class = "applyform">
+	<h1>종료된 경매</h1>
+</div>
 
 <form name="frm_list" id="frm_list" method="post">
 	<div class="div_list">
@@ -34,7 +37,7 @@
 		<div class="search">
 			<div class="search_box">
 				<input type="text" name="findStr" id="findStr" placeholder="작가 또는 작품명" value="${page.findStr }"/>
-				<input type="button" id="btnResultSearch" value="🔎" onclick="search()"/>
+				<input type="button" id="btnSearch" value="🔎" onclick="search()"/>
 			</div>
 			<div class="search_option_boxes">
 				<!-- sort -->
@@ -42,10 +45,12 @@
 					<option value="default">정렬</option>
 					<option value="init_price_asce">낮은 시작가 순</option>
 					<option value="init_price_desc">높은 시작가 순</option>
+					<option value="current_price_asce">낮은 현재가 순</option>
+					<option value="current_price_desc">높은 현재가 순</option>
 					<option value="bid_history_cnt_asce">응찰 낮은 순</option>
 					<option value="bid_history_cnt_desc">응찰 많은 순</option>
 				</select>
-				<select class="page_combo2" name="page_combo2" id="page_combo2" onchange="search()">
+				<select class="page_combo2" name="cnt" id="page_combo2" onchange="search()">
 					<option value="10">개수</option>
 					<option value="10">10건씩</option>
 					<option value="20">20건씩</option>
@@ -76,8 +81,11 @@
 		</c:choose>
 		<div class="listBox">
 			<c:forEach var="vo" items="${list }">
-				<div class="listInner">
+				<div class="listInner" >
 					<p class="img"><img src="${vo.imgFile }" /></p>
+					<c:if test="${vo.crnt_status eq '경매종료' }">
+						<div class="closedArtwork">c l o s e d</div>
+					</c:if>
 					<div class="listInnerText">
 						<p class="painter">${vo.artist }</p>
 						<p class="art_name">${vo.artwork_name }</p>
@@ -85,17 +93,36 @@
 						<p class="paintSize">${vo.artwork_size }</p>
 						<div class="listInnerTextTitle">
 							<p>시작가</p>
-							<p class="currentPriceTitle">현재가</p>
+							<c:choose>
+								<c:when test="${vo.crnt_status eq '경매종료' }">
+									<p class="currentPriceTitle">낙찰가</p>
+								</c:when>
+								<c:otherwise>
+									<p class="currentPriceTitle">현재가</p>
+								</c:otherwise>
+							</c:choose>
+						<c:choose>
+								<c:when test="${not empty vo.direct_price }">
+									<p class="directPriceTitle">즉시 판매가</p>
+								</c:when>
+								<c:otherwise>
+									<p>　</p>
+								</c:otherwise>
+							</c:choose>
 						</div>
 						<div class="listInnerTextPrice">
 							<p class="minimumPrice">${vo.str_start_price }</p>
 							<p class="currentPrice">${vo.str_current_price }</p>
+							<c:choose>
+								<c:when test="${not empty vo.direct_price }">
+									<p class="directPrice">${vo.str_direct_price }</p>
+								</c:when>
+								<c:otherwise>
+								</c:otherwise>
+							</c:choose>
 						</div>
 						<div class="listInnerTextTail">
-							<p class="endDate">마감일</p>
-							<p class="bidCnt">응찰횟수</p>
-							<p class="endDate">${vo.due_date }</p>
-							<p class="bidCnt">${vo.str_bid_cnt }</p>
+							<p class="endDate">마감 ${vo.due_date }</p>
 						</div>
 					</div>
 				</div>
@@ -103,18 +130,19 @@
 		</div>
 		<div id="pageZone">
 			<c:if test="${page.startPage gt 1 }">
-				<input type="button" value="처음으로" onclick="artbay.page(1)"/>
-				<input type="button" value="&lt" onclick="artbay.page(${page.startPage - 1})"/>			
+				<input type="button" value="처음으로" onclick="rBid.winPage(1)" class="btnToFirst"/>
+				<input type="button" value="&lt" onclick="rBid.winPage(${page.startPage - 1})"/>			
 			</c:if>
 			<c:forEach var="i" begin="${page.startPage }" end="${page.endPage }">
-				<input type="button" value="${i }" onclick="artbay.page(${i})" />			
+				<input type="button" value="${i }" onclick="rBid.winPage(${i})" />			
 			</c:forEach>
 			<c:if test="${page.endPage lt page.totPage }">
-				<input type="button" value="&gt" onclick = "artbay.page(${page.endPage + 1})" />
-				<input type="button" value="끝으로" onclick="artbay.page(${page.totPage})" />
+				<input type="button" value="&gt" onclick = "rBid.winPage(${page.endPage + 1})" />
+				<input type="button" value="끝으로" onclick="rBid.winPage(${page.totPage})" class="btnToLast"/>
 			</c:if>
 		</div>
 		<div id="hiddenZone">
+			<input type='text' name='r_date' id='r_date' value="${page.r_date }">
 			<input type="text" name="nowPage" id="nowPage" value="${page.nowPage }"/>
 			<input type="text" name="lot" id="lot" value="${vo.lot }"/>
 		</div>

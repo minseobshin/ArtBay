@@ -20,9 +20,8 @@ public class bidResultController {
 @Autowired
 bidResultService service;
 ArtBayVo vo = null;
-Page page;
-
-//bidResult
+Page page = new Page();
+//bidResult 월별 낙찰
 @RequestMapping(value="/bidResult", method= {RequestMethod.POST, RequestMethod.GET})
 public ModelAndView bidResult(Page page, 
 		@RequestParam(value="rSort", required=false, defaultValue="default") String rSort ) { 
@@ -35,26 +34,28 @@ public ModelAndView bidResult(Page page,
 	mv.setViewName("bid.Result");
 	return mv;
 }
-@RequestMapping(value="/bidWinList", method= {RequestMethod.POST, RequestMethod.GET})
-public ModelAndView bidWinList(@RequestParam(value="findStr", required=false) String findStr,
-		@RequestParam(value="cnt", required=false, defaultValue="10") int cnt,
-		@RequestParam(value="nowPage", required=false, defaultValue="1") int nowPage,
-		@RequestParam(value="sort", required=false, defaultValue="default") String sort) {
+//월별 낙찰 상세보기
+@RequestMapping(value="/bidResultList", method= {RequestMethod.POST, RequestMethod.GET})
+public ModelAndView bidResultList(Page page,
+		@RequestParam(value="cnt", required=false, defaultValue="10") int cnt){
 	ModelAndView mv = new ModelAndView();
 	page.setListSize(cnt);
-	page.setFindStr(findStr);
-	page.setNowPage(nowPage);
-	page.setSort(sort);
-	List<ArtBayVo> list = service.winSearch(page, findStr);
+	List<ArtBayVo> list = service.bidResultsearch(page);
 	for(ArtBayVo vo : list) {
+		
 		vo.setStr_start_price(NumberFormat.getInstance().format(vo.getStart_price()));
+		if(vo.getCurrent_price()==null) vo.setCurrent_price(vo.getStart_price());
 		vo.setStr_current_price(NumberFormat.getInstance().format(vo.getCurrent_price()));
 		vo.setStr_bid_cnt(NumberFormat.getInstance().format(vo.getBid_cnt()));
+		if(vo.getDirect_price()!=null) vo.setStr_direct_price(NumberFormat.getInstance().format(vo.getDirect_price()));
+		vo.setStr_bid_price(NumberFormat.getInstance().format(vo.getBid_price()));
+		
 	}
+
 	page = service.getPage();
 	mv.addObject("page", page);
 	mv.addObject("list", list);
-	mv.setViewName("bid.list");
+	mv.setViewName("bid.win_list");
 	return mv;
 }	
 }

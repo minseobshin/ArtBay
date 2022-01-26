@@ -12,6 +12,7 @@ public class Page {
 	String sort="";
 	String rSort="";
 	
+	String r_date="";
 	
 
 	public Page() {}
@@ -69,4 +70,6 @@ public class Page {
 	public String getrSort() {return rSort;}
 	public void setrSort(String rSort) {this.rSort = rSort;}
 	
+	public String getR_date() {return r_date;}
+	public void setR_date(String r_date) {this.r_date = r_date;}
 }
