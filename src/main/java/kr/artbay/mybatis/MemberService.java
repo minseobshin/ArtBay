@@ -202,6 +202,7 @@ public class MemberService {
 					
 					try {
 						c = mapper.updateRanPwd(vvo);
+						vvo.setAddress(aes.decrypt(vvo.getAddress()));
 						if(c>0) {
 							manager.commit(status);
 							vvo.setAddress2("passCommit");
