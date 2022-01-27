@@ -27,7 +27,6 @@
 			<input type='hidden' name='nowPage' value='${page.nowPage }'>
 			<input type='search'  placeholder='검색어를 입력해 주세요' name='findStr' value='${page.findStr }'>
 			<input type='button' id='btnWinFind' value='검색'>
-			
 			<select class='rSort_order' name='rSort' style="width:90px;height:30px;" onchange="selectOrder(this)">
 				<option value='none'>경매 정렬</option>
 				<option value='asc'>경매일▲</option>
@@ -40,16 +39,14 @@
 			<div id='item'>
 				<span class='weekly_value'>${vo.due_date}</span>
 				<span class='weekly_title'>  온라인 경매</span><br/>
-				<span class='startDate_title'>경매시작일</span>
-				<span class='startDate_value'>2021-12-12</span><br/>
 				<span class='endDate_title' >경매종료일</span>	
-				<span class='endDate_value' >2021-12-22</span>	<br/>
+				<span class='endDate_value' >${vo.last_day }</span>	<br/>
 				<c:choose>
 				<c:when test="${ not empty vo.imgFile }">
-				<img src = 'http://placehold.it/120x160'/>
+				<img src = '${vo.imgFile }' height="160" width="160"/>
 				</c:when>
 				<c:otherwise>
-				<img src="">
+				<img src="http://placehold.it/120x160">
 				</c:otherwise>
 				</c:choose>
 				<input type='button' class='detail' name='btnDetail' value='상세보기' onclick="viewDetail('${vo.due_date}')">

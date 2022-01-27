@@ -50,8 +50,7 @@
 					</c:forEach>
 					</ul>
 				</div>
-			</c:if>
-		
+			</c:if>		
 		</div>
 		<input type='button' id='btnNoticeList' value='목록'>
 	</form>

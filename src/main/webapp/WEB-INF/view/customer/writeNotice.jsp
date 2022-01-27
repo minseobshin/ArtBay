@@ -36,7 +36,7 @@ $(function(){
 			<label>작성일</label>
 			<input type='date' name='not_date' readonly='readonly'/>
 			
-			<textarea id='summernote' rows="15" cols="120" name='doc'></textarea>
+			<textarea id='summernote' rows="15" cols="300" name='doc'></textarea>
 			
 		<br/>
 	</form>	
@@ -45,7 +45,7 @@ $(function(){
 		<input type='file' name='attFile' multiple="multiple"/> 
 		<input type='hidden' name='nowPage' value='${page.nowPage }'/>
 		<input type='hidden' name='findStr' value='${page.findStr }'/>
-		<input type='text' name='grp'/>
+		<input type='hidden' name='grp'/>
 		
 		<br/>
 	</form>
@@ -54,10 +54,10 @@ $(function(){
 		<input type='button' id='btnNoticeList' value='목록으로' >
 	</div>
 
-</div>
 	<script>
 		document.frm_notice.not_date.valueAsDate = new Date();
 	</script>
+</div>
 
 </body>
 </html>

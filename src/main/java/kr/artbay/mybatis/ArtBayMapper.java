@@ -77,7 +77,7 @@ public interface ArtBayMapper {
 	
 	//경매결과 조회
 	public List<ArtBayVo> bidResult(Page page);
-	public Integer bidTotSize(Page page);
+	public Integer bidTotSize(String findStr);
 	
 	public Integer resultTotSize(Page page);
 	public List<ArtBayVo> bidResultsearch(Page page);

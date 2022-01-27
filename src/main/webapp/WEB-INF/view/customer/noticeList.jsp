@@ -97,9 +97,10 @@
 			</form>	
 		</div>
 		
+</div>
 	</div>	
 	
-</div>
+
 
 <script src='./js/final_lsy.js'></script>
 </body>

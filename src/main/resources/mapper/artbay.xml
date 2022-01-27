@@ -252,7 +252,7 @@
 		ORDER BY winbid_date desc
 		limit ${startNo-1}, ${listSize}
 	</select>
-	<!-- 경매결과 월별 건수(파라미터 불러와야함)-->
+	<!-- 경매결과 월별 건수-->
 	<select id='bidTotSize' parameterType='kr.artbay.common.Page' resultType='Integer'>
 		select count(c.due) as 'result'
 		from(

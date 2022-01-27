@@ -21,16 +21,18 @@ public class bidResultService {
 		@Autowired
 		PlatformTransactionManager manager;	
 		TransactionStatus status;
-		Page page;
+		Page page = new Page();
 		
 		//월별 낙찰조회
-		public List<ArtBayVo> bidResult(Page p) {
+		public List<ArtBayVo> bidResult(Page page) {
 			List<ArtBayVo> list = null;
-			int totSize = mapper.bidTotSize(p);	
-			p.setTotSize(totSize);
-			this.page = p;
-			list = mapper.bidResult(p);	
-			System.out.println(p.getEndNo());
+			int totSize = mapper.bidTotSize(page.getFindStr());	
+			page.setTotSize(totSize);
+		
+			this.page = page;
+		
+			System.out.println("이거"+page.getEndPage());
+			list = mapper.bidResult(page);	
 			return list;
 		} 
 		//상세조회

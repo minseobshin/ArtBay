@@ -195,36 +195,33 @@ rBid.winPage = function(nowPage){
 	$('#close-area').click(function(){
 		$('#deleteNotice_alert').hide();
 	})
-	//저장확인 메시지 모달창 확인
-	$('#btnConfirmInsert').click(function(){
-		$('#insertNotice_alert').hide();
-	})
 	
-	
+		
 	//응찰내역에서 응찰신청=============================================================
 	$('#btnRequestApplication').click(function(){
 		location.href='./bidApplication';
 	})
-	
 		//공지 저장 버튼
-	$('#btnSaveNotice').click(function(){
-		
+	$('#btnSaveNotice').click(function(){		
 			$param = $('#frm_notice').serialize();
 			$.post('noticeSave', $param, function(data){
 				var json = JSON.parse(data);
 				if(json.flag=='OK'){ //공지 vo가 저장 성공했을 때
+					$('#result_alert').show();
 					var $fd = $('#frm_noticeUpload')[0];
 					$fd.grp.value = json.grp;
 					$fd.enctype = "multipart/form-data";
 					$fd.action = "ntcFileUp";
-					$fd.submit();
-					alert("공지가 저장되었습니다.");
+					$fd.submit();				
 				}else{
 					alert("공지 저장 중 오류 발생");
 				}
 			})
 		}
 	)
+	$('#btnConfirm').click(function(){
+		$('#result_alert').hide();
+	})
 	
 	//경매결과 창에서 검색
 	$('#btnWinFind').click(function(){	

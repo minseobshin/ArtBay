@@ -360,13 +360,14 @@
 	width:1080px;
 	margin:10px auto;
 	min-height:900px;
+
 }
 
 /*noticeView*/
 #noticeView{
 	width:1280px;
 	margin:10px auto;
-	min-height:600px;
+	min-height:500px;
 }
 
 #noticeView h1{
@@ -379,7 +380,7 @@
 #noticeView #noticeView_sub{
 	border-top:2px solid #333;
 	border-bottom:2px solid #333;
-	min-height:400px;
+	min-height:500px;
 	line-height:1.5em;
 	/* overflow:scroll; */
 	overflow: auto;
@@ -399,7 +400,7 @@
 	
 }
 #noticeView #noticeView_sub span{
-	margin-left:750px;
+	margin-left:950px;
 }
 #noticeView #btnNoticeList{
 	margin-top:30px;
@@ -421,7 +422,7 @@
 #frm_notice #attList{
 	border:1px solid #000;
 	width:800px;
-	height:100px;
+	height:80px;
 	overflow:scroll;	
 	text-align:left;
 	margin-left:350px;
@@ -431,7 +432,8 @@
 	width:80px;
 	height:40px;
 	text-align:center;
-	
+	margin-left:700px;
+	margin-top:30px;
 }
 /* customerWriteNotice*/
 #writeNotice{
@@ -454,7 +456,7 @@
 
 #writeNotice form{
 	display:inline-block;
-	margin-left:200px;
+	margin-left:300px;
 	
 }
 #writeNotice form label{
@@ -585,6 +587,7 @@
 	display:block;
 	margin-right:20px;
 }
+
 .clicked_menu{
 	border:2px solid #000;
 }

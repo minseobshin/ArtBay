@@ -79,9 +79,11 @@ public class ArtBayVo {
 	String doc;
 	String not_date;
 	
-	
+	//경매결과창
+	String last_day;
 	//QNA
 	int qna_num;
+	
 	String qna_title;
 	String qna_doc;
 	String qna_date;
@@ -278,5 +280,6 @@ public class ArtBayVo {
 	public void setMasked_mid(String masked_mid) {this.masked_mid = masked_mid;}
 	public String getStr_bid_price() {return str_bid_price;}
 	public void setStr_bid_price(String str_bid_price) {this.str_bid_price = str_bid_price;}
-	
+	public String getLast_day() {return last_day;}
+	public void setLast_day(String last_day) {this.last_day = last_day;}
 }

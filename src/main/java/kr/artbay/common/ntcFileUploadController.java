@@ -50,13 +50,16 @@ public class ntcFileUploadController {
 					attList.add(att);
 				}
 				vo.setAttList(attList);
+				page = service.getPage();
 				b = service.insertNtcAtt(vo);
+				List<ArtBayVo> list = service.noticeSearch(page);
 				if(b) {
 					msg = "처리 완료. 문제 없음";
 				}else {
 					msg = "파일 업로드 중 오류발생";
 				}
 				mv.addObject("msg", msg);
+				mv.addObject("list", list);
 				mv.addObject("page", page);
 				mv.setViewName("customer.noticeList");
 				
