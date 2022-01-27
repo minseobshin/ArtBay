@@ -55,7 +55,14 @@
 	text-align:center;
 	vertical-align:middle;
 }
-#auction #items .num, .artist, .requestPrice, .successPrice {
+
+#auction #items .artist{
+	display:inline-block;
+	width:200px;
+	text-align:center;
+	vertical-align:middle;
+}
+#auction #items .num, .requestPrice, .successPrice {
 	display:inline-block;
 	width:120px;
 	text-align:center;
