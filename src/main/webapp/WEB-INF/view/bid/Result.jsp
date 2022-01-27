@@ -37,9 +37,9 @@
 	<div id='list'>
 		<c:forEach var='vo' items='${list }'>
 			<div id='item'>
-				<span class='weekly_value'>${vo.due_date}</span>
-				<span class='weekly_title'>  온라인 경매</span><br/>
-				<span class='endDate_title' >경매종료일</span>	
+				<span class='weekly_value'>${vo.r_date}</span>
+				<span class='weekly_title'>  등록된 온라인 경매 결과</span><br/>
+				<span class='endDate_title' >마지막 등록일</span>	
 				<span class='endDate_value' >${vo.last_day }</span>	<br/>
 				<c:choose>
 				<c:when test="${ not empty vo.imgFile }">
@@ -49,7 +49,7 @@
 				<img src="http://placehold.it/120x160">
 				</c:otherwise>
 				</c:choose>
-				<input type='button' class='detail' name='btnDetail' value='상세보기' onclick="viewDetail('${vo.due_date}')">
+				<input type='button' class='detail' name='btnDetail' value='상세보기' onclick="viewDetail('${vo.r_date}')">
 			</div>
 		</c:forEach>	
 		<input type='hidden' name='r_date' >

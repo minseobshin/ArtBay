@@ -81,6 +81,8 @@ public class ArtBayVo {
 	
 	//경매결과창
 	String last_day;
+	String r_date;
+	
 	//QNA
 	int qna_num;
 	
@@ -282,4 +284,6 @@ public class ArtBayVo {
 	public void setStr_bid_price(String str_bid_price) {this.str_bid_price = str_bid_price;}
 	public String getLast_day() {return last_day;}
 	public void setLast_day(String last_day) {this.last_day = last_day;}
+	public String getR_date() {return r_date;}
+	public void setR_date(String r_date) {this.r_date = r_date;	}
 }

@@ -30,8 +30,6 @@ public class bidResultService {
 			page.setTotSize(totSize);
 		
 			this.page = page;
-		
-			System.out.println("이거"+page.getEndPage());
 			list = mapper.bidResult(page);	
 			return list;
 		} 

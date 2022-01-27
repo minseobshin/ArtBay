@@ -254,23 +254,21 @@
 	</select>
 	<!-- 경매결과 월별 건수-->
 	<select id='bidTotSize' parameterType='kr.artbay.common.Page' resultType='Integer'>
-		select count(c.due) as 'result'
+		select count(c.r_date) as 'result'
 		from(
-			select month(due_date) as due
-			from artwork 
-			where crnt_status="경매종료" and 
-			(artwork_name like "%${findStr}%" or artwork_ctgr like "%${findStr}%" or artist like "%${findStr}%" or mid like "%${findStr}%")
-			group by month(due_date)
+		select date_format(A.regist_date, "%Y-%m") as r_date from artwork A join artimg I on A.lot = I.lot
+		where A.crnt_status="경매종료" and A.current_price is not null and thumbnail="Y" and
+		(A.artwork_name like "%${findStr}%" or A.artwork_ctgr like "%${findStr}%" or A.artist like "%${findStr}%" or A.mid like "%${findStr}%")
+		group by r_date 
 		)as c
 	</select>
 	<!-- 경매결과 월별조회-->
 	<select id='bidResult' parameterType='kr.artbay.common.Page' resultType="kr.artbay.common.ArtBayVo">
-		select date_format(due_date, "%y-%m") due_date
-		from artwork 
-		where crnt_status="경매종료" and 
-		(artwork_name like "%${findStr}%" or artwork_ctgr like "%${findStr}%" or artist like "%${findStr}%" or mid like "%${findStr}%")
-		group by month(due_date)
-		ORDER BY due_date
+		select A.lot, A.artwork_name, date_format(A.regist_date, "%Y-%m") as r_date, date_format(max(A.regist_date), "%y-%m-%d") as last_day, I.imgFile from artwork A join artimg I on A.lot = I.lot
+		where A.crnt_status="경매종료" and A.current_price is not null and thumbnail="Y" and
+		(A.artwork_name like "%${findStr}%" or A.artwork_ctgr like "%${findStr}%" or A.artist like "%${findStr}%" or A.mid like "%${findStr}%")
+		group by r_date 
+		order by r_date	
 		<choose>
 			<when test="rSort eq 'none'"> asc</when>
 			<when test="rSort eq 'asc'">asc</when>
@@ -282,13 +280,13 @@
 	<!-- 월별 낙찰된 경매 결과 페이징 -->
 	<!-- 월별 낙찰된 경매 결과 보기 -->
 	<select id="bidResultsearch" parameterType="kr.artbay.common.Page" resultType="kr.artbay.common.ArtBayVo">
-		select a.lot, a.mid, a.artwork_name, a.artwork_ctgr, a.artist, a.material, a.artwork_size, a.contents, a.etc, a.start_price,
-		a.current_price, date_format(a.regist_date, '%y-%m-%d') as regist_date,
-		date_format(a.due_date, '%y-%m-%d') as due_date, a.hit, a.direct_price, a.bid_cnt, a.crnt_status,
-		b.serial, b.imgFile, b.thumbnail 
-		from artwork a join artimg b on a.lot=b.lot and b.thumbnail="Y" 
-		where (a.mid like '%${findStr}%' or a.artist like '%${findStr}%' or a.artwork_name like '%${findStr}%' or a.artwork_ctgr like '%${findStr}%')
-		and crnt_status="경매종료" and due_date like "%${r_date}%"
+		select A.lot, A.mid, A.artwork_name, A.artwork_ctgr, A.artist, A.material, A.artwork_size, A.contents, A.etc, A.start_price,
+		A.current_price, date_format(A.regist_date, '%y-%m-%d') as regist_date,
+		A.hit, A.direct_price, A.bid_cnt, A.crnt_status,
+		I.serial, I.imgFile, I.thumbnail 
+		from artwork A join artimg I on A.lot=I.lot
+		where (A.mid like '%${findStr}%' or A.artist like '%${findStr}%' or A.artwork_name like '%${findStr}%' or A.artwork_ctgr like '%${findStr}%')
+		and A.crnt_status="경매종료" and A.current_price is not null and thumbnail="Y" and regist_date like "%${r_date}%"
 		order by
 		<choose>
 			<when test="sort eq 'default'"> a.due_date desc</when>
@@ -304,9 +302,9 @@
 	</select>
 	
 	<select id='resultTotSize' parameterType='kr.artbay.common.Page' resultType='Integer'>
-		select count(a.lot)
-		from artwork a join artimg b on a.lot=b.lot and b.thumbnail="Y" 
-		where crnt_status="경매종료" and due_date like "%${r_date}%"
+		select count(A.lot)
+		from artwork A join artimg I on A.lot=I.lot and I.thumbnail="Y" 
+		where A.crnt_status="경매종료" and A.current_price is not null and thumbnail="Y" and regist_date like "%${r_date}%"		
 		order by due_date desc;
 	</select>
 	

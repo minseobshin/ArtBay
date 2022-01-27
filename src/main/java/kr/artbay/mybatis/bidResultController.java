@@ -26,7 +26,6 @@ Page page = new Page();
 public ModelAndView bidResult(Page page,
 		@RequestParam(value="rSort", required=false, defaultValue="default") String rSort ) { 
 	ModelAndView mv = new ModelAndView();
-	System.out.println("여기"+page.getFindStr());
 	List<ArtBayVo> list = service.bidResult(page); //service=>dao역할
 	page = service.getPage();
 	mv.addObject("page", page);
