@@ -2,18 +2,16 @@ package kr.artbay.common;
 
 public class Page {
 	int startNo, endNo;
-	int listSize = 10, blockSize=5, totSize;
+	int listSize = 10, blockSize=5, totSize;	//listSize : 한 페이지 당 조회 건수
 	int startPage, endPage, totPage;
 	int nowPage=1;
-	String findCol="";
-	String findType="";
-	String findStr="";
-	String mid = "";
-	String sort="";
-	String rSort="";
-	
-	
-	String r_date="";
+	String findCol="";			
+	String findType="";			
+	String findStr="";			//검색어
+	String mid = "";			//작가명
+	String sort="";				//정렬 방법
+	String rSort="";			
+	String r_date="";			
 	
 
 	public Page() {}
