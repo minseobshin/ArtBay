@@ -57,7 +57,7 @@
 		where a.mid like '%${findStr}%' or a.artist like '%${findStr}%' or a.artwork_name like '%${findStr}%' or a.artwork_ctgr like '%${findStr}%'
 		order by
 		<choose>
-			<when test="sort eq 'default'"> a. crnt_status desc, a.due_date desc</when>
+			<when test="sort eq 'default'"> a. crnt_status desc, a.artist asc, a.due_date desc</when>
 			<when test="sort eq 'init_price_asce'"> a.start_price asc</when>
 			<when test="sort eq 'init_price_desc'"> a.start_price desc</when>
 			<when test="sort eq 'bid_history_cnt_asce'"> a.bid_cnt asc</when>
