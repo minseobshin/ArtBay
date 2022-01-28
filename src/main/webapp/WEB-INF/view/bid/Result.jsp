@@ -31,7 +31,7 @@
 				<option value='none'>경매 정렬</option>
 				<option value='asc'>경매일▲</option>
 				<option value='desc'>경매일▼</option>
-			</select>
+			</select> 
 		</div>
 	
 	<div id='list'>
