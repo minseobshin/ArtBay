@@ -362,14 +362,4 @@ function thumbnailChange(src){
 function thumbnailMagnify(src, div){
 	div.show();
 	$(".thumbnailHiddenImg").attr("src", src);
-	/*
-	if($(".thumbnailHidden").css("display")=="none"){
-		console.log("뭔데")
-	}else{
-		console.log("됨")
-		$(window).on("click", function(event) {
-			console.log("됨!!")
-			console.log(event.target.attr("class"))
-	    });
-	}*/
 }

@@ -124,11 +124,11 @@ public class ListViewController {
 			@RequestParam(value="nowPage", required=false, defaultValue="1") int nowPage,
 			@RequestParam(value="sort", required=false, defaultValue="default") String sort) {
 		ModelAndView mv = new ModelAndView();
-		page.setListSize(cnt);
-		page.setFindStr(findStr);
-		page.setNowPage(nowPage);
-		page.setSort(sort);
-		List<ArtBayVo> list = service.search(page, findStr);
+		page.setListSize(cnt);			//페이징 처리 클래스의 페이지 당 조회 건수 변경
+		page.setFindStr(findStr);		//페이징 처리 클래스의 검색어 변경
+		page.setNowPage(nowPage);		//페이징 처리 클래스의 현재 페이지 변경
+		page.setSort(sort);				//페이징 처리 클래스의 정렬 방식 변경
+		List<ArtBayVo> list = service.search(page, findStr);		//페이징 처리 클래스를 변수로 하는 service 호출
 		
 		for(ArtBayVo vo : list) {
 			vo.setStr_start_price(NumberFormat.getInstance().format(vo.getStart_price()));

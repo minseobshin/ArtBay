@@ -132,18 +132,19 @@
 				</li>
 			<br/>
 			<c:choose>
-				<c:when test="${not empty sessionScope.sv.mid}">
+				<c:when test="${not empty sessionScope.sv.mid}"> 						<!-- session에서 로그인한 id가 있을 때 -->
 					<c:choose>
-						<c:when test="${vo.crnt_status eq '경매종료' }">
+						<c:when test="${vo.crnt_status eq '경매종료' }">						<!-- 로그인하였을 때 : 경매가 종료되었을 때 -->
 							<input type="text" class="btnBidStart" value="경매 기간이 종료되었습니다." readonly="readonly" style="text-align: center;"/>
 						</c:when>
-						<c:otherwise>
+						<c:otherwise>														<!-- 로그인하였을 때 : 경매가 진행중일 때 -->
 							<input type="button" class="btnBidStart" value="응찰하기" onclick="modalOn($('.bid_price'))"/>
 						</c:otherwise>
 					</c:choose>
 				</c:when>
-				<c:otherwise>
-					<input type="button" class="btnBidStart" id="needLogin" style="background-color: rgb(255, 109, 45); border: 1px solid rgb(255, 109, 45);"value="로그인하시면 응찰이 가능합니다."/>
+				<c:otherwise>															<!-- 로그인하지 않았을 때 -->
+					<input type="button" class="btnBidStart" id="needLogin" style="background-color: rgb(255, 109, 45);
+					border: 1px solid rgb(255, 109, 45);"value="로그인하시면 응찰이 가능합니다."/>
 				</c:otherwise>
 			</c:choose>
 		</div>

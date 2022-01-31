@@ -34,7 +34,6 @@ public class ListViewService {
 	
 	public List<ArtBayVo> search(Page page, String findStr){
 		List<ArtBayVo> list = null;
-		page.setFindStr(findStr);
 		int totSize = mapper.totSize(findStr);
 		page.setTotSize(totSize);
 		this.page = page;
