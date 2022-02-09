@@ -1,3 +1,21 @@
+function artbay(){}
+
+//목록에서 작품 클릭 시 작품 상세 조회 페이지로 전환
+artbay.view = function(lot){	
+	$.ajax({
+		url: "/bidView",
+		cache: false,
+		type: "POST",
+		data: {
+			lot : lot,
+			nowPage : 1
+		},
+		success: function(){
+			window.location.href = "bidView?lot="+lot+"&nowPage=1";
+		}
+	});
+}
+
 $(function() {
 	//메인 비주얼	
 	setMainVisual();	
