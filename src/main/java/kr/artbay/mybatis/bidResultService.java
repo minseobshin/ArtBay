@@ -28,8 +28,8 @@ public class bidResultService {
 			List<ArtBayVo> list = null;
 			int totSize = mapper.bidTotSize(page.getFindStr());	
 			page.setTotSize(totSize);
-		
 			this.page = page;
+	    page.setStartNo(page.getStartNo()-1);
 			list = mapper.bidResult(page);	
 			return list;
 		} 
@@ -39,6 +39,7 @@ public class bidResultService {
 			int totSize = mapper.resultTotSize(page);
 			page.setTotSize(totSize);
 			this.page = page;
+	    page.setStartNo(page.getStartNo()-1);
 			list = mapper.bidResultsearch(page);
 			return list;
 		} 

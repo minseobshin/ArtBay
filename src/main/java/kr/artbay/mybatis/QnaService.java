@@ -38,7 +38,7 @@ public class QnaService {
 		page.setTotSize(ts);
 		page.pageCompute();
 		this.page = page;
-		
+    page.setStartNo(page.getStartNo()-1);
 		//페이지 객체에서 계산된 startNo부터 listSize 만큼 조회
 		List<ArtBayVo> list = mapper.qnaSearch(page);
 		return list;

@@ -46,7 +46,7 @@
 
 	<select id="totSize" parameterType="String" resultType="Integer">
 		select count(lot) totSize from artwork
-		where mid like '%${_parameter}%' or artwork_name like '%${_parameter}%' or artwork_ctgr like '%${_parameter}%'
+		where mid like CONCAT('%',#{_parameter},'%') or artwork_name like CONCAT('%',#{_parameter},'%') or artwork_ctgr like CONCAT('%',#{_parameter},'%')
 	</select>
 	
 	<select id="search" parameterType="kr.artbay.common.Page" resultType="kr.artbay.common.ArtBayVo">
@@ -54,7 +54,7 @@
 		a.current_price, date_format(a.regist_date, '%y-%m-%d') as regist_date,
 		date_format(a.due_date, '%y-%m-%d') as due_date, a.hit, a.direct_price, a.bid_cnt, a.crnt_status,
 		b.serial, b.imgFile, b.thumbnail from artwork a join artimg b on a.lot=b.lot and b.thumbnail="Y" 
-		where a.mid like '%${findStr}%' or a.artist like '%${findStr}%' or a.artwork_name like '%${findStr}%' or a.artwork_ctgr like '%${findStr}%'
+		where a.mid like CONCAT('%',#{findStr},'%') or a.artist like CONCAT('%',#{findStr},'%') or a.artwork_name like CONCAT('%',#{findStr},'%') or a.artwork_ctgr like CONCAT('%',#{findStr},'%')
 		order by
 		<choose>
 			<when test="sort eq 'default'"> a. crnt_status desc, a.artist asc, a.due_date desc</when>
@@ -66,7 +66,7 @@
 			<when test="sort eq 'current_price_desc'"> a.current_price desc</when>
 			<otherwise> due_date desc</otherwise>
 		</choose>
-		limit ${startNo-1}, ${listSize}
+		limit #{startNo}, #{listSize}
 	</select>
 	
 	<!-- main list -->
@@ -75,15 +75,15 @@
 	</select>
 	
 	<insert id="bidApply" parameterType="kr.artbay.common.ArtBayVo">
-		insert into bidding(lot, mid, bid_price, bid_date) values(${lot}, #{mid}, #{bid_price}, now());
+		insert into bidding(lot, mid, bid_price, bid_date) values(#{lot}, #{mid}, #{bid_price}, now());
 	</insert>
 	
 	<select id="viewBids" parameterType="Integer" resultType="kr.artbay.common.ArtBayVo">
-		select mid, bid_price, bid_date from bidding where lot=${_parameter};
+		select mid, bid_price, bid_date from bidding where lot=#{_parameter};
 	</select>
 	
 	<select id="countBids" parameterType="Integer" resultType="Integer">
-		select count(*) from bidding where lot=${_parameter};
+		select count(*) from bidding where lot=#{_parameter};
 	</select>
 	
 	<select id="viewBidHistoryAll" resultType="kr.artbay.common.ArtBayVo">
@@ -92,11 +92,11 @@
 	</select>
 	
 	<update id="updateCurrentPrice" parameterType="Integer">
-		update artwork set current_price =(select max(bid_price) from bidding where lot=${_parameter}) where lot=${_parameter};
+		update artwork set current_price =(select max(bid_price) from bidding where lot=#{_parameter}) where lot=#{_parameter};
 	</update>
 	
 	<update id="updateBidCnt" parameterType="Integer">
-		update artwork set bid_cnt = bid_cnt+1 where lot = ${_parameter}
+		update artwork set bid_cnt = bid_cnt+1 where lot = #{_parameter}
 	</update>
 	
 	<select id="bidOnGoing" resultType="kr.artbay.common.ArtBayVo">
@@ -104,7 +104,7 @@
 	</select>
 	
 	<update id="updateStatus" parameterType="Integer">
-		update artwork set crnt_status="경매종료" where lot=${_parameter};
+		update artwork set crnt_status="경매종료" where lot=#{_parameter};
 	</update>
 	
 	<update id="updateStatusAll" parameterType="kr.artbay.scheduler.GetTime">
@@ -112,27 +112,27 @@
 	</update>
 	
 	<update id="directPurchase" parameterType="kr.artbay.common.ArtBayVo">
-		update artwork set current_price=${direct_price}, crnt_status="경매종료" where lot=${lot}
+		update artwork set current_price=#{direct_price}, crnt_status="경매종료" where lot=#{lot}
 	</update>
 	
 	<insert id="directPurchaseHistory" parameterType="kr.artbay.common.ArtBayVo">
-		insert into bidding(lot, mid, bid_price, bid_date) values (${lot}, #{mid}, ${direct_price}, #{winbid_date});
+		insert into bidding(lot, mid, bid_price, bid_date) values (#{lot}, #{mid}, #{direct_price}, #{winbid_date});
 	</insert>
 	
 	<insert id="directPurchaseInsert" parameterType="kr.artbay.common.ArtBayVo">
-		insert into winning_bid values(${lot}, #{mid}, ${direct_price}, #{winbid_date}, 'direct');
+		insert into winning_bid values(#{lot}, #{mid}, #{direct_price}, #{winbid_date}, 'direct');
 	</insert>
 	
 	<select id="getDirectInfo" parameterType="Integer" resultType="kr.artbay.common.ArtBayVo">
-		select * from artwork where lot=${_parameter};
+		select * from artwork where lot=#{_parameter};
 	</select>
 	
 	<select id="getBidCounts" parameterType="Integer" resultType="Integer">
-		select count(serial) bid_cnt from bidding where lot=${_parameter};
+		select count(serial) bid_cnt from bidding where lot=#{_parameter};
 	</select>
 	
 	<update id="updateBidCounts" parameterType="kr.artbay.common.ArtBayVo">
-		update artwork set bid_cnt = ${bid_cnt} where lot=${lot};
+		update artwork set bid_cnt = #{bid_cnt} where lot=#{lot};
 	</update>
 	
 	
@@ -155,14 +155,14 @@
 	</select>
 	
 	<select id="view" parameterType="Integer" resultType="kr.artbay.common.ArtBayVo">
-		select * from artwork where lot = ${_parameter}
+		select * from artwork where lot = #{_parameter}
 	</select>
 	<update id="hit_up" parameterType="Integer">
 		update artwork set hit = hit+1 where lot = #{_parameter}
 	</update>
 	
 	<select id="viewOthers" parameterType="Integer" resultType="kr.artbay.common.ArtBayAtt">
-		select * from artimg where thumbnail='Y' and lot in (select lot from artwork where artist=(select artist from artwork where lot=${_parameter}))
+		select * from artimg where thumbnail='Y' and lot in (select lot from artwork where artist=(select artist from artwork where lot=#{_parameter}))
 	</select>
 	
 	<select id="attList" parameterType="Integer" resultType="kr.artbay.common.ArtBayAtt">
@@ -178,15 +178,15 @@
 	
 	<!-- 공지 리스트 조회 건수 -->
 	<select id="noticeTotSize" parameterType="String" resultType="Integer">
-		SELECT COUNT(serial) FROM notice WHERE title LIKE '%${_parameter}%'
+		SELECT COUNT(serial) FROM notice WHERE title LIKE CONCAT('%',#{_parameter},'%')
 	</select>
 	<!-- 공지 리스트 조회-->
 	<select id="noticeSearch" parameterType="kr.artbay.common.Page" resultType="kr.artbay.common.ArtBayVo">
 		SELECT serial, title, doc, hit, date_format(not_date, "%y-%m-%d") not_date
 		FROM notice
-		WHERE title LIKE '%${findStr}%'
+		WHERE title LIKE CONCAT('%',#{findStr},'%')
 		ORDER BY serial DESC 
-		LIMIT ${startNo-1}, ${listSize}
+		LIMIT #{startNo}, #{listSize}
 	</select>
 	
 	<!-- 공지 클릭 시 -->
@@ -203,7 +203,7 @@
 	<delete id='deleteNotice' parameterType='list'> 
 		delete from notice where serial in
 			<foreach collection="list" item="item" open="(" close=")" separator=",">
-				${item}
+				#{item}
 			</foreach>
 	</delete>
 	<!-- 공지 작성 -->
@@ -233,7 +233,7 @@
 		on B.lot = A.lot
 		where B.mid = #{mid}
 		ORDER BY bid_date desc
-		limit ${startNo-1}, ${listSize}
+		limit #{startNo}, #{listSize}
 	</select>
 
 	<!-- 낙찰내역 건수 조회 -->	
@@ -250,7 +250,7 @@
 		on W.lot = A.lot
 		where A.crnt_status="경매종료" and W.mid=#{mid}
 		ORDER BY winbid_date desc
-		limit ${startNo-1}, ${listSize}
+		limit #{startNo}, #{listSize}
 	</select>
 	<!-- 경매결과 월별 건수-->
 	<select id='bidTotSize' parameterType='kr.artbay.common.Page' resultType='Integer'>
@@ -258,7 +258,7 @@
 		from(
 		select date_format(A.regist_date, "%Y-%m") as r_date from artwork A join artimg I on A.lot = I.lot
 		where A.crnt_status="경매종료" and A.current_price is not null and thumbnail="Y" and
-		(A.artwork_name like "%${findStr}%" or A.artwork_ctgr like "%${findStr}%" or A.artist like "%${findStr}%" or A.mid like "%${findStr}%")
+		(A.artwork_name like CONCAT('%',#{findStr},'%') or A.artwork_ctgr like CONCAT('%',#{findStr},'%') or A.artist like CONCAT('%',#{findStr},'%') or A.mid like CONCAT('%',#{findStr},'%'))
 		group by r_date 
 		)as c
 	</select>
@@ -266,7 +266,7 @@
 	<select id='bidResult' parameterType='kr.artbay.common.Page' resultType="kr.artbay.common.ArtBayVo">
 		select A.lot, A.artwork_name, date_format(A.regist_date, "%Y-%m") as r_date, date_format(max(A.regist_date), "%y-%m-%d") as last_day, I.imgFile from artwork A join artimg I on A.lot = I.lot
 		where A.crnt_status="경매종료" and A.current_price is not null and thumbnail="Y" and
-		(A.artwork_name like "%${findStr}%" or A.artwork_ctgr like "%${findStr}%" or A.artist like "%${findStr}%" or A.mid like "%${findStr}%")
+		(A.artwork_name like CONCAT('%',#{findStr},'%') or A.artwork_ctgr like CONCAT('%',#{findStr},'%') or A.artist like CONCAT('%',#{findStr},'%') or A.mid like CONCAT('%',#{findStr},'%'))
 		group by r_date 
 		order by r_date	
 		<choose>
@@ -274,37 +274,37 @@
 			<when test="rSort eq 'asc'">asc</when>
 			<otherwise>desc</otherwise>
 		</choose>
-		limit ${startNo-1}, ${listSize}
+		limit #{startNo}, #{listSize}
 	</select>
 	<!-- 경매결과 첫날/마지막날 불러오기 -->
 	<!-- 월별 낙찰된 경매 결과 페이징 -->
 	<!-- 월별 낙찰된 경매 결과 보기 -->
 	<select id="bidResultsearch" parameterType="kr.artbay.common.Page" resultType="kr.artbay.common.ArtBayVo">
 		select A.lot, A.mid, A.artwork_name, A.artwork_ctgr, A.artist, A.material, A.artwork_size, A.contents, A.etc, A.start_price,
-		A.current_price, date_format(A.regist_date, '%y-%m-%d') as regist_date,
+		A.current_price, date_format(A.regist_date, '%y-%m-%d') as regist_date,   date_format(A.due_date, '%y-%m-%d') as due_date,
 		A.hit, A.direct_price, A.bid_cnt, A.crnt_status,
 		I.serial, I.imgFile, I.thumbnail 
 		from artwork A join artimg I on A.lot=I.lot
-		where (A.mid like '%${findStr}%' or A.artist like '%${findStr}%' or A.artwork_name like '%${findStr}%' or A.artwork_ctgr like '%${findStr}%')
-		and A.crnt_status="경매종료" and A.current_price is not null and thumbnail="Y" and regist_date like "%${r_date}%"
+		where (A.mid like CONCAT('%',#{findStr},'%') or A.artist like CONCAT('%',#{findStr},'%') or A.artwork_name like CONCAT('%',#{findStr},'%') or A.artwork_ctgr like CONCAT('%',#{findStr},'%'))
+		and A.crnt_status="경매종료" and A.current_price is not null and thumbnail="Y" and regist_date like CONCAT('%',#{r_date},'%')
 		order by
 		<choose>
-			<when test="sort eq 'default'"> a.due_date desc</when>
-			<when test="sort eq 'init_price_asce'"> a.start_price asc</when>
-			<when test="sort eq 'init_price_desc'"> a.start_price desc</when>
-			<when test="sort eq 'bid_history_cnt_asce'"> a.bid_cnt asc</when>
-			<when test="sort eq 'bid_history_cnt_desc'"> a.bid_cnt desc</when>
-			<when test="sort eq 'current_price_asce'"> a.current_price asc</when>
-			<when test="sort eq 'current_price_desc'"> a.current_price desc</when>
-			<otherwise> due_date desc</otherwise>
+			<when test="sort eq 'default'"> A.due_date desc</when>
+			<when test="sort eq 'init_price_asce'"> A.start_price asc</when>
+			<when test="sort eq 'init_price_desc'"> A.start_price desc</when>
+			<when test="sort eq 'bid_history_cnt_asce'"> A.bid_cnt asc</when>
+			<when test="sort eq 'bid_history_cnt_desc'"> A.bid_cnt desc</when>
+			<when test="sort eq 'current_price_asce'"> A.current_price asc</when>
+			<when test="sort eq 'current_price_desc'"> A.current_price desc</when>
+			<otherwise> A.due_date desc</otherwise>
 		</choose>
-		limit ${startNo-1}, ${listSize}
+		limit #{startNo}, #{listSize}
 	</select>
 	
 	<select id='resultTotSize' parameterType='kr.artbay.common.Page' resultType='Integer'>
 		select count(A.lot)
 		from artwork A join artimg I on A.lot=I.lot and I.thumbnail="Y" 
-		where A.crnt_status="경매종료" and A.current_price is not null and thumbnail="Y" and regist_date like "%${r_date}%"		
+		where A.crnt_status="경매종료" and A.current_price is not null and thumbnail="Y" and regist_date like CONCAT('%',#{r_date},'%')		
 		order by due_date desc;
 	</select>
 	
@@ -332,7 +332,7 @@
 				AND QNA_TYPE = #{findType}	
 			</if>
 			<if test="findCol != ''">
-				AND ${findCol} LIKE '%${findStr}%'
+				AND #{findCol} LIKE CONCAT('%',#{findStr},'%')
 			</if>
 		</where>		
 	</select>
@@ -358,13 +358,13 @@
 				AND QNA_TYPE = #{findType}	
 			</if>
 			<if test="findCol != ''">
-				AND ${findCol} LIKE '%${findStr}%'
+				AND #{findCol} LIKE CONCAT('%',#{findStr},'%')
 			</if>
 		</where>	
 		ORDER BY 
 			GRP DESC, SEQ ASC 
 		LIMIT 
-			${startNo-1}, ${listSize}
+			#{startNo}, #{listSize}
 	</select>
 	
 	<!-- QNA 상세조회 -->
@@ -419,13 +419,13 @@
 	<!-- SEQ 증가 -->
 	<update id="qnaSeqUp" parameterType="kr.artbay.common.ArtBayVo">
 		UPDATE qna SET SEQ = SEQ + 1
-		WHERE GRP = ${grp} AND SEQ > ${seq}
+		WHERE GRP = #{grp} AND SEQ > #{seq}
 	</update>
 	
 	<!-- 댓글 작성 -->
 	<insert id="reply" parameterType="kr.artbay.common.ArtBayVo">
 		INSERT INTO qna(QNA_NUM, GRP, SEQ, DEEP, MID, QNA_PWD, QNA_TITLE, QNA_DOC, QNA_DATE, QNA_STATUS, QNA_TYPE) 
-		VALUES(getQnaSerial('i'), #{grp}, ${seq+1}, ${deep+1}, #{mid}, #{qna_pwd}, #{qna_title}, #{qna_doc}, now(), #{qna_status}, #{qna_type})
+		VALUES(getQnaSerial('i'), #{grp}, #{seq}+1, #{deep}+1, #{mid}, #{qna_pwd}, #{qna_title}, #{qna_doc}, now(), #{qna_status}, #{qna_type})
 	</insert>
 	
 	<!-- 수정 -->

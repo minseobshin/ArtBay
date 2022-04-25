@@ -37,6 +37,7 @@ public class ListViewService {
 		int totSize = mapper.totSize(findStr);
 		page.setTotSize(totSize);
 		this.page = page;
+    page.setStartNo(page.getStartNo()-1);
 		list = mapper.search(page);
 		return list;
 	}
@@ -57,11 +58,11 @@ public class ListViewService {
 		List<ArtBayAtt> list = new ArrayList<ArtBayAtt>();
 		list = mapper.viewOthers(lot);
 		vo.setAttList(list);
-		for(int i=0; i<list.size(); i++) {
-			//System.out.println(list.get(i).getImgFile());
-			//System.out.println(vo.getAttList().get(i).getImgFile());
-			//System.out.println(vo.getAttList().get(i).getLot());
-		}
+//		for(int i=0; i<list.size(); i++) {
+//			//System.out.println(list.get(i).getImgFile());
+//			//System.out.println(vo.getAttList().get(i).getImgFile());
+//			//System.out.println(vo.getAttList().get(i).getLot());
+//		}
 		return vo;
 	}
 	

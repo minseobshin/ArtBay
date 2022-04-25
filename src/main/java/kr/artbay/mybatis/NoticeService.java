@@ -40,6 +40,7 @@ public class NoticeService {
 		int totSize = mapper.noticeTotSize(p.getFindStr());
 		p.setTotSize(totSize);
 		this.page = p;
+    page.setStartNo(page.getStartNo()-1);
 		list = mapper.noticeSearch(p);
 		return list;
 	}
